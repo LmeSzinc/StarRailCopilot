@@ -13,6 +13,16 @@ BATTLE_PASS_CHECK = ButtonWrapper(
         button=(42, 22, 72, 55),
     ),
 )
+CAREMA_CHECK = ButtonWrapper(
+    name='CAREMA_CHECK',
+    share=Button(
+        file='./assets/share/base/page/CAREMA_CHECK.png',
+        area=(1099, 319, 1181, 401),
+        search=(1079, 299, 1201, 421),
+        color=(159, 160, 160),
+        button=(1099, 319, 1181, 401),
+    ),
+)
 CHARACTER_CHECK = ButtonWrapper(
     name='CHARACTER_CHECK',
     share=Button(
@@ -201,6 +211,16 @@ MENU_CHECK = ButtonWrapper(
         search=(1202, 618, 1272, 689),
         color=(57, 50, 39),
         button=(1222, 638, 1252, 669),
+    ),
+)
+MENU_GOTO_CAMERA = ButtonWrapper(
+    name='MENU_GOTO_CAMERA',
+    share=Button(
+        file='./assets/share/base/page/MENU_GOTO_CAMERA.png',
+        area=(1219, 465, 1255, 495),
+        search=(1199, 445, 1275, 515),
+        color=(51, 52, 53),
+        button=(1219, 465, 1255, 495),
     ),
 )
 MESSAGE_CLOSE = ButtonWrapper(

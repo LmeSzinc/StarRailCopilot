@@ -17,9 +17,9 @@ TAKE_PICTURE = ButtonWrapper(
     name='TAKE_PICTURE',
     share=Button(
         file='./assets/share/camera/ui/TAKE_PICTURE.png',
-        area=(1099, 319, 1181, 401),
-        search=(1079, 299, 1201, 421),
-        color=(159, 160, 160),
-        button=(1099, 319, 1181, 401),
+        area=(1120, 346, 1160, 375),
+        search=(1100, 326, 1180, 395),
+        color=(215, 215, 215),
+        button=(1120, 346, 1160, 375),
     ),
 )

@@ -13,14 +13,14 @@ BATTLE_PASS_CHECK = ButtonWrapper(
         button=(42, 22, 72, 55),
     ),
 )
-CAREMA_CHECK = ButtonWrapper(
-    name='CAREMA_CHECK',
+CAMERA_CHECK = ButtonWrapper(
+    name='CAMERA_CHECK',
     share=Button(
-        file='./assets/share/base/page/CAREMA_CHECK.png',
-        area=(1099, 319, 1181, 401),
-        search=(1079, 299, 1201, 421),
-        color=(159, 160, 160),
-        button=(1099, 319, 1181, 401),
+        file='./assets/share/base/page/CAMERA_CHECK.png',
+        area=(1120, 346, 1160, 375),
+        search=(1100, 326, 1180, 395),
+        color=(215, 215, 215),
+        button=(1120, 346, 1160, 375),
     ),
 )
 CHARACTER_CHECK = ButtonWrapper(

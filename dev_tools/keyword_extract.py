@@ -101,6 +101,8 @@ def generate():
     ex.write_keywords(keyword_class='DungeonNav', output_file='./tasks/dungeon/keywords/nav.py')
     ex.load_keywords(['行动摘要', '生存索引', '每日实训'])
     ex.write_keywords(keyword_class='DungeonTab', output_file='./tasks/dungeon/keywords/tab.py')
+    ex.load_keywords(['保存'])
+    ex.write_keywords(keyword_class='CameraUIButton', output_file='./tasks/camera/keywords/ui.py')
 
 
 if __name__ == '__main__':

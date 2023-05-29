@@ -4,8 +4,7 @@ from module.ocr.ocr import *
 from tasks.base.page import page_camera
 from tasks.base.ui import UI
 from tasks.base.assets.assets_base_page import CLOSE
-from tasks.camera.assets.assets_camera_ui import *
-from tasks.camera.keywords.ui import *
+from tasks.daily.assets.assets_daily import *
 
 class CameraUI(UI):
     def take_picture(self, skip_first_screenshot=True):
@@ -16,7 +15,7 @@ class CameraUI(UI):
             self.take_picture()
         """
         self.ui_ensure(page_camera)
-        timeout = Timer(2, count=4).start()
+        picture_taken = False
         while 1:
             if skip_first_screenshot:
                 skip_first_screenshot = False
@@ -25,16 +24,10 @@ class CameraUI(UI):
             
             if self.appear_then_click(TAKE_PICTURE):
                 continue
-            if timeout.reached():
-                logger.warning('Wait picture being taken timeout')
-                break
-            if self._picture_taken():
+            if not picture_taken and self.appear(PICTURE_TAKEN):
                 logger.info('Picture was taken')
-                self.device.click(CLOSE)
+                picture_taken = True
+                continue
+            if picture_taken and self.appear_then_click(CLOSE):
                 break
                 
-    def _picture_taken(self):
-        ocr = Ocr(PICTURE_TAKEN)
-        results = ocr.matched_ocr(self.device.image, Save)
-        return len(results) == 1 and results[0].score > 0.99
-    

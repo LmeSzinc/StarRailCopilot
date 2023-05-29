@@ -5,18 +5,18 @@ from module.base.button import Button, ButtonWrapper
 
 PICTURE_TAKEN = ButtonWrapper(
     name='PICTURE_TAKEN',
-    share=Button(
-        file='./assets/share/camera/ui/PICTURE_TAKEN.png',
-        area=(981, 606, 1118, 654),
-        search=(961, 586, 1138, 674),
-        color=(222, 223, 224),
-        button=(981, 606, 1118, 654),
+    cn=Button(
+        file='./assets/cn/daily/PICTURE_TAKEN.png',
+        area=(1030, 620, 1069, 639),
+        search=(1010, 600, 1089, 659),
+        color=(153, 153, 155),
+        button=(1030, 620, 1069, 639),
     ),
 )
 TAKE_PICTURE = ButtonWrapper(
     name='TAKE_PICTURE',
     share=Button(
-        file='./assets/share/camera/ui/TAKE_PICTURE.png',
+        file='./assets/share/daily/TAKE_PICTURE.png',
         area=(1120, 346, 1160, 375),
         search=(1100, 326, 1180, 395),
         color=(215, 215, 215),

@@ -17,7 +17,7 @@ Clear_Calyx_Golden = DailyQuest(
     en='Clear Calyx (Golden) #4 time(s)',
     jp='「疑似花萼（金）」を#4回クリアする',
 )
-Complete_Calyx_Crimson_time = DailyQuest(
+Complete_Calyx_Crimson = DailyQuest(
     id=3,
     cn='完成1次「拟造花萼（赤）」',
     cht='完成1次「擬造花萼（赤）」',
@@ -73,7 +73,7 @@ Use_Technique = DailyQuest(
     en='Use Technique 2 times',
     jp='秘技を累計2回発動する',
 )
-Go_on_assignment_time = DailyQuest(
+Go_on_assignment = DailyQuest(
     id=11,
     cn='派遣1次委托',
     cht='派遣1次委託',
@@ -94,7 +94,7 @@ Destroy_destructible_objects = DailyQuest(
     en='Destroy 3 destructible objects',
     jp='破壊できるオブジェクトを累計で3つ破壊する',
 )
-Complete_Forgotten_Hall_time = DailyQuest(
+Complete_Forgotten_Hall = DailyQuest(
     id=14,
     cn='完成1次「忘却之庭」',
     cht='完成1次「忘卻之庭」',
@@ -115,35 +115,35 @@ Complete_stage_in_Simulated_Universe_Any_world = DailyQuest(
     en='Complete 1 stage in Simulated Universe (Any world)',
     jp='「模擬宇宙」のエリアを1つクリアする（任意の世界）',
 )
-Obtain_victory_in_combat_with_support_characters_time = DailyQuest(
+Obtain_victory_in_combat_with_support_characters = DailyQuest(
     id=17,
     cn='使用支援角色并获得战斗胜利1次',
     cht='使用支援角色並獲得戰鬥勝利1次',
     en='Obtain victory in combat with support characters 1 time',
     jp='サポートキャラを使い、戦闘に1回勝利する',
 )
-Use_an_Ultimate_to_deal_the_final_blow_time = DailyQuest(
+Use_an_Ultimate_to_deal_the_final_blow = DailyQuest(
     id=18,
     cn='施放终结技造成制胜一击1次',
     cht='施放終結技造成制勝一擊1次',
     en='Use an Ultimate to deal the final blow 1 time',
     jp='必殺技で最後の一撃を1回与える',
 )
-Level_up_any_character_time = DailyQuest(
+Level_up_any_character = DailyQuest(
     id=19,
     cn='将任意角色等级提升1次',
     cht='將任意角色等級提升1次',
     en='Level up any character 1 time',
     jp='任意のキャラを1回レベルアップする',
 )
-Level_up_any_Light_Cone_time = DailyQuest(
+Level_up_any_Light_Cone = DailyQuest(
     id=20,
     cn='将任意光锥等级提升1次',
     cht='將任意光錐等級提升1次',
     en='Level up any Light Cone 1 time',
     jp='任意の光円錐を1回レベルアップする',
 )
-Level_up_any_Relic_time = DailyQuest(
+Level_up_any_Relic = DailyQuest(
     id=21,
     cn='将任意遗器等级提升1次',
     cht='將任意遺器等級提升1次',
@@ -157,21 +157,21 @@ Salvage_any_Relic = DailyQuest(
     en='Salvage any Relic',
     jp='任意の遺物1つを分解する',
 )
-Synthesize_Consumable_time = DailyQuest(
+Synthesize_Consumable = DailyQuest(
     id=23,
     cn='合成1次消耗品',
     cht='合成1次消耗品',
     en='Synthesize Consumable 1 time',
     jp='消耗品を1回合成する',
 )
-Synthesize_material_time = DailyQuest(
+Synthesize_material = DailyQuest(
     id=24,
     cn='合成1次材料',
     cht='合成1次素材',
     en='Synthesize material 1 time',
     jp='素材を1回合成する',
 )
-Use_Consumables_time = DailyQuest(
+Use_Consumables = DailyQuest(
     id=25,
     cn='使用1件消耗品',
     cht='使用1件消耗品',

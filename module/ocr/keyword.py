@@ -17,7 +17,7 @@ def parse_name(n):
 def text_to_variable(text):
     text = re.sub(r'[ \-]', '_', text)
     text = re.sub(r'[(),#]|</?\w+>|\'s', '', text)
-    text = re.sub(r'[#_]?\d+(_times)?', '', text)
+    text = re.sub(r'[#_]?\d+(_times?)?', '', text)
     return text
 
 

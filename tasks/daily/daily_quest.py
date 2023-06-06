@@ -9,8 +9,15 @@ from tasks.dungeon.keywords import KEYWORDS_DUNGEON_TAB
 
 
 class DailyQuestUI(DungeonUI):
-    def _ensure_position(self, direction: str, template: ButtonWrapper, skip_first_screenshot=True):
+    def _ensure_position(self, direction: str, skip_first_screenshot=True):
         interval = Timer(5)
+        if direction == 'left':
+            template = DAILY_QUEST_LEFT_START
+        elif direction == 'right':
+            template = DAILY_QUEST_RIGHT_END
+        else:
+            logger.warning(f'Unknown drag direction: {direction}')
+            return
         while 1:
             if skip_first_screenshot:
                 skip_first_screenshot = False
@@ -45,32 +52,63 @@ class DailyQuestUI(DungeonUI):
     def daily_quests_recognition(self):
         logger.info("Recognizing daily quests")
         self.dungeon_tab_goto(KEYWORDS_DUNGEON_TAB.Daily_Training)
-        self._ensure_position('left', DAILY_QUEST_LEFT_START)
+        self._ensure_position('left')
         results = self._ocr_single_page()
-        self._ensure_position('right', DAILY_QUEST_RIGHT_END)
+        self._ensure_position('right')
         results += [result for result in self._ocr_single_page() if result not in results]
         if len(results) < 6:
             logger.warning(f"Recognition failed at {6 - len(results)} quests")
         logger.info("Daily quests recognition complete")
         return results
 
-    def get_single_daily_reward(self, template: ButtonWrapper,
-                                checked_template: ButtonWrapper, skip_first_screenshot=True):
+    def _get_quest_reward(self, skip_first_screenshot=True):
+        self._ensure_position('left')
         while 1:
             if skip_first_screenshot:
                 skip_first_screenshot = False
             else:
                 self.device.screenshot()
 
-            if self.handle_reward() or self.appear(checked_template):
+            if self.appear(DAILY_QUEST_FULL) or self.appear(DAILY_QUEST_GOTO):
                 break
-            if self.appear_then_click(template):
+            if self.appear_then_click(DAILY_QUEST_REWARD):
+                continue
+
+    def _no_reward_to_get(self):
+        return (
+                (self.appear(ACTIVE_POINTS_1_LOCKED) or self.appear(ACTIVE_POINTS_1_CHECKED))
+                and (self.appear(ACTIVE_POINTS_2_LOCKED) or self.appear(ACTIVE_POINTS_2_CHECKED))
+                and (self.appear(ACTIVE_POINTS_3_LOCKED) or self.appear(ACTIVE_POINTS_3_CHECKED))
+                and (self.appear(ACTIVE_POINTS_4_LOCKED) or self.appear(ACTIVE_POINTS_4_CHECKED))
+                and (self.appear(ACTIVE_POINTS_5_LOCKED) or self.appear(ACTIVE_POINTS_5_CHECKED))
+        )
+
+    def _get_active_point_reward(self, skip_first_screenshot=True):
+        while 1:
+            if skip_first_screenshot:
+                skip_first_screenshot = False
+            else:
+                self.device.screenshot()
+
+            if self._no_reward_to_get():
+                break
+            if self.handle_reward():
+                continue
+            if self.appear_then_click(ACTIVE_POINTS_1_UNLOCK):
+                continue
+            if self.appear_then_click(ACTIVE_POINTS_2_UNLOCK):
+                continue
+            if self.appear_then_click(ACTIVE_POINTS_3_UNLOCK):
+                continue
+            if self.appear_then_click(ACTIVE_POINTS_4_UNLOCK):
+                continue
+            if self.appear_then_click(ACTIVE_POINTS_5_UNLOCK):
                 continue
 
     def get_daily_rewards(self):
         self.dungeon_tab_goto(KEYWORDS_DUNGEON_TAB.Daily_Training)
-        logger.info("Getting daily rewards")
-        for i in range(1, 6):
-            eval(f"self.get_single_daily_reward(DAILY_REWARD_{i}, DAILY_REWARD_{i}_CHECKED)")
-            logger.info(f"Got reward: {i}")
+        logger.info("Getting quest rewards")
+        self._get_quest_reward()
+        logger.info("Getting active point rewards")
+        self._get_active_point_reward()
         logger.info("All daily reward got")

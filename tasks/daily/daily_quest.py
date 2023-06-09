@@ -28,11 +28,11 @@ class DailyQuestUI(DungeonUI):
                 logger.info(f"Ensure position: {direction}")
                 break
             if interval.reached():
-                self._swipe(direction)
+                self._daily_quests_swipe(direction)
                 interval.reset()
                 continue
 
-    def _swipe(self, direction: str):
+    def _daily_quests_swipe(self, direction: str):
         vector = np.random.uniform(0.65, 0.85)
         if direction == 'left':
             swipe_vector = (vector * OCR_DAILY_QUEST.width, 0)

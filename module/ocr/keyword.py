@@ -124,6 +124,10 @@ class Keyword:
         self.__class__.instances[self.id] = self
 
     @classmethod
+    def _keyword_compare(cls, name: str, keyword: str) -> bool:
+        return name == keyword
+
+    @classmethod
     def find(cls, name, in_current_server=False, ignore_punctuation=True):
         """
         Args:
@@ -155,7 +159,7 @@ class Keyword:
         for instance in cls.instances.values():
             for keyword in instance._keywords_to_find(
                     in_current_server=in_current_server, ignore_punctuation=ignore_punctuation):
-                if name == keyword:
+                if cls._keyword_compare(name, keyword):
                     return instance
 
         raise ScriptError(f'Cannot find a {cls.__name__} instance that matches "{name}"')

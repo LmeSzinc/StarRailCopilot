@@ -22,7 +22,7 @@ class OcrResultButton:
 
         try:
             self.matched_keyword = keyword_class.find(
-                boxed_result.ocr_text, in_current_server=True, ignore_punctuation=True)
+                boxed_result.ocr_text, True, True)
             self.name = str(self.matched_keyword)
         except ScriptError:
             self.matched_keyword = None

@@ -1,11 +1,12 @@
 import numpy as np
+
 from module.base.timer import Timer
 from module.logger import *
 from module.ocr.ocr import Ocr, OcrResultButton
 from tasks.daily.assets.assets_daily import *
 from tasks.daily.keywords import DailyQuest
-from tasks.dungeon.ui import DungeonUI
 from tasks.dungeon.keywords import KEYWORDS_DUNGEON_TAB
+from tasks.dungeon.ui import DungeonUI
 
 
 class DailyQuestUI(DungeonUI):
@@ -47,7 +48,10 @@ class DailyQuestUI(DungeonUI):
     def _ocr_single_page(self) -> list[OcrResultButton]:
         ocr = Ocr(OCR_DAILY_QUEST)
         ocr.merge_thres_y = 20
-        return ocr.matched_ocr(self.device.image, DailyQuest)
+        results = ocr.matched_ocr(self.device.image, DailyQuest)
+        if len(results) < 4:
+            logger.warning(f"Recognition failed at {4 - len(results)} quests on one page")
+        return results
 
     def daily_quests_recognition(self):
         logger.info("Recognizing daily quests")
@@ -56,8 +60,6 @@ class DailyQuestUI(DungeonUI):
         results = self._ocr_single_page()
         self._ensure_position('right')
         results += [result for result in self._ocr_single_page() if result not in results]
-        if len(results) < 6:
-            logger.warning(f"Recognition failed at {6 - len(results)} quests")
         logger.info("Daily quests recognition complete")
         return results
 

@@ -3,7 +3,7 @@ import numpy as np
 from module.base.timer import Timer
 from module.logger import *
 from module.ocr.ocr import Ocr, OcrResultButton
-from tasks.daily.assets.assets_daily import *
+from tasks.daily.assets.assets_daily_reward import *
 from tasks.daily.keywords import DailyQuest
 from tasks.dungeon.keywords import KEYWORDS_DUNGEON_TAB
 from tasks.dungeon.ui import DungeonUI

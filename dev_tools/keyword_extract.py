@@ -94,14 +94,12 @@ class KeywordExtract:
 
         gen.write(output_file)
 
-
-def daily_quests_keywords(lang='cn'):
-    text_map = read_file(os.path.join(TextMap.DATA_FOLDER, 'TextMap', f'TextMap{lang.upper()}.json'))
-    daily_quest = read_file(os.path.join(TextMap.DATA_FOLDER, 'ExcelOutput', 'DailyQuest.json'))
-    quest_data = read_file(os.path.join(TextMap.DATA_FOLDER, 'ExcelOutput', 'QuestData.json'))
-    quests_hash = [quest_data[quest_id]["QuestTitle"]["Hash"] for quest_id in daily_quest]
-    quest_keywords = [text_map[str(quest_hash)] for quest_hash in quests_hash]
-    return quest_keywords
+    def load_daily_quests_keywords(self, lang='cn'):
+        daily_quest = read_file(os.path.join(TextMap.DATA_FOLDER, 'ExcelOutput', 'DailyQuest.json'))
+        quest_data = read_file(os.path.join(TextMap.DATA_FOLDER, 'ExcelOutput', 'QuestData.json'))
+        quests_hash = [quest_data[quest_id]["QuestTitle"]["Hash"] for quest_id in daily_quest]
+        quest_keywords = [self.text_map[lang].find(quest_hash)[1] for quest_hash in quests_hash]
+        self.load_keywords(quest_keywords, lang)
 
 
 def generate():
@@ -110,7 +108,7 @@ def generate():
     ex.write_keywords(keyword_class='DungeonNav', output_file='./tasks/dungeon/keywords/nav.py')
     ex.load_keywords(['行动摘要', '生存索引', '每日实训'])
     ex.write_keywords(keyword_class='DungeonTab', output_file='./tasks/dungeon/keywords/tab.py')
-    ex.load_keywords(daily_quests_keywords())
+    ex.load_daily_quests_keywords()
     ex.write_keywords(keyword_class='DailyQuest', output_file='./tasks/daily/keywords/daily_quest.py')
 
 

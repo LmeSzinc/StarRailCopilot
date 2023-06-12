@@ -1,4 +1,5 @@
 import os
+import re
 import typing as t
 from functools import cached_property
 
@@ -54,6 +55,19 @@ class TextMap:
         return 0, ''
 
 
+def replace_templates(text: str) -> str:
+    """
+    Replace templates in data to make sure it equals to what is shown in game
+
+    Examples:
+        replace_templates("Complete Echo of War #4 time(s)")
+        == "Complete Echo of War 1 time(s)"
+    """
+    text = re.sub(r'#4', '1', text)
+    text = re.sub(r'</?\w+>', '', text)
+    return text
+
+
 class KeywordExtract:
     def __init__(self):
         self.text_map: dict[str, TextMap] = {lang: TextMap(lang) for lang in UI_LANGUAGES}
@@ -90,7 +104,7 @@ class KeywordExtract:
             with gen.Object(key=en, object_class=keyword_class):
                 gen.ObjectAttr(key='id', value=index + 1)
                 for lang in UI_LANGUAGES:
-                    gen.ObjectAttr(key=lang, value=self.find_keyword(keyword, lang=lang)[1])
+                    gen.ObjectAttr(key=lang, value=replace_templates(self.find_keyword(keyword, lang=lang)[1]))
 
         gen.write(output_file)
 

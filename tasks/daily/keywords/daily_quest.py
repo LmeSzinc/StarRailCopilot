@@ -12,10 +12,10 @@ Complete_Daily_Mission = DailyQuest(
 )
 Clear_Calyx_Golden = DailyQuest(
     id=2,
-    cn='完成#4次「拟造花萼（金）」',
-    cht='完成#4次「擬造花萼（金）」',
-    en='Clear Calyx (Golden) #4 time(s)',
-    jp='「疑似花萼（金）」を#4回クリアする',
+    cn='完成1次「拟造花萼（金）」',
+    cht='完成1次「擬造花萼（金）」',
+    en='Clear Calyx (Golden) 1 time(s)',
+    jp='「疑似花萼（金）」を1回クリアする',
 )
 Complete_Calyx_Crimson = DailyQuest(
     id=3,
@@ -26,17 +26,17 @@ Complete_Calyx_Crimson = DailyQuest(
 )
 Clear_Stagnant_Shadow = DailyQuest(
     id=4,
-    cn='完成#4次「凝滞虚影」',
-    cht='完成#4次「凝滯虛影」',
-    en='Clear Stagnant Shadow #4 time(s)',
-    jp='「凝結虚影」を#4回クリアする',
+    cn='完成1次「凝滞虚影」',
+    cht='完成1次「凝滯虛影」',
+    en='Clear Stagnant Shadow 1 time(s)',
+    jp='「凝結虚影」を1回クリアする',
 )
 Clear_Cavern_of_Corrosion = DailyQuest(
     id=5,
-    cn='完成#4次「侵蚀隧洞」',
-    cht='完成#4次「侵蝕隧洞」',
-    en='Clear Cavern of Corrosion #4 time(s)',
-    jp='「侵蝕トンネル」を#4回クリアする',
+    cn='完成1次「侵蚀隧洞」',
+    cht='完成1次「侵蝕隧洞」',
+    en='Clear Cavern of Corrosion 1 time(s)',
+    jp='「侵蝕トンネル」を1回クリアする',
 )
 In_a_single_battle_inflict_Weakness_Break_of_different_Types = DailyQuest(
     id=6,
@@ -54,10 +54,10 @@ Inflict_Weakness_Break = DailyQuest(
 )
 Defeat_a_total_of_enemies = DailyQuest(
     id=8,
-    cn='累计消灭<unbreak>20</unbreak>个敌人',
-    cht='累積消滅<unbreak>20</unbreak>個敵人',
-    en='Defeat a total of <unbreak>20</unbreak> enemies',
-    jp='敵を累計で<unbreak>20</unbreak>体倒す',
+    cn='累计消灭20个敌人',
+    cht='累積消滅20個敵人',
+    en='Defeat a total of 20 enemies',
+    jp='敵を累計で20体倒す',
 )
 Enter_combat_by_attacking_enemy_Weakness_and_win = DailyQuest(
     id=9,
@@ -103,10 +103,10 @@ Complete_Forgotten_Hall = DailyQuest(
 )
 Complete_Echo_of_War = DailyQuest(
     id=15,
-    cn='完成#4次「历战余响」',
-    cht='完成#4次「歷戰餘響」',
-    en='Complete Echo of War #4 time(s)',
-    jp='「歴戦余韻」を#4回クリアする',
+    cn='完成1次「历战余响」',
+    cht='完成1次「歷戰餘響」',
+    en='Complete Echo of War 1 time(s)',
+    jp='「歴戦余韻」を1回クリアする',
 )
 Complete_stage_in_Simulated_Universe_Any_world = DailyQuest(
     id=16,

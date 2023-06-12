@@ -9,6 +9,25 @@ from tasks.dungeon.keywords import KEYWORDS_DUNGEON_TAB
 from tasks.dungeon.ui import DungeonUI
 
 
+class DailyQuestOcr(Ocr):
+    def __init__(self, button: ButtonWrapper, lang=None, name=None):
+        super().__init__(button, lang, name)
+        self.replace_list: dict[str, dict[str, str]] = {}
+
+    def add_replacement(self, wrong_result: str, correct_result: str, lang: str = 'ch'):
+        if lang not in self.replace_list:
+            self.replace_list[lang] = {}
+        self.replace_list[lang][wrong_result] = correct_result
+
+    def after_process(self, result):
+        if self.lang in self.replace_list:
+            for wrong_str, correct_str in self.replace_list[self.lang].items():
+                if wrong_str in result:
+                    logger.info(f"Replace {wrong_str} with {correct_str}")
+                    result = result.replace(wrong_str, correct_str)
+        return result
+
+
 class DailyQuestUI(DungeonUI):
     def _ensure_position(self, direction: str, skip_first_screenshot=True):
         interval = Timer(5)
@@ -46,8 +65,10 @@ class DailyQuestUI(DungeonUI):
                                  random_range=(-10, -10, 10, 10), name='DAILY_QUEST_DRAG')
 
     def _ocr_single_page(self) -> list[OcrResultButton]:
-        ocr = Ocr(OCR_DAILY_QUEST)
+        ocr = DailyQuestOcr(OCR_DAILY_QUEST)
         ocr.merge_thres_y = 20
+        ocr.add_replacement("模拟宇审", "模拟宇宙")
+        ocr.add_replacement("响J", "响」")
         results = ocr.matched_ocr(self.device.image, DailyQuest)
         if len(results) < 4:
             logger.warning(f"Recognition failed at {4 - len(results)} quests on one page")

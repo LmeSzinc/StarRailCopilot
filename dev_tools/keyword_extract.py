@@ -95,38 +95,22 @@ class KeywordExtract:
         gen.write(output_file)
 
 
+def daily_quests_keywords(lang='cn'):
+    text_map = read_file(os.path.join(TextMap.DATA_FOLDER, 'TextMap', f'TextMap{lang.upper()}.json'))
+    daily_quest = read_file(os.path.join(TextMap.DATA_FOLDER, 'ExcelOutput', 'DailyQuest.json'))
+    quest_data = read_file(os.path.join(TextMap.DATA_FOLDER, 'ExcelOutput', 'QuestData.json'))
+    quests_hash = [quest_data[quest_id]["QuestTitle"]["Hash"] for quest_id in daily_quest]
+    quest_keywords = [text_map[str(quest_hash)] for quest_hash in quests_hash]
+    return quest_keywords
+
+
 def generate():
     ex = KeywordExtract()
     ex.load_keywords(['模拟宇宙', '拟造花萼（金）', '拟造花萼（赤）', '凝滞虚影', '侵蚀隧洞', '历战余响', '忘却之庭'])
     ex.write_keywords(keyword_class='DungeonNav', output_file='./tasks/dungeon/keywords/nav.py')
     ex.load_keywords(['行动摘要', '生存索引', '每日实训'])
     ex.write_keywords(keyword_class='DungeonTab', output_file='./tasks/dungeon/keywords/tab.py')
-    ex.load_keywords([
-        '完成1个日常任务',
-        '完成#4次「拟造花萼（金）」',
-        '完成1次「拟造花萼（赤）」',
-        '完成#4次「凝滞虚影」',
-        '完成#4次「侵蚀隧洞」',
-        '单场战斗中，触发3种不同属性的弱点击破',
-        '累计触发弱点击破效果5次',
-        '累计消灭<unbreak>20</unbreak>个敌人',
-        '利用弱点进入战斗并获胜3次',
-        '累计施放2次秘技',
-        '派遣1次委托',
-        '拍照1次',
-        '累计击碎3个可破坏物',
-        '完成1次「忘却之庭」',
-        '完成#4次「历战余响」',
-        '通关「模拟宇宙」（任意世界）的1个区域',
-        '使用支援角色并获得战斗胜利1次',
-        '施放终结技造成制胜一击1次',
-        '将任意角色等级提升1次',
-        '将任意光锥等级提升1次',
-        '将任意遗器等级提升1次',
-        '分解任意1件遗器',
-        '合成1次消耗品',
-        '合成1次材料',
-        '使用1件消耗品'])
+    ex.load_keywords(daily_quests_keywords())
     ex.write_keywords(keyword_class='DailyQuest', output_file='./tasks/daily/keywords/daily_quest.py')
 
 

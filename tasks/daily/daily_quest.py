@@ -3,6 +3,7 @@ import numpy as np
 from module.base.timer import Timer
 from module.logger import *
 from module.ocr.ocr import Ocr, OcrResultButton
+from module.ocr.utils import split_and_pair_buttons
 from tasks.daily.assets.assets_daily_reward import *
 from tasks.daily.keywords import DailyQuest, DailyQuestState, KEYWORDS_DAILY_QUEST_STATE
 from tasks.dungeon.keywords import KEYWORDS_DUNGEON_TAB
@@ -64,10 +65,12 @@ class DailyQuestUI(DungeonUI):
         results = ocr.matched_ocr(self.device.image, [DailyQuestState, DailyQuest])
         if len(results) < 8:
             logger.warning(f"Recognition failed at {8 - len(results)} quests on one page")
-            return [result for result in results if isinstance(result.name, DailyQuest)]
-        return [results[i] for i in range(4)
-                if results[i + 4] == KEYWORDS_DAILY_QUEST_STATE.Go
-                or results[i + 4] == KEYWORDS_DAILY_QUEST_STATE.In_Progress]
+
+        def completed_state(state):
+            return state != KEYWORDS_DAILY_QUEST_STATE.Go and state != KEYWORDS_DAILY_QUEST_STATE.In_Progress
+
+        return [quest for quest, _ in
+                split_and_pair_buttons(results, split_func=completed_state, relative_area=(0, 0, 200, 720))]
 
     def daily_quests_recognition(self):
         """

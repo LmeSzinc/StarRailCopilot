@@ -178,6 +178,14 @@ class ForgottenHall(UI):
             # click stage
             for stage_box in present_stages:
                 if int(stage_box.ocr_text) == stage:
+                    stage_icon_box = stage_box
+                    offset = (-70, -20)
+                    stage_icon_box.box = (
+                        stage_icon_box.box[0] + offset[0],
+                        stage_icon_box.box[1] + offset[1],
+                        stage_icon_box.box[2] + offset[0],
+                        stage_icon_box.box[3] + offset[1],
+                    )
                     self.device.click(OcrResultButton(stage_box, []))
                     break
 

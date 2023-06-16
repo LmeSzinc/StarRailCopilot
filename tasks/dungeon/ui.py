@@ -11,6 +11,7 @@ from module.ui.switch import Switch
 from tasks.base.page import page_guide
 from tasks.base.ui import UI
 from tasks.combat.assets.assets_combat_prepare import COMBAT_PREPARE
+from tasks.forgotten_hall.assets.assets_forgotten_hall import FORGOTTEN_FLAG
 from tasks.dungeon.assets.assets_dungeon_ui import *
 from tasks.dungeon.keywords import (
     DungeonList,
@@ -188,7 +189,7 @@ class DungeonUI(UI):
 
         return True
 
-    def _dungeon_enter(self, dungeon, skip_first_screenshot=True):
+    def _dungeon_enter(self, dungeon, enter_flag: ButtonWrapper = COMBAT_PREPARE, skip_first_screenshot=True):
         """
         Pages:
             in: page_guide, Survival_Index, nav including dungeon
@@ -203,8 +204,8 @@ class DungeonUI(UI):
                 self.device.screenshot()
 
             # End
-            if self.appear(COMBAT_PREPARE):
-                logger.info('Arrive COMBAT_PREPARE')
+            if self.appear(enter_flag):
+                logger.info(f'Arrive {enter_flag}')
                 break
 
             # Additional
@@ -247,6 +248,12 @@ class DungeonUI(UI):
             DUNGEON_NAV_LIST.select_row(KEYWORDS_DUNGEON_NAV.Simulated_Universe, main=self)
             pass
             self._dungeon_insight(dungeon)
+            return True
+
+        if dungeon.is_Forgotten_Hall:
+            DUNGEON_NAV_LIST.select_row(KEYWORDS_DUNGEON_NAV.Forgotten_Hall, main=self)
+            self._dungeon_insight(dungeon)
+            self._dungeon_enter(dungeon, enter_flag=FORGOTTEN_FLAG)
             return True
 
         # Reset search button

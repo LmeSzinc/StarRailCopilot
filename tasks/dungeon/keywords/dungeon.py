@@ -259,3 +259,35 @@ Simulated_Universe_World_6 = DungeonList(
     en='Simulated Universe — World 6',
     jp='第六世界・模擬宇宙',
 )
+Favor_of_Amber_Forgotten_Hall = DungeonList(
+    id=33,
+    name='Favor_of_Amber_Forgotten_Hall',
+    cn='琥珀恩赐•忘却之庭',
+    cht='琥珀恩賜•忘卻之庭',
+    en='Favor of Amber — Forgotten Hall',
+    jp='琥珀の賜物・忘却の庭',
+)
+Frostscar_Reverie_Forgotten_Hall = DungeonList(
+    id=34,
+    name='Frostscar_Reverie_Forgotten_Hall',
+    cn='霜痕旧梦•忘却之庭',
+    cht='霜痕舊夢•忘卻之庭',
+    en='Frostscar Reverie — Forgotten Hall',
+    jp='霜跡に旧夢・忘却の庭',
+)
+Everwinter_Trials_Forgotten_Hall = DungeonList(
+    id=35,
+    name='Everwinter_Trials_Forgotten_Hall',
+    cn='永冬试炼•忘却之庭',
+    cht='永冬試煉•忘卻之庭',
+    en='Everwinter Trials — Forgotten Hall',
+    jp='常冬の試練・忘却の庭',
+)
+The_Last_Vestiges_of_Towering_Citadel = DungeonList(
+    id=36,
+    name='The_Last_Vestiges_of_Towering_Citadel',
+    cn='永屹之城遗秘',
+    cht='永屹之城遺秘',
+    en='The Last Vestiges of Towering Citadel',
+    jp='永屹の城の秘密',
+)

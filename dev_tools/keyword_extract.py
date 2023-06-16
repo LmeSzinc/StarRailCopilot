@@ -93,12 +93,20 @@ class KeywordExtract:
 
     def iter_guide(self) -> t.Iterable[int]:
         file = os.path.join(TextMap.DATA_FOLDER, './ExcelOutput/GameplayGuideData.json')
+        visited = set()
+        last_vestiges = None
         for data in read_file(file).values():
             hash_ = deep_get(data, keys='Name.Hash')
             _, name = self.find_keyword(hash_, lang='cn')
-            if '忘却之庭' in name or '遗秘' in name:
+            if name in visited:
                 continue
+            if name == '永屹之城遗秘':
+                last_vestiges = hash_
+                continue
+            visited.add(name)
             yield hash_
+        if last_vestiges:
+            yield last_vestiges
 
     def find_keyword(self, keyword, lang) -> tuple[int, str]:
         """

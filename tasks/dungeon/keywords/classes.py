@@ -50,6 +50,10 @@ class DungeonList(Keyword):
     def is_weekly_dungeon(self):
         return self.is_Echo_of_War
 
+    @property
+    def is_Forgotten_Hall(self):
+        return "Forgotten_Hall" in self.name or self.name == "The_Last_Vestiges_of_Towering_Citadel"
+
 
 @dataclass(repr=False)
 class DungeonEntrance(Keyword):

@@ -71,13 +71,7 @@ class DailyQuestUI(DungeonUI):
 
     def daily_quests_recognition(self):
         """
-        Only recognize quests that are not completed
-
-        case 1: all quests are not completed
-        case 2: some quests are completed and not get reward yet, they will show on the front
-        case 3: some quests are completed and get reward, they will show at the end with darker background
-        case 4: active points is full and no more quests can be done
-        goTo/getRewards/uncompleted/fullActivePoints
+        Returns incomplete quests only
         """
         logger.info("Recognizing daily quests")
         self.dungeon_tab_goto(KEYWORDS_DUNGEON_TAB.Daily_Training)

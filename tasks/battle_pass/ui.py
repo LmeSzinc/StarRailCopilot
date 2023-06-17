@@ -4,6 +4,7 @@ from module.base.timer import Timer
 from module.base.utils import get_color
 from module.logger.logger import logger
 from module.ui.switch import Switch
+from tasks.base.assets.assets_base_page import BATTLE_PASS_CHECK
 from tasks.base.page import page_battle_pass
 from tasks.base.ui import UI
 from tasks.battle_pass.assets.assets_battle_pass import *
@@ -118,14 +119,16 @@ class BattlePassUI(UI):
         self.battle_pass_goto(KEYWORD_BATTLE_PASS_TAB.Rewards)
         skip_first_screenshot = True
         choose_gifts_handled = False
+
         while 1:
             if skip_first_screenshot:
                 skip_first_screenshot = False
             else:
                 self.device.screenshot()
 
-            if self.ui_page_appear(page_battle_pass) and (not self.appear(REWARDS_CLAIM_ALL) or choose_gifts_handled):
-                logger.info("Complete")
+            if self.appear(BATTLE_PASS_CHECK, interval=2) and (
+                    not self.appear(REWARDS_CLAIM_ALL) or choose_gifts_handled):
+                logger.info("Claiming rewards complete")
                 break
             if self.appear_then_click(REWARDS_CLAIM_ALL):
                 continue

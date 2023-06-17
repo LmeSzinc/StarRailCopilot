@@ -35,8 +35,8 @@ FORGOTTEN_STAGE_ID_OCR = ButtonWrapper(
 )
 FORGOTTEN_STAGE_PREPARE = ButtonWrapper(
     name='FORGOTTEN_STAGE_PREPARE',
-    share=Button(
-        file='./assets/share/forgotten_hall/FORGOTTEN_STAGE_PREPARE.png',
+    cn=Button(
+        file='./assets/cn/forgotten_hall/FORGOTTEN_STAGE_PREPARE.png',
         area=(770, 652, 863, 679),
         search=(750, 632, 883, 699),
         color=(175, 176, 178),

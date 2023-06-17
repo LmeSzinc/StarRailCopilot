@@ -4,6 +4,6 @@ from typing import ClassVar
 from module.ocr.keyword import Keyword
 
 
-@dataclass
+@dataclass(repr=False)
 class BattlePassTab(Keyword):
     instances: ClassVar = {}

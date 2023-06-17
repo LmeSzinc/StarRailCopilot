@@ -62,8 +62,8 @@ class BattlePassUI(UI):
         Examples:
             self = BattlePassUI('alas')
             self.device.screenshot()
-            self.dungeon_tab_goto(KEYWORDS_DUNGEON_TAB.Missions)
-            self.dungeon_tab_goto(KEYWORDS_DUNGEON_TAB.Rewards)
+            self.battle_pass_goto(KEYWORDS_DUNGEON_TAB.Missions)
+            self.battle_pass_goto(KEYWORDS_DUNGEON_TAB.Rewards)
         """
         logger.hr('Battle pass tab goto', level=2)
         self.ui_ensure(page_battle_pass)
@@ -90,6 +90,16 @@ class BattlePassUI(UI):
         return False
 
     def claim_rewards(self, skip_first_screenshot=True):
+        """
+
+        Args:
+            skip_first_screenshot:
+
+        Examples:
+            self = BattlePassUI('alas')
+            self.device.screenshot()
+            self.claim_rewards()
+        """
         # claim exp
         self.battle_pass_goto(KEYWORD_BATTLE_PASS_TAB.Missions)
         while 1:

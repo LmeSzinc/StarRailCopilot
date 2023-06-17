@@ -5,17 +5,23 @@
 # ==================== Alas ====================
 
 Alas:
-  - Emulator
-  - EmulatorInfo
-  - Error
-  - Optimization
-Restart:
-  - Scheduler
-
-# ==================== Farm ====================
-
+  menu: 'list'
+  page: 'setting'
+  tasks:
+    Alas:
+      - Emulator
+      - EmulatorInfo
+      - Error
+      - Optimization
+    Restart:
+      - Scheduler
 
 # ==================== Daily ====================
 
-
-# ==================== Tools ====================
+Daily:
+  menu: 'list'
+  page: 'setting'
+  tasks:
+    Dungeon:
+      - Scheduler
+      - Dungeon

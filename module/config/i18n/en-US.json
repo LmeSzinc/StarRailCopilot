@@ -1,11 +1,11 @@
 {
   "Menu": {
-    "Task": {
-      "name": "",
-      "help": ""
-    },
     "Alas": {
       "name": "SRC",
+      "help": ""
+    },
+    "Daily": {
+      "name": "Daily",
       "help": ""
     }
   },
@@ -16,6 +16,10 @@
     },
     "Restart": {
       "name": "Error Handling",
+      "help": ""
+    },
+    "Dungeon": {
+      "name": "Dungeon",
       "help": ""
     }
   },
@@ -48,7 +52,7 @@
     },
     "Serial": {
       "name": "Serial",
-      "help": "Common emulator Serial can be queried in the list below\nUse \"auto\" to auto-detect emulators, but if multiple emulators are running or use emulators that do not support auto-detect, \"auto\" cannot be used and serial must be filled in manually\nDefault serial for select emulators:\n- BlueStacks 127.0.0.1:5555\n- BlueStacks4 Hyper-V use \"bluestacks4-hyperv\", \"bluestacks4-hyperv-2\" for multi instance, and so on\n- BlueStacks5 Hyper-V use \"bluestacks5-hyperv\", \"bluestacks5-hyperv-1\" for multi instance, and so on\n- NoxPlayer 127.0.0.1:62001\n- NoxPlayer64bit 127.0.0.1:59865\n- MuMuPlayer/MuMuPlayer X 127.0.0.1:7555\n- MemuPlayer 127.0.0.1:21503\n- LDPlayer emulator-5554 or 127.0.0.1:5555\n- WSA use \"wsa-0\" to make the game run in the background, which needs to be controlled or closed by third-party software\nIf there are multiple emulator instances running, the default is reserved for one of them and the others will use different serials to avoid conflicts\nOpen console.bat and run `adb devices` to find them or follow the emulator's official tutorial"
+      "help": "Common emulator Serial can be queried in the list below\nUse \"auto\" to auto-detect emulators, but if multiple emulators are running or use emulators that do not support auto-detect, \"auto\" cannot be used and serial must be filled in manually\nDefault serial for select emulators:\n- BlueStacks 127.0.0.1:5555\n- BlueStacks4 Hyper-V use \"bluestacks4-hyperv\", \"bluestacks4-hyperv-2\" for multi instance, and so on\n- BlueStacks5 Hyper-V use \"bluestacks5-hyperv\", \"bluestacks5-hyperv-1\" for multi instance, and so on\n- NoxPlayer 127.0.0.1:62001\n- NoxPlayer64bit 127.0.0.1:59865\n- MuMuPlayer/MuMuPlayer X 127.0.0.1:7555\n- MuMuPlayer12 127.0.0.1:16384\n- MemuPlayer 127.0.0.1:21503\n- LDPlayer emulator-5554 or 127.0.0.1:5555\n- WSA use \"wsa-0\" to make the game run in the background, which needs to be controlled or closed by third-party software\nIf there are multiple emulator instances running, the default is reserved for one of them and the others will use different serials to avoid conflicts\nOpen console.bat and run `adb devices` to find them or follow the emulator's official tutorial"
     },
     "PackageName": {
       "name": "Game Server",
@@ -76,10 +80,6 @@
       "help": "Speed: MaaTouch = minitouch >>> uiautomator2 ~= ADB\nMaaTouch is recommended",
       "minitouch": "minitouch",
       "MaaTouch": "MaaTouch"
-    },
-    "ScreenshotDedithering": {
-      "name": "Image Color De-dithering",
-      "help": "Enable when running Alas on phones"
     },
     "AdbRestart": {
       "name": "Try to restart adb when no device found",
@@ -155,10 +155,6 @@
       "name": "Take Screenshots Every X Second(s) In Combat",
       "help": "Minimum interval between 2 screenshots, limited in 0.1 ~ 1.0, can help reduce CPU during battle"
     },
-    "TaskHoardingDuration": {
-      "name": "Hoard Tasks For X Minute(s)",
-      "help": "By purposely not adding ready tasks to pending, allows for larger subsets to be built and run en masse at a later time\nCan reduce the frequency of operating AL"
-    },
     "WhenTaskQueueEmpty": {
       "name": "When Task Queue is Empty",
       "help": "Close AL when there are no pending tasks, can help reduce CPU",
@@ -167,14 +163,49 @@
       "close_game": "Close Game"
     }
   },
-  "Storage": {
+  "Dungeon": {
     "_info": {
-      "name": "Task status",
-      "help": "Store internal status of the task. Clear manually when the task is abnormal"
+      "name": "Dungeon Settings",
+      "help": "Brush a dungeon until trailblaze power runs out"
     },
-    "Storage": {
-      "name": "Storage.Storage.name",
-      "help": "Storage.Storage.help"
+    "Name": {
+      "name": "Dungeon Name",
+      "help": "",
+      "Calyx_Golden_Memories": "Bud of Memories",
+      "Calyx_Golden_Aether": "Bud of Aether",
+      "Calyx_Golden_Treasures": "Bud of Treasures",
+      "Calyx_Crimson_Destruction": "Bud of Destruction",
+      "Calyx_Crimson_Preservation": "Bud of Preservation",
+      "Calyx_Crimson_Calyx_Crimson_Hunt": "Calyx (Crimson): Bud of Hunt",
+      "Calyx_Crimson_Abundance": "Bud of Abundance",
+      "Calyx_Crimson_Erudition": "Bud of Erudition",
+      "Calyx_Crimson_Harmony": "Bud of Harmony",
+      "Calyx_Crimson_Nihility": "Bud of Nihility",
+      "Stagnant_Shadow_Quanta": "Shape of Quanta",
+      "Stagnant_Shadow_Gust": "Shape of Gust",
+      "Stagnant_Shadow_Fulmination": "Shape of Fulmination",
+      "Stagnant_Shadow_Blaze": "Shape of Blaze",
+      "Stagnant_Shadow_Spike": "Shape of Spike",
+      "Stagnant_Shadow_Rime": "Shape of Rime",
+      "Stagnant_Shadow_Mirage": "Shape of Mirage",
+      "Stagnant_Shadow_Icicle": "Shape of Icicle",
+      "Stagnant_Shadow_Doom": "Shape of Doom",
+      "Cavern_of_Corrosion_Path_of_Gelid_Wind": "Cavern of Corrosion: Path of Gelid Wind",
+      "Cavern_of_Corrosion_Path_of_Jabbing_Punch": "Cavern of Corrosion: Path of Jabbing Punch",
+      "Cavern_of_Corrosion_Path_of_Drifting": "Cavern of Corrosion: Path of Drifting",
+      "Cavern_of_Corrosion_Path_of_Providence": "Cavern of Corrosion: Path of Providence",
+      "Cavern_of_Corrosion_Path_of_Holy_Hymn": "Cavern of Corrosion: Path of Holy Hymn",
+      "Cavern_of_Corrosion_Path_of_Conflagration": "Cavern of Corrosion: Path of Conflagration"
+    },
+    "Team": {
+      "name": "Dungeon Team",
+      "help": "",
+      "1": "1",
+      "2": "2",
+      "3": "3",
+      "4": "4",
+      "5": "5",
+      "6": "6"
     }
   },
   "Gui": {

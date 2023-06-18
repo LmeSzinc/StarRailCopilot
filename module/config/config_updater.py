@@ -21,6 +21,16 @@ class GeneratedConfig:
     """
 '''.strip().split('\n')
 
+DICT_GUI_TO_INGAME = {
+    'zh-CN': 'cn',
+    'en-US': 'en',
+    'ja-JP': 'jp',
+    'zh-TW': 'cht',
+}
+
+
+def gui_lang_to_ingame_lang(lang: str) -> str:
+    return DICT_GUI_TO_INGAME.get(lang, 'en')
 
 
 class ConfigGenerator:
@@ -55,20 +65,21 @@ class ConfigGenerator:
             deep_set(data, keys=path, value=arg)
 
         # Define storage group
-        arg = {
-            'type': 'storage',
-            'value': {},
-            'valuetype': 'ignore',
-            'display': 'disabled',
-        }
-        deep_set(data, keys=['Storage', 'Storage'], value=arg)
+        # arg = {
+        #     'type': 'storage',
+        #     'value': {},
+        #     'valuetype': 'ignore',
+        #     'display': 'disabled',
+        # }
+        # deep_set(data, keys=['Storage', 'Storage'], value=arg)
         return data
 
     @cached_property
     def task(self):
         """
-        <task>:
-            - <group>
+        <task_group>:
+            <task>:
+                <group>:
         """
         return read_file(filepath_argument('task'))
 
@@ -112,9 +123,12 @@ class ConfigGenerator:
         """
         # Construct args
         data = {}
-        for task, groups in self.task.items():
+        for path, groups in deep_iter(self.task, depth=3):
+            if 'tasks' not in path:
+                continue
+            task = path[2]
             # Add storage to all task
-            groups.append('Storage')
+            # groups.append('Storage')
             for group in groups:
                 if group not in self.argument:
                     print(f'`{task}.{group}` is not related to any argument group')
@@ -164,7 +178,10 @@ class ConfigGenerator:
                 deep_set(data, keys=p + ['value'], value=v)
                 deep_set(data, keys=p + ['display'], value='hide')
         # Set command
-        for task in self.task.keys():
+        for path, groups in deep_iter(self.task, depth=3):
+            if 'tasks' not in path:
+                continue
+            task = path[2]
             if deep_get(data, keys=f'{task}.Scheduler.Command'):
                 deep_set(data, keys=f'{task}.Scheduler.Command.value', value=task)
                 deep_set(data, keys=f'{task}.Scheduler.Command.display', value='hide')
@@ -220,12 +237,12 @@ class ConfigGenerator:
                 deep_set(new, keys=k, value=v)
 
         # Menu
-        for path, data in deep_iter(self.menu, depth=2):
-            func, group = path
-            deep_load(['Menu', func])
-            deep_load(['Menu', group])
-            for task in data:
-                deep_load([func, task])
+        for path, data in deep_iter(self.task, depth=3):
+            if 'tasks' not in path:
+                continue
+            task_group, _, task = path
+            deep_load(['Menu', task_group])
+            deep_load(['Task', task])
         # Arguments
         visited_group = set()
         for path, data in deep_iter(self.argument, depth=2):
@@ -241,7 +258,6 @@ class ConfigGenerator:
             path = ['Emulator', 'PackageName', package]
             if deep_get(new, keys=path) == package:
                 deep_set(new, keys=path, value=server.upper())
-
         for package, server_and_channel in VALID_CHANNEL_PACKAGE.items():
             server, channel = server_and_channel
             name = deep_get(new, keys=['Emulator', 'PackageName', to_package(server)])
@@ -257,6 +273,16 @@ class ConfigGenerator:
         #         prefix = server.split('_')[0].upper()
         #         prefix = '国服' if prefix == 'CN' else prefix
         #         deep_set(new, keys=path, value=f'[{prefix}] {_list[index]}')
+
+        # Dungeon names
+        ingame_lang = gui_lang_to_ingame_lang(lang)
+        from tasks.dungeon.keywords import DungeonList
+        dailies = deep_get(self.argument, keys='Dungeon.Name.option')
+        for dungeon in DungeonList.instances.values():
+            if dungeon.name in dailies:
+                value = dungeon.__getattribute__(ingame_lang)
+                deep_set(new, keys=['Dungeon', 'Name', dungeon.name], value=value)
+
         # GUI i18n
         for path, _ in deep_iter(self.gui, depth=2):
             group, key = path
@@ -273,23 +299,18 @@ class ConfigGenerator:
 
         """
         data = {}
-
-        # Task menu
-        group = ''
-        tasks = []
-        with open(filepath_argument('task'), 'r', encoding='utf-8') as f:
-            for line in f.readlines():
-                line = line.strip('\n')
-                if '=====' in line:
-                    if tasks:
-                        deep_set(data, keys=f'Task.{group}', value=tasks)
-                    group = line.strip('#=- ')
-                    tasks = []
-                if group:
-                    if line.endswith(':'):
-                        tasks.append(line.strip('\n=-#: '))
-        if tasks:
-            deep_set(data, keys=f'Task.{group}', value=tasks)
+        for task_group in self.task.keys():
+            value = deep_get(self.task, keys=[task_group, 'menu'])
+            if value not in ['collapse', 'list']:
+                value = 'collapse'
+            deep_set(data, keys=[task_group, 'menu'], value=value)
+            value = deep_get(self.task, keys=[task_group, 'page'])
+            if value not in ['setting', 'tool']:
+                value = 'setting'
+            deep_set(data, keys=[task_group, 'page'], value=value)
+            tasks = deep_get(self.task, keys=[task_group, 'tasks'], default={})
+            tasks = list(tasks.keys())
+            deep_set(data, keys=[task_group, 'tasks'], value=tasks)
 
         return data
 
@@ -329,6 +350,12 @@ class ConfigGenerator:
         # update('template-docker', docker)
         # update('template-docker-cn', docker, cn)
 
+    def insert_dungeon(self):
+        from tasks.dungeon.keywords import DungeonList
+        dungeons = [dungeon.name for dungeon in DungeonList.instances.values() if dungeon.is_daily_dungeon]
+        deep_set(self.argument, keys='Dungeon.Name.option', value=dungeons)
+        deep_set(self.args, keys='Dungeon.Dungeon.Name.option', value=dungeons)
+
     def insert_package(self):
         option = deep_get(self.argument, keys='Emulator.PackageName.option')
         option += list(VALID_PACKAGE.keys())
@@ -341,7 +368,7 @@ class ConfigGenerator:
         _ = self.args
         _ = self.menu
         # _ = self.event
-        # self.insert_event()
+        self.insert_dungeon()
         self.insert_package()
         # self.insert_server()
         write_file(filepath_args(), self.args)

@@ -20,7 +20,6 @@ class GeneratedConfig:
     Emulator_PackageName = 'auto'  # auto, com.miHoYo.hkrpg, com.HoYoverse.hkrpgoversea, com.miHoYo.hkrpg.bilibili
     Emulator_ScreenshotMethod = 'auto'  # auto, ADB, ADB_nc, uiautomator2, aScreenCap, aScreenCap_nc, DroidCast, DroidCast_raw, scrcpy
     Emulator_ControlMethod = 'MaaTouch'  # minitouch, MaaTouch
-    Emulator_ScreenshotDedithering = False
     Emulator_AdbRestart = False
 
     # Group `EmulatorInfo`
@@ -37,8 +36,8 @@ class GeneratedConfig:
     # Group `Optimization`
     Optimization_ScreenshotInterval = 0.3
     Optimization_CombatScreenshotInterval = 1.0
-    Optimization_TaskHoardingDuration = 0
     Optimization_WhenTaskQueueEmpty = 'goto_main'  # stay_there, goto_main, close_game
 
-    # Group `Storage`
-    Storage_Storage = {}
+    # Group `Dungeon`
+    Dungeon_Name = 'Calyx_Golden_Memories'  # Calyx_Golden_Memories, Calyx_Golden_Aether, Calyx_Golden_Treasures, Calyx_Crimson_Destruction, Calyx_Crimson_Preservation, Calyx_Crimson_Calyx_Crimson_Hunt, Calyx_Crimson_Abundance, Calyx_Crimson_Erudition, Calyx_Crimson_Harmony, Calyx_Crimson_Nihility, Stagnant_Shadow_Quanta, Stagnant_Shadow_Gust, Stagnant_Shadow_Fulmination, Stagnant_Shadow_Blaze, Stagnant_Shadow_Spike, Stagnant_Shadow_Rime, Stagnant_Shadow_Mirage, Stagnant_Shadow_Icicle, Stagnant_Shadow_Doom, Cavern_of_Corrosion_Path_of_Gelid_Wind, Cavern_of_Corrosion_Path_of_Jabbing_Punch, Cavern_of_Corrosion_Path_of_Drifting, Cavern_of_Corrosion_Path_of_Providence, Cavern_of_Corrosion_Path_of_Holy_Hymn, Cavern_of_Corrosion_Path_of_Conflagration
+    Dungeon_Team = 1  # 1, 2, 3, 4, 5, 6

@@ -1,11 +1,11 @@
 {
   "Menu": {
-    "Task": {
-      "name": "",
-      "help": ""
-    },
     "Alas": {
       "name": "SRC",
+      "help": ""
+    },
+    "Daily": {
+      "name": "每日",
       "help": ""
     }
   },
@@ -16,6 +16,10 @@
     },
     "Restart": {
       "name": "除錯",
+      "help": ""
+    },
+    "Dungeon": {
+      "name": "每日副本",
       "help": ""
     }
   },
@@ -48,7 +52,7 @@
     },
     "Serial": {
       "name": "模擬器 Serial",
-      "help": "常見的模擬器 Serial 可以查詢下方列表\n填 \"auto\" 自動檢測模擬器，多個模擬器正在運行或使用不支持自動檢測的模擬器時無法使用 \"auto\"，必須手動填寫\n模擬器預設 Serial：\n- 藍疊模擬器 127.0.0.1:5555\n- 藍疊模擬器4 Hyper-v版，填\"bluestacks4-hyperv\"自動連接，多開填\"bluestacks4-hyperv-2\"以此類推\n- 藍疊模擬器5 Hyper-v版，填\"bluestacks5-hyperv\"自動連接，多開填\"bluestacks5-hyperv-1\"以此類推\n- 夜神模擬器 127.0.0.1:62001\n- 夜神模擬器64位元 127.0.0.1:59865\n- MuMu模擬器/MuMu模擬器X 127.0.0.1:7555\n- 逍遙模擬器 127.0.0.1:21503\n- 雷電模擬器 emulator-5554 或 127.0.0.1:5555\n- WSA，填\"wsa-0\"使遊戲在後臺運行，需要使用第三方軟件操控或關閉\n如果你使用了模擬器的多開功能，他們的 Serial 將不是預設的，可以在 console.bat 中執行 `adb devices` 查詢，或根據模擬器官方的教程填寫"
+      "help": "常見的模擬器 Serial 可以查詢下方列表\n填 \"auto\" 自動檢測模擬器，多個模擬器正在運行或使用不支持自動檢測的模擬器時無法使用 \"auto\"，必須手動填寫\n模擬器預設 Serial：\n- 藍疊模擬器 127.0.0.1:5555\n- 藍疊模擬器4 Hyper-v版，填\"bluestacks4-hyperv\"自動連接，多開填\"bluestacks4-hyperv-2\"以此類推\n- 藍疊模擬器5 Hyper-v版，填\"bluestacks5-hyperv\"自動連接，多開填\"bluestacks5-hyperv-1\"以此類推\n- 夜神模擬器 127.0.0.1:62001\n- 夜神模擬器64位元 127.0.0.1:59865\n- MuMu模擬器/MuMu模擬器X 127.0.0.1:7555\n- MuMu模擬器12 127.0.0.1:16384\n- 逍遙模擬器 127.0.0.1:21503\n- 雷電模擬器 emulator-5554 或 127.0.0.1:5555\n- WSA，填\"wsa-0\"使遊戲在後臺運行，需要使用第三方軟件操控或關閉\n如果你使用了模擬器的多開功能，他們的 Serial 將不是預設的，可以在 console.bat 中執行 `adb devices` 查詢，或根據模擬器官方的教程填寫"
     },
     "PackageName": {
       "name": "遊戲伺服器",
@@ -76,10 +80,6 @@
       "help": "速度: MaaTouch = minitouch > Hermit >>> uiautomator2 ~= ADB\n建議選MaaTouch",
       "minitouch": "minitouch",
       "MaaTouch": "MaaTouch"
-    },
-    "ScreenshotDedithering": {
-      "name": "去除圖片色彩抖動",
-      "help": "在手機上運行時開啟"
     },
     "AdbRestart": {
       "name": "在檢測不到設備的時候嘗試重啟adb",
@@ -155,10 +155,6 @@
       "name": "戰鬥中放慢截圖速度至 X 秒一張",
       "help": "執行兩次截圖之間的最小間隔，限制在 0.1 ~ 1.0，能降低戰鬥時的 CPU 佔用"
     },
-    "TaskHoardingDuration": {
-      "name": "囤積任務 X 分鐘",
-      "help": "能在收穫期間降低操作遊戲的頻率\n任務觸發後，等待 X 分鐘後，一次性執行佇列中的任務"
-    },
     "WhenTaskQueueEmpty": {
       "name": "當任務隊列清空後",
       "help": "無任務時關閉遊戲，能在收菜期間降低 CPU 佔用",
@@ -167,14 +163,49 @@
       "close_game": "關閉遊戲"
     }
   },
-  "Storage": {
+  "Dungeon": {
     "_info": {
-      "name": "任務狀態",
-      "help": "存放任務內部狀態，任務异常時可以手動清除"
+      "name": "每日副本設定",
+      "help": "打本清體力直到清空"
     },
-    "Storage": {
-      "name": "Storage.Storage.name",
-      "help": "Storage.Storage.help"
+    "Name": {
+      "name": "副本名稱",
+      "help": "",
+      "Calyx_Golden_Memories": "回憶之蕾•擬造花萼（金）",
+      "Calyx_Golden_Aether": "乙太之蕾•擬造花萼（金）",
+      "Calyx_Golden_Treasures": "藏珍之蕾•擬造花萼（金）",
+      "Calyx_Crimson_Destruction": "毀滅之蕾•擬造花萼（赤）",
+      "Calyx_Crimson_Preservation": "存護之蕾•擬造花萼（赤）",
+      "Calyx_Crimson_Calyx_Crimson_Hunt": "巡獵之蕾•擬造花萼（赤）",
+      "Calyx_Crimson_Abundance": "豐饒之蕾•擬造花萼（赤）",
+      "Calyx_Crimson_Erudition": "智識之蕾•擬造花萼（赤）",
+      "Calyx_Crimson_Harmony": "同諧之蕾•擬造花萼（赤）",
+      "Calyx_Crimson_Nihility": "虛無之蕾•擬造花萼（赤）",
+      "Stagnant_Shadow_Quanta": "空海之形•凝滯虛影",
+      "Stagnant_Shadow_Gust": "巽風之形•凝滯虛影",
+      "Stagnant_Shadow_Fulmination": "鳴雷之形•凝滯虛影",
+      "Stagnant_Shadow_Blaze": "炎華之形•凝滯虛影",
+      "Stagnant_Shadow_Spike": "鋒芒之形•凝滯虛影",
+      "Stagnant_Shadow_Rime": "霜晶之形•凝滯虛影",
+      "Stagnant_Shadow_Mirage": "幻光之形•凝滯虛影",
+      "Stagnant_Shadow_Icicle": "冰稜之形•凝滯虛影",
+      "Stagnant_Shadow_Doom": "震厄之形•凝滯虛影",
+      "Cavern_of_Corrosion_Path_of_Gelid_Wind": "霜風之徑•侵蝕隧洞",
+      "Cavern_of_Corrosion_Path_of_Jabbing_Punch": "迅拳之徑•侵蝕隧洞",
+      "Cavern_of_Corrosion_Path_of_Drifting": "漂泊之徑•侵蝕隧洞",
+      "Cavern_of_Corrosion_Path_of_Providence": "睿治之徑•侵蝕隧洞",
+      "Cavern_of_Corrosion_Path_of_Holy_Hymn": "聖頌之徑•侵蝕隧洞",
+      "Cavern_of_Corrosion_Path_of_Conflagration": "野焰之徑•侵蝕隧洞"
+    },
+    "Team": {
+      "name": "打本隊伍",
+      "help": "",
+      "1": "1",
+      "2": "2",
+      "3": "3",
+      "4": "4",
+      "5": "5",
+      "6": "6"
     }
   },
   "Gui": {

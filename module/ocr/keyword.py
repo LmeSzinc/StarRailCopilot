@@ -6,7 +6,7 @@ from typing import ClassVar
 from module.exception import ScriptError
 import module.config.server as server
 
-REGEX_PUNCTUATION = re.compile(r'[ ,.\'"，。\-—/\\\n\t()（）]')
+REGEX_PUNCTUATION = re.compile(r'[ ,.\'"，。·•\-—/\\\n\t()（）「」『』【】]')
 
 
 def parse_name(n):
@@ -14,15 +14,10 @@ def parse_name(n):
     return n
 
 
-def text_to_variable(text):
-    text = re.sub('[ \-]', '_', text)
-    text = re.sub('[()]', '', text)
-    return text
-
-
 @dataclass
 class Keyword:
     id: int
+    name: str
     cn: str
     en: str
     jp: str
@@ -48,12 +43,8 @@ class Keyword:
     def cht_parsed(self) -> str:
         return parse_name(self.cht)
 
-    @cached_property
-    def name(self) -> str:
-        return text_to_variable(self.en)
-
     def __str__(self):
-        return self.name
+        return f'{self.__class__.__name__}({self.name})'
 
     __repr__ = __str__
 
@@ -116,7 +107,7 @@ class Keyword:
         instances: ClassVar = {}
     ```
     """
-
+    # Key: instance ID. Value: instance object.
     instances: ClassVar = {}
 
     def __post_init__(self):
@@ -145,7 +136,12 @@ class Keyword:
                 return cls.instances[int(name)]
             except KeyError:
                 pass
-
+        # Probably a variable name
+        if isinstance(name, str) and '_' in name:
+            for instance in cls.instances.values():
+                if name == instance.name:
+                    return instance
+        # Probably an in-game name
         if ignore_punctuation:
             name = parse_name(name)
         else:
@@ -157,4 +153,5 @@ class Keyword:
                 if name == keyword:
                     return instance
 
+        # Not found
         raise ScriptError(f'Cannot find a {cls.__name__} instance that matches "{name}"')

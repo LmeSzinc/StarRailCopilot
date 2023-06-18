@@ -55,9 +55,9 @@ class Screenshot(Adb, WSA, DroidCast, AScreenCap, Scrcpy):
             )
             self.image = method()
 
-            if self.config.Emulator_ScreenshotDedithering:
-                # This will take 40-60ms
-                cv2.fastNlMeansDenoising(self.image, self.image, h=17, templateWindowSize=1, searchWindowSize=2)
+            # if self.config.Emulator_ScreenshotDedithering:
+            #     # This will take 40-60ms
+            #     cv2.fastNlMeansDenoising(self.image, self.image, h=17, templateWindowSize=1, searchWindowSize=2)
             self.image = self._handle_orientated_image(self.image)
 
             if self.config.Error_SaveError:
@@ -174,7 +174,9 @@ class Screenshot(Adb, WSA, DroidCast, AScreenCap, Scrcpy):
             image = self.image
         Image.fromarray(image).show()
 
-    def image_save(self, file):
+    def image_save(self, file=None):
+        if file is None:
+            file = f'{int(time.time() * 1000)}.png'
         save_image(self.image, file)
 
     def check_screen_size(self):
@@ -238,9 +240,9 @@ class Screenshot(Adb, WSA, DroidCast, AScreenCap, Scrcpy):
                 self._screen_black_checked = False
                 return False
             else:
-                logger.warning(f'Received pure black screenshots from emulator, color: {color}')
-                logger.warning(f'Screenshot method `{self.config.Emulator_ScreenshotMethod}` '
-                               f'may not work on emulator `{self.serial}`, or the emulator is not fully started')
+                # logger.warning(f'Received pure black screenshots from emulator, color: {color}')
+                # logger.warning(f'Screenshot method `{self.config.Emulator_ScreenshotMethod}` '
+                #                f'may not work on emulator `{self.serial}`, or the emulator is not fully started')
                 if self.is_mumu_family:
                     if self.config.Emulator_ScreenshotMethod == 'DroidCast':
                         self.droidcast_stop()

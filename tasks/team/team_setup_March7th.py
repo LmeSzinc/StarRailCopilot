@@ -1,7 +1,7 @@
 from module.logger import logger
 from module.ocr.ocr import *
 from tasks.base.assets.assets_base_page import CLOSE
-from tasks.base.page import page_team, page_main
+from tasks.base.page import page_team, page_main, page_character
 from tasks.team.assets.assets_team import *
 from tasks.team.assets.assets_team_character_list import *
 from tasks.base.ui import UI
@@ -16,28 +16,44 @@ class TeamUI(UI):
         self.device.screenshot()
         self.check_team_characters()
     """
+
     def check_team_characters(self, skip_first_screenshot=False):
         self.ui_ensure(page_main, skip_first_screenshot)
         skip_first_screenshot = True
+        success = False
+        character_selected = '三月七'
+
         while 1:
             if skip_first_screenshot:
                 skip_first_screenshot = False
             else:
-                ocr = Ocr(TEAM_CHECK_HOMEPAGE)
-                ocr.merge_thres_y = 20
-                result = ocr.detect_and_ocr(self.device.screenshot(), direct_ocr=False)
-                for r in result:
+                self.ui_ensure(page_main, skip_first_screenshot)
+                ocr_page_main = Ocr(TEAM_CHECK_HOMEPAGE)
+                ocr_page_main.merge_thres_y = 20
+                result_page_main = ocr_page_main.detect_and_ocr(self.device.screenshot(), direct_ocr=False)
+                logger.info('Detect Long-handed Character')
+                for r in result_page_main:
                     if r.ocr_text in CHARACTER_RECOMMEND:
-                        logger.info('Long-handed Character "{}" in team'.format(r.ocr_text))
+                        logger.info(f'Long-handed Character "{r.ocr_text}" in team')
+                        character_selected = r.ocr_text
                         button = OcrResultButton(r, r.ocr_text)
                         self.device.click(button)
+                        success = True
+                if success:
+                    # Ensure character selection
+                    self.ui_ensure(page_character, skip_first_screenshot)
+                    ocr_page_character = Ocr(TEAM_CHECK_SELECTED)
+                    result_page_character = ocr_page_character.ocr_single_line(self.device.screenshot())
+                    logger.info(f' "{result_page_character}" is selected ')
+                    if character_selected == result_page_character:
+                        self.ui_ensure(page_main, skip_first_screenshot)
                         return True
-                logger.info('no Long-handed Character in team')
-                if self.setup_team_character():
-                    return True
-                continue
+                else:
+                    logger.info('No Long-handed Character in team')
+                    self.setup_team_character_single()
+                    continue
 
-    def setup_team_character(self, skip_first_screenshot=False):
+    def setup_team_character_quick(self, skip_first_screenshot=False):
         """
         Examples:
             self = TeamUI('alas')
@@ -52,16 +68,40 @@ class TeamUI(UI):
             else:
                 self.device.screenshot()
             if self.appear_then_click(TEAM_SETUP):
-                logger.info('setup team')
+                logger.info('Setup team')
             if self.appear_then_click(TEAM_GRID_FIRST_SITE):
-                logger.info('click TEAM_GRID_FIRST_SITE')
+                logger.info('Click TEAM_GRID_FIRST_SITE')
                 self.device.screenshot()
                 self.match_template(March_7th_Mini)
             if self.appear_then_click(March_7th_Mini, similarity=0.55):
-                logger.info('click March_7th_Mini')
+                logger.info('Click March_7th_Mini')
                 self.appear_then_click(TEAM_CONFIRM)
             if self.appear(TEAM_SETUP_MARCH7TH):
                 self.appear_then_click(CLOSE)
+                if self.ui_ensure(page_main, skip_first_screenshot):
+                    return True
+            logger.info('Setup team character continue')
+            continue
+
+    def setup_team_character_single(self, skip_first_screenshot=False):
+
+        self.ui_ensure(page_team, skip_first_screenshot)
+        skip_first_screenshot = True
+
+        while 1:
+            if skip_first_screenshot:
+                skip_first_screenshot = False
+            else:
+                self.device.screenshot()
+
+            ocr_page_team = Ocr(TEAM_SETUP_FIRST_SITE)
+            result_page_team = ocr_page_team.ocr_single_line(self.device.screenshot())
+            if result_page_team:
+                self.device.click(TEAM_SETUP_FIRST_SITE)
+            if self.appear_then_click(March_7th_Mini, similarity=0.55):
+                logger.info('Click March_7th_Mini')
+            if self.appear_then_click(CHARACTER_STATE_JOIN):
+                logger.info('Character join team')
                 return True
-            logger.info('setup team character continue')
+            logger.info('Setup team character continue')
             continue

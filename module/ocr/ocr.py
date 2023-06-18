@@ -65,9 +65,10 @@ class OcrResultButton:
         """
         for keyword_class in keyword_classes:
             try:
-                matched = keyword_class.find(ocr_text, in_current_server=True, ignore_punctuation=True)
+                matched = keyword_class.find(ocr_text, True, True)
                 return matched
             except ScriptError:
+
                 continue
 
         raise ScriptError

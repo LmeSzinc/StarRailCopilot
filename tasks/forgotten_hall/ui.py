@@ -22,7 +22,8 @@ class LevelStageOcr:
             result = super().after_process(result)
             replace_dict = {
                 "O": "0", "o": "0", "*": "",
-                "109": "09", "009": "09"     # bright line close to stage09 may be recognized as 1 or 0
+                "109": "09", "009": "09",     # bright line close to stage09 may be recognized as 1 or 0
+                "71": "11"
             }
             for k, v in replace_dict.items():
                 result = result.replace(k, v)
@@ -35,7 +36,7 @@ class LevelStageOcr:
         def pre_process(self, image):
             # convert to binary image, threshold = 254 cause StageId is pure white
             gray_image = cv2.cvtColor(image, cv2.COLOR_BGR2GRAY)
-            _, binary_image = cv2.threshold(gray_image, 254, 255, cv2.THRESH_BINARY)
+            _, binary_image = cv2.threshold(gray_image, 230, 255, cv2.THRESH_BINARY)
             binary_image_3ch = np.stack((binary_image,) * 3, axis=-1)
             return binary_image_3ch
 
@@ -60,20 +61,30 @@ class LevelStageOcr:
             lambda x: x.ocr_text.isdigit() and self.stage_range[0] <= int(x.ocr_text) <= self.stage_range[1],
             ocr_results))
         # eliminate duplicate
-        ocr_results_dict = {x.ocr_text: x for x in ocr_results}
+        ocr_results_dict = {}
+        for ocr_result in ocr_results:
+            if ocr_result.ocr_text not in ocr_results_dict:
+                ocr_results_dict[ocr_result.ocr_text] = ocr_result
+            elif ocr_result.score > ocr_results_dict[ocr_result.ocr_text].score:
+                ocr_results_dict[ocr_result.ocr_text] = ocr_result
         ocr_results = list(ocr_results_dict.values())
         ocr_results.sort(key=lambda x: int(x.ocr_text))
-        # remove invalid stage id, for example 03 may be recognized as 13 when 0 is half covered
-        while len(ocr_results) >= 2 and int(ocr_results[0].ocr_text) + 1 != int(ocr_results[1].ocr_text):
-            ocr_results.pop(0)
-        while len(ocr_results) >= 2 and int(ocr_results[-1].ocr_text) - 1 != int(ocr_results[-2].ocr_text):
-            ocr_results.pop(-1)
-        # check continuous
-        for i in range(len(ocr_results) - 1):
-            if int(ocr_results[i].ocr_text) + 1 != int(ocr_results[i + 1].ocr_text):
-                logger.warning(f"Stage id is not continuous: {ocr_results[i].ocr_text} -> {ocr_results[i + 1].ocr_text}")
-                return []
-        return ocr_results
+        # find longest consecutive
+        seq_start, seq_end = 0, 0
+        max_seq_len = 1
+        i, j = 0, 0
+        while j < len(ocr_results):
+            if int(ocr_results[j].ocr_text) - int(ocr_results[i].ocr_text) == j - i:
+                j += 1
+            else:
+                if j - i > max_seq_len:
+                    max_seq_len = j - i
+                    seq_start, seq_end = i, j
+                i = j
+        if j - i > max_seq_len:
+            max_seq_len = j - i
+            seq_start, seq_end = i, j
+        return ocr_results[seq_start:seq_end] if max_seq_len >= 4 else []
 
 
 class ForgottenHall(UI):
@@ -110,7 +121,7 @@ class ForgottenHall(UI):
         Returns:
             list of BoxedResult, continuous and sorted by stage number, empty if not valid
         """
-        ocr = LevelStageOcr(FORGOTTEN_STAGE_ID_OCR)
+        ocr = LevelStageOcr(FORGOTTEN_STAGE_ID_OCR, stage_range=self.stage_range)
         results = ocr.detect_stages(self.device.image)
         return results
 
@@ -154,6 +165,7 @@ class ForgottenHall(UI):
             out: prepare page of stage
         """
         logger.info(f'Enter stage: {stage}')
+        no_stage_timer = Timer(4)
         while 1:
             if not skip_first_screenshot:
                 self.device.screenshot()
@@ -162,12 +174,17 @@ class ForgottenHall(UI):
 
             # In prepare page
             if self.appear(FORGOTTEN_STAGE_PREPARE):
+                logger.info('Enter stage success')
                 return True
 
             present_stages = self._get_present_stages()
             if not present_stages:
-                logger.warning('No stage found')
-                return False
+                if not no_stage_timer.started():
+                    no_stage_timer.start()
+                if no_stage_timer.reached():
+                    logger.warning('No stage insight, enter stage failed')
+                    return False
+                continue
             cur_min = int(present_stages[0].ocr_text)
             cur_max = int(present_stages[-1].ocr_text)
 
@@ -213,3 +230,7 @@ class ForgottenHallNormal(ForgottenHall):
     ui.goto_stage(1)
     """
     stage_range = (1, 15)
+
+
+class ForgottenHallChaos(ForgottenHall):
+    stage_range = (1, 10)

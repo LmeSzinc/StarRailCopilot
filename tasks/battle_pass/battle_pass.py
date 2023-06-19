@@ -5,6 +5,7 @@ from module.base.utils import get_color
 from module.logger.logger import logger
 from module.ui.switch import Switch
 from tasks.base.assets.assets_base_page import BATTLE_PASS_CHECK
+from tasks.base.assets.assets_base_popup import GET_REWARD
 from tasks.base.page import page_battle_pass
 from tasks.base.ui import UI
 from tasks.battle_pass.assets.assets_battle_pass import *
@@ -90,18 +91,7 @@ class BattlePassUI(UI):
 
         return False
 
-    def claim_rewards(self, skip_first_screenshot=True):
-        """
-
-        Args:
-            skip_first_screenshot:
-
-        Examples:
-            self = BattlePassUI('alas')
-            self.device.screenshot()
-            self.claim_rewards()
-        """
-        # claim exp
+    def _claim_exp(self, skip_first_screenshot=True):
         self.battle_pass_goto(KEYWORD_BATTLE_PASS_TAB.Missions)
         while 1:
             if skip_first_screenshot:
@@ -115,34 +105,49 @@ class BattlePassUI(UI):
                 logger.info("All EXP claimed")
                 continue
 
-        # claim rewards
+    def _claim_rewards(self, skip_first_screenshot=True):
         self.battle_pass_goto(KEYWORD_BATTLE_PASS_TAB.Rewards)
-        skip_first_screenshot = True
-        choose_gifts_handled = False
-
         while 1:
             if skip_first_screenshot:
                 skip_first_screenshot = False
             else:
                 self.device.screenshot()
 
-            if self.appear(BATTLE_PASS_CHECK, interval=2) and (
-                    not self.appear(REWARDS_CLAIM_ALL) or choose_gifts_handled):
-                logger.info("Claiming rewards complete")
+            if self.appear(GET_REWARD) or self.appear(CLOSE_CHOOSE_GIFT):
                 break
             if self.appear_then_click(REWARDS_CLAIM_ALL):
                 continue
+
+        skip_first_screenshot = True
+        while 1:
+            if skip_first_screenshot:
+                skip_first_screenshot = False
+            else:
+                self.device.screenshot()
+
+            if self.appear(BATTLE_PASS_CHECK):
+                logger.info("Claiming rewards complete")
+                break
             if self.handle_choose_gifts():
-                choose_gifts_handled = True
                 logger.info("You have unclaimed gift to choose")
                 continue
             if self.handle_reward():
                 continue
+
+    def claim_battle_pass_rewards(self):
+        """
+        Examples:
+            self = BattlePassUI('alas')
+            self.device.screenshot()
+            self.claim_rewards()
+        """
+        self._claim_exp()
+        self._claim_rewards()
         return True
 
     def run(self):
         for _ in range(5):
-            claimed = self.claim_rewards()
+            claimed = self.claim_battle_pass_rewards()
             if claimed:
                 break
 

@@ -153,12 +153,15 @@ class LevelStageOcr(Ocr):
             keyword_classes = [keyword_classes]
 
         results = self.detect_and_ocr_stages(image)
+        offset_results = []
         for result in results:
             offset = (-70, -20)
             result.box = area_offset(result.box, offset)
+            if result.box[0] > 0:
+                offset_results.append(result)
         results = [
             OcrResultButton(result, keyword_classes)
-            for result in results
+            for result in offset_results
         ]
         results = [result for result in results if result.matched_keyword is not None]
         logger.attr(name=f'LevelStageOcr matched',

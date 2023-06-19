@@ -28,12 +28,14 @@ class DraggableList:
             keyword_class,
             ocr_class,
             search_button: ButtonWrapper,
+            drag_direction: str = 'down',
     ):
         """
         Args:
             name:
             keyword_class: Keyword
             search_button:
+            drag_direction: right, down
         """
         self.name = name
         self.keyword_class = keyword_class
@@ -42,6 +44,7 @@ class DraggableList:
             keyword_class = keyword_class[0]
         self.known_rows = list(keyword_class.instances.values())
         self.search_button = search_button
+        self.drag_direction = drag_direction
 
         self.row_min = 1
         self.row_max = len(self.known_rows)
@@ -153,9 +156,12 @@ class DraggableList:
 
             # Drag pages
             if row_index < self.cur_min:
-                self.drag_page('up', main=main)
+                if self.drag_direction == 'down':
+                    self.drag_page('up', main=main)
+                elif self.drag_direction == 'right':
+                    self.drag_page('left', main=main)
             elif self.cur_max < row_index:
-                self.drag_page('down', main=main)
+                self.drag_page(self.drag_direction, main=main)
             # Wait for bottoming out
             main.wait_until_stable(self.search_button, timer=Timer(0, count=0), timeout=Timer(1.5, count=5))
             skip_first_screenshot = True

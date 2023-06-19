@@ -1,0 +1,2 @@
+import tasks.forgotten_hall.keywords.stage_id as KEYWORDS_FORGOTTEN_STAGE_LIST
+from tasks.forgotten_hall.keywords.stage_id import ForgottenStageId

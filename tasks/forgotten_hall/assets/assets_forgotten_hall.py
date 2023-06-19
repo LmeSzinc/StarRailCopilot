@@ -3,16 +3,6 @@ from module.base.button import Button, ButtonWrapper
 # This file was auto-generated, do not modify it manually. To generate:
 # ``` python -m dev_tools.button_extract ```
 
-FORGOTTEN_DRAG_AREA = ButtonWrapper(
-    name='FORGOTTEN_DRAG_AREA',
-    share=Button(
-        file='./assets/share/forgotten_hall/FORGOTTEN_DRAG_AREA.png',
-        area=(0, 618, 975, 720),
-        search=(0, 598, 995, 720),
-        color=(8, 14, 47),
-        button=(0, 618, 975, 720),
-    ),
-)
 FORGOTTEN_FLAG = ButtonWrapper(
     name='FORGOTTEN_FLAG',
     share=Button(
@@ -30,7 +20,7 @@ FORGOTTEN_STAGE_ID_OCR = ButtonWrapper(
         area=(0, 266, 1280, 567),
         search=(0, 246, 1280, 587),
         color=(36, 60, 121),
-        button=(0, 266, 1280, 567),
+        button=(0, 618, 975, 720),
     ),
 )
 FORGOTTEN_STAGE_PREPARE = ButtonWrapper(

@@ -7,13 +7,16 @@ from module.base.utils import area_size, random_rectangle_vector_opted
 from module.logger import logger
 from tasks.base.ui import UI
 from tasks.forgotten_hall.assets.assets_forgotten_hall import (
-    FORGOTTEN_DRAG_AREA,
     FORGOTTEN_STAGE_ID_OCR,
     FORGOTTEN_STAGE_PREPARE
 )
 from module.ocr.ocr import Ocr, OcrResultButton
-from module.base.timer import Timer
 from module.base.button import ButtonWrapper
+from module.ui.draggable_list import DraggableList
+from tasks.forgotten_hall.keywords import (
+    KEYWORDS_FORGOTTEN_STAGE_LIST,
+    ForgottenStageId
+)
 
 
 class LevelStageOcr:
@@ -86,125 +89,49 @@ class LevelStageOcr:
             seq_start, seq_end = i, j
         return ocr_results[seq_start:seq_end] if max_seq_len >= 4 else []
 
+    def matched_ocr(self, image, keyword_classes, direct_ocr=False) -> list[OcrResultButton]:
+        """
+        See Ocr.matched_ocr
+        """
+        if not isinstance(keyword_classes, list):
+            keyword_classes = [keyword_classes]
+
+        results = self.detect_stages(image, direct_ocr=direct_ocr)
+        for result in results:
+            offset = (-70, -20)
+            result.box = (
+                result.box[0] + offset[0],
+                result.box[1] + offset[1],
+                result.box[2] + offset[0],
+                result.box[3] + offset[1],
+            )
+        results = [
+            OcrResultButton(result, keyword_classes)
+            for result in results
+        ]
+        results = [result for result in results if result.matched_keyword is not None]
+        logger.attr(name=f'LevelStageOcr matched',
+                    text=results)
+        return results
+
+
+class StageDraggableList(DraggableList):
+    def is_row_selected(self, row, main) -> bool:
+        button = self.keyword2button(row)
+        if not button:
+            return False
+        if main.appear(FORGOTTEN_STAGE_PREPARE):
+            return True
+        return False
+
+
+FORGOTTEN_STAGE_LIST = StageDraggableList(
+    'ForgottenStageList', keyword_class=ForgottenStageId, ocr_class=LevelStageOcr, search_button=FORGOTTEN_STAGE_ID_OCR,
+    drag_direction='right')
+
 
 class ForgottenHall(UI):
     stage_range = (1, 99)
-
-    def _drag_page(self, direction="left"):
-        """
-        Args:
-            direction: left, right
-        """
-        ratio = np.random.uniform(0.8, 1)
-        width, height = area_size(FORGOTTEN_DRAG_AREA.button)
-        if direction == 'left':
-            vector = (ratio * width, 0)
-        elif direction == 'right':
-            vector = (-ratio * width, 0)
-        else:
-            logger.warning(f'Unknown drag direction: {direction}')
-            return
-
-        p1, p2 = random_rectangle_vector_opted(vector, box=FORGOTTEN_DRAG_AREA.button)
-        self.device.drag(p1, p2, name='ForgottenHall_DRAG')
-
-    def _wait_stable(self, check_area: list[int]):
-        # self.wait_until_stable(namedtuple("_CheckArea", ["area"])(area=check_area),
-        #                        timer=Timer(0, count=0),
-        #                        timeout=Timer(1.5, count=5))
-        # need to find a proper way to wait stable, although it works fine without this now
-        pass
-
-    def _get_present_stages(self) -> list[BoxedResult]:
-        """
-        Get present stages in the current page
-        Returns:
-            list of BoxedResult, continuous and sorted by stage number, empty if not valid
-        """
-        ocr = LevelStageOcr(FORGOTTEN_STAGE_ID_OCR, stage_range=self.stage_range)
-        results = ocr.detect_stages(self.device.image)
-        return results
-
-    def _stage_insight(self, stage: int, skip_first_screenshot=True) -> bool:
-        """
-        Pages:
-            in: main page of ForgottenHall
-            out: main page of ForgottenHall with stage insight
-        """
-        logger.info(f'Insight stage: {stage}')
-        while 1:
-            if not skip_first_screenshot:
-                self.device.screenshot()
-            else:
-                skip_first_screenshot = False
-
-            present_stages = self._get_present_stages()
-            if not present_stages:
-                logger.warning('No stage found')
-                return False
-            cur_min = int(present_stages[0].ocr_text)
-            cur_max = int(present_stages[-1].ocr_text)
-
-            # Found stage
-            if cur_min <= stage <= cur_max:
-                logger.info(f'Found stage: {stage}')
-                return True
-
-            # Drag pages
-            if stage < cur_min:
-                self._drag_page('left')
-            elif cur_max < stage:
-                self._drag_page('right')
-            # Wait for swap animation
-            self._wait_stable(present_stages[0].box)
-
-    def _stage_enter(self, stage: int, skip_first_screenshot=True) -> bool:
-        """
-        Pages:
-            in: main page of ForgottenHall with stage insight
-            out: prepare page of stage
-        """
-        logger.info(f'Enter stage: {stage}')
-        no_stage_timer = Timer(4)
-        while 1:
-            if not skip_first_screenshot:
-                self.device.screenshot()
-            else:
-                skip_first_screenshot = False
-
-            # In prepare page
-            if self.appear(FORGOTTEN_STAGE_PREPARE):
-                logger.info('Enter stage success')
-                return True
-
-            present_stages = self._get_present_stages()
-            if not present_stages:
-                if not no_stage_timer.started():
-                    no_stage_timer.start()
-                if no_stage_timer.reached():
-                    logger.warning('No stage insight, enter stage failed')
-                    return False
-                continue
-            cur_min = int(present_stages[0].ocr_text)
-            cur_max = int(present_stages[-1].ocr_text)
-
-            if not cur_min <= stage <= cur_max:
-                logger.warning(f'stage: {stage} not insight')
-                return False
-
-            # click stage
-            for stage_box in present_stages:
-                if int(stage_box.ocr_text) == stage:
-                    stage_icon_box = stage_box
-                    offset = (-70, -20)
-                    stage_icon_box.box = (
-                        stage_icon_box.box[0] + offset[0],
-                        stage_icon_box.box[1] + offset[1],
-                        stage_icon_box.box[2] + offset[0],
-                        stage_icon_box.box[3] + offset[1],
-                    )
-                    self.device.click(OcrResultButton(stage_box, []))
-                    break
 
     def goto_stage(self, stage: int, skip_first_screenshot=True) -> bool:
         """
@@ -213,11 +140,7 @@ class ForgottenHall(UI):
             out: prepare page of stage
         """
         logger.info(f'Goto stage: {stage}')
-        if not self._stage_insight(stage, skip_first_screenshot):
-            return False
-        if not self._stage_enter(stage, skip_first_screenshot):
-            return False
-        return True
+        return FORGOTTEN_STAGE_LIST.select_row(KEYWORDS_FORGOTTEN_STAGE_LIST.ForgottenStageId_01, self)
 
 
 class ForgottenHallNormal(ForgottenHall):

@@ -138,3 +138,12 @@ class BattlePassUI(UI):
                 continue
             if self.handle_reward():
                 continue
+        return True
+
+    def run(self):
+        for _ in range(5):
+            claimed = self.claim_rewards()
+            if claimed:
+                break
+
+        self.config.task_delay(server_update=True)

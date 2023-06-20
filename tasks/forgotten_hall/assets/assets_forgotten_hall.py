@@ -20,7 +20,7 @@ FORGOTTEN_STAGE_ID_OCR = ButtonWrapper(
         area=(0, 266, 1280, 567),
         search=(0, 246, 1280, 587),
         color=(36, 60, 121),
-        button=(0, 618, 975, 720),
+        button=(0, 0, 966, 129),
     ),
 )
 FORGOTTEN_STAGE_PREPARE = ButtonWrapper(

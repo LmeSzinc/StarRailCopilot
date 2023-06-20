@@ -1,8 +1,9 @@
 import numpy as np
 from ppocronnx.predict_system import BoxedResult
-from collections import namedtuple
 import cv2
 import time
+from operator import attrgetter
+from functools import reduce
 
 from module.logger import logger
 from tasks.base.ui import UI
@@ -51,6 +52,12 @@ class LevelStageOcr(Ocr):
 
         return result
 
+    def format_result(self, result: str) -> int:
+        if result.isdigit() and self.stage_range[0] <= int(result) <= self.stage_range[1] and len(result) == 2:
+            return int(result)
+        else:
+            return -1
+
     def _detect_stage_rectangles(self, raw_image):
         """
         Args:
@@ -84,66 +91,43 @@ class LevelStageOcr(Ocr):
             rectangle.append(rect)
         return rectangle
 
-    def _ocr_single_stage(self, image, rect):
+    def _ocr_multi_lines(self, image, boxes) -> list[BoxedResult]:
         """
         Args:
-            image: binary image
-            rect: (x1, y1, x2, y2) format
-        Returns:
-            (image, result, score)
+            image:
+            boxes: [(x1, y1, x2, y2), ...] format
         """
         start_time = time.time()
-        text_image = crop(image, rect)
-        result, score = self.model.ocr_single_line(text_image)
-        result = self.after_process(result)
+        image = self.pre_process(image)
+        results = []
+        for box in boxes:
+            text_image = crop(image, box)
+            result, score = self.model.ocr_single_line(text_image)
+            result = self.after_process(result)
+            results.append(BoxedResult(box, text_image, result, score))
         logger.attr(name='%s %ss' % (self.name, float2str(time.time() - start_time)),
-                    text=str(result))
-        return text_image, result, score
+                    text=str(results))
+        return results
 
     def _ocr_stages(self, image) -> list[BoxedResult]:
         stage_rectangles = self._detect_stage_rectangles(image)
-        # cv2.imshow("", draw(image, stage_rectangles))
-        # cv2.waitKey(0)
-
-        image = self.pre_process(image)
-        stages = []
-        for rect in stage_rectangles:
-            text_image, result, score = self._ocr_single_stage(image, rect)
-            stages.append(BoxedResult(rect, text_image, result, score))
-
-        return stages
+        return self._ocr_multi_lines(image, stage_rectangles)
 
     def detect_and_ocr_stages(self, image) -> list[BoxedResult]:
         ocr_results = self._ocr_stages(image)
-        ocr_results = list(filter(
-            lambda x: x.ocr_text.isdigit() and len(x.ocr_text) == 2
-            and self.stage_range[0] <= int(x.ocr_text) <= self.stage_range[1],
-            ocr_results))
-        # eliminate duplicate
-        ocr_results_dict = {}
         for ocr_result in ocr_results:
-            if ocr_result.ocr_text not in ocr_results_dict:
-                ocr_results_dict[ocr_result.ocr_text] = ocr_result
-            elif ocr_result.score > ocr_results_dict[ocr_result.ocr_text].score:
-                ocr_results_dict[ocr_result.ocr_text] = ocr_result
-        ocr_results = list(ocr_results_dict.values())
-        ocr_results.sort(key=lambda x: int(x.ocr_text))
+            ocr_result.ocr_text = self.format_result(ocr_result.ocr_text)
+        ocr_results = filter(lambda x: x.ocr_text > 0, ocr_results)
+        # eliminate duplicate and sort by key
+        ocr_results = sorted(reduce(lambda dic, data: (dic.update({data.ocr_text: data}) if data.ocr_text not in dic or
+                                    dic[data.ocr_text].score < data.score else None) or dic,
+                                    ocr_results, {}).values(), key=attrgetter('ocr_text'))
         # find longest consecutive
-        seq_start, seq_end = 0, 0
-        max_seq_len = 1
-        i, j = 0, 0
-        while j < len(ocr_results):
-            if int(ocr_results[j].ocr_text) - int(ocr_results[i].ocr_text) == j - i:
-                j += 1
-            else:
-                if j - i > max_seq_len:
-                    max_seq_len = j - i
-                    seq_start, seq_end = i, j
-                i = j
-        if j - i > max_seq_len:
-            max_seq_len = j - i
-            seq_start, seq_end = i, j
-        return ocr_results[seq_start:seq_end] if max_seq_len >= 4 else []
+        split_points = np.where(np.diff(list(map(attrgetter('ocr_text'), ocr_results))) != 1)[0] + 1
+        longest_consecutive = max(np.array_split(ocr_results, split_points), key=len)
+        for result in longest_consecutive:
+            result.ocr_text = str(result.ocr_text)
+        return list(longest_consecutive) if len(longest_consecutive) >= 4 else []
 
     def matched_ocr(self, image, keyword_classes, direct_ocr=False) -> list[OcrResultButton]:
         """
@@ -153,19 +137,15 @@ class LevelStageOcr(Ocr):
             keyword_classes = [keyword_classes]
 
         results = self.detect_and_ocr_stages(image)
-        offset_results = []
         for result in results:
-            offset = (-70, -20)
-            result.box = area_offset(result.box, offset)
-            if result.box[0] > 0:
-                offset_results.append(result)
+            result.box = area_offset(result.box, (-70, -20))
+        results = filter(lambda x: x.box[0] > 0, results)
         results = [
             OcrResultButton(result, keyword_classes)
-            for result in offset_results
+            for result in results
         ]
         results = [result for result in results if result.matched_keyword is not None]
-        logger.attr(name=f'LevelStageOcr matched',
-                    text=results)
+        logger.attr(name=f'LevelStageOcr matched', text=results)
         return results
 
 
@@ -187,14 +167,25 @@ FORGOTTEN_STAGE_LIST = StageDraggableList(
 class ForgottenHall(UI):
     stage_range = (1, 99)
 
-    def goto_stage(self, stage: int, skip_first_screenshot=True) -> bool:
+    def insight_stage(self, stage: int) -> bool:
+        """
+        Pages:
+            in: main page of ForgottenHall
+            out: main page of ForgottenHall with stage insight
+        """
+        logger.info(f'Insight stage: {stage}')
+        return FORGOTTEN_STAGE_LIST.insight_row(
+            getattr(KEYWORDS_FORGOTTEN_STAGE_LIST, f"ForgottenStageId_{stage:02d}"), self)
+
+    def goto_stage(self, stage: int) -> bool:
         """
         Pages:
             in: main page of ForgottenHall
             out: prepare page of stage
         """
         logger.info(f'Goto stage: {stage}')
-        return FORGOTTEN_STAGE_LIST.select_row(KEYWORDS_FORGOTTEN_STAGE_LIST.ForgottenStageId_01, self)
+        return FORGOTTEN_STAGE_LIST.select_row(
+            getattr(KEYWORDS_FORGOTTEN_STAGE_LIST, f"ForgottenStageId_{stage:02d}"), self)
 
 
 class ForgottenHallNormal(ForgottenHall):

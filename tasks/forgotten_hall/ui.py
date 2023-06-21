@@ -166,6 +166,14 @@ FORGOTTEN_STAGE_LIST = StageDraggableList(
 
 class ForgottenHall(UI):
     stage_range = (1, 99)
+    _stage_entry_format = 'ForgottenStageId_%02d'
+
+    def _check_stage_valid(self, stage: int) -> bool:
+        if not isinstance(stage, int) or not self.stage_range[0] <= stage <= self.stage_range[1]:
+            return False
+        if not hasattr(KEYWORDS_FORGOTTEN_STAGE_LIST, self._stage_entry_format % stage):
+            return False
+        return True
 
     def insight_stage(self, stage: int) -> bool:
         """
@@ -174,8 +182,11 @@ class ForgottenHall(UI):
             out: main page of ForgottenHall with stage insight
         """
         logger.info(f'Insight stage: {stage}')
+        if not self._check_stage_valid(stage):
+            logger.warning(f'Invalid stage: {stage}')
+            return False
         return FORGOTTEN_STAGE_LIST.insight_row(
-            getattr(KEYWORDS_FORGOTTEN_STAGE_LIST, f"ForgottenStageId_{stage:02d}"), self)
+            getattr(KEYWORDS_FORGOTTEN_STAGE_LIST, self._stage_entry_format % stage), self)
 
     def goto_stage(self, stage: int) -> bool:
         """
@@ -184,8 +195,11 @@ class ForgottenHall(UI):
             out: prepare page of stage
         """
         logger.info(f'Goto stage: {stage}')
+        if not self._check_stage_valid(stage):
+            logger.warning(f'Invalid stage: {stage}')
+            return False
         return FORGOTTEN_STAGE_LIST.select_row(
-            getattr(KEYWORDS_FORGOTTEN_STAGE_LIST, f"ForgottenStageId_{stage:02d}"), self)
+            getattr(KEYWORDS_FORGOTTEN_STAGE_LIST, self._stage_entry_format % stage), self)
 
 
 class ForgottenHallNormal(ForgottenHall):

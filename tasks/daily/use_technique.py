@@ -9,21 +9,10 @@ from tasks.daily.assets.assets_daily_use_techniques import *
 from tasks.dungeon.keywords import KEYWORDS_DUNGEON_LIST
 from tasks.forgotten_hall.keywords import KEYWORDS_FORGOTTEN_HALL_STAGE
 from tasks.forgotten_hall.ui import ForgottenHallUI
+from tasks.map.control.joystick import MapControlJoystick
 
 
 class UseTechniqueUI(UI):
-    def count_charges(self):
-        slots = [TECHNIQUES_SLOT_5, TECHNIQUES_SLOT_4, TECHNIQUES_SLOT_3, TECHNIQUES_SLOT_2, TECHNIQUES_SLOT_1]
-
-        def is_filled(button):
-            color = get_color(self.device.image, button.area)
-            return np.mean(color) > 130
-
-        for index, slot in enumerate(slots):
-            if is_filled(slot):
-                return 5 - index
-        return 0
-
     def _enter_forgotten_hall_dungeon(self, skip_first_screenshot=True):
         interval = Timer(1)
         while 1:
@@ -45,21 +34,18 @@ class UseTechniqueUI(UI):
                 self.device.click(FIRST_CHARACTER)
                 interval.reset()
 
-    def _use_technique(self, count: int, remains: int, skip_first_screenshot=True):
-        interval = Timer(1)
+    def _use_technique(self, count: int, remains: int, joystick: MapControlJoystick, skip_first_screenshot=True):
         while 1:
             if skip_first_screenshot:
                 skip_first_screenshot = False
             else:
                 self.device.screenshot()
 
-            remains_after = self.count_charges()
+            remains_after = joystick.map_get_technique_points()
+            logger.info(f"{remains - remains_after} techniques used")
             if remains - remains_after >= count:
-                logger.info(f"{remains - remains_after} techniques used")
                 break
-            if interval.reached():
-                self.device.click(USE_TECHNIQUE)
-                interval.reset()
+            joystick.handle_map_E()
 
     def use_technique(self, count: int, skip_first_screenshot=True):
         """
@@ -78,16 +64,17 @@ class UseTechniqueUI(UI):
         """
         logger.hr('Use techniques', level=2)
         self.ui_ensure(page_main)
-        remains = self.count_charges()
+        joystick = MapControlJoystick(self.config, self.device)
+        remains = joystick.map_get_technique_points()
         forgotten_hall = ForgottenHallUI(self.config, self.device)
         if remains >= count:
             logger.info(f"Already have {remains} techniques remaining")
-            self._use_technique(count, remains, skip_first_screenshot)
+            self._use_technique(count, remains, joystick, skip_first_screenshot)
         else:
             logger.info("Remains less than needed. Go to forgotten hall to charge")
             forgotten_hall.stage_goto(KEYWORDS_DUNGEON_LIST.The_Last_Vestiges_of_Towering_Citadel,
                                       KEYWORDS_FORGOTTEN_HALL_STAGE.Stage_1)
             self._enter_forgotten_hall_dungeon()
-            self._use_technique(count, 5, skip_first_screenshot)
+            self._use_technique(count, 5, joystick, skip_first_screenshot)
             forgotten_hall.exit_dungeon()
             self.ui_goto_main()

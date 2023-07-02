@@ -116,3 +116,19 @@ class ForgottenHallUI(UI):
             dungeon_ui = DungeonUI(config=self.config, device=self.device)
             dungeon_ui.dungeon_goto(forgotten_hall)
         STAGE_LIST.select_row(stage_keyword, main=self)
+
+    def exit_dungeon(self, skip_first_screenshot=True):
+        while 1:
+            if skip_first_screenshot:
+                skip_first_screenshot = False
+            else:
+                self.device.screenshot()
+
+            if self.appear(FORGOTTEN_HALL_CHECK):
+                logger.info("Forgotten hall dungeon exited")
+                break
+
+            if self.appear_then_click(EXIT_DUNGEON):
+                continue
+            if self.appear_then_click(EXIT_CONFIRM):
+                continue

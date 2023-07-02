@@ -1,0 +1,93 @@
+import numpy as np
+
+from module.base.timer import Timer
+from module.base.utils import get_color
+from module.logger import logger
+from tasks.base.page import page_main
+from tasks.base.ui import UI
+from tasks.daily.assets.assets_daily_use_techniques import *
+from tasks.dungeon.keywords import KEYWORDS_DUNGEON_LIST
+from tasks.forgotten_hall.keywords import KEYWORDS_FORGOTTEN_HALL_STAGE
+from tasks.forgotten_hall.ui import ForgottenHallUI
+
+
+class UseTechniquesUI(UI):
+    def count_techniques(self):
+        slots = [TECHNIQUES_SLOT_5, TECHNIQUES_SLOT_4, TECHNIQUES_SLOT_3, TECHNIQUES_SLOT_2, TECHNIQUES_SLOT_1]
+
+        def is_filled(button):
+            color = get_color(self.device.image, button.area)
+            return np.mean(color) > 130
+
+        for index, slot in enumerate(slots):
+            if is_filled(slot):
+                return 5 - index
+        return 0
+
+    def _enter_forgotten_hall_dungeon(self, skip_first_screenshot=True):
+        interval = Timer(1)
+        while 1:
+            if skip_first_screenshot:
+                skip_first_screenshot = False
+            else:
+                self.device.screenshot()
+
+            if self.appear(DUNGEON_ENTER_CHECKED):
+                logger.info("Forgotten hall dungeon entered")
+                break
+            if interval.reached() and np.mean(get_color(self.device.image, ENTER_FORGOTTEN_HALL_DUNGEON.area)) > 128:
+                self.device.click(ENTER_FORGOTTEN_HALL_DUNGEON)
+                interval.reset()
+                continue
+            if (interval.reached()
+                    # avoid click on loading page
+                    and np.mean(get_color(self.device.image, FIRST_CHARACTER.area)) > 30):
+                self.device.click(FIRST_CHARACTER)
+                interval.reset()
+
+    def _use_techniques(self, count: int, remains: int, skip_first_screenshot=True):
+        interval = Timer(1)
+        while 1:
+            if skip_first_screenshot:
+                skip_first_screenshot = False
+            else:
+                self.device.screenshot()
+
+            remains_after = self.count_techniques()
+            if remains - remains_after >= count:
+                logger.info(f"{remains - remains_after} techniques used")
+                break
+            if interval.reached():
+                self.device.click(USE_TECHNIQUE)
+                interval.reset()
+
+    def use_techniques(self, count: int, skip_first_screenshot=True):
+        """
+        Args:
+            skip_first_screenshot:
+            count: use {count} times
+
+        Examples:
+            self = UseTechniquesUI('alas')
+            self.device.screenshot()
+            self.use_techniques(2)
+
+        Pages:
+            in: Any
+            out: page_forgotten_hall, FORGOTTEN_HALL_CHECKED
+        """
+        logger.hr('Use techniques', level=2)
+        self.ui_ensure(page_main)
+        remains = self.count_techniques()
+        forgotten_hall = ForgottenHallUI(self.config, self.device)
+        if remains >= count:
+            logger.info(f"Already have {remains} techniques remaining")
+            self._use_techniques(count, remains, skip_first_screenshot)
+        else:
+            logger.info("Remains less than needed. Go to forgotten hall to charge")
+            forgotten_hall.stage_goto(KEYWORDS_DUNGEON_LIST.The_Last_Vestiges_of_Towering_Citadel,
+                                      KEYWORDS_FORGOTTEN_HALL_STAGE.Stage_1)
+            self._enter_forgotten_hall_dungeon()
+            self._use_techniques(count, 5, skip_first_screenshot)
+            forgotten_hall.exit_dungeon()
+            self.ui_goto_main()

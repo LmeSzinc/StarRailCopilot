@@ -13,6 +13,26 @@ ENTRANCE_CHECKED = ButtonWrapper(
         button=(62, 662, 80, 680),
     ),
 )
+EXIT_CONFIRM = ButtonWrapper(
+    name='EXIT_CONFIRM',
+    share=Button(
+        file='./assets/share/forgotten_hall/EXIT_CONFIRM.png',
+        area=(776, 458, 800, 482),
+        search=(756, 438, 820, 502),
+        color=(94, 88, 76),
+        button=(776, 458, 800, 482),
+    ),
+)
+EXIT_DUNGEON = ButtonWrapper(
+    name='EXIT_DUNGEON',
+    share=Button(
+        file='./assets/share/forgotten_hall/EXIT_DUNGEON.png',
+        area=(15, 45, 45, 75),
+        search=(0, 25, 65, 95),
+        color=(113, 117, 124),
+        button=(15, 45, 45, 75),
+    ),
+)
 LAST_VERTIGES = ButtonWrapper(
     name='LAST_VERTIGES',
     share=Button(

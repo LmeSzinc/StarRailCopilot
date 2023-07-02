@@ -13,16 +13,15 @@ from tasks.map.control.joystick import MapControlJoystick
 
 
 class UseTechniqueUI(UI):
-    def _enter_forgotten_hall_dungeon(self, skip_first_screenshot=True):
+    def _enter_forgotten_hall_dungeon(self, joystick: MapControlJoystick, skip_first_screenshot=True):
         interval = Timer(1)
-        while 1:
+        while 1:  # enter ui -> popup
             if skip_first_screenshot:
                 skip_first_screenshot = False
             else:
                 self.device.screenshot()
 
-            if self.appear(DUNGEON_ENTER_CHECKED):
-                logger.info("Forgotten hall dungeon entered")
+            if self.appear(EFFECT_NOTIFICATION):
                 break
             if interval.reached() and np.mean(get_color(self.device.image, ENTER_FORGOTTEN_HALL_DUNGEON.area)) > 128:
                 self.device.click(ENTER_FORGOTTEN_HALL_DUNGEON)
@@ -33,6 +32,17 @@ class UseTechniqueUI(UI):
                     and np.mean(get_color(self.device.image, FIRST_CHARACTER.area)) > 30):
                 self.device.click(FIRST_CHARACTER)
                 interval.reset()
+        skip_first_screenshot = True
+        while 1:  # pop up -> dungeon inside
+            if skip_first_screenshot:
+                skip_first_screenshot = False
+            else:
+                self.device.screenshot()
+
+            if self.match_template_color(DUNGEON_ENTER_CHECKED):
+                logger.info("Forgotten hall dungeon entered")
+                break
+            joystick.handle_map_run()
 
     def _use_technique(self, count: int, remains: int, joystick: MapControlJoystick, skip_first_screenshot=True):
         while 1:
@@ -42,8 +52,8 @@ class UseTechniqueUI(UI):
                 self.device.screenshot()
 
             remains_after = joystick.map_get_technique_points()
-            logger.info(f"{remains - remains_after} techniques used")
             if remains - remains_after >= count:
+                logger.info(f"{remains - remains_after} techniques used")
                 break
             joystick.handle_map_E()
 
@@ -74,7 +84,7 @@ class UseTechniqueUI(UI):
             logger.info("Remains less than needed. Go to forgotten hall to charge")
             forgotten_hall.stage_goto(KEYWORDS_DUNGEON_LIST.The_Last_Vestiges_of_Towering_Citadel,
                                       KEYWORDS_FORGOTTEN_HALL_STAGE.Stage_1)
-            self._enter_forgotten_hall_dungeon()
+            self._enter_forgotten_hall_dungeon(joystick=joystick)
             self._use_technique(count, 5, joystick, skip_first_screenshot)
             forgotten_hall.exit_dungeon()
             self.ui_goto_main()

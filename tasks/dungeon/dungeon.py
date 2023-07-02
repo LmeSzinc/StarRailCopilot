@@ -17,7 +17,7 @@ class Dungeon(DungeonUI, Combat):
             self.config.Scheduler_Enable = False
             self.config.task_stop()
 
-        self.combat(team)
+        self.combat(team,use_support=self.config.Dungeon_Support)
 
         # Scheduler
         # Recover 1 trailbaze power each 6 minutes

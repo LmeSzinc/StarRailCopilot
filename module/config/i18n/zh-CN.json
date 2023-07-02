@@ -218,6 +218,12 @@
       "4": "4",
       "5": "5",
       "6": "6"
+    },
+    "Support": {
+      "name": "启用好友支援",
+      "help": "是否启用好友支援",
+      "False": "False",
+      "True": "True"
     }
   },
   "Assignment": {

@@ -2,15 +2,17 @@ from module.logger import logger
 from tasks.base.assets.assets_base_page import CLOSE
 from tasks.combat.assets.assets_combat_finish import COMBAT_AGAIN, COMBAT_EXIT
 from tasks.combat.assets.assets_combat_prepare import COMBAT_PREPARE
-from tasks.combat.assets.assets_combat_team import COMBAT_TEAM_PREPARE
+from tasks.combat.assets.assets_combat_team import COMBAT_TEAM_PREPARE, COMBAT_TEAM_SUPPORT, COMBAT_TEAM_DISMISSSUPPORT
+from tasks.combat.assets.assets_combat_support import COMBAT_SUPPORT_ADD, COMBAT_SUPPORT_LIST
 from tasks.combat.interact import CombatInteract
 from tasks.combat.prepare import CombatPrepare
 from tasks.combat.state import CombatState
 from tasks.combat.team import CombatTeam
+from tasks.combat.support import CombatSupport
 from tasks.map.control.joystick import MapControlJoystick
 
 
-class Combat(CombatInteract, CombatPrepare, CombatState, CombatTeam, MapControlJoystick):
+class Combat(CombatInteract, CombatPrepare, CombatState, CombatTeam, CombatSupport, MapControlJoystick):
     def handle_combat_prepare(self):
         """
         Pages:
@@ -36,12 +38,12 @@ class Combat(CombatInteract, CombatPrepare, CombatState, CombatTeam, MapControlJ
                 return True
 
         return False
-
-    def combat_prepare(self, team=1):
+    
+    def combat_prepare(self, team=1, use_support=False):
         """
         Args:
             team: 1 to 6.
-
+            use_support: True if use support
         Returns:
             bool: True if success to enter combat
                 False if trialblaze power is not enough
@@ -61,10 +63,15 @@ class Combat(CombatInteract, CombatPrepare, CombatState, CombatTeam, MapControlJ
             # End
             if self.is_combat_executing():
                 return True
-
+            
             # Click
-            if self.appear(COMBAT_TEAM_PREPARE, interval=2):
+            if self.appear(COMBAT_TEAM_PREPARE, interval=3):
                 self.team_set(team)
+                continue
+            if use_support and self.appear(COMBAT_TEAM_SUPPORT, interval=2):
+                self.support_set()
+                continue
+            if self.appear(COMBAT_TEAM_PREPARE, interval=2):
                 self.device.click(COMBAT_TEAM_PREPARE)
                 self.interval_reset(COMBAT_TEAM_PREPARE)
                 continue
@@ -201,7 +208,7 @@ class Combat(CombatInteract, CombatPrepare, CombatState, CombatTeam, MapControlJ
                 self.device.click(COMBAT_EXIT)
                 continue
 
-    def combat(self, team: int = 1, skip_first_screenshot=True):
+    def combat(self, team: int = 1, skip_first_screenshot=True, use_support=True):
         """
         Combat until trailblaze power runs out.
 
@@ -220,7 +227,7 @@ class Combat(CombatInteract, CombatPrepare, CombatState, CombatTeam, MapControlJ
         while 1:
             logger.hr('Combat', level=2)
             # Prepare
-            prepare = self.combat_prepare(team)
+            prepare = self.combat_prepare(team, use_support)
             if not prepare:
                 self.combat_exit()
                 break

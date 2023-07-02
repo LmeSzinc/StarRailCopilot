@@ -41,7 +41,8 @@
     },
     "Dungeon": {
       "Name": "Calyx_Golden_Memories",
-      "Team": 1
+      "Team": 1,
+      "Support": false
     }
   },
   "DailyQuest": {

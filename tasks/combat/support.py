@@ -32,7 +32,7 @@ class SupportCharacters():
         Returns:
             ButtonWrapper: Character button
         """
-        return self.support_list.get(self.name)
+        return self.support_list.get(name)
                 
 support_characters = SupportCharacters()
 

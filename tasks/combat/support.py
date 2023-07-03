@@ -10,14 +10,11 @@ from tasks.combat.assets.assets_combat_team import COMBAT_TEAM_PREPARE, COMBAT_T
 from tasks.combat.assets.assets_combat_support import COMBAT_SUPPORT_ADD, COMBAT_SUPPORT_LIST, COMBAT_SUPPORT_LIST_SCROLL, COMBAT_SUPPORT_LIST_GRID
 from tasks.combat.assets.assets_combat_support_character_list import *
 
-Characters = {}
 
-class SupportCharacter():
+class SupportCharacters():
     
-    def __init__(self, name:str):
-        self.name = name
+    def __init__(self):
         self.support_list = self._genetate_support_list()
-        self.button = self._get_character_by_name()
         
     def _genetate_support_list(self):
         character_name_list = ["ASTA", "BAILU", "BRONYA", "CLARA", "DAN_HENG", "GEPARD", "HIMEKO", "JING_YUAN", "LUOCHA", "MARCH_7TH", "SAMPO", "SEELE", "SILVER_WOLF", "SUSHANG", "TINGYUN", "TRAILBLAZER_FIRE", "TRAILBLAZER_PHYSICAL", "WELT", "YANGQING"]
@@ -27,7 +24,7 @@ class SupportCharacter():
                 Characters[character] = obj
         return Characters
     
-    def _get_character_by_name(self):
+    def get_character_by_name(self, name:str):
         """
         Args:
             name (str): Character name
@@ -37,6 +34,8 @@ class SupportCharacter():
         """
         return self.support_list.get(self.name)
                 
+support_characters = SupportCharacters()
+
 
 class SupportListScroll(Scroll):
     
@@ -84,8 +83,7 @@ class CombatSupport(UI):
             out: COMBAT_PREPARE
         """
         logger.hr('Combat support')
-        support_character = SupportCharacter(support_character_name)
-        CHARACTER:ButtonWrapper=support_character.button
+        CHARACTER:ButtonWrapper=support_characters.get_character_by_name(support_character_name)
         skip_first_screenshot = True
         while 1:
             if skip_first_screenshot:

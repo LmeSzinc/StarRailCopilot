@@ -9,7 +9,7 @@ Scheduler:
   NextRun: 2020-01-01 00:00:00
   Command: Alas
   ServerUpdate:
-    value: 00:00
+    value: 04:00
     display: hide
 Emulator:
   Serial:
@@ -67,7 +67,7 @@ Optimization:
     value: goto_main
     option: [ stay_there, goto_main, close_game ]
 
-# ==================== Farm ====================
+# ==================== Daily ====================
 
 Dungeon:
   Name:
@@ -78,8 +78,20 @@ Dungeon:
     value: 1
     option: [ 1, 2, 3, 4, 5, 6 ]
 
-# ==================== Daily ====================
-
-
-# ==================== Tools ====================
-
+Assignment:
+  Duration:
+    value: 20
+    option: [4, 8, 12, 20]
+  # Options in Name_x will be injected in config updater
+  Name_1:
+    value: Nameless_Land_Nameless_People
+    option: [Nameless_Land_Nameless_People, ] 
+  Name_2:
+    value: Akashic_Records
+    option: [Nameless_Land_Nameless_People, ] 
+  Name_3:
+    value: The_Invisible_Hand
+    option: [Nameless_Land_Nameless_People, ] 
+  Name_4:
+    value: Nine_Billion_Names
+    option: [Nameless_Land_Nameless_People, ] 

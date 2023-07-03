@@ -25,3 +25,10 @@ Daily:
     Dungeon:
       - Scheduler
       - Dungeon
+    DailyQuest:
+      - Scheduler
+    BattlePass:
+      - Scheduler
+    Assignment:
+      - Scheduler
+      - Assignment

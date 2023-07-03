@@ -1,7 +1,8 @@
+import re
 import time
+from datetime import timedelta
 
 import cv2
-import re
 from ppocronnx.predict_system import BoxedResult
 
 import module.config.server as server
@@ -51,7 +52,8 @@ class OcrResultButton:
         self.text = boxed_result.ocr_text
         self.score = boxed_result.score
 
-    def match_keyword(self, ocr_text, keyword_classes):
+    @staticmethod
+    def match_keyword(ocr_text, keyword_classes):
         """
         Args:
             ocr_text (str):
@@ -95,7 +97,7 @@ class Ocr:
 
     def __init__(self, button: ButtonWrapper, lang=None, name=None):
         self.button: ButtonWrapper = button
-        self.lang: str = lang if lang is not None else Ocr.server2lang()
+        self._lang = lang
         self.name: str = name if name is not None else button.name
 
     @classmethod
@@ -107,6 +109,10 @@ class Ocr:
                 return 'ch'
             case _:
                 return 'ch'
+
+    @cached_property
+    def lang(self) -> str:
+        return self._lang if self._lang is not None else Ocr.server2lang()
 
     @cached_property
     def model(self) -> TextSystem:
@@ -153,6 +159,20 @@ class Ocr:
         logger.attr(name='%s %ss' % (self.name, float2str(time.time() - start_time)),
                     text=str(result))
         return result
+
+    def ocr_multi_lines(self, image_list):
+        # pre process
+        start_time = time.time()
+        image_list = [self.pre_process(image) for image in image_list]
+        # ocr
+        result_list = self.model.ocr_lines(image_list)
+        result_list = [(result, score) for result, score in result_list]
+        # after process
+        result_list = [(self.after_process(result), score) for result, score in result_list]
+        result_list = [(self.format_result(result), score) for result, score in result_list]
+        logger.attr(name="%s %ss" % (self.name, float2str(time.time() - start_time)),
+                    text=str([result for result, _ in result_list]))
+        return result_list
 
     def detect_and_ocr(self, image, direct_ocr=False) -> list[BoxedResult]:
         """
@@ -258,3 +278,34 @@ class DigitCounter(Ocr):
         else:
             logger.warning(f'No digit counter found in {result}')
             return 0, 0, 0
+
+
+class Duration(Ocr):
+    @cached_property
+    def timedelta_regex(self):
+        regex_str = {
+            'ch': r'\D*((?P<hours>\d{1,2})小时)?((?P<minutes>\d{1,2})分钟)?((?P<seconds>\d{1,2})秒})?',
+            'en': r'\D*((?P<hours>\d{1,2})h\s*)?((?P<minutes>\d{1,2})m\s*)?((?P<seconds>\d{1,2})s)?'
+        }[self.lang]
+        return re.compile(regex_str)
+
+    def format_result(self, result: str) -> timedelta:
+        """
+        Do OCR on a duration, such as `2h 13m 30s`, `2h`, `13m 30s`, `9s`
+
+        Returns:
+            timedelta:
+        """
+        matched = self.timedelta_regex.match(result)
+        if matched is None:
+            return timedelta()
+        hours = self._sanitize_number(matched.group('hours'))
+        minutes = self._sanitize_number(matched.group('minutes'))
+        seconds = self._sanitize_number(matched.group('seconds'))
+        return timedelta(hours=hours, minutes=minutes, seconds=seconds)
+
+    @staticmethod
+    def _sanitize_number(number) -> int:
+        if number is None:
+            return 0
+        return int(number)

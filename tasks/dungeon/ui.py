@@ -1,5 +1,6 @@
 import numpy as np
 
+from module.base.base import ModuleBase
 from module.base.button import ClickButton
 from module.base.timer import Timer
 from module.base.utils import get_color
@@ -8,6 +9,7 @@ from module.ocr.ocr import Ocr, OcrResultButton
 from module.ocr.utils import split_and_pair_button_attr
 from module.ui.draggable_list import DraggableList
 from module.ui.switch import Switch
+from tasks.base.assets.assets_base_page import FORGOTTEN_HALL_CHECK
 from tasks.base.page import page_guide
 from tasks.base.ui import UI
 from tasks.combat.assets.assets_combat_prepare import COMBAT_PREPARE
@@ -58,6 +60,7 @@ class OcrDungeonNav(Ocr):
         result = super().after_process(result)
         if self.lang == 'ch':
             result = result.replace('萼喜', '萼')
+            result = result.replace('带', '滞')  # 凝带虚影
         return result
 
 
@@ -71,9 +74,28 @@ class OcrDungeonListLimitEntrance(OcrDungeonList):
         self.button = ClickButton((*self.button.area[:3], self.button.area[3] - 70))
 
 
+class DraggableDungeonList(DraggableList):
+    teleports: list[OcrResultButton] = []
+    navigates: list[OcrResultButton] = []
+
+    def load_rows(self, main: ModuleBase):
+        super().load_rows(main=main)
+        # Replace dungeon.button with teleport
+        self.teleports = list(split_and_pair_button_attr(
+            DUNGEON_LIST.cur_buttons,
+            split_func=lambda x: x != KEYWORDS_DUNGEON_ENTRANCE.Teleport,
+            relative_area=(0, 0, 1280, 120)
+        ))
+        self.navigates = list(split_and_pair_button_attr(
+            DUNGEON_LIST.cur_buttons,
+            split_func=lambda x: x != KEYWORDS_DUNGEON_ENTRANCE.Navigate,
+            relative_area=(0, 0, 1280, 120)
+        ))
+
+
 DUNGEON_NAV_LIST = DraggableList(
     'DungeonNavList', keyword_class=DungeonNav, ocr_class=OcrDungeonNav, search_button=OCR_DUNGEON_NAV)
-DUNGEON_LIST = DraggableList(
+DUNGEON_LIST = DraggableDungeonList(
     'DungeonList', keyword_class=[DungeonList, DungeonEntrance],
     ocr_class=OcrDungeonList, search_button=OCR_DUNGEON_LIST)
 
@@ -142,12 +164,7 @@ class DungeonUI(UI):
         # Insight dungeon
         DUNGEON_LIST.insight_row(dungeon, main=self)
         # Check if dungeon unlocked
-        navigates = split_and_pair_button_attr(
-            DUNGEON_LIST.cur_buttons,
-            split_func=lambda x: x == KEYWORDS_DUNGEON_ENTRANCE.Navigate,
-            relative_area=(0, 0, 1280, 120)
-        )
-        for entrance in navigates:
+        for entrance in DUNGEON_LIST.navigates:
             entrance: OcrResultButton = entrance
             logger.warning(f'Teleport {entrance.matched_keyword} is not unlocked')
             if entrance == dungeon:
@@ -155,44 +172,31 @@ class DungeonUI(UI):
                 return False
 
         # Find teleport button
-        teleports = list(split_and_pair_button_attr(
-            DUNGEON_LIST.cur_buttons,
-            split_func=lambda x: x != KEYWORDS_DUNGEON_ENTRANCE.Teleport,
-            relative_area=(0, 0, 1280, 120)
-        ))
-        if dungeon not in [tp.matched_keyword for tp in teleports]:
+        if dungeon not in [tp.matched_keyword for tp in DUNGEON_LIST.teleports]:
             # Dungeon name is insight but teleport button is not
             logger.info('Dungeon name is insight, swipe down a little bit to find the teleport button')
-            DUNGEON_LIST.drag_vector = (0.2, 0.4)
+            if dungeon.is_Forgotten_Hall:
+                DUNGEON_LIST.drag_vector = (-0.4, -0.2)  # Keyword loaded is reversed
+            else:
+                DUNGEON_LIST.drag_vector = (0.2, 0.4)
             DUNGEON_LIST.ocr_class = OcrDungeonListLimitEntrance
             DUNGEON_LIST.insight_row(dungeon, main=self)
             DUNGEON_LIST.drag_vector = DraggableList.drag_vector
             DUNGEON_LIST.ocr_class = OcrDungeonList
             DUNGEON_LIST.load_rows(main=self)
             # Check if dungeon unlocked
-            navigates = split_and_pair_button_attr(
-                DUNGEON_LIST.cur_buttons,
-                split_func=lambda x: x == KEYWORDS_DUNGEON_ENTRANCE.Navigate,
-                relative_area=(0, 0, 1280, 120)
-            )
-            for entrance in navigates:
+            for entrance in DUNGEON_LIST.navigates:
                 if entrance == dungeon:
                     logger.error(f'Trying to enter dungeon {dungeon}, but teleport is not unlocked')
                     return False
-            # Replace dungeon.button with teleport
-            _ = list(split_and_pair_button_attr(
-                DUNGEON_LIST.cur_buttons,
-                split_func=lambda x: x != KEYWORDS_DUNGEON_ENTRANCE.Teleport,
-                relative_area=(0, 0, 1280, 120)
-            ))
 
         return True
 
-    def _dungeon_enter(self, dungeon, skip_first_screenshot=True):
+    def _dungeon_enter(self, dungeon, enter_check_button=COMBAT_PREPARE, skip_first_screenshot=True):
         """
         Pages:
             in: page_guide, Survival_Index, nav including dungeon
-            out: COMBAT_PREPARE
+            out: COMBAT_PREPARE, FORGOTTEN_HALL_CHECK
         """
         logger.hr('Dungeon enter', level=2)
         skip_first_load = True
@@ -203,8 +207,8 @@ class DungeonUI(UI):
                 self.device.screenshot()
 
             # End
-            if self.appear(COMBAT_PREPARE):
-                logger.info('Arrive COMBAT_PREPARE')
+            if self.appear(enter_check_button):
+                logger.info(f'Arrive {enter_check_button.name}')
                 break
 
             # Additional
@@ -261,6 +265,21 @@ class DungeonUI(UI):
             DUNGEON_NAV_LIST.select_row(KEYWORDS_DUNGEON_NAV.Calyx_Crimson, main=self)
             self._dungeon_insight(dungeon)
             self._dungeon_enter(dungeon)
+            return True
+        if dungeon.is_Stagnant_Shadow:
+            DUNGEON_NAV_LIST.select_row(KEYWORDS_DUNGEON_NAV.Stagnant_Shadow, main=self)
+            self._dungeon_insight(dungeon)
+            self._dungeon_enter(dungeon)
+            return True
+        if dungeon.is_Cavern_of_Corrosion:
+            DUNGEON_NAV_LIST.select_row(KEYWORDS_DUNGEON_NAV.Cavern_of_Corrosion, main=self)
+            self._dungeon_insight(dungeon)
+            self._dungeon_enter(dungeon)
+            return True
+        if dungeon.is_Forgotten_Hall:
+            DUNGEON_NAV_LIST.select_row(KEYWORDS_DUNGEON_NAV.Forgotten_Hall, main=self)
+            self._dungeon_insight(dungeon)
+            self._dungeon_enter(dungeon, enter_check_button=FORGOTTEN_HALL_CHECK)
             return True
 
         logger.error(f'Goto dungeon {dungeon} is not supported')

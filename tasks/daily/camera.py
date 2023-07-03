@@ -1,6 +1,6 @@
 from module.logger import logger
 from tasks.base.assets.assets_base_page import CLOSE
-from tasks.base.page import page_camera, page_main
+from tasks.base.page import page_camera
 from tasks.base.ui import UI
 from tasks.daily.assets.assets_daily_camera import PICTURE_TAKEN, TAKE_PICTURE
 
@@ -17,6 +17,7 @@ class CameraUI(UI):
             in: Any
             out: page_camera, TAKE_PICTURE
         """
+        logger.hr('Take picture', level=2)
         self.ui_ensure(page_camera, skip_first_screenshot)
         # Take picture
         skip_first_screenshot = True
@@ -38,7 +39,7 @@ class CameraUI(UI):
                 skip_first_screenshot = False
             else:
                 self.device.screenshot()
-            if self.appear(page_main.check_button):
+            if self.is_in_main():
                 logger.info('Back to camera main page')
                 break
             if self.appear(PICTURE_TAKEN, interval=1):

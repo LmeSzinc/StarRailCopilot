@@ -6,7 +6,7 @@ from typing import ClassVar
 from module.exception import ScriptError
 import module.config.server as server
 
-REGEX_PUNCTUATION = re.compile(r'[ ,.\'"，。·•\-—/\\\n\t()（）「」『』【】]')
+REGEX_PUNCTUATION = re.compile(r'[ ,.\'"“”，。·•\-—/\\\n\t()（）「」『』【】]')
 
 
 def parse_name(n):
@@ -26,6 +26,9 @@ class Keyword:
     """
     Instance attributes and methods
     """
+    @cached_property
+    def ch(self) -> str:
+        return self.cn
 
     @cached_property
     def cn_parsed(self) -> str:

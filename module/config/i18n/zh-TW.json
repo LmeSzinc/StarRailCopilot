@@ -21,6 +21,18 @@
     "Dungeon": {
       "name": "每日副本",
       "help": ""
+    },
+    "DailyQuest": {
+      "name": "每日任務",
+      "help": ""
+    },
+    "BattlePass": {
+      "name": "無名勳禮",
+      "help": ""
+    },
+    "Assignment": {
+      "name": "委託設置",
+      "help": ""
     }
   },
   "Scheduler": {
@@ -171,31 +183,31 @@
     "Name": {
       "name": "副本名稱",
       "help": "",
-      "Calyx_Golden_Memories": "回憶之蕾•擬造花萼（金）",
-      "Calyx_Golden_Aether": "乙太之蕾•擬造花萼（金）",
-      "Calyx_Golden_Treasures": "藏珍之蕾•擬造花萼（金）",
-      "Calyx_Crimson_Destruction": "毀滅之蕾•擬造花萼（赤）",
-      "Calyx_Crimson_Preservation": "存護之蕾•擬造花萼（赤）",
-      "Calyx_Crimson_Calyx_Crimson_Hunt": "巡獵之蕾•擬造花萼（赤）",
-      "Calyx_Crimson_Abundance": "豐饒之蕾•擬造花萼（赤）",
-      "Calyx_Crimson_Erudition": "智識之蕾•擬造花萼（赤）",
-      "Calyx_Crimson_Harmony": "同諧之蕾•擬造花萼（赤）",
-      "Calyx_Crimson_Nihility": "虛無之蕾•擬造花萼（赤）",
-      "Stagnant_Shadow_Quanta": "空海之形•凝滯虛影",
-      "Stagnant_Shadow_Gust": "巽風之形•凝滯虛影",
-      "Stagnant_Shadow_Fulmination": "鳴雷之形•凝滯虛影",
-      "Stagnant_Shadow_Blaze": "炎華之形•凝滯虛影",
-      "Stagnant_Shadow_Spike": "鋒芒之形•凝滯虛影",
-      "Stagnant_Shadow_Rime": "霜晶之形•凝滯虛影",
-      "Stagnant_Shadow_Mirage": "幻光之形•凝滯虛影",
-      "Stagnant_Shadow_Icicle": "冰稜之形•凝滯虛影",
-      "Stagnant_Shadow_Doom": "震厄之形•凝滯虛影",
-      "Cavern_of_Corrosion_Path_of_Gelid_Wind": "霜風之徑•侵蝕隧洞",
-      "Cavern_of_Corrosion_Path_of_Jabbing_Punch": "迅拳之徑•侵蝕隧洞",
-      "Cavern_of_Corrosion_Path_of_Drifting": "漂泊之徑•侵蝕隧洞",
-      "Cavern_of_Corrosion_Path_of_Providence": "睿治之徑•侵蝕隧洞",
-      "Cavern_of_Corrosion_Path_of_Holy_Hymn": "聖頌之徑•侵蝕隧洞",
-      "Cavern_of_Corrosion_Path_of_Conflagration": "野焰之徑•侵蝕隧洞"
+      "Calyx_Golden_Memories": "材料：角色經驗（回憶之蕾•擬造花萼金）",
+      "Calyx_Golden_Aether": "材料：武器經驗（乙太之蕾•擬造花萼金）",
+      "Calyx_Golden_Treasures": "材料：信用點（藏珍之蕾•擬造花萼金）",
+      "Calyx_Crimson_Destruction": "行跡材料：毀滅（毀滅之蕾•擬造花萼赤）",
+      "Calyx_Crimson_Preservation": "行跡材料：存護（存護之蕾•擬造花萼赤）",
+      "Calyx_Crimson_Hunt": "行跡材料：巡獵（存護之蕾•擬造花萼赤）",
+      "Calyx_Crimson_Abundance": "行跡材料：豐饒（豐饒之蕾•擬造花萼赤）",
+      "Calyx_Crimson_Erudition": "行跡材料：智識（智識之蕾•擬造花萼赤）",
+      "Calyx_Crimson_Harmony": "行跡材料：同諧（同諧之蕾•擬造花萼赤）",
+      "Calyx_Crimson_Nihility": "行跡材料：虛無（虛無之蕾•擬造花萼赤）",
+      "Stagnant_Shadow_Quanta": "角色晉階材料：量子（空海之形•凝滯虛影）",
+      "Stagnant_Shadow_Gust": "角色晉階材料：風（巽風之形•凝滯虛影）",
+      "Stagnant_Shadow_Fulmination": "角色晉階材料：雷（鳴雷之形•凝滯虛影）",
+      "Stagnant_Shadow_Blaze": "角色晉階材料：火（炎華之形•凝滯虛影）",
+      "Stagnant_Shadow_Spike": "角色晉階材料：物理（鋒芒之形•凝滯虛影）",
+      "Stagnant_Shadow_Rime": "角色晉階材料：冰（霜晶之形•凝滯虛影）",
+      "Stagnant_Shadow_Mirage": "角色晉階材料：虛數（幻光之形•凝滯虛影）",
+      "Stagnant_Shadow_Icicle": "角色晉階材料：冰（冰稜之形•凝滯虛影）",
+      "Stagnant_Shadow_Doom": "角色晉階材料：雷（震厄之形•凝滯虛影）",
+      "Cavern_of_Corrosion_Path_of_Gelid_Wind": "遺器：冰套+風套（霜風之徑•侵蝕隧洞）",
+      "Cavern_of_Corrosion_Path_of_Jabbing_Punch": "遺器：物理套+擊破套（迅拳之徑•侵蝕隧洞）",
+      "Cavern_of_Corrosion_Path_of_Drifting": "遺器：治療套+快槍手（漂泊之徑•侵蝕隧洞）",
+      "Cavern_of_Corrosion_Path_of_Providence": "遺器：鐵衛套+量子套（睿治之徑•侵蝕隧洞）",
+      "Cavern_of_Corrosion_Path_of_Holy_Hymn": "遺器：防禦套+雷套（聖頌之徑•侵蝕隧洞）",
+      "Cavern_of_Corrosion_Path_of_Conflagration": "遺器：火套+虛數套（野焰之徑•侵蝕隧洞）"
     },
     "Team": {
       "name": "打本隊伍",
@@ -206,6 +218,88 @@
       "4": "4",
       "5": "5",
       "6": "6"
+    }
+  },
+  "Assignment": {
+    "_info": {
+      "name": "委託設置",
+      "help": "領取獎勵並派遣，優先處理指定委託\n若處理指定委託之後未達到上限，則按經驗材料 → 角色專屬素材 → 合成材料的順序來派遣委託"
+    },
+    "Duration": {
+      "name": "派遣時間",
+      "help": "",
+      "4": "4",
+      "8": "8",
+      "12": "12",
+      "20": "20"
+    },
+    "Name_1": {
+      "name": "第1個委託選擇",
+      "help": "",
+      "Nine_Billion_Names": "熄滅原核（九十億個名字）",
+      "Destruction_of_the_Destroyer": "掠奪的本能（毀滅者的覆滅）",
+      "Winter_Soldiers": "鐵衛扣飾（寒冬的戰士們）",
+      "Born_to_Obey": "古代零件（生而服從）",
+      "Root_Out_the_Turpitude": "永壽幼芽（根除惡孽）",
+      "Fire_Lord_Inflames_Blades_of_War": "工造機杼（火帝動爐銷劍戟）",
+      "Nameless_Land_Nameless_People": "角色經驗材料（無名之地，無名之人）",
+      "Akashic_Records": "光錐強化材料（阿卡夏記錄）",
+      "The_Invisible_Hand": "信用點（看不見的手）",
+      "Abandoned_and_Insulted": "燃素&金屬（被廢棄與損害的）",
+      "Spring_of_Life": "虛粒子&固態淨水（生命之泉）",
+      "The_Land_of_Gold": "蛋白米&基本食材（黃金大地）",
+      "The_Blossom_in_the_Storm": "氣態流體&種子（風暴中怒放的花）"
+    },
+    "Name_2": {
+      "name": "第2個委託選擇",
+      "help": "",
+      "Nine_Billion_Names": "熄滅原核（九十億個名字）",
+      "Destruction_of_the_Destroyer": "掠奪的本能（毀滅者的覆滅）",
+      "Winter_Soldiers": "鐵衛扣飾（寒冬的戰士們）",
+      "Born_to_Obey": "古代零件（生而服從）",
+      "Root_Out_the_Turpitude": "永壽幼芽（根除惡孽）",
+      "Fire_Lord_Inflames_Blades_of_War": "工造機杼（火帝動爐銷劍戟）",
+      "Nameless_Land_Nameless_People": "角色經驗材料（無名之地，無名之人）",
+      "Akashic_Records": "光錐強化材料（阿卡夏記錄）",
+      "The_Invisible_Hand": "信用點（看不見的手）",
+      "Abandoned_and_Insulted": "燃素&金屬（被廢棄與損害的）",
+      "Spring_of_Life": "虛粒子&固態淨水（生命之泉）",
+      "The_Land_of_Gold": "蛋白米&基本食材（黃金大地）",
+      "The_Blossom_in_the_Storm": "氣態流體&種子（風暴中怒放的花）"
+    },
+    "Name_3": {
+      "name": "第3個委託選擇",
+      "help": "",
+      "Nine_Billion_Names": "熄滅原核（九十億個名字）",
+      "Destruction_of_the_Destroyer": "掠奪的本能（毀滅者的覆滅）",
+      "Winter_Soldiers": "鐵衛扣飾（寒冬的戰士們）",
+      "Born_to_Obey": "古代零件（生而服從）",
+      "Root_Out_the_Turpitude": "永壽幼芽（根除惡孽）",
+      "Fire_Lord_Inflames_Blades_of_War": "工造機杼（火帝動爐銷劍戟）",
+      "Nameless_Land_Nameless_People": "角色經驗材料（無名之地，無名之人）",
+      "Akashic_Records": "光錐強化材料（阿卡夏記錄）",
+      "The_Invisible_Hand": "信用點（看不見的手）",
+      "Abandoned_and_Insulted": "燃素&金屬（被廢棄與損害的）",
+      "Spring_of_Life": "虛粒子&固態淨水（生命之泉）",
+      "The_Land_of_Gold": "蛋白米&基本食材（黃金大地）",
+      "The_Blossom_in_the_Storm": "氣態流體&種子（風暴中怒放的花）"
+    },
+    "Name_4": {
+      "name": "第4個委託選擇",
+      "help": "",
+      "Nine_Billion_Names": "熄滅原核（九十億個名字）",
+      "Destruction_of_the_Destroyer": "掠奪的本能（毀滅者的覆滅）",
+      "Winter_Soldiers": "鐵衛扣飾（寒冬的戰士們）",
+      "Born_to_Obey": "古代零件（生而服從）",
+      "Root_Out_the_Turpitude": "永壽幼芽（根除惡孽）",
+      "Fire_Lord_Inflames_Blades_of_War": "工造機杼（火帝動爐銷劍戟）",
+      "Nameless_Land_Nameless_People": "角色經驗材料（無名之地，無名之人）",
+      "Akashic_Records": "光錐強化材料（阿卡夏記錄）",
+      "The_Invisible_Hand": "信用點（看不見的手）",
+      "Abandoned_and_Insulted": "燃素&金屬（被廢棄與損害的）",
+      "Spring_of_Life": "虛粒子&固態淨水（生命之泉）",
+      "The_Land_of_Gold": "蛋白米&基本食材（黃金大地）",
+      "The_Blossom_in_the_Storm": "氣態流體&種子（風暴中怒放的花）"
     }
   },
   "Gui": {

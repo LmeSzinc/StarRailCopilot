@@ -28,12 +28,16 @@ class DraggableList:
             keyword_class,
             ocr_class,
             search_button: ButtonWrapper,
+            check_row_order: bool = True,
+            active_color: tuple[int, int, int] = (190, 175, 124),
+            drag_direction: str = "down"
     ):
         """
         Args:
             name:
             keyword_class: Keyword
             search_button:
+            drag_direction: Default drag direction to higher index
         """
         self.name = name
         self.keyword_class = keyword_class
@@ -42,6 +46,9 @@ class DraggableList:
             keyword_class = keyword_class[0]
         self.known_rows = list(keyword_class.instances.values())
         self.search_button = search_button
+        self.check_row_order = check_row_order
+        self.active_color = active_color
+        self.drag_direction = drag_direction
 
         self.row_min = 1
         self.row_max = len(self.known_rows)
@@ -83,12 +90,14 @@ class DraggableList:
         self.cur_buttons = self.ocr_class(self.search_button) \
             .matched_ocr(main.device.image, self.keyword_class)
         # Get indexes
-        indexes = [self.keyword2index(row.matched_keyword) for row in self.cur_buttons]
+        indexes = [self.keyword2index(row.matched_keyword)
+                   for row in self.cur_buttons]
         indexes = [index for index in indexes if index]
         # Check row order
-        if len(indexes) >= 2:
+        if self.check_row_order and len(indexes) >= 2:
             if not np.all(np.diff(indexes) > 0):
-                logger.warning(f'Rows given to {self} are not ascending sorted')
+                logger.warning(
+                    f'Rows given to {self} are not ascending sorted')
         if not indexes:
             logger.warning(f'No valid rows loaded into {self}')
             return
@@ -123,6 +132,16 @@ class DraggableList:
         p1, p2 = random_rectangle_vector_opted(vector, box=self.search_button.button)
         main.device.drag(p1, p2, name=f'{self.name}_DRAG')
 
+    def reverse_direction(self, direction):
+        if direction == 'up':
+            return 'down'
+        if direction == 'down':
+            return 'up'
+        if direction == 'left':
+            return 'right'
+        if direction == 'right':
+            return 'left'
+
     def insight_row(self, row: Keyword, main: ModuleBase, skip_first_screenshot=True) -> bool:
         """
         Args:
@@ -153,55 +172,78 @@ class DraggableList:
 
             # Drag pages
             if row_index < self.cur_min:
-                self.drag_page('up', main=main)
+                self.drag_page(self.reverse_direction(self.drag_direction), main=main)
             elif self.cur_max < row_index:
-                self.drag_page('down', main=main)
+                self.drag_page(self.drag_direction, main=main)
+
             # Wait for bottoming out
-            main.wait_until_stable(self.search_button, timer=Timer(0, count=0), timeout=Timer(1.5, count=5))
+            main.wait_until_stable(self.search_button, timer=Timer(
+                0, count=0), timeout=Timer(1.5, count=5))
             skip_first_screenshot = True
 
         return True
 
-    def is_row_selected(self, row: Keyword, main: ModuleBase) -> bool:
-        button = self.keyword2button(row)
-        if not button:
-            return False
-
+    def is_row_selected(self, button: OcrResultButton, main: ModuleBase) -> bool:
         # Having gold letters
-        if main.image_color_count(button, color=(190, 175, 124), threshold=221, count=50):
+        if main.image_color_count(button, color=self.active_color, threshold=221, count=50):
             return True
 
         return False
 
-    def select_row(self, row: Keyword, main: ModuleBase, skip_first_screenshot=True):
+    def get_selected_row(self, main: ModuleBase) -> Optional[OcrResultButton]:
+        """
+        `load_rows()` must be called before `get_selected_row()`.
+        """
+        for row in self.cur_buttons:
+            if self.is_row_selected(row, main=main):
+                return row
+        return None
+
+    def select_row(self, row: Keyword, main: ModuleBase, insight=True, skip_first_screenshot=True):
         """
         Args:
             row:
             main:
+            insight: If call `insight_row()` before selecting
             skip_first_screenshot:
 
         Returns:
             If success
         """
-        result = self.insight_row(row, main=main, skip_first_screenshot=skip_first_screenshot)
-        if not result:
-            return False
+        if insight:
+            result = self.insight_row(
+                row, main=main, skip_first_screenshot=skip_first_screenshot)
+            if not result:
+                return False
 
         logger.info(f'Select row: {row}')
         skip_first_screenshot = True
         interval = Timer(5)
+        skip_first_load_rows = True
+        load_rows_interval = Timer(1)
         while 1:
             if skip_first_screenshot:
                 skip_first_screenshot = False
             else:
                 main.device.screenshot()
 
+            if skip_first_load_rows:
+                skip_first_load_rows = False
+            else:
+                if load_rows_interval.reached():
+                    self.load_rows(main=main)
+                    load_rows_interval.reset()
+
+            button = self.keyword2button(row)
+            if not button:
+                return False
+
             # End
-            if self.is_row_selected(row, main=main):
+            if self.is_row_selected(button, main=main):
                 logger.info('Row selected')
-                break
+                return True
 
             # Click
             if interval.reached():
-                main.device.click(self.keyword2button(row))
+                main.device.click(button)
                 interval.reset()

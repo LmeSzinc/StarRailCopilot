@@ -111,6 +111,16 @@ page_event = Page(EVENT_CHECK)
 page_event.link(CLOSE, destination=page_main)
 page_main.link(MAIN_GOTO_EVENT, destination=page_event)
 
+# Map
+page_map = Page(MAP_CHECK)
+page_map.link(CLOSE, destination=page_main)
+page_main.link(MAIN_GOTO_MAP, destination=page_map)
+
+# page_world, subpage of map, used to choose a world/planet e.g. Herta Space Station
+page_world = Page(WORLD_CHECK)
+page_world.link(BACK, destination=page_map)
+page_map.link(MAP_GOTO_WORLD, destination=page_world)
+
 # Tutorial
 page_tutorial = Page(TUTORIAL_CHECK)
 page_tutorial.link(CLOSE, destination=page_main)
@@ -135,3 +145,12 @@ page_menu.link(MENU_GOTO_CAMERA, destination=page_camera)
 page_synthesize = Page(SYNTHESIZE_CHECK)
 page_synthesize.link(CLOSE, destination=page_menu)
 page_menu.link(MENU_GOTO_SYNTHESIZE, destination=page_synthesize)
+
+# Assignment
+page_assignment = Page(ASSIGNMENT_CHECK)
+page_assignment.link(CLOSE, destination=page_main)
+page_menu.link(MENU_GOTO_ASSIGNMENT, destination=page_assignment)
+
+# Forgotten Hall
+page_forgotten_hall = Page(FORGOTTEN_HALL_CHECK)
+page_forgotten_hall.link(CLOSE, destination=page_main)

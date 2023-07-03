@@ -1,6 +1,5 @@
 from module.logger import logger
 from tasks.base.assets.assets_base_page import CLOSE
-from tasks.base.page import page_main
 from tasks.combat.assets.assets_combat_finish import COMBAT_AGAIN, COMBAT_EXIT
 from tasks.combat.assets.assets_combat_prepare import COMBAT_PREPARE
 from tasks.combat.assets.assets_combat_team import COMBAT_TEAM_PREPARE
@@ -8,32 +7,35 @@ from tasks.combat.interact import CombatInteract
 from tasks.combat.prepare import CombatPrepare
 from tasks.combat.state import CombatState
 from tasks.combat.team import CombatTeam
+from tasks.map.control.joystick import MapControlJoystick
 
 
-class Combat(CombatInteract, CombatPrepare, CombatState, CombatTeam):
-    _combat_has_multi_wave = True
-
-    @property
-    def combat_cost(self):
-        if self._combat_has_multi_wave:
-            return 10
-        else:
-            return 30
-
+class Combat(CombatInteract, CombatPrepare, CombatState, CombatTeam, MapControlJoystick):
     def handle_combat_prepare(self):
         """
         Pages:
             in: COMBAT_PREPARE
         """
         current = self.combat_get_trailblaze_power()
-        self._combat_has_multi_wave = self.combat_has_multi_wave()
-        if self._combat_has_multi_wave:
-            wave = min(current // self.combat_cost, 6)
-            logger.info(f'Current has {current}, combat costs {self.combat_cost}, able to do {wave} waves')
+        cost = self.combat_get_wave_cost()
+        if cost == 10:
+            wave = min(current // self.combat_wave_cost, 6)
+            logger.info(f'Current has {current}, combat costs {self.combat_wave_cost}, able to do {wave} waves')
             if wave > 0:
                 self.combat_set_wave(wave)
         else:
-            logger.info(f'Current has {current}, combat costs {self.combat_cost}, do 1 wave')
+            logger.info(f'Current has {current}, combat costs {self.combat_wave_cost}, do 1 wave')
+
+    def handle_ascension_dungeon_prepare(self):
+        """
+        Returns:
+            bool: If clicked.
+        """
+        if self.combat_wave_cost == 30 and self.is_in_main():
+            if self.handle_map_A():
+                return True
+
+        return False
 
     def combat_prepare(self, team=1):
         """
@@ -61,19 +63,24 @@ class Combat(CombatInteract, CombatPrepare, CombatState, CombatTeam):
                 return True
 
             # Click
-            if self.appear(COMBAT_PREPARE, interval=2):
-                self.handle_combat_prepare()
-                if self.state.TrailblazePower < self.combat_cost:
-                    return False
-                self.device.click(COMBAT_PREPARE)
-                self.interval_reset(COMBAT_PREPARE)
-                continue
             if self.appear(COMBAT_TEAM_PREPARE, interval=2):
                 self.team_set(team)
                 self.device.click(COMBAT_TEAM_PREPARE)
                 self.interval_reset(COMBAT_TEAM_PREPARE)
                 continue
+            if self.appear(COMBAT_TEAM_PREPARE):
+                self.interval_reset(COMBAT_PREPARE)
+                self._map_A_timer.reset()
+            if self.appear(COMBAT_PREPARE, interval=2):
+                self.handle_combat_prepare()
+                if self.state.TrailblazePower < self.combat_wave_cost:
+                    return False
+                self.device.click(COMBAT_PREPARE)
+                self.interval_reset(COMBAT_PREPARE)
+                continue
             if self.handle_combat_interact():
+                continue
+            if self.handle_ascension_dungeon_prepare():
                 continue
 
     def combat_execute(self):
@@ -113,16 +120,20 @@ class Combat(CombatInteract, CombatPrepare, CombatState, CombatTeam):
             in: COMBAT_AGAIN
         """
         current = self.combat_get_trailblaze_power(expect_reduce=True)
-        if self._combat_has_multi_wave:
-            if current >= self.combat_cost * 6:
-                logger.info(f'Current has {current}, combat costs {self.combat_cost}, can run again')
+        if self.combat_wave_cost == 10:
+            if current >= self.combat_wave_cost * 6:
+                logger.info(f'Current has {current}, combat costs {self.combat_wave_cost}, can run again')
                 return True
             else:
-                logger.info(f'Current has {current}, combat costs {self.combat_cost}, can not run again')
+                logger.info(f'Current has {current}, combat costs {self.combat_wave_cost}, can not run again')
                 return False
         else:
-            logger.info(f'Current has {current}, combat costs {self.combat_cost}, no again')
-            return False
+            if current >= self.combat_wave_cost:
+                logger.info(f'Current has {current}, combat costs {self.combat_wave_cost}, can run again')
+                return True
+            else:
+                logger.info(f'Current has {current}, combat costs {self.combat_wave_cost}, can not run again')
+                return False
 
     def combat_finish(self) -> bool:
         """
@@ -143,7 +154,7 @@ class Combat(CombatInteract, CombatPrepare, CombatState, CombatTeam):
                 self.device.screenshot()
 
             # End
-            if self.appear(page_main.check_button):
+            if self.is_in_main():
                 logger.info('Combat finishes at page_main')
                 return True
             if self.is_combat_executing():
@@ -173,7 +184,7 @@ class Combat(CombatInteract, CombatPrepare, CombatState, CombatTeam):
                 self.device.screenshot()
 
             # End
-            if self.appear(page_main.check_button):
+            if self.is_in_main():
                 break
 
             # Click
@@ -217,7 +228,7 @@ class Combat(CombatInteract, CombatPrepare, CombatState, CombatTeam):
             self.combat_execute()
             # Finish
             finish = self.combat_finish()
-            if self.state.TrailblazePower >= self.combat_cost:
+            if self.state.TrailblazePower >= self.combat_wave_cost:
                 logger.info('Still having some trailblaze power run with less waves to empty it')
                 continue
             if finish:

@@ -1,7 +1,9 @@
+import module.config.server as server_
 from module.base.button import Button, ButtonWrapper, ClickButton, match_template
 from module.base.timer import Timer
 from module.base.utils import *
 from module.config.config import AzurLaneConfig
+from module.config.server import set_server, to_package
 from module.device.device import Device
 from module.logger import logger
 
@@ -209,24 +211,26 @@ class ModuleBase:
     def interval_reset(self, button, interval=5):
         if isinstance(button, (list, tuple)):
             for b in button:
-                self.interval_reset(b)
+                self.interval_reset(b, interval)
             return
 
-        if button.name in self.interval_timer:
-            self.interval_timer[button.name].reset()
-        else:
-            self.interval_timer[button.name] = Timer(interval).reset()
+        if button is not None:
+            if button.name in self.interval_timer:
+                self.interval_timer[button.name].reset()
+            else:
+                self.interval_timer[button.name] = Timer(interval).reset()
 
     def interval_clear(self, button, interval=5):
         if isinstance(button, (list, tuple)):
             for b in button:
-                self.interval_clear(b)
+                self.interval_clear(b, interval)
             return
 
-        if button.name in self.interval_timer:
-            self.interval_timer[button.name].clear()
-        else:
-            self.interval_timer[button.name] = Timer(interval).clear()
+        if button is not None:
+            if button.name in self.interval_timer:
+                self.interval_timer[button.name].clear()
+            else:
+                self.interval_timer[button.name] = Timer(interval).clear()
 
     def interval_is_reached(self, button, interval=5):
         if button.name in self.interval_timer:
@@ -256,3 +260,23 @@ class ModuleBase:
             value = load_image(value)
 
         self.device.image = value
+
+    def set_server(self, server):
+        """
+        For development.
+        Change server and  affect globally,
+        including assets and server specific methods.
+        """
+        package = to_package(server)
+        self.device.package = package
+        set_server(server)
+        logger.attr('Server', self.config.SERVER)
+
+    def set_lang(self, lang):
+        """
+        For development.
+        Change lang and affect globally,
+        including assets and server specific methods.
+        """
+        server_.server = lang
+        logger.attr('Language', self.config.SERVER)

@@ -11,7 +11,10 @@
     "menu": "list",
     "page": "setting",
     "tasks": [
-      "Dungeon"
+      "Dungeon",
+      "DailyQuest",
+      "BattlePass",
+      "Assignment"
     ]
   }
 }

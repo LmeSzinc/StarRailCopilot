@@ -43,24 +43,34 @@ CHARACTER_STATE_SWITCH = ButtonWrapper(
         button=(1061, 653, 1084, 673),
     ),
 )
-TEAM_CHECK_HOMEPAGE = ButtonWrapper(
-    name='TEAM_CHECK_HOMEPAGE',
+OCR_TEAM_CHECK_HOMEPAGE = ButtonWrapper(
+    name='OCR_TEAM_CHECK_HOMEPAGE',
     share=Button(
-        file='./assets/share/team/TEAM_CHECK_HOMEPAGE.png',
-        area=(1064, 164, 1154, 433),
-        search=(1044, 144, 1174, 453),
-        color=(110, 118, 130),
-        button=(1064, 164, 1154, 433),
+        file='./assets/share/team/OCR_TEAM_CHECK_HOMEPAGE.png',
+        area=(995, 162, 1154, 424),
+        search=(975, 142, 1174, 444),
+        color=(105, 118, 134),
+        button=(995, 162, 1154, 424),
     ),
 )
-TEAM_CHECK_SELECTED = ButtonWrapper(
-    name='TEAM_CHECK_SELECTED',
+OCR_TEAM_CHECK_SELECTED = ButtonWrapper(
+    name='OCR_TEAM_CHECK_SELECTED',
     share=Button(
-        file='./assets/share/team/TEAM_CHECK_SELECTED.png',
-        area=(915, 82, 1030, 114),
-        search=(895, 62, 1050, 134),
-        color=(79, 88, 127),
-        button=(915, 82, 1030, 114),
+        file='./assets/share/team/OCR_TEAM_CHECK_SELECTED.png',
+        area=(919, 82, 1136, 116),
+        search=(899, 62, 1156, 136),
+        color=(77, 87, 124),
+        button=(919, 82, 1136, 116),
+    ),
+)
+OCR_TEAM_SETUP_FIRST_SITE = ButtonWrapper(
+    name='OCR_TEAM_SETUP_FIRST_SITE',
+    share=Button(
+        file='./assets/share/team/OCR_TEAM_SETUP_FIRST_SITE.png',
+        area=(172, 488, 312, 510),
+        search=(152, 468, 332, 530),
+        color=(123, 123, 131),
+        button=(172, 488, 312, 510),
     ),
 )
 TEAM_CONFIRM = ButtonWrapper(
@@ -113,23 +123,23 @@ TEAM_SETUP = ButtonWrapper(
         button=(736, 650, 775, 665),
     ),
 )
-TEAM_SETUP_FIRST_SITE = ButtonWrapper(
-    name='TEAM_SETUP_FIRST_SITE',
-    share=Button(
-        file='./assets/share/team/TEAM_SETUP_FIRST_SITE.png',
-        area=(171, 488, 259, 510),
-        search=(151, 468, 279, 530),
-        color=(104, 106, 109),
-        button=(171, 488, 259, 510),
-    ),
-)
 TEAM_SETUP_MARCH7TH = ButtonWrapper(
     name='TEAM_SETUP_MARCH7TH',
     cn=Button(
         file='./assets/cn/team/TEAM_SETUP_MARCH7TH.png',
-        area=(170, 487, 236, 511),
-        search=(150, 467, 256, 531),
-        color=(102, 106, 114),
-        button=(170, 487, 236, 511),
+        area=(172, 491, 233, 507),
+        search=(152, 471, 253, 527),
+        color=(115, 119, 127),
+        button=(172, 491, 233, 507),
+    ),
+)
+TEAM_SETUP_MARCH7TH_ENSURE = ButtonWrapper(
+    name='TEAM_SETUP_MARCH7TH_ENSURE',
+    cn=Button(
+        file='./assets/cn/team/TEAM_SETUP_MARCH7TH_ENSURE.png',
+        area=(996, 551, 1076, 574),
+        search=(976, 531, 1096, 594),
+        color=(108, 112, 117),
+        button=(996, 551, 1076, 574),
     ),
 )

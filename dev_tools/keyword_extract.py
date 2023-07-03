@@ -168,8 +168,10 @@ class KeywordExtract:
                             text_convert=dungeon_name)
         self.load_keywords(['传送', '追踪'])
         self.write_keywords(keyword_class='DungeonEntrance', output_file='./tasks/dungeon/keywords/dungeon_entrance.py')
+        self.load_keywords(['三月七', '娜塔莎', '艾丝妲', '青雀', '佩拉', '瓦尔特', '布洛妮娅'])
+        self.write_keywords(keyword_class='CharacterRecommend', output_file='./tasks/team/keywords/character.py')
 
 
 if __name__ == '__main__':
-    TextMap.DATA_FOLDER = '../StarRailData'
+    TextMap.DATA_FOLDER = '../src_data/StarRailData'
     KeywordExtract().generate()

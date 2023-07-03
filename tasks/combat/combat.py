@@ -54,6 +54,7 @@ class Combat(CombatInteract, CombatPrepare, CombatState, CombatTeam, CombatSuppo
         """
         logger.hr('Combat prepare')
         skip_first_screenshot = True
+        pre_set_team = use_support
         while 1:
             if skip_first_screenshot:
                 skip_first_screenshot = False
@@ -63,15 +64,17 @@ class Combat(CombatInteract, CombatPrepare, CombatState, CombatTeam, CombatSuppo
             # End
             if self.is_combat_executing():
                 return True
-            
+
             # Click
-            if self.appear(COMBAT_TEAM_PREPARE, interval=3):
-                self.team_set(team)
-                continue
-            if use_support and self.appear(COMBAT_TEAM_SUPPORT, interval=2):
+            if use_support and self.appear(COMBAT_TEAM_SUPPORT):
+                if pre_set_team:
+                    self.team_set(team)
+                    pre_set_team = False
+                    continue
                 self.support_set()
                 continue
             if self.appear(COMBAT_TEAM_PREPARE, interval=2):
+                self.team_set(team)
                 self.device.click(COMBAT_TEAM_PREPARE)
                 self.interval_reset(COMBAT_TEAM_PREPARE)
                 continue

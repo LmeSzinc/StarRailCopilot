@@ -224,6 +224,29 @@
       "help": "是否启用好友支援",
       "False": "False",
       "True": "True"
+    },
+    "SupportCharacter": {
+      "name": "好友支援角色",
+      "help": "选择好友支援角色，未找到则选择默认（第一个）角色",
+      "ASTA": "艾丝妲",
+      "BAILU": "白露",
+      "BRONYA": "板鸭",
+      "CLARA": "克拉拉",
+      "DAN_HENG": "丹恒",
+      "GEPARD": "杰帕德",
+      "HIMEKO": "姬子",
+      "JING_YUAN": "景元",
+      "LUOCHA": "罗刹",
+      "MARCH_7TH": "三月七",
+      "SAMPO": "桑博",
+      "SEELE": "希儿",
+      "SILVER_WOLF": "银狼",
+      "SUSHANG": "素裳",
+      "TINGYUN": "停云",
+      "TRAILBLAZER_FIRE": "火主",
+      "TRAILBLAZER_PHYSICAL": "物主",
+      "WELT": "瓦尔特",
+      "YANGQING": "彦卿"
     }
   },
   "Assignment": {

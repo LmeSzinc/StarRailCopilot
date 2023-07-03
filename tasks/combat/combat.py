@@ -39,7 +39,7 @@ class Combat(CombatInteract, CombatPrepare, CombatState, CombatTeam, CombatSuppo
 
         return False
     
-    def combat_prepare(self, team=1, use_support=False):
+    def combat_prepare(self, team=1, use_support=False,support_character:str="JING_YUAN"):
         """
         Args:
             team: 1 to 6.
@@ -71,7 +71,7 @@ class Combat(CombatInteract, CombatPrepare, CombatState, CombatTeam, CombatSuppo
                     self.team_set(team)
                     pre_set_team = False
                     continue
-                self.support_set()
+                self.support_set(support_character)
                 continue
             if self.appear(COMBAT_TEAM_PREPARE, interval=2):
                 self.team_set(team)
@@ -211,7 +211,7 @@ class Combat(CombatInteract, CombatPrepare, CombatState, CombatTeam, CombatSuppo
                 self.device.click(COMBAT_EXIT)
                 continue
 
-    def combat(self, team: int = 1, skip_first_screenshot=True, use_support=True):
+    def combat(self, team: int = 1, skip_first_screenshot=True, use_support=True,support_character:str = "JING_YUAN"):
         """
         Combat until trailblaze power runs out.
 
@@ -230,7 +230,7 @@ class Combat(CombatInteract, CombatPrepare, CombatState, CombatTeam, CombatSuppo
         while 1:
             logger.hr('Combat', level=2)
             # Prepare
-            prepare = self.combat_prepare(team, use_support)
+            prepare = self.combat_prepare(team, use_support,support_character)
             if not prepare:
                 self.combat_exit()
                 break

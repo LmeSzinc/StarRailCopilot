@@ -42,7 +42,8 @@
     "Dungeon": {
       "Name": "Calyx_Golden_Memories",
       "Team": 1,
-      "Support": false
+      "Support": false,
+      "SupportCharacter": "JING_YUAN"
     }
   },
   "DailyQuest": {

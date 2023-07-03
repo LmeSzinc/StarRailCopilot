@@ -224,6 +224,29 @@
       "help": "Whether to enable buddy support",
       "False": "False",
       "True": "True"
+    },
+    "SupportCharacter": {
+      "name": "Dungeon.SupportCharacter.name",
+      "help": "Dungeon.SupportCharacter.help",
+      "ASTA": "ASTA",
+      "BAILU": "BAILU",
+      "BRONYA": "BRONYA",
+      "CLARA": "CLARA",
+      "DAN_HENG": "DAN_HENG",
+      "GEPARD": "GEPARD",
+      "HIMEKO": "HIMEKO",
+      "JING_YUAN": "JING_YUAN",
+      "LUOCHA": "LUOCHA",
+      "MARCH_7TH": "MARCH_7TH",
+      "SAMPO": "SAMPO",
+      "SEELE": "SEELE",
+      "SILVER_WOLF": "SILVER_WOLF",
+      "SUSHANG": "SUSHANG",
+      "TINGYUN": "TINGYUN",
+      "TRAILBLAZER_FIRE": "TRAILBLAZER_FIRE",
+      "TRAILBLAZER_PHYSICAL": "TRAILBLAZER_PHYSICAL",
+      "WELT": "WELT",
+      "YANGQING": "YANGQING"
     }
   },
   "Assignment": {

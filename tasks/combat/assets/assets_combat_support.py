@@ -23,3 +23,23 @@ COMBAT_SUPPORT_LIST = ButtonWrapper(
         button=(198, 53, 298, 90),
     ),
 )
+COMBAT_SUPPORT_LIST_GRID = ButtonWrapper(
+    name='COMBAT_SUPPORT_LIST_GRID',
+    share=Button(
+        file='./assets/share/combat/support/COMBAT_SUPPORT_LIST_GRID.png',
+        area=(64, 115, 159, 634),
+        search=(44, 95, 179, 654),
+        color=(119, 108, 132),
+        button=(64, 115, 159, 634),
+    ),
+)
+COMBAT_SUPPORT_LIST_SCROLL = ButtonWrapper(
+    name='COMBAT_SUPPORT_LIST_SCROLL',
+    share=Button(
+        file='./assets/share/combat/support/COMBAT_SUPPORT_LIST_SCROLL.png',
+        area=(446, 109, 453, 610),
+        search=(426, 89, 473, 630),
+        color=(113, 120, 139),
+        button=(446, 109, 453, 610),
+    ),
+)

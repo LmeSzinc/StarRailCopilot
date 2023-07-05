@@ -28,7 +28,6 @@ class SupportCharacters():
         Returns:
             ButtonWrapper: Character button
         """
-        logger.info(f'Support list:{self.support_list}')
         return self.support_list.get(name)
                 
 support_characters = SupportCharacters()

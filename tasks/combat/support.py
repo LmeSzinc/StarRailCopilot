@@ -17,7 +17,7 @@ class SupportCharacters():
         
     def _genetate_support_list(self):
         import tasks.character.assets.assets_character
-        # 获取该模块下所有的ButtonWrapper对象的名称，然后生成一个字典，key为名称，value为ButtonWrapper对象
+        # Get all the names of the ButtonWrapper objects in this module, and then generate a dictionary, the key is the name, and the value is the ButtonWrapper object
         return {name: getattr(tasks.character.assets.assets_character, name) for name in dir(tasks.character.assets.assets_character) if isinstance(getattr(tasks.character.assets.assets_character, name), ButtonWrapper)}
     
     def get_character_by_name(self, name:str):

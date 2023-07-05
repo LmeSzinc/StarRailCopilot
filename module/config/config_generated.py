@@ -42,7 +42,7 @@ class GeneratedConfig:
     Dungeon_Name = 'Calyx_Golden_Memories'  # Calyx_Golden_Memories, Calyx_Golden_Aether, Calyx_Golden_Treasures, Calyx_Crimson_Destruction, Calyx_Crimson_Preservation, Calyx_Crimson_Hunt, Calyx_Crimson_Abundance, Calyx_Crimson_Erudition, Calyx_Crimson_Harmony, Calyx_Crimson_Nihility, Stagnant_Shadow_Quanta, Stagnant_Shadow_Gust, Stagnant_Shadow_Fulmination, Stagnant_Shadow_Blaze, Stagnant_Shadow_Spike, Stagnant_Shadow_Rime, Stagnant_Shadow_Mirage, Stagnant_Shadow_Icicle, Stagnant_Shadow_Doom, Cavern_of_Corrosion_Path_of_Gelid_Wind, Cavern_of_Corrosion_Path_of_Jabbing_Punch, Cavern_of_Corrosion_Path_of_Drifting, Cavern_of_Corrosion_Path_of_Providence, Cavern_of_Corrosion_Path_of_Holy_Hymn, Cavern_of_Corrosion_Path_of_Conflagration
     Dungeon_Team = 1  # 1, 2, 3, 4, 5, 6
     Dungeon_Support = False  # False, True
-    Dungeon_SupportCharacter = 'JING_YUAN'  # ASTA, BAILU, BRONYA, CLARA, DAN_HENG, GEPARD, HIMEKO, JING_YUAN, LUOCHA, MARCH_7TH, SAMPO, SEELE, SILVER_WOLF, SUSHANG, TINGYUN, TRAILBLAZER_FIRE, TRAILBLAZER_PHYSICAL, WELT, YANGQING
+    Dungeon_SupportCharacter = 'Jing_Yuan'  # March_7th, Dan_Heng, Pela, Tingyun, Clara, Himeko, Natasha, Bronya, Seele, Serval, Yanqing, Jing_Yuan, Gepard, Sampo, Welt, Bailu, Sushang, Luocha, Asta, Hook, Silver_Wolf, Arlan, Qingque, Yukong, Herta
 
     # Group `Assignment`
     Assignment_Duration = 20  # 4, 8, 12, 20

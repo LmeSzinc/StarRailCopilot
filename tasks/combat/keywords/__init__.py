@@ -1,1 +1,0 @@
-from tasks.combat.keywords.classes import SupportCharacterList

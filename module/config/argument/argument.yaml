@@ -81,8 +81,9 @@ Dungeon:
     value: false
     option: [false,true]
   SupportCharacter:
-    value: JING_YUAN
-    option: [ASTA,BAILU,BRONYA,CLARA,DAN_HENG,GEPARD,HIMEKO,JING_YUAN,LUOCHA,MARCH_7TH,SAMPO,SEELE,SILVER_WOLF,SUSHANG,TINGYUN,TRAILBLAZER_FIRE,TRAILBLAZER_PHYSICAL,WELT,YANGQING]
+    # Options will be injected in config updater
+    value: Jing_Yuan
+    option: [Jing_Yuan, ]
 
 Assignment:
   Duration:

@@ -8,8 +8,7 @@ from tasks.base.ui import UI
 from module.ui.scroll import Scroll
 from tasks.combat.assets.assets_combat_team import COMBAT_TEAM_PREPARE, COMBAT_TEAM_SUPPORT, COMBAT_TEAM_DISMISSSUPPORT
 from tasks.combat.assets.assets_combat_support import COMBAT_SUPPORT_ADD, COMBAT_SUPPORT_LIST, COMBAT_SUPPORT_LIST_SCROLL, COMBAT_SUPPORT_LIST_GRID
-from tasks.combat.assets.assets_combat_support_character_list import *
-
+from tasks.character.assets.assets_character import *
 
 class SupportCharacters():
     
@@ -17,12 +16,9 @@ class SupportCharacters():
         self.support_list = self._genetate_support_list()
         
     def _genetate_support_list(self):
-        character_name_list = ["ASTA", "BAILU", "BRONYA", "CLARA", "DAN_HENG", "GEPARD", "HIMEKO", "JING_YUAN", "LUOCHA", "MARCH_7TH", "SAMPO", "SEELE", "SILVER_WOLF", "SUSHANG", "TINGYUN", "TRAILBLAZER_FIRE", "TRAILBLAZER_PHYSICAL", "WELT", "YANGQING"]
-        Characters = {}
-        for character in character_name_list:
-            if obj := globals().get(character):
-                Characters[character] = obj
-        return Characters
+        import tasks.character.assets.assets_character
+        # 获取该模块下所有的ButtonWrapper对象的名称，然后生成一个字典，key为名称，value为ButtonWrapper对象
+        return {name: getattr(tasks.character.assets.assets_character, name) for name in dir(tasks.character.assets.assets_character) if isinstance(getattr(tasks.character.assets.assets_character, name), ButtonWrapper)}
     
     def get_character_by_name(self, name:str):
         """
@@ -32,6 +28,7 @@ class SupportCharacters():
         Returns:
             ButtonWrapper: Character button
         """
+        logger.info(f'Support list:{self.support_list}')
         return self.support_list.get(name)
                 
 support_characters = SupportCharacters()
@@ -69,7 +66,7 @@ class SupportListScroll(Scroll):
 
 class CombatSupport(UI):
 
-    def support_set(self,support_character_name:str="JING_YUAN"):
+    def support_set(self,support_character_name:str="Jing_Yuan"):
         """
         Args:
             support_character_name (str): Support character name
@@ -106,7 +103,7 @@ class CombatSupport(UI):
                 self.interval_reset(COMBAT_SUPPORT_LIST)
                 continue
     
-    def _search_support(self,CHARACTER:ButtonWrapper=JING_YUAN):
+    def _search_support(self,CHARACTER:ButtonWrapper=Jing_Yuan):
         """
         Args:
             CHARACTER: support character

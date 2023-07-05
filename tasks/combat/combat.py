@@ -39,7 +39,7 @@ class Combat(CombatInteract, CombatPrepare, CombatState, CombatTeam, CombatSuppo
 
         return False
     
-    def combat_prepare(self, team=1, use_support=False,support_character:str="JING_YUAN"):
+    def combat_prepare(self, team=1, use_support=False,support_character:str="Jing_Yuan"):
         """
         Args:
             team: 1 to 6.
@@ -211,7 +211,7 @@ class Combat(CombatInteract, CombatPrepare, CombatState, CombatTeam, CombatSuppo
                 self.device.click(COMBAT_EXIT)
                 continue
 
-    def combat(self, team: int = 1, skip_first_screenshot=True, use_support=True,support_character:str = "JING_YUAN"):
+    def combat(self, team: int = 1, skip_first_screenshot=True, use_support=True,support_character:str = "Jing_Yuan"):
         """
         Combat until trailblaze power runs out.
 

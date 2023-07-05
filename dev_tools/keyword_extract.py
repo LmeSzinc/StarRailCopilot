@@ -225,6 +225,25 @@ class KeywordExtract:
                                       text_convert=text_convert(world), generator=gen)
         gen.write('./tasks/map/keywords/plane.py')
 
+    def generate_character_keywords(self):
+        
+        def download_character_name():
+            import requests
+            import re
+            try:
+                url = 'https://wiki.biligame.com/sr/%E8%A7%92%E8%89%B2%E5%9B%BE%E9%89%B4'
+                html = requests.get(url).text
+            except Exception:
+                return None
+            pattern = re.compile(r'<div class="" style="font-size:15px;font-weight:bold;"><a href=".*?" title=".*?">(.*?)</a></div>')
+            names = set(pattern.findall(html))
+            return sorted([ name for name in names if "开拓者" not in name ])
+            
+        characters_name = download_character_name()
+        if characters_name:
+            self.load_keywords(characters_name)
+            self.write_keywords(keyword_class='CharacterList', output_file='./tasks/character/keywords/character_list.py')
+        
     def generate(self):
         self.load_keywords(['模拟宇宙', '拟造花萼（金）', '拟造花萼（赤）', '凝滞虚影', '侵蚀隧洞', '历战余响', '忘却之庭'])
         self.write_keywords(keyword_class='DungeonNav', output_file='./tasks/dungeon/keywords/nav.py')
@@ -244,6 +263,7 @@ class KeywordExtract:
         self.generate_assignment_keywords()
         self.generate_forgotten_hall_stages()
         self.generate_map_planes()
+        self.generate_character_keywords()
 
 
 if __name__ == '__main__':

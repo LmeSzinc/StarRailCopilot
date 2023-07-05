@@ -283,7 +283,16 @@ class ConfigGenerator:
                 if dungeon.name in dailies:
                     value = dungeon.__getattribute__(ingame_lang)
                     deep_set(new, keys=['Dungeon', 'Name', dungeon.name], value=value)
-
+            
+        from tasks.character.keywords import CharacterList
+        ingame_lang = gui_lang_to_ingame_lang(lang)
+        characters = deep_get(self.argument, keys='Dungeon.SupportCharacter.option')
+        for character in CharacterList.instances.values():
+            if character.name in characters:
+                value = character.__getattribute__(ingame_lang)
+                deep_set(new, keys=['Dungeon', 'SupportCharacter', character.name], value=value)
+            
+            
         # GUI i18n
         for path, _ in deep_iter(self.gui, depth=2):
             group, key = path
@@ -356,7 +365,12 @@ class ConfigGenerator:
         dungeons = [dungeon.name for dungeon in DungeonList.instances.values() if dungeon.is_daily_dungeon]
         deep_set(self.argument, keys='Dungeon.Name.option', value=dungeons)
         deep_set(self.args, keys='Dungeon.Dungeon.Name.option', value=dungeons)
-    
+        
+        from tasks.character.keywords import CharacterList
+        characters = [character.name for character in CharacterList.instances.values()]
+        deep_set(self.argument, keys='Dungeon.SupportCharacter.option', value=characters)
+        deep_set(self.args, keys='Dungeon.Dungeon.SupportCharacter.option', value=characters)
+        
     def insert_assignment(self):
         from tasks.assignment.keywords import AssignmentEntry
         assignments = [entry.name for entry in AssignmentEntry.instances.values()]

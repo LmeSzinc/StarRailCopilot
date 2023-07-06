@@ -1,3 +1,4 @@
+from module.base.timer import Timer
 from module.logger import logger
 from module.ui.switch import Switch
 from tasks.base.page import page_item
@@ -38,3 +39,19 @@ class ItemUI(UI):
         self.ui_ensure(page_item)
         if SWITCH_ITEM_TAB.set(state, main=self):
             logger.info(f'Tab goto {state}, wait until loaded')
+            self._wait_until_tab_stable()
+
+    def _wait_until_tab_stable(self, skip_first_screenshot=True):
+        timeout = Timer(2, count=4).start()
+        while 1:
+            if skip_first_screenshot:
+                skip_first_screenshot = False
+            else:
+                self.device.screenshot()
+
+            if timeout.reached():
+                logger.warning('Wait item tab loaded timeout')
+                break
+            if self.image_color_count(FIRST_ITEM, (203, 201, 202)):
+                logger.info('Item tab loaded')
+                break

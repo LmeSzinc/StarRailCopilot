@@ -5,8 +5,8 @@ from module.base.button import Button, ButtonWrapper
 
 COMBAT_SUPPORT_ADD = ButtonWrapper(
     name='COMBAT_SUPPORT_ADD',
-    cn=Button(
-        file='./assets/cn/combat/support/COMBAT_SUPPORT_ADD.png',
+    share=Button(
+        file='./assets/share/combat/support/COMBAT_SUPPORT_ADD.png',
         area=(1032, 649, 1132, 680),
         search=(1012, 629, 1152, 700),
         color=(228, 228, 228),
@@ -15,12 +15,12 @@ COMBAT_SUPPORT_ADD = ButtonWrapper(
 )
 COMBAT_SUPPORT_LIST = ButtonWrapper(
     name='COMBAT_SUPPORT_LIST',
-    cn=Button(
-        file='./assets/cn/combat/support/COMBAT_SUPPORT_LIST.png',
-        area=(198, 53, 298, 90),
-        search=(178, 33, 318, 110),
-        color=(56, 60, 84),
-        button=(198, 53, 298, 90),
+    share=Button(
+        file='./assets/share/combat/support/COMBAT_SUPPORT_LIST.png',
+        area=(57, 636, 100, 678),
+        search=(37, 616, 120, 698),
+        color=(224, 221, 217),
+        button=(57, 636, 100, 678),
     ),
 )
 COMBAT_SUPPORT_LIST_GRID = ButtonWrapper(
@@ -37,9 +37,9 @@ COMBAT_SUPPORT_LIST_SCROLL = ButtonWrapper(
     name='COMBAT_SUPPORT_LIST_SCROLL',
     share=Button(
         file='./assets/share/combat/support/COMBAT_SUPPORT_LIST_SCROLL.png',
-        area=(446, 109, 453, 610),
-        search=(426, 89, 473, 630),
-        color=(113, 120, 139),
-        button=(446, 109, 453, 610),
+        area=(448, 112, 452, 610),
+        search=(428, 92, 472, 630),
+        color=(127, 133, 150),
+        button=(448, 112, 452, 610),
     ),
 )

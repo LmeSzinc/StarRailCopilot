@@ -5,12 +5,12 @@ from module.base.button import Button, ButtonWrapper
 
 COMBAT_TEAM_DISMISSSUPPORT = ButtonWrapper(
     name='COMBAT_TEAM_DISMISSSUPPORT',
-    cn=Button(
-        file='./assets/cn/combat/team/COMBAT_TEAM_DISMISSSUPPORT.png',
-        area=(1131, 476, 1259, 501),
-        search=(1111, 456, 1279, 521),
-        color=(115, 123, 137),
-        button=(1131, 476, 1259, 501),
+    share=Button(
+        file='./assets/share/combat/team/COMBAT_TEAM_DISMISSSUPPORT.png',
+        area=(1127, 477, 1154, 501),
+        search=(1107, 457, 1174, 521),
+        color=(132, 140, 150),
+        button=(1127, 477, 1154, 501),
     ),
 )
 COMBAT_TEAM_PREPARE = ButtonWrapper(
@@ -25,12 +25,12 @@ COMBAT_TEAM_PREPARE = ButtonWrapper(
 )
 COMBAT_TEAM_SUPPORT = ButtonWrapper(
     name='COMBAT_TEAM_SUPPORT',
-    cn=Button(
-        file='./assets/cn/combat/team/COMBAT_TEAM_SUPPORT.png',
-        area=(1126, 475, 1217, 500),
-        search=(1106, 455, 1237, 520),
-        color=(129, 182, 147),
-        button=(1126, 475, 1217, 500),
+    share=Button(
+        file='./assets/share/combat/team/COMBAT_TEAM_SUPPORT.png',
+        area=(1123, 477, 1158, 503),
+        search=(1103, 457, 1178, 523),
+        color=(195, 215, 201),
+        button=(1123, 477, 1158, 503),
     ),
 )
 TEAM_1 = ButtonWrapper(

@@ -6,7 +6,7 @@ from module.base.utils import area_size,crop,rgb2luma
 from module.logger import logger
 from tasks.base.ui import UI
 from module.ui.scroll import Scroll
-from tasks.combat.assets.assets_combat_team import COMBAT_TEAM_PREPARE, COMBAT_TEAM_SUPPORT, COMBAT_TEAM_DISMISSSUPPORT
+from tasks.combat.assets.assets_combat_team import COMBAT_TEAM_SUPPORT, COMBAT_TEAM_DISMISSSUPPORT
 from tasks.combat.assets.assets_combat_support import COMBAT_SUPPORT_ADD, COMBAT_SUPPORT_LIST, COMBAT_SUPPORT_LIST_SCROLL, COMBAT_SUPPORT_LIST_GRID
 from tasks.character.assets.assets_character import *
 
@@ -88,7 +88,7 @@ class CombatSupport(UI):
                 self.device.screenshot()
             
             # End
-            if self.appear(COMBAT_TEAM_DISMISSSUPPORT,interval=2):
+            if self.appear(COMBAT_TEAM_DISMISSSUPPORT):
                 return True
             
             # Click

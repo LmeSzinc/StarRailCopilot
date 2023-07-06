@@ -212,42 +212,49 @@
         ]
       },
       "Support": {
-        "type": "checkbox",
-        "value": false,
+        "type": "select",
+        "value": "when_daily",
         "option": [
           false,
-          true
+          true,
+          "when_daily"
         ]
       },
       "SupportCharacter": {
         "type": "select",
-        "value": "Jing_Yuan",
+        "value": "FirstCharacter",
         "option": [
-          "March_7th",
-          "Dan_Heng",
-          "Pela",
-          "Tingyun",
-          "Clara",
+          "March7th",
+          "DanHeng",
           "Himeko",
-          "Natasha",
+          "Welt",
+          "Kafka",
+          "SilverWolf",
+          "Arlan",
+          "Asta",
+          "Herta",
           "Bronya",
           "Seele",
           "Serval",
-          "Yanqing",
-          "Jing_Yuan",
           "Gepard",
+          "Natasha",
+          "Pela",
+          "Clara",
           "Sampo",
-          "Welt",
-          "Bailu",
-          "Sushang",
-          "Luocha",
-          "Asta",
           "Hook",
-          "Silver_Wolf",
-          "Arlan",
+          "Luocha",
+          "JingYuan",
+          "Sushang",
+          "CaelustheDestruction",
+          "StelletheDestruction",
+          "CaelusthePreservation",
+          "StellethePreservation",
           "Qingque",
+          "Tingyun",
           "Yukong",
-          "Herta"
+          "Yanqing",
+          "Bailu",
+          "FirstCharacter"
         ]
       }
     }

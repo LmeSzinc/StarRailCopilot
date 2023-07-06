@@ -17,10 +17,10 @@ COMBAT_SUPPORT_LIST = ButtonWrapper(
     name='COMBAT_SUPPORT_LIST',
     share=Button(
         file='./assets/share/combat/support/COMBAT_SUPPORT_LIST.png',
-        area=(57, 636, 100, 678),
-        search=(37, 616, 120, 698),
-        color=(224, 221, 217),
-        button=(57, 636, 100, 678),
+        area=(57, 637, 100, 680),
+        search=(37, 617, 120, 700),
+        color=(212, 213, 215),
+        button=(57, 637, 100, 680),
     ),
 )
 COMBAT_SUPPORT_LIST_GRID = ButtonWrapper(

@@ -29,6 +29,20 @@ def dungeon_name(name: str) -> str:
     return name
 
 
+nickname_count = 0
+def character_name(name: str) -> str:
+    name = text_to_variable(name)
+    name = re.sub('_','',name)
+    if r'NICKNAME' in name:
+        global nickname_count
+        nickname_count += 1
+        if nickname_count % 2 == 1:
+            name = re.sub(r'NICKNAME', 'Caelus', name) # Caelus：穹（男主）
+        else:
+            name = re.sub(r'NICKNAME', 'Stelle', name) # Stelle：星（女主）
+    return name
+
+
 class TextMap:
     DATA_FOLDER = ''
 
@@ -44,6 +58,7 @@ class TextMap:
         data = {}
         for id_, text in read_file(file).items():
             text = text.replace('\u00A0', '')
+            text = text.replace(r'{NICKNAME}', 'NICKNAME')
             data[int(id_)] = text
         return data
 
@@ -172,6 +187,14 @@ class KeywordExtract:
         quest_keywords = [self.text_map[lang].find(quest_hash)[1] for quest_hash in quests_hash]
         self.load_keywords(quest_keywords, lang)
 
+    def load_character_name_keywords(self, lang='cn'):
+        file_name = 'ItemConfigAvatarPlayerIcon.json'
+        path = os.path.join(TextMap.DATA_FOLDER, 'ExcelOutput', file_name)
+        character_data = read_file(path)
+        characters_hash = [character_data[key]["ItemName"]["Hash"] for key in character_data]
+        self.load_keywords(characters_hash, lang)
+        
+
     def generate_forgotten_hall_stages(self):
         keyword_class = "ForgottenHallStage"
         output_file = './tasks/forgotten_hall/keywords/stage.py'
@@ -227,22 +250,8 @@ class KeywordExtract:
 
     def generate_character_keywords(self):
         
-        def download_character_name():
-            import requests
-            import re
-            try:
-                url = 'https://wiki.biligame.com/sr/%E8%A7%92%E8%89%B2%E5%9B%BE%E9%89%B4'
-                html = requests.get(url).text
-            except Exception:
-                return None
-            pattern = re.compile(r'<div class="" style="font-size:15px;font-weight:bold;"><a href=".*?" title=".*?">(.*?)</a></div>')
-            names = set(pattern.findall(html))
-            return sorted([ name for name in names if "开拓者" not in name ])
-            
-        characters_name = download_character_name()
-        if characters_name:
-            self.load_keywords(characters_name)
-            self.write_keywords(keyword_class='CharacterList', output_file='./tasks/character/keywords/character_list.py')
+        self.load_character_name_keywords()
+        self.write_keywords(keyword_class='CharacterList', output_file='./tasks/character/keywords/character_list.py',text_convert=character_name)
         
     def generate(self):
         self.load_keywords(['模拟宇宙', '拟造花萼（金）', '拟造花萼（赤）', '凝滞虚影', '侵蚀隧洞', '历战余响', '忘却之庭'])

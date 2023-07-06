@@ -290,8 +290,9 @@ class ConfigGenerator:
         for character in CharacterList.instances.values():
             if character.name in characters:
                 value = character.__getattribute__(ingame_lang)
+                if "NICKNAME" in value:
+                    continue
                 deep_set(new, keys=['Dungeon', 'SupportCharacter', character.name], value=value)
-            
             
         # GUI i18n
         for path, _ in deep_iter(self.gui, depth=2):
@@ -368,6 +369,7 @@ class ConfigGenerator:
         
         from tasks.character.keywords import CharacterList
         characters = [character.name for character in CharacterList.instances.values()]
+        characters.append('FirstCharacter')
         deep_set(self.argument, keys='Dungeon.SupportCharacter.option', value=characters)
         deep_set(self.args, keys='Dungeon.Dungeon.SupportCharacter.option', value=characters)
         

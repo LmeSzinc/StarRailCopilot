@@ -78,12 +78,12 @@ Dungeon:
     value: 1
     option: [ 1, 2, 3, 4, 5, 6 ]
   Support:
-    value: false
-    option: [false,true]
+    value: when_daily
+    option: [false, true, when_daily]
   SupportCharacter:
     # Options will be injected in config updater
-    value: Jing_Yuan
-    option: [Jing_Yuan, ]
+    value: FirstCharacter
+    option: [FirstCharacter, ]
 
 Assignment:
   Duration:

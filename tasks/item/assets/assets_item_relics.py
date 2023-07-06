@@ -3,16 +3,6 @@ from module.base.button import Button, ButtonWrapper
 # This file was auto-generated, do not modify it manually. To generate:
 # ``` python -m dev_tools.button_extract ```
 
-CONFIRM = ButtonWrapper(
-    name='CONFIRM',
-    share=Button(
-        file='./assets/share/item/relics/CONFIRM.png',
-        area=(776, 558, 800, 582),
-        search=(756, 538, 820, 602),
-        color=(93, 88, 76),
-        button=(776, 558, 800, 582),
-    ),
-)
 FIRST_RELIC = ButtonWrapper(
     name='FIRST_RELIC',
     share=Button(

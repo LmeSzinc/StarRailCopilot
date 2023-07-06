@@ -1,5 +1,6 @@
 from module.base.timer import Timer
 from module.logger import logger
+from tasks.base.assets.assets_base_popup import CONFIRM_POPUP
 from tasks.item.assets.assets_item_relics import *
 from tasks.item.keywords import KEYWORD_ITEM_TAB
 from tasks.item.ui import ItemUI
@@ -47,6 +48,6 @@ class RelicsUI(ItemUI):
                 break
             if self.appear_then_click(SALVAGE):
                 continue
-            if self.appear_then_click(CONFIRM):
+            if self.appear_then_click(CONFIRM_POPUP):
                 continue
         return True

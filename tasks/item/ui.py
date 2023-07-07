@@ -1,8 +1,8 @@
-from module.base.timer import Timer
 from module.logger import logger
 from module.ui.switch import Switch
 from tasks.base.page import page_item
 from tasks.base.ui import UI
+from tasks.item.assets.assets_item_consumable_usage import SIMPLE_PROTECTIVE_GEAR
 from tasks.item.assets.assets_item_ui import *
 from tasks.item.keywords import KEYWORD_ITEM_TAB
 
@@ -25,33 +25,19 @@ SWITCH_ITEM_TAB.add_state(
 
 
 class ItemUI(UI):
-    def item_goto(self, state: KEYWORD_ITEM_TAB):
+    def item_goto(self, state: KEYWORD_ITEM_TAB, wait_until_stable=True):
         """
-        Args:
-            state:
-
         Returns:
             self = ItemUI('alas')
             self.device.screenshot()
             self.item_goto(KEYWORD_ITEM_TAB.Relics)
             self.item_goto(KEYWORD_ITEM_TAB.Consumables)
         """
+        logger.hr('Item tab goto', level=2)
         self.ui_ensure(page_item)
-        if SWITCH_ITEM_TAB.set(state, main=self):
+        SWITCH_ITEM_TAB.set(state, main=self)
+        if wait_until_stable:
             logger.info(f'Tab goto {state}, wait until loaded')
-            self._wait_until_tab_stable()
-
-    def _wait_until_tab_stable(self, skip_first_screenshot=True):
-        timeout = Timer(2, count=4).start()
-        while 1:
-            if skip_first_screenshot:
-                skip_first_screenshot = False
-            else:
-                self.device.screenshot()
-
-            if timeout.reached():
-                logger.warning('Wait item tab loaded timeout')
-                break
-            if self.image_color_count(FIRST_ITEM, (203, 201, 202)):
-                logger.info('Item tab loaded')
-                break
+            self.wait_until_stable(SIMPLE_PROTECTIVE_GEAR)
+        else:
+            logger.info(f'Tab goto {state}')

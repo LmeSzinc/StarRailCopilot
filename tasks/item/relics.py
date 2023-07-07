@@ -8,7 +8,7 @@ from tasks.item.ui import ItemUI
 
 class RelicsUI(ItemUI):
     def salvage_relic(self, skip_first_screenshot=True) -> bool:
-        self.item_goto(KEYWORD_ITEM_TAB.Relics)
+        self.item_goto(KEYWORD_ITEM_TAB.Relics, wait_until_stable=False)
         interval = Timer(1)
         while 1:  # relic tab -> salvage
             if skip_first_screenshot:

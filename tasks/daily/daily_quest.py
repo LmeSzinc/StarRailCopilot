@@ -6,12 +6,12 @@ from module.ocr.ocr import Ocr, OcrResultButton
 from module.ocr.utils import split_and_pair_buttons
 from tasks.daily.assets.assets_daily_reward import *
 from tasks.daily.camera import CameraUI
-from tasks.daily.consumable_usage import ConsumableUsageUI
 from tasks.daily.keywords import DailyQuest, DailyQuestState, KEYWORDS_DAILY_QUEST, KEYWORDS_DAILY_QUEST_STATE
 from tasks.daily.synthesize import SynthesizeConsumablesUI, SynthesizeMaterialUI
 from tasks.daily.use_technique import UseTechniqueUI
 from tasks.dungeon.keywords import KEYWORDS_DUNGEON_TAB
 from tasks.dungeon.ui import DungeonUI
+from tasks.item.consumable_usage import ConsumableUsageUI
 
 
 class DailyQuestOcr(Ocr):

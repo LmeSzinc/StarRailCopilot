@@ -290,7 +290,7 @@ class ConfigGenerator:
         for character in CharacterList.instances.values():
             if character.name in characters:
                 value = character.__getattribute__(ingame_lang)
-                if "NICKNAME" in value:
+                if "Trailblazer" in value:
                     continue
                 deep_set(new, keys=['Dungeon', 'SupportCharacter', character.name], value=value)
             

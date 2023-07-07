@@ -25,7 +25,7 @@ def dungeon_name(name: str) -> str:
     name = re.sub('Bud_of_(.*)', r'Calyx_Crimson_\1', name).replace('Calyx_Crimson_Calyx_Crimson_', 'Calyx_Crimson_')
     name = re.sub('Shape_of_(.*)', r'Stagnant_Shadow_\1', name)
     if name in ['Destructions_Beginning', 'End_of_the_Eternal_Freeze']:
-        name = 'Echo_of_War_' + name
+        name = f'Echo_of_War_{name}'
     return name
 
 
@@ -33,13 +33,6 @@ nickname_count = 0
 def character_name(name: str) -> str:
     name = text_to_variable(name)
     name = re.sub('_','',name)
-    if r'NICKNAME' in name:
-        global nickname_count
-        nickname_count += 1
-        if nickname_count % 2 == 1:
-            name = re.sub(r'NICKNAME', 'Caelus', name) # Caelus：穹（男主）
-        else:
-            name = re.sub(r'NICKNAME', 'Stelle', name) # Stelle：星（女主）
     return name
 
 
@@ -58,7 +51,7 @@ class TextMap:
         data = {}
         for id_, text in read_file(file).items():
             text = text.replace('\u00A0', '')
-            text = text.replace(r'{NICKNAME}', 'NICKNAME')
+            text = text.replace(r'{NICKNAME}', 'Trailblazer')
             data[int(id_)] = text
         return data
 
@@ -187,14 +180,18 @@ class KeywordExtract:
         quest_keywords = [self.text_map[lang].find(quest_hash)[1] for quest_hash in quests_hash]
         self.load_keywords(quest_keywords, lang)
 
-    def load_character_name_keywords(self, lang='cn'):
+    def load_character_name_keywords(self, lang='en'):
         file_name = 'ItemConfigAvatarPlayerIcon.json'
         path = os.path.join(TextMap.DATA_FOLDER, 'ExcelOutput', file_name)
         character_data = read_file(path)
         characters_hash = [character_data[key]["ItemName"]["Hash"] for key in character_data]
-        self.load_keywords(characters_hash, lang)
-        
 
+        text_map = self.text_map[lang]
+        keywords_id = sorted(
+            {text_map.find(keyword)[1] for keyword in characters_hash}
+        )
+        self.load_keywords(keywords_id, lang)
+        
     def generate_forgotten_hall_stages(self):
         keyword_class = "ForgottenHallStage"
         output_file = './tasks/forgotten_hall/keywords/stage.py'
@@ -249,7 +246,6 @@ class KeywordExtract:
         gen.write('./tasks/map/keywords/plane.py')
 
     def generate_character_keywords(self):
-        
         self.load_character_name_keywords()
         self.write_keywords(keyword_class='CharacterList', output_file='./tasks/character/keywords/character_list.py',text_convert=character_name)
         

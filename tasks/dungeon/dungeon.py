@@ -6,12 +6,13 @@ from tasks.dungeon.ui import DungeonUI
 
 
 class Dungeon(DungeonUI, Combat):
-    def run(self, dungeon: DungeonList = None, team: int = None):
+    def run(self, dungeon: DungeonList = None, team: int = None, is_daily: bool = False):
         if dungeon is None:
             dungeon = DungeonList.find(self.config.Dungeon_Name)
         if team is None:
             team = self.config.Dungeon_Team
-
+            use_support = self.config.Dungeon_Support
+            support_character = self.config.Dungeon_SupportCharacter
         # Run
         if not self.dungeon_goto(dungeon):
             logger.error('Please check you dungeon settings')
@@ -22,7 +23,7 @@ class Dungeon(DungeonUI, Combat):
             if self.handle_destructible_around_blaze():
                 self.dungeon_goto(dungeon)
 
-        self.combat(team,use_support=self.config.Dungeon_Support,support_character=self.config.Dungeon_SupportCharacter)
+        self.combat(team=team, use_support=use_support, is_daily=is_daily, support_character=support_character)
 
         # Scheduler
         if dungeon.is_Cavern_of_Corrosion:

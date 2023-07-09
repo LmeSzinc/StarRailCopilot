@@ -222,13 +222,14 @@
     "Support": {
       "name": "Dungeon.Support.name",
       "help": "Dungeon.Support.help",
-      "False": "False",
-      "True": "True",
+      "do_not_use": "do_not_use",
+      "always_use": "always_use",
       "when_daily": "when_daily"
     },
     "SupportCharacter": {
       "name": "Dungeon.SupportCharacter.name",
       "help": "Dungeon.SupportCharacter.help",
+      "FirstCharacter": "FirstCharacter",
       "Arlan": "アーラン",
       "Asta": "アスター",
       "Bailu": "白露",
@@ -256,8 +257,7 @@
       "TrailblazerthePreservation": "Trailblazer・存護",
       "Welt": "ヴェルト",
       "Yanqing": "彦卿",
-      "Yukong": "御空",
-      "FirstCharacter": "FirstCharacter"
+      "Yukong": "御空"
     }
   },
   "Assignment": {

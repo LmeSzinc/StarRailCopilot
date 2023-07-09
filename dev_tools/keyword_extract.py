@@ -30,9 +30,11 @@ def dungeon_name(name: str) -> str:
 
 
 nickname_count = 0
+
+
 def character_name(name: str) -> str:
     name = text_to_variable(name)
-    name = re.sub('_','',name)
+    name = re.sub('_', '', name)
     return name
 
 
@@ -191,7 +193,7 @@ class KeywordExtract:
             {text_map.find(keyword)[1] for keyword in characters_hash}
         )
         self.load_keywords(keywords_id, lang)
-        
+
     def generate_forgotten_hall_stages(self):
         keyword_class = "ForgottenHallStage"
         output_file = './tasks/forgotten_hall/keywords/stage.py'
@@ -247,8 +249,9 @@ class KeywordExtract:
 
     def generate_character_keywords(self):
         self.load_character_name_keywords()
-        self.write_keywords(keyword_class='CharacterList', output_file='./tasks/character/keywords/character_list.py',text_convert=character_name)
-        
+        self.write_keywords(keyword_class='CharacterList', output_file='./tasks/character/keywords/character_list.py',
+                            text_convert=character_name)
+
     def generate(self):
         self.load_keywords(['模拟宇宙', '拟造花萼（金）', '拟造花萼（赤）', '凝滞虚影', '侵蚀隧洞', '历战余响', '忘却之庭'])
         self.write_keywords(keyword_class='DungeonNav', output_file='./tasks/dungeon/keywords/nav.py')

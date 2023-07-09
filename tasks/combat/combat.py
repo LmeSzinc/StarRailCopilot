@@ -38,8 +38,9 @@ class Combat(CombatInteract, CombatPrepare, CombatState, CombatTeam, CombatSuppo
                 return True
 
         return False
-    
-    def combat_prepare(self, team=1, use_support=False,support_character:str="FirstCharacter"):
+
+    def combat_prepare(self, team=1, use_support="do_not_use", is_daily=False,
+                       support_character: str = "FirstCharacter"):
         """
         Args:
             team: 1 to 6.
@@ -66,7 +67,8 @@ class Combat(CombatInteract, CombatPrepare, CombatState, CombatTeam, CombatSuppo
                 return True
 
             # Click
-            if use_support!="when_daily" and use_support and self.appear(COMBAT_TEAM_SUPPORT):
+            if (use_support == "always_use" or (use_support == "when_daily" and is_daily)) and self.appear(
+                    COMBAT_TEAM_SUPPORT):
                 if pre_set_team:
                     self.team_set(team)
                     pre_set_team = False
@@ -212,7 +214,8 @@ class Combat(CombatInteract, CombatPrepare, CombatState, CombatTeam, CombatSuppo
                 self.device.click(COMBAT_EXIT)
                 continue
 
-    def combat(self, team: int = 1, skip_first_screenshot=True, use_support=False,support_character:str = "FirstCharacter"):
+    def combat(self, team: int = 1, skip_first_screenshot=True, use_support="do_not_use", is_daily=False,
+               support_character: str = "FirstCharacter"):
         """
         Combat until trailblaze power runs out.
 
@@ -231,7 +234,7 @@ class Combat(CombatInteract, CombatPrepare, CombatState, CombatTeam, CombatSuppo
         while 1:
             logger.hr('Combat', level=2)
             # Prepare
-            prepare = self.combat_prepare(team, use_support,support_character)
+            prepare = self.combat_prepare(team, use_support, is_daily, support_character)
             if not prepare:
                 self.combat_exit()
                 break

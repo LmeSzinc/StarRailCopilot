@@ -222,13 +222,14 @@
     "Support": {
       "name": "Enable buddy support",
       "help": "Whether to enable buddy support",
-      "False": "False",
-      "True": "True",
+      "do_not_use": "do_not_use",
+      "always_use": "always_use",
       "when_daily": "when_daily"
     },
     "SupportCharacter": {
       "name": "Dungeon.SupportCharacter.name",
       "help": "Dungeon.SupportCharacter.help",
+      "FirstCharacter": "FirstCharacter",
       "Arlan": "Arlan",
       "Asta": "Asta",
       "Bailu": "Bailu",
@@ -256,8 +257,7 @@
       "TrailblazerthePreservation": "Trailblazer: the Preservation",
       "Welt": "Welt",
       "Yanqing": "Yanqing",
-      "Yukong": "Yukong",
-      "FirstCharacter": "FirstCharacter"
+      "Yukong": "Yukong"
     }
   },
   "Assignment": {

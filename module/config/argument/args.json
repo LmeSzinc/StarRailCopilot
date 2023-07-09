@@ -215,8 +215,8 @@
         "type": "select",
         "value": "when_daily",
         "option": [
-          false,
-          true,
+          "do_not_use",
+          "always_use",
           "when_daily"
         ]
       },
@@ -224,6 +224,7 @@
         "type": "select",
         "value": "FirstCharacter",
         "option": [
+          "FirstCharacter",
           "Arlan",
           "Asta",
           "Bailu",
@@ -251,8 +252,7 @@
           "TrailblazerthePreservation",
           "Welt",
           "Yanqing",
-          "Yukong",
-          "FirstCharacter"
+          "Yukong"
         ]
       }
     }

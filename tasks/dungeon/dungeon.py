@@ -6,12 +6,15 @@ from tasks.dungeon.ui import DungeonUI
 
 
 class Dungeon(DungeonUI, Combat):
-    def run(self, dungeon: DungeonList = None, team: int = None, is_daily: bool = False):
+    def run(self, dungeon: DungeonList = None, team: int = None, use_support: str = None, is_daily: bool = False,
+            support_character: str = None):
         if dungeon is None:
             dungeon = DungeonList.find(self.config.Dungeon_Name)
         if team is None:
             team = self.config.Dungeon_Team
+        if use_support is None:
             use_support = self.config.Dungeon_Support
+        if support_character is None:
             support_character = self.config.Dungeon_SupportCharacter
         # Run
         if not self.dungeon_goto(dungeon):

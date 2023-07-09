@@ -64,7 +64,7 @@ class SupportListScroll(Scroll):
         image = main.device.image
         
         temp_area = list(self.area)
-        temp_area[0] = int(temp_area[0] * 0.95)
+        temp_area[0] = int(temp_area[0] * 0.98)
         temp_area[2] = int(temp_area[2] * 1.05)
         
         line = rgb2luma(crop(image, temp_area)).flatten()
@@ -159,7 +159,8 @@ class CombatSupport(UI):
                     return True
                 
                 if not scroll.at_bottom(main=self):
-                    scroll.next_page(main=self)
+                    scroll.next_page(main=self, page=1)
+                    self.wait_until_stable(COMBAT_SUPPORT_LIST_SCROLL)
                     continue
                 else:
                     logger.info('Support not found')

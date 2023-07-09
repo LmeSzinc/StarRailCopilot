@@ -44,7 +44,11 @@ class Combat(CombatInteract, CombatPrepare, CombatState, CombatTeam, CombatSuppo
         """
         Args:
             team: 1 to 6.
-            use_support: True if use support
+            skip_first_screenshot:
+            use_support: "do_not_use", "always_use", "when_daily"
+            is_daily: True if is a daily task
+            support_character: Support character name
+            
         Returns:
             bool: True if success to enter combat
                 False if trialblaze power is not enough
@@ -222,6 +226,9 @@ class Combat(CombatInteract, CombatPrepare, CombatState, CombatTeam, CombatSuppo
         Args:
             team: 1 to 6.
             skip_first_screenshot:
+            use_support: "do_not_use", "always_use", "when_daily"
+            is_daily: True if is a daily task
+            support_character: Support character name
 
         Pages:
             in: COMBAT_PREPARE

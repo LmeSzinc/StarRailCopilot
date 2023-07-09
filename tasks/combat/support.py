@@ -93,7 +93,7 @@ class CombatSupport(UI):
     def support_set(self, support_character_name: str = "FirstCharacter"):
         """
         Args:
-            support_character_name (str): Support character name
+            support_character_name: Support character name
 
         Returns:
             bool: If clicked
@@ -127,10 +127,10 @@ class CombatSupport(UI):
                 self.interval_reset(COMBAT_SUPPORT_LIST)
                 continue
 
-    def _search_support(self, support_character_name="JingYuan"):
+    def _search_support(self, support_character_name: str = "JingYuan"):
         """
         Args:
-            CHARACTER: support character
+            support_character_name: Support character name
 
         Returns:
             bool: True if found support else False

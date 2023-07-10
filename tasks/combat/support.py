@@ -161,7 +161,7 @@ class CombatSupport(UI):
                     return True
 
                 if not scroll.at_bottom(main=self):
-                    scroll.next_page(main=self, page=1)
+                    scroll.next_page(main=self)
                     self.wait_until_stable(COMBAT_SUPPORT_LIST_SCROLL)
                     continue
                 else:

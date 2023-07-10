@@ -282,6 +282,12 @@ class ConfigGenerator:
                 if dungeon.name in dailies:
                     value = dungeon.__getattribute__(ingame_lang)
                     deep_set(new, keys=['Dungeon', 'Name', dungeon.name], value=value)
+        # Copy dungeon i18n to double events
+        for dungeon in deep_get(new, keys='Dungeon.NameAtDoubleCalyx').values():
+            if '_' in dungeon:
+                value = deep_get(new, keys=['Dungeon', 'Name', dungeon])
+                if value:
+                    deep_set(new, keys=['Dungeon', 'NameAtDoubleCalyx', dungeon], value=value)
 
         from tasks.character.keywords import CharacterList
         ingame_lang = gui_lang_to_ingame_lang(lang)
@@ -365,11 +371,17 @@ class ConfigGenerator:
         dungeons = [dungeon.name for dungeon in DungeonList.instances.values() if dungeon.is_daily_dungeon]
         deep_set(self.argument, keys='Dungeon.Name.option', value=dungeons)
         deep_set(self.args, keys='Dungeon.Dungeon.Name.option', value=dungeons)
-
+        
         from tasks.character.keywords import CharacterList
         characters = ['FirstCharacter'] + [character.name for character in CharacterList.instances.values()]
         deep_set(self.argument, keys='Dungeon.SupportCharacter.option', value=characters)
         deep_set(self.args, keys='Dungeon.Dungeon.SupportCharacter.option', value=characters)
+        
+        dungeons = deep_get(self.argument, keys='Dungeon.NameAtDoubleCalyx.option')
+        dungeons += [dungeon.name for dungeon in DungeonList.instances.values()
+                    if dungeon.is_Calyx_Golden or dungeon.is_Calyx_Crimson]
+        deep_set(self.argument, keys='Dungeon.NameAtDoubleCalyx.option', value=dungeons)
+        deep_set(self.args, keys='Dungeon.Dungeon.NameAtDoubleCalyx.option', value=dungeons)
 
     def insert_assignment(self):
         from tasks.assignment.keywords import AssignmentEntry

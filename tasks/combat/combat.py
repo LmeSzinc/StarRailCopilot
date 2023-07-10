@@ -1,3 +1,4 @@
+from module.base.decorator import run_once
 from module.logger import logger
 from tasks.base.assets.assets_base_page import CLOSE
 from tasks.combat.assets.assets_combat_finish import COMBAT_AGAIN, COMBAT_EXIT
@@ -15,18 +16,43 @@ from tasks.map.control.joystick import MapControlJoystick
 class Combat(CombatInteract, CombatPrepare, CombatState, CombatTeam, CombatSupport, MapControlJoystick):
     def handle_combat_prepare(self):
         """
+        Returns:
+            bool: If able to run a combat
+
         Pages:
             in: COMBAT_PREPARE
         """
+        self.combat_waves = 1
         current = self.combat_get_trailblaze_power()
         cost = self.combat_get_wave_cost()
         if cost == 10:
-            wave = min(current // self.combat_wave_cost, 6)
-            logger.info(f'Current has {current}, combat costs {self.combat_wave_cost}, able to do {wave} waves')
-            if wave > 0:
-                self.combat_set_wave(wave)
+            # Calyx
+            self.combat_waves = min(current // self.combat_wave_cost, 6)
+            if self.combat_wave_limit:
+                self.combat_waves = min(self.combat_waves, self.combat_wave_limit - self.combat_wave_done)
+                logger.info(
+                    f'Current has {current}, combat costs {self.combat_wave_cost}, '
+                    f'wave={self.combat_wave_done}/{self.combat_wave_limit}, '
+                    f'able to do {self.combat_waves} waves')
+            else:
+                logger.info(f'Current has {current}, combat costs {self.combat_wave_cost}, '
+                            f'able to do {self.combat_waves} waves')
+            if self.combat_waves > 0:
+                self.combat_set_wave(self.combat_waves)
         else:
-            logger.info(f'Current has {current}, combat costs {self.combat_wave_cost}, do 1 wave')
+            # Others
+            logger.info(f'Current has {current}, combat costs {self.combat_wave_cost}, '
+                        f'do {self.combat_waves} wave')
+
+        # Check limits
+        if self.state.TrailblazePower < self.combat_wave_cost:
+            logger.info('Trailblaze power exhausted, cannot continue combat')
+            return False
+        if self.combat_waves <= 0:
+            logger.info('Combat wave limited, cannot continue combat')
+            return False
+
+        return True
 
     def handle_ascension_dungeon_prepare(self):
         """
@@ -88,8 +114,7 @@ class Combat(CombatInteract, CombatPrepare, CombatState, CombatTeam, CombatSuppo
                 self.interval_reset(COMBAT_PREPARE)
                 self._map_A_timer.reset()
             if self.appear(COMBAT_PREPARE, interval=2):
-                self.handle_combat_prepare()
-                if self.state.TrailblazePower < self.combat_wave_cost:
+                if not self.handle_combat_prepare():
                     return False
                 self.device.click(COMBAT_PREPARE)
                 self.interval_reset(COMBAT_PREPARE)
@@ -136,8 +161,16 @@ class Combat(CombatInteract, CombatPrepare, CombatState, CombatTeam, CombatSuppo
             in: COMBAT_AGAIN
         """
         current = self.combat_get_trailblaze_power(expect_reduce=True)
+        # Wave limit
+        if self.combat_wave_limit:
+            if self.combat_wave_done + self.combat_waves > self.combat_wave_limit:
+                logger.info(f'Combat wave limit: {self.combat_wave_done}/{self.combat_wave_limit}, '
+                            f'can not run again')
+                return False
+
+        # Cost limit
         if self.combat_wave_cost == 10:
-            if current >= self.combat_wave_cost * 6:
+            if current >= self.combat_wave_cost * self.combat_waves:
                 logger.info(f'Current has {current}, combat costs {self.combat_wave_cost}, can run again')
                 return True
             else:
@@ -151,6 +184,24 @@ class Combat(CombatInteract, CombatPrepare, CombatState, CombatTeam, CombatSuppo
                 logger.info(f'Current has {current}, combat costs {self.combat_wave_cost}, can not run again')
                 return False
 
+    def _combat_should_reenter(self):
+        """
+        Returns:
+            bool: True to re-enter combat and run with another wave settings
+        """
+        # Wave limit
+        if self.combat_wave_limit:
+            if self.combat_wave_done < self.combat_wave_limit:
+                logger.info(f'Combat wave limit: {self.combat_wave_done}/{self.combat_wave_limit}, '
+                            f'run again with less waves')
+                return True
+            else:
+                return False
+        # Cost limit
+        if self.state.TrailblazePower >= self.combat_wave_cost:
+            logger.info('Still having some trailblaze power run with less waves to empty it')
+            return True
+
     def combat_finish(self) -> bool:
         """
         Returns:
@@ -162,6 +213,12 @@ class Combat(CombatInteract, CombatPrepare, CombatState, CombatTeam, CombatSuppo
                 is_combat_executing if again
         """
         logger.hr('Combat finish')
+
+        @run_once
+        def add_wave_done():
+            self.combat_wave_done += self.combat_waves
+            logger.info(f'Done {self.combat_waves} waves at total')
+
         skip_first_screenshot = True
         while 1:
             if skip_first_screenshot:
@@ -180,6 +237,7 @@ class Combat(CombatInteract, CombatPrepare, CombatState, CombatTeam, CombatSuppo
             # Click
             # Game client might slow to response COMBAT_AGAIN clicks
             if self.appear(COMBAT_AGAIN, interval=5):
+                add_wave_done()
                 if self._combat_can_again():
                     self.device.click(COMBAT_AGAIN)
                 else:
@@ -218,17 +276,22 @@ class Combat(CombatInteract, CombatPrepare, CombatState, CombatTeam, CombatSuppo
                 self.device.click(COMBAT_EXIT)
                 continue
 
-    def combat(self, team: int = 1, skip_first_screenshot=True, use_support="do_not_use", is_daily=False,
+    def combat(self, team: int = 1, wave_limit: int = 0, skip_first_screenshot=True, use_support="do_not_use", is_daily=False,
                support_character: str = "FirstCharacter"):
         """
         Combat until trailblaze power runs out.
 
         Args:
             team: 1 to 6.
+            wave_limit: Limit combat runs, 0 means no limit.
             skip_first_screenshot:
             use_support: "do_not_use", "always_use", "when_daily"
             is_daily: True if is a daily task
             support_character: Support character name
+
+        Returns:
+            bool: True if trailblaze power exhausted
+                False if reached wave_limit but still have trailblaze power
 
         Pages:
             in: COMBAT_PREPARE
@@ -238,8 +301,11 @@ class Combat(CombatInteract, CombatPrepare, CombatState, CombatTeam, CombatSuppo
         if not skip_first_screenshot:
             self.device.screenshot()
 
+        self.combat_wave_limit = wave_limit
+        self.combat_wave_done = 0
         while 1:
             logger.hr('Combat', level=2)
+            logger.info(f'Combat, team={team}, wave={self.combat_wave_done}/{self.combat_wave_limit}')
             # Prepare
             prepare = self.combat_prepare(team, use_support, is_daily, support_character)
             if not prepare:
@@ -249,8 +315,9 @@ class Combat(CombatInteract, CombatPrepare, CombatState, CombatTeam, CombatSuppo
             self.combat_execute()
             # Finish
             finish = self.combat_finish()
-            if self.state.TrailblazePower >= self.combat_wave_cost:
-                logger.info('Still having some trailblaze power run with less waves to empty it')
+            if self._combat_should_reenter():
                 continue
             if finish:
                 break
+
+        return self.state.TrailblazePower < self.combat_wave_cost

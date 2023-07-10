@@ -3,16 +3,6 @@ from module.base.button import Button, ButtonWrapper
 # This file was auto-generated, do not modify it manually. To generate:
 # ``` python -m dev_tools.button_extract ```
 
-ITEM_CONSUMABLE_CHECK = ButtonWrapper(
-    name='ITEM_CONSUMABLE_CHECK',
-    share=Button(
-        file='./assets/share/item/consumable_usage/ITEM_CONSUMABLE_CHECK.png',
-        area=(39, 476, 78, 499),
-        search=(19, 456, 98, 519),
-        color=(137, 138, 139),
-        button=(39, 476, 78, 499),
-    ),
-)
 ITEM_CONSUMABLE_SCROLL = ButtonWrapper(
     name='ITEM_CONSUMABLE_SCROLL',
     share=Button(
@@ -21,16 +11,6 @@ ITEM_CONSUMABLE_SCROLL = ButtonWrapper(
         search=(817, 69, 863, 635),
         color=(118, 117, 121),
         button=(837, 89, 843, 615),
-    ),
-)
-ITEM_GOTO_CONSUMABLE = ButtonWrapper(
-    name='ITEM_GOTO_CONSUMABLE',
-    share=Button(
-        file='./assets/share/item/consumable_usage/ITEM_GOTO_CONSUMABLE.png',
-        area=(38, 476, 80, 499),
-        search=(18, 456, 100, 519),
-        color=(104, 106, 117),
-        button=(38, 476, 80, 499),
     ),
 )
 SIMPLE_PROTECTIVE_GEAR = ButtonWrapper(

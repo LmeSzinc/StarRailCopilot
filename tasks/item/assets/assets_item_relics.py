@@ -43,23 +43,3 @@ SALVAGE = ButtonWrapper(
         button=(1038, 646, 1062, 670),
     ),
 )
-TEST = ButtonWrapper(
-    name='TEST',
-    share=Button(
-        file='./assets/share/item/relics/TEST.png',
-        area=(747, 421, 842, 533),
-        search=(727, 401, 862, 553),
-        color=(16, 23, 37),
-        button=(747, 421, 842, 533),
-    ),
-)
-TEST2 = ButtonWrapper(
-    name='TEST2',
-    share=Button(
-        file='./assets/share/item/relics/TEST2.png',
-        area=(42, 144, 52, 154),
-        search=(22, 124, 72, 174),
-        color=(151, 103, 94),
-        button=(42, 144, 52, 154),
-    ),
-)

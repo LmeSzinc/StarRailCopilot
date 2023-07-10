@@ -112,8 +112,6 @@ class ConsumableUsageUI(ItemUI):
                         continue
             else:
                 logger.info('Can not find the consumable which to be used, just skip')
-                from PIL import Image
-                Image.fromarray(self.device.image).save("./screenshots/image3.png")
                 return False
 
     def _click_use(self, skip_first_screenshot=True):

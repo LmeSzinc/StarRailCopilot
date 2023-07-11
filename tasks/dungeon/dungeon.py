@@ -6,7 +6,6 @@ from tasks.dungeon.keywords import DungeonList, KEYWORDS_DUNGEON_LIST, KEYWORDS_
 from tasks.dungeon.ui import DungeonUI
 
 
-
 class Dungeon(DungeonUI, DungeonEvent, Combat):
     def run(self, dungeon: DungeonList = None, team: int = None, use_support: str = None, is_daily: bool = False,
             support_character: str = None):
@@ -17,8 +16,8 @@ class Dungeon(DungeonUI, DungeonEvent, Combat):
         if use_support is None:
             use_support = self.config.Dungeon_Support
         if support_character is None:
-            support_character = self.config.Dungeon_SupportCharacter
-            
+            support_character = self.config.Dungeon_SupportCharacter if use_support == "always_use" or use_support == "when_daily" and is_daily else None
+
         # UI switches
         switched = self.dungeon_tab_goto(KEYWORDS_DUNGEON_TAB.Survival_Index)
         if not switched:
@@ -32,7 +31,7 @@ class Dungeon(DungeonUI, DungeonEvent, Combat):
             self._dungeon_nav_goto(calyx)
             if remain := self.get_double_event_remain():
                 self.dungeon_goto(calyx)
-                if self.combat(team, wave_limit=remain):
+                if self.combat(team, wave_limit=remain, support_character=support_character):
                     self.delay_dungeon_task(calyx)
                 self.dungeon_tab_goto(KEYWORDS_DUNGEON_TAB.Survival_Index)
 
@@ -44,7 +43,7 @@ class Dungeon(DungeonUI, DungeonEvent, Combat):
                 self.dungeon_tab_goto(KEYWORDS_DUNGEON_TAB.Survival_Index)
                 self.dungeon_goto(dungeon)
 
-        self.combat(team=team, use_support=use_support, is_daily=is_daily, support_character=support_character)
+        self.combat(team=team, support_character=support_character)
         self.delay_dungeon_task(dungeon)
 
     def delay_dungeon_task(self, dungeon):

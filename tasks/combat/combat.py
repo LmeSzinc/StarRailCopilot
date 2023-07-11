@@ -65,14 +65,11 @@ class Combat(CombatInteract, CombatPrepare, CombatState, CombatTeam, CombatSuppo
 
         return False
 
-    def combat_prepare(self, team=1, use_support="do_not_use", is_daily=False,
-                       support_character: str = "FirstCharacter"):
+    def combat_prepare(self, team=1, support_character: str = None):
         """
         Args:
             team: 1 to 6.
             skip_first_screenshot:
-            use_support: "do_not_use", "always_use", "when_daily"
-            is_daily: True if is a daily task
             support_character: Support character name
             
         Returns:
@@ -85,7 +82,7 @@ class Combat(CombatInteract, CombatPrepare, CombatState, CombatTeam, CombatSuppo
         """
         logger.hr('Combat prepare')
         skip_first_screenshot = True
-        pre_set_team = use_support
+        pre_set_team = bool(support_character)
         while 1:
             if skip_first_screenshot:
                 skip_first_screenshot = False
@@ -97,8 +94,7 @@ class Combat(CombatInteract, CombatPrepare, CombatState, CombatTeam, CombatSuppo
                 return True
 
             # Click
-            if (use_support == "always_use" or (use_support == "when_daily" and is_daily)) and self.appear(
-                    COMBAT_TEAM_SUPPORT):
+            if self.appear(COMBAT_TEAM_SUPPORT) and support_character:
                 if pre_set_team:
                     self.team_set(team)
                     pre_set_team = False
@@ -276,8 +272,7 @@ class Combat(CombatInteract, CombatPrepare, CombatState, CombatTeam, CombatSuppo
                 self.device.click(COMBAT_EXIT)
                 continue
 
-    def combat(self, team: int = 1, wave_limit: int = 0, skip_first_screenshot=True, use_support="do_not_use", is_daily=False,
-               support_character: str = "FirstCharacter"):
+    def combat(self, team: int = 1, wave_limit: int = 0, skip_first_screenshot=True, support_character: str = None):
         """
         Combat until trailblaze power runs out.
 
@@ -307,7 +302,7 @@ class Combat(CombatInteract, CombatPrepare, CombatState, CombatTeam, CombatSuppo
             logger.hr('Combat', level=2)
             logger.info(f'Combat, team={team}, wave={self.combat_wave_done}/{self.combat_wave_limit}')
             # Prepare
-            prepare = self.combat_prepare(team, use_support, is_daily, support_character)
+            prepare = self.combat_prepare(team, support_character)
             if not prepare:
                 self.combat_exit()
                 break

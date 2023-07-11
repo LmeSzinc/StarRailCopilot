@@ -7,7 +7,7 @@ from module.logger import logger
 from module.ui.scroll import Scroll
 from tasks.base.ui import UI
 from tasks.combat.assets.assets_combat_support import COMBAT_SUPPORT_ADD, COMBAT_SUPPORT_LIST, \
-    COMBAT_SUPPORT_LIST_SCROLL
+    COMBAT_SUPPORT_LIST_SCROLL, COMBAT_SUPPORT_SELECTED
 from tasks.combat.assets.assets_combat_team import COMBAT_TEAM_SUPPORT, COMBAT_TEAM_DISMISSSUPPORT
 
 
@@ -53,6 +53,14 @@ class SupportCharacter:
 
         return (max_loc[0], max_loc[1], max_loc[0] + character_width, max_loc[1] + character_height) \
             if max_val >= self.similarity else None
+
+    def selected_icon_search(self):
+        """
+        Returns:
+            tuple: (x1, y1, x2, y2) of selected icon search area
+        """
+        return (
+        self.button[0] + 280, self.button[1] + 65, self.button[0] + 320, self.button[1] + 100) if self.button else None
 
 
 class SupportListScroll(Scroll):
@@ -149,6 +157,7 @@ class CombatSupport(UI):
 
             logger.info("Searching support")
             skip_first_screenshot = False
+            character = None
             while 1:
                 if skip_first_screenshot:
                     skip_first_screenshot = False
@@ -156,9 +165,12 @@ class CombatSupport(UI):
                     self.device.screenshot()
 
                 if character := SupportCharacter(support_character_name, self.device.image):
-                    self.device.click(character)
                     logger.info("Support found")
-                    return True
+                    if self._select_support(character):
+                        return True
+                    else:
+                        logger.warning("Support not selected")
+                        return False
 
                 if not scroll.at_bottom(main=self):
                     scroll.next_page(main=self)
@@ -167,3 +179,32 @@ class CombatSupport(UI):
                 else:
                     logger.info("Support not found")
                     return False
+
+    def _select_support(self, character: SupportCharacter):
+        """
+        Args:
+            character: Support character
+
+        Pages:
+            in: COMBAT_SUPPORT_LIST
+            out: COMBAT_SUPPORT_LIST
+        """
+        logger.hr("Combat support select")
+        self.device.click(character)
+        COMBAT_SUPPORT_SELECTED.matched_button.search = character.selected_icon_search()
+        skip_first_screenshot = False
+        while 1:
+            if skip_first_screenshot:
+                skip_first_screenshot = False
+            else:
+                self.device.screenshot()
+
+            # If don't use wait_until_stable, will cause frequent clicks on the support character
+            self.wait_until_stable(COMBAT_SUPPORT_SELECTED)
+
+            # End
+            if self.match_template(COMBAT_SUPPORT_SELECTED):
+                logger.info("Support selected")
+                return True
+
+            self.device.click(character)

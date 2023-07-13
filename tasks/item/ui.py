@@ -13,20 +13,45 @@ SWITCH_ITEM_TAB.add_state(
     click_button=UPGRADE_MATERIAL_CLICK
 )
 SWITCH_ITEM_TAB.add_state(
+    KEYWORD_ITEM_TAB.Light_Cone,
+    check_button=LIGHT_CONE_CHECK,
+    click_button=LIGHT_CONE_CLICK
+)
+SWITCH_ITEM_TAB.add_state(
     KEYWORD_ITEM_TAB.Relics,
     check_button=RELICS_CHECK,
     click_button=RELICS_CLICK
+)
+SWITCH_ITEM_TAB.add_state(
+    KEYWORD_ITEM_TAB.Other_Materials,
+    check_button=OTHER_MATERIALS_CHECK,
+    click_button=OTHER_MATERIALS_CLICK
 )
 SWITCH_ITEM_TAB.add_state(
     KEYWORD_ITEM_TAB.Consumables,
     check_button=CONSUMABLE_CHECK,
     click_button=CONSUMABLE_CLICK,
 )
+SWITCH_ITEM_TAB.add_state(
+    KEYWORD_ITEM_TAB.Missions,
+    check_button=MISSIONS_CHECK,
+    click_button=MISSIONS_CLICK
+)
+SWITCH_ITEM_TAB.add_state(
+    KEYWORD_ITEM_TAB.Valuables,
+    check_button=VALUABLES_CHECK,
+    click_button=VALUABLES_CLICK
+)
 
 
 class ItemUI(UI):
     def item_goto(self, state: KEYWORD_ITEM_TAB, wait_until_stable=True):
         """
+        Args:
+            state:
+            wait_until_stable: if subsequent actions are manipulating items, or any other thing that needs to load
+                inside the tab, wait_until_stable should set to True
+
         Returns:
             self = ItemUI('alas')
             self.device.screenshot()

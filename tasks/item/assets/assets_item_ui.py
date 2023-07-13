@@ -23,6 +23,66 @@ CONSUMABLE_CLICK = ButtonWrapper(
         button=(38, 476, 80, 499),
     ),
 )
+LIGHT_CONE_CHECK = ButtonWrapper(
+    name='LIGHT_CONE_CHECK',
+    share=Button(
+        file='./assets/share/item/ui/LIGHT_CONE_CHECK.png',
+        area=(43, 207, 73, 228),
+        search=(23, 187, 93, 248),
+        color=(191, 193, 193),
+        button=(43, 207, 73, 228),
+    ),
+)
+LIGHT_CONE_CLICK = ButtonWrapper(
+    name='LIGHT_CONE_CLICK',
+    share=Button(
+        file='./assets/share/item/ui/LIGHT_CONE_CLICK.png',
+        area=(42, 205, 72, 226),
+        search=(22, 185, 92, 246),
+        color=(48, 50, 50),
+        button=(42, 205, 72, 226),
+    ),
+)
+MISSIONS_CHECK = ButtonWrapper(
+    name='MISSIONS_CHECK',
+    share=Button(
+        file='./assets/share/item/ui/MISSIONS_CHECK.png',
+        area=(42, 570, 75, 588),
+        search=(22, 550, 95, 608),
+        color=(91, 92, 92),
+        button=(42, 570, 75, 588),
+    ),
+)
+MISSIONS_CLICK = ButtonWrapper(
+    name='MISSIONS_CLICK',
+    share=Button(
+        file='./assets/share/item/ui/MISSIONS_CLICK.png',
+        area=(43, 569, 74, 589),
+        search=(23, 549, 94, 609),
+        color=(115, 117, 117),
+        button=(43, 569, 74, 589),
+    ),
+)
+OTHER_MATERIALS_CHECK = ButtonWrapper(
+    name='OTHER_MATERIALS_CHECK',
+    share=Button(
+        file='./assets/share/item/ui/OTHER_MATERIALS_CHECK.png',
+        area=(41, 385, 77, 408),
+        search=(21, 365, 97, 428),
+        color=(122, 123, 123),
+        button=(41, 385, 77, 408),
+    ),
+)
+OTHER_MATERIALS_CLICK = ButtonWrapper(
+    name='OTHER_MATERIALS_CLICK',
+    share=Button(
+        file='./assets/share/item/ui/OTHER_MATERIALS_CLICK.png',
+        area=(40, 387, 78, 407),
+        search=(20, 367, 98, 427),
+        color=(92, 94, 94),
+        button=(40, 387, 78, 407),
+    ),
+)
 RELICS_CHECK = ButtonWrapper(
     name='RELICS_CHECK',
     share=Button(
@@ -43,6 +103,16 @@ RELICS_CLICK = ButtonWrapper(
         button=(36, 298, 78, 319),
     ),
 )
+TAB_SWIPE = ButtonWrapper(
+    name='TAB_SWIPE',
+    share=Button(
+        file='./assets/share/item/ui/TAB_SWIPE.png',
+        area=(29, 83, 85, 659),
+        search=(9, 63, 105, 679),
+        color=(45, 47, 47),
+        button=(29, 83, 85, 659),
+    ),
+)
 UPGRADE_MATERIAL_CHECK = ButtonWrapper(
     name='UPGRADE_MATERIAL_CHECK',
     share=Button(
@@ -61,5 +131,25 @@ UPGRADE_MATERIAL_CLICK = ButtonWrapper(
         search=(20, 100, 98, 159),
         color=(114, 118, 125),
         button=(40, 120, 78, 139),
+    ),
+)
+VALUABLES_CHECK = ButtonWrapper(
+    name='VALUABLES_CHECK',
+    share=Button(
+        file='./assets/share/item/ui/VALUABLES_CHECK.png',
+        area=(44, 641, 73, 653),
+        search=(24, 621, 93, 673),
+        color=(91, 86, 92),
+        button=(44, 641, 73, 653),
+    ),
+)
+VALUABLES_CLICK = ButtonWrapper(
+    name='VALUABLES_CLICK',
+    share=Button(
+        file='./assets/share/item/ui/VALUABLES_CLICK.png',
+        area=(45, 640, 72, 655),
+        search=(25, 620, 92, 675),
+        color=(123, 125, 125),
+        button=(45, 640, 72, 655),
     ),
 )

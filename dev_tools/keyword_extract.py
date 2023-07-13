@@ -244,7 +244,7 @@ class KeywordExtract:
         self.generate_assignment_keywords()
         self.generate_forgotten_hall_stages()
         self.generate_map_planes()
-        self.load_keywords(['养成材料', '遗器', '消耗品'])
+        self.load_keywords(['养成材料', '光锥', '遗器', '其他材料', '消耗品', '任务', '贵重物'])
         self.write_keywords(keyword_class='ItemTab', output_file='./tasks/item/keywords/tab.py')
 
 

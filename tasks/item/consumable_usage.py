@@ -7,6 +7,7 @@ from tasks.daily.assets.assets_daily_synthesize_consumable import \
     SIMPLE_PROTECTIVE_GEAR_CHECK as SYNTHESIZE_SIMPLE_PROTECTIVE_GEAR_CHECK
 from tasks.daily.synthesize import SynthesizeConsumablesUI
 from tasks.item.assets.assets_item_consumable_usage import *
+from tasks.item.assets.assets_item_ui import CONSUMABLE_CHECK
 from tasks.item.keywords import KEYWORD_ITEM_TAB
 from tasks.item.ui import ItemUI
 
@@ -141,7 +142,7 @@ class ConsumableUsageUI(ItemUI):
             else:
                 self.device.screenshot()
 
-            if self.appear(ITEM_CONSUMABLE_CHECK):
+            if self.appear(CONSUMABLE_CHECK):
                 logger.info('Complete using consumables')
                 break
             # If there is already consumable effect, a confirmation box will pop up again,

@@ -44,7 +44,8 @@ class SupportCharacter:
     def _find_character(self):
         character = np.array(self.image)
         support_list_img = self.screenshot
-        res = cv2.matchTemplate(character, support_list_img, cv2.TM_CCOEFF_NORMED)
+        res = cv2.matchTemplate(
+            character, support_list_img, cv2.TM_CCOEFF_NORMED)
 
         _, max_val, _, max_loc = cv2.minMaxLoc(res)
 
@@ -60,7 +61,7 @@ class SupportCharacter:
             tuple: (x1, y1, x2, y2) of selected icon search area
         """
         return (
-        self.button[0] + 280, self.button[1] + 65, self.button[0] + 320, self.button[1] + 100) if self.button else None
+            self.button[0], self.button[1] - 5, self.button[0] + 30, self.button[1]) if self.button else None
 
 
 class SupportListScroll(Scroll):
@@ -93,7 +94,8 @@ class SupportListScroll(Scroll):
         position = (middle - self.length / 2) / (self.total - self.length)
         position = position if position > 0 else 0.0
         position = position if position < 1 else 1.0
-        logger.attr(self.name, f"{position:.2f} ({middle}-{self.length / 2})/({self.total}-{self.length})")
+        logger.attr(
+            self.name, f"{position:.2f} ({middle}-{self.length / 2})/({self.total}-{self.length})")
         return position
 
 
@@ -130,7 +132,8 @@ class CombatSupport(UI):
                 continue
             if self.appear(COMBAT_SUPPORT_LIST, interval=2):
                 if support_character_name != "FirstCharacter":
-                    self._search_support(support_character_name)  # Search support
+                    self._search_support(
+                        support_character_name)  # Search support
                 self.device.click(COMBAT_SUPPORT_ADD)
                 self.interval_reset(COMBAT_SUPPORT_LIST)
                 continue
@@ -204,7 +207,6 @@ class CombatSupport(UI):
 
             # End
             if self.match_template(COMBAT_SUPPORT_SELECTED):
-                logger.info("Support selected")
                 return True
 
             self.device.click(character)

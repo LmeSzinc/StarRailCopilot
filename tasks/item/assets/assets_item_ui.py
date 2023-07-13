@@ -103,16 +103,6 @@ RELICS_CLICK = ButtonWrapper(
         button=(36, 298, 78, 319),
     ),
 )
-TAB_SWIPE = ButtonWrapper(
-    name='TAB_SWIPE',
-    share=Button(
-        file='./assets/share/item/ui/TAB_SWIPE.png',
-        area=(29, 83, 85, 659),
-        search=(9, 63, 105, 679),
-        color=(45, 47, 47),
-        button=(29, 83, 85, 659),
-    ),
-)
 UPGRADE_MATERIAL_CHECK = ButtonWrapper(
     name='UPGRADE_MATERIAL_CHECK',
     share=Button(

@@ -8,12 +8,12 @@ from tasks.item.keywords import KEYWORD_ITEM_TAB
 
 SWITCH_ITEM_TAB = Switch('ItemTab', is_selector=True)
 SWITCH_ITEM_TAB.add_state(
-    KEYWORD_ITEM_TAB.Upgrade_Materials,
+    KEYWORD_ITEM_TAB.UpgradeMaterials,
     check_button=UPGRADE_MATERIAL_CHECK,
     click_button=UPGRADE_MATERIAL_CLICK
 )
 SWITCH_ITEM_TAB.add_state(
-    KEYWORD_ITEM_TAB.Light_Cone,
+    KEYWORD_ITEM_TAB.LightCone,
     check_button=LIGHT_CONE_CHECK,
     click_button=LIGHT_CONE_CLICK
 )
@@ -23,7 +23,7 @@ SWITCH_ITEM_TAB.add_state(
     click_button=RELICS_CLICK
 )
 SWITCH_ITEM_TAB.add_state(
-    KEYWORD_ITEM_TAB.Other_Materials,
+    KEYWORD_ITEM_TAB.OtherMaterials,
     check_button=OTHER_MATERIALS_CHECK,
     click_button=OTHER_MATERIALS_CLICK
 )

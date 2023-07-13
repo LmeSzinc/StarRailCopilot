@@ -3,17 +3,17 @@ from .classes import ItemTab
 # This file was auto-generated, do not modify it manually. To generate:
 # ``` python -m dev_tools.keyword_extract ```
 
-Upgrade_Materials = ItemTab(
+UpgradeMaterials = ItemTab(
     id=1,
-    name='Upgrade_Materials',
+    name='UpgradeMaterials',
     cn='养成材料',
     cht='養成素材',
     en='Upgrade Materials',
     jp='育成素材',
 )
-Light_Cone = ItemTab(
+LightCone = ItemTab(
     id=2,
-    name='Light_Cone',
+    name='LightCone',
     cn='光锥',
     cht='光錐',
     en='Light Cone',
@@ -27,9 +27,9 @@ Relics = ItemTab(
     en='Relics',
     jp='遺物',
 )
-Other_Materials = ItemTab(
+OtherMaterials = ItemTab(
     id=4,
-    name='Other_Materials',
+    name='OtherMaterials',
     cn='其他材料',
     cht='其他素材',
     en='Other Materials',

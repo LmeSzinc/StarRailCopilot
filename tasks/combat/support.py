@@ -77,7 +77,7 @@ class SupportListScroll(Scroll):
 
         temp_area = list(self.area)
         temp_area[0] = int(temp_area[0] * 0.98)
-        temp_area[2] = int(temp_area[2] * 1.05)
+        temp_area[2] = int(temp_area[2] * 1.02)
 
         line = rgb2luma(crop(image, temp_area)).flatten()
         width = area_size(temp_area)[0]
@@ -177,7 +177,6 @@ class CombatSupport(UI):
 
                 if not scroll.at_bottom(main=self):
                     scroll.next_page(main=self)
-                    self.wait_until_stable(COMBAT_SUPPORT_LIST_SCROLL)
                     continue
                 else:
                     logger.info("Support not found")
@@ -193,20 +192,21 @@ class CombatSupport(UI):
             out: COMBAT_SUPPORT_LIST
         """
         logger.hr("Combat support select")
-        self.device.click(character)
         COMBAT_SUPPORT_SELECTED.matched_button.search = character.selected_icon_search()
         skip_first_screenshot = False
+        interval = 2
         while 1:
             if skip_first_screenshot:
                 skip_first_screenshot = False
             else:
                 self.device.screenshot()
 
-            # If don't use wait_until_stable, will cause frequent clicks on the support character
-            self.wait_until_stable(COMBAT_SUPPORT_SELECTED)
-
             # End
             if self.match_template(COMBAT_SUPPORT_SELECTED):
                 return True
 
+            if interval and not self.interval_is_reached(character, interval=interval):
+                continue
+
             self.device.click(character)
+            self.interval_reset(character, interval=interval)

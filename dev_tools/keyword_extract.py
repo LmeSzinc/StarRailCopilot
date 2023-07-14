@@ -239,6 +239,8 @@ class KeywordExtract:
                             text_convert=dungeon_name)
         self.load_keywords(['传送', '追踪'])
         self.write_keywords(keyword_class='DungeonEntrance', output_file='./tasks/dungeon/keywords/dungeon_entrance.py')
+        self.load_keywords(['三月七', '娜塔莎', '艾丝妲', '青雀', '佩拉', '瓦尔特', '布洛妮娅'])
+        self.write_keywords(keyword_class='CharacterRecommend', output_file='./tasks/team/keywords/character.py')
         self.load_keywords(['奖励', '任务'])
         self.write_keywords(keyword_class='BattlePassTab', output_file='./tasks/battle_pass/keywords/tab.py')
         self.generate_assignment_keywords()
@@ -247,6 +249,7 @@ class KeywordExtract:
         self.load_keywords(['养成材料', '光锥', '遗器', '其他材料', '消耗品', '任务', '贵重物'])
         self.write_keywords(keyword_class='ItemTab', text_convert=lambda name: name.replace(' ', ''),
                             output_file='./tasks/item/keywords/tab.py')
+
 
 
 if __name__ == '__main__':

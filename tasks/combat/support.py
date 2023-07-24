@@ -1,7 +1,7 @@
 import cv2
 import numpy as np
 from scipy import signal
-
+from module.base.timer import Timer
 from module.base.utils import area_size, crop, rgb2luma, load_image
 from module.logger import logger
 from module.ui.scroll import Scroll
@@ -31,21 +31,20 @@ class SupportCharacter:
             Image: Character image after scaled
         """
 
-        if self.name in self._image_cache:
+        if self.name in SupportCharacter._image_cache:
             logger.info(f"Using cached image of {self.name}")
-            return self._image_cache[self.name]
+            return SupportCharacter._image_cache[self.name]
 
         img = load_image(f"assets/character/{self.name}.png")
         scaled_img = cv2.resize(img, (85, 82))
-        self._image_cache[self.name] = scaled_img
+        SupportCharacter._image_cache[self.name] = scaled_img
         logger.info(f"Character {self.name} image cached")
         return scaled_img
 
     def _find_character(self):
         character = np.array(self.image)
         support_list_img = self.screenshot
-        res = cv2.matchTemplate(
-            character, support_list_img, cv2.TM_CCOEFF_NORMED)
+        res = cv2.matchTemplate(character, support_list_img, cv2.TM_CCOEFF_NORMED)
 
         _, max_val, _, max_loc = cv2.minMaxLoc(res)
 
@@ -167,11 +166,14 @@ class CombatSupport(UI):
                 else:
                     self.device.screenshot()
 
-                if character := SupportCharacter(support_character_name,
-                                                 self.device.image) if support_character_name.startswith(
-                        "Trailblazer") is False else SupportCharacter(f"Stelle{support_character_name[11:]}",
-                                                                      self.device.image) or SupportCharacter(
-                        f"Caelum{support_character_name[11:]}", self.device.image):
+                if not support_character_name.startswith("Trailblazer"):
+                    character = SupportCharacter(support_character_name, self.device.image)
+                else:
+                    character_1 = SupportCharacter(f"Stelle{support_character_name[11:]}", self.device.image)
+                    character_2 = SupportCharacter(f"Caelum{support_character_name[11:]}", self.device.image)
+                    character = character_1 or character_2
+
+                if character:
                     logger.info("Support found")
                     if self._select_support(character):
                         return True
@@ -198,7 +200,7 @@ class CombatSupport(UI):
         logger.hr("Combat support select")
         COMBAT_SUPPORT_SELECTED.matched_button.search = character.selected_icon_search()
         skip_first_screenshot = False
-        interval = 2
+        interval = Timer(2)
         while 1:
             if skip_first_screenshot:
                 skip_first_screenshot = False
@@ -209,8 +211,7 @@ class CombatSupport(UI):
             if self.match_template(COMBAT_SUPPORT_SELECTED):
                 return True
 
-            if interval and not self.interval_is_reached(character, interval=interval):
+            if interval.reached():
+                self.device.click(character)
+                interval.reset()
                 continue
-
-            self.device.click(character)
-            self.interval_reset(character, interval=interval)

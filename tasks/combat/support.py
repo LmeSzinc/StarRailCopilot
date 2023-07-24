@@ -169,9 +169,9 @@ class CombatSupport(UI):
                 if not support_character_name.startswith("Trailblazer"):
                     character = SupportCharacter(support_character_name, self.device.image)
                 else:
-                    character_1 = SupportCharacter(f"Stelle{support_character_name[11:]}", self.device.image)
-                    character_2 = SupportCharacter(f"Caelum{support_character_name[11:]}", self.device.image)
-                    character = character_1 or character_2
+                    character = SupportCharacter(f"Stelle{support_character_name[11:]}",
+                                                 self.device.image) or SupportCharacter(
+                        f"Caelum{support_character_name[11:]}", self.device.image)
 
                 if character:
                     logger.info("Support found")

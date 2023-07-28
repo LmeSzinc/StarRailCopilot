@@ -3,10 +3,10 @@ from dataclasses import dataclass
 from functools import cached_property
 from typing import ClassVar
 
-from module.exception import ScriptError
 import module.config.server as server
+from module.exception import ScriptError
 
-REGEX_PUNCTUATION = re.compile(r'[ ,.\'"“”，。·•\-—/\\\n\t()（）「」『』【】]')
+REGEX_PUNCTUATION = re.compile(r'[ ,.\'"“”，。·•\-—/\\\n\t()\[\]!！（）「」『』【】]')
 
 
 def parse_name(n):
@@ -26,6 +26,7 @@ class Keyword:
     """
     Instance attributes and methods
     """
+
     @cached_property
     def ch(self) -> str:
         return self.cn
@@ -117,6 +118,10 @@ class Keyword:
         self.__class__.instances[self.id] = self
 
     @classmethod
+    def _compare(cls, name, keyword):
+        return name == keyword
+
+    @classmethod
     def find(cls, name, in_current_server=False, ignore_punctuation=True):
         """
         Args:
@@ -153,7 +158,7 @@ class Keyword:
         for instance in cls.instances.values():
             for keyword in instance._keywords_to_find(
                     in_current_server=in_current_server, ignore_punctuation=ignore_punctuation):
-                if name == keyword:
+                if cls._compare(name, keyword):
                     return instance
 
         # Not found

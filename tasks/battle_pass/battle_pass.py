@@ -1,4 +1,5 @@
 import datetime
+import re
 
 import numpy as np
 
@@ -6,14 +7,16 @@ from module.base.timer import Timer
 from module.base.utils import get_color
 from module.config.utils import get_server_next_update
 from module.logger.logger import logger
-from module.ocr.ocr import Digit, Duration
+from module.ocr.ocr import Digit, Duration, Ocr
+from module.ocr.utils import split_and_pair_buttons
+from module.ui.scroll import Scroll
 from module.ui.switch import Switch
 from tasks.base.assets.assets_base_page import BATTLE_PASS_CHECK, MAIN_GOTO_BATTLE_PASS
 from tasks.base.assets.assets_base_popup import GET_REWARD
 from tasks.base.page import page_battle_pass, page_main
 from tasks.base.ui import UI
 from tasks.battle_pass.assets.assets_battle_pass import *
-from tasks.battle_pass.keywords import KEYWORD_BATTLE_PASS_TAB
+from tasks.battle_pass.keywords import *
 
 SWITCH_BATTLE_PASS_TAB = Switch('BattlePassTab', is_selector=True)
 SWITCH_BATTLE_PASS_TAB.add_state(
@@ -26,6 +29,43 @@ SWITCH_BATTLE_PASS_TAB.add_state(
     check_button=MISSIONS_CHECK,
     click_button=MISSIONS_CLICK
 )
+
+
+class BattlePassMissionTab(Switch):
+    def get(self, main):
+        """
+        Args:
+            main (ModuleBase):
+
+        Returns:
+            str: state name or 'unknown'.
+        """
+        for data in self.state_list:
+            if main.image_color_count(data['check_button'], color=(250, 233, 153)):
+                return data['state']
+
+        return 'unknown'
+
+
+SWITCH_BATTLE_PASS_MISSION_TAB = BattlePassMissionTab('BattlePassMissionTab', is_selector=True)
+SWITCH_BATTLE_PASS_MISSION_TAB.add_state(
+    KEYWORD_BATTLE_PASS_MISSION_TAB.Today_Missions,
+    check_button=TODAY_MISSION_CLICK,
+    click_button=TODAY_MISSION_CLICK
+)
+SWITCH_BATTLE_PASS_MISSION_TAB.add_state(
+    KEYWORD_BATTLE_PASS_MISSION_TAB.This_Week_Missions,
+    check_button=WEEK_MISSION_CLICK,
+    click_button=WEEK_MISSION_CLICK
+)
+
+
+class BattlePassQuestOcr(Ocr):
+    def after_process(self, result):
+        result = super().after_process(result)
+        if self.lang == 'ch':
+            result = re.sub("[jJ]", "」", result)
+        return result
 
 
 class BattlePassUI(UI):
@@ -62,6 +102,21 @@ class BattlePassUI(UI):
                 logger.info('Missions tab loaded')
                 break
 
+    def _battle_pass_wait_weekly_missions_loaded(self, skip_first_screenshot=True):
+        timeout = Timer(2, count=4).start()
+        while 1:
+            if skip_first_screenshot:
+                skip_first_screenshot = False
+            else:
+                self.device.screenshot()
+
+            if timeout.reached():
+                logger.warning('Wait weekly mission tab loaded timeout')
+                break
+            if self.appear(MISSION_PAGE_SCROLL):
+                logger.info('Weekly mission tab loaded')
+                break
+
     def battle_pass_goto(self, state: KEYWORD_BATTLE_PASS_TAB):
         """
         Args:
@@ -80,6 +135,15 @@ class BattlePassUI(UI):
                 self._battle_pass_wait_missions_loaded()
             if state == KEYWORD_BATTLE_PASS_TAB.Rewards:
                 self._battle_pass_wait_rewards_loaded()
+
+    def battle_pass_mission_tab_goto(self, state: KEYWORD_BATTLE_PASS_MISSION_TAB):
+        self.battle_pass_goto(KEYWORD_BATTLE_PASS_TAB.Missions)
+        if SWITCH_BATTLE_PASS_MISSION_TAB.set(state, main=self):
+            logger.info(f'Tab goto {state}, wait until loaded')
+            if state == KEYWORD_BATTLE_PASS_MISSION_TAB.Today_Missions:
+                self._battle_pass_wait_missions_loaded()
+            if state == KEYWORD_BATTLE_PASS_MISSION_TAB.This_Week_Missions:
+                self._battle_pass_wait_weekly_missions_loaded()
 
     def handle_choose_gifts(self, interval=5):
         """
@@ -180,6 +244,36 @@ class BattlePassUI(UI):
             logger.info("Upgraded, go to claim rewards")
             self._claim_rewards()
         return current_level
+
+    def ocr_single_page(self):
+        """
+        Returns incomplete quests only
+        """
+        ocr = BattlePassQuestOcr(OCR_BATTLE_PASS_QUEST)
+        results = ocr.matched_ocr(self.device.image, [BattlePassQuest, BattlePassQuestState])
+
+        def completed_state(state):
+            return state != KEYWORD_BATTLE_PASS_QUEST_STATE.Navigate
+
+        return [incomplete_quest for incomplete_quest, _ in
+                split_and_pair_buttons(results, split_func=completed_state, relative_area=(0, 0, 800, 100))]
+
+    def battle_pass_daily_quests_recognition(self) -> list[BattlePassQuest]:
+        logger.info("Recognizing daily quests")
+        self.battle_pass_mission_tab_goto(KEYWORD_BATTLE_PASS_MISSION_TAB.Today_Missions)
+        return self.ocr_single_page()
+
+    def battle_pass_weekly_quests_recognition(self) -> list[BattlePassQuest]:
+        self.battle_pass_mission_tab_goto(KEYWORD_BATTLE_PASS_MISSION_TAB.This_Week_Missions)
+        scroll = Scroll(MISSION_PAGE_SCROLL, color=(198, 198, 198))
+        scroll.set_top(main=self)
+        results = self.ocr_single_page()
+        scroll.set_bottom(main=self)
+        results += [result for result in self.ocr_single_page() if result not in results]
+        results = [result.matched_keyword for result in results]
+        logger.info("Daily quests recognition complete")
+        logger.info(f"Daily quests: {results}")
+        return results
 
     def run(self):
         self.ui_ensure(page_main)

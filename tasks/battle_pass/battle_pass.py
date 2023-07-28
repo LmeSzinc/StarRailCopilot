@@ -259,7 +259,7 @@ class BattlePassUI(UI):
                 split_and_pair_buttons(results, split_func=completed_state, relative_area=(0, 0, 800, 100))]
 
     def battle_pass_daily_quests_recognition(self) -> list[BattlePassQuest]:
-        logger.info("Recognizing daily quests")
+        logger.info("Recognizing battle pass daily quests")
         self.battle_pass_mission_tab_goto(KEYWORD_BATTLE_PASS_MISSION_TAB.Today_Missions)
         return self.ocr_single_page()
 
@@ -271,8 +271,8 @@ class BattlePassUI(UI):
         scroll.set_bottom(main=self)
         results += [result for result in self.ocr_single_page() if result not in results]
         results = [result.matched_keyword for result in results]
-        logger.info("Daily quests recognition complete")
-        logger.info(f"Daily quests: {results}")
+        logger.info("Battle pass daily quests recognition complete")
+        logger.info(f"Battle pass daily quests: {results}")
         return results
 
     def run(self):

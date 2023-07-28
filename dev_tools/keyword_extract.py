@@ -276,7 +276,6 @@ class KeywordExtract:
         latest_quests = list(battle_pass_quests.values())[-1]
         quests = deep_get(latest_quests, "DailyQuestList") + deep_get(latest_quests, "WeekQuestList") + deep_get(
             latest_quests, "WeekOrder1")
-        # print(quests)
         self.load_quests(quests)
         self.write_keywords(keyword_class='BattlePassQuest', output_file='./tasks/battle_pass/keywords/quest.py')
 

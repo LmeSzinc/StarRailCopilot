@@ -255,18 +255,17 @@ class BattlePassUI(UI):
         return [incomplete_quest for incomplete_quest, _ in
                 split_and_pair_buttons(results, split_func=completed_state, relative_area=(0, 0, 800, 100))]
 
-    def battle_pass_quests_recognition(self, page: KEYWORD_BATTLE_PASS_MISSION_TAB, has_scroll=True) -> list[
-        BattlePassQuest]:
+    def battle_pass_quests_recognition(self, page: KEYWORD_BATTLE_PASS_MISSION_TAB,
+                                       has_scroll=True) -> list[BattlePassQuest]:
         """
-
         Args:
             page:
-            has_scroll: need to scroll once to recognize all quests
+            has_scroll: need to scroll to recognize all quests
 
         Returns:
 
         """
-        logger.info("Recognizing battle pass daily quests")
+        logger.info(f"Recognizing battle pass quests at {page}")
         self.battle_pass_mission_tab_goto(page)
         if not has_scroll:
             results = self.ocr_single_page()
@@ -279,18 +278,6 @@ class BattlePassUI(UI):
                 results += [result for result in self.ocr_single_page() if result not in results]
                 results = [result.matched_keyword for result in results]
         return results
-
-    # def battle_pass_weekly_quests_recognition(self) -> list[BattlePassQuest]:
-    #     self.battle_pass_mission_tab_goto(KEYWORD_BATTLE_PASS_MISSION_TAB.This_Week_Missions)
-    #     scroll = Scroll(MISSION_PAGE_SCROLL, color=(198, 198, 198))
-    #     scroll.set_top(main=self)
-    #     results = self.ocr_single_page()
-    #     scroll.set_bottom(main=self)
-    #     results += [result for result in self.ocr_single_page() if result not in results]
-    #     results = [result.matched_keyword for result in results]
-    #     logger.info("Battle pass daily quests recognition complete")
-    #     logger.info(f"Battle pass daily quests: {results}")
-    #     return results
 
     def run(self):
         self.ui_ensure(page_main)

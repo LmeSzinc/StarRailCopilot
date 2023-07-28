@@ -275,7 +275,7 @@ class KeywordExtract:
         battle_pass_quests = read_file(os.path.join(TextMap.DATA_FOLDER, 'ExcelOutput', 'BattlePassConfig.json'))
         latest_quests = list(battle_pass_quests.values())[-1]
         quests = deep_get(latest_quests, "DailyQuestList") + deep_get(latest_quests, "WeekQuestList") + deep_get(
-            latest_quests, "WeekOrder1")
+            latest_quests, "WeekOrder1") + deep_get(latest_quests, "VersionQuestList")
         self.load_quests(quests)
         self.write_keywords(keyword_class='BattlePassQuest', output_file='./tasks/battle_pass/keywords/quest.py')
 
@@ -296,7 +296,7 @@ class KeywordExtract:
         self.write_keywords(keyword_class='DungeonEntrance', output_file='./tasks/dungeon/keywords/dungeon_entrance.py')
         self.load_keywords(['奖励', '任务', ])
         self.write_keywords(keyword_class='BattlePassTab', output_file='./tasks/battle_pass/keywords/tab.py')
-        self.load_keywords(['本日任务', '本周任务'])
+        self.load_keywords(['本日任务', '本周任务', '本期任务'])
         self.write_keywords(keyword_class='BattlePassMissionTab',
                             output_file='./tasks/battle_pass/keywords/mission_tab.py')
         self.generate_assignment_keywords()

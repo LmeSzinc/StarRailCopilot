@@ -19,3 +19,11 @@ This_Week_Missions = BattlePassMissionTab(
     en="This Week's Missions",
     jp='今週のクエスト',
 )
+This_Period_Missions = BattlePassMissionTab(
+    id=3,
+    name='This_Period_Missions',
+    cn='本期任务',
+    cht='本期任務',
+    en="This Period's Missions",
+    jp='今期のクエスト',
+)

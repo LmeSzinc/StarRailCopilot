@@ -58,6 +58,11 @@ SWITCH_BATTLE_PASS_MISSION_TAB.add_state(
     check_button=WEEK_MISSION_CLICK,
     click_button=WEEK_MISSION_CLICK
 )
+SWITCH_BATTLE_PASS_MISSION_TAB.add_state(
+    KEYWORD_BATTLE_PASS_MISSION_TAB.This_Period_Missions,
+    check_button=PERIOD_MISSION_CLICK,
+    click_button=PERIOD_MISSION_CLICK
+)
 
 
 class BattlePassQuestOcr(Ocr):
@@ -86,7 +91,7 @@ class BattlePassUI(UI):
                 logger.info('Rewards tab loaded')
                 break
 
-    def _battle_pass_wait_missions_loaded(self, skip_first_screenshot=True):
+    def _battle_pass_wait_missions_loaded(self, skip_first_screenshot=True, has_scroll=True):
         timeout = Timer(2, count=4).start()
         while 1:
             if skip_first_screenshot:
@@ -97,25 +102,15 @@ class BattlePassUI(UI):
             if timeout.reached():
                 logger.warning('Wait missions tab loaded timeout')
                 break
-            color = get_color(self.device.image, MISSIONS_LOADED.area)
-            if np.mean(color) > 128:
-                logger.info('Missions tab loaded')
-                break
-
-    def _battle_pass_wait_weekly_missions_loaded(self, skip_first_screenshot=True):
-        timeout = Timer(2, count=4).start()
-        while 1:
-            if skip_first_screenshot:
-                skip_first_screenshot = False
+            if has_scroll:
+                if self.appear(MISSION_PAGE_SCROLL):
+                    logger.info('Rewards tab loaded')
+                    break
             else:
-                self.device.screenshot()
-
-            if timeout.reached():
-                logger.warning('Wait weekly mission tab loaded timeout')
-                break
-            if self.appear(MISSION_PAGE_SCROLL):
-                logger.info('Weekly mission tab loaded')
-                break
+                color = get_color(self.device.image, MISSIONS_LOADED.area)
+                if np.mean(color) > 128:
+                    logger.info('Missions tab loaded')
+                    break
 
     def battle_pass_goto(self, state: KEYWORD_BATTLE_PASS_TAB):
         """
@@ -132,7 +127,7 @@ class BattlePassUI(UI):
         if SWITCH_BATTLE_PASS_TAB.set(state, main=self):
             logger.info(f'Tab goto {state}, wait until loaded')
             if state == KEYWORD_BATTLE_PASS_TAB.Missions:
-                self._battle_pass_wait_missions_loaded()
+                self._battle_pass_wait_missions_loaded(has_scroll=False)
             if state == KEYWORD_BATTLE_PASS_TAB.Rewards:
                 self._battle_pass_wait_rewards_loaded()
 
@@ -141,9 +136,11 @@ class BattlePassUI(UI):
         if SWITCH_BATTLE_PASS_MISSION_TAB.set(state, main=self):
             logger.info(f'Tab goto {state}, wait until loaded')
             if state == KEYWORD_BATTLE_PASS_MISSION_TAB.Today_Missions:
-                self._battle_pass_wait_missions_loaded()
+                self._battle_pass_wait_missions_loaded(has_scroll=False)
             if state == KEYWORD_BATTLE_PASS_MISSION_TAB.This_Week_Missions:
-                self._battle_pass_wait_weekly_missions_loaded()
+                self._battle_pass_wait_missions_loaded()
+            if state == KEYWORD_BATTLE_PASS_MISSION_TAB.This_Period_Missions:
+                self._battle_pass_wait_missions_loaded()
 
     def handle_choose_gifts(self, interval=5):
         """
@@ -258,22 +255,42 @@ class BattlePassUI(UI):
         return [incomplete_quest for incomplete_quest, _ in
                 split_and_pair_buttons(results, split_func=completed_state, relative_area=(0, 0, 800, 100))]
 
-    def battle_pass_daily_quests_recognition(self) -> list[BattlePassQuest]:
-        logger.info("Recognizing battle pass daily quests")
-        self.battle_pass_mission_tab_goto(KEYWORD_BATTLE_PASS_MISSION_TAB.Today_Missions)
-        return self.ocr_single_page()
+    def battle_pass_quests_recognition(self, page: KEYWORD_BATTLE_PASS_MISSION_TAB, has_scroll=True) -> list[
+        BattlePassQuest]:
+        """
 
-    def battle_pass_weekly_quests_recognition(self) -> list[BattlePassQuest]:
-        self.battle_pass_mission_tab_goto(KEYWORD_BATTLE_PASS_MISSION_TAB.This_Week_Missions)
-        scroll = Scroll(MISSION_PAGE_SCROLL, color=(198, 198, 198))
-        scroll.set_top(main=self)
-        results = self.ocr_single_page()
-        scroll.set_bottom(main=self)
-        results += [result for result in self.ocr_single_page() if result not in results]
-        results = [result.matched_keyword for result in results]
-        logger.info("Battle pass daily quests recognition complete")
-        logger.info(f"Battle pass daily quests: {results}")
+        Args:
+            page:
+            has_scroll: need to scroll once to recognize all quests
+
+        Returns:
+
+        """
+        logger.info("Recognizing battle pass daily quests")
+        self.battle_pass_mission_tab_goto(page)
+        if not has_scroll:
+            results = self.ocr_single_page()
+        else:
+            scroll = Scroll(MISSION_PAGE_SCROLL, color=(198, 198, 198))
+            scroll.set_top(main=self)
+            results = self.ocr_single_page()
+            while not scroll.at_bottom(main=self):
+                scroll.next_page(main=self)
+                results += [result for result in self.ocr_single_page() if result not in results]
+                results = [result.matched_keyword for result in results]
         return results
+
+    # def battle_pass_weekly_quests_recognition(self) -> list[BattlePassQuest]:
+    #     self.battle_pass_mission_tab_goto(KEYWORD_BATTLE_PASS_MISSION_TAB.This_Week_Missions)
+    #     scroll = Scroll(MISSION_PAGE_SCROLL, color=(198, 198, 198))
+    #     scroll.set_top(main=self)
+    #     results = self.ocr_single_page()
+    #     scroll.set_bottom(main=self)
+    #     results += [result for result in self.ocr_single_page() if result not in results]
+    #     results = [result.matched_keyword for result in results]
+    #     logger.info("Battle pass daily quests recognition complete")
+    #     logger.info(f"Battle pass daily quests: {results}")
+    #     return results
 
     def run(self):
         self.ui_ensure(page_main)

@@ -58,11 +58,6 @@ SWITCH_BATTLE_PASS_MISSION_TAB.add_state(
     check_button=WEEK_MISSION_CLICK,
     click_button=WEEK_MISSION_CLICK
 )
-SWITCH_BATTLE_PASS_MISSION_TAB.add_state(
-    KEYWORD_BATTLE_PASS_MISSION_TAB.This_Period_Missions,
-    check_button=PERIOD_MISSION_CLICK,
-    click_button=PERIOD_MISSION_CLICK
-)
 
 
 class BattlePassQuestOcr(Ocr):
@@ -138,8 +133,6 @@ class BattlePassUI(UI):
             if state == KEYWORD_BATTLE_PASS_MISSION_TAB.Today_Missions:
                 self._battle_pass_wait_missions_loaded(has_scroll=False)
             if state == KEYWORD_BATTLE_PASS_MISSION_TAB.This_Week_Missions:
-                self._battle_pass_wait_missions_loaded()
-            if state == KEYWORD_BATTLE_PASS_MISSION_TAB.This_Period_Missions:
                 self._battle_pass_wait_missions_loaded()
 
     def handle_choose_gifts(self, interval=5):

@@ -93,16 +93,6 @@ OCR_REMAINING_TIME = ButtonWrapper(
         button=(289, 89, 630, 132),
     ),
 )
-PERIOD_MISSION_CLICK = ButtonWrapper(
-    name='PERIOD_MISSION_CLICK',
-    share=Button(
-        file='./assets/share/battle_pass/PERIOD_MISSION_CLICK.png',
-        area=(128, 478, 323, 578),
-        search=(108, 458, 343, 598),
-        color=(72, 65, 45),
-        button=(128, 478, 323, 578),
-    ),
-)
 REWARDS_CHECK = ButtonWrapper(
     name='REWARDS_CHECK',
     share=Button(

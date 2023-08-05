@@ -53,6 +53,16 @@ ORDER_DESCENDING = ButtonWrapper(
         button=(720, 649, 738, 667),
     ),
 )
+RELICS_SAVAGE_AREA = ButtonWrapper(
+    name='RELICS_SAVAGE_AREA',
+    share=Button(
+        file='./assets/share/item/relics/RELICS_SAVAGE_AREA.png',
+        area=(421, 136, 1165, 530),
+        search=(401, 116, 1185, 550),
+        color=(79, 72, 98),
+        button=(421, 136, 1165, 530),
+    ),
+)
 SALVAGE = ButtonWrapper(
     name='SALVAGE',
     share=Button(

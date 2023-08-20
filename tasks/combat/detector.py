@@ -4,12 +4,10 @@ import numpy as np
 
 
 class Detector:
-    def __init__(self, scale=0.25):
+    def __init__(self):
         """
         A detector to detect the circle mark of enemy and item.
         """
-        assert scale in [1., 0.25]
-        self.scale = scale
         self.ui_mask = cv2.imread(os.path.join(os.path.dirname(__file__), "mask.png"), 0)
 
     def update(self, frame):
@@ -20,82 +18,56 @@ class Detector:
 
     def detect_item(self):
         filter_params = {
-            '1': {
-                'lowerb': np.array([0, 0, 230]),
-                'upperb': np.array([180, 45, 255]),
-            },
-            '0.25': {
-                'lowerb': np.array([0, 0, 235]),
-                'upperb': np.array([120, 65, 255]),
-            },
+            'lowerb': np.array([0, 0, 215]),
+            'upperb': np.array([108, 53, 255]),
         }
         hough_params = {
-            '1': {
-                'minDist': 24,
-                'param1': 200,
-                'param2': 20,
-                'minRadius': 5,
-                'maxRadius': 12,
-            },
-            '0.25': {
-                'minDist': 8,
-                'param1': 200,
-                'param2': 8,
-                'minRadius': 2,
-                'maxRadius': 4,
-            },
+            'minDist': 8,
+            'param1': 200,
+            'param2': 8,
+            'minRadius': 2,
+            'maxRadius': 4,
         }
 
         # augment the target marker through mask based on HSV color space
-        mask = cv2.inRange(self.hsv, **filter_params[f'{self.scale}'])
-        mask = cv2.morphologyEx(mask, cv2.MORPH_CLOSE, cv2.getStructuringElement(cv2.MORPH_RECT, (3, 3)), iterations=1)
-        mask = cv2.medianBlur(mask, 5)
+        mask = cv2.inRange(self.hsv, **filter_params)
+        mask = cv2.morphologyEx(mask, cv2.MORPH_OPEN, cv2.getStructuringElement(cv2.MORPH_RECT, (2, 2)), iterations=1)
 
         # resize the mask to reduce computational complexity of hough operation
-        mask_scaled = cv2.resize(mask, None, fx=self.scale, fy=self.scale)
-        circles = cv2.HoughCircles(mask_scaled, cv2.HOUGH_GRADIENT, 1, **hough_params[f'{self.scale}'])
+        mask = cv2.resize(mask, None, fx=0.25, fy=0.25)
+        mask = cv2.GaussianBlur(mask, (3, 3), 0, 0)
+
+        circles = cv2.HoughCircles(mask, cv2.HOUGH_GRADIENT, 1, **hough_params)
 
         # if any target exists, return the center coordinates
         return self.get_coordinates(circles) if circles is not None else None
 
     def detect_enemy(self):
         filter_params = {
-            '1': {
-                'lowerb': np.array([0, 0, 140]),
-                'upperb': np.array([180, 100, 255]),
-            },
-            '0.25': {
-                'lowerb': np.array([0, 62, 209]),
-                'upperb': np.array([180, 198, 255]),
-            },
+            'lowerb': np.array([0, 62, 213]),
+            'upperb': np.array([180, 198, 255]),
         }
         hough_params = {
-            '1': {
-                'param1': 200,
-                'param2': 15,
-                'minRadius': 20,
-                'maxRadius': 27,
-            },
-            '0.25': {
-                'param1': 200,
-                'param2': 8,
-                'minRadius': 5,
-                'maxRadius': 9,
-            },
+            'minDist': 18,
+            'param1': 200,
+            'param2': 10,
+            'minRadius': 5,
+            'maxRadius': 9,
         }
 
-        mask = cv2.inRange(self.hsv, **filter_params[f'{self.scale}'])
-        mask = cv2.morphologyEx(mask, cv2.MORPH_CLOSE, cv2.getStructuringElement(cv2.MORPH_RECT, (3, 3)), iterations=1)
-        mask = cv2.medianBlur(mask, 5)
+        mask = cv2.inRange(self.hsv, **filter_params)
+        mask = cv2.morphologyEx(mask, cv2.MORPH_OPEN, cv2.getStructuringElement(cv2.MORPH_RECT, (2, 2)), iterations=1)
 
-        mask_scaled = cv2.resize(mask, None, fx=self.scale, fy=self.scale)
-        circles = cv2.HoughCircles(mask_scaled, cv2.HOUGH_GRADIENT, 1, 18, **hough_params[f'{self.scale}'])
+        mask = cv2.resize(mask, None, fx=0.25, fy=0.25)
+        mask = cv2.GaussianBlur(mask, (3, 3), 0, 0)
+        circles = cv2.HoughCircles(mask, cv2.HOUGH_GRADIENT, 1, **hough_params)
 
         return self.get_coordinates(circles) if circles is not None else None
 
-    def get_coordinates(self, circles):
+    @staticmethod
+    def get_coordinates(circles):
         # convert coordinates to original scale
-        circles = np.asarray(np.around(circles / self.scale), dtype=np.uint16).squeeze(0)
+        circles = np.asarray(np.around(circles * 4), dtype=np.uint16).squeeze(0)
         return [circle[:2] for circle in circles]
 
 
@@ -119,7 +91,7 @@ if __name__ == '__main__':
     class YourClass:
         def __init__(self, stream):
             self.stream = stream
-            self.detector = Detector(scale=0.25)  # initiate a detector, recommend to set scale=0.25
+            self.detector = Detector()  # initiate a detector, recommend to set scale=0.25
 
             self.run()
 

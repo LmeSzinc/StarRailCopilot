@@ -7,7 +7,7 @@ from module.logger import logger
 from module.ui.scroll import Scroll
 from tasks.base.ui import UI
 from tasks.combat.assets.assets_combat_support import COMBAT_SUPPORT_ADD, COMBAT_SUPPORT_LIST, \
-    COMBAT_SUPPORT_LIST_SCROLL, COMBAT_SUPPORT_SELECTED
+    COMBAT_SUPPORT_LIST_SCROLL, COMBAT_SUPPORT_SELECTED, COMBAT_SUPPORT_IDENTICAL_CHARACTER
 from tasks.combat.assets.assets_combat_team import COMBAT_TEAM_SUPPORT, COMBAT_TEAM_DISMISSSUPPORT
 
 
@@ -134,6 +134,11 @@ class CombatSupport(UI):
                 self.device.click(COMBAT_TEAM_SUPPORT)
                 self.interval_reset(COMBAT_TEAM_SUPPORT)
                 continue
+            if self.appear(COMBAT_SUPPORT_IDENTICAL_CHARACTER, interval=2):
+                logger.warning("selected identical character, trying select another")
+                self._select_different_character()
+                self.interval_reset(COMBAT_SUPPORT_IDENTICAL_CHARACTER)
+                continue
             if self.appear(COMBAT_SUPPORT_LIST, interval=2):
                 if support_character_name != "FirstCharacter":
                     self._search_support(
@@ -164,7 +169,6 @@ class CombatSupport(UI):
 
             logger.info("Searching support")
             skip_first_screenshot = False
-            character = None
             while 1:
                 if skip_first_screenshot:
                     skip_first_screenshot = False
@@ -220,3 +224,78 @@ class CombatSupport(UI):
                 self.device.click(character)
                 interval.reset()
                 continue
+
+    def _select_different_character(self):
+
+        skip_first_screenshot = False
+
+        while 1:
+            if skip_first_screenshot:
+                skip_first_screenshot = False
+            else:
+                self.device.screenshot()
+
+            # End
+            if self.appear(COMBAT_TEAM_DISMISSSUPPORT):
+                return True
+
+            if self.appear(COMBAT_SUPPORT_IDENTICAL_CHARACTER):
+                self.device.click(COMBAT_SUPPORT_IDENTICAL_CHARACTER)
+                self._select_next_support()
+                self.interval_reset(COMBAT_SUPPORT_IDENTICAL_CHARACTER)
+                continue
+            if self.appear(COMBAT_SUPPORT_ADD):
+                self.device.click(COMBAT_SUPPORT_ADD)
+                self.interval_reset(COMBAT_SUPPORT_ADD)
+                continue
+
+    def _select_next_support(self):
+
+        skip_first_screenshot = False
+        scroll = SupportListScroll(area=COMBAT_SUPPORT_LIST_SCROLL.area, color=(194, 196, 205),
+                                   name=COMBAT_SUPPORT_LIST_SCROLL.name)
+
+        if scroll.appear(main=self):
+            while 1:
+                if skip_first_screenshot:
+                    skip_first_screenshot = False
+                else:
+                    self.device.screenshot()
+
+                next_support = NextSupportCharacter(self.device.image)
+                if next_support:
+                    self.device.click(next_support)
+                    return
+                else:
+                    if not scroll.at_bottom(main=self):
+                        scroll.next_page(main=self, page=0.5)
+                        continue
+                    else:
+                        logger.warning("No more support")
+                        return
+
+
+class NextSupportCharacter:
+    _arrow_image = load_image("assets/support/selected_character_arrow.png")
+
+    def __init__(self, screenshot):
+        self.name = "SupportCharacterArrow"
+        self.screenshot = screenshot
+        self.arrow_center = self._find_center()
+        self.button = self._get_next_support_character_button()
+
+    def __bool__(self):
+        return self.button is not None
+
+    def _find_center(self):
+        support_list_img = self.screenshot
+        res = cv2.matchTemplate(NextSupportCharacter._arrow_image, support_list_img, cv2.TM_CCOEFF_NORMED)
+
+        _, max_val, _, max_loc = cv2.minMaxLoc(res)
+        return ((max_loc[0] + NextSupportCharacter._arrow_image.shape[1] / 2),
+                (max_loc[1] + NextSupportCharacter._arrow_image.shape[0] / 2)) if max_val > 0.85 else None
+
+    def _get_next_support_character_button(self):
+        return (
+            self.arrow_center[0] + 30, min(self.arrow_center[1] + 65, 615), self.arrow_center[0] + 80,
+            min(self.arrow_center[1] + 80, 620)) if self.arrow_center and self.arrow_center[1] < 600 else None

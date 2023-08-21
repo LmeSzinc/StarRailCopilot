@@ -13,6 +13,16 @@ COMBAT_SUPPORT_ADD = ButtonWrapper(
         button=(1032, 649, 1132, 680),
     ),
 )
+COMBAT_SUPPORT_IDENTICAL_CHARACTER = ButtonWrapper(
+    name='COMBAT_SUPPORT_IDENTICAL_CHARACTER',
+    share=Button(
+        file='./assets/share/combat/support/COMBAT_SUPPORT_IDENTICAL_CHARACTER.png',
+        area=(427, 457, 453, 483),
+        search=(407, 437, 473, 503),
+        color=(115, 111, 101),
+        button=(386, 455, 544, 487),
+    ),
+)
 COMBAT_SUPPORT_LIST = ButtonWrapper(
     name='COMBAT_SUPPORT_LIST',
     share=Button(

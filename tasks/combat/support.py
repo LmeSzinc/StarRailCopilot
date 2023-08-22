@@ -121,7 +121,6 @@ class CombatSupport(UI):
         """
         logger.hr("Combat support")
         skip_first_screenshot = True
-        need_choose_next_support = False
         while 1:
             if skip_first_screenshot:
                 skip_first_screenshot = False
@@ -139,11 +138,7 @@ class CombatSupport(UI):
                 continue
             if self.appear(CANCEL_POPUP, interval=2):
                 logger.warning("selected identical character, trying select another")
-                if need_choose_next_support:
-                    self._select_different_character()
-                    need_choose_next_support = False
-                else:
-                    need_choose_next_support = True
+                self._select_different_character()
                 self.interval_reset(CANCEL_POPUP)
                 continue
             if self.appear(COMBAT_SUPPORT_LIST, interval=2):

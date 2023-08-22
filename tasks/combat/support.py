@@ -1,13 +1,15 @@
 import cv2
 import numpy as np
 from scipy import signal
+
 from module.base.timer import Timer
 from module.base.utils import area_size, crop, rgb2luma, load_image
 from module.logger import logger
 from module.ui.scroll import Scroll
+from tasks.base.assets.assets_base_popup import CANCEL_POPUP
 from tasks.base.ui import UI
 from tasks.combat.assets.assets_combat_support import COMBAT_SUPPORT_ADD, COMBAT_SUPPORT_LIST, \
-    COMBAT_SUPPORT_LIST_SCROLL, COMBAT_SUPPORT_SELECTED, COMBAT_SUPPORT_IDENTICAL_CHARACTER
+    COMBAT_SUPPORT_LIST_SCROLL, COMBAT_SUPPORT_SELECTED
 from tasks.combat.assets.assets_combat_team import COMBAT_TEAM_SUPPORT, COMBAT_TEAM_DISMISSSUPPORT
 
 
@@ -119,6 +121,7 @@ class CombatSupport(UI):
         """
         logger.hr("Combat support")
         skip_first_screenshot = True
+        need_choose_next_support = False
         while 1:
             if skip_first_screenshot:
                 skip_first_screenshot = False
@@ -134,10 +137,14 @@ class CombatSupport(UI):
                 self.device.click(COMBAT_TEAM_SUPPORT)
                 self.interval_reset(COMBAT_TEAM_SUPPORT)
                 continue
-            if self.appear(COMBAT_SUPPORT_IDENTICAL_CHARACTER, interval=2):
+            if self.appear(CANCEL_POPUP, interval=2):
                 logger.warning("selected identical character, trying select another")
-                self._select_different_character()
-                self.interval_reset(COMBAT_SUPPORT_IDENTICAL_CHARACTER)
+                if need_choose_next_support:
+                    self._select_different_character()
+                    need_choose_next_support = False
+                else:
+                    need_choose_next_support = True
+                self.interval_reset(CANCEL_POPUP)
                 continue
             if self.appear(COMBAT_SUPPORT_LIST, interval=2):
                 if support_character_name != "FirstCharacter":
@@ -228,7 +235,7 @@ class CombatSupport(UI):
     def _select_different_character(self):
 
         skip_first_screenshot = False
-
+        need_choose_next_support = False
         while 1:
             if skip_first_screenshot:
                 skip_first_screenshot = False
@@ -239,13 +246,17 @@ class CombatSupport(UI):
             if self.appear(COMBAT_TEAM_DISMISSSUPPORT):
                 return True
 
-            if self.appear(COMBAT_SUPPORT_IDENTICAL_CHARACTER):
-                self.device.click(COMBAT_SUPPORT_IDENTICAL_CHARACTER)
-                self._select_next_support()
-                self.interval_reset(COMBAT_SUPPORT_IDENTICAL_CHARACTER)
+            if self.appear(CANCEL_POPUP):
+                self.device.click(CANCEL_POPUP)
+                need_choose_next_support = True
+                self.interval_reset(CANCEL_POPUP)
                 continue
             if self.appear(COMBAT_SUPPORT_ADD):
-                self.device.click(COMBAT_SUPPORT_ADD)
+                if need_choose_next_support:
+                    self._select_next_support()
+                    need_choose_next_support = False
+                else:
+                    self.device.click(COMBAT_SUPPORT_ADD)
                 self.interval_reset(COMBAT_SUPPORT_ADD)
                 continue
 
@@ -254,7 +265,7 @@ class CombatSupport(UI):
         skip_first_screenshot = False
         scroll = SupportListScroll(area=COMBAT_SUPPORT_LIST_SCROLL.area, color=(194, 196, 205),
                                    name=COMBAT_SUPPORT_LIST_SCROLL.name)
-
+        interval = Timer(1)
         if scroll.appear(main=self):
             while 1:
                 if skip_first_screenshot:
@@ -262,17 +273,20 @@ class CombatSupport(UI):
                 else:
                     self.device.screenshot()
 
+                # End
                 next_support = NextSupportCharacter(self.device.image)
                 if next_support:
                     self.device.click(next_support)
                     return
-                else:
+
+                if interval.reached():
                     if not scroll.at_bottom(main=self):
-                        scroll.next_page(main=self, page=0.5)
-                        continue
+                        scroll.next_page(main=self, page=0.4)
                     else:
                         logger.warning("No more support")
                         return
+                    interval.reset()
+                    continue
 
 
 class NextSupportCharacter:
@@ -290,12 +304,11 @@ class NextSupportCharacter:
     def _find_center(self):
         support_list_img = self.screenshot
         res = cv2.matchTemplate(NextSupportCharacter._arrow_image, support_list_img, cv2.TM_CCOEFF_NORMED)
-
         _, max_val, _, max_loc = cv2.minMaxLoc(res)
         return ((max_loc[0] + NextSupportCharacter._arrow_image.shape[1] / 2),
-                (max_loc[1] + NextSupportCharacter._arrow_image.shape[0] / 2)) if max_val > 0.85 else None
+                (max_loc[1] + NextSupportCharacter._arrow_image.shape[0] / 2)) if max_val > 0.75 else None
 
     def _get_next_support_character_button(self):
         return (
-            self.arrow_center[0] + 30, min(self.arrow_center[1] + 65, 615), self.arrow_center[0] + 80,
-            min(self.arrow_center[1] + 80, 620)) if self.arrow_center and self.arrow_center[1] < 600 else None
+            self.arrow_center[0] - 200, min(self.arrow_center[1] + 65, 615), self.arrow_center[0] + 10,
+            min(self.arrow_center[1] + 80, 620)) if self.arrow_center and self.arrow_center[1] < 510 else None

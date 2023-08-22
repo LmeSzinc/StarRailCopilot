@@ -229,7 +229,7 @@ class CombatSupport(UI):
 
     def _select_different_character(self):
 
-        skip_first_screenshot = False
+        skip_first_screenshot = True
         need_choose_next_support = False
         while 1:
             if skip_first_screenshot:
@@ -257,7 +257,7 @@ class CombatSupport(UI):
 
     def _select_next_support(self):
 
-        skip_first_screenshot = False
+        skip_first_screenshot = True
         scroll = SupportListScroll(area=COMBAT_SUPPORT_LIST_SCROLL.area, color=(194, 196, 205),
                                    name=COMBAT_SUPPORT_LIST_SCROLL.name)
         interval = Timer(1)

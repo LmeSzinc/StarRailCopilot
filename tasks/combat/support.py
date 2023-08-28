@@ -10,17 +10,27 @@ from module.ui.scroll import Scroll
 from tasks.base.assets.assets_base_popup import CANCEL_POPUP
 from tasks.base.ui import UI
 from tasks.combat.assets.assets_combat_support import COMBAT_SUPPORT_ADD, COMBAT_SUPPORT_LIST, \
-    COMBAT_SUPPORT_LIST_SCROLL, COMBAT_SUPPORT_SELECTED
+    COMBAT_SUPPORT_LIST_SCROLL, COMBAT_SUPPORT_SELECTED, COMBAT_SUPPORT_LIST_GRID
 from tasks.combat.assets.assets_combat_team import COMBAT_TEAM_SUPPORT, COMBAT_TEAM_DISMISSSUPPORT
+
+
+def get_position_in_original_image(position_in_croped_image, crop_area):
+    """
+    Returns:
+        tuple: (x, y) of position in original image
+    """
+    return (
+        position_in_croped_image[0] + crop_area[0], position_in_croped_image[1] + crop_area[1]) if position_in_croped_image else None
 
 
 class SupportCharacter:
     _image_cache = {}
+    _crop_area = COMBAT_SUPPORT_LIST_GRID.matched_button.area
 
     def __init__(self, name, screenshot, similarity=0.85):
         self.name = name
         self.image = self._scale_character()
-        self.screenshot = screenshot
+        self.screenshot = crop(screenshot, SupportCharacter._crop_area)
         self.similarity = similarity
         self.button = self._find_character()
 
@@ -56,7 +66,8 @@ class SupportCharacter:
             character, support_list_img, cv2.TM_CCOEFF_NORMED)
 
         _, max_val, _, max_loc = cv2.minMaxLoc(res)
-
+        max_loc = get_position_in_original_image(
+            max_loc, SupportCharacter._crop_area)
         character_width = character.shape[1]
         character_height = character.shape[0]
 
@@ -74,10 +85,11 @@ class SupportCharacter:
 
 class NextSupportCharacter:
     _arrow_image = load_image("assets/support/selected_character_arrow.png")
+    _crop_area = (290, 115, 435, 634)
 
     def __init__(self, screenshot):
         self.name = "SupportCharacterArrow"
-        self.screenshot = crop(screenshot, (290, 115, 435, 634))
+        self.screenshot = crop(screenshot, NextSupportCharacter._crop_area)
         self.arrow_center = self._find_center()
         self.button = self._get_next_support_character_button()
 
@@ -91,7 +103,8 @@ class NextSupportCharacter:
         _, max_val, _, max_loc = cv2.minMaxLoc(res)
         center = ((max_loc[0] + NextSupportCharacter._arrow_image.shape[1] / 2),
                   (max_loc[1] + NextSupportCharacter._arrow_image.shape[0] / 2)) if max_val > 0.75 else None
-        center = self._get_position_in_original_image(center)
+        center = get_position_in_original_image(
+            center, NextSupportCharacter._crop_area)
         return center
 
     def _get_next_support_character_button(self):
@@ -108,14 +121,6 @@ class NextSupportCharacter:
                 button=area,
             )
         ) if self.arrow_center and self.arrow_center[1] < 510 else None
-
-    def _get_position_in_original_image(self, position_in_croped_image):
-        """
-        Returns:
-            tuple: (x, y) of position in original image
-        """
-        return (
-        position_in_croped_image[0] + 290, position_in_croped_image[1] + 115) if position_in_croped_image else None
 
 
 class SupportListScroll(Scroll):

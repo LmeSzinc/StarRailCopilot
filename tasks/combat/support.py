@@ -83,8 +83,33 @@ class SupportCharacter:
             self.button[0], self.button[1] - 5, self.button[0] + 30, self.button[1]) if self.button else None
 
 
+class ArrowWrapper(ButtonWrapper):
+
+    def find_center(self, image):
+        res = cv2.matchTemplate(
+            self.matched_button.image, image, cv2.TM_CCOEFF_NORMED)
+        _, max_val, _, max_loc = cv2.minMaxLoc(res)
+        return (
+            (
+                (max_loc[0] + self.matched_button.image.shape[1] / 2),
+                (max_loc[1] + self.matched_button.image.shape[0] / 2),
+            )
+            if max_val > 0.75
+            else None
+        )
+
+
 class NextSupportCharacter:
-    _arrow_image = load_image("assets/support/selected_character_arrow.png")
+    _arrow = ArrowWrapper(
+        name="NextSupportCharacterArrow",
+        share=Button(
+            file='./assets/support/selected_character_arrow.png',
+            area=None,
+            search=None,
+            color=None,
+            button=None,
+        )
+    )
     _crop_area = (290, 115, 435, 634)
 
     def __init__(self, screenshot):
@@ -97,14 +122,9 @@ class NextSupportCharacter:
         return self.button is not None
 
     def _find_center(self):
-        support_list_img = self.screenshot
-        res = cv2.matchTemplate(
-            NextSupportCharacter._arrow_image, support_list_img, cv2.TM_CCOEFF_NORMED)
-        _, max_val, _, max_loc = cv2.minMaxLoc(res)
-        center = ((max_loc[0] + NextSupportCharacter._arrow_image.shape[1] / 2),
-                  (max_loc[1] + NextSupportCharacter._arrow_image.shape[0] / 2)) if max_val > 0.75 else None
+        center = NextSupportCharacter._arrow.find_center(self.screenshot)
         center = get_position_in_original_image(
-            center, NextSupportCharacter._crop_area)
+            center, NextSupportCharacter._crop_area) if center else None
         return center
 
     def _get_next_support_character_button(self):
@@ -113,10 +133,10 @@ class NextSupportCharacter:
         return ButtonWrapper(
             name="NextSupportCharacterButton",
             share=Button(
-                file="assets/support/selected_character_arrow.png",
+                file='./assets/support/selected_character_arrow.png',
                 area=area,
                 search=area,
-                # If selected, the average rgb of this area is greater than 220
+                # if next support was selected, the average color of the button will larger than 220
                 color=(220, 220, 220),
                 button=area,
             )

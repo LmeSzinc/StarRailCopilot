@@ -205,17 +205,18 @@ class CombatSupport(UI):
                 return True
 
             # Click
-            if self.appear(COMBAT_TEAM_SUPPORT, interval=2):
+            if self.appear(COMBAT_TEAM_SUPPORT, interval=1):
                 self.device.click(COMBAT_TEAM_SUPPORT)
                 self.interval_reset(COMBAT_TEAM_SUPPORT)
                 continue
-            if self.appear(CANCEL_POPUP, interval=2):
+            if self.appear(CANCEL_POPUP, interval=1):
                 logger.warning(
                     "selected identical character, trying select another")
-                self._select_different_character()
+                self._cancel_popup()
+                self._select_next_support()
                 self.interval_reset(CANCEL_POPUP)
                 continue
-            if self.appear(COMBAT_SUPPORT_LIST, interval=2):
+            if self.appear(COMBAT_SUPPORT_LIST, interval=1):
                 if support_character_name != "FirstCharacter":
                     self._search_support(
                         support_character_name)  # Search support
@@ -305,10 +306,15 @@ class CombatSupport(UI):
                 interval.reset()
                 continue
 
-    def _select_different_character(self):
-
+    def _cancel_popup(self):
+        """
+        Pages:
+            in: CANCEL_POPUP
+            out: COMBAT_SUPPORT_LIST
+        """
+        logger.hr("Combat support cancel popup")
         skip_first_screenshot = True
-        need_choose_next_support = False
+
         while 1:
             if skip_first_screenshot:
                 skip_first_screenshot = False
@@ -316,29 +322,24 @@ class CombatSupport(UI):
                 self.device.screenshot()
 
             # End
-            if self.appear(COMBAT_TEAM_DISMISSSUPPORT):
-                return True
+            if self.appear(COMBAT_SUPPORT_LIST):
+                logger.info("Popup canceled")
+                return
 
             if self.appear(CANCEL_POPUP):
                 self.device.click(CANCEL_POPUP)
-                need_choose_next_support = True
-                self.interval_reset(CANCEL_POPUP)
-                continue
-            if self.appear(COMBAT_SUPPORT_ADD):
-                if need_choose_next_support:
-                    self._select_next_support()
-                    need_choose_next_support = False
-                else:
-                    self.device.click(COMBAT_SUPPORT_ADD)
-                self.interval_reset(COMBAT_SUPPORT_ADD)
                 continue
 
     def _select_next_support(self):
-
+        """
+        Pages:
+            in: COMBAT_SUPPORT_LIST
+            out: COMBAT_SUPPORT_LIST
+        """
         skip_first_screenshot = True
         scroll = SupportListScroll(area=COMBAT_SUPPORT_LIST_SCROLL.area, color=(194, 196, 205),
                                    name=COMBAT_SUPPORT_LIST_SCROLL.name)
-        interval = Timer(2)
+        interval = Timer(1)
         next_support = None
         if scroll.appear(main=self):
             while 1:

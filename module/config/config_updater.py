@@ -544,8 +544,8 @@ class ConfigUpdater:
         ('Dungeon.Dungeon.Support', 'Dungeon.DungeonSupport.Use'),
         ('Dungeon.Dungeon.SupportCharacter', 'Dungeon.DungeonSupport.Character'),
         ('Dungeon.Dungeon.Name', 'Dungeon.Dungeon.Name', convert_daily),
-        ('Dungeon.DungeonDaily.CalyxCrimson', 'Dungeon.DungeonDaily.CalyxCrimson', convert_daily),
         ('Dungeon.Dungeon.NameAtDoubleCalyx', 'Dungeon.Dungeon.NameAtDoubleCalyx', convert_daily),
+        ('Dungeon.DungeonDaily.CalyxCrimson', 'Dungeon.DungeonDaily.CalyxCrimson', convert_daily),
     ]
 
     @cached_property

@@ -177,10 +177,10 @@ DAILY_QUEST_LEFT_START = ButtonWrapper(
     name='DAILY_QUEST_LEFT_START',
     share=Button(
         file='./assets/share/daily/reward/DAILY_QUEST_LEFT_START.png',
-        area=(1096, 248, 1119, 623),
-        search=(1076, 228, 1139, 643),
-        color=(206, 205, 203),
-        button=(1096, 248, 1119, 623),
+        area=(1105, 257, 1118, 633),
+        search=(1085, 237, 1138, 653),
+        color=(205, 205, 205),
+        button=(1105, 257, 1118, 633),
     ),
 )
 DAILY_QUEST_REWARD = ButtonWrapper(
@@ -197,10 +197,10 @@ DAILY_QUEST_RIGHT_END = ButtonWrapper(
     name='DAILY_QUEST_RIGHT_END',
     share=Button(
         file='./assets/share/daily/reward/DAILY_QUEST_RIGHT_END.png',
-        area=(115, 259, 151, 635),
-        search=(95, 239, 171, 655),
-        color=(206, 204, 201),
-        button=(115, 259, 151, 635),
+        area=(401, 259, 411, 632),
+        search=(381, 239, 431, 652),
+        color=(206, 206, 206),
+        button=(401, 259, 411, 632),
     ),
 )
 OCR_DAILY_QUEST = ButtonWrapper(

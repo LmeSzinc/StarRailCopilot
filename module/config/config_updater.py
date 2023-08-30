@@ -84,7 +84,7 @@ class ConfigGenerator:
             options=[dungeon.name for dungeon in DungeonList.instances.values() if dungeon.is_Cavern_of_Corrosion])
         # Insert characters
         from tasks.character.keywords import CharacterList
-        unsupported_characters = ["DanHengImbibitorLunae"]
+        unsupported_characters = ["FuXuan", "Lynx"]
         characters = [character.name for character in CharacterList.instances.values()
                       if character.name not in unsupported_characters]
         option_add(keys='DungeonSupport.Character.option', options=characters)
@@ -541,6 +541,7 @@ class ConfigUpdater:
     redirection = [
         ('Dungeon.Dungeon.Support', 'Dungeon.DungeonSupport.Use'),
         ('Dungeon.Dungeon.SupportCharacter', 'Dungeon.DungeonSupport.Character'),
+        ('Calyx_Crimson_Hunt', 'Calyx_Crimson_The_Hunt'),
     ]
 
     @cached_property

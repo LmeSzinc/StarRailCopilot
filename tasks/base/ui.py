@@ -7,11 +7,11 @@ from module.ocr.ocr import Ocr
 from tasks.base.assets.assets_base_page import CLOSE
 from tasks.base.page import Page, page_main
 from tasks.base.popup import PopupHandler
-from tasks.base.state import StateMixin
+from tasks.combat.assets.assets_combat_finish import COMBAT_EXIT
 from tasks.combat.assets.assets_combat_prepare import COMBAT_PREPARE
 
 
-class UI(PopupHandler, StateMixin):
+class UI(PopupHandler):
     ui_current: Page
 
     def ui_page_appear(self, page):
@@ -282,6 +282,8 @@ class UI(PopupHandler, StateMixin):
         if self.appear(COMBAT_PREPARE, interval=5):
             logger.info(f'UI additional: {COMBAT_PREPARE} -> {CLOSE}')
             self.device.click(CLOSE)
+        if self.appear_then_click(COMBAT_EXIT, interval=5):
+            return True
 
         return False
 

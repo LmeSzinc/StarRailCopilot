@@ -6,6 +6,7 @@ from deploy.Windows.utils import DEPLOY_TEMPLATE, poor_yaml_read, poor_yaml_writ
 from module.base.timer import timer
 from module.config.server import VALID_CHANNEL_PACKAGE, VALID_PACKAGE, to_package
 from module.config.utils import *
+import re
 
 CONFIG_IMPORT = '''
 import datetime
@@ -536,12 +537,16 @@ class ConfigGenerator:
         self.generate_deploy_template()
 
 
+def convert_daily(value):
+    value = re.sub('Calyx_Crimson_Hunt', 'Calyx_Crimson_The_Hunt', value)
+    return value
+
 class ConfigUpdater:
     # source, target, (optional)convert_func
     redirection = [
         ('Dungeon.Dungeon.Support', 'Dungeon.DungeonSupport.Use'),
         ('Dungeon.Dungeon.SupportCharacter', 'Dungeon.DungeonSupport.Character'),
-        ('Calyx_Crimson_Hunt', 'Calyx_Crimson_The_Hunt'),
+        ('Dungeon.DungeonDaily.CalyxCrimson', 'Dungeon.DungeonDaily.CalyxCrimson', convert_daily),
     ]
 
     @cached_property

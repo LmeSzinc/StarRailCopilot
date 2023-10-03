@@ -33,24 +33,14 @@ GOTO_SALVAGE = ButtonWrapper(
         button=(668, 652, 690, 674),
     ),
 )
-ORDER_ASCENDING = ButtonWrapper(
-    name='ORDER_ASCENDING',
+RELIC_SORT_TYPE_BUTTON = ButtonWrapper(
+    name='RELIC_SORT_TYPE_BUTTON',
     share=Button(
-        file='./assets/share/item/relics/ORDER_ASCENDING.png',
-        area=(720, 649, 737, 667),
-        search=(700, 629, 757, 687),
-        color=(176, 176, 178),
-        button=(720, 649, 737, 667),
-    ),
-)
-ORDER_DESCENDING = ButtonWrapper(
-    name='ORDER_DESCENDING',
-    share=Button(
-        file='./assets/share/item/relics/ORDER_DESCENDING.png',
-        area=(720, 649, 738, 667),
-        search=(700, 629, 758, 687),
-        color=(179, 180, 180),
-        button=(720, 649, 738, 667),
+        file='./assets/share/item/relics/RELIC_SORT_TYPE_BUTTON.png',
+        area=(64, 646, 268, 686),
+        search=(44, 626, 288, 706),
+        color=(192, 193, 196),
+        button=(64, 646, 268, 686),
     ),
 )
 SALVAGE = ButtonWrapper(
@@ -61,5 +51,15 @@ SALVAGE = ButtonWrapper(
         search=(936, 642, 1213, 675),
         color=(122, 115, 98),
         button=(1038, 646, 1062, 670),
+    ),
+)
+SALVAGE_SORT_TYPE_BUTTON = ButtonWrapper(
+    name='SALVAGE_SORT_TYPE_BUTTON',
+    share=Button(
+        file='./assets/share/item/relics/SALVAGE_SORT_TYPE_BUTTON.png',
+        area=(488, 638, 692, 678),
+        search=(468, 618, 712, 698),
+        color=(207, 209, 210),
+        button=(488, 638, 692, 678),
     ),
 )

@@ -1,10 +1,17 @@
+from typing import Literal
+
+from module.base.timer import Timer
+from module.base.utils import area_offset
 from module.logger import logger
+from module.ocr.ocr import Ocr
+from module.ui.scroll import Scroll
 from module.ui.switch import Switch
 from tasks.base.page import page_item
 from tasks.base.ui import UI
 from tasks.item.assets.assets_item_consumable_usage import SIMPLE_PROTECTIVE_GEAR
 from tasks.item.assets.assets_item_ui import *
 from tasks.item.keywords import KEYWORD_ITEM_TAB
+from tasks.item.keywords.classes import SortType
 
 SWITCH_ITEM_TAB = Switch('ItemTab', is_selector=True)
 SWITCH_ITEM_TAB.add_state(
@@ -66,3 +73,128 @@ class ItemUI(UI):
             self.wait_until_stable(SIMPLE_PROTECTIVE_GEAR)
         else:
             logger.info(f'Tab goto {state}')
+
+    def _get_sort_order_button(self, key: SortType):
+        ocr = Ocr(OCR_SORT_TYPE)
+        scroll = Scroll(SORT_SCROLL, (80, 81, 84))
+        scroll.edge_threshold = 0.15
+        scroll.drag_threshold = 0.15
+
+        sort_types = ocr.matched_ocr(self.device.image, SortType)
+        button = None
+        while not button:
+            for sort_type in sort_types:
+                if sort_type.matched_keyword == key:
+                    button = sort_type
+
+            if not button and scroll.appear(main=self):
+                scroll.next_page(main=self)
+
+            if not scroll.appear(main=self) or scroll.at_bottom(main=self):
+                break
+
+        if not button:
+            logger.warning(f"Sort type {key} not found")
+
+        return button
+
+    def _sort_order_button_selected(self, button):
+        return self.image_color_count(area_offset(button, (230, 0)), (236, 154, 54))
+
+    def _toggle_sort_order(self, search, skip_first_screenshot=True):
+        ORDER_ASCENDING.matched_button.search = search
+        ORDER_DESCENDING.matched_button.search = search
+        if self.appear(ORDER_ASCENDING):
+            click_button = ORDER_DESCENDING
+            logger.info("Ascending -> Descending")
+        else:
+            click_button = ORDER_ASCENDING
+            logger.info("Descending -> Ascending")
+
+        interval = Timer(1)
+        while 1:
+            if skip_first_screenshot:
+                skip_first_screenshot = False
+            else:
+                self.device.screenshot()
+
+            if self.appear(click_button):
+                return
+
+            if interval.reached():
+                self.device.click(click_button)
+                interval.reset()
+
+    def ensure_sort_order(self, search, order: Literal['ascending', 'descending'],
+                          skip_first_screenshot=True):
+        ORDER_ASCENDING.matched_button.search = search
+        ORDER_DESCENDING.matched_button.search = search
+        if (self.appear(ORDER_ASCENDING) and order == 'ascending'
+                or self.appear(ORDER_DESCENDING) and order == 'descending'):
+            return
+        else:
+            self._toggle_sort_order(search, skip_first_screenshot=skip_first_screenshot)
+
+    def ensure_sort_type(self, button: ButtonWrapper, key: SortType, skip_first_screenshot=True) -> bool:
+        """
+
+        Args:
+            button: button that opens sort type selection popup, which should not include sort order button
+            key:
+            skip_first_screenshot:
+
+        Returns:
+            ensured or not
+        """
+        ocr = Ocr(button)
+        results = ocr.matched_ocr(self.device.image, SortType)
+        for result in results:
+            if result.matched_keyword == key:
+                return True
+
+        interval = Timer(1)
+        while 1:
+            if skip_first_screenshot:
+                skip_first_screenshot = False
+            else:
+                self.device.screenshot()
+
+            if self.appear(SORT_CONFIRM):
+                break
+            if interval.reached():
+                self.device.click(button)
+                interval.reset()
+
+        type_button = self._get_sort_order_button(key=key)
+
+        if type_button:  # select the order. If ocr failed then use the default one
+            skip_first_screenshot = True
+            while 1:
+                if skip_first_screenshot:
+                    skip_first_screenshot = False
+                else:
+                    self.device.screenshot()
+
+                if self._sort_order_button_selected(type_button.button):
+                    logger.info(f"Order selected")
+                    break
+
+                if interval.reached():
+                    self.device.click(type_button)
+                    interval.reset()
+
+        skip_first_screenshot = True
+        while 1:
+            if skip_first_screenshot:
+                skip_first_screenshot = False
+            else:
+                self.device.screenshot()
+
+            if self.image_color_count(button, (225, 226, 229)):
+                break
+
+            if interval.reached():
+                self.device.click(SORT_CONFIRM)
+                interval.reset()
+
+        return bool(type_button)

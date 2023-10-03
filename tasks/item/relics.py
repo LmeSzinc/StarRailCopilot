@@ -1,9 +1,11 @@
 from module.base.timer import Timer
+from module.base.utils import area_offset
 from module.logger import logger
 from tasks.base.assets.assets_base_page import CLOSE
 from tasks.base.assets.assets_base_popup import GET_REWARD
 from tasks.item.assets.assets_item_relics import *
-from tasks.item.keywords import KEYWORD_ITEM_TAB
+from tasks.item.assets.assets_item_ui import ORDER_ASCENDING, ORDER_DESCENDING
+from tasks.item.keywords import KEYWORD_ITEM_TAB, KEYWORD_SORT_TYPE
 from tasks.item.ui import ItemUI
 
 
@@ -29,6 +31,8 @@ class RelicsUI(ItemUI):
         skip_first_screenshot = True
         interval = Timer(1)
         timeout = Timer(5, count=3).start()
+        self.ensure_sort_type(SALVAGE_SORT_TYPE_BUTTON, KEYWORD_SORT_TYPE.Rarity)
+        self.ensure_sort_order(area_offset(SALVAGE_SORT_TYPE_BUTTON.button, (200, 0)), "ascending")
         while 1:  # salvage -> first relic selected
             if skip_first_screenshot:
                 skip_first_screenshot = False
@@ -44,10 +48,7 @@ class RelicsUI(ItemUI):
             if self.image_color_count(FIRST_RELIC_SELECTED, color=(245, 245, 245), threshold=221, count=300):
                 logger.info('First relic selected')
                 break
-            if self.appear_then_click(ORDER_DESCENDING, interval=2):
-                continue
-            if interval.reached() and self.appear(ORDER_ASCENDING) \
-                    and self.image_color_count(FIRST_RELIC, (233, 192, 108)):
+            if interval.reached() and self.image_color_count(FIRST_RELIC, (233, 192, 108)):
                 self.device.click(FIRST_RELIC)
                 interval.reset()
                 continue

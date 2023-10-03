@@ -100,6 +100,7 @@ def replace_templates(text: str) -> str:
     """
     text = re.sub(r'#4', '1', text)
     text = re.sub(r'</?\w+>', '', text)
+    text = re.sub(r'{.*}', '', text)  # Lv.{SPACE} -> Lv.
     return text
 
 
@@ -259,9 +260,9 @@ class KeywordExtract:
             output_file='./tasks/assignment/keywords/event_group.py'
         )
         for file_name, class_name, output_file in (
-            ('ExpeditionGroup.json', 'AssignmentGroup', './tasks/assignment/keywords/group.py'),
-            ('ExpeditionData.json', 'AssignmentEntry', './tasks/assignment/keywords/entry.py'),
-            ('ActivityExpedition.json', 'AssignmentEventEntry', './tasks/assignment/keywords/event_entry.py'),
+                ('ExpeditionGroup.json', 'AssignmentGroup', './tasks/assignment/keywords/group.py'),
+                ('ExpeditionData.json', 'AssignmentEntry', './tasks/assignment/keywords/entry.py'),
+                ('ActivityExpedition.json', 'AssignmentEventEntry', './tasks/assignment/keywords/event_entry.py'),
         ):
             file = os.path.join(TextMap.DATA_FOLDER, 'ExcelOutput', file_name)
             self.load_keywords(deep_get(data, 'Name.Hash') for data in read_file(file).values())
@@ -270,7 +271,7 @@ class KeywordExtract:
     def generate_map_planes(self):
         planes = {
             'Special': ['黑塔的办公室', '锋芒崭露'],
-            'Rogue': [ '区域-战斗', '区域-事件', '区域-遭遇', '区域-休整', '区域-精英', '区域-首领', '区域-交易'],
+            'Rogue': ['区域-战斗', '区域-事件', '区域-遭遇', '区域-休整', '区域-精英', '区域-首领', '区域-交易'],
             'Herta': ['观景车厢', '主控舱段', '基座舱段', '收容舱段', '支援舱段'],
             'Jarilo': ['行政区', '城郊雪原', '边缘通路', '铁卫禁区', '残响回廊', '永冬岭',
                        '磐岩镇', '大矿区', '铆钉镇', '机械聚落'],
@@ -389,13 +390,15 @@ class KeywordExtract:
         self.generate_rogue_buff()
         self.load_keywords(['已强化'])
         self.write_keywords(keyword_class='RogueEnhancement', output_file='./tasks/rogue/keywords/enhancement.py')
-        self.load_keywords(list(self.iter_without_duplication(
-            read_file(os.path.join(TextMap.DATA_FOLDER, 'ExcelOutput', 'RogueMiracleDisplay.json')),
-            'MiracleName.Hash')))
+        self.load_keywords(list(self.iter_without_duplication(read_file(
+            os.path.join(TextMap.DATA_FOLDER, 'ExcelOutput', 'RogueMiracleDisplay.json')), 'MiracleName.Hash')))
         self.write_keywords(keyword_class='RogueCurio', output_file='./tasks/rogue/keywords/curio.py')
-        self.load_keywords(list(self.iter_without_duplication(
-            read_file(os.path.join(TextMap.DATA_FOLDER, 'ExcelOutput', 'RogueBonus.json')), 'BonusTitle.Hash')))
+        self.load_keywords(list(self.iter_without_duplication(read_file(
+            os.path.join(TextMap.DATA_FOLDER, 'ExcelOutput', 'RogueBonus.json')), 'BonusTitle.Hash')))
         self.write_keywords(keyword_class='RogueBonus', output_file='./tasks/rogue/keywords/bonus.py')
+        self.load_keywords(list(self.iter_without_duplication(read_file(
+            os.path.join(TextMap.DATA_FOLDER, 'ExcelOutput', 'InventorySortType.json')), 'SortTypeName.Hash')))
+        self.write_keywords(keyword_class='SortType', output_file='./tasks/item/keywords/sort_type.py')
 
 
 if __name__ == '__main__':

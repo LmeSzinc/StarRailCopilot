@@ -117,7 +117,7 @@ class Inventory:
 
     def wait_until_inventory_stable(self, main: ModuleBase, timer=Timer(0.3, count=1), timeout=Timer(5, count=10)):
         logger.info(f'Wait until stable: {self.inventory}')
-        last_count = self.count_items()
+        last_count = self.count_items(main)
         timer.reset()
         timeout.reset()
         while 1:

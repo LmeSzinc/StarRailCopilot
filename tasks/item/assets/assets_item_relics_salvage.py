@@ -13,26 +13,6 @@ SALVAGE = ButtonWrapper(
         button=(1038, 646, 1062, 670),
     ),
 )
-SALVAGE_FIRST_RELIC = ButtonWrapper(
-    name='SALVAGE_FIRST_RELIC',
-    share=Button(
-        file='./assets/share/item/relics/salvage/SALVAGE_FIRST_RELIC.png',
-        area=(434, 160, 530, 260),
-        search=(414, 140, 550, 280),
-        color=(72, 92, 124),
-        button=(434, 160, 530, 260),
-    ),
-)
-SALVAGE_FIRST_RELIC_SELECTED = ButtonWrapper(
-    name='SALVAGE_FIRST_RELIC_SELECTED',
-    share=Button(
-        file='./assets/share/item/relics/salvage/SALVAGE_FIRST_RELIC_SELECTED.png',
-        area=(424, 136, 452, 164),
-        search=(404, 116, 472, 184),
-        color=(193, 194, 198),
-        button=(424, 136, 452, 164),
-    ),
-)
 SALVAGE_INVENTORY = ButtonWrapper(
     name='SALVAGE_INVENTORY',
     share=Button(

@@ -40,6 +40,40 @@ class RelicsUI(ItemUI):
     def _is_in_salvage(self) -> bool:
         return self.appear(ORDER_ASCENDING) or self.appear(ORDER_DESCENDING)
 
+    def _select_salvage_relic(self, skip_first_screenshot=True):
+        interval = Timer(1)
+        timeout = Timer(5, count=3).start()
+        self.ensure_sort_type(SALVAGE_SORT_TYPE_BUTTON, KEYWORD_SORT_TYPE.Rarity)
+        self.ensure_sort_order(offset_to_sort_order_area(SALVAGE_SORT_TYPE_BUTTON), "ascending")
+        inventory = Inventory(SALVAGE_INVENTORY)
+        items = iter(inventory.recognize_single_page_items(main=self))
+
+        item = next(items)
+
+        while item and item.is_item_locked(main=self):
+            logger.info(f"{item} locked, choose next one")
+            item = next(items)
+
+        while 1:  # salvage -> first relic selected
+            if skip_first_screenshot:
+                skip_first_screenshot = False
+            else:
+                self.device.screenshot()
+
+            if timeout.reached():
+                logger.warning('Timeout when selecting relic')
+                return False
+            # The first frame entering relic page, SALVAGE is a white button as it's the default state.
+            # At the second frame, SALVAGE is disabled since no items are selected.
+            # So here uses the minus button on the first relic.
+            if item.is_item_selected(main=self):
+                logger.info(f'Relic {item} selected')
+                break
+            if interval.reached():
+                self.device.click(item)
+                interval.reset()
+                continue
+
     def salvage_relic(self, skip_first_screenshot=True) -> bool:
         logger.hr('Salvage Relic', level=2)
         self.item_goto(KEYWORD_ITEM_TAB.Relics, wait_until_stable=False)
@@ -55,30 +89,7 @@ class RelicsUI(ItemUI):
             if self.appear_then_click(GOTO_SALVAGE, interval=2):
                 continue
 
-        skip_first_screenshot = True
-        interval = Timer(1)
-        timeout = Timer(5, count=3).start()
-        self.ensure_sort_type(SALVAGE_SORT_TYPE_BUTTON, KEYWORD_SORT_TYPE.Rarity)
-        self.ensure_sort_order(offset_to_sort_order_area(SALVAGE_SORT_TYPE_BUTTON), "ascending")
-        while 1:  # salvage -> first relic selected
-            if skip_first_screenshot:
-                skip_first_screenshot = False
-            else:
-                self.device.screenshot()
-
-            if timeout.reached():
-                logger.warning('Timeout when selecting first relic')
-                return False
-            # The first frame entering relic page, SALVAGE is a white button as it's the default state.
-            # At the second frame, SALVAGE is disabled since no items are selected.
-            # So here uses the minus button on the first relic.
-            if self.image_color_count(SALVAGE_FIRST_RELIC_SELECTED, color=(245, 245, 245), threshold=221, count=300):
-                logger.info('First relic selected')
-                break
-            if interval.reached() and self.image_color_count(SALVAGE_FIRST_RELIC, (233, 192, 108)):
-                self.device.click(SALVAGE_FIRST_RELIC)
-                interval.reset()
-                continue
+        self._select_salvage_relic()  # salvage -> first relic selected
 
         skip_first_screenshot = True
         while 1:  # selected -> rewards claimed

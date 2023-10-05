@@ -8,8 +8,8 @@ from module.ui.scroll import Scroll
 from module.ui.switch import Switch
 from tasks.base.page import page_item
 from tasks.base.ui import UI
-from tasks.item.assets.assets_item_consumable_usage import SIMPLE_PROTECTIVE_GEAR
 from tasks.item.assets.assets_item_ui import *
+from tasks.item.inventory import Inventory
 from tasks.item.keywords import KEYWORD_ITEM_TAB
 from tasks.item.keywords.classes import SortType
 
@@ -70,7 +70,7 @@ class ItemUI(UI):
         SWITCH_ITEM_TAB.set(state, main=self)
         if wait_until_stable:
             logger.info(f'Tab goto {state}, wait until loaded')
-            self.wait_until_stable(SIMPLE_PROTECTIVE_GEAR)
+            Inventory(ITEM_PAGE_INVENTORY, main=self).wait_until_inventory_stable()
         else:
             logger.info(f'Tab goto {state}')
 

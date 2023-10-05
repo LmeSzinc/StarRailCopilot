@@ -23,6 +23,16 @@ CONSUMABLE_CLICK = ButtonWrapper(
         button=(38, 476, 80, 499),
     ),
 )
+ITEM_PAGE_INVENTORY = ButtonWrapper(
+    name='ITEM_PAGE_INVENTORY',
+    share=Button(
+        file='./assets/share/item/ui/ITEM_PAGE_INVENTORY.png',
+        area=(117, 137, 856, 630),
+        search=(97, 117, 876, 650),
+        color=(71, 73, 98),
+        button=(117, 137, 856, 630),
+    ),
+)
 LIGHT_CONE_CHECK = ButtonWrapper(
     name='LIGHT_CONE_CHECK',
     share=Button(

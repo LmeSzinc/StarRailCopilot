@@ -698,7 +698,7 @@ class ConfigUpdater:
         # Build
         set_daily('Level_up_any_character_1_time', 'not_supported')
         set_daily('Level_up_any_Light_Cone_1_time', 'not_supported')
-        set_daily('Level_up_any_Relic_1_time', 'not_supported')
+        set_daily('Level_up_any_Relic_1_time', 'achievable')
         # Items
         set_daily('Salvage_any_Relic', 'achievable')
         set_daily('Synthesize_Consumable_1_time', 'achievable')

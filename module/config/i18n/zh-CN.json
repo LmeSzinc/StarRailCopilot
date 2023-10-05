@@ -577,7 +577,7 @@
     },
     "Level_up_any_Relic_1_time": {
       "name": "将任意遗器等级提升1次",
-      "help": "",
+      "help": "默认可完成，将为稀有度倒序的第一个遗器升一级",
       "achievable": "可完成",
       "not_set": "未设置",
       "not_supported": "暂未支持"

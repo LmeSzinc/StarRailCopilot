@@ -577,7 +577,7 @@
     },
     "Level_up_any_Relic_1_time": {
       "name": "Level up any Relic 1 time",
-      "help": "",
+      "help": "Achievable by default, will level up the first one in reverse order of rarity",
       "achievable": "Achievable",
       "not_set": "Not Set",
       "not_supported": "Not Supported Yet"

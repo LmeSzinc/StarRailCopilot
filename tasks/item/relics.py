@@ -49,6 +49,7 @@ class RelicsUI(ItemUI):
         self.ensure_sort_type(SALVAGE_SORT_TYPE_BUTTON, KEYWORD_SORT_TYPE.Rarity)
         self.ensure_sort_order(offset_to_sort_order_area(SALVAGE_SORT_TYPE_BUTTON), "ascending")
         inventory = Inventory(SALVAGE_INVENTORY)
+        inventory.wait_until_inventory_stable(main=self)
         items = iter(inventory.recognize_single_page_items(main=self))
 
         item = next(items, None)
@@ -191,6 +192,7 @@ class RelicsUI(ItemUI):
     def _feed_one_level(self, inventory: Inventory, skip_first_screenshot=True) -> bool:
         exp_list = [0, 100, 500, 1000, 1500]
 
+        inventory.wait_until_inventory_stable(main=self)
         items = inventory.recognize_single_page_items(main=self)
         if not items:
             return False
@@ -285,6 +287,7 @@ class RelicsUI(ItemUI):
         interval = Timer(1)
         # select first relic
         inventory = Inventory(ITEM_PAGE_INVENTORY)
+        inventory.wait_until_inventory_stable(main=self)
         items = iter(inventory.recognize_single_page_items(main=self))
         item = next(items, None)
 

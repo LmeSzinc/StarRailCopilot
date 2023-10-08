@@ -143,16 +143,6 @@ RELICS_CLICK = ButtonWrapper(
         button=(36, 298, 78, 319),
     ),
 )
-SORT_CONFIRM = ButtonWrapper(
-    name='SORT_CONFIRM',
-    share=Button(
-        file='./assets/share/item/ui/SORT_CONFIRM.png',
-        area=(776, 535, 800, 560),
-        search=(756, 515, 820, 580),
-        color=(99, 94, 83),
-        button=(776, 535, 800, 560),
-    ),
-)
 SORT_SCROLL = ButtonWrapper(
     name='SORT_SCROLL',
     share=Button(

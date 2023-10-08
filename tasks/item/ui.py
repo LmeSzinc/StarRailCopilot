@@ -6,6 +6,7 @@ from module.logger import logger
 from module.ocr.ocr import Ocr
 from module.ui.scroll import Scroll
 from module.ui.switch import Switch
+from tasks.base.assets.assets_base_popup import POPUP_CONFIRM
 from tasks.base.page import page_item
 from tasks.base.ui import UI
 from tasks.item.assets.assets_item_ui import *
@@ -159,7 +160,7 @@ class ItemUI(UI):
             else:
                 self.device.screenshot()
 
-            if self.appear(SORT_CONFIRM):
+            if self.appear(POPUP_CONFIRM):
                 break
             if interval.reached():
                 self.device.click(button)

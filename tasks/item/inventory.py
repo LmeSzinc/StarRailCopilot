@@ -137,7 +137,6 @@ class Inventory:
                 timer.reset()
 
     def recognize_single_page_items(self, main: ModuleBase, hough_th=120, theta_th=0.005, edge_th=5) -> list[Item]:
-        self.wait_until_inventory_stable(main)
         area = self.inventory.area
         image = crop(main.device.image, area)
 
@@ -149,7 +148,11 @@ class Inventory:
         image = cv2.morphologyEx(image, cv2.MORPH_CLOSE, kernel)
         image = cv2.Canny(image, 50, 60, apertureSize=3)
 
-        lines = [(rho, theta) for rho, theta in cv2.HoughLines(image, 1, np.pi / 180, hough_th)[:, 0, :]]
+        results = cv2.HoughLines(image, 1, np.pi / 180, hough_th)
+        if not results:
+            logger.warning(f"Can not find any lines at {self.inventory}")
+            return []
+        lines = [(rho, theta) for rho, theta in results[:, 0, :]]
         row_bounds = [
             abs(int(rho)) for rho, theta in lines if (np.deg2rad(90 - theta_th) < theta < np.deg2rad(90 + theta_th))]
         col_bounds = [abs(int(rho)) for rho, theta in lines if not theta]

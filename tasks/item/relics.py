@@ -40,7 +40,10 @@ class RelicsUI(ItemUI):
     def _is_in_salvage(self) -> bool:
         return self.appear(ORDER_ASCENDING) or self.appear(ORDER_DESCENDING)
 
-    def _select_salvage_relic(self, skip_first_screenshot=True):
+    def _select_salvage_relic(self, skip_first_screenshot=True) -> bool:
+        """
+        Returns: is selected
+        """
         interval = Timer(1)
         timeout = Timer(5, count=3).start()
         self.ensure_sort_type(SALVAGE_SORT_TYPE_BUTTON, KEYWORD_SORT_TYPE.Rarity)
@@ -48,11 +51,15 @@ class RelicsUI(ItemUI):
         inventory = Inventory(SALVAGE_INVENTORY)
         items = iter(inventory.recognize_single_page_items(main=self))
 
-        item = next(items)
+        item = next(items, None)
 
         while item and item.is_item_locked(main=self):
             logger.info(f"{item} locked, choose next one")
-            item = next(items)
+            item = next(items, None)
+
+        if not item:
+            logger.warning(f"Can not select salvageable relic")
+            return False
 
         while 1:  # salvage -> first relic selected
             if skip_first_screenshot:
@@ -68,7 +75,7 @@ class RelicsUI(ItemUI):
             # So here uses the minus button on the first relic.
             if item.is_item_selected(main=self):
                 logger.info(f'Relic {item} selected')
-                break
+                return True
             if interval.reached():
                 self.device.click(item)
                 interval.reset()
@@ -89,22 +96,23 @@ class RelicsUI(ItemUI):
             if self.appear_then_click(GOTO_SALVAGE, interval=2):
                 continue
 
-        self._select_salvage_relic()  # salvage -> first relic selected
+        result = self._select_salvage_relic()  # salvage -> first relic selected
 
-        skip_first_screenshot = True
-        while 1:  # selected -> rewards claimed
-            if skip_first_screenshot:
-                skip_first_screenshot = False
-            else:
-                self.device.screenshot()
+        if result:
+            skip_first_screenshot = True
+            while 1:  # selected -> rewards claimed
+                if skip_first_screenshot:
+                    skip_first_screenshot = False
+                else:
+                    self.device.screenshot()
 
-            if self.appear(GET_REWARD):
-                logger.info("Relic salvaged")
-                break
-            if self.appear_then_click(SALVAGE, interval=2):
-                continue
-            if self.handle_popup_confirm():
-                continue
+                if self.appear(GET_REWARD):
+                    logger.info("Relic salvaged")
+                    break
+                if self.appear_then_click(SALVAGE, interval=2):
+                    continue
+                if self.handle_popup_confirm():
+                    continue
 
         skip_first_screenshot = True
         interval = Timer(1)
@@ -124,7 +132,7 @@ class RelicsUI(ItemUI):
                 self.device.click(CLOSE)
                 interval.reset()
                 continue
-        return True
+        return result
 
     def get_exp_remain(self):
         counter = RelicEXPCounter(ENHANCE_RELIC_EXP_OCR)
@@ -180,11 +188,16 @@ class RelicsUI(ItemUI):
                     self.device.click(item)
                     interval.reset()
 
-    def _feed_one_level(self, inventory: Inventory, skip_first_screenshot=True):
+    def _feed_one_level(self, inventory: Inventory, skip_first_screenshot=True) -> bool:
         exp_list = [0, 100, 500, 1000, 1500]
 
-        items = iter(sorted(inventory.recognize_single_page_items(main=self), key=lambda i: i.get_rarity(main=self)))
-        item = next(items)
+        items = inventory.recognize_single_page_items(main=self)
+        if not items:
+            return False
+
+        items = iter(sorted(items, key=lambda i: i.get_rarity(main=self)))
+        item = next(items, None)
+
         added_item = 0
         slot_num = 8
 
@@ -205,7 +218,7 @@ class RelicsUI(ItemUI):
 
             # The fact is, the locked/equipped relics will be sorted at bottom of the inventory
             # while inventory.is_item_locked(item):
-            #     item = next(items)
+            #     item = next(items,  None)
 
             stackable = item.is_item_stackable(main=self)
             exp_count = 0
@@ -226,9 +239,9 @@ class RelicsUI(ItemUI):
                 if stackable:
                     _, remain, _ = item.get_stackable_item_count(main=self)
                     if remain == 0:
-                        item = next(items)
+                        item = next(items, None)
                 else:
-                    item = next(items)
+                    item = next(items, None)
 
             else:
                 logger.warning(f"Try add item {item} failed")
@@ -273,11 +286,11 @@ class RelicsUI(ItemUI):
         # select first relic
         inventory = Inventory(ITEM_PAGE_INVENTORY)
         items = iter(inventory.recognize_single_page_items(main=self))
-        item = next(items)
+        item = next(items, None)
 
         while item and is_max_level(item):
             logger.info(f"{item} is max level, skip")
-            item = next(items)
+            item = next(items, None)
         if not item:
             logger.warning("No relic can be leveled up")
             return False

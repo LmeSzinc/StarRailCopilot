@@ -99,7 +99,7 @@ class ItemUI(UI):
 
         return button
 
-    def _sort_order_button_selected(self, button):
+    def _sort_type_button_selected(self, button):
         return self.image_color_count(area_offset(button, (230, 0)), (236, 154, 54))
 
     def _toggle_sort_order(self, search, skip_first_screenshot=True):
@@ -168,7 +168,7 @@ class ItemUI(UI):
 
         type_button = self._get_sort_order_button(key=key)
 
-        if type_button:  # select the order. If ocr failed then use the default one
+        if type_button:  # select the type. If ocr failed then use the default one
             skip_first_screenshot = True
             while 1:
                 if skip_first_screenshot:
@@ -176,8 +176,8 @@ class ItemUI(UI):
                 else:
                     self.device.screenshot()
 
-                if self._sort_order_button_selected(type_button.button):
-                    logger.info(f"Order selected")
+                if self._sort_type_button_selected(type_button.button):
+                    logger.info(f"Type selected: {key}")
                     break
 
                 if interval.reached():
@@ -195,7 +195,7 @@ class ItemUI(UI):
                 break
 
             if interval.reached():
-                self.device.click(SORT_CONFIRM)
+                self.device.click(POPUP_CONFIRM)
                 interval.reset()
 
         return bool(type_button)

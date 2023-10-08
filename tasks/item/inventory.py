@@ -149,7 +149,7 @@ class Inventory:
         image = cv2.Canny(image, 50, 60, apertureSize=3)
 
         results = cv2.HoughLines(image, 1, np.pi / 180, hough_th)
-        if not results:
+        if results is None:
             logger.warning(f"Can not find any lines at {self.inventory}")
             return []
         lines = [(rho, theta) for rho, theta in results[:, 0, :]]

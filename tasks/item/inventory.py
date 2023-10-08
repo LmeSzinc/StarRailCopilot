@@ -1,5 +1,6 @@
 import cv2
 import numpy as np
+from scipy.cluster.vq import kmeans
 
 from module.base.base import ModuleBase
 from module.base.timer import Timer
@@ -163,22 +164,33 @@ class Inventory:
         row_bounds = row_bounds[np.append(np.ones((1,), bool), np.abs(np.diff(row_bounds) > edge_th))]
         col_bounds = col_bounds[np.append(np.ones((1,), bool), np.abs(np.diff(col_bounds) > edge_th))]
 
-        while abs(row_bounds[0] - row_bounds[1]) < 80:  # the size of one item icon is 96 * 90 / 86(salvage)
-            row_bounds = np.delete(row_bounds, 0)
+        def group_by_distance_interval(lines: np.ndarray, interval: tuple[int, int], expect_num: int = 1):
+            """
+            group sorted lines by distance interval.
 
-        for _ in range(len(row_bounds) % 3):
-            row_bounds = np.delete(row_bounds, -1)
+            Examples:
+                In ndarray [0, 60, 95, 105, 140] and interval = (90, 110),
+                (0, 95, 105) will be grouped together because 0 + 90 < 95 < 0 + 110 and so does 105
 
-        for _ in range(len(col_bounds) % 2):
-            col_bounds = np.delete(col_bounds, -1)
+            Returns:
+                generator of ndarray of grouped lines
+            """
+            left, right = interval
+            for line in lines:
+                matches = lines[(line + left < lines) & (lines < line + right)]
+                if len(matches) >= expect_num:
+                    if len(matches) > expect_num:
+                        matches = np.sort(kmeans(matches.astype(np.float64), expect_num)[0].astype(np.int64))
+                    yield np.append(line, matches)
 
         def get_items():
-            for row, (y1, y2, y3) in enumerate(row_bounds.reshape((-1, 3))):
-                for col, (x1, x2) in enumerate(col_bounds.reshape((-1, 2))):
-                    yield Item((self.row_recognized + 1, col + 1),
+            row_recognized = 0
+            for row, (y1, y2, y3) in enumerate(group_by_distance_interval(row_bounds, (85, 115), 2)):
+                for col, (x1, x2) in enumerate(group_by_distance_interval(col_bounds, (90, 100))):
+                    yield Item((row_recognized + 1, col + 1),
                                (x1 + area[0], y1 + area[1], x2 + area[0], y2 + area[1]),
                                (x1 + area[0], y2 + area[1], x2 + area[0], y3 + area[1]))
-                self.row_recognized += 1
+                row_recognized += 1
 
         items = [item for item in get_items()]
 

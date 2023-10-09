@@ -422,6 +422,10 @@ class KeywordExtract:
         self.write_keywords(keyword_class='RogueResonance', output_file='./tasks/rogue/keywords/resonance.py',
                             text_convert=blessing_name, extra_attrs=extra_attrs)
 
+    def generate_freebies_keywords(self):
+        self.load_keywords(['漫游签证'])
+        self.write_keywords(keyword_class='Profile', output_file='./tasks/freebies/keywords/profile.py')
+    
     def iter_without_duplication(self, file: dict, keys):
         visited = set()
         for data in file.values():
@@ -459,6 +463,7 @@ class KeywordExtract:
         self.generate_character_keywords()
         self.generate_daily_quests()
         self.generate_battle_pass_quests()
+        self.generate_freebies_keywords()
         self.load_keywords(['养成材料', '光锥', '遗器', '其他材料', '消耗品', '任务', '贵重物'])
         self.write_keywords(keyword_class='ItemTab', text_convert=lambda name: name.replace(' ', ''),
                             output_file='./tasks/item/keywords/tab.py')

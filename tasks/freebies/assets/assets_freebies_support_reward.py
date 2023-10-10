@@ -13,16 +13,6 @@ CAN_GET_REWARD = ButtonWrapper(
         button=(1055, 266, 1106, 310),
     ),
 )
-GOT_REWARD = ButtonWrapper(
-    name='GOT_REWARD',
-    share=Button(
-        file='./assets/share/freebies/support_reward/GOT_REWARD.png',
-        area=(614, 80, 665, 129),
-        search=(594, 60, 685, 149),
-        color=(92, 84, 66),
-        button=(614, 80, 665, 129),
-    ),
-)
 IN_PROFILE = ButtonWrapper(
     name='IN_PROFILE',
     share=Button(
@@ -43,13 +33,14 @@ MENU_TO_PROFILE = ButtonWrapper(
         button=(1123, 82, 1149, 97),
     ),
 )
-OCR_PROFILE = ButtonWrapper(
-    name='OCR_PROFILE',
-    share=Button(
-        file='./assets/share/freebies/support_reward/OCR_PROFILE.png',
-        area=(867, 97, 1133, 136),
-        search=(847, 77, 1153, 156),
-        color=(209, 209, 209),
-        button=(867, 97, 1133, 136),
+PROFILE = ButtonWrapper(
+    name='PROFILE',
+    cn=Button(
+        file='./assets/cn/freebies/support_reward/PROFILE.png',
+        area=(890, 99, 1111, 131),
+        search=(870, 79, 1131, 151),
+        color=(205, 206, 206),
+        button=(890, 99, 1111, 131),
     ),
+    en=None,
 )

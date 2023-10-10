@@ -1,12 +1,10 @@
 from module.logger import logger
-from module.ocr.ocr import Ocr, OcrResultButton
-from module.base.timer import Timer
 
 from tasks.base.page import page_menu
 from tasks.base.ui import UI
 from tasks.base.assets.assets_base_page import CLOSE,MENU_CHECK
-from tasks.freebies.assets.assets_freebies_support_reward import MENU_TO_PROFILE, OCR_PROFILE, IN_PROFILE,CAN_GET_REWARD, GOT_REWARD
-from tasks.freebies.keywords import *
+from tasks.base.assets.assets_base_popup import GET_REWARD
+from tasks.freebies.assets.assets_freebies_support_reward import MENU_TO_PROFILE, PROFILE, IN_PROFILE,CAN_GET_REWARD
 
 class SupportReward(UI):
     
@@ -31,7 +29,6 @@ class SupportReward(UI):
             out: PROFILE
         """
         skip_first_screenshot = False
-        ocr = Ocr(OCR_PROFILE)
         logger.info('Going to profile')
         while 1:
             if skip_first_screenshot:
@@ -46,13 +43,7 @@ class SupportReward(UI):
             if self.appear_then_click(MENU_TO_PROFILE):
                 continue
             
-            result = ocr.matched_ocr(self.device.image, [Profile])
-            if len(result) == 0:
-                logger.warning('Profile not found')
-                continue
-            else:
-                logger.info('Profile found')
-                self.device.click(OCR_PROFILE)
+            if self.appear_then_click(PROFILE):
                 continue
         
     def _get_reward(self):
@@ -70,7 +61,7 @@ class SupportReward(UI):
             else:
                 self.device.screenshot()
             
-            if self.appear(GOT_REWARD):
+            if self.appear(GET_REWARD):
                 self.device.click(MENU_CHECK) # Avoid clicking on some other buttons
                 continue
             

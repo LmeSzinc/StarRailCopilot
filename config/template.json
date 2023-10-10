@@ -164,6 +164,7 @@
     },
     "RoguePath": {
       "Path": "The_Hunt",
+      "DomainStrategy": "combat",
       "Bonus": "Blessing Cosmos",
       "PresetResonanceFilter": "preset-1",
       "ResonanceSelectionStrategy": "follow-presets",

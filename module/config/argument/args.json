@@ -1147,6 +1147,14 @@
           "Elation"
         ]
       },
+      "DomainStrategy": {
+        "type": "select",
+        "value": "combat",
+        "option": [
+          "combat",
+          "occurrence"
+        ]
+      },
       "Bonus": {
         "type": "select",
         "value": "Blessing Cosmos",

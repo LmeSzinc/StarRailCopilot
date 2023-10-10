@@ -24,11 +24,31 @@ class OcrPlaneName(Ocr):
         result = re.sub(r'Y/?$', '', result)
         # Stargazer Navatia -> Stargazer Navalia
         result = result.replace('avatia', 'avalia')
+        # DomainiRespite
+        result = result.replace('omaini', 'omain')
+        # Domain=Combat
+        result = result.replace('=', '')
+        # Domain--Occunrence
+        # Domain'--Occurence
+        # Domain-Qccurrence
+        result = result.replace('cunr', 'cur').replace('uren', 'urren').replace('Qcc', 'Occ')
+        # Domain-Elit
+        result = re.sub(r'[Ee]lit$', 'Elite', result)
 
+        # 区域－战
+        result = re.sub(r'区域.*战$', '区域战斗', result)
+        # 区域-事伴, 区域－事祥
+        result = result.replace('事伴', '事件').replace('事祥', '事件')
+        # 医域－战斗
+        result = result.replace('医域', '区域')
+        # 区域-战半
+        result = result.replace('战半', '战斗')
         # 累塔的办公室
         result = result.replace('累塔', '黑塔')
         if '星港' in result:
             result = '迴星港'
+
+        result = result.replace(' ', '')
 
         return super().after_process(result)
 

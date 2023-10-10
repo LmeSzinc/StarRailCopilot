@@ -1,6 +1,8 @@
+import itertools
 import os
 import re
 import typing as t
+from collections import defaultdict
 from functools import cached_property
 
 from module.base.code_generator import CodeGenerator
@@ -13,9 +15,9 @@ UI_LANGUAGES = ['cn', 'cht', 'en', 'jp', 'es']
 def text_to_variable(text):
     text = re.sub("'s |s' ", '_', text)
     text = re.sub('[ \-—:\'/•.]+', '_', text)
-    text = re.sub(r'[(),#"?!&]|</?\w+>', '', text)
+    text = re.sub(r'[(),#"?!&%*]|</?\w+>', '', text)
     # text = re.sub(r'[#_]?\d+(_times?)?', '', text)
-    return text
+    return text.strip('_')
 
 
 def dungeon_name(name: str) -> str:
@@ -49,6 +51,11 @@ class TextMap:
 
     def __init__(self, lang: str):
         self.lang = lang
+
+    def __contains__(self, name: t.Union[int, str]) -> bool:
+        if isinstance(name, int) or (isinstance(name, str) and name.isdigit()):
+            return int(name) in self.data
+        return False
 
     @cached_property
     def data(self) -> dict[int, str]:
@@ -253,16 +260,16 @@ class KeywordExtract:
         gen.write(output_file)
         self.clear_keywords()
 
-    def generate_assignment_keywords(self):
+    def generate_assignments(self):
         self.load_keywords(['空间站特派'])
         self.write_keywords(
             keyword_class='AssignmentEventGroup',
             output_file='./tasks/assignment/keywords/event_group.py'
         )
         for file_name, class_name, output_file in (
-                ('ExpeditionGroup.json', 'AssignmentGroup', './tasks/assignment/keywords/group.py'),
-                ('ExpeditionData.json', 'AssignmentEntry', './tasks/assignment/keywords/entry.py'),
-                ('ActivityExpedition.json', 'AssignmentEventEntry', './tasks/assignment/keywords/event_entry.py'),
+            ('ExpeditionGroup.json', 'AssignmentGroup', './tasks/assignment/keywords/group.py'),
+            ('ExpeditionData.json', 'AssignmentEntry', './tasks/assignment/keywords/entry.py'),
+            ('ActivityExpedition.json', 'AssignmentEventEntry', './tasks/assignment/keywords/event_entry.py'),
         ):
             file = os.path.join(TextMap.DATA_FOLDER, 'ExcelOutput', file_name)
             self.load_keywords(deep_get(data, 'Name.Hash') for data in read_file(file).values())
@@ -271,7 +278,7 @@ class KeywordExtract:
     def generate_map_planes(self):
         planes = {
             'Special': ['黑塔的办公室', '锋芒崭露'],
-            'Rogue': ['区域-战斗', '区域-事件', '区域-遭遇', '区域-休整', '区域-精英', '区域-首领', '区域-交易'],
+            'Rogue': [ '区域-战斗', '区域-事件', '区域-遭遇', '区域-休整', '区域-精英', '区域-首领', '区域-交易'],
             'Herta': ['观景车厢', '主控舱段', '基座舱段', '收容舱段', '支援舱段'],
             'Jarilo': ['行政区', '城郊雪原', '边缘通路', '铁卫禁区', '残响回廊', '永冬岭',
                        '磐岩镇', '大矿区', '铆钉镇', '机械聚落'],
@@ -348,6 +355,111 @@ class KeywordExtract:
         self.write_keywords(keyword_class='RogueResonance', output_file='./tasks/rogue/keywords/resonance.py',
                             text_convert=blessing_name, extra_attrs=extra_attrs)
 
+    def generate_rogue_events(self):
+        # A talk contains several options
+        event_title_file = os.path.join(
+            TextMap.DATA_FOLDER, 'ExcelOutput',
+            'RogueTalkNameConfig.json'
+        )
+        event_title_ids = {
+            id_: deep_get(data, 'Name.Hash')
+            for id_, data in read_file(event_title_file).items()
+        }
+        event_title_texts = defaultdict(list)
+        for title_id, title_hash in event_title_ids.items():
+            if title_hash not in self.text_map['en']:
+                continue
+            _, title_text = self.find_keyword(title_hash, lang='en')
+            event_title_texts[text_to_variable(title_text)].append(title_id)
+        option_file = os.path.join(
+            TextMap.DATA_FOLDER, 'ExcelOutput',
+            'DialogueEventDisplay.json'
+        )
+        option_ids = {
+            id_: deep_get(data, 'EventTitle.Hash')
+            for id_, data in read_file(option_file).items()
+        }
+        # Key: event name id, value: list of option id/hash
+        options_grouped = dict()
+
+        # Drop invalid or duplicate options
+        def clean_options(options):
+            visited = set()
+            for i in options:
+                option_hash = option_ids[str(i)]
+                if option_hash not in self.text_map['en']:
+                    continue
+                _, option_text = self.find_keyword(option_hash, lang='en')
+                if option_text in visited:
+                    continue
+                visited.add(option_text)
+                yield option_hash
+        for group_title_ids in event_title_texts.values():
+            group_option_ids = []
+            for title_id in group_title_ids:
+                # Special case for Nildis (尼尔迪斯牌)
+                # Missing option: Give up
+                if title_id == '13501':
+                    group_option_ids.append(13506)
+                option_id = title_id
+                # Name ids in Swarm Disaster (寰宇蝗灾) have a "1" prefix
+                if option_id not in option_ids:
+                    option_id = title_id[1:]
+                # Some name may not has corresponding options
+                if option_id not in option_ids:
+                    continue
+                group_option_ids += list(itertools.takewhile(
+                    lambda x: str(x) in option_ids,
+                    itertools.count(int(option_id))
+                ))
+            if group_option_ids:
+                options_grouped[group_title_ids[0]] = group_option_ids
+
+        for title_id, options in options_grouped.items():
+            options_grouped[title_id] = list(clean_options(options))
+        for title_id in list(options_grouped.keys()):
+            if len(options_grouped[title_id]) == 0:
+                options_grouped.pop(title_id)
+        option_dup_count = defaultdict(int)
+        for option_hash_list in options_grouped.values():
+            for option_hash in option_hash_list:
+                if option_hash not in self.text_map['en']:
+                    continue
+                _, option_text = self.find_keyword(option_hash, lang='en')
+                option_dup_count[text_to_variable(option_text)] += 1
+
+        def option_text_convert(title_index):
+            def wrapper(option_text):
+                option_var = text_to_variable(option_text)
+                if option_dup_count[option_var] > 1:
+                    option_var = f'{option_var}_{title_index}'
+                return option_var
+            return wrapper
+
+        option_gen = None
+        last_id = 1
+        option_id_map = dict()
+        for i, (title_id, option_ids) in enumerate(options_grouped.items(), start=1):
+            self.load_keywords(option_ids)
+            option_gen = self.write_keywords(
+                keyword_class='RogueEventOption',
+                text_convert=option_text_convert(i),
+                generator=option_gen
+            )
+            cur_id = option_gen.last_id + 1
+            option_id_map[event_title_ids[title_id]] = list(
+                range(last_id, cur_id))
+            last_id = cur_id
+        output_file = './tasks/rogue/keywords/event_option.py'
+        print(f'Write {output_file}')
+        option_gen.write(output_file)
+        self.load_keywords([event_title_ids[x] for x in options_grouped])
+        self.write_keywords(
+            keyword_class='RogueEventTitle',
+            output_file='./tasks/rogue/keywords/event_title.py',
+            extra_attrs={'option_ids': option_id_map}
+        )
+
     def iter_without_duplication(self, file: dict, keys):
         visited = set()
         for data in file.values():
@@ -378,7 +490,7 @@ class KeywordExtract:
         self.load_keywords(['本日任务', '本周任务', '本期任务'])
         self.write_keywords(keyword_class='BattlePassMissionTab',
                             output_file='./tasks/battle_pass/keywords/mission_tab.py')
-        self.generate_assignment_keywords()
+        self.generate_assignments()
         self.generate_forgotten_hall_stages()
         self.generate_map_planes()
         self.generate_character_keywords()
@@ -390,12 +502,14 @@ class KeywordExtract:
         self.generate_rogue_buff()
         self.load_keywords(['已强化'])
         self.write_keywords(keyword_class='RogueEnhancement', output_file='./tasks/rogue/keywords/enhancement.py')
-        self.load_keywords(list(self.iter_without_duplication(read_file(
-            os.path.join(TextMap.DATA_FOLDER, 'ExcelOutput', 'RogueMiracleDisplay.json')), 'MiracleName.Hash')))
+        self.load_keywords(list(self.iter_without_duplication(
+            read_file(os.path.join(TextMap.DATA_FOLDER, 'ExcelOutput', 'RogueMiracleDisplay.json')),
+            'MiracleName.Hash')))
         self.write_keywords(keyword_class='RogueCurio', output_file='./tasks/rogue/keywords/curio.py')
-        self.load_keywords(list(self.iter_without_duplication(read_file(
-            os.path.join(TextMap.DATA_FOLDER, 'ExcelOutput', 'RogueBonus.json')), 'BonusTitle.Hash')))
+        self.load_keywords(list(self.iter_without_duplication(
+            read_file(os.path.join(TextMap.DATA_FOLDER, 'ExcelOutput', 'RogueBonus.json')), 'BonusTitle.Hash')))
         self.write_keywords(keyword_class='RogueBonus', output_file='./tasks/rogue/keywords/bonus.py')
+        self.generate_rogue_events()
         self.load_keywords(list(self.iter_without_duplication(read_file(
             os.path.join(TextMap.DATA_FOLDER, 'ExcelOutput', 'InventorySortType.json')), 'SortTypeName.Hash')))
         self.write_keywords(keyword_class='SortType', output_file='./tasks/item/keywords/sort_type.py')

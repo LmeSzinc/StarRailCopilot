@@ -81,7 +81,7 @@ class JoystickContact:
     def direction2screen(cls, direction, run=True):
         """
         Args:
-            direction (int, float): Direction to goto (0~360)
+            direction (int, float): Direction to goto (-180~180)
             run: True for character running, False for walking
 
         Returns:
@@ -111,7 +111,7 @@ class JoystickContact:
         Set joystick to given position
 
         Args:
-            direction (int, float): Direction to goto (0~360)
+            direction (int, float): Direction to goto (-180~180)
             run: True for character running, False for walking
         """
         logger.info(f'JoystickContact set to {direction}, run={run}')
@@ -147,7 +147,7 @@ class MapControlJoystick(UI):
     map_E_timer = Timer(1)
     map_run_2x_timer = Timer(1)
 
-    joystick_lost_timer = Timer(1, count=2)
+    joystick_lost_timer = Timer(1, count=1)
 
     @cached_property
     def joystick_center(self) -> tuple[int, int]:

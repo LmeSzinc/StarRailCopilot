@@ -47,10 +47,32 @@ class PositionPredictState:
 
 
 class Minimap(MapResource):
-    def init_position(self, position: tuple[int | float, int | float], show_log=True):
+    position_locked = None
+
+    def init_position(
+            self,
+            position: tuple[int | float, int | float],
+            show_log=True,
+            locked=False,
+    ):
+        """
+        Args:
+            position:
+            show_log:
+            locked: If true, lock search area during detection
+        """
         if show_log:
-            logger.info(f"init_position: {position}")
+            if locked:
+                logger.info(f"init_position: {position}, locked")
+            else:
+                logger.info(f"init_position: {position}")
+
         self.position = position
+
+        if locked:
+            self.position_locked = position
+        else:
+            self.position_locked = None
 
     def _predict_position(self, image, scale=1.0):
         """
@@ -65,8 +87,11 @@ class Minimap(MapResource):
         local = cv2.resize(image, None, fx=scale, fy=scale, interpolation=cv2.INTER_CUBIC)
         size = np.array(image_size(image))
 
-        if sum(self.position) > 0:
-            search_position = np.array(self.position, dtype=np.int64)
+        position = self.position
+        if self.position_locked is not None:
+            position = self.position_locked
+        if sum(position) > 0:
+            search_position = np.array(position, dtype=np.int64)
             search_position += self.POSITION_FEATURE_PAD
             search_size = np.array(image_size(local)) * self.POSITION_SEARCH_RADIUS
             search_half = (search_size // 2).astype(np.int64)
@@ -355,7 +380,7 @@ class Minimap(MapResource):
         degree = int(degree % 360)
         # +3 is a value obtained from experience
         # Don't know why but <predicted_rotation> + 3 = <actual_rotation>
-        rotation = degree + 3
+        rotation = (degree + 3) % 360
 
         self.rotation_confidence = rotation_confidence
         self.rotation = rotation

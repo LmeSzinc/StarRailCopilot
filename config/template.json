@@ -35,7 +35,7 @@
   },
   "Dungeon": {
     "Scheduler": {
-      "Enable": false,
+      "Enable": true,
       "NextRun": "2020-01-01 00:00:00",
       "Command": "Dungeon",
       "ServerUpdate": "04:00"
@@ -59,35 +59,48 @@
     "DungeonStorage": {
       "TrailblazePower": {},
       "DungeonDouble": {},
+      "EchoOfWar": {},
       "SimulatedUniverse": {}
+    }
+  },
+  "Weekly": {
+    "Scheduler": {
+      "Enable": true,
+      "NextRun": "2020-01-01 00:00:00",
+      "Command": "Weekly",
+      "ServerUpdate": "04:00"
+    },
+    "Weekly": {
+      "Name": "Echo_of_War_Divine_Seed",
+      "Team": 1
     }
   },
   "DailyQuest": {
     "Scheduler": {
-      "Enable": false,
+      "Enable": true,
       "NextRun": "2020-01-01 00:00:00",
       "Command": "DailyQuest",
       "ServerUpdate": "04:00"
     },
     "AchievableQuest": {
       "Complete_1_Daily_Mission": "not_supported",
-      "Clear_Calyx_Golden_1_times": "not_set",
-      "Complete_Calyx_Crimson_1_time": "not_set",
-      "Clear_Stagnant_Shadow_1_times": "not_set",
-      "Clear_Cavern_of_Corrosion_1_times": "not_set",
-      "In_a_single_battle_inflict_3_Weakness_Break_of_different_Types": "not_supported",
-      "Inflict_Weakness_Break_5_times": "not_supported",
-      "Defeat_a_total_of_20_enemies": "not_supported",
-      "Enter_combat_by_attacking_enemy_Weakness_and_win_3_times": "not_supported",
+      "Clear_Calyx_Golden_1_times": "achievable",
+      "Complete_Calyx_Crimson_1_time": "achievable",
+      "Clear_Stagnant_Shadow_1_times": "achievable",
+      "Clear_Cavern_of_Corrosion_1_times": "achievable",
+      "In_a_single_battle_inflict_3_Weakness_Break_of_different_Types": "achievable",
+      "Inflict_Weakness_Break_5_times": "achievable",
+      "Defeat_a_total_of_20_enemies": "achievable",
+      "Enter_combat_by_attacking_enemy_Weakness_and_win_3_times": "achievable",
       "Use_Technique_2_times": "achievable",
-      "Go_on_assignment_1_time": "not_set",
+      "Go_on_assignment_1_time": "achievable",
       "Take_1_photo": "achievable",
-      "Destroy_3_destructible_objects": "not_supported",
-      "Complete_Forgotten_Hall_1_time": "not_supported",
-      "Complete_Echo_of_War_1_times": "not_supported",
+      "Destroy_3_destructible_objects": "achievable",
+      "Complete_Forgotten_Hall_1_time": "achievable",
+      "Complete_Echo_of_War_1_times": "achievable",
       "Complete_1_stage_in_Simulated_Universe_Any_world": "not_supported",
-      "Obtain_victory_in_combat_with_support_characters_1_time": "not_set",
-      "Use_an_Ultimate_to_deal_the_final_blow_1_time": "not_supported",
+      "Obtain_victory_in_combat_with_support_characters_1_time": "achievable",
+      "Use_an_Ultimate_to_deal_the_final_blow_1_time": "achievable",
       "Level_up_any_character_1_time": "not_supported",
       "Level_up_any_Light_Cone_1_time": "not_supported",
       "Level_up_any_Relic_1_time": "not_supported",
@@ -103,7 +116,7 @@
   },
   "BattlePass": {
     "Scheduler": {
-      "Enable": false,
+      "Enable": true,
       "NextRun": "2020-01-01 00:00:00",
       "Command": "BattlePass",
       "ServerUpdate": "04:00"
@@ -115,7 +128,7 @@
   },
   "Assignment": {
     "Scheduler": {
-      "Enable": false,
+      "Enable": true,
       "NextRun": "2020-01-01 00:00:00",
       "Command": "Assignment",
       "ServerUpdate": "04:00"
@@ -126,7 +139,20 @@
       "Name_3": "The_Invisible_Hand",
       "Name_4": "Nine_Billion_Names",
       "Duration": 20,
+      "Event": true,
       "Assignment": {}
+    }
+  },
+  "DataUpdate": {
+    "Scheduler": {
+      "Enable": true,
+      "NextRun": "2020-01-01 00:00:00",
+      "Command": "DataUpdate",
+      "ServerUpdate": "04:00"
+    },
+    "ItemStorage": {
+      "Credit": {},
+      "StallerJade": {}
     }
   },
   "Rogue": {

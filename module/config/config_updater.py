@@ -26,6 +26,7 @@ DICT_GUI_TO_INGAME = {
     'en-US': 'en',
     'ja-JP': 'jp',
     'zh-TW': 'cht',
+    'es-ES': 'es',
 }
 
 
@@ -85,6 +86,9 @@ class ConfigGenerator:
         option_add(
             keys='DungeonDaily.CavernOfCorrosion.option',
             options=[dungeon.name for dungeon in DungeonList.instances.values() if dungeon.is_Cavern_of_Corrosion])
+        option_add(
+            keys='Weekly.Name.option',
+            options=[dungeon.name for dungeon in DungeonList.instances.values() if dungeon.is_Echo_of_War])
         # Insert characters
         from tasks.character.keywords import CharacterList
         unsupported_characters = []
@@ -350,23 +354,26 @@ class ConfigGenerator:
         #         prefix = '国服' if prefix == 'CN' else prefix
         #         deep_set(new, keys=path, value=f'[{prefix}] {_list[index]}')
 
+        ingame_lang = gui_lang_to_ingame_lang(lang)
+        dailies = deep_get(self.argument, keys='Dungeon.Name.option')
         # Dungeon names
-        if lang not in ['zh-CN', 'zh-TW', 'en-US']:
-            ingame_lang = gui_lang_to_ingame_lang(lang)
-            from tasks.dungeon.keywords import DungeonList
-            dailies = deep_get(self.argument, keys='Dungeon.Name.option')
+        from tasks.dungeon.keywords import DungeonList, DungeonDetailed
+        if lang not in ['zh-CN', 'zh-TW', 'en-US', 'es-ES']:
             for dungeon in DungeonList.instances.values():
                 if dungeon.name in dailies:
                     value = dungeon.__getattribute__(ingame_lang)
                     deep_set(new, keys=['Dungeon', 'Name', dungeon.name], value=value)
-
+        # Stagnant shadows with character names
+        for dungeon in DungeonDetailed.instances.values():
+            if dungeon.name in dailies:
+                value = dungeon.__getattribute__(ingame_lang)
+                deep_set(new, keys=['Dungeon', 'Name', dungeon.name], value=value)
         # Copy dungeon i18n to double events
         def update_dungeon_names(keys):
-            for dungeon in deep_get(new, keys=keys).values():
-                if '_' in dungeon:
-                    value = deep_get(new, keys=['Dungeon', 'Name', dungeon])
-                    if value:
-                        deep_set(new, keys=f'{keys}.{dungeon}', value=value)
+            for dungeon in deep_get(self.argument, keys=f'{keys}.option', default=[]):
+                value = deep_get(new, keys=['Dungeon', 'Name', dungeon])
+                if value:
+                    deep_set(new, keys=f'{keys}.{dungeon}', value=value)
 
         update_dungeon_names('Dungeon.NameAtDoubleCalyx')
         update_dungeon_names('Dungeon.NameAtDoubleRelic')
@@ -377,7 +384,6 @@ class ConfigGenerator:
 
         # Character names
         from tasks.character.keywords import CharacterList
-        ingame_lang = gui_lang_to_ingame_lang(lang)
         characters = deep_get(self.argument, keys='DungeonSupport.Character.option')
         for character in CharacterList.instances.values():
             if character.name in characters:
@@ -397,6 +403,15 @@ class ConfigGenerator:
                 for option in deep_get(self.args, keys=['DailyQuest', 'AchievableQuest', copy_from, 'option']):
                     value = deep_get(new, keys=['AchievableQuest', copy_from, option])
                     deep_set(new, keys=['AchievableQuest', quest.name, option], value=value)
+
+        # Echo of War
+        from tasks.map.keywords import MapWorld
+        dungeons = [d for d in DungeonList.instances.values() if d.is_Echo_of_War]
+        for world, dungeon in zip(MapWorld.instances.values(), dungeons):
+            world_name = world.__getattribute__(ingame_lang)
+            dungeon_name = dungeon.__getattribute__(ingame_lang)
+            value = f'{dungeon_name} ({world_name})'
+            deep_set(new, keys=['Weekly', 'Name', dungeon.name], value=value)
 
         # GUI i18n
         for path, _ in deep_iter(self.gui, depth=2):
@@ -668,21 +683,21 @@ class ConfigUpdater:
         set_daily('Clear_Cavern_of_Corrosion_1_times',
                   dungeon and deep_get(data, 'Dungeon.DungeonDaily.CavernOfCorrosion') != 'do_not_achieve')
         # Combat requirements
-        set_daily('In_a_single_battle_inflict_3_Weakness_Break_of_different_Types', 'not_supported')
-        set_daily('Inflict_Weakness_Break_5_times', 'not_supported')
-        set_daily('Defeat_a_total_of_20_enemies', 'not_supported')
-        set_daily('Enter_combat_by_attacking_enemy_Weakness_and_win_3_times', 'not_supported')
+        set_daily('In_a_single_battle_inflict_3_Weakness_Break_of_different_Types', 'achievable')
+        set_daily('Inflict_Weakness_Break_5_times', 'achievable')
+        set_daily('Defeat_a_total_of_20_enemies', 'achievable')
+        set_daily('Enter_combat_by_attacking_enemy_Weakness_and_win_3_times', 'achievable')
         set_daily('Use_Technique_2_times', 'achievable')
         # Other game systems
         set_daily('Go_on_assignment_1_time', deep_get(data, 'Assignment.Scheduler.Enable'))
         set_daily('Take_1_photo', 'achievable')
-        set_daily('Destroy_3_destructible_objects', 'not_supported')
-        set_daily('Complete_Forgotten_Hall_1_time', 'not_supported')
-        set_daily('Complete_Echo_of_War_1_times', 'not_supported')
+        set_daily('Destroy_3_destructible_objects', 'achievable')
+        set_daily('Complete_Forgotten_Hall_1_time', 'achievable')
+        set_daily('Complete_Echo_of_War_1_times', deep_get(data, 'Weekly.Scheduler.Enable'))
         set_daily('Complete_1_stage_in_Simulated_Universe_Any_world', 'not_supported')
         set_daily('Obtain_victory_in_combat_with_support_characters_1_time',
                   dungeon and deep_get(data, 'Dungeon.DungeonSupport.Use') in ['when_daily', 'always_use'])
-        set_daily('Use_an_Ultimate_to_deal_the_final_blow_1_time', 'not_supported')
+        set_daily('Use_an_Ultimate_to_deal_the_final_blow_1_time', 'achievable')
         # Build
         set_daily('Level_up_any_character_1_time', 'not_supported')
         set_daily('Level_up_any_Light_Cone_1_time', 'not_supported')

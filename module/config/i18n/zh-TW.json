@@ -26,6 +26,10 @@
       "name": "每日副本",
       "help": ""
     },
+    "Weekly": {
+      "name": "歷戰餘響",
+      "help": ""
+    },
     "DailyQuest": {
       "name": "每日任務",
       "help": ""
@@ -36,6 +40,10 @@
     },
     "Assignment": {
       "name": "委託",
+      "help": ""
+    },
+    "DataUpdate": {
+      "name": "儀表板更新",
       "help": ""
     },
     "Rogue": {
@@ -50,7 +58,7 @@
     },
     "Enable": {
       "name": "啟用該功能",
-      "help": "將這個任務加入調度器\n委託、科研、收穫任務是強制打開的",
+      "help": "將這個任務加入調度器",
       "True": "已啟用",
       "False": "False"
     },
@@ -208,23 +216,23 @@
       "Calyx_Golden_Treasures": "材料：信用點（藏珍之蕾•擬造花萼金）",
       "Calyx_Crimson_Destruction": "行跡材料：毀滅（毀滅之蕾•擬造花萼赤）",
       "Calyx_Crimson_Preservation": "行跡材料：存護（存護之蕾•擬造花萼赤）",
-      "Calyx_Crimson_The_Hunt": "行跡材料：巡獵（存護之蕾•擬造花萼赤）",
+      "Calyx_Crimson_The_Hunt": "行跡材料：巡獵（巡獵之蕾•擬造花萼赤）",
       "Calyx_Crimson_Abundance": "行跡材料：豐饒（豐饒之蕾•擬造花萼赤）",
       "Calyx_Crimson_Erudition": "行跡材料：智識（智識之蕾•擬造花萼赤）",
       "Calyx_Crimson_Harmony": "行跡材料：同諧（同諧之蕾•擬造花萼赤）",
       "Calyx_Crimson_Nihility": "行跡材料：虛無（虛無之蕾•擬造花萼赤）",
-      "Stagnant_Shadow_Quanta": "角色晉階材料：量子（空海之形•凝滯虛影）",
-      "Stagnant_Shadow_Gust": "角色晉階材料：風（巽風之形•凝滯虛影）",
-      "Stagnant_Shadow_Fulmination": "角色晉階材料：雷（鳴雷之形•凝滯虛影）",
-      "Stagnant_Shadow_Blaze": "角色晉階材料：火（炎華之形•凝滯虛影）",
-      "Stagnant_Shadow_Spike": "角色晉階材料：物理（鋒芒之形•凝滯虛影）",
-      "Stagnant_Shadow_Rime": "角色晉階材料：冰（霜晶之形•凝滯虛影）",
-      "Stagnant_Shadow_Mirage": "角色晉階材料：虛數（幻光之形•凝滯虛影）",
-      "Stagnant_Shadow_Icicle": "角色晉階材料：冰（冰稜之形•凝滯虛影）",
-      "Stagnant_Shadow_Doom": "角色晉階材料：雷（震厄之形•凝滯虛影）",
-      "Stagnant_Shadow_Puppetry": "角色晉階材料：虛數（偃偶之形•凝滯虛影）",
-      "Stagnant_Shadow_Abomination": "角色晉階材料：量子（孽獸之形•凝滯虛影）",
-      "Stagnant_Shadow_Celestial": "角色晉階材料：風（天人之形•凝滯虛影）",
+      "Stagnant_Shadow_Quanta": "角色晉階材料：量子（銀狼 / 希兒 / 青雀）",
+      "Stagnant_Shadow_Gust": "角色晉階材料：風（丹恆 / 布洛妮婭 / 桑博）",
+      "Stagnant_Shadow_Fulmination": "角色晉階材料：雷（阿蘭 / 希露瓦 / 停雲 / 白露）",
+      "Stagnant_Shadow_Blaze": "角色晉階材料：火（姬子 / 艾絲妲 / 虎克）",
+      "Stagnant_Shadow_Spike": "角色晉階材料：物理（娜塔莎 / 克拉拉 / 盧卡 / 素裳）",
+      "Stagnant_Shadow_Rime": "角色晉階材料：冰（三月七 / 黑塔 / 傑帕德 / 佩拉）",
+      "Stagnant_Shadow_Mirage": "角色晉階材料：虛數（瓦爾特 / 羅剎 / 馭空）",
+      "Stagnant_Shadow_Icicle": "角色晉階材料：冰（彥卿）",
+      "Stagnant_Shadow_Doom": "角色晉階材料：雷（卡芙卡 / 景元）",
+      "Stagnant_Shadow_Puppetry": "角色晉階材料：虛數（丹恆•飲月）",
+      "Stagnant_Shadow_Abomination": "角色晉階材料：量子（玲可 / 符玄）",
+      "Stagnant_Shadow_Celestial": "角色晉階材料：風（刃）",
       "Cavern_of_Corrosion_Path_of_Gelid_Wind": "遺器：冰套+風套（霜風之徑•侵蝕隧洞）",
       "Cavern_of_Corrosion_Path_of_Jabbing_Punch": "遺器：物理套+擊破套（迅拳之徑•侵蝕隧洞）",
       "Cavern_of_Corrosion_Path_of_Drifting": "遺器：治療套+快槍手（漂泊之徑•侵蝕隧洞）",
@@ -242,7 +250,7 @@
       "Calyx_Golden_Treasures": "材料：信用點（藏珍之蕾•擬造花萼金）",
       "Calyx_Crimson_Destruction": "行跡材料：毀滅（毀滅之蕾•擬造花萼赤）",
       "Calyx_Crimson_Preservation": "行跡材料：存護（存護之蕾•擬造花萼赤）",
-      "Calyx_Crimson_The_Hunt": "行跡材料：巡獵（存護之蕾•擬造花萼赤）",
+      "Calyx_Crimson_The_Hunt": "行跡材料：巡獵（巡獵之蕾•擬造花萼赤）",
       "Calyx_Crimson_Abundance": "行跡材料：豐饒（豐饒之蕾•擬造花萼赤）",
       "Calyx_Crimson_Erudition": "行跡材料：智識（智識之蕾•擬造花萼赤）",
       "Calyx_Crimson_Harmony": "行跡材料：同諧（同諧之蕾•擬造花萼赤）",
@@ -290,7 +298,7 @@
       "do_not_achieve": "不完成這個任務",
       "Calyx_Crimson_Destruction": "行跡材料：毀滅（毀滅之蕾•擬造花萼赤）",
       "Calyx_Crimson_Preservation": "行跡材料：存護（存護之蕾•擬造花萼赤）",
-      "Calyx_Crimson_The_Hunt": "行跡材料：巡獵（存護之蕾•擬造花萼赤）",
+      "Calyx_Crimson_The_Hunt": "行跡材料：巡獵（巡獵之蕾•擬造花萼赤）",
       "Calyx_Crimson_Abundance": "行跡材料：豐饒（豐饒之蕾•擬造花萼赤）",
       "Calyx_Crimson_Erudition": "行跡材料：智識（智識之蕾•擬造花萼赤）",
       "Calyx_Crimson_Harmony": "行跡材料：同諧（同諧之蕾•擬造花萼赤）",
@@ -300,18 +308,18 @@
       "name": "完成1次凝滯虛影",
       "help": "",
       "do_not_achieve": "不完成這個任務",
-      "Stagnant_Shadow_Quanta": "角色晉階材料：量子（空海之形•凝滯虛影）",
-      "Stagnant_Shadow_Gust": "角色晉階材料：風（巽風之形•凝滯虛影）",
-      "Stagnant_Shadow_Fulmination": "角色晉階材料：雷（鳴雷之形•凝滯虛影）",
-      "Stagnant_Shadow_Blaze": "角色晉階材料：火（炎華之形•凝滯虛影）",
-      "Stagnant_Shadow_Spike": "角色晉階材料：物理（鋒芒之形•凝滯虛影）",
-      "Stagnant_Shadow_Rime": "角色晉階材料：冰（霜晶之形•凝滯虛影）",
-      "Stagnant_Shadow_Mirage": "角色晉階材料：虛數（幻光之形•凝滯虛影）",
-      "Stagnant_Shadow_Icicle": "角色晉階材料：冰（冰稜之形•凝滯虛影）",
-      "Stagnant_Shadow_Doom": "角色晉階材料：雷（震厄之形•凝滯虛影）",
-      "Stagnant_Shadow_Puppetry": "角色晉階材料：虛數（偃偶之形•凝滯虛影）",
-      "Stagnant_Shadow_Abomination": "角色晉階材料：量子（孽獸之形•凝滯虛影）",
-      "Stagnant_Shadow_Celestial": "角色晉階材料：風（天人之形•凝滯虛影）"
+      "Stagnant_Shadow_Quanta": "角色晉階材料：量子（銀狼 / 希兒 / 青雀）",
+      "Stagnant_Shadow_Gust": "角色晉階材料：風（丹恆 / 布洛妮婭 / 桑博）",
+      "Stagnant_Shadow_Fulmination": "角色晉階材料：雷（阿蘭 / 希露瓦 / 停雲 / 白露）",
+      "Stagnant_Shadow_Blaze": "角色晉階材料：火（姬子 / 艾絲妲 / 虎克）",
+      "Stagnant_Shadow_Spike": "角色晉階材料：物理（娜塔莎 / 克拉拉 / 盧卡 / 素裳）",
+      "Stagnant_Shadow_Rime": "角色晉階材料：冰（三月七 / 黑塔 / 傑帕德 / 佩拉）",
+      "Stagnant_Shadow_Mirage": "角色晉階材料：虛數（瓦爾特 / 羅剎 / 馭空）",
+      "Stagnant_Shadow_Icicle": "角色晉階材料：冰（彥卿）",
+      "Stagnant_Shadow_Doom": "角色晉階材料：雷（卡芙卡 / 景元）",
+      "Stagnant_Shadow_Puppetry": "角色晉階材料：虛數（丹恆•飲月）",
+      "Stagnant_Shadow_Abomination": "角色晉階材料：量子（玲可 / 符玄）",
+      "Stagnant_Shadow_Celestial": "角色晉階材料：風（刃）"
     },
     "CavernOfCorrosion": {
       "name": "完成1次侵蝕隧洞",
@@ -390,9 +398,36 @@
       "name": "副本雙倍",
       "help": ""
     },
+    "EchoOfWar": {
+      "name": "歷戰餘響",
+      "help": ""
+    },
     "SimulatedUniverse": {
       "name": "模擬宇宙",
       "help": ""
+    }
+  },
+  "Weekly": {
+    "_info": {
+      "name": "歷戰餘響設定",
+      "help": "歷戰餘響每週次數耗儘後仍可繼續挑戰，不消耗體力不獲得獎勵但是可以完成每日任務"
+    },
+    "Name": {
+      "name": "副本名稱",
+      "help": "",
+      "Echo_of_War_Destruction_Beginning": "毀滅的開端•歷戰餘響 (太空站「黑塔」)",
+      "Echo_of_War_End_of_the_Eternal_Freeze": "寒潮的落幕•歷戰餘響 (雅利洛-Ⅵ)",
+      "Echo_of_War_Divine_Seed": "不死的神實•歷戰餘響 (仙舟「羅浮」)"
+    },
+    "Team": {
+      "name": "打本隊伍",
+      "help": "",
+      "1": "1",
+      "2": "2",
+      "3": "3",
+      "4": "4",
+      "5": "5",
+      "6": "6"
     }
   },
   "AchievableQuest": {
@@ -437,35 +472,35 @@
     },
     "In_a_single_battle_inflict_3_Weakness_Break_of_different_Types": {
       "name": "單場戰鬥中，觸發3種不同屬性的弱點擊破",
-      "help": "",
+      "help": "預設可完成，將做姬子試用",
       "achievable": "可完成",
       "not_set": "未設定",
       "not_supported": "暫未支援"
     },
     "Inflict_Weakness_Break_5_times": {
       "name": "累積觸發弱點擊破效果5次",
-      "help": "",
+      "help": "預設可完成，將做姬子試用",
       "achievable": "可完成",
       "not_set": "未設定",
       "not_supported": "暫未支援"
     },
     "Defeat_a_total_of_20_enemies": {
       "name": "累積消滅20個敵人",
-      "help": "",
+      "help": "預設可完成，將做姬子試用",
       "achievable": "可完成",
       "not_set": "未設定",
       "not_supported": "暫未支援"
     },
     "Enter_combat_by_attacking_enemy_Weakness_and_win_3_times": {
       "name": "利用弱點進入戰鬥並獲勝3次",
-      "help": "",
+      "help": "預設可完成，將做姬子試用",
       "achievable": "可完成",
       "not_set": "未設定",
       "not_supported": "暫未支援"
     },
     "Use_Technique_2_times": {
       "name": "累積施放2次秘技",
-      "help": "默認可完成，將前往深淵一施放2次秘技",
+      "help": "預設可完成，將前往深淵一施放2次秘技",
       "achievable": "可完成",
       "not_set": "未設定",
       "not_supported": "暫未支援"
@@ -479,28 +514,28 @@
     },
     "Take_1_photo": {
       "name": "拍照1次",
-      "help": "默认可完成",
+      "help": "預設可完成",
       "achievable": "可完成",
       "not_set": "未設定",
       "not_supported": "暫未支援"
     },
     "Destroy_3_destructible_objects": {
       "name": "累積擊碎3個可破壞物",
-      "help": "",
+      "help": "預設可完成，將做姬子試用",
       "achievable": "可完成",
       "not_set": "未設定",
       "not_supported": "暫未支援"
     },
     "Complete_Forgotten_Hall_1_time": {
       "name": "完成1次「忘卻之庭」",
-      "help": "",
+      "help": "預設可完成，將使用前四個角色打一次深淵一，請確保帳號練度足夠打深淵一",
       "achievable": "可完成",
       "not_set": "未設定",
       "not_supported": "暫未支援"
     },
     "Complete_Echo_of_War_1_times": {
       "name": "完成1次「歷戰餘響」",
-      "help": "",
+      "help": "需要設定並啟用\"歷戰餘響\"任務",
       "achievable": "可完成",
       "not_set": "未設定",
       "not_supported": "暫未支援"
@@ -521,7 +556,7 @@
     },
     "Use_an_Ultimate_to_deal_the_final_blow_1_time": {
       "name": "施放終結技造成制勝一擊1次",
-      "help": "",
+      "help": "預設可完成，將做姬子試用",
       "achievable": "可完成",
       "not_set": "未設定",
       "not_supported": "暫未支援"
@@ -549,28 +584,28 @@
     },
     "Salvage_any_Relic": {
       "name": "分解任意1件遺器",
-      "help": "默認可完成，將分解遺器稀有度倒序的第一個",
+      "help": "預設可完成，將分解遺器稀有度倒序的第一個",
       "achievable": "可完成",
       "not_set": "未設定",
       "not_supported": "暫未支援"
     },
     "Synthesize_Consumable_1_time": {
       "name": "合成1次消耗品",
-      "help": "默認可完成，將合成最低級零食",
+      "help": "預設可完成，將合成最低級零食",
       "achievable": "可完成",
       "not_set": "未設定",
       "not_supported": "暫未支援"
     },
     "Synthesize_material_1_time": {
       "name": "合成1次素材",
-      "help": "默認可完成，將合成最低級素材",
+      "help": "預設可完成，將合成最低級素材",
       "achievable": "可完成",
       "not_set": "未設定",
       "not_supported": "暫未支援"
     },
     "Use_Consumables_1_time": {
       "name": "使用1件消耗品",
-      "help": "默認可完成，將使用護具，無材料時先合成再使用",
+      "help": "預設可完成，將使用護具，無材料時先合成再使用",
       "achievable": "可完成",
       "not_set": "未設定",
       "not_supported": "暫未支援"
@@ -693,8 +728,26 @@
       "12": "12小時",
       "20": "20小時"
     },
+    "Event": {
+      "name": "有活動時優先做活動委託",
+      "help": ""
+    },
     "Assignment": {
       "name": "委託",
+      "help": ""
+    }
+  },
+  "ItemStorage": {
+    "_info": {
+      "name": "ItemStorage._info.name",
+      "help": "ItemStorage._info.help"
+    },
+    "Credit": {
+      "name": "信用點",
+      "help": ""
+    },
+    "StallerJade": {
+      "name": "星瓊",
       "help": ""
     }
   },

@@ -166,7 +166,7 @@
     "Scheduler": {
       "Enable": {
         "type": "checkbox",
-        "value": false,
+        "value": true,
         "option": [
           true,
           false
@@ -393,6 +393,14 @@
         "display": "hide",
         "stored": "StoredDungeonDouble"
       },
+      "EchoOfWar": {
+        "type": "stored",
+        "value": {},
+        "display": "hide",
+        "stored": "StoredEchoOfWar",
+        "order": 4,
+        "color": "#85e7f2"
+      },
       "SimulatedUniverse": {
         "type": "stored",
         "value": {},
@@ -403,11 +411,62 @@
       }
     }
   },
+  "Weekly": {
+    "Scheduler": {
+      "Enable": {
+        "type": "checkbox",
+        "value": true,
+        "option": [
+          true,
+          false
+        ]
+      },
+      "NextRun": {
+        "type": "datetime",
+        "value": "2020-01-01 00:00:00",
+        "validate": "datetime"
+      },
+      "Command": {
+        "type": "input",
+        "value": "Weekly",
+        "display": "hide"
+      },
+      "ServerUpdate": {
+        "type": "input",
+        "value": "04:00",
+        "display": "hide"
+      }
+    },
+    "Weekly": {
+      "Name": {
+        "type": "select",
+        "value": "Echo_of_War_Divine_Seed",
+        "options": [],
+        "option": [
+          "Echo_of_War_Destruction_Beginning",
+          "Echo_of_War_End_of_the_Eternal_Freeze",
+          "Echo_of_War_Divine_Seed"
+        ]
+      },
+      "Team": {
+        "type": "select",
+        "value": 1,
+        "option": [
+          1,
+          2,
+          3,
+          4,
+          5,
+          6
+        ]
+      }
+    }
+  },
   "DailyQuest": {
     "Scheduler": {
       "Enable": {
         "type": "checkbox",
-        "value": false,
+        "value": true,
         "option": [
           true,
           false
@@ -827,7 +886,7 @@
     "Scheduler": {
       "Enable": {
         "type": "checkbox",
-        "value": false,
+        "value": true,
         "option": [
           true,
           false
@@ -870,7 +929,7 @@
     "Scheduler": {
       "Enable": {
         "type": "checkbox",
-        "value": false,
+        "value": true,
         "option": [
           true,
           false
@@ -987,6 +1046,10 @@
           20
         ]
       },
+      "Event": {
+        "type": "checkbox",
+        "value": true
+      },
       "Assignment": {
         "type": "stored",
         "value": {},
@@ -994,6 +1057,53 @@
         "stored": "StoredAssignment",
         "order": 3,
         "color": "#79dbc4"
+      }
+    }
+  },
+  "DataUpdate": {
+    "Scheduler": {
+      "Enable": {
+        "type": "state",
+        "value": true,
+        "option": [
+          true
+        ],
+        "option_bold": [
+          true
+        ]
+      },
+      "NextRun": {
+        "type": "datetime",
+        "value": "2020-01-01 00:00:00",
+        "validate": "datetime"
+      },
+      "Command": {
+        "type": "input",
+        "value": "DataUpdate",
+        "display": "hide"
+      },
+      "ServerUpdate": {
+        "type": "input",
+        "value": "04:00",
+        "display": "hide"
+      }
+    },
+    "ItemStorage": {
+      "Credit": {
+        "type": "stored",
+        "value": {},
+        "display": "hide",
+        "stored": "StoredInt",
+        "order": 7,
+        "color": "#ab7cf2"
+      },
+      "StallerJade": {
+        "type": "stored",
+        "value": {},
+        "display": "hide",
+        "stored": "StoredInt",
+        "order": 8,
+        "color": "#fc8f8b"
       }
     }
   },

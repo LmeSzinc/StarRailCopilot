@@ -85,13 +85,22 @@ FORGOTTEN_HALL_CHECK = ButtonWrapper(
 )
 GACHA_CHECK = ButtonWrapper(
     name='GACHA_CHECK',
-    share=Button(
-        file='./assets/share/base/page/GACHA_CHECK.png',
-        area=(40, 20, 74, 54),
-        search=(20, 0, 94, 74),
-        color=(157, 139, 112),
-        button=(40, 20, 74, 54),
-    ),
+    share=[
+        Button(
+            file='./assets/share/base/page/GACHA_CHECK.png',
+            area=(40, 20, 74, 54),
+            search=(20, 0, 94, 74),
+            color=(157, 139, 112),
+            button=(40, 20, 74, 54),
+        ),
+        Button(
+            file='./assets/share/base/page/GACHA_CHECK.2.png',
+            area=(41, 21, 74, 54),
+            search=(20, 0, 94, 74),
+            color=(188, 167, 142),
+            button=(41, 21, 74, 54),
+        ),
+    ],
 )
 GUIDE_CHECK = ButtonWrapper(
     name='GUIDE_CHECK',
@@ -253,6 +262,16 @@ MAP_CHECK = ButtonWrapper(
         button=(46, 19, 68, 54),
     ),
 )
+MAP_EXIT = ButtonWrapper(
+    name='MAP_EXIT',
+    share=Button(
+        file='./assets/share/base/page/MAP_EXIT.png',
+        area=(27, 46, 44, 74),
+        search=(7, 26, 64, 94),
+        color=(142, 144, 148),
+        button=(27, 46, 44, 74),
+    ),
+)
 MAP_GOTO_WORLD = ButtonWrapper(
     name='MAP_GOTO_WORLD',
     share=Button(
@@ -331,6 +350,16 @@ MISSION_CHECK = ButtonWrapper(
         search=(24, 13, 90, 75),
         color=(194, 177, 139),
         button=(44, 33, 70, 55),
+    ),
+)
+ROGUE_CHECK = ButtonWrapper(
+    name='ROGUE_CHECK',
+    share=Button(
+        file='./assets/share/base/page/ROGUE_CHECK.png',
+        area=(40, 19, 73, 49),
+        search=(20, 0, 93, 69),
+        color=(104, 96, 90),
+        button=(40, 19, 73, 49),
     ),
 )
 SYNTHESIZE_CHECK = ButtonWrapper(

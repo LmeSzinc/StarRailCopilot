@@ -26,6 +26,10 @@
       "name": "Dungeon",
       "help": ""
     },
+    "Weekly": {
+      "name": "Echo of War",
+      "help": ""
+    },
     "DailyQuest": {
       "name": "Daily Quest",
       "help": ""
@@ -36,6 +40,10 @@
     },
     "Assignment": {
       "name": "Assignment",
+      "help": ""
+    },
+    "DataUpdate": {
+      "name": "Dashboard Upd",
       "help": ""
     },
     "Rogue": {
@@ -50,7 +58,7 @@
     },
     "Enable": {
       "name": "Enable Task",
-      "help": "Join this task to scheduler.\nTask commission, research, reward are force to enable.",
+      "help": "Join this task to scheduler.",
       "True": "Enabled",
       "False": "False"
     },
@@ -213,18 +221,18 @@
       "Calyx_Crimson_Erudition": "Trace: Erudition (Bud of Erudition)",
       "Calyx_Crimson_Harmony": "Trace: Harmony (Bud of Harmony)",
       "Calyx_Crimson_Nihility": "Trace: Nihility (Bud of Nihility)",
-      "Stagnant_Shadow_Quanta": "Ascension: Quantum (Shape of Quanta)",
-      "Stagnant_Shadow_Gust": "Ascension: Wind (Shape of Gust)",
-      "Stagnant_Shadow_Fulmination": "Ascension: Lighting (Shape of Fulmination)",
-      "Stagnant_Shadow_Blaze": "Ascension: Fire (Shape of Blaze)",
-      "Stagnant_Shadow_Spike": "Ascension: Physical (Shape of Spike)",
-      "Stagnant_Shadow_Rime": "Ascension: Ice (Shape of Rime)",
-      "Stagnant_Shadow_Mirage": "Ascension: Imaginary (Shape of Mirage)",
-      "Stagnant_Shadow_Icicle": "Ascension: Ice (Shape of Icicle)",
-      "Stagnant_Shadow_Doom": "Ascension: Lighting (Shape of Doom)",
-      "Stagnant_Shadow_Puppetry": "Ascension: Imaginary (Shape of Puppetry)",
-      "Stagnant_Shadow_Abomination": "Ascension: Quantum (Shape of Abomination)",
-      "Stagnant_Shadow_Celestial": "Ascension: Wind (Shape of Celestial)",
+      "Stagnant_Shadow_Quanta": "Ascension: Quantum (Silver Wolf / Seele / Qingque)",
+      "Stagnant_Shadow_Gust": "Ascension: Wind (Dan Heng / Bronya / Sampo)",
+      "Stagnant_Shadow_Fulmination": "Ascension: Lightning (Arlan / Serval / Tingyun / Bailu)",
+      "Stagnant_Shadow_Blaze": "Ascension: Fire (Himeko / Asta / Hook)",
+      "Stagnant_Shadow_Spike": "Ascension: Physical (Natasha / Clara / Luka / Sushang)",
+      "Stagnant_Shadow_Rime": "Ascension: Ice (March 7th / Herta / Gepard / Pela)",
+      "Stagnant_Shadow_Mirage": "Ascension: Imaginary (Welt / Luocha / Yukong)",
+      "Stagnant_Shadow_Icicle": "Ascension: Ice (Yanqing)",
+      "Stagnant_Shadow_Doom": "Ascension: Lightning (Kafka / Jing Yuan)",
+      "Stagnant_Shadow_Puppetry": "Ascension: Imaginary (Dan Heng • Imbibitor Lunae)",
+      "Stagnant_Shadow_Abomination": "Ascension: Quantum (Lynx / Fu Xuan)",
+      "Stagnant_Shadow_Celestial": "Ascension: Wind (Blade)",
       "Cavern_of_Corrosion_Path_of_Gelid_Wind": "Relics: Ice Set & Wind Set (Path of Gelid Wind)",
       "Cavern_of_Corrosion_Path_of_Jabbing_Punch": "Relics: Physical Set & Break Effect Set (Path of Jabbing Punch)",
       "Cavern_of_Corrosion_Path_of_Drifting": "Relics: Healing Set & Musketeer Set (Path of Drifting)",
@@ -300,18 +308,18 @@
       "name": "Clear Stagnant Shadow 1 times",
       "help": "",
       "do_not_achieve": "Don't Do This Quest",
-      "Stagnant_Shadow_Quanta": "Ascension: Quantum (Shape of Quanta)",
-      "Stagnant_Shadow_Gust": "Ascension: Wind (Shape of Gust)",
-      "Stagnant_Shadow_Fulmination": "Ascension: Lighting (Shape of Fulmination)",
-      "Stagnant_Shadow_Blaze": "Ascension: Fire (Shape of Blaze)",
-      "Stagnant_Shadow_Spike": "Ascension: Physical (Shape of Spike)",
-      "Stagnant_Shadow_Rime": "Ascension: Ice (Shape of Rime)",
-      "Stagnant_Shadow_Mirage": "Ascension: Imaginary (Shape of Mirage)",
-      "Stagnant_Shadow_Icicle": "Ascension: Ice (Shape of Icicle)",
-      "Stagnant_Shadow_Doom": "Ascension: Lighting (Shape of Doom)",
-      "Stagnant_Shadow_Puppetry": "Ascension: Imaginary (Shape of Puppetry)",
-      "Stagnant_Shadow_Abomination": "Ascension: Quantum (Shape of Abomination)",
-      "Stagnant_Shadow_Celestial": "Ascension: Wind (Shape of Celestial)"
+      "Stagnant_Shadow_Quanta": "Ascension: Quantum (Silver Wolf / Seele / Qingque)",
+      "Stagnant_Shadow_Gust": "Ascension: Wind (Dan Heng / Bronya / Sampo)",
+      "Stagnant_Shadow_Fulmination": "Ascension: Lightning (Arlan / Serval / Tingyun / Bailu)",
+      "Stagnant_Shadow_Blaze": "Ascension: Fire (Himeko / Asta / Hook)",
+      "Stagnant_Shadow_Spike": "Ascension: Physical (Natasha / Clara / Luka / Sushang)",
+      "Stagnant_Shadow_Rime": "Ascension: Ice (March 7th / Herta / Gepard / Pela)",
+      "Stagnant_Shadow_Mirage": "Ascension: Imaginary (Welt / Luocha / Yukong)",
+      "Stagnant_Shadow_Icicle": "Ascension: Ice (Yanqing)",
+      "Stagnant_Shadow_Doom": "Ascension: Lightning (Kafka / Jing Yuan)",
+      "Stagnant_Shadow_Puppetry": "Ascension: Imaginary (Dan Heng • Imbibitor Lunae)",
+      "Stagnant_Shadow_Abomination": "Ascension: Quantum (Lynx / Fu Xuan)",
+      "Stagnant_Shadow_Celestial": "Ascension: Wind (Blade)"
     },
     "CavernOfCorrosion": {
       "name": "Clear Cavern of Corrosion 1 times",
@@ -390,9 +398,36 @@
       "name": "Dungeon Double",
       "help": ""
     },
-    "SimulatedUniverse": {
-      "name": "Sim.Uni.",
+    "EchoOfWar": {
+      "name": "Echo.",
       "help": ""
+    },
+    "SimulatedUniverse": {
+      "name": "Sim.Univ.",
+      "help": ""
+    }
+  },
+  "Weekly": {
+    "_info": {
+      "name": "Echo of War Settings",
+      "help": "Echo of War is still able to challenge if limit is reached. Consume no trailblaze power, get no reward, but complete daily quests."
+    },
+    "Name": {
+      "name": "Dungeon Name",
+      "help": "",
+      "Echo_of_War_Destruction_Beginning": "Destruction's Beginning (Herta Space Station)",
+      "Echo_of_War_End_of_the_Eternal_Freeze": "End of the Eternal Freeze (Jarilo-VI)",
+      "Echo_of_War_Divine_Seed": "Divine Seed (The Xianzhou Luofu)"
+    },
+    "Team": {
+      "name": "Dungeon Team",
+      "help": "",
+      "1": "1",
+      "2": "2",
+      "3": "3",
+      "4": "4",
+      "5": "5",
+      "6": "6"
     }
   },
   "AchievableQuest": {
@@ -437,28 +472,28 @@
     },
     "In_a_single_battle_inflict_3_Weakness_Break_of_different_Types": {
       "name": "In a single battle, inflict 3 Weakness Break of different Types",
-      "help": "",
+      "help": "Achievable by default, will do Himeko trial",
       "achievable": "Achievable",
       "not_set": "Not Set",
       "not_supported": "Not Supported Yet"
     },
     "Inflict_Weakness_Break_5_times": {
       "name": "Inflict Weakness Break 5 times",
-      "help": "",
+      "help": "Achievable by default, will do Himeko trial",
       "achievable": "Achievable",
       "not_set": "Not Set",
       "not_supported": "Not Supported Yet"
     },
     "Defeat_a_total_of_20_enemies": {
       "name": "Defeat a total of 20 enemies",
-      "help": "",
+      "help": "Achievable by default, will do Himeko trial",
       "achievable": "Achievable",
       "not_set": "Not Set",
       "not_supported": "Not Supported Yet"
     },
     "Enter_combat_by_attacking_enemy_Weakness_and_win_3_times": {
       "name": "Enter combat by attacking enemy's Weakness and win 3 times",
-      "help": "",
+      "help": "Achievable by default, will do Himeko trial",
       "achievable": "Achievable",
       "not_set": "Not Set",
       "not_supported": "Not Supported Yet"
@@ -486,21 +521,21 @@
     },
     "Destroy_3_destructible_objects": {
       "name": "Destroy 3 destructible objects",
-      "help": "",
+      "help": "Achievable by default, will do Himeko trial",
       "achievable": "Achievable",
       "not_set": "Not Set",
       "not_supported": "Not Supported Yet"
     },
     "Complete_Forgotten_Hall_1_time": {
       "name": "Complete Forgotten Hall 1 time",
-      "help": "",
+      "help": "Achievable by default, will choose the first four characters to do stage 1 once, please ensure that account build is sufficient to do stage 1",
       "achievable": "Achievable",
       "not_set": "Not Set",
       "not_supported": "Not Supported Yet"
     },
     "Complete_Echo_of_War_1_times": {
       "name": "Complete Echo of War 1 time(s)",
-      "help": "",
+      "help": "Need to configure and enable the \"Echo of War\" task",
       "achievable": "Achievable",
       "not_set": "Not Set",
       "not_supported": "Not Supported Yet"
@@ -521,7 +556,7 @@
     },
     "Use_an_Ultimate_to_deal_the_final_blow_1_time": {
       "name": "Use an Ultimate to deal the final blow 1 time",
-      "help": "",
+      "help": "Achievable by default, will do Himeko trial",
       "achievable": "Achievable",
       "not_set": "Not Set",
       "not_supported": "Not Supported Yet"
@@ -693,8 +728,26 @@
       "12": "12 Hours",
       "20": "20 Hours"
     },
+    "Event": {
+      "name": "Complete Event Assignments First",
+      "help": ""
+    },
     "Assignment": {
-      "name": "Assignment",
+      "name": "Assign.",
+      "help": ""
+    }
+  },
+  "ItemStorage": {
+    "_info": {
+      "name": "ItemStorage._info.name",
+      "help": "ItemStorage._info.help"
+    },
+    "Credit": {
+      "name": "Credit",
+      "help": ""
+    },
+    "StallerJade": {
+      "name": "Jade",
       "help": ""
     }
   },

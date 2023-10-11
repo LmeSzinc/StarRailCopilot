@@ -26,6 +26,10 @@ class StarRailCopilot(AzurLaneAutoScript):
         from tasks.dungeon.dungeon import Dungeon
         Dungeon(config=self.config, device=self.device).run()
 
+    def weekly(self):
+        from tasks.dungeon.weekly import WeeklyDungeon
+        WeeklyDungeon(config=self.config, device=self.device).run()
+
     def daily_quest(self):
         from tasks.daily.daily_quest import DailyQuestUI
         DailyQuestUI(config=self.config, device=self.device).run()
@@ -37,6 +41,10 @@ class StarRailCopilot(AzurLaneAutoScript):
     def assignment(self):
         from tasks.assignment.assignment import Assignment
         Assignment(config=self.config, device=self.device).run()
+
+    def data_update(self):
+        from tasks.item.data_update import DataUpdate
+        DataUpdate(config=self.config, device=self.device).run()
 
 
 if __name__ == '__main__':

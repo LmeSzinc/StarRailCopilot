@@ -26,6 +26,10 @@
       "name": "Task.Dungeon.name",
       "help": "Task.Dungeon.help"
     },
+    "Weekly": {
+      "name": "Task.Weekly.name",
+      "help": "Task.Weekly.help"
+    },
     "DailyQuest": {
       "name": "Task.DailyQuest.name",
       "help": "Task.DailyQuest.help"
@@ -37,6 +41,10 @@
     "Assignment": {
       "name": "依頼設定",
       "help": ""
+    },
+    "DataUpdate": {
+      "name": "Task.DataUpdate.name",
+      "help": "Task.DataUpdate.help"
     },
     "Rogue": {
       "name": "Task.Rogue.name",
@@ -213,18 +221,18 @@
       "Calyx_Crimson_Erudition": "疑似花萼（赤）・知恵の蕾",
       "Calyx_Crimson_Harmony": "疑似花萼（赤）・調和の蕾",
       "Calyx_Crimson_Nihility": "疑似花萼（赤）・虚無の蕾",
-      "Stagnant_Shadow_Quanta": "凝結虚影・虚海の形",
-      "Stagnant_Shadow_Gust": "凝結虚影・薫風の形",
-      "Stagnant_Shadow_Fulmination": "凝結虚影・鳴雷の形",
-      "Stagnant_Shadow_Blaze": "凝結虚影・炎華の形",
-      "Stagnant_Shadow_Spike": "凝結虚影・切先の形",
-      "Stagnant_Shadow_Rime": "凝結虚影・霜晶の形",
-      "Stagnant_Shadow_Mirage": "凝結虚影・幻光の形",
-      "Stagnant_Shadow_Icicle": "凝結虚影・氷柱の形",
-      "Stagnant_Shadow_Doom": "凝結虚影・震厄の形",
-      "Stagnant_Shadow_Puppetry": "凝結虚影・傀儡の形",
-      "Stagnant_Shadow_Abomination": "凝結虚影・厄獣の形",
-      "Stagnant_Shadow_Celestial": "凝結虚影・天人の形",
+      "Stagnant_Shadow_Quanta": "キャラクター昇格素材：量子（銀狼 / ゼーレ / 青雀）",
+      "Stagnant_Shadow_Gust": "キャラクター昇格素材：風（丹恒 / ブローニャ / サンポ）",
+      "Stagnant_Shadow_Fulmination": "キャラクター昇格素材：雷（アーラン / セーバル / 停雲 / 白露）",
+      "Stagnant_Shadow_Blaze": "キャラクター昇格素材：炎（姫子 / アスター / フック）",
+      "Stagnant_Shadow_Spike": "キャラクター昇格素材：物理（ナターシャ / クラーラ / ルカ / 素裳）",
+      "Stagnant_Shadow_Rime": "キャラクター昇格素材：氷（三月なのか / ヘルタ / ジェパード / ペラ）",
+      "Stagnant_Shadow_Mirage": "キャラクター昇格素材：虚数（ヴェルト / 羅刹 / 御空）",
+      "Stagnant_Shadow_Icicle": "キャラクター昇格素材：氷（彦卿）",
+      "Stagnant_Shadow_Doom": "キャラクター昇格素材：雷（カフカ / 景元）",
+      "Stagnant_Shadow_Puppetry": "キャラクター昇格素材：虚数（丹恒・飲月）",
+      "Stagnant_Shadow_Abomination": "キャラクター昇格素材：量子（リンクス / 符玄）",
+      "Stagnant_Shadow_Celestial": "キャラクター昇格素材：風（刃）",
       "Cavern_of_Corrosion_Path_of_Gelid_Wind": "侵蝕トンネル・霜風の路",
       "Cavern_of_Corrosion_Path_of_Jabbing_Punch": "侵蝕トンネル・迅拳の路",
       "Cavern_of_Corrosion_Path_of_Drifting": "侵蝕トンネル・漂泊の路",
@@ -300,18 +308,18 @@
       "name": "DungeonDaily.StagnantShadow.name",
       "help": "DungeonDaily.StagnantShadow.help",
       "do_not_achieve": "do_not_achieve",
-      "Stagnant_Shadow_Quanta": "凝結虚影・虚海の形",
-      "Stagnant_Shadow_Gust": "凝結虚影・薫風の形",
-      "Stagnant_Shadow_Fulmination": "凝結虚影・鳴雷の形",
-      "Stagnant_Shadow_Blaze": "凝結虚影・炎華の形",
-      "Stagnant_Shadow_Spike": "凝結虚影・切先の形",
-      "Stagnant_Shadow_Rime": "凝結虚影・霜晶の形",
-      "Stagnant_Shadow_Mirage": "凝結虚影・幻光の形",
-      "Stagnant_Shadow_Icicle": "凝結虚影・氷柱の形",
-      "Stagnant_Shadow_Doom": "凝結虚影・震厄の形",
-      "Stagnant_Shadow_Puppetry": "凝結虚影・傀儡の形",
-      "Stagnant_Shadow_Abomination": "凝結虚影・厄獣の形",
-      "Stagnant_Shadow_Celestial": "凝結虚影・天人の形"
+      "Stagnant_Shadow_Quanta": "キャラクター昇格素材：量子（銀狼 / ゼーレ / 青雀）",
+      "Stagnant_Shadow_Gust": "キャラクター昇格素材：風（丹恒 / ブローニャ / サンポ）",
+      "Stagnant_Shadow_Fulmination": "キャラクター昇格素材：雷（アーラン / セーバル / 停雲 / 白露）",
+      "Stagnant_Shadow_Blaze": "キャラクター昇格素材：炎（姫子 / アスター / フック）",
+      "Stagnant_Shadow_Spike": "キャラクター昇格素材：物理（ナターシャ / クラーラ / ルカ / 素裳）",
+      "Stagnant_Shadow_Rime": "キャラクター昇格素材：氷（三月なのか / ヘルタ / ジェパード / ペラ）",
+      "Stagnant_Shadow_Mirage": "キャラクター昇格素材：虚数（ヴェルト / 羅刹 / 御空）",
+      "Stagnant_Shadow_Icicle": "キャラクター昇格素材：氷（彦卿）",
+      "Stagnant_Shadow_Doom": "キャラクター昇格素材：雷（カフカ / 景元）",
+      "Stagnant_Shadow_Puppetry": "キャラクター昇格素材：虚数（丹恒・飲月）",
+      "Stagnant_Shadow_Abomination": "キャラクター昇格素材：量子（リンクス / 符玄）",
+      "Stagnant_Shadow_Celestial": "キャラクター昇格素材：風（刃）"
     },
     "CavernOfCorrosion": {
       "name": "DungeonDaily.CavernOfCorrosion.name",
@@ -390,9 +398,36 @@
       "name": "DungeonStorage.DungeonDouble.name",
       "help": "DungeonStorage.DungeonDouble.help"
     },
+    "EchoOfWar": {
+      "name": "DungeonStorage.EchoOfWar.name",
+      "help": "DungeonStorage.EchoOfWar.help"
+    },
     "SimulatedUniverse": {
       "name": "DungeonStorage.SimulatedUniverse.name",
       "help": "DungeonStorage.SimulatedUniverse.help"
+    }
+  },
+  "Weekly": {
+    "_info": {
+      "name": "Weekly._info.name",
+      "help": "Weekly._info.help"
+    },
+    "Name": {
+      "name": "Weekly.Name.name",
+      "help": "Weekly.Name.help",
+      "Echo_of_War_Destruction_Beginning": "歴戦余韻・壊滅の始まり (宇宙ステーション「ヘルタ」)",
+      "Echo_of_War_End_of_the_Eternal_Freeze": "歴戦余韻・寒波の幕切れ (ヤリーロ-VI)",
+      "Echo_of_War_Divine_Seed": "歴戦余韻・不死の神実 (仙舟「羅浮」)"
+    },
+    "Team": {
+      "name": "Weekly.Team.name",
+      "help": "Weekly.Team.help",
+      "1": "1",
+      "2": "2",
+      "3": "3",
+      "4": "4",
+      "5": "5",
+      "6": "6"
     }
   },
   "AchievableQuest": {
@@ -693,9 +728,27 @@
       "12": "12",
       "20": "20"
     },
+    "Event": {
+      "name": "Assignment.Event.name",
+      "help": ""
+    },
     "Assignment": {
       "name": "Assignment.Assignment.name",
       "help": "Assignment.Assignment.help"
+    }
+  },
+  "ItemStorage": {
+    "_info": {
+      "name": "ItemStorage._info.name",
+      "help": "ItemStorage._info.help"
+    },
+    "Credit": {
+      "name": "ItemStorage.Credit.name",
+      "help": "ItemStorage.Credit.help"
+    },
+    "StallerJade": {
+      "name": "ItemStorage.StallerJade.name",
+      "help": "ItemStorage.StallerJade.help"
     }
   },
   "RoguePath": {

@@ -6,13 +6,14 @@ from tasks.combat.assets.assets_combat_prepare import COMBAT_PREPARE
 from tasks.combat.assets.assets_combat_team import COMBAT_TEAM_PREPARE, COMBAT_TEAM_SUPPORT
 from tasks.combat.interact import CombatInteract
 from tasks.combat.prepare import CombatPrepare
+from tasks.combat.skill import CombatSkill
 from tasks.combat.state import CombatState
 from tasks.combat.support import CombatSupport
 from tasks.combat.team import CombatTeam
 from tasks.map.control.joystick import MapControlJoystick
 
 
-class Combat(CombatInteract, CombatPrepare, CombatState, CombatTeam, CombatSupport, MapControlJoystick):
+class Combat(CombatInteract, CombatPrepare, CombatState, CombatTeam, CombatSupport, CombatSkill, MapControlJoystick):
     def handle_combat_prepare(self):
         """
         Returns:
@@ -63,6 +64,27 @@ class Combat(CombatInteract, CombatPrepare, CombatState, CombatTeam, CombatSuppo
                 return True
 
         return False
+
+    def combat_enter_from_map(self, skip_first_screenshot=True):
+        """
+        Pages:
+            in: page_main, DUNGEON_COMBAT_INTERACT
+            out: COMBAT_PREPARE
+        """
+        logger.info('Combat enter from map')
+        while 1:
+            if skip_first_screenshot:
+                skip_first_screenshot = False
+            else:
+                self.device.screenshot()
+
+            if self.appear(COMBAT_PREPARE):
+                # Confirm page loaded
+                if self.image_color_count(COMBAT_PREPARE.button, color=(230, 230, 230), threshold=240, count=400):
+                    logger.info(f'At {COMBAT_PREPARE}')
+                    break
+            if self.handle_combat_interact():
+                continue
 
     def combat_prepare(self, team=1, support_character: str = None):
         """
@@ -117,9 +139,14 @@ class Combat(CombatInteract, CombatPrepare, CombatState, CombatTeam, CombatSuppo
                 continue
             if self.handle_ascension_dungeon_prepare():
                 continue
+            if self.handle_popup_confirm():
+                continue
 
-    def combat_execute(self):
+    def combat_execute(self, expected_end=None):
         """
+        Args:
+            expected_end: A function returns bool, True represents end.
+
         Pages:
             in: is_combat_executing
             out: COMBAT_AGAIN
@@ -135,7 +162,14 @@ class Combat(CombatInteract, CombatPrepare, CombatState, CombatTeam, CombatSuppo
                 self.device.screenshot()
 
             # End
+            if callable(expected_end) and expected_end():
+                logger.info(f'Combat execute ended at {expected_end.__name__}')
+                break
             if self.appear(COMBAT_AGAIN):
+                logger.info(f'Combat execute ended at {COMBAT_AGAIN}')
+                break
+            if self.is_in_main():
+                logger.info(f'Combat execute ended at page_main')
                 break
 
             # Daemon
@@ -154,7 +188,7 @@ class Combat(CombatInteract, CombatPrepare, CombatState, CombatTeam, CombatSuppo
         Pages:
             in: COMBAT_AGAIN
         """
-        current = self.combat_get_trailblaze_power(expect_reduce=True)
+        current = self.combat_get_trailblaze_power(expect_reduce=self.combat_wave_cost > 0)
         # Wave limit
         if self.combat_wave_limit:
             if self.combat_wave_done + self.combat_waves > self.combat_wave_limit:
@@ -170,6 +204,9 @@ class Combat(CombatInteract, CombatPrepare, CombatState, CombatTeam, CombatSuppo
             else:
                 logger.info(f'Current has {current}, combat costs {self.combat_wave_cost}, can not run again')
                 return False
+        elif self.combat_wave_cost <= 0:
+            logger.info(f'Free combat, combat costs {self.combat_wave_cost}, can not run again')
+            return False
         else:
             if current >= self.combat_wave_cost:
                 logger.info(f'Current has {current}, combat costs {self.combat_wave_cost}, can run again')

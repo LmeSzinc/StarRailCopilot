@@ -5,10 +5,20 @@
 # ==================== Alas ====================
 
 
-# ==================== Farm ====================
-
-
 # ==================== Daily ====================
 
-
-# ==================== Tools ====================
+Dungeon:
+  Scheduler:
+    Enable: true
+Weekly:
+  Scheduler:
+    Enable: true
+DailyQuest:
+  Scheduler:
+    Enable: true
+BattlePass:
+  Scheduler:
+    Enable: true
+Assignment:
+  Scheduler:
+    Enable: true

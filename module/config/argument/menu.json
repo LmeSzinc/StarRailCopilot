@@ -12,9 +12,11 @@
     "page": "setting",
     "tasks": [
       "Dungeon",
+      "Weekly",
       "DailyQuest",
       "BattlePass",
-      "Assignment"
+      "Assignment",
+      "DataUpdate"
     ]
   }
 }

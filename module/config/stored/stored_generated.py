@@ -7,7 +7,9 @@ from module.config.stored.classes import (
     StoredDaily,
     StoredDailyActivity,
     StoredDungeonDouble,
+    StoredEchoOfWar,
     StoredExpiredAt0400,
+    StoredExpiredAtMonday0400,
     StoredInt,
     StoredSimulatedUniverse,
     StoredTrailblazePower,
@@ -20,9 +22,12 @@ from module.config.stored.classes import (
 class StoredGenerated:
     TrailblazePower = StoredTrailblazePower("Dungeon.DungeonStorage.TrailblazePower")
     DungeonDouble = StoredDungeonDouble("Dungeon.DungeonStorage.DungeonDouble")
+    EchoOfWar = StoredEchoOfWar("Dungeon.DungeonStorage.EchoOfWar")
     SimulatedUniverse = StoredSimulatedUniverse("Dungeon.DungeonStorage.SimulatedUniverse")
     DailyActivity = StoredDailyActivity("DailyQuest.DailyStorage.DailyActivity")
     DailyQuest = StoredDaily("DailyQuest.DailyStorage.DailyQuest")
     BattlePassLevel = StoredBattlePassLevel("BattlePass.BattlePassStorage.BattlePassLevel")
     BattlePassTodayQuest = StoredBattlePassTodayQuest("BattlePass.BattlePassStorage.BattlePassTodayQuest")
     Assignment = StoredAssignment("Assignment.Assignment.Assignment")
+    Credit = StoredInt("DataUpdate.ItemStorage.Credit")
+    StallerJade = StoredInt("DataUpdate.ItemStorage.StallerJade")

@@ -2,6 +2,7 @@ import re
 
 import module.config.server as server
 from module.base.timer import Timer
+from module.base.utils import color_similar, get_color
 from module.logger import logger
 from module.ocr.ocr import Digit, DigitCounter
 from tasks.base.ui import UI
@@ -75,7 +76,7 @@ class CombatPrepare(UI):
             # Empty result
             if total == 0:
                 continue
-            # Confirm if it is > 180, sometimes just OCR errors
+            # Confirm if it is > 240, sometimes just OCR errors
             if current > 240 and timeout.reached():
                 break
             if expect_reduce and current >= self.config.stored.TrailblazePower.value:
@@ -96,9 +97,6 @@ class CombatPrepare(UI):
         Pages:
             in: COMBAT_PREPARE
         """
-        multi = self.combat_has_multi_wave()
-        logger.attr('CombatMultiWave', multi)
-
         timeout = Timer(1.5, count=6).start()
         while 1:
             if skip_first_screenshot:
@@ -106,9 +104,16 @@ class CombatPrepare(UI):
             else:
                 self.device.screenshot()
 
+            color = get_color(self.device.image, OCR_WAVE_COST.area)
+            if color_similar(color, (229, 231, 223), threshold=30):
+                logger.info(f'Combat is trailblaze power free')
+                self.combat_wave_cost = 0
+                return 0
+
             cost = Digit(OCR_WAVE_COST).ocr_single_line(self.device.image)
             if cost == 10:
-                if multi:
+                logger.attr('CombatMultiWave', self.combat_has_multi_wave())
+                if self.combat_has_multi_wave():
                     self.combat_wave_cost = cost
                     return cost
                 else:
@@ -116,7 +121,7 @@ class CombatPrepare(UI):
                     self.combat_wave_cost = cost
                     return cost
             elif cost in [30, 40]:
-                if multi:
+                if self.combat_has_multi_wave():
                     logger.warning(f'Combat wave costs {cost} but has multiple waves, '
                                    f'probably wave amount is preset')
                     self.combat_set_wave(1)
@@ -124,13 +129,15 @@ class CombatPrepare(UI):
                     timeout.reset()
                     continue
                 else:
+                    logger.attr('CombatMultiWave', self.combat_has_multi_wave())
                     self.combat_wave_cost = cost
                     return cost
             else:
                 logger.warning(f'Unexpected combat wave cost: {cost}')
                 continue
 
-        if multi:
+        logger.attr('CombatMultiWave', self.combat_has_multi_wave())
+        if self.combat_has_multi_wave():
             cost = 10
         else:
             cost = 40

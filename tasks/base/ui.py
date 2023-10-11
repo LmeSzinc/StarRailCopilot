@@ -4,15 +4,15 @@ from module.base.timer import Timer
 from module.exception import GameNotRunningError, GamePageUnknownError
 from module.logger import logger
 from module.ocr.ocr import Ocr
-from tasks.base.assets.assets_base_page import CLOSE
+from tasks.base.assets.assets_base_page import CLOSE, MAP_EXIT
 from tasks.base.main_page import MainPage
 from tasks.base.page import Page, page_main
-from tasks.base.popup import PopupHandler
 from tasks.combat.assets.assets_combat_finish import COMBAT_EXIT
 from tasks.combat.assets.assets_combat_prepare import COMBAT_PREPARE
+from tasks.daily.assets.assets_daily_trial import INFO_CLOSE
 
 
-class UI(PopupHandler, MainPage):
+class UI( MainPage):
     ui_current: Page
     ui_main_confirm_timer = Timer(0.2, count=0)
 
@@ -143,10 +143,11 @@ class UI(PopupHandler, MainPage):
         # Reset connection
         Page.clear_connection()
 
-    def ui_ensure(self, destination, skip_first_screenshot=True):
+    def ui_ensure(self, destination, acquire_lang_checked=True, skip_first_screenshot=True):
         """
         Args:
             destination (Page):
+            acquire_lang_checked:
             skip_first_screenshot:
 
         Returns:
@@ -154,8 +155,12 @@ class UI(PopupHandler, MainPage):
         """
         logger.hr("UI ensure")
         self.ui_get_current_page(skip_first_screenshot=skip_first_screenshot)
-        if self.acquire_lang_checked():
-            self.ui_get_current_page(skip_first_screenshot=skip_first_screenshot)
+
+        self.ui_leave_special()
+
+        if acquire_lang_checked:
+            if self.acquire_lang_checked():
+                self.ui_get_current_page(skip_first_screenshot=skip_first_screenshot)
 
         if self.ui_current == destination:
             logger.info("Already at %s" % destination)
@@ -271,7 +276,13 @@ class UI(PopupHandler, MainPage):
                     continue
 
     def is_in_main(self):
-        return self.appear(page_main.check_button)
+        if self.appear(page_main.check_button):
+            if self.image_color_count(page_main.check_button, color=(235, 235, 235), threshold=221, count=400):
+                return True
+        if self.appear(MAP_EXIT):
+            if self.image_color_count(MAP_EXIT, color=(235, 235, 235), threshold=221, count=50):
+                return True
+        return False
 
     def ui_goto_main(self):
         return self.ui_ensure(destination=page_main)
@@ -293,6 +304,8 @@ class UI(PopupHandler, MainPage):
             logger.info(f'UI additional: {COMBAT_PREPARE} -> {CLOSE}')
             self.device.click(CLOSE)
         if self.appear_then_click(COMBAT_EXIT, interval=5):
+            return True
+        if self.appear_then_click(INFO_CLOSE, interval=5):
             return True
 
         return False

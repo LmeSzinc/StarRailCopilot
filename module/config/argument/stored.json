@@ -38,6 +38,19 @@
     "order": 3,
     "color": "#79dbc4"
   },
+  "EchoOfWar": {
+    "name": "EchoOfWar",
+    "path": "Dungeon.DungeonStorage.EchoOfWar",
+    "i18n": "DungeonStorage.EchoOfWar.name",
+    "stored": "StoredEchoOfWar",
+    "attrs": {
+      "time": "2020-01-01 00:00:00",
+      "total": 3,
+      "value": 0
+    },
+    "order": 4,
+    "color": "#85e7f2"
+  },
   "BattlePassLevel": {
     "name": "BattlePassLevel",
     "path": "BattlePass.BattlePassStorage.BattlePassLevel",
@@ -63,6 +76,30 @@
     },
     "order": 6,
     "color": "#8fb5fe"
+  },
+  "Credit": {
+    "name": "Credit",
+    "path": "DataUpdate.ItemStorage.Credit",
+    "i18n": "ItemStorage.Credit.name",
+    "stored": "StoredInt",
+    "attrs": {
+      "time": "2020-01-01 00:00:00",
+      "value": 0
+    },
+    "order": 7,
+    "color": "#ab7cf2"
+  },
+  "StallerJade": {
+    "name": "StallerJade",
+    "path": "DataUpdate.ItemStorage.StallerJade",
+    "i18n": "ItemStorage.StallerJade.name",
+    "stored": "StoredInt",
+    "attrs": {
+      "time": "2020-01-01 00:00:00",
+      "value": 0
+    },
+    "order": 8,
+    "color": "#fc8f8b"
   },
   "DungeonDouble": {
     "name": "DungeonDouble",

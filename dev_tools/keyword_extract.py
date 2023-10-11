@@ -1,14 +1,14 @@
 import os
 import re
 import typing as t
-from collections import namedtuple
+from collections import defaultdict
 from functools import cached_property
 
 from module.base.code_generator import CodeGenerator
 from module.config.utils import deep_get, read_file
 from module.logger import logger
 
-UI_LANGUAGES = ['cn', 'cht', 'en', 'jp']
+UI_LANGUAGES = ['cn', 'cht', 'en', 'jp', 'es']
 
 
 def text_to_variable(text):
@@ -112,7 +112,7 @@ class KeywordExtract:
 
     def iter_guide(self) -> t.Iterable[int]:
         file = os.path.join(TextMap.DATA_FOLDER, './ExcelOutput/GameplayGuideData.json')
-        visited = set()
+        # visited = set()
         temp_save = ""
         for data in read_file(file).values():
             hash_ = deep_get(data, keys='Name.Hash')
@@ -121,11 +121,14 @@ class KeywordExtract:
                 temp_save = hash_
                 continue
             if '忘却之庭' in name:
-                if name in visited:
-                    continue
-                visited.add(name)
+                continue
+                # if name in visited:
+                #     continue
+                # visited.add(name)
             yield hash_
         yield temp_save
+        # 'Memory of Chaos' is not a real dungeon, but represents a group
+        yield '混沌回忆'
 
     def find_keyword(self, keyword, lang) -> tuple[int, str]:
         """
@@ -230,6 +233,80 @@ class KeywordExtract:
         )
         self.load_keywords(keywords_id, lang)
 
+    def generate_shadow_with_characters(self):
+        # Damage type -> damage hash
+        damage_info = dict()
+        for type_name, data in read_file(os.path.join(
+            TextMap.DATA_FOLDER, 'ExcelOutput',
+            'DamageType.json'
+        )).items():
+            damage_info[type_name] = deep_get(data, 'DamageTypeName.Hash')
+        # Character id -> character hash & damage type
+        character_info = dict()
+        for data in read_file(os.path.join(
+            TextMap.DATA_FOLDER, 'ExcelOutput',
+            'AvatarConfig.json'
+        )).values():
+            name_hash = deep_get(data, 'AvatarName.Hash')
+            damage_type = deep_get(data, 'DamageType')
+            character_info[data['AvatarID']] = (
+                name_hash, damage_info[damage_type])
+        # Item id -> character id
+        promotion_info = defaultdict(list)
+        for data in read_file(os.path.join(
+            TextMap.DATA_FOLDER, 'ExcelOutput',
+            'AvatarPromotionConfig.json'
+        )).values():
+            character_id = deep_get(data, '0.AvatarID')
+            item_id = deep_get(data, '2.PromotionCostList')[-1]['ItemID']
+            promotion_info[item_id].append(character_info[character_id])
+        # Shadow hash -> item id
+        shadow_info = dict()
+        for data in read_file(os.path.join(
+            TextMap.DATA_FOLDER, 'ExcelOutput',
+            'MappingInfo.json'
+        )).values():
+            farm_type = deep_get(data, '0.FarmType')
+            if farm_type != 'ELEMENT':
+                continue
+            shadow_hash = deep_get(data, '0.Name.Hash')
+            item_id = deep_get(data, '5.DisplayItemList')[-1]['ItemID']
+            shadow_info[shadow_hash] = promotion_info[item_id]
+        prefix_dict = {
+            'cn': '角色晋阶材料：',
+            'cht': '角色晉階材料：',
+            'jp': 'キャラクター昇格素材：',
+            'en': 'Ascension: ',
+            'es': 'Ascension: '
+        }
+        keyword_class = 'DungeonDetailed'
+        output_file = './tasks/dungeon/keywords/dungeon_detailed.py'
+        gen = CodeGenerator()
+        gen.Import(f"""
+        from .classes import {keyword_class}
+        """)
+        gen.CommentAutoGenerage('dev_tools.keyword_extract')
+        for index, (keyword, characters) in enumerate(shadow_info.items()):
+            _, name = self.find_keyword(keyword, lang='en')
+            name = text_to_variable(name).replace('Shape_of_', '')
+            with gen.Object(key=name, object_class=keyword_class):
+                gen.ObjectAttr(key='id', value=index + 1)
+                gen.ObjectAttr(key='name', value=name)
+                for lang in UI_LANGUAGES:
+                    character_names = ' / '.join([
+                        self.find_keyword(c[0], lang)[1]
+                        for c in characters
+                    ])
+                    damage_type = self.find_keyword(characters[0][1], lang)[1]
+                    if lang in {'en', 'es'}:
+                        value = f'{prefix_dict[lang]}{damage_type} ({character_names})'
+                    else:
+                        value = f'{prefix_dict[lang]}{damage_type}（{character_names}）'
+                    gen.ObjectAttr(key=lang, value=value)
+        print(f'Write {output_file}')
+        gen.write(output_file)
+        self.clear_keywords()
+
     def generate_forgotten_hall_stages(self):
         keyword_class = "ForgottenHallStage"
         output_file = './tasks/forgotten_hall/keywords/stage.py'
@@ -251,19 +328,25 @@ class KeywordExtract:
         self.clear_keywords()
 
     def generate_assignment_keywords(self):
-        KeywordFromFile = namedtuple('KeywordFromFile', ('file', 'class_name', 'output_file'))
-        for keyword in (
-                KeywordFromFile('ExpeditionGroup.json', 'AssignmentGroup', './tasks/assignment/keywords/group.py'),
-                KeywordFromFile('ExpeditionData.json', 'AssignmentEntry', './tasks/assignment/keywords/entry.py')
+        self.load_keywords(['空间站特派'])
+        self.write_keywords(
+            keyword_class='AssignmentEventGroup',
+            output_file='./tasks/assignment/keywords/event_group.py'
+        )
+        for file_name, class_name, output_file in (
+            ('ExpeditionGroup.json', 'AssignmentGroup', './tasks/assignment/keywords/group.py'),
+            ('ExpeditionData.json', 'AssignmentEntry', './tasks/assignment/keywords/entry.py'),
+            ('ActivityExpedition.json', 'AssignmentEventEntry', './tasks/assignment/keywords/event_entry.py'),
         ):
-            file = os.path.join(TextMap.DATA_FOLDER, 'ExcelOutput', keyword.file)
+            file = os.path.join(TextMap.DATA_FOLDER, 'ExcelOutput', file_name)
             self.load_keywords(deep_get(data, 'Name.Hash') for data in read_file(file).values())
-            self.write_keywords(keyword_class=keyword.class_name, output_file=keyword.output_file)
+            self.write_keywords(keyword_class=class_name, output_file=output_file)
 
     def generate_map_planes(self):
         planes = {
-            'Herta': ['黑塔的办公室',
-                '观景车厢', '主控舱段', '基座舱段', '收容舱段', '支援舱段'],
+            'Special': ['黑塔的办公室', '锋芒崭露'],
+            'Rogue': [ '区域-战斗', '区域-事件', '区域-遭遇', '区域-休整', '区域-精英', '区域-首领', '区域-交易'],
+            'Herta': ['观景车厢', '主控舱段', '基座舱段', '收容舱段', '支援舱段'],
             'Jarilo': ['行政区', '城郊雪原', '边缘通路', '铁卫禁区', '残响回廊', '永冬岭',
                        '磐岩镇', '大矿区', '铆钉镇', '机械聚落'],
             'Luofu': ['星槎海中枢', '流云渡', '迴星港', '长乐天', '金人巷', '太卜司', '工造司', '丹鼎司', '鳞渊境'],
@@ -283,6 +366,8 @@ class KeywordExtract:
             gen = self.write_keywords(keyword_class='MapPlane', output_file='',
                                       text_convert=text_convert(world), generator=gen)
         gen.write('./tasks/map/keywords/plane.py')
+        self.load_keywords(['Herta Space Station', 'Jarilo-VI', 'The Xianzhou Luofu'], lang='en')
+        self.write_keywords(keyword_class='MapWorld', output_file='./tasks/map/keywords/world.py')
 
     def generate_character_keywords(self):
         self.load_character_name_keywords()
@@ -362,6 +447,7 @@ class KeywordExtract:
                             text_convert=dungeon_name)
         self.load_keywords(['传送', '追踪'])
         self.write_keywords(keyword_class='DungeonEntrance', output_file='./tasks/dungeon/keywords/dungeon_entrance.py')
+        self.generate_shadow_with_characters()
         self.load_keywords(['奖励', '任务', ])
         self.write_keywords(keyword_class='BattlePassTab', output_file='./tasks/battle_pass/keywords/tab.py')
         self.load_keywords(['本日任务', '本周任务', '本期任务'])

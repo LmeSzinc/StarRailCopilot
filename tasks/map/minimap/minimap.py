@@ -6,6 +6,7 @@ import numpy as np
 from scipy import signal
 
 from module.base.utils import (
+    area_limit,
     area_offset,
     area_pad,
     color_similarity_2d,
@@ -46,8 +47,9 @@ class PositionPredictState:
 
 
 class Minimap(MapResource):
-    def init_position(self, position: tuple[int, int]):
-        logger.info(f"init_position:{position}")
+    def init_position(self, position: tuple[int | float, int | float], show_log=True):
+        if show_log:
+            logger.info(f"init_position: {position}")
         self.position = position
 
     def _predict_position(self, image, scale=1.0):
@@ -211,6 +213,7 @@ class Minimap(MapResource):
         image = color_similarity_2d(image, color=self.DIRECTION_ARROW_COLOR)
         try:
             area = area_pad(get_bbox(image, threshold=128), pad=-1)
+            area = area_limit(area, (0, 0, *image_size(image)))
         except IndexError:
             # IndexError: index 0 is out of bounds for axis 0 with size 0
             logger.warning('No direction arrow on minimap')
@@ -253,7 +256,7 @@ class Minimap(MapResource):
         precise_loca = degree // 8 * 8 - 8 + precise_loca[0]
 
         self.direction_similarity = round(precise_sim, 3)
-        self.direction = precise_loca % 360
+        self.direction = round(precise_loca % 360, 1)
 
     def update_rotation(self, image):
         """
@@ -388,9 +391,9 @@ if __name__ == '__main__':
     # MapResource.SRCMAP = '../srcmap/srcmap'
     self = Minimap()
     # Set plane, assume starting from Jarilo_AdministrativeDistrict
-    self.set_plane('Jarilo_AdministrativeDistrict', floor='F1')
+    self.set_plane('Jarilo_BackwaterPass', floor='F1')
 
-    ui = UI('alas')
+    ui = UI('src')
     ui.device.disable_stuck_detection()
     # Set starter point. Starter point will be calculated if it's missing but may contain errors.
     # With starter point set, position is only searched around starter point and new position becomes new starter point.

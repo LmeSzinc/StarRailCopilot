@@ -13,6 +13,16 @@ CAN_GET_REWARD = ButtonWrapper(
         button=(1055, 266, 1106, 310),
     ),
 )
+CLICKING_REWARD = ButtonWrapper(
+    name='CLICKING_REWARD',
+    share=Button(
+        file='./assets/share/freebies/support_reward/CLICKING_REWARD.png',
+        area=(1066, 268, 1105, 307),
+        search=(1046, 248, 1125, 327),
+        color=(197, 161, 111),
+        button=(1066, 268, 1105, 307),
+    ),
+)
 IN_PROFILE = ButtonWrapper(
     name='IN_PROFILE',
     share=Button(

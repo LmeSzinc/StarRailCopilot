@@ -4,7 +4,7 @@ from tasks.base.page import page_menu
 from tasks.base.ui import UI
 from tasks.base.assets.assets_base_page import CLOSE,MENU_CHECK
 from tasks.base.assets.assets_base_popup import GET_REWARD
-from tasks.freebies.assets.assets_freebies_support_reward import MENU_TO_PROFILE, PROFILE, IN_PROFILE,CAN_GET_REWARD
+from tasks.freebies.assets.assets_freebies_support_reward import MENU_TO_PROFILE, PROFILE, IN_PROFILE,CAN_GET_REWARD, CLICKING_REWARD
 
 class SupportReward(UI):
     
@@ -60,9 +60,13 @@ class SupportReward(UI):
                 skip_first_screenshot = False
             else:
                 self.device.screenshot()
-            
+                            
             if self.appear(GET_REWARD):
                 self.device.click(MENU_CHECK) # Avoid clicking on some other buttons
+                continue
+            
+            if self.match_template_color(CLICKING_REWARD, similarity=0.70):
+                logger.info('Clicking reward')
                 continue
             
             if self.match_template_color(CAN_GET_REWARD, similarity=0.70):

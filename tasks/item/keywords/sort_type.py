@@ -21,13 +21,13 @@ Rarity = SortType(
     jp='レア度',
     es='Rareza',
 )
-Lv_ = SortType(
+Lv = SortType(
     id=3,
-    name='Lv_',
+    name='Lv',
     cn='等级',
     cht='等級',
     en='Lv.',
-    jp='Lv.',
+    jp='レベル',
     es='Nivel',
 )
 Paths = SortType(
@@ -173,4 +173,13 @@ Application_Period = SortType(
     en='Application Period',
     jp='申請日時',
     es='Hora de solicitud',
+)
+Break_Effect = SortType(
+    id=20,
+    name='Break_Effect',
+    cn='击破特攻',
+    cht='擊破特攻',
+    en='Break Effect',
+    jp='撃破特効',
+    es='Efecto de Ruptura',
 )

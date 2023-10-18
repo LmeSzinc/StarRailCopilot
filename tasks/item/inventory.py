@@ -1,10 +1,13 @@
+import time
+
 import cv2
 import numpy as np
+from scipy import signal
 from scipy.cluster.vq import kmeans
 
 from module.base.base import ModuleBase
 from module.base.timer import Timer
-from module.base.utils import area_offset, crop, rgb2gray, color_similarity_2d, area_pad
+from module.base.utils import area_offset, crop, rgb2gray, color_similarity_2d, area_pad, float2str
 from module.logger import logger
 from module.ocr.ocr import Ocr, DigitCounter, Digit
 from tasks.item.assets.assets_item_inventory import *
@@ -91,6 +94,31 @@ class ItemDataCounter(DigitCounter):
         return result
 
 
+def group_by_distance_interval(lines: np.ndarray, interval: tuple[int, int], expect_num: int = 1):
+    """
+    group sorted lines by distance interval.
+
+    Examples:
+        In ndarray [0, 60, 95, 105, 140] and interval = (90, 110),
+        (0, 95, 105) will be grouped together because 0 + 90 < 95 < 0 + 110 and so does 105
+
+    Returns:
+        generator of ndarray of grouped lines
+    """
+    left, right = interval
+    matched_line = set()
+    for line in lines:
+        if line in matched_line:
+            continue
+        matches = lines[(line + left <= lines) & (lines <= line + right)]
+        if len(matches) >= expect_num:
+            for match in matches:
+                matched_line.add(match)
+            if len(matches) > expect_num:
+                matches = np.sort(kmeans(matches.astype(np.float64), expect_num)[0].astype(np.int64))
+            yield np.append(line, matches)
+
+
 class Inventory:
     def __init__(self, inventory: ButtonWrapper):
         self.inventory = inventory
@@ -137,26 +165,43 @@ class Inventory:
                 last_count = count
                 timer.reset()
 
-    def recognize_single_page_items(self, main: ModuleBase, hough_th=120, theta_th=0.005, edge_th=5) -> list[Item]:
+    def recognize_single_page_items(self, main: ModuleBase, hough_th=120, theta_th=0.005, edge_th=10, size_th=80) -> \
+            list[Item]:
         area = self.inventory.area
         image = crop(main.device.image, area)
+        start_time = time.time()
 
+        star_mask = color_similarity_2d(image, color=(252, 200, 109))
+        _, star_mask = cv2.threshold(star_mask, 210, 255, cv2.THRESH_BINARY)
+        kernel = cv2.getStructuringElement(cv2.MORPH_RECT, (3, 3))
+        star_mask = cv2.morphologyEx(star_mask, cv2.MORPH_OPEN, kernel)
+        kernel = cv2.getStructuringElement(cv2.MORPH_RECT, (10, 3))
+        star_mask = cv2.morphologyEx(star_mask, cv2.MORPH_CLOSE, kernel)
+
+        star_mask = ~star_mask
         image = rgb2gray(image)
-        _, image = cv2.threshold(image, 60, 255, cv2.THRESH_BINARY)
-        kernel = cv2.getStructuringElement(cv2.MORPH_RECT, (3, 2))
-        image = cv2.morphologyEx(image, cv2.MORPH_OPEN, kernel)
-        kernel = cv2.getStructuringElement(cv2.MORPH_RECT, (3, 2))
-        image = cv2.morphologyEx(image, cv2.MORPH_CLOSE, kernel)
-        image = cv2.Canny(image, 50, 60, apertureSize=3)
 
-        results = cv2.HoughLines(image, 1, np.pi / 180, hough_th)
+        # col
+        peaks, _ = signal.find_peaks(image.ravel(), height=(90, 225), prominence=10, distance=10)
+        peak_col_image = np.zeros(image.shape[0] * image.shape[1], dtype=np.uint8)
+        peak_col_image[peaks] = 255
+        peak_col_image = peak_col_image.reshape(image.shape)
+        # row
+        peaks, _ = signal.find_peaks(image.T.ravel(), height=(90, 225), prominence=10, distance=5)
+        peak_row_image = np.zeros(image.shape[0] * image.shape[1], dtype=np.uint8)
+        peak_row_image[peaks] = 255
+        peak_row_image = peak_row_image.reshape(image.T.shape).T
+
+        peak_image = peak_row_image | peak_col_image
+        peak_image &= star_mask
+        results = cv2.HoughLines(peak_image, 1, np.pi / 180, hough_th)
         if results is None:
             logger.warning(f"Can not find any lines at {self.inventory}")
             return []
-        lines = [(rho, theta) for rho, theta in results[:, 0, :]]
-        row_bounds = [
-            abs(int(rho)) for rho, theta in lines if (np.deg2rad(90 - theta_th) < theta < np.deg2rad(90 + theta_th))]
+        lines = results[:, 0, :]
         col_bounds = [abs(int(rho)) for rho, theta in lines if not theta]
+        row_bounds = [abs(int(rho)) for rho, theta in lines if
+                      (np.deg2rad(90 - theta_th) < theta < np.deg2rad(90 + theta_th))]
 
         col_bounds = np.sort(np.array(col_bounds))
         row_bounds = np.sort(np.array(row_bounds))
@@ -164,42 +209,22 @@ class Inventory:
         row_bounds = row_bounds[np.append(np.ones((1,), bool), np.abs(np.diff(row_bounds) > edge_th))]
         col_bounds = col_bounds[np.append(np.ones((1,), bool), np.abs(np.diff(col_bounds) > edge_th))]
 
-        def group_by_distance_interval(lines: np.ndarray, interval: tuple[int, int], expect_num: int = 1):
-            """
-            group sorted lines by distance interval.
-
-            Examples:
-                In ndarray [0, 60, 95, 105, 140] and interval = (90, 110),
-                (0, 95, 105) will be grouped together because 0 + 90 < 95 < 0 + 110 and so does 105
-
-            Returns:
-                generator of ndarray of grouped lines
-            """
-            left, right = interval
-            for line in lines:
-                matches = lines[(line + left < lines) & (lines < line + right)]
-                if len(matches) >= expect_num:
-                    if len(matches) > expect_num:
-                        matches = np.sort(kmeans(matches.astype(np.float64), expect_num)[0].astype(np.int64))
-                    yield np.append(line, matches)
-
         def get_items():
             row_recognized = 0
-            for row, (y1, y2, y3) in enumerate(group_by_distance_interval(row_bounds, (85, 115), 2)):
-                for col, (x1, x2) in enumerate(group_by_distance_interval(col_bounds, (90, 100))):
+            for row, (y1, y2, y3) in enumerate(group_by_distance_interval(row_bounds, (80, 115), 2)):
+                if (y2 - y1) < size_th:
+                    logger.warning(f"Row No.{row}'s height is smaller then expected, skip this row")
+                    continue
+                for col, (x1, x2) in enumerate(group_by_distance_interval(col_bounds, (85, 100))):
+                    if (x2 - x1) < size_th:
+                        logger.warning(f"Col No.{row}'s height is smaller then expected, skip this row")
+                        continue
                     yield Item((row_recognized + 1, col + 1),
                                (x1 + area[0], y1 + area[1], x2 + area[0], y2 + area[1]),
                                (x1 + area[0], y2 + area[1], x2 + area[0], y3 + area[1]))
                 row_recognized += 1
 
         items = [item for item in get_items()]
-
-        # size should be all the same
-        icon_area = [item.icon_area for item in items]
-        sizes = [(x2 - x1, y2 - y1) for x1, y1, x2, y2 in icon_area]
-        size, counts = np.unique(sizes, axis=0, return_counts=True)
-        if len(size) == 1:
-            logger.info(f"{len(items)} item recognized with uniform icon size: {size[0][0]}x{size[0][1]}")
-        else:
-            logger.warning(f"{len(items)} item recognized but with different icon size: {size}")
+        logger.attr(name='%s %ss' % (self.inventory.name, float2str(time.time() - start_time)),
+                    text=f"{len(items)} item recognized")
         return items

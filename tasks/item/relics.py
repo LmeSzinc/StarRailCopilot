@@ -369,7 +369,7 @@ class RelicsUI(ItemUI):
 
             if self.image_color_count(RELIC_SELECTION_PAGE_SORT_TYPE_BUTTON, (225, 226, 229)):
                 break
-            if self.match_template_color(ENHANCE_TAB) and interval.reached():
+            if interval.reached() and self.match_template_color(ENHANCE_TAB):
                 self.device.click(ENHANCE_TAB)
                 interval.reset()
                 continue
@@ -383,7 +383,7 @@ class RelicsUI(ItemUI):
 
         result = self._feed_one_level(inventory)
 
-        # handle popup
+        # enhance -> item page relic tab
         while 1:
             if skip_first_screenshot:
                 skip_first_screenshot = False
@@ -393,7 +393,7 @@ class RelicsUI(ItemUI):
             if self.appear(GOTO_SALVAGE):
                 logger.info("Enhance page exited")
                 break
-            if interval.reached() and not self.appear(GOTO_SALVAGE):
+            if interval.reached() and self.appear(ENHANCE_MATERIAL_SLOTS):
                 logger.info(f'enhance -> {CLOSE}')
                 self.device.click(CLOSE)
                 interval.reset()

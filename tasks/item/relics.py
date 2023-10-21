@@ -191,7 +191,8 @@ class RelicsUI(ItemUI):
 
                 if retry.reached():
                     item.button = add_button if count_needed > 0 else minus_button
-                    self.device.multi_click(item, count_needed)
+                    click_num = count_needed if count_needed > 0 else -count_needed
+                    self.device.multi_click(item, click_num)
                     retry.reset()
 
         else:

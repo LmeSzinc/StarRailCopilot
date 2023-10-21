@@ -5,16 +5,17 @@ from module.logger import logger
 from tasks.base.page import page_rogue
 from tasks.map.control.waypoint import Waypoint, ensure_waypoints
 from tasks.map.route.base import RouteBase as RouteBase_
-from tasks.rogue.assets.assets_rogue_reward import ROGUE_REPORT
 from tasks.rogue.assets.assets_rogue_ui import BLESSING_CONFIRM
+from tasks.rogue.assets.assets_rogue_weekly import ROGUE_REPORT
 from tasks.rogue.bleesing.blessing import RogueBlessingSelector
 from tasks.rogue.bleesing.bonus import RogueBonusSelector
 from tasks.rogue.bleesing.curio import RogueCurioSelector
 from tasks.rogue.event.event import RogueEvent
+from tasks.rogue.event.reward import RogueReward
 from tasks.rogue.route.exit import RogueExit
 
 
-class RouteBase(RouteBase_, RogueExit, RogueEvent):
+class RouteBase(RouteBase_, RogueExit, RogueEvent, RogueReward):
     registered_domain_exit = None
 
     def combat_expected_end(self):
@@ -174,14 +175,16 @@ class RouteBase(RouteBase_, RogueExit, RogueEvent):
         Get reward of the DomainElite and DomainBoss
         """
         logger.hr('Clear reward', level=1)
+        use_trailblaze_power = 'trailblaze' in self.config.RogueWorld_ImmersionReward
+        use_immersifier = 'immersifier' in self.config.RogueWorld_ImmersionReward
 
-        # TODO: Skip if user don't want rewards or stamina exhausted
-        return []
-
-        result = self.goto(*waypoints)
-
-        # TODO: Get reward
-        pass
+        if self.can_claim_domain_reward(use_trailblaze_power=use_trailblaze_power, use_immersifier=use_immersifier):
+            logger.info('Can claim domain reward')
+            result = self.goto(*waypoints)
+            self.claim_domain_reward(use_trailblaze_power=use_trailblaze_power, use_immersifier=use_immersifier)
+        else:
+            logger.info('Cannot claim more rewards')
+            result = []
 
         return result
 
@@ -273,7 +276,7 @@ class RouteBase(RouteBase_, RogueExit, RogueEvent):
         self.rotation_set(end_rotation, threshold=10)
 
         logger.hr('Find domain exit', level=2)
-        direction = self.predict_door_by_name(self.device.image)
+        direction = self.predict_door()
         direction_limit = 55
         if direction is not None:
             if abs(direction) > direction_limit:

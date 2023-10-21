@@ -23,6 +23,25 @@ BLESSING_ENHANCED = ButtonWrapper(
         button=(630, 351, 651, 370),
     ),
 )
+BLESSING_LOST = ButtonWrapper(
+    name='BLESSING_LOST',
+    share=[
+        Button(
+            file='./assets/share/rogue/ui/BLESSING_LOST.png',
+            area=(51, 530, 81, 552),
+            search=(31, 510, 101, 572),
+            color=(248, 248, 248),
+            button=(51, 530, 81, 552),
+        ),
+        Button(
+            file='./assets/share/rogue/ui/BLESSING_LOST.2.png',
+            area=(315, 530, 340, 552),
+            search=(31, 510, 101, 572),
+            color=(246, 246, 246),
+            button=(315, 530, 340, 552),
+        ),
+    ],
+)
 BLESSING_OBTAINED = ButtonWrapper(
     name='BLESSING_OBTAINED',
     share=Button(

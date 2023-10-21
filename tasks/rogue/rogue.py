@@ -1,23 +1,56 @@
-from tasks.rogue.entry.path import RoguePathHandler
-from tasks.rogue.entry.reward import RogueRewardHandler
+from module.logger import logger
+from tasks.rogue.entry.entry import RogueEntry
+from tasks.rogue.exception import RogueReachedWeeklyPointLimit, RogueTeamNotPrepared
 from tasks.rogue.route.loader import RouteLoader
 
 
-class RogueHandler(RouteLoader, RogueRewardHandler, RoguePathHandler):
+class Rogue(RouteLoader, RogueEntry):
     def rogue_once(self):
         """
         Do a complete rogue run.
 
         Pages:
-            in: page_rogue, is_page_rogue_main()
+            in: Any
             out: page_rogue, is_page_rogue_main()
         """
-        self.rogue_path_select(self.config.RoguePath_Path)
+        try:
+            self.rogue_world_enter()
+        except RogueTeamNotPrepared:
+            logger.error(f'Please prepare your team in {self.config.RogueWorld_World}')
+            self.rogue_world_exit()
+            return False
+        except RogueReachedWeeklyPointLimit:
+            logger.hr('Reached rogue weekly point limit')
+            return False
+
         self.rogue_run()
         self.rogue_reward_claim()
+        return True
+
+    def run(self):
+        while 1:
+            # Check stop condition
+            if self.config.RogueWorld_StopCondition == 'weekly_point_reward':
+                if self.config.stored.SimulatedUniverse.is_expired():
+                    # Expired, do rogue
+                    pass
+                elif self.config.stored.SimulatedUniverse.is_full():
+                    logger.hr('Reached rogue weekly point limit')
+                    break
+
+            # Run
+            success = self.rogue_once()
+            if not success:
+                break
+
+            # Scheduler
+            if self.config.task_switched():
+                self.config.task_stop()
+
+        self.config.task_delay(server_update=True)
 
 
 if __name__ == '__main__':
-    self = RogueHandler('src', task='Rogue')
+    self = Rogue('src', task='Rogue')
     self.device.screenshot()
     self.rogue_once()

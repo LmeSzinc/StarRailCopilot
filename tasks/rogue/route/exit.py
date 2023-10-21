@@ -1,5 +1,4 @@
 import re
-from typing import Optional
 
 import cv2
 import numpy as np
@@ -13,8 +12,8 @@ from tasks.base.page import page_rogue
 from tasks.combat.interact import CombatInteract
 from tasks.map.keywords import KEYWORDS_MAP_PLANE, MapPlane
 from tasks.rogue.assets.assets_rogue_exit import OCR_DOMAIN_EXIT
-from tasks.rogue.assets.assets_rogue_reward import ROGUE_REPORT
 from tasks.rogue.assets.assets_rogue_ui import BLESSING_CONFIRM
+from tasks.rogue.assets.assets_rogue_weekly import ROGUE_REPORT
 
 
 def area_center(area):
@@ -170,7 +169,7 @@ class RogueExit(CombatInteract):
         logger.info(f'PlanarDoor: {planar_door}, direction: {direction}')
         return direction
 
-    def predict_door_by_name(self, image) -> Optional[float]:
+    def predict_door_by_name(self, image) -> float | None:
         # Paint current name black
         x1, y1, x2, y2 = OCR_MAP_NAME.area
         image[y1:y2, x1:x2] = (0, 0, 0)
@@ -201,8 +200,8 @@ class RogueExit(CombatInteract):
                     logger.info(f'Goto next domain: {domain}')
                     return direction
 
-        logger.attr('DomainStrategy', self.config.RoguePath_DomainStrategy)
-        if self.config.RoguePath_DomainStrategy == 'occurrence':
+        logger.attr('DomainStrategy', self.config.RogueWorld_DomainStrategy)
+        if self.config.RogueWorld_DomainStrategy == 'occurrence':
             for expect in [
                 KEYWORDS_MAP_PLANE.Rogue_DomainTransaction,
                 KEYWORDS_MAP_PLANE.Rogue_DomainOccurrence,
@@ -213,7 +212,7 @@ class RogueExit(CombatInteract):
                     if domain == expect:
                         logger.info(f'Goto next domain: {domain}')
                         return direction
-        elif self.config.RoguePath_DomainStrategy == 'combat':
+        elif self.config.RogueWorld_DomainStrategy == 'combat':
             for expect in [
                 KEYWORDS_MAP_PLANE.Rogue_DomainCombat,
                 KEYWORDS_MAP_PLANE.Rogue_DomainEncounter,
@@ -225,8 +224,24 @@ class RogueExit(CombatInteract):
                         logger.info(f'Goto next domain: {domain}')
                         return direction
         else:
-            logger.error(f'Unknown domain strategy: {self.config.RoguePath_DomainStrategy}')
+            logger.error(f'Unknown domain strategy: {self.config.RogueWorld_DomainStrategy}')
 
         logger.error('No domain was selected, return the first instead')
         logger.info(f'Goto next domain: {results[0]}')
         return directions[0]
+
+    def predict_door(self, skip_first_screenshot=True) -> float | None:
+        timeout = Timer(3, count=6).start()
+        while 1:
+            if skip_first_screenshot:
+                skip_first_screenshot = False
+            else:
+                self.device.screenshot()
+
+            if timeout.reached():
+                logger.error('Predict door timeout')
+                return None
+
+            direction = self.predict_door_by_name(self.device.image)
+            if direction is not None:
+                return direction

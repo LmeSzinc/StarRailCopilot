@@ -89,17 +89,16 @@ class OcrRogueEventOption(OcrRogueEvent):
     OCR_REPLACE = {
         'cn': [
             # Special cases with placeholder
-            (KEYWORDS_ROGUE_EVENT_OPTION.Deposit_2_Cosmic_Fragments_93, '存入\d+.*'),
-            (KEYWORDS_ROGUE_EVENT_OPTION.Withdraw_2_Cosmic_Fragments_93, '取出\d+.*'),
+            (KEYWORDS_ROGUE_EVENT_OPTION.Deposit_2_Cosmic_Fragments, '存入\d+.*'),
+            (KEYWORDS_ROGUE_EVENT_OPTION.Withdraw_2_Cosmic_Fragments, '取出\d+.*'),
             (KEYWORDS_ROGUE_EVENT_OPTION.Record_of_the_Aeon_of_1, '^关于.*'),
-            (KEYWORDS_ROGUE_EVENT_OPTION.I_ll_buy_it, '我买下?了'),
             (KEYWORDS_ROGUE_EVENT_OPTION.Wait_for_them, '^等待.*'),
             (KEYWORDS_ROGUE_EVENT_OPTION.Choose_number_two_It_snores_like_Andatur_Zazzalo, '.*二号.*安达.*'),
             (KEYWORDS_ROGUE_EVENT_OPTION.Choose_number_three_Its_teeth_are_rusted, '.*三号.*牙齿.*'),
         ],
         'en': [
-            (KEYWORDS_ROGUE_EVENT_OPTION.Deposit_2_Cosmic_Fragments_93, 'Deposit \d+.*'),
-            (KEYWORDS_ROGUE_EVENT_OPTION.Withdraw_2_Cosmic_Fragments_93, 'Withdraw \d+.*'),
+            (KEYWORDS_ROGUE_EVENT_OPTION.Deposit_2_Cosmic_Fragments, 'Deposit \d+.*'),
+            (KEYWORDS_ROGUE_EVENT_OPTION.Withdraw_2_Cosmic_Fragments, 'Withdraw \d+.*'),
             (KEYWORDS_ROGUE_EVENT_OPTION.Record_of_the_Aeon_of_1,
              '^Record of the Aeon.*'),
         ]
@@ -159,6 +158,7 @@ class RogueEvent(RogueUI):
             self.device.click(BLESSING_CONFIRM)
             return True
         if self.appear_then_click(CHOOSE_STORY, interval=2):
+            self.device.click_record_clear()
             return True
         if self.appear_then_click(CHOOSE_OPTION_CONFIRM, interval=2):
             self.interval_reset([
@@ -189,7 +189,7 @@ class RogueEvent(RogueUI):
         if count == 1:
             if self.interval_is_reached(CHOOSE_OPTION, interval=2):
                 self.device.click(self.valid_options[0].prefix_icon)
-                self.interval_reset(CHOOSE_OPTION)
+                self.interval_reset(CHOOSE_OPTION, interval=2)
                 return True
 
         if self.interval_is_reached(CHOOSE_OPTION, interval=2):
@@ -200,7 +200,7 @@ class RogueEvent(RogueUI):
                 else:
                     SCROLL_OPTION.set_top(main=self)
             self.device.click(option.prefix_icon)
-            self.interval_reset(CHOOSE_OPTION)
+            self.interval_reset(CHOOSE_OPTION, interval=2)
             return True
 
         return False
@@ -271,7 +271,7 @@ class RogueEvent(RogueUI):
             logger.info(f'Randomly select option {random_index+1}')
             return self.valid_options[random_index]
 
-        strategy_name = self.config.RoguePath_DomainStrategy
+        strategy_name = self.config.RogueWorld_DomainStrategy
         logger.attr('DomainStrategy', strategy_name)
         if strategy_name not in STRATEGIES:
             logger.warning(

@@ -4,7 +4,7 @@ from module.base.utils import area_offset
 from module.logger import logger
 from module.ocr.ocr import Digit, Ocr, OcrResultButton
 from tasks.base.ui import UI
-from tasks.rogue.assets.assets_rogue_reward import REWARD_ENTER
+from tasks.rogue.assets.assets_rogue_weekly import REWARD_ENTER
 from tasks.rogue.assets.assets_rogue_ui import *
 from tasks.rogue.keywords import RoguePath
 
@@ -74,6 +74,11 @@ class RogueUI(UI):
         # Enhanced a blessing from occurrence
         if self.appear(BLESSING_ENHANCED, interval=2):
             logger.info(f'{BLESSING_ENHANCED} -> {BLESSING_CONFIRM}')
+            self.device.click(BLESSING_CONFIRM)
+            return True
+        # Lost and re-obtain blessing, randomized by curio
+        if self.appear(BLESSING_LOST, interval=2):
+            logger.info(f'{BLESSING_LOST} -> {BLESSING_CONFIRM}')
             self.device.click(BLESSING_CONFIRM)
             return True
         return False

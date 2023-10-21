@@ -153,7 +153,6 @@ class ItemUI(UI):
             if result.matched_keyword == key:
                 return True
 
-        interval = Timer(1)
         while 1:
             if skip_first_screenshot:
                 skip_first_screenshot = False
@@ -162,12 +161,12 @@ class ItemUI(UI):
 
             if self.appear(POPUP_CONFIRM):
                 break
-            if interval.reached():
+            if self.match_color(button):
                 self.device.click(button)
-                interval.reset()
 
         type_button = self._get_sort_order_button(key=key)
 
+        interval = Timer(1)
         if type_button:  # select the type. If ocr failed then use the default one
             skip_first_screenshot = True
             while 1:

@@ -1,18 +1,27 @@
 from module.base.base import ModuleBase
+from module.logger import logger
+from tasks.base.assets.assets_base_page import BACK, CLOSE
 from tasks.base.assets.assets_base_popup import *
 
 
 class PopupHandler(ModuleBase):
-    def handle_reward(self, interval=5) -> bool:
+    def handle_reward(self, interval=5, click_button: ButtonWrapper = None) -> bool:
         """
         Args:
             interval:
+            click_button: Set a button to click
 
         Returns:
             If handled.
         """
-        if self.appear_then_click(GET_REWARD, interval=interval):
-            return True
+        if click_button is None:
+            if self.appear_then_click(GET_REWARD, interval=interval):
+                return True
+        else:
+            if self.appear(GET_REWARD, interval=interval):
+                logger.info(f'{GET_REWARD} -> {click_button}')
+                self.device.click(click_button)
+                return True
 
         return False
 
@@ -85,6 +94,38 @@ class PopupHandler(ModuleBase):
             If handled.
         """
         if self.appear_then_click(POPUP_SINGLE, interval=interval):
+            return True
+
+        return False
+
+    def handle_ui_close(self, appear_button: ButtonWrapper, interval=2) -> bool:
+        """
+        Args:
+            appear_button: Click if button appears
+            interval:
+
+        Returns:
+            If handled.
+        """
+        if self.appear(appear_button, interval=interval):
+            logger.info(f'{appear_button} -> {CLOSE}')
+            self.device.click(CLOSE)
+            return True
+
+        return False
+
+    def handle_ui_back(self, appear_button: ButtonWrapper, interval=2) -> bool:
+        """
+        Args:
+            appear_button: Click if button appears
+            interval:
+
+        Returns:
+            If handled.
+        """
+        if self.appear(appear_button, interval=interval):
+            logger.info(f'{appear_button} -> {BACK}')
+            self.device.click(BACK)
             return True
 
         return False

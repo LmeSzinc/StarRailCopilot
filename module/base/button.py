@@ -147,10 +147,10 @@ class ButtonWrapper(Resource):
         self.name = name
         self.data_buttons = kwargs
         self._matched_button: t.Optional[Button] = None
-        self.resource_add(self.name)
+        self.resource_add(f'{name}:{next(self.iter_buttons(), None)}')
 
     def resource_release(self):
-        del_cached_property(self, 'assets')
+        del_cached_property(self, 'buttons')
         self._matched_button = None
 
     def __str__(self):
@@ -167,15 +167,25 @@ class ButtonWrapper(Resource):
     def __bool__(self):
         return True
 
+    def iter_buttons(self) -> t.Iterator[Button]:
+        for _, assets in self.data_buttons.items():
+            if isinstance(assets, Button):
+                yield assets
+            elif isinstance(assets, list):
+                for asset in assets:
+                    yield asset
+
     @cached_property
     def buttons(self) -> t.List[Button]:
         for trial in [server.lang, 'share', 'cn']:
-            assets = self.data_buttons.get(trial, None)
-            if assets is not None:
+            try:
+                assets = self.data_buttons[trial]
                 if isinstance(assets, Button):
                     return [assets]
                 elif isinstance(assets, list):
                     return assets
+            except KeyError:
+                pass
 
         raise ScriptError(f'ButtonWrapper({self}) on server {server.lang} has no fallback button')
 
@@ -271,12 +281,23 @@ class ButtonWrapper(Resource):
         """
         if isinstance(button, ButtonWrapper):
             button = button.matched_button
-        for b in self.buttons:
+        for b in self.iter_buttons():
             b.load_offset(button)
 
     def clear_offset(self):
-        for b in self.buttons:
+        for b in self.iter_buttons():
             b.clear_offset()
+
+    def load_search(self, area):
+        """
+        Set `search` attribute.
+        Note that this method is irreversible.
+
+        Args:
+            area:
+        """
+        for b in self.iter_buttons():
+            b.search = area
 
 
 class ClickButton:

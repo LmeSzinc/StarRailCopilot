@@ -4,15 +4,16 @@ from module.base.timer import Timer
 from module.exception import GameNotRunningError, GamePageUnknownError
 from module.logger import logger
 from module.ocr.ocr import Ocr
-from tasks.base.assets.assets_base_page import CLOSE, MAP_EXIT
+from tasks.base.assets.assets_base_page import MAP_EXIT
 from tasks.base.main_page import MainPage
 from tasks.base.page import Page, page_main
 from tasks.combat.assets.assets_combat_finish import COMBAT_EXIT
 from tasks.combat.assets.assets_combat_prepare import COMBAT_PREPARE
 from tasks.daily.assets.assets_daily_trial import INFO_CLOSE
+from tasks.login.assets.assets_login import LOGIN_CONFIRM
 
 
-class UI( MainPage):
+class UI(MainPage):
     ui_current: Page
     ui_main_confirm_timer = Timer(0.2, count=0)
 
@@ -137,7 +138,13 @@ class UI( MainPage):
                 continue
 
             # Additional
+            if self.handle_popup_single():
+                continue
+            if self.handle_popup_confirm():
+                continue
             if self.ui_additional():
+                continue
+            if self.appear_then_click(LOGIN_CONFIRM):
                 continue
 
         # Reset connection
@@ -300,9 +307,8 @@ class UI( MainPage):
             return True
         if self.handle_monthly_card_reward():
             return True
-        if self.appear(COMBAT_PREPARE, interval=5):
-            logger.info(f'UI additional: {COMBAT_PREPARE} -> {CLOSE}')
-            self.device.click(CLOSE)
+        if self.handle_ui_close(COMBAT_PREPARE, interval=5):
+            return True
         if self.appear_then_click(COMBAT_EXIT, interval=5):
             return True
         if self.appear_then_click(INFO_CLOSE, interval=5):

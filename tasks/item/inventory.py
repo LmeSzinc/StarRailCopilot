@@ -111,12 +111,13 @@ def group_by_distance_interval(lines: np.ndarray, interval: tuple[int, int], exp
         if line in matched_line:
             continue
         matches = lines[(line + left <= lines) & (lines <= line + right)]
-        if len(matches) >= expect_num:
-            for match in matches:
-                matched_line.add(match)
-            if len(matches) > expect_num:
-                matches = np.sort(kmeans(matches.astype(np.float64), expect_num)[0].astype(np.int64))
-            yield np.append(line, matches)
+        if len(matches) < expect_num:
+            continue
+        for match in lines[(line <= lines) & (lines <= matches[-1])]:
+            matched_line.add(match)
+        if len(matches) > expect_num:
+            matches = np.sort(kmeans(matches.astype(np.float64), expect_num)[0].astype(np.int64))
+        yield np.append(line, matches)
 
 
 class Inventory:
@@ -165,8 +166,7 @@ class Inventory:
                 last_count = count
                 timer.reset()
 
-    def recognize_single_page_items(self, main: ModuleBase, hough_th=120, theta_th=0.005, edge_th=10, size_th=80) -> \
-            list[Item]:
+    def recognize_single_page_items(self, main: ModuleBase, hough_th=115, theta_th=0.005, edge_th=5) -> list[Item]:
         area = self.inventory.area
         image = crop(main.device.image, area)
         start_time = time.time()
@@ -182,18 +182,18 @@ class Inventory:
         image = rgb2gray(image)
 
         # col
-        peaks, _ = signal.find_peaks(image.ravel(), height=(90, 225), prominence=10, distance=10)
+        peaks, _ = signal.find_peaks(image.ravel(), height=(90, 200), prominence=10, distance=5, wlen=500)
         peak_col_image = np.zeros(image.shape[0] * image.shape[1], dtype=np.uint8)
         peak_col_image[peaks] = 255
         peak_col_image = peak_col_image.reshape(image.shape)
         # row
-        peaks, _ = signal.find_peaks(image.T.ravel(), height=(90, 225), prominence=10, distance=5)
+        peaks, _ = signal.find_peaks(image.T.ravel(), height=(80, 180), prominence=10, distance=5, wlen=500)
         peak_row_image = np.zeros(image.shape[0] * image.shape[1], dtype=np.uint8)
         peak_row_image[peaks] = 255
         peak_row_image = peak_row_image.reshape(image.T.shape).T
 
-        peak_image = peak_row_image | peak_col_image
-        peak_image &= star_mask
+        peak_image = cv2.bitwise_and(cv2.add(peak_row_image, peak_col_image), star_mask)
+
         results = cv2.HoughLines(peak_image, 1, np.pi / 180, hough_th)
         if results is None:
             logger.warning(f"Can not find any lines at {self.inventory}")
@@ -212,13 +212,7 @@ class Inventory:
         def get_items():
             row_recognized = 0
             for row, (y1, y2, y3) in enumerate(group_by_distance_interval(row_bounds, (80, 115), 2)):
-                if (y2 - y1) < size_th:
-                    logger.warning(f"Row No.{row}'s height is smaller then expected, skip this row")
-                    continue
                 for col, (x1, x2) in enumerate(group_by_distance_interval(col_bounds, (85, 100))):
-                    if (x2 - x1) < size_th:
-                        logger.warning(f"Col No.{row}'s height is smaller then expected, skip this row")
-                        continue
                     yield Item((row_recognized + 1, col + 1),
                                (x1 + area[0], y1 + area[1], x2 + area[0], y2 + area[1]),
                                (x1 + area[0], y2 + area[1], x2 + area[0], y3 + area[1]))

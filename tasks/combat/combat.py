@@ -1,7 +1,7 @@
 from module.base.decorator import run_once
 from module.logger import logger
 from tasks.base.assets.assets_base_page import CLOSE
-from tasks.combat.assets.assets_combat_finish import COMBAT_AGAIN, COMBAT_EXIT
+from tasks.combat.assets.assets_combat_finish import COMBAT_AGAIN, COMBAT_EXIT, COMBAT_DEFEAT
 from tasks.combat.assets.assets_combat_prepare import COMBAT_PREPARE
 from tasks.combat.assets.assets_combat_team import COMBAT_TEAM_PREPARE, COMBAT_TEAM_SUPPORT
 from tasks.combat.interact import CombatInteract
@@ -121,7 +121,7 @@ class Combat(CombatInteract, CombatPrepare, CombatState, CombatTeam, CombatSuppo
             if self.handle_popup_confirm():
                 continue
 
-    def combat_execute(self, expected_end=None):
+    def combat_execute(self, expected_end=None) -> bool:
         """
         Args:
             expected_end: A function returns bool, True represents end.
@@ -129,6 +129,10 @@ class Combat(CombatInteract, CombatPrepare, CombatState, CombatTeam, CombatSuppo
         Pages:
             in: is_combat_executing
             out: COMBAT_AGAIN
+
+        Returns:
+            bool: True if combat success or ended
+                False if combat defeat
         """
         logger.hr('Combat execute')
         skip_first_screenshot = True
@@ -143,13 +147,16 @@ class Combat(CombatInteract, CombatPrepare, CombatState, CombatTeam, CombatSuppo
             # End
             if callable(expected_end) and expected_end():
                 logger.info(f'Combat execute ended at {expected_end.__name__}')
-                break
+                return True
             if self.appear(COMBAT_AGAIN):
                 logger.info(f'Combat execute ended at {COMBAT_AGAIN}')
-                break
+                return True
             if self.is_in_main():
                 logger.info(f'Combat execute ended at page_main')
-                break
+                return True
+            if self.appear_then_click(COMBAT_DEFEAT):
+                logger.info("Back at the page_main, Combat defeat")
+                return False
 
             # Daemon
             if self.is_combat_executing():
@@ -326,7 +333,8 @@ class Combat(CombatInteract, CombatPrepare, CombatState, CombatTeam, CombatSuppo
                 self.combat_exit()
                 break
             # Execute
-            self.combat_execute()
+            if not self.combat_execute():
+                break
             # Finish
             finish = self.combat_finish()
             if self._combat_should_reenter():

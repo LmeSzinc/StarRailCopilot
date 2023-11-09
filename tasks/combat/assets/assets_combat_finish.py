@@ -39,18 +39,11 @@ COMBAT_EXIT = ButtonWrapper(
 )
 COMBAT_DEFEAT = ButtonWrapper(
     name='COMBAT_DEFEAT',
-    cn=Button(
-        file='./assets/cn/combat/finish/COMBAT_DEFEAT.png',
-        area=(508, 108, 777, 160),
-        search=(508, 108, 777, 160),
-        color=(235, 77, 61),
-        button=(532, 120, 734, 135)
-    ),
-    en=Button(
-        file='./assets/en/combat/finish/COMBAT_DEFEAT.png',
-        area=(548, 120, 737, 148),
-        search=(528, 100, 757, 168),
-        color=(235, 77, 61),
-        button=(548, 120, 737, 148)
+    share=Button(
+        file='./assets/share/combat/finish/COMBAT_DEFEAT.png',
+        area=(603, 206, 676, 238),
+        search=(603, 206, 676, 238),
+        color=(219, 71, 57),
+        button=(603, 206, 676, 238)
     )
 )

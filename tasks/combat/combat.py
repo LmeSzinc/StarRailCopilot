@@ -154,8 +154,8 @@ class Combat(CombatInteract, CombatPrepare, CombatState, CombatTeam, CombatSuppo
             if self.is_in_main():
                 logger.info(f'Combat execute ended at page_main')
                 return True
-            if self.appear_then_click(COMBAT_DEFEAT):
-                logger.info("Back at the page_main, Combat defeat")
+            if self.appear(COMBAT_DEFEAT):
+                logger.warning("Combat execute ended at defeat")
                 return False
 
             # Daemon
@@ -261,6 +261,29 @@ class Combat(CombatInteract, CombatPrepare, CombatState, CombatTeam, CombatSuppo
                     self.device.click(COMBAT_EXIT)
                 self.interval_reset(COMBAT_AGAIN)
 
+    def combat_defeat(self):
+        """
+        Pages:
+            in: Page combat defeat
+            out: page_main
+        """
+
+        logger.hr("Combat defeat")
+        skip_first_screenshot = True
+        while 1:
+            if skip_first_screenshot:
+                skip_first_screenshot = False
+            else:
+                self.device.screenshot()
+
+            if self.is_in_main():
+                logger.info(f'Back at page_main,Combat defeat ')
+                break
+
+            # Click
+            if self.appear_then_click(COMBAT_DEFEAT):
+                continue
+
     def combat_exit(self, skip_first_screenshot=True):
         """
         Pages:
@@ -334,6 +357,7 @@ class Combat(CombatInteract, CombatPrepare, CombatState, CombatTeam, CombatSuppo
                 break
             # Execute
             if not self.combat_execute():
+                self.combat_defeat()
                 break
             # Finish
             finish = self.combat_finish()

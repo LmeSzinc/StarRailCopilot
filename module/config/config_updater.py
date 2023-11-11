@@ -1,3 +1,4 @@
+import typing as t
 from copy import deepcopy
 
 from cached_property import cached_property
@@ -91,7 +92,7 @@ class ConfigGenerator:
             options=[dungeon.name for dungeon in DungeonList.instances.values() if dungeon.is_Echo_of_War])
         # Insert characters
         from tasks.character.keywords import CharacterList
-        unsupported_characters = ["Guinaifen", "TopazandNumby"]
+        unsupported_characters = []
         characters = [character.name for character in CharacterList.instances.values()
                       if character.name not in unsupported_characters]
         option_add(keys='DungeonSupport.Character.option', options=characters)
@@ -604,7 +605,8 @@ class ConfigUpdater:
             value = deep_get(old, keys=keys, default=data['value'])
             typ = data['type']
             display = data.get('display')
-            if is_template or value is None or value == '' or typ == 'lock' or (display == 'hide' and typ != 'stored'):
+            if is_template or value is None or value == '' \
+                    or typ in ['lock', 'state'] or (display == 'hide' and typ != 'stored'):
                 value = data['value']
             value = parse_value(value, data=data)
             deep_set(new, keys=keys, value=value)
@@ -713,6 +715,45 @@ class ConfigUpdater:
         set_daily('Synthesize_material_1_time', 'achievable')
         set_daily('Use_Consumables_1_time', 'achievable')
         return data
+
+    def save_callback(self, key: str, value: t.Any) -> t.Iterable[t.Tuple[str, t.Any]]:
+        """
+        Args:
+            key: Key path in config json, such as "Main.Emotion.Fleet1Value"
+            value: Value set by user, such as "98"
+
+        Yields:
+            str: Key path to set config json, such as "Main.Emotion.Fleet1Record"
+            any: Value to set, such as "2020-01-01 00:00:00"
+        """
+        if key.startswith('Dungeon.Dungeon') or key.startswith('Dungeon.DungeonDaily'):
+            from tasks.dungeon.keywords.dungeon import DungeonList
+            from module.exception import ScriptError
+            try:
+                dungeon = DungeonList.find(value)
+            except ScriptError:
+                return
+            if key.endswith('Name'):
+                if dungeon.is_Calyx_Golden:
+                    yield 'Dungeon.Dungeon.NameAtDoubleCalyx', value
+                    yield 'Dungeon.DungeonDaily.CalyxGolden', value
+                elif dungeon.is_Calyx_Crimson:
+                    yield 'Dungeon.Dungeon.NameAtDoubleCalyx', value
+                    yield 'Dungeon.DungeonDaily.CalyxCrimson', value
+                elif dungeon.is_Stagnant_Shadow:
+                    yield 'Dungeon.DungeonDaily.StagnantShadow', value
+                elif dungeon.is_Cavern_of_Corrosion:
+                    yield 'Dungeon.Dungeon.NameAtDoubleRelic', value
+                    yield 'Dungeon.DungeonDaily.CavernOfCorrosion', value
+            elif key.endswith('NameAtDoubleCalyx'):
+                if dungeon.is_Calyx_Golden:
+                    yield 'Dungeon.DungeonDaily.CalyxGolden', value
+                elif dungeon.is_Calyx_Crimson:
+                    yield 'Dungeon.DungeonDaily.CalyxCrimson', value
+            elif key.endswith('NameAtDoubleRelic'):
+                yield 'Dungeon.DungeonDaily.CavernOfCorrosion', value
+            elif key.endswith('CavernOfCorrosion'):
+                yield 'Dungeon.Dungeon.NameAtDoubleRelic', value
 
     def read_file(self, config_name, is_template=False):
         """

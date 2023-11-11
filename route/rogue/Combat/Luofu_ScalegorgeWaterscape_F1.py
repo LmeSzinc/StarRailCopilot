@@ -36,9 +36,11 @@ class Route(RouteBase):
             enemy1left,
         )
         self.minimap.init_position(self.minimap.position)
+        self.rotation_set(270)
+        self.minimap.lock_rotation(270)
         self.clear_enemy(
             node2,
-            enemy2.straight_run(),
+            enemy2,
         )
         self.clear_enemy(enemy3)
 
@@ -84,13 +86,16 @@ class Route(RouteBase):
         item2 = Waypoint((472.6, 228.6))
         # ===== End of generated waypoints =====
 
+        self.minimap.lock_rotation(270)
         self.clear_enemy(enemy1)
+        self.rotation_set(0)
+        self.minimap.lock_rotation(0)
         self.clear_item(
-            node2.straight_run(),
-            item2.straight_run(),
+            node2,
+            item2,
         )
         self.clear_enemy(
-            enemy2.straight_run(),
+            enemy2,
         )
 
     def Luofu_ScalegorgeWaterscape_F1_X617Y99(self):
@@ -126,6 +131,7 @@ class Route(RouteBase):
         enemy_X701Y242 = Waypoint((701.6, 242.2))
         # ===== End of generated waypoints =====
 
+        self.minimap.lock_rotation(90)
         # Ignore item, too close to enemy
         self.clear_enemy(enemy_X701Y242)
 
@@ -143,6 +149,10 @@ class Route(RouteBase):
         item = Waypoint((792.4, 224.5))
         enemy = Waypoint((802.3, 198.7))
         # ===== End of generated waypoints =====
+
+        self.minimap.lock_rotation(18)
+        self.clear_item(item)
+        self.clear_enemy(enemy)
 
     def Luofu_ScalegorgeWaterscape_F1_X1181Y279(self):
         """

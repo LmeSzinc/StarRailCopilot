@@ -1,11 +1,10 @@
 import re
-from typing import Optional
 
 import module.config.server as server
 from module.config.server import VALID_LANG
 from module.exception import RequestHumanTakeover, ScriptError
 from module.logger import logger
-from module.ocr.ocr import Ocr
+from module.ocr.ocr import OcrWhiteLetterOnComplexBackground
 from tasks.base.assets.assets_base_main_page import OCR_MAP_NAME, ROGUE_LEAVE_FOR_NOW
 from tasks.base.assets.assets_base_page import CLOSE, MAP_EXIT
 from tasks.base.page import Page, page_gacha, page_main
@@ -14,7 +13,7 @@ from tasks.daily.assets.assets_daily_trial import START_TRIAL
 from tasks.map.keywords import KEYWORDS_MAP_PLANE, MapPlane
 
 
-class OcrPlaneName(Ocr):
+class OcrPlaneName(OcrWhiteLetterOnComplexBackground):
     def after_process(self, result):
         # RobotSettlement1
         result = re.sub(r'-[Ii1]$', '', result)
@@ -64,7 +63,7 @@ class MainPage(PopupHandler):
 
     _lang_checked = False
 
-    def get_plane(self, lang=None) -> Optional[MapPlane]:
+    def update_plane(self, lang=None) -> MapPlane | None:
         """
         Pages:
             in: page_main
@@ -89,7 +88,7 @@ class MainPage(PopupHandler):
 
         return None
 
-    def check_lang_from_map_plane(self) -> Optional[str]:
+    def check_lang_from_map_plane(self) -> str | None:
         logger.info('check_lang_from_map_plane')
         lang_unknown = self.config.Emulator_GameLanguage == 'auto'
 
@@ -101,7 +100,7 @@ class MainPage(PopupHandler):
 
         for lang in lang_list:
             logger.info(f'Try ocr in lang {lang}')
-            keyword = self.get_plane(lang)
+            keyword = self.update_plane(lang)
             if keyword is not None:
                 logger.info(f'check_lang_from_map_plane matched lang: {lang}')
                 if lang_unknown or lang != server.lang:

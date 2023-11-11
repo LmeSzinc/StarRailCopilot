@@ -6,7 +6,6 @@ from module.base.utils import area_offset, area_pad
 from module.logger import logger
 from module.ocr.ocr import Ocr, DigitCounter
 from tasks.base.assets.assets_base_page import CLOSE
-from tasks.base.assets.assets_base_popup import GET_REWARD
 from tasks.item.assets.assets_item_relics import *
 from tasks.item.assets.assets_item_relics_enhance import *
 from tasks.item.assets.assets_item_relics_salvage import *
@@ -144,7 +143,7 @@ class RelicsUI(ItemUI):
                 else:
                     self.device.screenshot()
 
-                if self.appear(GET_REWARD):
+                if self.reward_appear():
                     logger.info("Relic salvaged")
                     break
                 if self.appear_then_click(SALVAGE, interval=2):

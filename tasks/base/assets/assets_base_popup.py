@@ -13,15 +13,58 @@ BATTLE_PASS_NOTIFICATION = ButtonWrapper(
         button=(895, 595, 1180, 630),
     ),
 )
+GET_CHARACTER = ButtonWrapper(
+    name='GET_CHARACTER',
+    cn=Button(
+        file='./assets/cn/base/popup/GET_CHARACTER.png',
+        area=(204, 322, 249, 338),
+        search=(184, 302, 269, 358),
+        color=(156, 155, 154),
+        button=(204, 322, 249, 338),
+    ),
+    en=Button(
+        file='./assets/en/base/popup/GET_CHARACTER.png',
+        area=(205, 321, 242, 339),
+        search=(185, 301, 262, 359),
+        color=(126, 127, 127),
+        button=(205, 321, 242, 339),
+    ),
+)
+GET_LIGHT_CONE = ButtonWrapper(
+    name='GET_LIGHT_CONE',
+    cn=Button(
+        file='./assets/cn/base/popup/GET_LIGHT_CONE.png',
+        area=(205, 321, 242, 339),
+        search=(185, 301, 262, 359),
+        color=(130, 130, 131),
+        button=(205, 321, 242, 339),
+    ),
+    en=Button(
+        file='./assets/en/base/popup/GET_LIGHT_CONE.png',
+        area=(260, 322, 306, 338),
+        search=(240, 302, 326, 358),
+        color=(147, 147, 148),
+        button=(260, 322, 306, 338),
+    ),
+)
 GET_REWARD = ButtonWrapper(
     name='GET_REWARD',
-    share=Button(
-        file='./assets/share/base/popup/GET_REWARD.png',
-        area=(623, 95, 657, 119),
-        search=(603, 75, 677, 139),
-        color=(145, 131, 99),
-        button=(741, 495, 1071, 644),
-    ),
+    share=[
+        Button(
+            file='./assets/share/base/popup/GET_REWARD.png',
+            area=(625, 95, 655, 119),
+            search=(605, 75, 675, 139),
+            color=(213, 0, 0),
+            button=(741, 495, 1071, 644),
+        ),
+        Button(
+            file='./assets/share/base/popup/GET_REWARD.2.png',
+            area=(625, 144, 655, 168),
+            search=(605, 124, 675, 188),
+            color=(226, 0, 0),
+            button=(625, 144, 655, 168),
+        ),
+    ],
 )
 MONTHLY_CARD_GET_ITEM = ButtonWrapper(
     name='MONTHLY_CARD_GET_ITEM',

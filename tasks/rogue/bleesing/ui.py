@@ -52,12 +52,6 @@ class RogueUI(UI):
     def is_page_rogue_launch(self):
         return self.match_template_color(ROGUE_LAUNCH)
 
-    def handle_obtain_item_popup(self, interval=5) -> bool:
-        """After selecting some curio (e.g. Sealing_Wax_of_*), there will be a popup after back to main page"""
-        if self.appear_then_click(OBTAIN_ITEM_POPUP, interval=interval):
-            return True
-        return False
-
     def is_unrecorded(self, target: OcrResultButton, relative_area):
         """
         To check a rogue keyword is not record in game index by finding template
@@ -79,6 +73,11 @@ class RogueUI(UI):
         # Lost and re-obtain blessing, randomized by curio
         if self.appear(BLESSING_LOST, interval=2):
             logger.info(f'{BLESSING_LOST} -> {BLESSING_CONFIRM}')
+            self.device.click(BLESSING_CONFIRM)
+            return True
+        # Obtain a curio from occurrence
+        if self.appear(CURIO_OBTAINED, interval=2):
+            logger.info(f'{CURIO_OBTAINED} -> {BLESSING_CONFIRM}')
             self.device.click(BLESSING_CONFIRM)
             return True
         return False

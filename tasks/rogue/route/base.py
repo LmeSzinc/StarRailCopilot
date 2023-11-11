@@ -34,6 +34,11 @@ class RouteBase(RouteBase_, RogueExit, RogueEvent, RogueReward):
     def combat_execute(self, expected_end=None):
         return super().combat_execute(expected_end=self.combat_expected_end)
 
+    def walk_additional(self) -> bool:
+        if self.handle_blessing_popup():
+            return True
+        return super().walk_additional()
+
     def handle_blessing(self):
         """
         Returns:
@@ -64,9 +69,12 @@ class RouteBase(RouteBase_, RogueExit, RogueEvent, RogueReward):
         Pages:
             in: combat_expected_end()
             out: is_in_main()
+
+        Returns:
+            bool: If cleared
         """
         logger.info('Clear blessing')
-        switched = False
+        cleared = False
         while 1:
             if skip_first_screenshot:
                 skip_first_screenshot = False
@@ -76,12 +84,12 @@ class RouteBase(RouteBase_, RogueExit, RogueEvent, RogueReward):
             # End
             if self.is_in_main():
                 logger.info(f'clear_blessing() ended at page_main')
-                if switched:
+                if cleared:
                     self.wait_until_minimap_stabled()
-                break
+                return cleared
 
             if self.handle_blessing():
-                switched = True
+                cleared = True
                 continue
 
     def clear_occurrence(self, skip_first_screenshot=True):
@@ -179,11 +187,9 @@ class RouteBase(RouteBase_, RogueExit, RogueEvent, RogueReward):
         use_immersifier = 'immersifier' in self.config.RogueWorld_ImmersionReward
 
         if self.can_claim_domain_reward(use_trailblaze_power=use_trailblaze_power, use_immersifier=use_immersifier):
-            logger.info('Can claim domain reward')
             result = self.goto(*waypoints)
             self.claim_domain_reward(use_trailblaze_power=use_trailblaze_power, use_immersifier=use_immersifier)
         else:
-            logger.info('Cannot claim more rewards')
             result = []
 
         return result
@@ -248,6 +254,9 @@ class RouteBase(RouteBase_, RogueExit, RogueEvent, RogueReward):
                 continue
             # First-time cleared reward
             if self.handle_reward():
+                continue
+            # Get Herta
+            if self.handle_get_character():
                 continue
 
     def domain_single_exit(self, *waypoints):

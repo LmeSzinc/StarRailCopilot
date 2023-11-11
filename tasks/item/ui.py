@@ -153,6 +153,7 @@ class ItemUI(UI):
             if result.matched_keyword == key:
                 return True
 
+        interval = Timer(1)
         while 1:
             if skip_first_screenshot:
                 skip_first_screenshot = False
@@ -161,8 +162,9 @@ class ItemUI(UI):
 
             if self.appear(POPUP_CONFIRM):
                 break
-            if self.match_color(button):
+            if interval.reached() and self.match_color(button):  # click too fast will open then close tab immediately
                 self.device.click(button)
+                interval.reset()
 
         type_button = self._get_sort_order_button(key=key)
 

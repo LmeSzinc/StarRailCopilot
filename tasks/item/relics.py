@@ -1,10 +1,11 @@
 import math
 import re
+from typing import Optional
 
 from module.base.timer import Timer
 from module.base.utils import area_offset, area_pad
 from module.logger import logger
-from module.ocr.ocr import Ocr, DigitCounter
+from module.ocr.ocr import Ocr
 from tasks.base.assets.assets_base_page import CLOSE
 from tasks.item.assets.assets_item_relics import *
 from tasks.item.assets.assets_item_relics_enhance import *
@@ -17,22 +18,6 @@ from tasks.item.ui import ItemUI
 
 def offset_to_sort_order_area(sort_type_button):
     return area_offset(sort_type_button.button, (200, 0))
-
-
-class RelicEXPCounter(DigitCounter):
-    def format_result(self, result) -> tuple[int, int, int]:
-        result = super().after_process(result)
-        logger.attr(name=self.name, text=str(result))
-
-        res = re.search(r'(?:\+(\d+))?\D*(\d+)/(\d+)', result)
-        if res:
-            groups = [int(s) if s else 0 for s in res.groups()]
-            [added, current, total] = groups
-            current += added
-            return current, total - current, total
-        else:
-            logger.warning(f'No digit counter found in {result}')
-            return 0, 0, 0
 
 
 class RelicsUI(ItemUI):
@@ -154,10 +139,18 @@ class RelicsUI(ItemUI):
         self.salvage_exit()
         return result
 
-    def get_exp_remain(self):
-        counter = RelicEXPCounter(ENHANCE_RELIC_EXP_OCR)
-        _, remain, _ = counter.ocr_single_line(self.device.image)
-        return remain
+    def get_exp_remain(self) -> Optional[int]:
+        ocr = Ocr(ENHANCE_RELIC_EXP_OCR)
+        results = ocr.detect_and_ocr(self.device.image)
+        for result in results:
+            res = re.search(r'(?:\+(\d+))?\D*(\d+)/(\d+)', result.ocr_text)
+            if res:
+                groups = [int(s) if s else 0 for s in res.groups()]
+                [added, current, total] = groups
+                current += added
+                return total - current
+        logger.warning(f'No digit counter found in {results}')
+        return None
 
     def _does_level_up(self):
         ocr = Ocr(ENHANCE_RELIC_LEVEL_OCR)
@@ -248,6 +241,11 @@ class RelicsUI(ItemUI):
                 _, remain, _ = item.get_stackable_item_count(main=self)
                 exp = exp_list[item.get_rarity(main=self) - 1]
                 exp_needed = self.get_exp_remain()
+                if exp_needed is None:
+                    return False
+                if exp_needed <= 0:
+                    logger.warning("Get non-positive exp_needed, can not feed one level successfully")
+                    return False
                 exp_count = math.ceil(exp_needed / exp)
                 exp_count = exp_count if remain > exp_count else remain
 
@@ -267,6 +265,7 @@ class RelicsUI(ItemUI):
 
             else:
                 logger.warning(f"Try add item {item} failed")
+                return False
 
     def _enhance_confirm(self, skip_first_screenshot=True):
         interval = Timer(1).start()

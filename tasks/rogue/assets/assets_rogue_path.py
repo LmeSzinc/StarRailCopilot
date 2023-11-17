@@ -63,6 +63,16 @@ CHECK_PRESERVATION = ButtonWrapper(
         button=(220, 308, 270, 358),
     ),
 )
+CHECK_PROPAGATION = ButtonWrapper(
+    name='CHECK_PROPAGATION',
+    share=Button(
+        file='./assets/share/rogue/path/CHECK_PROPAGATION.png',
+        area=(206, 308, 286, 372),
+        search=(186, 288, 306, 392),
+        color=(126, 104, 75),
+        button=(206, 308, 286, 372),
+    ),
+)
 CHECK_REMEMBRANCE = ButtonWrapper(
     name='CHECK_REMEMBRANCE',
     share=Button(
@@ -161,5 +171,15 @@ CONFIRM_PATH = ButtonWrapper(
         search=(825, 614, 888, 701),
         color=(178, 178, 178),
         button=(865, 640, 1139, 675),
+    ),
+)
+OCR_ROGUE_PATH = ButtonWrapper(
+    name='OCR_ROGUE_PATH',
+    share=Button(
+        file='./assets/share/rogue/path/OCR_ROGUE_PATH.png',
+        area=(10, 463, 1273, 499),
+        search=(0, 443, 1280, 519),
+        color=(25, 27, 34),
+        button=(10, 463, 1273, 499),
     ),
 )

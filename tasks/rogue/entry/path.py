@@ -1,3 +1,5 @@
+import time
+
 from module.base.decorator import cached_property
 from module.base.timer import Timer
 from module.exception import ScriptError
@@ -8,6 +10,8 @@ from tasks.rogue.assets.assets_rogue_ui import ROGUE_LAUNCH
 from tasks.rogue.bleesing.ui import RogueUI
 from tasks.rogue.exception import RogueTeamNotPrepared
 from tasks.rogue.keywords import KEYWORDS_ROGUE_PATH, RoguePath
+from module.ui.draggable_list import DraggableList
+from module.ocr.ocr import Ocr
 
 
 def area_pad_around(area, pad):
@@ -29,6 +33,17 @@ def area_pad_around(area, pad):
            bottom_right_y - bottom_right_y_pad
 
 
+ROGUE_PATH_LIST = DraggableList(
+    'RoguePathList',
+    keyword_class=RoguePath,
+    ocr_class=Ocr,
+    search_button=OCR_ROGUE_PATH,
+    check_row_order=False,
+    drag_direction="right"
+)
+ROGUE_PATH_LIST.drag_vector = (0.4, 0.4)
+
+
 class RoguePathHandler(RogueUI):
     @cached_property
     def _rogue_path_checks(self) -> dict[RoguePath, ButtonWrapper]:
@@ -40,6 +55,7 @@ class RoguePathHandler(RogueUI):
             KEYWORDS_ROGUE_PATH.The_Hunt: CHECK_THE_HUNT,
             KEYWORDS_ROGUE_PATH.Destruction: CHECK_DESTRUCTION,
             KEYWORDS_ROGUE_PATH.Elation: CHECK_ELATION,
+            KEYWORDS_ROGUE_PATH.Propagation: CHECK_PROPAGATION
         }
         return buttons
 
@@ -58,13 +74,6 @@ class RoguePathHandler(RogueUI):
         for b in buttons.values():
             b.load_search(area_pad_around(b.area, pad=(-100, -5, -100, -5)))
         return buttons
-
-    def _get_path_click(self, path: RoguePath) -> ButtonWrapper:
-        try:
-            return self._rogue_path_clicks[path]
-        except KeyError:
-            logger.critical(f'Invalid rogue path: {path}')
-            raise ScriptError
 
     def _get_selected_path(self, skip_first_screenshot=True) -> RoguePath | None:
         timeout = Timer(1, count=5).start()
@@ -112,7 +121,6 @@ class RoguePathHandler(RogueUI):
         logger.hr('Rogue path select', level=2)
         path: RoguePath = RoguePath.find(path)
         logger.info(f'Select path: {path}')
-        entry = self._get_path_click(path)
         while 1:
             if skip_first_screenshot:
                 skip_first_screenshot = False
@@ -137,9 +145,8 @@ class RoguePathHandler(RogueUI):
             if self.handle_popup_confirm():
                 continue
             # Select path
-            if self.interval_is_reached(entry, interval=2) and self._is_page_rogue_path():
-                if self.appear_then_click(entry, interval=2):
-                    self.interval_reset(entry, interval=2)
+            if self._is_page_rogue_path():
+                if ROGUE_PATH_LIST.select_row(path, self):
                     continue
             # Confirm path
             if self.appear(CONFIRM_PATH, interval=2):

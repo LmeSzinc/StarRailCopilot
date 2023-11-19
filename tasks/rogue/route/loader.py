@@ -89,10 +89,10 @@ class RouteLoader(RogueUI, MinimapWrapper, RouteLoader_, CharacterSwitch):
         visited = []
         for route in self.all_route:
             if plane.rogue_domain and plane.rogue_domain != route.domain:
-                if plane.rogue_domain in ['Encounter', 'Transaction'] and route.is_DomainOccurrence:
+                if plane.is_rogue_occurrence and route.is_DomainOccurrence:
                     # Treat as "Occurrence"
                     pass
-                elif plane.rogue_domain in ['Boss'] and route.is_DomainElite:
+                elif plane.is_rogue_elite and route.is_DomainElite:
                     # Treat as "Elite"
                     pass
                 else:
@@ -116,6 +116,12 @@ class RouteLoader(RogueUI, MinimapWrapper, RouteLoader_, CharacterSwitch):
             (r, s, p) for r, s, p in visited if np.linalg.norm(np.subtract(r.position, p)) < 5
         ]
         logger.info(f'Best 3 nearby predictions: {[(r.name, s, p) for r, s, p in nearby[:3]]}')
+        # Check special
+        for r, s, p in nearby:
+            if self._position_match_special(r, s, p):
+                logger.info(f'Route match special: {r.name}')
+                return r
+        # Check nearby
         if len(nearby) == 1:
             if nearby[0][1] > 0.05:
                 logger.attr('RoutePredict', nearby[0][0].name)
@@ -141,6 +147,39 @@ class RouteLoader(RogueUI, MinimapWrapper, RouteLoader_, CharacterSwitch):
             logger.warning('Similarity too close, not enough to make a prediction')
             return None
 
+    def _position_match_special(
+            self,
+            route: RogueRouteModel,
+            similarity: float,
+            position: tuple[float, float]
+    ) -> bool:
+        # 2023-11-13 23:50:00.470 | INFO | Best 3 predictions: [
+        # ('Occurrence_Luofu_Cloudford_F1_X241Y947', 0.119, (272.6, 948.5)),
+        # ('Occurrence_Jarilo_GreatMine_F1_X277Y605', 0.107, (264.4, 645.0)),
+        # ('Occurrence_Luofu_ArtisanshipCommission_F1_X521Y63', 0.106, (569.8, 34.8))]
+        # 2023-11-13 23:50:00.472 | INFO | Best 3 nearby predictions: [
+        # ('Occurrence_Herta_SupplyZone_F2Rogue_X397Y223', 0.102, (393.2, 222.8)),
+        # ('Occurrence_Herta_StorageZone_F2_X365Y167', 0.094, (363.0, 166.8)),
+        # ('Occurrence_Herta_StorageZone_F2_X363Y166', 0.094, (363.0, 166.8))]
+        if route.name == 'Occurrence_Herta_StorageZone_F2_X363Y166' and similarity > 0.05:
+            return True
+        # Before Combat_Luofu_Cloudford_F1_X281Y873
+        if route.name == [
+            'Combat_Herta_StorageZone_F1_X273Y92',
+            'Occurrence_Herta_StorageZone_F1_X273Y93',
+            'Occurrence_Jarilo_RivetTown_F1_X289Y97',
+            'Occurrence_Luofu_DivinationCommission_F2_X425Y791',
+        ] and similarity > 0.1:
+            return True
+        # INFO     21:27:00.816 │ Best 3 nearby predictions: [
+        # ('Combat_Herta_SupplyZone_F2_X45Y369', 0.184, (41.0, 369.1)),
+        # ('Combat_Luofu_Cloudford_F1_X281Y873', 0.149, (281.8, 869.6)),
+        # ('Combat_Luofu_Cloudford_F1_X283Y865', 0.149, (281.8, 869.6))]
+        if route.name in ['Combat_Luofu_Cloudford_F1_X283Y865', 'Occurrence_Luofu_Cloudford_F1_X283Y865'] \
+                and similarity > 0.05:
+            return True
+        return False
+
     def position_find_bruteforce(self, image) -> Minimap:
         """
         Fallback method to find from all planes and floors
@@ -160,7 +199,7 @@ class RouteLoader(RogueUI, MinimapWrapper, RouteLoader_, CharacterSwitch):
             return f'{minimap_.plane.name}_{minimap_.floor}_X{int(minimap_.position[0])}Y{int(minimap_.position[1])}'
 
         visited = sorted(self.all_minimap.values(), key=lambda x: x.position_similarity, reverse=True)
-        logger.info(f'Best 5 prediction: {[(get_name(m), m.position_similarity) for m in visited[:5]]}')
+        logger.info(f'Best 5 prediction: {[(get_name(m), m.position_similarity) for m in visited[:50]]}')
         if visited[1].position_similarity / visited[0].position_similarity > 0.75:
             logger.warning('Similarity too close, predictions may go wrong')
 
@@ -233,9 +272,10 @@ class RouteLoader(RogueUI, MinimapWrapper, RouteLoader_, CharacterSwitch):
 
 
 if __name__ == '__main__':
-    self = RouteLoader('src', task='Rogue')
+    self = RouteLoader('1101九', task='Rogue')
     # self.image_file = r''
     self.device.screenshot()
+    self.position_find()
     self.position_find_bruteforce(self.device.image)
 
     # self.device.screenshot()

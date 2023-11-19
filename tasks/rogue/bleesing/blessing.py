@@ -141,6 +141,9 @@ class RogueBlessingSelector(RogueSelector):
         self.ocr_results = results
         return results
 
+    def _blessing_confirm_appear(self) -> bool:
+        return self.main.image_color_count(BLESSING_CONFIRM, color=(223, 223, 223), threshold=221, count=500)
+
     def ui_select(self, target: OcrResultButton | None, skip_first_screenshot=True):
         """
         Select buff once. Multiple calls needed if there's more than one time to choose
@@ -161,7 +164,7 @@ class RogueBlessingSelector(RogueSelector):
             if self.main.is_page_choose_curio():
                 logger.info("Choose curio page checked")
                 return True
-            if self.main.is_page_choose_blessing() and not is_card_selected(self.main, target, BLESSING_CONFIRM):
+            if self.main.is_page_choose_blessing() and not self._blessing_confirm_appear():
                 logger.info("A new choose blessing page checked")
                 return True
             if self.main.is_page_event():
@@ -176,6 +179,7 @@ class RogueBlessingSelector(RogueSelector):
             enforce = True
 
         # start -> selected
+        clicked = 0
         while 1:
             if skip_first_screenshot:
                 skip_first_screenshot = False
@@ -188,12 +192,21 @@ class RogueBlessingSelector(RogueSelector):
                 else:
                     logger.info(f"Buff {target} selected")
                 break
+            # A game bug, blessing card does not appear to be selected but actually being selected
+            if clicked >= 3 and self._blessing_confirm_appear():
+                logger.warning('blessing card does not appear to be selected but actually being selected')
+                if enforce:
+                    logger.info("Buff selected (enforce)")
+                else:
+                    logger.info(f"Buff {target} selected")
+                break
             if interval.reached():
                 if enforce:
                     self.main.device.click(BLESSING_ENFORCE)
                 else:
                     self.main.device.click(target)
                 interval.reset()
+                clicked += 1
 
         skip_first_screenshot = True
         # Avoid double-clicking

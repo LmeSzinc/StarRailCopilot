@@ -138,6 +138,23 @@ class RouteBase(RouteBase_, RogueExit, RogueEvent, RogueReward):
         minimap = ClickButton(area, name='MINIMAP')
         self.wait_until_stable(minimap, timeout=Timer(1.5, count=5))
 
+    def clear_enemy(self, *waypoints):
+        waypoints = ensure_waypoints(waypoints)
+        end_point = waypoints[-1]
+        if self.plane.is_rogue_combat:
+            end_point.expected_enroute.append('item')
+        return super().clear_enemy(*waypoints)
+
+    def clear_item(self, *waypoints):
+        """
+        Shorten unexpected timer as items are randomly generated
+        """
+        waypoints = ensure_waypoints(waypoints)
+        end_point = waypoints[-1]
+        if self.plane.is_rogue_combat or self.plane.is_rogue_occurrence:
+            end_point.unexpected_confirm = Timer(1, count=5)
+        return super().clear_item(*waypoints)
+
     """
     Additional rogue methods
     """
@@ -173,6 +190,8 @@ class RouteBase(RouteBase_, RogueExit, RogueEvent, RogueReward):
         end_point.endpoint_threshold = 1.5
         end_point.interact_radius = 7
         end_point.expected_end.append(self._domain_event_expected_end)
+        if self.plane.is_rogue_occurrence:
+            end_point.expected_enroute.append('item')
 
         result = self.goto(*waypoints)
         self.clear_occurrence()
@@ -249,6 +268,8 @@ class RouteBase(RouteBase_, RogueExit, RogueEvent, RogueReward):
                 logger.info(f'{ROGUE_REPORT} -> {BLESSING_CONFIRM}')
                 self.device.click(BLESSING_CONFIRM)
                 continue
+            if self.handle_blessing():
+                continue
             # Confirm that leave without getting rewards
             if self.handle_popup_confirm():
                 continue
@@ -267,25 +288,20 @@ class RouteBase(RouteBase_, RogueExit, RogueEvent, RogueReward):
         logger.hr('Domain single exit', level=1)
         waypoints = ensure_waypoints(waypoints)
         end_point = waypoints[-1]
-        end_point.interact_radius = 7
+        end_point.min_speed = 'run'
+        end_point.interact_radius = 5
         end_point.expected_end.append(self._domain_exit_expected_end)
 
         result = self.goto(*waypoints)
         self._domain_exit_wait_next()
         return result
 
-    def domain_exit(self, *waypoints, end_rotation=None):
-        logger.hr('Domain exit', level=1)
-        waypoints = ensure_waypoints(waypoints)
-        end_point = waypoints[-1]
-        end_point.endpoint_threshold = 1.5
-        result = self.goto(*waypoints)
-
-        logger.hr('End rotation', level=2)
-        self.rotation_set(end_rotation, threshold=10)
-
-        logger.hr('Find domain exit', level=2)
-        direction = self.predict_door()
+    def _domain_exit_old(self):
+        """
+        An old implementation that go along specific direction without retries
+        """
+        logger.info(f'Using old predict_door()')
+        direction = self.predict_door_old()
         direction_limit = 55
         if direction is not None:
             if abs(direction) > direction_limit:
@@ -304,25 +320,104 @@ class RouteBase(RouteBase_, RogueExit, RogueEvent, RogueReward):
             )
             self.goto(point)
             self._domain_exit_wait_next()
+        return True
 
-        return result
+    def domain_exit(
+            self,
+            *waypoints,
+            end_rotation: int = None,
+            left_door: Waypoint = None,
+            right_door: Waypoint = None
+    ):
+        """
+        Goto domain exit, choose one door, goto door
+        """
+        logger.hr('Domain exit', level=1)
+        # Goto the front of the two doors
+        waypoints = ensure_waypoints(waypoints)
+        end_point = waypoints[-1]
+        end_point.endpoint_threshold = 1.5
+        self.goto(*waypoints)
+
+        # Rotate camera to insight two doors
+        logger.hr('End rotation', level=2)
+        self.rotation_set(end_rotation, threshold=10)
+
+        # Choose a door
+        logger.hr('Find domain exit', level=2)
+        logger.info(f'Migrate={self.config.DOMAIN_EXIT_MIGRATE_DEV}, left_door={left_door}, right_door={right_door}')
+        if not self.config.DOMAIN_EXIT_MIGRATE_DEV and (not left_door and not right_door):
+            return self._domain_exit_old()
+
+        logger.info(f'Using new predict_door()')
+        door = self.predict_door()
+        if self.config.DOMAIN_EXIT_MIGRATE_DEV and self.exit_has_double_door and (not left_door or not right_door):
+            logger.critical(f'Domain exit is not defined in: {self.route_func}')
+            exit(1)
+
+        # Goto door
+        if door == 'left_door':
+            if not left_door:
+                return self._domain_exit_old()
+            if self.domain_single_exit(left_door):
+                return True
+            else:
+                logger.error('Cannot goto either exit doors, try both')
+                if self.domain_single_exit(right_door):
+                    return True
+                else:
+                    return False
+        elif door == 'right_door':
+            if not right_door:
+                return self._domain_exit_old()
+            if self.domain_single_exit(right_door):
+                return True
+            else:
+                logger.error('Cannot goto either exit doors, try both')
+                if self.domain_single_exit(left_door):
+                    return True
+                else:
+                    return False
+        else:
+            logger.error('Cannot goto either exit doors, try both')
+            if not left_door:
+                return self._domain_exit_old()
+            if not right_door:
+                return self._domain_exit_old()
+            if self.domain_single_exit(left_door):
+                return True
+            elif self.domain_single_exit(right_door):
+                return True
+            else:
+                return False
 
     """
     Route
     """
 
-    def register_domain_exit(self, *waypoints, end_rotation=None):
+    def register_domain_exit(
+            self,
+            *waypoints,
+            end_rotation: int = None,
+            left_door: Waypoint = None,
+            right_door: Waypoint = None
+    ):
         """
         Register an exit, call `domain_exit()` at route end
         """
-        self.registered_domain_exit = (waypoints, end_rotation)
+        self.registered_domain_exit = (waypoints, end_rotation, left_door, right_door)
 
     def before_route(self):
         self.registered_domain_exit = None
 
     def after_route(self):
         if self.registered_domain_exit is not None:
-            waypoints, end_rotation = self.registered_domain_exit
-            self.domain_exit(*waypoints, end_rotation=end_rotation)
+            waypoints, end_rotation, left_door, right_door = self.registered_domain_exit
+            self.domain_exit(
+                *waypoints,
+                end_rotation=end_rotation,
+                left_door=left_door,
+                right_door=right_door,
+            )
         else:
             logger.info('No domain exit registered')

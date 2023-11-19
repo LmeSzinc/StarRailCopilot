@@ -201,6 +201,10 @@ class MapControl(Combat, AimDetectorMixin):
                         attacked_item.reset()
                         direction_interval.reset()
                         rotation_interval.reset()
+                elif 'item' in waypoint.expected_enroute:
+                    if self.handle_map_A():
+                        direction_interval.reset()
+                        rotation_interval.reset()
                 if attacked_item.started():
                     attacked_item.reset()
             else:
@@ -375,6 +379,8 @@ class MapControl(Combat, AimDetectorMixin):
         """
         logger.hr('Clear item', level=1)
         waypoints = ensure_waypoints(waypoints)
+        for point in waypoints[:-1]:
+            point.expected_end = []
         end_point = waypoints[-1]
         end_point.expected_end.append('item')
 
@@ -390,6 +396,8 @@ class MapControl(Combat, AimDetectorMixin):
         """
         logger.hr('Clear enemy', level=1)
         waypoints = ensure_waypoints(waypoints)
+        for point in waypoints[:-1]:
+            point.expected_end = []
         end_point = waypoints[-1]
         end_point.expected_end.append('enemy')
 

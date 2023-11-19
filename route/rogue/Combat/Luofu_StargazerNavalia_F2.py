@@ -15,10 +15,14 @@ class Route(RouteBase):
         | enemy2   | Waypoint((572.4, 180.2)), | 284.6     | 94       |
         | node3    | Waypoint((618.0, 182.4)), | 274.2     | 105      |
         | enemy3   | Waypoint((622.2, 170.0)), | 284.7     | 94       |
-        | exit     | Waypoint((619.5, 169.4)), | 193.0     | 6        |
+        | exit_    | Waypoint((619.5, 169.4)), | 193.0     | 6        |
+        | exit1    | Waypoint((612.2, 160.4)), | 12.7      | 6        |
+        | exit2    | Waypoint((628.2, 160.4)), | 12.7      | 8        |
         """
         self.map_init(plane=Luofu_StargazerNavalia, floor="F2", position=(479.5, 187.5))
-        self.register_domain_exit(Waypoint((619.5, 169.4)), end_rotation=6)
+        self.register_domain_exit(
+            Waypoint((619.5, 169.4)), end_rotation=6,
+            left_door=Waypoint((612.2, 160.4)), right_door=Waypoint((628.2, 160.4)))
         item1 = Waypoint((516.4, 194.2))
         enemy1 = Waypoint((538.2, 182.6))
         enemy2 = Waypoint((572.4, 180.2))
@@ -50,10 +54,14 @@ class Route(RouteBase):
         | enemy1   | Waypoint((571.9, 180.5)), | 282.8     | 276      |
         | item2    | Waypoint((504.8, 177.2)), | 283.0     | 278      |
         | enemy2   | Waypoint((488.6, 188.2)), | 282.3     | 274      |
-        | exit     | Waypoint((486.5, 191.4)), | 182.7     | 274      |
+        | exit_    | Waypoint((486.5, 189.4)), | 182.7     | 274      |
+        | exit1    | Waypoint((480.2, 195.0)), | 281.9     | 274      |
+        | exit2    | Waypoint((481.2, 180.8)), | 282.0     | 274      |
         """
         self.map_init(plane=Luofu_StargazerNavalia, floor="F2", position=(627.8, 179.5))
-        self.register_domain_exit(Waypoint((486.5, 191.4)), end_rotation=274)
+        self.register_domain_exit(
+            Waypoint((486.5, 189.4)), end_rotation=274,
+            left_door=Waypoint((480.2, 195.0)), right_door=Waypoint((481.2, 180.8)))
         item1 = Waypoint((574.0, 172.5))
         enemy1 = Waypoint((571.9, 180.5))
         item2 = Waypoint((504.8, 177.2))

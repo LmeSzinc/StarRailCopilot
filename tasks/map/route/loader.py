@@ -62,6 +62,9 @@ class RouteLoader(UI):
                 logger.critical(f'Route file {route} ({path}) must define class Route')
                 raise ScriptError
             self.route_module = module
+            self.route_obj.route_module = module
+
+        self.route_obj.plane = self.plane
 
         # before_route()
         try:
@@ -78,6 +81,7 @@ class RouteLoader(UI):
             logger.critical(f'Route class in {route} ({path}) does not have method {func}')
             raise ScriptError
         self.route_func = func
+        self.route_obj.route_func = func
         func_obj()
 
         # after_route()

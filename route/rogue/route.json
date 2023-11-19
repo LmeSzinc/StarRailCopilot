@@ -1,7 +1,7 @@
 [
   {
-    "name": "Combat_Herta_StorageZone_F1_X210Y268",
-    "route": "route.rogue.Combat.Herta_StorageZone_F1:Herta_StorageZone_F1_X210Y268",
+    "name": "Combat_Herta_StorageZone_F1_X225Y258",
+    "route": "route.rogue.Combat.Herta_StorageZone_F1:Herta_StorageZone_F1_X225Y258",
     "plane": "Herta_StorageZone",
     "floor": "F1",
     "position": [
@@ -51,17 +51,6 @@
     "position": [
       749.5,
       45.6
-    ],
-    "domain": "Combat"
-  },
-  {
-    "name": "Combat_Herta_StorageZone_F1_X769Y39",
-    "route": "route.rogue.Combat.Herta_StorageZone_F1:Herta_StorageZone_F1_X769Y39",
-    "plane": "Herta_StorageZone",
-    "floor": "F1",
-    "position": [
-      769.0,
-      39.0
     ],
     "domain": "Combat"
   },
@@ -194,6 +183,17 @@
     "position": [
       152.0,
       245.4
+    ],
+    "domain": "Combat"
+  },
+  {
+    "name": "Combat_Jarilo_BackwaterPass_F1_X460Y165",
+    "route": "route.rogue.Combat.Jarilo_BackwaterPass_F1:Jarilo_BackwaterPass_F1_X460Y165",
+    "plane": "Jarilo_BackwaterPass",
+    "floor": "F1",
+    "position": [
+      460.0,
+      165.3
     ],
     "domain": "Combat"
   },
@@ -539,6 +539,17 @@
     "domain": "Combat"
   },
   {
+    "name": "Combat_Jarilo_SilvermaneGuardRestrictedZone_F1_X191Y199",
+    "route": "route.rogue.Combat.Jarilo_SilvermaneGuardRestrictedZone_F1:Jarilo_SilvermaneGuardRestrictedZone_F1_X191Y199",
+    "plane": "Jarilo_SilvermaneGuardRestrictedZone",
+    "floor": "F1",
+    "position": [
+      191.4,
+      199.4
+    ],
+    "domain": "Combat"
+  },
+  {
     "name": "Combat_Jarilo_SilvermaneGuardRestrictedZone_F1_X221Y426",
     "route": "route.rogue.Combat.Jarilo_SilvermaneGuardRestrictedZone_F1:Jarilo_SilvermaneGuardRestrictedZone_F1_X221Y426",
     "plane": "Jarilo_SilvermaneGuardRestrictedZone",
@@ -616,13 +627,68 @@
     "domain": "Combat"
   },
   {
-    "name": "Combat_Jarilo_SilvermaneGuardRestrictedZone_F1_X547Y467",
-    "route": "route.rogue.Combat.Jarilo_SilvermaneGuardRestrictedZone_F1:Jarilo_SilvermaneGuardRestrictedZone_F1_X547Y467",
+    "name": "Combat_Jarilo_SilvermaneGuardRestrictedZone_F1_X569Y495",
+    "route": "route.rogue.Combat.Jarilo_SilvermaneGuardRestrictedZone_F1:Jarilo_SilvermaneGuardRestrictedZone_F1_X569Y495",
     "plane": "Jarilo_SilvermaneGuardRestrictedZone",
     "floor": "F1",
     "position": [
-      547.1,
-      467.0
+      569.1,
+      495.0
+    ],
+    "domain": "Combat"
+  },
+  {
+    "name": "Combat_Luofu_AlchemyCommission_F1_X301Y441",
+    "route": "route.rogue.Combat.Luofu_AlchemyCommission_F1:Luofu_AlchemyCommission_F1_X301Y441",
+    "plane": "Luofu_AlchemyCommission",
+    "floor": "F1",
+    "position": [
+      301.6,
+      441.5
+    ],
+    "domain": "Combat"
+  },
+  {
+    "name": "Combat_Luofu_AlchemyCommission_F2_X415Y589",
+    "route": "route.rogue.Combat.Luofu_AlchemyCommission_F2:Luofu_AlchemyCommission_F2_X415Y589",
+    "plane": "Luofu_AlchemyCommission",
+    "floor": "F2",
+    "position": [
+      415.5,
+      589.4
+    ],
+    "domain": "Combat"
+  },
+  {
+    "name": "Combat_Luofu_AlchemyCommission_F2_X447Y508",
+    "route": "route.rogue.Combat.Luofu_AlchemyCommission_F2:Luofu_AlchemyCommission_F2_X447Y508",
+    "plane": "Luofu_AlchemyCommission",
+    "floor": "F2",
+    "position": [
+      447.4,
+      508.1
+    ],
+    "domain": "Combat"
+  },
+  {
+    "name": "Combat_Luofu_AlchemyCommission_F2_X457Y497",
+    "route": "route.rogue.Combat.Luofu_AlchemyCommission_F2:Luofu_AlchemyCommission_F2_X457Y497",
+    "plane": "Luofu_AlchemyCommission",
+    "floor": "F2",
+    "position": [
+      457.0,
+      497.0
+    ],
+    "domain": "Combat"
+  },
+  {
+    "name": "Combat_Luofu_ArtisanshipCommission_F1_X41Y640",
+    "route": "route.rogue.Combat.Luofu_ArtisanshipCommission_F1:Luofu_ArtisanshipCommission_F1_X41Y640",
+    "plane": "Luofu_ArtisanshipCommission",
+    "floor": "F1",
+    "position": [
+      41.4,
+      639.9
     ],
     "domain": "Combat"
   },
@@ -649,6 +715,28 @@
     "domain": "Combat"
   },
   {
+    "name": "Combat_Luofu_ArtisanshipCommission_F1_X473Y920",
+    "route": "route.rogue.Combat.Luofu_ArtisanshipCommission_F1:Luofu_ArtisanshipCommission_F1_X473Y920",
+    "plane": "Luofu_ArtisanshipCommission",
+    "floor": "F1",
+    "position": [
+      473.5,
+      920.9
+    ],
+    "domain": "Combat"
+  },
+  {
+    "name": "Combat_Luofu_ArtisanshipCommission_F1_X543Y269",
+    "route": "route.rogue.Combat.Luofu_ArtisanshipCommission_F1:Luofu_ArtisanshipCommission_F1_X543Y269",
+    "plane": "Luofu_ArtisanshipCommission",
+    "floor": "F1",
+    "position": [
+      543.3,
+      269.6
+    ],
+    "domain": "Combat"
+  },
+  {
     "name": "Combat_Luofu_ArtisanshipCommission_F1_X655Y537",
     "route": "route.rogue.Combat.Luofu_ArtisanshipCommission_F1:Luofu_ArtisanshipCommission_F1_X655Y537",
     "plane": "Luofu_ArtisanshipCommission",
@@ -656,6 +744,17 @@
     "position": [
       655.5,
       537.3
+    ],
+    "domain": "Combat"
+  },
+  {
+    "name": "Combat_Luofu_ArtisanshipCommission_F1_X667Y189",
+    "route": "route.rogue.Combat.Luofu_ArtisanshipCommission_F1:Luofu_ArtisanshipCommission_F1_X667Y189",
+    "plane": "Luofu_ArtisanshipCommission",
+    "floor": "F1",
+    "position": [
+      667.0,
+      189.2
     ],
     "domain": "Combat"
   },
@@ -737,6 +836,17 @@
     "domain": "Combat"
   },
   {
+    "name": "Combat_Luofu_Cloudford_F1Rogue_X59Y405",
+    "route": "route.rogue.Combat.Luofu_Cloudford_F1Rogue:Luofu_Cloudford_F1Rogue_X59Y405",
+    "plane": "Luofu_Cloudford",
+    "floor": "F1Rogue",
+    "position": [
+      59.3,
+      405.6
+    ],
+    "domain": "Combat"
+  },
+  {
     "name": "Combat_Luofu_Cloudford_F1Rogue_X49Y405",
     "route": "route.rogue.Combat.Luofu_Cloudford_F1Rogue:Luofu_Cloudford_F1Rogue_X49Y405",
     "plane": "Luofu_Cloudford",
@@ -766,6 +876,72 @@
     "position": [
       425.5,
       171.6
+    ],
+    "domain": "Combat"
+  },
+  {
+    "name": "Combat_Luofu_DivinationCommission_F1_X63Y303",
+    "route": "route.rogue.Combat.Luofu_DivinationCommission_F1:Luofu_DivinationCommission_F1_X63Y303",
+    "plane": "Luofu_DivinationCommission",
+    "floor": "F1",
+    "position": [
+      63.7,
+      303.4
+    ],
+    "domain": "Combat"
+  },
+  {
+    "name": "Combat_Luofu_DivinationCommission_F1_X97Y457",
+    "route": "route.rogue.Combat.Luofu_DivinationCommission_F1:Luofu_DivinationCommission_F1_X97Y457",
+    "plane": "Luofu_DivinationCommission",
+    "floor": "F1",
+    "position": [
+      97.2,
+      456.9
+    ],
+    "domain": "Combat"
+  },
+  {
+    "name": "Combat_Luofu_DivinationCommission_F1_X737Y237",
+    "route": "route.rogue.Combat.Luofu_DivinationCommission_F1:Luofu_DivinationCommission_F1_X737Y237",
+    "plane": "Luofu_DivinationCommission",
+    "floor": "F1",
+    "position": [
+      737.2,
+      237.6
+    ],
+    "domain": "Combat"
+  },
+  {
+    "name": "Combat_Luofu_DivinationCommission_F1_X737Y372",
+    "route": "route.rogue.Combat.Luofu_DivinationCommission_F1:Luofu_DivinationCommission_F1_X737Y372",
+    "plane": "Luofu_DivinationCommission",
+    "floor": "F1",
+    "position": [
+      737.4,
+      372.2
+    ],
+    "domain": "Combat"
+  },
+  {
+    "name": "Combat_Luofu_DivinationCommission_F2_X216Y659",
+    "route": "route.rogue.Combat.Luofu_DivinationCommission_F2:Luofu_DivinationCommission_F2_X216Y659",
+    "plane": "Luofu_DivinationCommission",
+    "floor": "F2",
+    "position": [
+      216.8,
+      659.5
+    ],
+    "domain": "Combat"
+  },
+  {
+    "name": "Combat_Luofu_DivinationCommission_F2_X239Y785",
+    "route": "route.rogue.Combat.Luofu_DivinationCommission_F2:Luofu_DivinationCommission_F2_X239Y785",
+    "plane": "Luofu_DivinationCommission",
+    "floor": "F2",
+    "position": [
+      239.4,
+      785.5
     ],
     "domain": "Combat"
   },
@@ -1100,13 +1276,35 @@
     "domain": "Elite"
   },
   {
-    "name": "Elite_Luofu_ArtisanshipCommission_F1_X506Y495",
-    "route": "route.rogue.Elite.Luofu_ArtisanshipCommission_F1:Luofu_ArtisanshipCommission_F1_X506Y495",
+    "name": "Elite_Luofu_AlchemyCommission_F2_X625Y590",
+    "route": "route.rogue.Elite.Luofu_AlchemyCommission_F2:Luofu_AlchemyCommission_F2_X625Y590",
+    "plane": "Luofu_AlchemyCommission",
+    "floor": "F2",
+    "position": [
+      623.1,
+      590.0
+    ],
+    "domain": "Elite"
+  },
+  {
+    "name": "Elite_Luofu_ArtisanshipCommission_F1_X385Y494",
+    "route": "route.rogue.Elite.Luofu_ArtisanshipCommission_F1:Luofu_ArtisanshipCommission_F1_X385Y494",
     "plane": "Luofu_ArtisanshipCommission",
     "floor": "F1",
     "position": [
-      506.0,
-      495.4
+      385.2,
+      494.6
+    ],
+    "domain": "Elite"
+  },
+  {
+    "name": "Elite_Luofu_ArtisanshipCommission_F1_X504Y493",
+    "route": "route.rogue.Elite.Luofu_ArtisanshipCommission_F1:Luofu_ArtisanshipCommission_F1_X504Y493",
+    "plane": "Luofu_ArtisanshipCommission",
+    "floor": "F1",
+    "position": [
+      504.0,
+      493.4
     ],
     "domain": "Elite"
   },
@@ -1118,6 +1316,17 @@
     "position": [
       337.3,
       1003.4
+    ],
+    "domain": "Elite"
+  },
+  {
+    "name": "Elite_Luofu_DivinationCommission_F2_X338Y345",
+    "route": "route.rogue.Elite.Luofu_DivinationCommission_F2:Luofu_DivinationCommission_F2_X338Y345",
+    "plane": "Luofu_DivinationCommission",
+    "floor": "F2",
+    "position": [
+      338.0,
+      345.5
     ],
     "domain": "Elite"
   },
@@ -1151,17 +1360,6 @@
     "position": [
       273.5,
       93.2
-    ],
-    "domain": "Occurrence"
-  },
-  {
-    "name": "Occurrence_Herta_StorageZone_F2_X365Y167",
-    "route": "route.rogue.Occurrence.Herta_StorageZone_F2:Herta_StorageZone_F2_X365Y167",
-    "plane": "Herta_StorageZone",
-    "floor": "F2",
-    "position": [
-      363.4,
-      166.9
     ],
     "domain": "Occurrence"
   },
@@ -1210,6 +1408,17 @@
     "domain": "Occurrence"
   },
   {
+    "name": "Occurrence_Herta_SupplyZone_F2Rogue_X397Y223",
+    "route": "route.rogue.Occurrence.Herta_SupplyZone_F2Rogue:Herta_SupplyZone_F2Rogue_X397Y223",
+    "plane": "Herta_SupplyZone",
+    "floor": "F2Rogue",
+    "position": [
+      397.4,
+      223.3
+    ],
+    "domain": "Occurrence"
+  },
+  {
     "name": "Occurrence_Herta_SupplyZone_F2Rogue_X397Y227",
     "route": "route.rogue.Occurrence.Herta_SupplyZone_F2Rogue:Herta_SupplyZone_F2Rogue_X397Y227",
     "plane": "Herta_SupplyZone",
@@ -1238,7 +1447,7 @@
     "floor": "F2Rogue",
     "position": [
       397.4,
-      235.3
+      235.0
     ],
     "domain": "Occurrence"
   },
@@ -1336,19 +1545,8 @@
     "plane": "Jarilo_GreatMine",
     "floor": "F1RogueOcc",
     "position": [
-      109.0,
-      423.0
-    ],
-    "domain": "Occurrence"
-  },
-  {
-    "name": "Occurrence_Jarilo_GreatMine_F1RogueOcc_X119Y444",
-    "route": "route.rogue.Occurrence.Jarilo_GreatMine_F1RogueOcc:Jarilo_GreatMine_F1RogueOcc_X119Y444",
-    "plane": "Jarilo_GreatMine",
-    "floor": "F1RogueOcc",
-    "position": [
-      119.3,
-      444.9
+      109.3,
+      422.9
     ],
     "domain": "Occurrence"
   },
@@ -1371,6 +1569,17 @@
     "position": [
       209.3,
       397.9
+    ],
+    "domain": "Occurrence"
+  },
+  {
+    "name": "Occurrence_Jarilo_RivetTown_F1_X289Y97",
+    "route": "route.rogue.Occurrence.Jarilo_RivetTown_F1:Jarilo_RivetTown_F1_X289Y97",
+    "plane": "Jarilo_RivetTown",
+    "floor": "F1",
+    "position": [
+      290.1,
+      97.5
     ],
     "domain": "Occurrence"
   },
@@ -1404,6 +1613,39 @@
     "position": [
       509.4,
       541.3
+    ],
+    "domain": "Occurrence"
+  },
+  {
+    "name": "Occurrence_Luofu_AlchemyCommission_F2_X473Y867",
+    "route": "route.rogue.Occurrence.Luofu_AlchemyCommission_F2:Luofu_AlchemyCommission_F2_X473Y867",
+    "plane": "Luofu_AlchemyCommission",
+    "floor": "F2",
+    "position": [
+      473.7,
+      867.7
+    ],
+    "domain": "Occurrence"
+  },
+  {
+    "name": "Occurrence_Luofu_AlchemyCommission_F2_X487Y589",
+    "route": "route.rogue.Occurrence.Luofu_AlchemyCommission_F2:Luofu_AlchemyCommission_F2_X487Y589",
+    "plane": "Luofu_AlchemyCommission",
+    "floor": "F2",
+    "position": [
+      487.4,
+      589.4
+    ],
+    "domain": "Occurrence"
+  },
+  {
+    "name": "Occurrence_Luofu_AlchemyCommission_F2_X517Y374",
+    "route": "route.rogue.Occurrence.Luofu_AlchemyCommission_F2:Luofu_AlchemyCommission_F2_X517Y374",
+    "plane": "Luofu_AlchemyCommission",
+    "floor": "F2",
+    "position": [
+      517.5,
+      374.1
     ],
     "domain": "Occurrence"
   },
@@ -1481,6 +1723,39 @@
     "position": [
       537.4,
       373.3
+    ],
+    "domain": "Occurrence"
+  },
+  {
+    "name": "Occurrence_Luofu_DivinationCommission_F2_X149Y659",
+    "route": "route.rogue.Occurrence.Luofu_DivinationCommission_F2:Luofu_DivinationCommission_F2_X149Y659",
+    "plane": "Luofu_DivinationCommission",
+    "floor": "F2",
+    "position": [
+      149.3,
+      659.3
+    ],
+    "domain": "Occurrence"
+  },
+  {
+    "name": "Occurrence_Luofu_DivinationCommission_F2_X337Y799",
+    "route": "route.rogue.Occurrence.Luofu_DivinationCommission_F2:Luofu_DivinationCommission_F2_X337Y799",
+    "plane": "Luofu_DivinationCommission",
+    "floor": "F2",
+    "position": [
+      337.4,
+      799.4
+    ],
+    "domain": "Occurrence"
+  },
+  {
+    "name": "Occurrence_Luofu_DivinationCommission_F2_X425Y791",
+    "route": "route.rogue.Occurrence.Luofu_DivinationCommission_F2:Luofu_DivinationCommission_F2_X425Y791",
+    "plane": "Luofu_DivinationCommission",
+    "floor": "F2",
+    "position": [
+      425.6,
+      791.4
     ],
     "domain": "Occurrence"
   },
@@ -1628,6 +1903,28 @@
     "domain": "Respite"
   },
   {
+    "name": "Respite_Luofu_AlchemyCommission_F2_X681Y625",
+    "route": "route.rogue.Respite.Luofu_AlchemyCommission_F2:Luofu_AlchemyCommission_F2_X681Y625",
+    "plane": "Luofu_AlchemyCommission",
+    "floor": "F2",
+    "position": [
+      680.9,
+      625.9
+    ],
+    "domain": "Respite"
+  },
+  {
+    "name": "Respite_Luofu_AlchemyCommission_F2_X685Y629",
+    "route": "route.rogue.Respite.Luofu_AlchemyCommission_F2:Luofu_AlchemyCommission_F2_X685Y629",
+    "plane": "Luofu_AlchemyCommission",
+    "floor": "F2",
+    "position": [
+      685.0,
+      629.0
+    ],
+    "domain": "Respite"
+  },
+  {
     "name": "Respite_Luofu_ArtisanshipCommission_F1_X299Y863",
     "route": "route.rogue.Respite.Luofu_ArtisanshipCommission_F1:Luofu_ArtisanshipCommission_F1_X299Y863",
     "plane": "Luofu_ArtisanshipCommission",
@@ -1646,6 +1943,17 @@
     "position": [
       417.5,
       933.4
+    ],
+    "domain": "Respite"
+  },
+  {
+    "name": "Respite_Luofu_DivinationCommission_F2_X824Y659",
+    "route": "route.rogue.Respite.Luofu_DivinationCommission_F2:Luofu_DivinationCommission_F2_X824Y659",
+    "plane": "Luofu_DivinationCommission",
+    "floor": "F2",
+    "position": [
+      824.7,
+      659.4
     ],
     "domain": "Respite"
   },

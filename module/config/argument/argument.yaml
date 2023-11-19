@@ -135,7 +135,7 @@ Weekly:
   Name:
     # Dungeon names will be injected in config updater
     value: Echo_of_War_Divine_Seed
-    options: []
+    options: [ ]
   Team:
     value: 1
     option: [ 1, 2, 3, 4, 5, 6 ]
@@ -147,6 +147,14 @@ AchievableQuest:
 #    value: achievable
 #    option: [ achievable, not_set, not_supported ]
 #    option_bold: [ achievable, ]
+QuestOption:
+  SalvageRelic:
+    value: 4-star_or_below
+    option: [ 5-star_or_below, 4-star_or_below, 3-star_or_below, do_not_achieve ]
+  LevelUpRelic:
+    value: 4-star_or_below
+    option: [ 5-star_or_below, 4-star_or_below, 3-star_or_below, do_not_achieve ]
+
 DailyStorage:
   DailyActivity:
     stored: StoredDailyActivity

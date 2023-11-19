@@ -640,6 +640,28 @@
       "not_supported": "No soportado aún"
     }
   },
+  "QuestOption": {
+    "_info": {
+      "name": "QuestOption._info.name",
+      "help": "QuestOption._info.help"
+    },
+    "SalvageRelic": {
+      "name": "QuestOption.SalvageRelic.name",
+      "help": "QuestOption.SalvageRelic.help",
+      "5-star_or_below": "5-star_or_below",
+      "4-star_or_below": "4-star_or_below",
+      "3-star_or_below": "3-star_or_below",
+      "do_not_achieve": "do_not_achieve"
+    },
+    "LevelUpRelic": {
+      "name": "QuestOption.LevelUpRelic.name",
+      "help": "QuestOption.LevelUpRelic.help",
+      "5-star_or_below": "5-star_or_below",
+      "4-star_or_below": "4-star_or_below",
+      "3-star_or_below": "3-star_or_below",
+      "do_not_achieve": "do_not_achieve"
+    }
+  },
   "DailyStorage": {
     "_info": {
       "name": "DailyStorage._info.name",

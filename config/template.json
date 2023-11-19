@@ -83,6 +83,10 @@
       "Command": "DailyQuest",
       "ServerUpdate": "04:00"
     },
+    "QuestOption": {
+      "SalvageRelic": "4-star_or_below",
+      "LevelUpRelic": "4-star_or_below"
+    },
     "AchievableQuest": {
       "Complete_1_Daily_Mission": "not_supported",
       "Clear_Calyx_Golden_1_times": "achievable",

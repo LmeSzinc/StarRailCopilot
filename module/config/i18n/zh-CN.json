@@ -640,6 +640,28 @@
       "not_supported": "暂未支持"
     }
   },
+  "QuestOption": {
+    "_info": {
+      "name": "任务设置",
+      "help": ""
+    },
+    "SalvageRelic": {
+      "name": "遗器分解稀有度范围",
+      "help": "尝试完成“分解任意1件遗器”任务时，只会分解选定范围内稀有度的遗器",
+      "5-star_or_below": "5 星遗器及以下",
+      "4-star_or_below": "4 星遗器及以下",
+      "3-star_or_below": "3 星遗器及以下",
+      "do_not_achieve": "不完成这个任务"
+    },
+    "LevelUpRelic": {
+      "name": "遗器升级稀有度范围",
+      "help": "尝试完成“将任意遗器等级提升1次”任务时，只会升级选定范围内稀有度的遗器。喂掉的材料也只会在选定范围内按稀有度倒序选取",
+      "5-star_or_below": "5 星遗器及以下",
+      "4-star_or_below": "4 星遗器及以下",
+      "3-star_or_below": "3 星遗器及以下",
+      "do_not_achieve": "不完成这个任务"
+    }
+  },
   "DailyStorage": {
     "_info": {
       "name": "DailyStorage._info.name",

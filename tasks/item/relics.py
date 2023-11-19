@@ -71,6 +71,16 @@ class RelicsUI(ItemUI):
             logger.warning(f"Can not select salvageable relic")
             return False
 
+        rarity_threshold = 5
+        if self.config.QuestOption_SalvageRelic == '4-star_or_below':
+            rarity_threshold = 4
+        if self.config.QuestOption_SalvageRelic == '3-star_or_below':
+            rarity_threshold = 3
+
+        if item.get_rarity(main=self) > rarity_threshold:
+            logger.warning("No relic satisfy preset rarity, can not salvage")
+            return False
+
         while 1:  # salvage -> first relic selected
             if skip_first_screenshot:
                 skip_first_screenshot = False
@@ -232,8 +242,19 @@ class RelicsUI(ItemUI):
                 added_item = 0
 
             # The fact is, the locked/equipped relics will be sorted at bottom of the inventory
+            # so checking whether relic is locked is no longer necessary here
             # while inventory.is_item_locked(item):
             #     item = next(items,  None)
+
+            rarity_threshold = 5
+            if self.config.QuestOption_LevelUpRelic == '4-star_or_below':
+                rarity_threshold = 4
+            if self.config.QuestOption_LevelUpRelic == '3-star_or_below':
+                rarity_threshold = 3
+
+            if item.get_rarity(main=self) > rarity_threshold:
+                logger.warning("No relic satisfy preset rarity, can not salvage")
+                return False
 
             stackable = item.is_item_stackable(main=self)
             exp_count = 0
@@ -297,13 +318,12 @@ class RelicsUI(ItemUI):
             if self.appear_then_click(ENHANCE_POPUP):
                 continue
 
-    def _select_relic(self, skip_first_screenshot=True) -> bool:
+    def _select_level_up_relic(self, skip_first_screenshot=True) -> bool:
         def is_max_level(relic: Item):
             level = relic.get_data_count(main=self)
             rarity = relic.get_rarity(main=self)
             return level == rarity * 3
 
-        interval = Timer(1)
         # select first relic
         inventory = Inventory(ITEM_PAGE_INVENTORY)
         inventory.wait_until_inventory_stable(main=self)
@@ -317,6 +337,17 @@ class RelicsUI(ItemUI):
             logger.warning("No relic can be leveled up")
             return False
 
+        rarity_threshold = 5
+        if self.config.QuestOption_LevelUpRelic == '4-star_or_below':
+            rarity_threshold = 4
+        if self.config.QuestOption_LevelUpRelic == '3-star_or_below':
+            rarity_threshold = 3
+
+        if item.get_rarity(main=self) > rarity_threshold:
+            logger.warning("No relic satisfy preset rarity, can not be leveled up")
+            return False
+
+        interval = Timer(1)
         while 1:
             if skip_first_screenshot:
                 skip_first_screenshot = False
@@ -339,7 +370,7 @@ class RelicsUI(ItemUI):
         self.ensure_sort_order(offset_to_sort_order_area(RELIC_MAIN_PAGE_SORT_TYPE_BUTTON), "ascending")
 
         # select relic
-        if not self._select_relic():
+        if not self._select_level_up_relic():
             return False
 
         interval = Timer(1)

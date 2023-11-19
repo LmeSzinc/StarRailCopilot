@@ -96,6 +96,10 @@ class GeneratedConfig:
     AchievableQuest_Synthesize_material_1_time = 'achievable'  # achievable, not_set, not_supported
     AchievableQuest_Use_Consumables_1_time = 'achievable'  # achievable, not_set, not_supported
 
+    # Group `QuestOption`
+    QuestOption_SalvageRelic = '4-star_or_below'  # 5-star_or_below, 4-star_or_below, 3-star_or_below, do_not_achieve
+    QuestOption_LevelUpRelic = '4-star_or_below'  # 5-star_or_below, 4-star_or_below, 3-star_or_below, do_not_achieve
+
     # Group `DailyStorage`
     DailyStorage_DailyActivity = {}
     DailyStorage_DailyQuest = {}

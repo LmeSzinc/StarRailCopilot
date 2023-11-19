@@ -640,6 +640,28 @@
       "not_supported": "Not Supported Yet"
     }
   },
+  "QuestOption": {
+    "_info": {
+      "name": "QuestOptions",
+      "help": "QuestOptions"
+    },
+    "SalvageRelic": {
+      "name": "Relic Salvage Range",
+      "help": "Only relics that in selected range will be salvaged when completing 'Salvage any Relic' quest",
+      "5-star_or_below": "5-star or below",
+      "4-star_or_below": "4-star or below",
+      "3-star_or_below": "3-star or below",
+      "do_not_achieve": "Don't Do This Quest"
+    },
+    "LevelUpRelic": {
+      "name": "Relic Level Up Range",
+      "help": "Only relics that in selected range will be leveled up/feed to other relic when completing 'Level up any Relic 1 time' quest",
+      "5-star_or_below": "5-star_or_below",
+      "4-star_or_below": "4-star_or_below",
+      "3-star_or_below": "3-star_or_below",
+      "do_not_achieve": "Don't Do This Quest"
+    }
+  },
   "DailyStorage": {
     "_info": {
       "name": "DailyStorage._info.name",

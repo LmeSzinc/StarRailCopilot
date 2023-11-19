@@ -33,6 +33,7 @@ Daily:
       - Weekly
     DailyQuest:
       - Scheduler
+      - QuestOption
       - AchievableQuest
       - DailyStorage
     BattlePass:

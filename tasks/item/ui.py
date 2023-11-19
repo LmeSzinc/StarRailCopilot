@@ -162,9 +162,10 @@ class ItemUI(UI):
 
             if self.appear(POPUP_CONFIRM):
                 break
-            if interval.reached() and self.match_color(button):  # click too fast will open then close tab immediately
-                self.device.click(button)
-                interval.reset()
+            if interval.reached():  # click too fast will open then close tab immediately
+                if self.image_color_count(button, (221, 223, 223), count=6000):
+                    self.device.click(button)
+                    interval.reset()
 
         type_button = self._get_sort_order_button(key=key)
 

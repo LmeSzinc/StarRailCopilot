@@ -6,8 +6,7 @@ from module.base.utils import color_similarity_2d, get_color
 from module.logger import logger
 from tasks.base.ui import UI
 from tasks.forgotten_hall.assets.assets_forgotten_hall_team import *
-from tasks.forgotten_hall.assets.assets_forgotten_hall_ui import ENTER_FORGOTTEN_HALL_DUNGEON, ENTRANCE_CHECKED, SEAT_1, \
-    SEAT_2, SEAT_3, SEAT_4
+from tasks.forgotten_hall.assets.assets_forgotten_hall_ui import ENTER_FORGOTTEN_HALL_DUNGEON, ENTRANCE_CHECKED, SEAT_1, SEAT_2, SEAT_3, SEAT_4
 
 
 class ForgottenHallTeam(UI):
@@ -100,9 +99,3 @@ class ForgottenHallTeam(UI):
             if all(chosen_list):
                 logger.info("Team already prepared")
                 return True
-
-
-if __name__ == '__main__':
-    self = ForgottenHallTeam('src')
-    self.device.screenshot()
-    print(self.team_choose_first_4())

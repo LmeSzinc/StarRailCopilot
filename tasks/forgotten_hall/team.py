@@ -6,7 +6,8 @@ from module.base.utils import color_similarity_2d, get_color
 from module.logger import logger
 from tasks.base.ui import UI
 from tasks.forgotten_hall.assets.assets_forgotten_hall_team import *
-from tasks.forgotten_hall.assets.assets_forgotten_hall_ui import ENTER_FORGOTTEN_HALL_DUNGEON, ENTRANCE_CHECKED, SEAT_1, SEAT_2, SEAT_3, SEAT_4
+from tasks.forgotten_hall.assets.assets_forgotten_hall_ui import ENTER_FORGOTTEN_HALL_DUNGEON, ENTRANCE_CHECKED, SEAT_1, \
+    SEAT_2, SEAT_3, SEAT_4
 
 
 class ForgottenHallTeam(UI):
@@ -50,22 +51,6 @@ class ForgottenHallTeam(UI):
         # CHARACTER_4 129.76432291666666
         return color > 180
 
-    def is_seat_chosen(self, button: ButtonWrapper) -> bool:
-        image = color_similarity_2d(self.image_crop(button), color=(255, 255, 255))
-        color = cv2.mean(image)[0]
-        print(button, color)
-        # Chosen:
-        # SEAT_1 65.91428571428573
-        # SEAT_2 67.6952380952381
-        # SEAT_3 66.74489795918367
-        # SEAT_4 66.77551020408163
-        # Not chosen
-        # SEAT_1 135.78095238095239
-        # SEAT_2 201.53333333333336
-        # SEAT_3 166.1734693877551
-        # SEAT_4 178.83673469387753
-        return color < 100
-
     def team_choose_first_4(self, skip_first_screenshot=True):
         """
         Choose the first 4 characters in list.
@@ -73,6 +58,7 @@ class ForgottenHallTeam(UI):
         logger.info('Team choose first 4')
         self.interval_clear(ENTRANCE_CHECKED)
         characters = [CHARACTER_1, CHARACTER_2, CHARACTER_3, CHARACTER_4]
+        seats = [SEAT_1, SEAT_2, SEAT_3, SEAT_4]
         while 1:
             if skip_first_screenshot:
                 skip_first_screenshot = False
@@ -80,8 +66,12 @@ class ForgottenHallTeam(UI):
                 self.device.screenshot()
 
             chosen_list = [self.is_character_chosen(c) for c in characters]
+            seat_list = [not self.appear(s) for s in seats]
             if all(chosen_list):
                 logger.info("First 4 characters are chosen")
+                break
+            if all(seat_list):
+                logger.info("4 characters are chosen")
                 break
             if self.appear(ENTRANCE_CHECKED, interval=2):
                 for character, chosen in zip(characters, chosen_list):
@@ -106,7 +96,13 @@ class ForgottenHallTeam(UI):
             if timeout.reached():
                 logger.info('Team not prepared')
                 return False
-            chosen_list = [self.is_seat_chosen(s) for s in seats]
+            chosen_list = [not self.appear(s) for s in seats]
             if all(chosen_list):
                 logger.info("Team already prepared")
                 return True
+
+
+if __name__ == '__main__':
+    self = ForgottenHallTeam('src')
+    self.device.screenshot()
+    print(self.team_choose_first_4())

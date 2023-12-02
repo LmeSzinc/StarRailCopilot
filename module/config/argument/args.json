@@ -505,28 +505,6 @@
         "display": "hide"
       }
     },
-    "QuestOption": {
-      "SalvageRelic": {
-        "type": "select",
-        "value": "4-star_or_below",
-        "option": [
-          "5-star_or_below",
-          "4-star_or_below",
-          "3-star_or_below",
-          "do_not_achieve"
-        ]
-      },
-      "LevelUpRelic": {
-        "type": "select",
-        "value": "4-star_or_below",
-        "option": [
-          "5-star_or_below",
-          "4-star_or_below",
-          "3-star_or_below",
-          "do_not_achieve"
-        ]
-      }
-    },
     "AchievableQuest": {
       "Complete_1_Daily_Mission": {
         "type": "state",
@@ -829,12 +807,13 @@
         ]
       },
       "Level_up_any_Relic_1_time": {
-        "type": "state",
+        "type": "select",
         "value": "achievable",
         "option": [
-          "achievable",
-          "not_set",
-          "not_supported"
+          "5-star_or_below",
+          "4-star_or_below",
+          "3-star_or_below",
+          "do_not_achieve"
         ],
         "option_bold": [
           "achievable"
@@ -844,12 +823,13 @@
         ]
       },
       "Salvage_any_Relic": {
-        "type": "state",
+        "type": "select",
         "value": "achievable",
         "option": [
-          "achievable",
-          "not_set",
-          "not_supported"
+          "5-star_or_below",
+          "4-star_or_below",
+          "3-star_or_below",
+          "do_not_achieve"
         ],
         "option_bold": [
           "achievable"

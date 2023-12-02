@@ -83,10 +83,6 @@
       "Command": "DailyQuest",
       "ServerUpdate": "04:00"
     },
-    "QuestOption": {
-      "SalvageRelic": "4-star_or_below",
-      "LevelUpRelic": "4-star_or_below"
-    },
     "AchievableQuest": {
       "Complete_1_Daily_Mission": "not_supported",
       "Clear_Calyx_Golden_1_times": "achievable",
@@ -108,8 +104,8 @@
       "Use_an_Ultimate_to_deal_the_final_blow_1_time": "achievable",
       "Level_up_any_character_1_time": "not_supported",
       "Level_up_any_Light_Cone_1_time": "not_supported",
-      "Level_up_any_Relic_1_time": "achievable",
-      "Salvage_any_Relic": "achievable",
+      "Level_up_any_Relic_1_time": "4-star_or_below",
+      "Salvage_any_Relic": "4-star_or_below",
       "Synthesize_Consumable_1_time": "achievable",
       "Synthesize_material_1_time": "achievable",
       "Use_Consumables_1_time": "achievable"

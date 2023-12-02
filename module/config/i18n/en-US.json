@@ -606,14 +606,22 @@
     },
     "Level_up_any_Relic_1_time": {
       "name": "Level up any Relic 1 time",
-      "help": "Achievable by default, will level up the first one in reverse order of rarity",
+      "help": "Achievable by default, will level up the first one in reverse order of rarity. Only relics that in selected range will be leveled up/feed to other relic",
+      "5-star_or_below": "5-star_or_below",
+      "4-star_or_below": "4-star_or_below",
+      "3-star_or_below": "3-star_or_below",
+      "do_not_achieve": "do_not_achieve",
       "achievable": "Achievable",
       "not_set": "Not Set",
       "not_supported": "Not Supported Yet"
     },
     "Salvage_any_Relic": {
       "name": "Salvage any Relic",
-      "help": "Achievable by default, will salvage the first one in reverse order of rarity",
+      "help": "Achievable by default, will salvage the first one in reverse order of rarity. Only relics that in selected range will be salvaged.",
+      "5-star_or_below": "5-star_or_below",
+      "4-star_or_below": "4-star_or_below",
+      "3-star_or_below": "3-star_or_below",
+      "do_not_achieve": "do_not_achieve",
       "achievable": "Achievable",
       "not_set": "Not Set",
       "not_supported": "Not Supported Yet"
@@ -638,28 +646,6 @@
       "achievable": "Achievable",
       "not_set": "Not Set",
       "not_supported": "Not Supported Yet"
-    }
-  },
-  "QuestOption": {
-    "_info": {
-      "name": "QuestOptions",
-      "help": "QuestOptions"
-    },
-    "SalvageRelic": {
-      "name": "Relic Salvage Range",
-      "help": "Only relics that in selected range will be salvaged when completing 'Salvage any Relic' quest",
-      "5-star_or_below": "5-star or below",
-      "4-star_or_below": "4-star or below",
-      "3-star_or_below": "3-star or below",
-      "do_not_achieve": "Don't Do This Quest"
-    },
-    "LevelUpRelic": {
-      "name": "Relic Level Up Range",
-      "help": "Only relics that in selected range will be leveled up/feed to other relic when completing 'Level up any Relic 1 time' quest",
-      "5-star_or_below": "5-star_or_below",
-      "4-star_or_below": "4-star_or_below",
-      "3-star_or_below": "3-star_or_below",
-      "do_not_achieve": "Don't Do This Quest"
     }
   },
   "DailyStorage": {

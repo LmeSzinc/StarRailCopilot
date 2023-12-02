@@ -147,13 +147,7 @@ AchievableQuest:
 #    value: achievable
 #    option: [ achievable, not_set, not_supported ]
 #    option_bold: [ achievable, ]
-QuestOption:
-  SalvageRelic:
-    value: 4-star_or_below
-    option: [ 5-star_or_below, 4-star_or_below, 3-star_or_below, do_not_achieve ]
-  LevelUpRelic:
-    value: 4-star_or_below
-    option: [ 5-star_or_below, 4-star_or_below, 3-star_or_below, do_not_achieve ]
+
 
 DailyStorage:
   DailyActivity:

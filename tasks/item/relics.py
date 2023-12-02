@@ -72,9 +72,9 @@ class RelicsUI(ItemUI):
             return False
 
         rarity_threshold = 5
-        if self.config.QuestOption_SalvageRelic == '4-star_or_below':
+        if self.config.AchievableQuest_Salvage_any_Relic == '4-star_or_below':
             rarity_threshold = 4
-        if self.config.QuestOption_SalvageRelic == '3-star_or_below':
+        if self.config.AchievableQuest_Salvage_any_Relic == '3-star_or_below':
             rarity_threshold = 3
 
         if item.get_rarity(main=self) > rarity_threshold:
@@ -247,9 +247,9 @@ class RelicsUI(ItemUI):
             #     item = next(items,  None)
 
             rarity_threshold = 5
-            if self.config.QuestOption_LevelUpRelic == '4-star_or_below':
+            if self.config.AchievableQuest_Level_up_any_Relic_1_time == '4-star_or_below':
                 rarity_threshold = 4
-            if self.config.QuestOption_LevelUpRelic == '3-star_or_below':
+            if self.config.AchievableQuest_Level_up_any_Relic_1_time == '3-star_or_below':
                 rarity_threshold = 3
 
             if item.get_rarity(main=self) > rarity_threshold:
@@ -338,9 +338,9 @@ class RelicsUI(ItemUI):
             return False
 
         rarity_threshold = 5
-        if self.config.QuestOption_LevelUpRelic == '4-star_or_below':
+        if self.config.AchievableQuest_Level_up_any_Relic_1_time == '4-star_or_below':
             rarity_threshold = 4
-        if self.config.QuestOption_LevelUpRelic == '3-star_or_below':
+        if self.config.AchievableQuest_Level_up_any_Relic_1_time == '3-star_or_below':
             rarity_threshold = 3
 
         if item.get_rarity(main=self) > rarity_threshold:

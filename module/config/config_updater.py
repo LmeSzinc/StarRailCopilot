@@ -92,18 +92,26 @@ class ConfigGenerator:
             options=[dungeon.name for dungeon in DungeonList.instances.values() if dungeon.is_Echo_of_War])
         # Insert characters
         from tasks.character.keywords import CharacterList
-        unsupported_characters = ['Argenti','Hanya']
+        unsupported_characters = ['Argenti', 'Hanya']
         characters = [character.name for character in CharacterList.instances.values()
                       if character.name not in unsupported_characters]
         option_add(keys='DungeonSupport.Character.option', options=characters)
         # Insert daily quests
-        from tasks.daily.keywords import DailyQuest
+        from tasks.daily.keywords import DailyQuest, KEYWORDS_DAILY_QUEST
         for quest in DailyQuest.instances.values():
             quest: DailyQuest
+            type_ = 'state'
+            option = ['achievable', 'not_set', 'not_supported']
+            if quest == KEYWORDS_DAILY_QUEST.Salvage_any_Relic:
+                type_ = 'select'
+                option = ['5-star_or_below', '4-star_or_below', '3-star_or_below', 'do_not_achieve']
+            if quest == KEYWORDS_DAILY_QUEST.Level_up_any_Relic_1_time:
+                type_ = 'select'
+                option = ['5-star_or_below', '4-star_or_below', '3-star_or_below', 'do_not_achieve']
             deep_set(raw, keys=['AchievableQuest', quest.name], value={
-                'type': 'state',
+                'type': type_,
                 'value': 'achievable',
-                'option': ['achievable', 'not_set', 'not_supported'],
+                'option': option,
                 'option_bold': ['achievable'],
                 'option_light': ['not_supported'],
             })
@@ -369,6 +377,7 @@ class ConfigGenerator:
             if dungeon.name in dailies:
                 value = dungeon.__getattribute__(ingame_lang)
                 deep_set(new, keys=['Dungeon', 'Name', dungeon.name], value=value)
+
         # Copy dungeon i18n to double events
         def update_dungeon_names(keys):
             for dungeon in deep_get(self.argument, keys=f'{keys}.option', default=[]):
@@ -708,9 +717,9 @@ class ConfigUpdater:
         # Build
         set_daily('Level_up_any_character_1_time', 'not_supported')
         set_daily('Level_up_any_Light_Cone_1_time', 'not_supported')
-        set_daily('Level_up_any_Relic_1_time', 'achievable')
+        set_daily('Level_up_any_Relic_1_time', '4-star_or_below')
         # Items
-        set_daily('Salvage_any_Relic', 'achievable')
+        set_daily('Salvage_any_Relic', '4-star_or_below')
         set_daily('Synthesize_Consumable_1_time', 'achievable')
         set_daily('Synthesize_material_1_time', 'achievable')
         set_daily('Use_Consumables_1_time', 'achievable')

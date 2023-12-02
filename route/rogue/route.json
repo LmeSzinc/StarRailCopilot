@@ -110,6 +110,17 @@
     "domain": "Combat"
   },
   {
+    "name": "Combat_Herta_SupplyZone_F2_X397Y239",
+    "route": "route.rogue.Combat.Herta_SupplyZone_F2:Herta_SupplyZone_F2_X397Y239",
+    "plane": "Herta_SupplyZone",
+    "floor": "F2",
+    "position": [
+      397.4,
+      239.0
+    ],
+    "domain": "Combat"
+  },
+  {
     "name": "Combat_Herta_SupplyZone_F2_X543Y255",
     "route": "route.rogue.Combat.Herta_SupplyZone_F2:Herta_SupplyZone_F2_X543Y255",
     "plane": "Herta_SupplyZone",
@@ -385,6 +396,17 @@
     "domain": "Combat"
   },
   {
+    "name": "Combat_Jarilo_GreatMine_F1_X89Y387",
+    "route": "route.rogue.Combat.Jarilo_GreatMine_F1:Jarilo_GreatMine_F1_X89Y387",
+    "plane": "Jarilo_GreatMine",
+    "floor": "F1",
+    "position": [
+      89.4,
+      387.6
+    ],
+    "domain": "Combat"
+  },
+  {
     "name": "Combat_Jarilo_GreatMine_F1_X133Y465",
     "route": "route.rogue.Combat.Jarilo_GreatMine_F1:Jarilo_GreatMine_F1_X133Y465",
     "plane": "Jarilo_GreatMine",
@@ -568,6 +590,17 @@
     "position": [
       227.7,
       425.5
+    ],
+    "domain": "Combat"
+  },
+  {
+    "name": "Combat_Jarilo_SilvermaneGuardRestrictedZone_F1_X227Y432",
+    "route": "route.rogue.Combat.Jarilo_SilvermaneGuardRestrictedZone_F1:Jarilo_SilvermaneGuardRestrictedZone_F1_X227Y432",
+    "plane": "Jarilo_SilvermaneGuardRestrictedZone",
+    "floor": "F1",
+    "position": [
+      227.7,
+      432.0
     ],
     "domain": "Combat"
   },
@@ -1371,6 +1404,17 @@
     "position": [
       363.4,
       166.9
+    ],
+    "domain": "Occurrence"
+  },
+  {
+    "name": "Occurrence_Herta_SupplyZone_F2_X45Y135",
+    "route": "route.rogue.Occurrence.Herta_SupplyZone_F2:Herta_SupplyZone_F2_X45Y135",
+    "plane": "Herta_SupplyZone",
+    "floor": "F2",
+    "position": [
+      44.7,
+      134.6
     ],
     "domain": "Occurrence"
   },

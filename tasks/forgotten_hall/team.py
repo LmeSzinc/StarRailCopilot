@@ -1,11 +1,12 @@
 import cv2
 import numpy as np
 
+from module.base.timer import Timer
 from module.base.utils import color_similarity_2d, get_color
 from module.logger import logger
 from tasks.base.ui import UI
 from tasks.forgotten_hall.assets.assets_forgotten_hall_team import *
-from tasks.forgotten_hall.assets.assets_forgotten_hall_ui import ENTER_FORGOTTEN_HALL_DUNGEON, ENTRANCE_CHECKED
+from tasks.forgotten_hall.assets.assets_forgotten_hall_ui import ENTER_FORGOTTEN_HALL_DUNGEON, ENTRANCE_CHECKED, SEAT_1, SEAT_2, SEAT_3, SEAT_4
 
 
 class ForgottenHallTeam(UI):
@@ -56,6 +57,7 @@ class ForgottenHallTeam(UI):
         logger.info('Team choose first 4')
         self.interval_clear(ENTRANCE_CHECKED)
         characters = [CHARACTER_1, CHARACTER_2, CHARACTER_3, CHARACTER_4]
+        seats = [SEAT_1, SEAT_2, SEAT_3, SEAT_4]
         while 1:
             if skip_first_screenshot:
                 skip_first_screenshot = False
@@ -63,8 +65,12 @@ class ForgottenHallTeam(UI):
                 self.device.screenshot()
 
             chosen_list = [self.is_character_chosen(c) for c in characters]
+            seat_list = [not self.appear(s) for s in seats]
             if all(chosen_list):
                 logger.info("First 4 characters are chosen")
+                break
+            if all(seat_list):
+                logger.info("4 characters are chosen")
                 break
             if self.appear(ENTRANCE_CHECKED, interval=2):
                 for character, chosen in zip(characters, chosen_list):
@@ -72,3 +78,25 @@ class ForgottenHallTeam(UI):
                         self.device.click(character)
                         # Casual sleep, game may not respond that fast
                         self.device.sleep((0.1, 0.2))
+
+    def team_is_prepared(self, skip_first_screenshot=True) -> bool:
+        """
+        Pages:
+            in: ENTRANCE_CHECKED, ENTER_FORGOTTEN_HALL_DUNGEON
+        """
+        seats = [SEAT_1, SEAT_2, SEAT_3, SEAT_4]
+        timeout = Timer(1, count=5).start()
+        while 1:
+            if skip_first_screenshot:
+                skip_first_screenshot = False
+            else:
+                self.device.screenshot()
+
+            if timeout.reached():
+                logger.info('Team not prepared')
+                return False
+            if self.team_prepared():
+                chosen_list = [not self.appear(s) for s in seats]
+                if all(chosen_list):
+                    logger.info("Team already prepared")
+                    return True

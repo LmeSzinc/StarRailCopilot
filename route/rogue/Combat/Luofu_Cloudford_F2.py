@@ -28,6 +28,8 @@ class Route(RouteBase):
         enemy3 = Waypoint((320.2, 266.4))
         # ===== End of generated waypoints =====
 
+        # Look right
+        self.rotation_set(210)
         self.clear_enemy(enemy1)
         # Enemy2
         self.clear_enemy(
@@ -85,5 +87,5 @@ class Route(RouteBase):
         self.minimap.lock_rotation(270)
         # self.clear_item(item3.straight_run())
         self.clear_enemy(
-            enemy3.straight_run()
+            enemy3
         )

@@ -1,5 +1,6 @@
 from tasks.map.control.waypoint import Waypoint
 from tasks.map.keywords.plane import Jarilo_SilvermaneGuardRestrictedZone
+from tasks.map.route.base import locked_position
 from tasks.rogue.route.base import RouteBase
 
 
@@ -64,6 +65,7 @@ class Route(RouteBase):
         self.clear_item(item)
         self.clear_enemy(enemy)
 
+    @locked_position
     def Jarilo_SilvermaneGuardRestrictedZone_F1_X227Y425(self):
         """
         | Waypoint | Position                  | Direction | Rotation |
@@ -85,6 +87,35 @@ class Route(RouteBase):
 
         # Ignore item
         self.clear_enemy(enemy)
+
+    @locked_position
+    def Jarilo_SilvermaneGuardRestrictedZone_F1_X227Y432(self):
+        """
+        | Waypoint | Position                  | Direction | Rotation |
+        | -------- | ------------------------- | --------- | -------- |
+        | spawn    | Waypoint((227.7, 425.5)), | 274.2     | 274      |
+        | item     | Waypoint((208.3, 414.8)), | 303.8     | 301      |
+        | enemy    | Waypoint((170.2, 426.2)), | 274.2     | 274      |
+        | exit_    | Waypoint((170.2, 426.2)), | 274.2     | 274      |
+        | exit1    | Waypoint((158.5, 432.5)), | 282.0     | 274      |
+        | exit2    | Waypoint((158.8, 418.6)), | 282.0     | 274      |
+        """
+        self.map_init(plane=Jarilo_SilvermaneGuardRestrictedZone, floor="F1", position=(227.7, 432))
+        self.register_domain_exit(
+            Waypoint((170.2, 426.2)), end_rotation=274,
+            left_door=Waypoint((158.5, 432.5)), right_door=Waypoint((158.8, 418.6)))
+        item = Waypoint((208.3, 414.8))
+        enemy = Waypoint((170.2, 426.2))
+        # ===== End of generated waypoints =====
+
+        # Ignore item
+        self.clear_enemy(enemy)
+
+        """
+        Notes
+        Jarilo_SilvermaneGuardRestrictedZone_F1_X227Y432 is the same as Jarilo_SilvermaneGuardRestrictedZone_F1_X227Y425
+        but for wrong spawn point detected
+        """
 
     def Jarilo_SilvermaneGuardRestrictedZone_F1_X317Y425(self):
         """
@@ -125,9 +156,13 @@ class Route(RouteBase):
         | enemy2      | Waypoint((249.3, 424.4)), | 274.2     | 271      |
         | enemy3      | Waypoint((168.0, 424.4)), | 279.8     | 274      |
         | exit_       | Waypoint((164.2, 426.2)), | 274.3     | 274      |
+        | exit1       | Waypoint((158.3, 433.4)), | 282.4     | 274      |
+        | exit2       | Waypoint((157.6, 419.0)), | 282.2     | 274      |
         """
         self.map_init(plane=Jarilo_SilvermaneGuardRestrictedZone, floor="F1", position=(371.6, 419.4))
-        self.register_domain_exit(Waypoint((164.2, 426.2)), end_rotation=274)
+        self.register_domain_exit(
+            Waypoint((164.2, 426.2)), end_rotation=274,
+            left_door=Waypoint((158.3, 433.4)), right_door=Waypoint((157.6, 419.0)))
         enemy1right = Waypoint((320.5, 424.5))
         enemy1left = Waypoint((304.5, 424.6))
         item2 = Waypoint((282.8, 434.6))

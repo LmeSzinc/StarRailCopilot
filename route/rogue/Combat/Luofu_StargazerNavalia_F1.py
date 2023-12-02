@@ -14,9 +14,13 @@ class Route(RouteBase):
         | item     | Waypoint((208.5, 306.1)), | 82.5      | 80       |
         | enemy    | Waypoint((247.4, 320.2)), | 114.1     | 112      |
         | exit_    | Waypoint((243.4, 319.4)), | 274.2     | 89       |
+        | exit1    | Waypoint((251.4, 311.5)), | 96.9      | 89       |
+        | exit2    | Waypoint((251.4, 323.5)), | 96.9      | 89       |
         """
         self.map_init(plane=Luofu_StargazerNavalia, floor="F1", position=(183.4, 315.6))
-        self.register_domain_exit(Waypoint((243.4, 319.4)), end_rotation=89)
+        self.register_domain_exit(
+            Waypoint((243.4, 319.4)), end_rotation=89,
+            left_door=Waypoint((251.4, 311.5)), right_door=Waypoint((251.4, 323.5)))
         item = Waypoint((208.5, 306.1))
         enemy = Waypoint((247.4, 320.2))
         # ===== End of generated waypoints =====
@@ -28,14 +32,18 @@ class Route(RouteBase):
     @locked_position
     def Luofu_StargazerNavalia_F1_X203Y317(self):
         """
-        | Waypoint | Position                  | Direction | Rotation |
-        | -------- | ------------------------- | --------- | -------- |
-        | spawn    | Waypoint((203.8, 317.4)), | 96.7      | 91       |
-        | enemy    | Waypoint((254.2, 318.9)), | 96.8      | 91       |
-        | exit_    | Waypoint((254.2, 318.9)), | 96.8      | 91       |
+        | Waypoint       | Position                  | Direction | Rotation |
+        | -------------- | ------------------------- | --------- | -------- |
+        | spawn          | Waypoint((203.8, 317.4)), | 96.7      | 91       |
+        | enemy          | Waypoint((254.2, 318.9)), | 96.8      | 91       |
+        | exit_          | Waypoint((254.2, 318.9)), | 96.8      | 91       |
+        | exit1_X258Y313 | Waypoint((258.1, 313.3)), | 94.2      | 91       |
+        | exit2          | Waypoint((257.6, 325.5)), | 94.2      | 91       |
         """
         self.map_init(plane=Luofu_StargazerNavalia, floor="F1", position=(203.8, 317.4))
-        self.register_domain_exit(Waypoint((254.2, 318.9)), end_rotation=91)
+        self.register_domain_exit(
+            Waypoint((254.2, 318.9)), end_rotation=91,
+            left_door=Waypoint((258.1, 313.3)), right_door=Waypoint((257.6, 325.5)))
         enemy = Waypoint((254.2, 318.9))
         # ===== End of generated waypoints =====
 

@@ -97,7 +97,7 @@ class RelicsUI(ItemUI):
             if item.is_item_selected(main=self):
                 logger.info(f'Relic {item} selected')
                 return True
-            if interval.reached():
+            if interval.reached() and self._is_in_salvage():
                 self.device.click(item)
                 interval.reset()
                 continue
@@ -148,6 +148,9 @@ class RelicsUI(ItemUI):
 
         self.salvage_exit()
         return result
+
+    def _is_in_material_select(self) -> bool:
+        return self.image_color_count(RELIC_SELECTION_PAGE_SORT_TYPE_BUTTON, (225, 226, 229))
 
     def get_exp_remain(self) -> Optional[int]:
         ocr = Ocr(ENHANCE_RELIC_EXP_OCR)
@@ -208,7 +211,7 @@ class RelicsUI(ItemUI):
                 if item.is_item_selected(main=self):
                     logger.info(f"{item} added")
                     return True
-                if interval.reached():
+                if interval.reached() and self._is_in_material_select():
                     self.device.click(item)
                     interval.reset()
 
@@ -289,7 +292,6 @@ class RelicsUI(ItemUI):
                 return False
 
     def _enhance_confirm(self, skip_first_screenshot=True):
-        interval = Timer(1).start()
         # click enhance
         while 1:
             if skip_first_screenshot:
@@ -301,9 +303,8 @@ class RelicsUI(ItemUI):
                 break
             if self.handle_popup_confirm():
                 continue
-            if interval.reached():
-                self.device.click(ENHANCE)
-                interval.reset()
+            if self.appear_then_click(ENHANCE):
+                continue
 
         # handle popup
         while 1:
@@ -357,7 +358,7 @@ class RelicsUI(ItemUI):
             if item.is_item_selected(main=self):
                 break
 
-            if interval.reached():
+            if interval.reached() and self._is_in_material_select():
                 self.device.click(item)
                 interval.reset()
 
@@ -373,7 +374,6 @@ class RelicsUI(ItemUI):
         if not self._select_level_up_relic():
             return False
 
-        interval = Timer(1)
         # details -> enhance tab
         while 1:
             if skip_first_screenshot:
@@ -383,11 +383,10 @@ class RelicsUI(ItemUI):
 
             if self.appear(ENHANCE_TAB):
                 break
+            if self.appear_then_click(ITEM_DETAILS):
+                continue
 
-            if interval.reached():
-                self.device.click(ITEM_DETAILS)
-                interval.reset()
-
+        interval = Timer(1)
         # enhance tab -> open slots
         skip_first_screenshot = True
         while 1:
@@ -396,7 +395,7 @@ class RelicsUI(ItemUI):
             else:
                 self.device.screenshot()
 
-            if self.image_color_count(RELIC_SELECTION_PAGE_SORT_TYPE_BUTTON, (225, 226, 229)):
+            if self._is_in_material_select():
                 break
             if interval.reached() and self.match_template_color(ENHANCE_TAB):
                 self.device.click(ENHANCE_TAB)

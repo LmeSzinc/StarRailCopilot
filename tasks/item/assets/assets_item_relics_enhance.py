@@ -5,11 +5,18 @@ from module.base.button import Button, ButtonWrapper
 
 ENHANCE = ButtonWrapper(
     name='ENHANCE',
-    share=Button(
-        file='./assets/share/item/relics/enhance/ENHANCE.png',
-        area=(943, 640, 1226, 688),
-        search=(923, 620, 1246, 708),
-        color=(213, 215, 216),
+    cn=Button(
+        file='./assets/cn/item/relics/enhance/ENHANCE.png',
+        area=(1066, 655, 1104, 673),
+        search=(1046, 635, 1124, 693),
+        color=(137, 139, 139),
+        button=(943, 640, 1226, 688),
+    ),
+    en=Button(
+        file='./assets/en/item/relics/enhance/ENHANCE.png',
+        area=(1044, 656, 1126, 672),
+        search=(1024, 636, 1146, 692),
+        color=(151, 153, 153),
         button=(943, 640, 1226, 688),
     ),
 )

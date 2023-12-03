@@ -25,11 +25,18 @@ GOTO_SALVAGE = ButtonWrapper(
 )
 ITEM_DETAILS = ButtonWrapper(
     name='ITEM_DETAILS',
-    share=Button(
-        file='./assets/share/item/relics/ITEM_DETAILS.png',
-        area=(902, 634, 1225, 682),
-        search=(882, 614, 1245, 702),
-        color=(216, 218, 218),
+    cn=Button(
+        file='./assets/cn/item/relics/ITEM_DETAILS.png',
+        area=(1044, 648, 1084, 668),
+        search=(902, 634, 1225, 682),
+        color=(150, 150, 150),
+        button=(902, 634, 1225, 682),
+    ),
+    en=Button(
+        file='./assets/en/item/relics/ITEM_DETAILS.png',
+        area=(1031, 650, 1098, 666),
+        search=(902, 634, 1225, 682),
+        color=(148, 148, 148),
         button=(902, 634, 1225, 682),
     ),
 )

@@ -106,25 +106,24 @@ class ItemUI(UI):
         ORDER_ASCENDING.matched_button.search = search
         ORDER_DESCENDING.matched_button.search = search
         if self.appear(ORDER_ASCENDING):
-            click_button = ORDER_DESCENDING
+            click_button = ORDER_ASCENDING
+            search_button = ORDER_DESCENDING
             logger.info("Ascending -> Descending")
         else:
-            click_button = ORDER_ASCENDING
+            click_button = ORDER_DESCENDING
+            search_button = ORDER_ASCENDING
             logger.info("Descending -> Ascending")
 
-        interval = Timer(1)
         while 1:
             if skip_first_screenshot:
                 skip_first_screenshot = False
             else:
                 self.device.screenshot()
 
-            if self.appear(click_button):
+            if self.appear(search_button):
                 return
-
-            if interval.reached():
-                self.device.click(click_button)
-                interval.reset()
+            if self.appear_then_click(click_button):
+                continue
 
     def ensure_sort_order(self, search, order: Literal['ascending', 'descending'],
                           skip_first_screenshot=True):
@@ -182,7 +181,7 @@ class ItemUI(UI):
                     logger.info(f"Type selected: {key}")
                     break
 
-                if interval.reached():
+                if interval.reached() and self.appear(POPUP_CONFIRM):
                     self.device.click(type_button)
                     interval.reset()
 
@@ -196,8 +195,7 @@ class ItemUI(UI):
             if self.image_color_count(button, (225, 226, 229)):
                 break
 
-            if interval.reached():
-                self.device.click(POPUP_CONFIRM)
-                interval.reset()
+            if self.appear_then_click(POPUP_CONFIRM):
+                continue
 
         return bool(type_button)

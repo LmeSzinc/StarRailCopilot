@@ -71,7 +71,7 @@ class ItemUI(UI):
         SWITCH_ITEM_TAB.set(state, main=self)
         if wait_until_stable:
             logger.info(f'Tab goto {state}, wait until loaded')
-            Inventory(ITEM_PAGE_INVENTORY, main=self).wait_until_inventory_stable()
+            Inventory(ITEM_PAGE_INVENTORY, 6 * 4).wait_until_inventory_stable(main=self)
         else:
             logger.info(f'Tab goto {state}')
 

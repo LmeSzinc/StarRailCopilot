@@ -121,9 +121,13 @@ def group_by_distance_interval(lines: np.ndarray, interval: tuple[int, int], exp
 
 
 class Inventory:
-    def __init__(self, inventory: ButtonWrapper):
+    def __init__(self, inventory: ButtonWrapper, max_count: int):
+        """
+        max_count: expected max count of this inventory page
+        """
         self.inventory = inventory
         self.row_recognized = 0
+        self.max_count = max_count
 
     def count_items(self, main: ModuleBase):
         image = crop(main.device.image, self.inventory.area)
@@ -158,9 +162,12 @@ class Inventory:
                 break
 
             count = self.count_items(main)
+            if count == self.max_count:
+                logger.info(f'Reach page max item count, {self.inventory} is already stable')
+                break
             if last_count == count:
                 if timer.reached():
-                    logger.info(f'{self.inventory} stabled')
+                    logger.info(f'Item count is stable at one timer interval, {self.inventory} is already stable')
                     break
             else:
                 last_count = count

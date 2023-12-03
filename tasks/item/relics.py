@@ -57,7 +57,7 @@ class RelicsUI(ItemUI):
         timeout = Timer(5, count=3).start()
         self.ensure_sort_type(SALVAGE_SORT_TYPE_BUTTON, KEYWORD_SORT_TYPE.Rarity)
         self.ensure_sort_order(offset_to_sort_order_area(SALVAGE_SORT_TYPE_BUTTON), "ascending")
-        inventory = Inventory(SALVAGE_INVENTORY)
+        inventory = Inventory(SALVAGE_INVENTORY, 7 * 3)
         inventory.wait_until_inventory_stable(main=self)
         items = iter(inventory.recognize_single_page_items(main=self))
 
@@ -325,7 +325,7 @@ class RelicsUI(ItemUI):
             return level == rarity * 3
 
         # select first relic
-        inventory = Inventory(ITEM_PAGE_INVENTORY)
+        inventory = Inventory(ITEM_PAGE_INVENTORY, 6 * 4)
         inventory.wait_until_inventory_stable(main=self)
         items = iter(inventory.recognize_single_page_items(main=self))
         item = next(items, None)
@@ -408,7 +408,7 @@ class RelicsUI(ItemUI):
         # add items
         self.ensure_sort_type(RELIC_SELECTION_PAGE_SORT_TYPE_BUTTON, KEYWORD_SORT_TYPE.Rarity)
         self.ensure_sort_order(offset_to_sort_order_area(RELIC_SELECTION_PAGE_SORT_TYPE_BUTTON), "ascending")
-        inventory = Inventory(ENHANCE_INVENTORY)
+        inventory = Inventory(ENHANCE_INVENTORY, 7 * 4)
 
         result = self._feed_one_level(inventory)
 

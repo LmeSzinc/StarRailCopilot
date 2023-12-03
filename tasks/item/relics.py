@@ -229,6 +229,12 @@ class RelicsUI(ItemUI):
         added_item = 0
         slot_num = 8
 
+        rarity_threshold = 5
+        if self.config.AchievableQuest_Level_up_any_Relic_1_time == '4-star_or_below':
+            rarity_threshold = 4
+        if self.config.AchievableQuest_Level_up_any_Relic_1_time == '3-star_or_below':
+            rarity_threshold = 3
+
         while 1:
             if skip_first_screenshot:
                 skip_first_screenshot = False
@@ -249,13 +255,7 @@ class RelicsUI(ItemUI):
             # while inventory.is_item_locked(item):
             #     item = next(items,  None)
 
-            rarity_threshold = 5
-            if self.config.AchievableQuest_Level_up_any_Relic_1_time == '4-star_or_below':
-                rarity_threshold = 4
-            if self.config.AchievableQuest_Level_up_any_Relic_1_time == '3-star_or_below':
-                rarity_threshold = 3
-
-            if item.get_rarity(main=self) > rarity_threshold:
+            if not item or item.get_rarity(main=self) > rarity_threshold:
                 logger.warning("No relic satisfy preset rarity, can not salvage")
                 return False
 

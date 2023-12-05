@@ -2,8 +2,10 @@ import math
 import re
 from typing import Optional
 
+import cv2
+
 from module.base.timer import Timer
-from module.base.utils import area_offset, area_pad
+from module.base.utils import area_offset, area_pad, crop, extract_letters, extract_white_letters
 from module.logger import logger
 from module.ocr.ocr import Ocr
 from tasks.base.assets.assets_base_page import CLOSE
@@ -154,14 +156,22 @@ class RelicsUI(ItemUI):
 
     def get_exp_remain(self) -> Optional[int]:
         ocr = Ocr(ENHANCE_RELIC_EXP_OCR)
-        results = ocr.detect_and_ocr(self.device.image)
-        for result in results:
-            res = re.search(r'(?:\+(\d+))?\D*(\d+)/(\d+)', result.ocr_text)
-            if res:
-                groups = [int(s) if s else 0 for s in res.groups()]
-                [added, current, total] = groups
-                current += added
-                return total - current
+        image = crop(self.device.image, ENHANCE_RELIC_EXP_OCR.area)
+        green_letters = extract_letters(image, (125, 214, 192), threshold=80)
+        white_letters = extract_white_letters(image=image)
+
+        green_letters = cv2.cvtColor(green_letters, cv2.COLOR_GRAY2RGB)
+        white_letters = cv2.cvtColor(white_letters, cv2.COLOR_GRAY2RGB)
+        results = ocr.ocr_multi_lines([green_letters, white_letters])
+        result = "".join([text for text, rate in results])
+        # for result in results:
+        res = re.search(r'(?:\+(\d+))?\D*(\d+)/(\d+)', result)
+        if res:
+            groups = [int(s) if s else 0 for s in res.groups()]
+            [added, current, total] = groups
+            logger.attr(name="EXP Counter", text=f"({added}, {current}, {total})")
+            current += added
+            return total - current
         logger.warning(f'No digit counter found in {results}')
         return None
 

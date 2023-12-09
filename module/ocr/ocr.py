@@ -346,6 +346,28 @@ class Digit(Ocr):
             return 0
 
 
+class DigitLast(Ocr):
+    def __init__(self, button: ButtonWrapper, lang='en', name=None):
+        super().__init__(button, lang=lang, name=name)
+
+    def format_result(self, result) -> int:
+        """
+        for example '5:8', return 8
+
+        Returns:
+            int:
+        """
+        result = super().after_process(result)
+        logger.attr(name=self.name, text=str(result))
+
+        res = re.findall(r'(\d+)', result)
+        if res:
+            return int(res[-1])
+        else:
+            logger.warning(f'No digit found in {result}')
+            return 0
+
+
 class DigitCounter(Ocr):
     def __init__(self, button: ButtonWrapper, lang='en', name=None):
         super().__init__(button, lang=lang, name=name)

@@ -1,6 +1,6 @@
 from module.base.timer import Timer
 from module.logger import logger
-from module.ocr.ocr import Digit
+from module.ocr.ocr import DigitLast
 from tasks.base.page import page_guide
 from tasks.dungeon.assets.assets_dungeon_stamina import *
 from tasks.dungeon.ui import DungeonUI
@@ -54,7 +54,7 @@ class DungeonStamina(DungeonUI):
             skip_first_screenshot=True,
     ):
         logger.info(f'Item amount set to {amount}')
-        ocr = Digit(ocr_button)
+        ocr = DigitLast(ocr_button)
         interval = Timer(1, count=3)
         while 1:
             if skip_first_screenshot:

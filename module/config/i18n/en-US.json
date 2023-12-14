@@ -8,8 +8,8 @@
       "name": "Daily",
       "help": ""
     },
-    "Rogue": {
-      "name": "Simulated Universe",
+    "Weekly": {
+      "name": "Weekly",
       "help": ""
     }
   },
@@ -24,10 +24,6 @@
     },
     "Dungeon": {
       "name": "Dungeon",
-      "help": ""
-    },
-    "Weekly": {
-      "name": "Echo of War",
       "help": ""
     },
     "DailyQuest": {
@@ -50,9 +46,13 @@
       "name": "Freebies",
       "help": ""
     },
+    "Weekly": {
+      "name": "Echo of War",
+      "help": ""
+    },
     "Rogue": {
       "name": "Simulated Universe",
-      "help": "Simulated Universe is in development, task will not be run"
+      "help": ""
     }
   },
   "Scheduler": {
@@ -361,6 +361,7 @@
       "name": "Support Character",
       "help": "Select a friend support character, if not found, select the default (first) role",
       "FirstCharacter": "First Character",
+      "Argenti": "Argenti",
       "Arlan": "Arlan",
       "Asta": "Asta",
       "Bailu": "Bailu",
@@ -372,6 +373,7 @@
       "FuXuan": "Fu Xuan",
       "Gepard": "Gepard",
       "Guinaifen": "Guinaifen",
+      "Hanya": "Hanya",
       "Herta": "Herta",
       "Himeko": "Himeko",
       "Hook": "Hook",
@@ -571,7 +573,7 @@
     },
     "Complete_1_stage_in_Simulated_Universe_Any_world": {
       "name": "Complete 1 stage in Simulated Universe (Any world)",
-      "help": "",
+      "help": "Need to configure and enable the \"Simulated Universe\" task",
       "achievable": "Achievable",
       "not_set": "Not Set",
       "not_supported": "Not Supported Yet"
@@ -812,7 +814,8 @@
       "Abundance": "Abundance",
       "The_Hunt": "The Hunt",
       "Destruction": "Destruction",
-      "Elation": "Elation"
+      "Elation": "Elation",
+      "Propagation": "Propagation"
     },
     "Bonus": {
       "name": "Blessings of Trailblaze",
@@ -827,19 +830,13 @@
       "combat": "Prefer Combat",
       "occurrence": "Prefer Occurrence"
     },
-    "ImmersionReward": {
-      "name": "Claim Immersion Rewards",
-      "help": "Note: If \"Use Immersifier and Trailblaze Power\" is selected, the dungeon task will no longer run, and all trailblaze power will be used first to claim immersion rewards, except for double events.",
-      "do_not_claim": "Do not Claim",
-      "immersifier": "Use Immersifier",
-      "immersifier_trailblaze_power": "Use Immersifier and Trailblaze Power"
+    "UseImmersifier": {
+      "name": "Claim Planers Using Immersifiers",
+      "help": ""
     },
-    "StopCondition": {
-      "name": "Stop Condition",
-      "help": "Note: If \"Reached 100 Elite/Boss drop rewards\", the simulated universe task will run for several hours",
-      "weekly_point_reward": "Reached Weekly Point Rewards",
-      "100_elite_boss": "Reached 100 Elite/BOSS drop rewards",
-      "non_stop": "Non-stop (for debugging only)"
+    "UseStamina": {
+      "name": "Farm Planers Using Trailblase Power",
+      "help": "Task \"Dungeon\" will no longer run, and all trailblaze power will be used first to claim immersion rewards, except for double events."
     }
   },
   "RoguePath": {
@@ -909,6 +906,16 @@
     "CustomCurioFilter": {
       "name": "Custom Curio Filter",
       "help": "Only takes effect when \"Preset Curio Filter\" is \"custom\""
+    }
+  },
+  "RogueDebug": {
+    "_info": {
+      "name": "Debug Settings",
+      "help": ""
+    },
+    "DebugMode": {
+      "name": "Debug Mode",
+      "help": ""
     }
   },
   "Gui": {

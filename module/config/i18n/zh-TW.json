@@ -8,8 +8,8 @@
       "name": "每日",
       "help": ""
     },
-    "Rogue": {
-      "name": "模擬宇宙",
+    "Weekly": {
+      "name": "每週",
       "help": ""
     }
   },
@@ -24,10 +24,6 @@
     },
     "Dungeon": {
       "name": "每日副本",
-      "help": ""
-    },
-    "Weekly": {
-      "name": "歷戰餘響",
       "help": ""
     },
     "DailyQuest": {
@@ -50,9 +46,13 @@
       "name": "免費獎勵",
       "help": ""
     },
+    "Weekly": {
+      "name": "歷戰餘響",
+      "help": ""
+    },
     "Rogue": {
       "name": "模擬宇宙",
-      "help": "模擬宇宙還在開發中，任務不會被運行"
+      "help": ""
     }
   },
   "Scheduler": {
@@ -361,6 +361,7 @@
       "name": "好友支援角色",
       "help": "選擇好友支援角色，未找到則選擇默認（第一個）角色",
       "FirstCharacter": "支援列表第一個角色",
+      "Argenti": "銀枝",
       "Arlan": "阿蘭",
       "Asta": "艾絲妲",
       "Bailu": "白露",
@@ -372,6 +373,7 @@
       "FuXuan": "符玄",
       "Gepard": "傑帕德",
       "Guinaifen": "桂乃芬",
+      "Hanya": "寒鴉",
       "Herta": "黑塔",
       "Himeko": "姬子",
       "Hook": "虎克",
@@ -571,7 +573,7 @@
     },
     "Complete_1_stage_in_Simulated_Universe_Any_world": {
       "name": "完成「模擬宇宙」任意世界的1個區域",
-      "help": "",
+      "help": "需要設定並啟用\"模擬宇宙\"任務",
       "achievable": "可完成",
       "not_set": "未設定",
       "not_supported": "暫未支援"
@@ -812,7 +814,8 @@
       "Abundance": "豐饒",
       "The_Hunt": "巡獵",
       "Destruction": "毀滅",
-      "Elation": "歡愉"
+      "Elation": "歡愉",
+      "Propagation": "繁育"
     },
     "Bonus": {
       "name": "開拓祝福三選一",
@@ -827,19 +830,13 @@
       "combat": "偏好戰鬥",
       "occurrence": "偏好事件"
     },
-    "ImmersionReward": {
-      "name": "領取浸器獎勵",
-      "help": "注意：選擇 \"使用沉浸器和開拓力領取\" 時，每日副本任務不再打本，所有開拓力將優先被用於領取浸器獎勵，雙倍活動時除外",
-      "do_not_claim": "不領取",
-      "immersifier": "只使用沉浸器領取",
-      "immersifier_trailblaze_power": "使用沉浸器和開拓力領取"
+    "UseImmersifier": {
+      "name": "使用沉浸器領取遺器",
+      "help": ""
     },
-    "StopCondition": {
-      "name": "停止條件",
-      "help": "注意：\"每週100精英怪掉落獎勵達到上限\" 時，模擬宇宙任務將運行數小時",
-      "weekly_point_reward": "每週點數獎勵達到上限",
-      "100_elite_boss": "每週100精英怪掉落獎勵達到上限",
-      "non_stop": "不停止 (只用於除錯)"
+    "UseStamina": {
+      "name": "用開拓力農遺器",
+      "help": "每日副本任務將不再打本，所有開拓力將優先被用於領取浸器獎勵，雙倍活動時除外"
     }
   },
   "RoguePath": {
@@ -909,6 +906,16 @@
     "CustomCurioFilter": {
       "name": "自訂奇物過濾器",
       "help": "僅在\"奇物過濾器\"設定為\"自訂\"時生效"
+    }
+  },
+  "RogueDebug": {
+    "_info": {
+      "name": "偵錯設定",
+      "help": ""
+    },
+    "DebugMode": {
+      "name": "偵錯模式",
+      "help": ""
     }
   },
   "Gui": {

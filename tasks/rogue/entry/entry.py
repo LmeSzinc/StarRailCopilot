@@ -2,15 +2,14 @@ import re
 from datetime import datetime, timedelta
 
 from module.base.timer import Timer
-from module.exception import RequestHumanTakeover
+from module.exception import RequestHumanTakeover, ScriptError
 from module.logger import logger
 from module.ocr.ocr import Ocr
 from tasks.base.assets.assets_base_main_page import ROGUE_LEAVE_FOR_NOW
 from tasks.base.assets.assets_base_page import MAP_EXIT
-from tasks.base.page import page_guide, page_main, page_rogue
+from tasks.base.page import page_guide, page_item, page_main, page_rogue
 from tasks.dungeon.keywords import DungeonList
 from tasks.dungeon.keywords.dungeon import Simulated_Universe_World_1
-from tasks.dungeon.keywords.tab import Survival_Index
 from tasks.dungeon.state import OcrSimUniPoint
 from tasks.dungeon.ui import DungeonUI
 from tasks.forgotten_hall.assets.assets_forgotten_hall_ui import TELEPORT
@@ -76,6 +75,33 @@ class OcrRogueWorld(Ocr):
 
 
 class RogueEntry(RouteBase, RogueRewardHandler, RoguePathHandler, DungeonUI):
+    def _rogue_world_wait(self, skip_first_screenshot=True):
+        """
+        Wait is_page_rogue_main() fully loaded
+
+        Pages:
+            out: is_page_rogue_main()
+        """
+        logger.info(f'Rogue world wait')
+        ocr = OcrRogueWorld(OCR_WORLD)
+        while 1:
+            if skip_first_screenshot:
+                skip_first_screenshot = False
+            else:
+                self.device.screenshot()
+
+            # Additional
+            if self.appear_then_click(REWARD_CLOSE, interval=2):
+                continue
+            if self.handle_ui_close(LEVEL_CONFIRM, interval=2):
+                continue
+
+            if self.is_page_rogue_main() \
+                    and self.image_color_count(OCR_WORLD, color=(255, 255, 255), threshold=221, count=50):
+                current = ocr.ocr_single_line(self.device.image)
+                if current:
+                    break
+
     def _rogue_world_set(self, world: int | DungeonList, skip_first_screenshot=True):
         """
         Args:
@@ -236,41 +262,34 @@ class RogueEntry(RouteBase, RogueRewardHandler, RoguePathHandler, DungeonUI):
 
         self.interval_clear(page_guide.check_button)
 
-    def goto_rogue(self):
-        """
-        Pages:
-            in: Any
-            out: page_rogue, is_page_rogue_main()
-        """
-        self.dungeon_tab_goto(Survival_Index)
-        self._dungeon_nav_goto(Simulated_Universe_World_1)
-        self._rogue_teleport()
-
     def check_stop_condition(self):
         """
         Raises:
             RogueReachedWeeklyPointLimit: Raised if task should stop
         """
-        logger.attr('RogueWorld_StopCondition', self.config.RogueWorld_StopCondition)
-        logger.attr('RogueWorld_ImmersionReward', self.config.RogueWorld_ImmersionReward)
-        if self.config.RogueWorld_StopCondition == 'non_stop':
+        logger.info(f'RogueWorld_UseImmersifier={self.config.RogueWorld_UseImmersifier}, '
+                    f'RogueWorld_UseStamina={self.config.RogueWorld_UseStamina}, '
+                    f'RogueDebug_DebugMode={self.config.RogueDebug_DebugMode}')
+        # This shouldn't happen
+        if self.config.RogueWorld_UseStamina and not self.config.RogueWorld_UseImmersifier:
+            logger.error('Invalid rogue reward settings')
+            raise ScriptError
+
+        if self.config.RogueDebug_DebugMode:
             # Always run
             return
-        if self.config.RogueWorld_StopCondition == 'weekly_point_reward':
-            if self.config.stored.SimulatedUniverse.is_expired():
-                # Expired, do rogue
-                pass
-            elif self.config.stored.SimulatedUniverse.is_full():
-                if self.config.RogueWorld_ImmersionReward in ['immersifier', 'immersifier_trailblaze_power'] \
-                        and self.config.stored.Immersifier.value > 0:
-                    logger.info('Reached weekly point limit but still have immersifiers left, continue to use them')
-                else:
-                    raise RogueReachedWeeklyPointLimit
+
+        if self.config.stored.SimulatedUniverse.is_expired():
+            # Expired, do rogue
+            pass
+        elif self.config.stored.SimulatedUniverse.is_full():
+            if self.config.RogueWorld_UseImmersifier and self.config.stored.Immersifier.value > 0:
+                logger.info('Reached weekly point limit but still have immersifiers left, continue to use them')
             else:
-                # Not full, do rogue
-                pass
+                raise RogueReachedWeeklyPointLimit
         else:
-            raise RogueReachedWeeklyPointLimit
+            # Not full, do rogue
+            pass
 
     def rogue_world_enter(self, world: int | DungeonList = None):
         """
@@ -295,7 +314,7 @@ class RogueEntry(RouteBase, RogueRewardHandler, RoguePathHandler, DungeonUI):
             if self.is_page_rogue_main():
                 logger.info('At is_page_rogue_main()')
                 return True
-            if self.appear(LEVEL_CONFIRM):
+            if not self.ui_page_appear(page_item) and self.appear(LEVEL_CONFIRM):
                 logger.info('At LEVEL_CONFIRM')
                 return True
             return False
@@ -333,7 +352,11 @@ class RogueEntry(RouteBase, RogueRewardHandler, RoguePathHandler, DungeonUI):
                 self.combat_enter_from_map()
         # Not in page_rogue, goto
         if not is_rogue_entry():
-            self.goto_rogue()
+            self.dungeon_goto_rogue()
+            self._rogue_teleport()
+
+        # is_page_rogue_main()
+        self._rogue_world_wait()
 
         # Update rogue points
         if datetime.now() - self.config.stored.SimulatedUniverse.time > timedelta(minutes=2):

@@ -8,8 +8,8 @@
       "name": "Diario",
       "help": ""
     },
-    "Rogue": {
-      "name": "Universo Simulado",
+    "Weekly": {
+      "name": "Semanario",
       "help": ""
     }
   },
@@ -24,10 +24,6 @@
     },
     "Dungeon": {
       "name": "Mazmorra",
-      "help": ""
-    },
-    "Weekly": {
-      "name": "Ecos de la guerra",
       "help": ""
     },
     "DailyQuest": {
@@ -50,9 +46,13 @@
       "name": "Freebies",
       "help": ""
     },
+    "Weekly": {
+      "name": "Ecos de la guerra",
+      "help": ""
+    },
     "Rogue": {
       "name": "Universo Simulado",
-      "help": "El Universo Simulado está en desarrollo, y no se ejecutará"
+      "help": ""
     }
   },
   "Scheduler": {
@@ -361,6 +361,7 @@
       "name": "Personaje de apoyo",
       "help": "Selecciona qué personaje de apoyo de un amigo se usará. Si no se encuentra, se seleccionará al predeterminado.",
       "FirstCharacter": "Primer personaje",
+      "Argenti": "Argenti",
       "Arlan": "Arlan",
       "Asta": "Asta",
       "Bailu": "Bailu",
@@ -372,6 +373,7 @@
       "FuXuan": "Fu Xuan",
       "Gepard": "Gepard",
       "Guinaifen": "Guinaifen",
+      "Hanya": "Hanya",
       "Herta": "Herta",
       "Himeko": "Himeko",
       "Hook": "Hook",
@@ -571,7 +573,7 @@
     },
     "Complete_1_stage_in_Simulated_Universe_Any_world": {
       "name": "Supera 1 zona del Universo Simulado (cualquier mundo)",
-      "help": "",
+      "help": "Necesitas configurar y activar la tarea \"Universo Simulado\"",
       "achievable": "Completable",
       "not_set": "No configurado",
       "not_supported": "No soportado aún"
@@ -812,7 +814,8 @@
       "Abundance": "Abundancia",
       "The_Hunt": "Cacería",
       "Destruction": "Destrucción",
-      "Elation": "Exultación"
+      "Elation": "Exultación",
+      "Propagation": "Propagación"
     },
     "Bonus": {
       "name": "Bendiciones",
@@ -827,19 +830,13 @@
       "combat": "Prefiero Batalla",
       "occurrence": "Prefiero Evento"
     },
-    "ImmersionReward": {
-      "name": "Reclamar recompensas de inmersión",
-      "help": "Si se selecciona \"Usa inmersor y poder trazacaminos\", la tarea de mazmorra ya no se ejecutará y todo el poder trazacaminos se usará primero para reclamar recompensas de inmersión, excepto para eventos dobles",
-      "do_not_claim": "No reclamar",
-      "immersifier": "Usar inmersor",
-      "immersifier_trailblaze_power": "Usa inmersor y poder trazacaminos"
+    "UseImmersifier": {
+      "name": "Reclamar de planers mediante inmersor",
+      "help": ""
     },
-    "StopCondition": {
-      "name": "Condición de detención",
-      "help": "Nota: Si \"recompensas de Elite/BOSS\", la tarea del universo simulado se ejecutará durante varias horas",
-      "weekly_point_reward": "Recompensas de puntos semanales alcanzados",
-      "100_elite_boss": "Has alcanzado 100 recompensas de Elite/BOSS",
-      "non_stop": "Sin parar (solo para depuración)"
+    "UseStamina": {
+      "name": "Reclamar de planers mediante poder trazacaminos",
+      "help": "La tarea de mazmorra ya no se ejecutará y todo el poder trazacaminos se usará primero para reclamar recompensas de inmersión, excepto para eventos dobles"
     }
   },
   "RoguePath": {
@@ -909,6 +906,16 @@
     "CustomCurioFilter": {
       "name": "Custom Curio Filter",
       "help": "Only takes effect when \"Preset Curio Filter\" is \"custom\""
+    }
+  },
+  "RogueDebug": {
+    "_info": {
+      "name": "Configuración de depuración",
+      "help": ""
+    },
+    "DebugMode": {
+      "name": "Modo de depuración",
+      "help": ""
     }
   },
   "Gui": {

@@ -53,7 +53,7 @@ class GeneratedConfig:
 
     # Group `DungeonSupport`
     DungeonSupport_Use = 'when_daily'  # always_use, when_daily, do_not_use
-    DungeonSupport_Character = 'FirstCharacter'  # FirstCharacter, Arlan, Asta, Bailu, Blade, Bronya, Clara, DanHeng, DanHengImbibitorLunae, FuXuan, Gepard, Guinaifen, Herta, Himeko, Hook, Huohuo, JingYuan, Jingliu, Kafka, Luka, Luocha, Lynx, March7th, Natasha, Pela, Qingque, Sampo, Seele, Serval, SilverWolf, Sushang, Tingyun, TopazNumby, TrailblazerDestruction, TrailblazerPreservation, Welt, Yanqing, Yukong
+    DungeonSupport_Character = 'FirstCharacter'  # FirstCharacter, Argenti, Arlan, Asta, Bailu, Blade, Bronya, Clara, DanHeng, DanHengImbibitorLunae, FuXuan, Gepard, Guinaifen, Hanya, Herta, Himeko, Hook, Huohuo, JingYuan, Jingliu, Kafka, Luka, Luocha, Lynx, March7th, Natasha, Pela, Qingque, Sampo, Seele, Serval, SilverWolf, Sushang, Tingyun, TopazNumby, TrailblazerDestruction, TrailblazerPreservation, Welt, Yanqing, Yukong
 
     # Group `DungeonStorage`
     DungeonStorage_TrailblazePower = {}
@@ -119,11 +119,11 @@ class GeneratedConfig:
 
     # Group `RogueWorld`
     RogueWorld_World = 'Simulated_Universe_World_7'  # Simulated_Universe_World_3, Simulated_Universe_World_4, Simulated_Universe_World_5, Simulated_Universe_World_6, Simulated_Universe_World_7, Simulated_Universe_World_8
-    RogueWorld_Path = 'The_Hunt'  # Preservation, Remembrance, Nihility, Abundance, The_Hunt, Destruction, Elation
+    RogueWorld_Path = 'The_Hunt'  # Preservation, Remembrance, Nihility, Abundance, The_Hunt, Destruction, Elation, Propagation
     RogueWorld_Bonus = 'Blessing Cosmos'  # Blessing Cosmos, Miracle Cosmos, Fragmented Cosmos
-    RogueWorld_DomainStrategy = 'occurrence'  # combat, occurrence
-    RogueWorld_ImmersionReward = 'immersifier'  # do_not_claim, immersifier, immersifier_trailblaze_power
-    RogueWorld_StopCondition = 'weekly_point_reward'  # weekly_point_reward, 100_elite_boss, non_stop
+    RogueWorld_DomainStrategy = 'combat'  # combat, occurrence
+    RogueWorld_UseImmersifier = True
+    RogueWorld_UseStamina = False
 
     # Group `RoguePath`
     RoguePath_PresetResonanceFilter = 'preset-1'  # preset-1, custom
@@ -139,3 +139,6 @@ class GeneratedConfig:
     RogueCurio_PresetCurioFilter = 'preset-1'  # preset-1, custom
     RogueCurio_CurioSelectionStrategy = 'follow-presets'  # follow-presets, unrecorded-first, before-random
     RogueCurio_CustomCurioFilter = '博士之袍 > 福灵胶 > 分裂金币 > 信仰债券 > 换境桂冠 > 俱乐部券 > 碎星芳饵 > random'
+
+    # Group `RogueDebug`
+    RogueDebug_DebugMode = False

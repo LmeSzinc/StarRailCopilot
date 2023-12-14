@@ -161,14 +161,16 @@ class RouteLoader(RogueUI, MinimapWrapper, RouteLoader_, CharacterSwitch):
         # ('Occurrence_Herta_SupplyZone_F2Rogue_X397Y223', 0.102, (393.2, 222.8)),
         # ('Occurrence_Herta_StorageZone_F2_X365Y167', 0.094, (363.0, 166.8)),
         # ('Occurrence_Herta_StorageZone_F2_X363Y166', 0.094, (363.0, 166.8))]
-        if route.name == 'Occurrence_Herta_StorageZone_F2_X363Y166' and similarity > 0.05:
-            return True
+        # if route.name == 'Occurrence_Herta_StorageZone_F2_X363Y166' and similarity > 0.05:
+        #     return True
+
         # Before Combat_Luofu_Cloudford_F1_X281Y873
         if route.name == [
             'Combat_Herta_StorageZone_F1_X273Y92',
             'Occurrence_Herta_StorageZone_F1_X273Y93',
             'Occurrence_Jarilo_RivetTown_F1_X289Y97',
             'Occurrence_Luofu_DivinationCommission_F2_X425Y791',
+            'Occurrence_Luofu_ArtisanshipCommission_F1_X169Y491',
         ] and similarity > 0.1:
             return True
         # INFO     21:27:00.816 │ Best 3 nearby predictions: [
@@ -237,6 +239,7 @@ class RouteLoader(RogueUI, MinimapWrapper, RouteLoader_, CharacterSwitch):
         """
         # To have a newer image, since previous loadings took some time
         route = self.position_find(skip_first_screenshot=False)
+        self.screenshot_tracking_add()
         super().route_run(route)
 
     def rogue_run(self, skip_first_screenshot=True):

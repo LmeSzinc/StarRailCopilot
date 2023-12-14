@@ -92,7 +92,7 @@ class ConfigGenerator:
             options=[dungeon.name for dungeon in DungeonList.instances.values() if dungeon.is_Echo_of_War])
         # Insert characters
         from tasks.character.keywords import CharacterList
-        unsupported_characters = ['Argenti', 'Hanya']
+        unsupported_characters = []
         characters = [character.name for character in CharacterList.instances.values()
                       if character.name not in unsupported_characters]
         option_add(keys='DungeonSupport.Character.option', options=characters)
@@ -710,7 +710,8 @@ class ConfigUpdater:
         set_daily('Destroy_3_destructible_objects', 'achievable')
         set_daily('Complete_Forgotten_Hall_1_time', 'achievable')
         set_daily('Complete_Echo_of_War_1_times', deep_get(data, 'Weekly.Scheduler.Enable'))
-        set_daily('Complete_1_stage_in_Simulated_Universe_Any_world', 'not_supported')
+        set_daily('Complete_1_stage_in_Simulated_Universe_Any_world',
+                  deep_get(data, 'Rogue.Scheduler.Enable'))
         set_daily('Obtain_victory_in_combat_with_support_characters_1_time',
                   dungeon and deep_get(data, 'Dungeon.DungeonSupport.Use') in ['when_daily', 'always_use'])
         set_daily('Use_an_Ultimate_to_deal_the_final_blow_1_time', 'achievable')
@@ -723,6 +724,13 @@ class ConfigUpdater:
         set_daily('Synthesize_Consumable_1_time', 'achievable')
         set_daily('Synthesize_material_1_time', 'achievable')
         set_daily('Use_Consumables_1_time', 'achievable')
+
+        # Limit setting combinations
+        if deep_get(data, keys='Rogue.RogueWorld.UseImmersifier') is False:
+            deep_set(data, keys='Rogue.RogueWorld.UseStamina', value=False)
+        if deep_get(data, keys='Rogue.RogueWorld.UseStamina') is True:
+            deep_set(data, keys='Rogue.RogueWorld.UseImmersifier', value=True)
+
         return data
 
     def save_callback(self, key: str, value: t.Any) -> t.Iterable[t.Tuple[str, t.Any]]:
@@ -763,6 +771,10 @@ class ConfigUpdater:
                 yield 'Dungeon.DungeonDaily.CavernOfCorrosion', value
             elif key.endswith('CavernOfCorrosion'):
                 yield 'Dungeon.Dungeon.NameAtDoubleRelic', value
+        elif key == 'Rogue.RogueWorld.UseImmersifier' and value is False:
+            yield 'Rogue.RogueWorld.UseStamina', False
+        elif key == 'Rogue.RogueWorld.UseStamina' and value is True:
+            yield 'Rogue.RogueWorld.UseImmersifier', True
 
     def read_file(self, config_name, is_template=False):
         """

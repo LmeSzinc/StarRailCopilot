@@ -8,8 +8,8 @@
       "name": "每日",
       "help": ""
     },
-    "Rogue": {
-      "name": "模拟宇宙",
+    "Weekly": {
+      "name": "每周",
       "help": ""
     }
   },
@@ -24,10 +24,6 @@
     },
     "Dungeon": {
       "name": "每日副本",
-      "help": ""
-    },
-    "Weekly": {
-      "name": "历战余响",
       "help": ""
     },
     "DailyQuest": {
@@ -50,9 +46,13 @@
       "name": "白嫖奖励",
       "help": ""
     },
+    "Weekly": {
+      "name": "历战余响",
+      "help": ""
+    },
     "Rogue": {
       "name": "模拟宇宙",
-      "help": "模拟宇宙还在开发中，任务不会被运行"
+      "help": ""
     }
   },
   "Scheduler": {
@@ -361,6 +361,7 @@
       "name": "好友支援角色",
       "help": "选择好友支援角色，未找到则选择默认（第一个）角色",
       "FirstCharacter": "支援列表第一个角色",
+      "Argenti": "银枝",
       "Arlan": "阿兰",
       "Asta": "艾丝妲",
       "Bailu": "白露",
@@ -372,6 +373,7 @@
       "FuXuan": "符玄",
       "Gepard": "杰帕德",
       "Guinaifen": "桂乃芬",
+      "Hanya": "寒鸦",
       "Herta": "黑塔",
       "Himeko": "姬子",
       "Hook": "虎克",
@@ -571,7 +573,7 @@
     },
     "Complete_1_stage_in_Simulated_Universe_Any_world": {
       "name": "通关「模拟宇宙」（任意世界）的1个区域",
-      "help": "",
+      "help": "需要设置并启用\"模拟宇宙\"任务",
       "achievable": "可完成",
       "not_set": "未设置",
       "not_supported": "暂未支持"
@@ -812,7 +814,8 @@
       "Abundance": "丰饶",
       "The_Hunt": "巡猎",
       "Destruction": "毁灭",
-      "Elation": "欢愉"
+      "Elation": "欢愉",
+      "Propagation": "繁育"
     },
     "Bonus": {
       "name": "开拓祝福三选一",
@@ -827,19 +830,13 @@
       "combat": "偏好战斗",
       "occurrence": "偏好事件"
     },
-    "ImmersionReward": {
-      "name": "领取浸器奖励",
-      "help": "注意：选择 \"使用沉浸器和开拓力领取\" 时，每日副本任务不再打本，所有开拓力将优先被用于领取浸器奖励，双倍活动时除外",
-      "do_not_claim": "不领取",
-      "immersifier": "仅使用沉浸器领取",
-      "immersifier_trailblaze_power": "使用沉浸器和开拓力领取"
+    "UseImmersifier": {
+      "name": "使用沉浸器领取遗器",
+      "help": ""
     },
-    "StopCondition": {
-      "name": "停止条件",
-      "help": "注意：\"每周100精英怪掉落奖励达到上限\" 时，模拟宇宙任务将运行数小时",
-      "weekly_point_reward": "每周点数奖励达到上限",
-      "100_elite_boss": "每周100精英怪掉落奖励达到上限",
-      "non_stop": "不停止 (仅用于调试)"
+    "UseStamina": {
+      "name": "使用开拓力刷内圈遗器",
+      "help": "每日副本任务将不再打本，所有开拓力将优先被用于领取浸器奖励，双倍活动时除外"
     }
   },
   "RoguePath": {
@@ -909,6 +906,16 @@
     "CustomCurioFilter": {
       "name": "自定义奇物过滤器",
       "help": "仅在\"奇物过滤器\"设置为\"自定义\"时生效"
+    }
+  },
+  "RogueDebug": {
+    "_info": {
+      "name": "调试设置",
+      "help": ""
+    },
+    "DebugMode": {
+      "name": "调试模式",
+      "help": ""
     }
   },
   "Gui": {

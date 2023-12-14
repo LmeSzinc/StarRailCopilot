@@ -1,8 +1,6 @@
 from module.base.decorator import cached_property
 from module.base.timer import Timer
-from module.exception import ScriptError
 from module.logger import logger
-from tasks.base.assets.assets_base_page import BACK
 from tasks.rogue.assets.assets_rogue_path import *
 from tasks.rogue.assets.assets_rogue_ui import ROGUE_LAUNCH
 from tasks.rogue.bleesing.ui import RogueUI
@@ -40,6 +38,7 @@ class RoguePathHandler(RogueUI):
             KEYWORDS_ROGUE_PATH.The_Hunt: CHECK_THE_HUNT,
             KEYWORDS_ROGUE_PATH.Destruction: CHECK_DESTRUCTION,
             KEYWORDS_ROGUE_PATH.Elation: CHECK_ELATION,
+            KEYWORDS_ROGUE_PATH.Propagation: CHECK_PROPAGATION
         }
         return buttons
 
@@ -60,34 +59,46 @@ class RoguePathHandler(RogueUI):
         return buttons
 
     def _get_path_click(self, path: RoguePath) -> ButtonWrapper:
-        try:
-            return self._rogue_path_clicks[path]
-        except KeyError:
-            logger.critical(f'Invalid rogue path: {path}')
-            raise ScriptError
+        buttons = self._rogue_path_clicks
+        if ret := buttons.get(path):
+            return ret
+        else:
+            # choose the closest path
+            paths = list(buttons.keys())
+            path_click = min(paths, key=lambda p: abs(self._calculate_distance(p, path)))
+            return buttons.get(path_click)
 
-    def _get_selected_path(self, skip_first_screenshot=True) -> RoguePath | None:
-        timeout = Timer(1, count=5).start()
-        while 1:
-            if skip_first_screenshot:
-                skip_first_screenshot = False
-            else:
-                self.device.screenshot()
+    @staticmethod
+    def _calculate_distance(path_1: RoguePath, path_2: RoguePath):
+        """
+        click times from path1 to path2
 
-            if timeout.reached():
-                break
-            for path, button in self._rogue_path_checks.items():
-                # Check colors to wait appear animation
-                if self.match_template_color(button):
-                    logger.attr('SelectPath', path)
-                    return path
+        Returns:
+            int: Positive value to click right,
+                negative value to click left,
+                0 to be the same.
+        """
+        length = len(path_1.instances)
+        distance = path_1.id - path_2.id
+        left_times = distance % length
+        right_times = -distance % length
+        if right_times <= left_times:
+            return right_times
+        else:
+            return -left_times
 
-        logger.warning('Unable to get select path')
+    def _get_selected_path(self) -> RoguePath | None:
+        for path, button in self._rogue_path_checks.items():
+            # Check colors to wait appear animation
+            if self.match_template_color(button):
+                logger.attr('SelectedPath', path)
+                return path
+        logger.attr('SelectedPath', None)
         return None
 
     def _is_page_rogue_path(self) -> bool:
-        appear = [self.appear(button) for button in self._rogue_path_clicks.values()]
-        return all(appear)
+        appear = self.appear(PAGE_ROGUE_PATH)
+        return appear
 
     def _is_team_prepared(self) -> bool:
         """
@@ -98,6 +109,40 @@ class RoguePathHandler(RogueUI):
         slots = 4 - len(slots)
         logger.attr('TeamSlotsPrepared', slots)
         return slots > 0
+
+    def _change_confirm_path(self, path: RoguePath, skip_first_screenshot=True) -> bool:
+        """
+        Pages:
+            in: CONFIRM_PATH
+        """
+        logger.info('Change confirm path')
+        interval = Timer(2)
+        timeout = Timer(10, count=20).start()
+        while 1:
+            if skip_first_screenshot:
+                skip_first_screenshot = False
+            else:
+                self.device.screenshot()
+
+            selected_path = self._get_selected_path()
+            # End
+            if selected_path == path:
+                logger.info('Selected to the right path')
+                return True
+            if timeout.reached():
+                logger.warning(f'Unable to switch to path {path}, probably locked')
+                return False
+            # Click
+            if selected_path is not None and interval.reached():
+                diff = self._calculate_distance(selected_path, path)
+                if diff > 0:
+                    self.device.multi_click(CHOOSE_RIGHT, n=diff)
+                    interval.reset()
+                elif diff < 0:
+                    self.device.multi_click(CHOOSE_LEFT, n=abs(diff))
+                    interval.reset()
+                else:
+                    logger.warning(f'Invalid path distance: {diff}')
 
     def rogue_path_select(self, path: str | RoguePath, skip_first_screenshot=True):
         """
@@ -110,7 +155,7 @@ class RoguePathHandler(RogueUI):
                 or page_main if previous rogue run had bonus selected but didn't finish any domain
         """
         logger.hr('Rogue path select', level=2)
-        path: RoguePath = RoguePath.find(path)
+        path: RoguePath = RoguePath.find_path(path)
         logger.info(f'Select path: {path}')
         entry = self._get_path_click(path)
         while 1:
@@ -143,10 +188,6 @@ class RoguePathHandler(RogueUI):
                     continue
             # Confirm path
             if self.appear(CONFIRM_PATH, interval=2):
-                if self._get_selected_path() == path:
+                if self._change_confirm_path(path):
                     self.device.click(CONFIRM_PATH)
-                    continue
-                else:
-                    logger.warning('Selected to the wrong path')
-                    self.device.click(BACK)
                     continue

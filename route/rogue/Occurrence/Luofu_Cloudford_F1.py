@@ -1,10 +1,13 @@
+from module.exception import GameStuckError
 from tasks.map.control.waypoint import Waypoint
 from tasks.map.keywords.plane import Luofu_Cloudford
+from tasks.map.route.base import locked_position, locked_rotation
 from tasks.rogue.route.base import RouteBase
 
 
 class Route(RouteBase):
 
+    @locked_rotation(270)
     def Luofu_Cloudford_F1_X241Y947(self):
         """
         | Waypoint | Position                  | Direction | Rotation |
@@ -24,6 +27,8 @@ class Route(RouteBase):
         self.clear_event(event)
         # ===== End of generated waypoints =====
 
+    @locked_position
+    @locked_rotation(0)
     def Luofu_Cloudford_F1_X281Y873(self):
         """
         | Waypoint | Position                  | Direction | Rotation |
@@ -52,6 +57,8 @@ class Route(RouteBase):
         but for wrong spawn point detected
         """
 
+    @locked_position
+    @locked_rotation(0)
     def Luofu_Cloudford_F1_X283Y865(self):
         """
         | Waypoint | Position                  | Direction | Rotation |

@@ -214,19 +214,15 @@ RogueWorld:
     ]
   Path:
     value: The_Hunt
-    option: [ Preservation, Remembrance, Nihility, Abundance, The_Hunt, Destruction, Elation ]
+    option: [ Preservation, Remembrance, Nihility, Abundance, The_Hunt, Destruction, Elation, Propagation ]
   Bonus:
     value: Blessing Cosmos
     option: [ Blessing Cosmos, Miracle Cosmos, Fragmented Cosmos ]
   DomainStrategy:
-    value: occurrence
+    value: combat
     option: [ combat, occurrence ]
-  ImmersionReward:
-    value: immersifier
-    option: [ do_not_claim, immersifier, immersifier_trailblaze_power ]
-  StopCondition:
-    value: weekly_point_reward
-    option: [ weekly_point_reward, 100_elite_boss, non_stop ]
+  UseImmersifier: true
+  UseStamina: false
 
 RoguePath:
   PresetResonanceFilter:
@@ -265,3 +261,6 @@ RogueCurio:
     option: [ follow-presets, unrecorded-first, before-random ]
   CustomCurioFilter: |-
     博士之袍 > 福灵胶 > 分裂金币 > 信仰债券 > 换境桂冠 > 俱乐部券 > 碎星芳饵 > random
+
+RogueDebug:
+  DebugMode: false

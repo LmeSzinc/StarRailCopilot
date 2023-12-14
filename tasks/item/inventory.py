@@ -23,6 +23,7 @@ class Item:
         self.button = icon_area
         self.image = image
         self.name = "Unknown Item"
+        self.data: str = ""
 
     def __str__(self):
         row, col = self.position
@@ -61,10 +62,6 @@ class Item:
             if main.image_color_count(self.icon_area, color, count=1000):
                 return rarity + 1
         return 0
-
-    def get_data_count(self, main: ModuleBase) -> bool:
-        ocr = ItemDataDigit(self)
-        return ocr.ocr_single_line(main.device.image)
 
     def is_item_selected(self, main: ModuleBase) -> bool:
         # white border
@@ -243,6 +240,13 @@ class Inventory:
                 row_recognized += 1
 
         items = [item for item in get_items()]
+        # data
+        data_areas = [item.data_area for item in items]
+        data_images = [crop(main.device.image, (x1, y1, x2, y2)) for x1, y1, x2, y2 in data_areas]
+        results = Ocr(ITEM_DATA).ocr_multi_lines(data_images)
+        for index, result in enumerate(results):
+            items[index].data = result[0]
+
         logger.attr(name='%s %ss' % (self.inventory.name, float2str(time.time() - start_time)),
-                    text=f"{len(items)} item recognized")
+                    text=f"{len(items)} item recognized with data")
         return items

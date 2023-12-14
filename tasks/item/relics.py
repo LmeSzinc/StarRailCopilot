@@ -331,7 +331,7 @@ class RelicsUI(ItemUI):
 
     def _select_level_up_relic(self, skip_first_screenshot=True) -> bool:
         def is_max_level(relic: Item):
-            level = relic.get_data_count(main=self)
+            level = int(relic.data.replace('', ''))
             rarity = relic.get_rarity(main=self)
             return level == rarity * 3
 

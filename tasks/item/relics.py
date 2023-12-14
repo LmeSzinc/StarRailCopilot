@@ -323,7 +323,7 @@ class RelicsUI(ItemUI):
             else:
                 self.device.screenshot()
 
-            if self.appear(ENHANCE_MATERIAL_SLOTS):
+            if self.appear(ENHANCE_TAB):
                 logger.info("Enhance complete")
                 break
             if self.appear_then_click(ENHANCE_POPUP):

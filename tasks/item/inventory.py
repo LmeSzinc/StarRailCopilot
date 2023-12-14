@@ -6,6 +6,7 @@ from scipy import signal
 from scipy.cluster.vq import kmeans
 
 from module.base.base import ModuleBase
+from module.base.decorator import cached_property
 from module.base.timer import Timer
 from module.base.utils import area_offset, crop, rgb2gray, color_similarity_2d, area_pad, float2str
 from module.logger import logger
@@ -14,12 +15,13 @@ from tasks.item.assets.assets_item_inventory import *
 
 
 class Item:
-    def __init__(self, position, icon_area, data_area):
+    def __init__(self, position, icon_area, data_area, image):
         self.position = position
         self.icon_area = icon_area
         self.data_area = data_area
         self.full_area = (icon_area[0], icon_area[1], data_area[2], data_area[3])
         self.button = icon_area
+        self.image = image
         self.name = "Unknown Item"
 
     def __str__(self):
@@ -28,6 +30,20 @@ class Item:
 
     def __repr__(self):
         return self.__str__()
+
+    @cached_property
+    def icon_image(self):
+        x1, y1, x2, y2 = self.icon_area
+        x1, y2, x2, y3 = self.data_area
+        return crop(self.image, (x1 - x1, y1 - y1, x2 - x1, y2 - y1))
+
+    @cached_property
+    def data_image(self):
+        # Since item image won't change after cropped, the data area also won't change.
+        # So be careful when use in detecting something that will change after recognized
+        x1, y1, x2, y2 = self.icon_area
+        x1, y2, x2, y3 = self.data_area
+        return crop(self.image, (x1 - x1, y2 - y1, x2 - x1, y3 - y1))
 
     def get_minus_button(self):
         x1, y1, _, _ = self.button
@@ -58,9 +74,9 @@ class Item:
         ITEM_LOCK.matched_button.search = self.icon_area
         return main.appear(ITEM_LOCK)
 
-    def is_item_stackable(self, main: ModuleBase) -> bool:
+    def is_item_stackable(self) -> bool:
         ocr = ItemDataOcr(self)
-        return '/' in ocr.ocr_single_line(main.device.image)
+        return '/' in ocr.ocr_single_line(self.data_image, direct_ocr=True)
 
     def get_stackable_item_count(self, main: ModuleBase) -> tuple[int, int, int]:
         counter = ItemDataCounter(self)
@@ -222,7 +238,8 @@ class Inventory:
                 for col, (x1, x2) in enumerate(group_by_distance_interval(col_bounds, (85, 100))):
                     yield Item((row_recognized + 1, col + 1),
                                (x1 + area[0], y1 + area[1], x2 + area[0], y2 + area[1]),
-                               (x1 + area[0], y2 + area[1], x2 + area[0], y3 + area[1]))
+                               (x1 + area[0], y2 + area[1], x2 + area[0], y3 + area[1]),
+                               crop(main.device.image, (x1 + area[0], y1 + area[1], x2 + area[0], y3 + area[1])))
                 row_recognized += 1
 
         items = [item for item in get_items()]

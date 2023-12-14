@@ -269,7 +269,7 @@ class RelicsUI(ItemUI):
                 logger.warning("No relic satisfy preset rarity, can not salvage")
                 return False
 
-            stackable = item.is_item_stackable(main=self)
+            stackable = item.is_item_stackable()
             exp_count = 0
             if stackable:
                 _, remain, _ = item.get_stackable_item_count(main=self)

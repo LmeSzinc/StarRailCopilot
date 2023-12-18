@@ -1,9 +1,9 @@
 import os
-
 import pandas as pd
 import textwrap
 
 from tasks.rogue.keywords.classes import RoguePath
+from module.logger import logger
 
 
 class PresetFilterGenerator:
@@ -11,7 +11,8 @@ class PresetFilterGenerator:
         if file_name is None:
             file_name = './filter.xlsx'
         if not os.path.exists(file_name):
-            raise Exception('File not found')
+            logger.warning(f'File {file_name} not found')
+            exit()
         self.file = pd.read_excel(file_name, sheet_name=None)
         self.paths = []
         self.path_name = {}
@@ -26,6 +27,13 @@ class PresetFilterGenerator:
         for path in RoguePath.instances.values():
             self.paths.append(path.name)
             self.path_name[path.name] = path.cn
+
+    def check_sheet(self, sheet_name: str) -> bool:
+        if sheet_name not in self.file:
+            logger.warning(f'sheet {sheet_name} not found')
+            return False
+        else:
+            return True
 
     def to_list(self, sheet: pd.DataFrame, title: str, sort_name: str = '排序') -> list:
         name = '祝福' if title != '奇物' else '奇物'
@@ -73,15 +81,18 @@ class PresetFilterGenerator:
 
     def generate(self):
         for _ in self.general:
-            self.content[_] = self.to_list(self.file[_], _)
+            self.content[_] = self.to_list(self.file[_], _) if self.check_sheet(_) else []
 
         resonance = {}
         curio = {}
+        has_resonance = self.check_sheet('回响')
+        has_curio = self.check_sheet('奇物')
+
         for path in self.paths:
             path_name = self.path_name[path]
-            self.content[path] = self.to_list(self.file[path_name], path_name)
-            resonance[path] = self.to_list(self.file['回响'][self.file['回响']['命途'] == path_name], '回响')
-            curio[path] = self.to_list(self.file['奇物'], '奇物', sort_name=path_name)
+            self.content[path] = self.to_list(self.file[path_name], path_name) if self.check_sheet(path_name) else []
+            resonance[path] = self.to_list(self.file['回响'][self.file['回响']['命途'] == path_name], '回响') if has_resonance else []
+            curio[path] = self.to_list(self.file['奇物'], '奇物', sort_name=path_name) if has_curio else []
         self.content['回响'] = resonance
         self.content['奇物'] = curio
 

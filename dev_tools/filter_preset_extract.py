@@ -40,11 +40,10 @@ class PresetFilterGenerator:
         sheet_ = sheet[sheet[sort_name] > 0].sort_values(by=sort_name)
         sheet_ = sheet_[name].tolist()
 
-        if title in self.paths:
-            for key in self.replace.keys():
-                if key in sheet_:
-                    index = sheet_.index(key)
-                    sheet_ = sheet_[:index] + self.content[self.replace[key]] + sheet_[index + 1:]
+        for key in self.replace.keys():
+            if key in sheet_ and self.replace[key] in self.content:
+                index = sheet_.index(key)
+                sheet_ = sheet_[:index] + self.content[self.replace[key]] + sheet_[index + 1:]
 
         sheet_ = list(dict.fromkeys(sheet_))
 

@@ -5,6 +5,8 @@ import textwrap
 from tasks.rogue.keywords.classes import RoguePath
 from module.logger import logger
 
+INDENTATION = '    '
+
 
 class PresetFilterGenerator:
     def __init__(self, file_name: str = None):
@@ -21,7 +23,7 @@ class PresetFilterGenerator:
         self.replace = {'黄色(强力通用)': '强力', '蓝色(通用输出)': '输出', '绿色(通用生存)': '生存',
                         '红色(通用功能)': '功能'}
         self.content = {}
-        self.length = 80
+        self.length = 76
 
     def get_paths(self):
         for path in RoguePath.instances.values():
@@ -63,19 +65,22 @@ class PresetFilterGenerator:
     def to_str(self, blessing: list, name: str, one_line=False) -> str:
         if one_line:
             ret = ' > '.join(blessing + ['random'])
-            return f'    "{name}": "{ret}",\n'
-        ret = f'    "{name}": \"\"\"\n'
+            return f'{INDENTATION}"{name}": "{ret}",\n'
+        ret = f'{INDENTATION}"{name}": \"\"\"\n'
+
+        def list_to_str(l_, ind):
+            return textwrap.indent(textwrap.fill(' > '.join(l_), self.length), ind)
 
         if 'reset' in blessing:
             re_index = blessing.index('reset')
-            ret += textwrap.fill(' > '.join(blessing[: re_index]), self.length)
-            ret += '\n> reset\n> '
-            ret += textwrap.fill(' > '.join(blessing[re_index + 1:]), self.length)
+            ret += list_to_str(blessing[: re_index], INDENTATION * 2)
+            ret += f'\n{INDENTATION * 2}> reset >\n'
+            ret += list_to_str(blessing[re_index + 1:], INDENTATION * 2)
 
         else:
-            ret += textwrap.fill(' > '.join(blessing), self.length)
-        ret = ret.replace(' >\n', '\n> ')
-        ret += '\n> random\n\"\"\",\n\n'
+            ret += list_to_str(blessing, INDENTATION * 2)
+        ret = ret.replace(f' >\n{INDENTATION * 2}', f'\n{INDENTATION * 2}> ')
+        ret += f'\n{INDENTATION * 2}> random\n{INDENTATION * 2}\"\"\",\n\n'
         return ret
 
     def generate(self):
@@ -90,7 +95,8 @@ class PresetFilterGenerator:
         for path in self.paths:
             path_name = self.path_name[path]
             self.content[path] = self.to_list(self.file[path_name], path_name) if self.check_sheet(path_name) else []
-            resonance[path] = self.to_list(self.file['回响'][self.file['回响']['命途'] == path_name], '回响') if has_resonance else []
+            resonance[path] = self.to_list(self.file['回响'][self.file['回响']['命途'] == path_name],
+                                           '回响') if has_resonance else []
             curio[path] = self.to_list(self.file['奇物'], '奇物', sort_name=path_name) if has_curio else []
         self.content['回响'] = resonance
         self.content['奇物'] = curio

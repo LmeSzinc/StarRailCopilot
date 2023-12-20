@@ -10,9 +10,9 @@ from module.ocr.ocr import Digit, DigitCounter, Ocr, OcrResultButton
 from module.ocr.utils import split_and_pair_buttons
 from tasks.rogue.assets.assets_rogue_blessing import *
 from tasks.rogue.assets.assets_rogue_ui import BLESSING_CONFIRM
-from tasks.rogue.bleesing.preset import *
-from tasks.rogue.bleesing.selector import RogueSelector
-from tasks.rogue.bleesing.utils import get_regex_from_keyword_name, is_card_selected, parse_name
+from tasks.rogue.blessing.preset import BLESSING_PRESET, RESONANCE_PRESET
+from tasks.rogue.blessing.selector import RogueSelector
+from tasks.rogue.blessing.utils import get_regex_from_keyword_name, is_card_selected, parse_name
 from tasks.rogue.keywords import *
 
 # normal blessing filter
@@ -293,19 +293,19 @@ class RogueBlessingSelector(RogueSelector):
             RogueBlessing: {
                 "filter_": BLESSING_FILTER,
                 "preset_config": self.main.config.RogueBlessing_PresetBlessingFilter,
-                "strategy_config": self.main.config.RogueBlessing_BlessingSelectionStrategy,
+                "strategy_config": self.main.config.RogueBlessing_SelectionStrategy,
                 "preset_values": {
-                    'preset-1': BLESSING_PRESET_1,
+                    'preset': BLESSING_PRESET[self.main.config.RogueWorld_Path],
                     'custom': self.main.config.RogueBlessing_CustomBlessingFilter
                 },
             },
             RogueResonance: {
                 "filter_": RESONANCE_FILTER,
-                "preset_config": self.main.config.RoguePath_PresetResonanceFilter,
-                "strategy_config": self.main.config.RoguePath_ResonanceSelectionStrategy,
+                "preset_config": self.main.config.RogueBlessing_PresetResonanceFilter,
+                "strategy_config": self.main.config.RogueBlessing_SelectionStrategy,
                 "preset_values": {
-                    'preset-1': RESONANCE_PRESET_1,
-                    'custom': self.main.config.RoguePath_PresetResonanceFilter,
+                    'preset': RESONANCE_PRESET[self.main.config.RogueWorld_Path],
+                    'custom': self.main.config.RogueBlessing_PresetResonanceFilter,
                 },
             }
         }

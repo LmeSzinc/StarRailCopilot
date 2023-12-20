@@ -9,9 +9,9 @@ from module.logger import logger
 from module.ocr.ocr import Ocr, OcrResultButton
 from tasks.rogue.assets.assets_rogue_curio import CURIO_ENFORCE, OCR_ROGUE_CURIO
 from tasks.rogue.assets.assets_rogue_ui import BLESSING_CONFIRM, BLESSING_ENHANCED, BLESSING_LOST, BLESSING_OBTAINED
-from tasks.rogue.bleesing.preset import CURIO_PRESET_1
-from tasks.rogue.bleesing.selector import RogueSelector
-from tasks.rogue.bleesing.utils import get_regex_from_keyword_name, parse_name
+from tasks.rogue.blessing.preset import CURIO_PRESET
+from tasks.rogue.blessing.selector import RogueSelector
+from tasks.rogue.blessing.utils import get_regex_from_keyword_name, parse_name
 from tasks.rogue.keywords import RogueCurio
 
 CURIO_FILTER_ATTR = tuple()
@@ -146,14 +146,16 @@ class RogueCurioSelector(RogueSelector):
     def load_filter(self):
         filter_ = CURIO_FILTER
         string = ""
-        match self.main.config.RogueCurio_PresetCurioFilter:
-            case 'preset-1':
-                string = CURIO_PRESET_1
+        match self.main.config.RogueBlessing_PresetCurioFilter:
+            case 'preset':
+                string = CURIO_PRESET[self.main.config.RogueWorld_Path]
             case 'custom':
-                string = self.main.config.RogueCurio_CustomCurioFilter
+                string = self.main.config.RogueBlessing_CustomCurioFilter
         string = parse_name(string)
 
-        match self.main.config.RogueCurio_CurioSelectionStrategy:
+        if not string.endswith('random'):
+            string += '> random'
+        match self.main.config.RogueBlessing_SelectionStrategy:
             case 'unrecorded-first':
                 string = 'unrecorded > ' + string
             case 'before-random':

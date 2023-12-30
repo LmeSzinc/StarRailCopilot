@@ -13,6 +13,16 @@ CHARACTER_TRIAL = ButtonWrapper(
         button=(414, 649, 561, 678),
     ),
 )
+GACHA_POLL = ButtonWrapper(
+    name='GACHA_POLL',
+    share=Button(
+        file='./assets/share/daily/trial/GACHA_POLL.png',
+        area=(0, 144, 170, 303),
+        search=(0, 124, 190, 323),
+        color=(68, 70, 69),
+        button=(0, 144, 170, 303),
+    ),
+)
 HIMEKO_CHECK = ButtonWrapper(
     name='HIMEKO_CHECK',
     share=Button(
@@ -41,6 +51,16 @@ INFO_CLOSE = ButtonWrapper(
         search=(1109, 202, 1179, 272),
         color=(69, 69, 70),
         button=(1129, 222, 1159, 252),
+    ),
+)
+NOOB_GACHA = ButtonWrapper(
+    name='NOOB_GACHA',
+    share=Button(
+        file='./assets/share/daily/trial/NOOB_GACHA.png',
+        area=(57, 161, 151, 215),
+        search=(37, 141, 171, 235),
+        color=(88, 93, 84),
+        button=(57, 161, 151, 215),
     ),
 )
 REGULAR_GACHA_CHECK = ButtonWrapper(

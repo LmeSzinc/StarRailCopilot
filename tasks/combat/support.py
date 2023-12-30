@@ -218,11 +218,11 @@ class CombatSupport(UI):
                 self._select_next_support()
                 self.interval_reset(POPUP_CANCEL)
                 continue
-            if not selected_support and self.appear(COMBAT_SUPPORT_LIST, interval=1):
-                if support_character_name != "FirstCharacter":
+            if self.appear(COMBAT_SUPPORT_LIST, interval=1):
+                if not selected_support and support_character_name != "FirstCharacter":
                     self._search_support(
                         support_character_name)  # Search support
-                selected_support = True
+                    selected_support = True
                 self.device.click(COMBAT_SUPPORT_ADD)
                 self.interval_reset(COMBAT_SUPPORT_LIST)
                 continue

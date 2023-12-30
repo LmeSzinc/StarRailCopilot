@@ -183,7 +183,9 @@ class RoguePathHandler(RogueUI):
                 continue
             # Select path
             if self.interval_is_reached(entry, interval=2) and self._is_page_rogue_path():
-                if self.appear_then_click(entry, interval=2):
+                appear = sum([self.appear(_, interval=5, similarity=0.85) for _ in self._rogue_path_clicks.values()]) >= 5
+                if appear:
+                    self.device.click(entry)
                     self.interval_reset(entry, interval=2)
                     continue
             # Confirm path

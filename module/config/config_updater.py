@@ -5,7 +5,6 @@ from cached_property import cached_property
 
 from deploy.Windows.utils import DEPLOY_TEMPLATE, poor_yaml_read, poor_yaml_write
 from module.base.timer import timer
-from module.config.convert import *
 from module.config.server import VALID_SERVER
 from module.config.utils import *
 
@@ -97,13 +96,21 @@ class ConfigGenerator:
                       if character.name not in unsupported_characters]
         option_add(keys='DungeonSupport.Character.option', options=characters)
         # Insert daily quests
-        from tasks.daily.keywords import DailyQuest
+        from tasks.daily.keywords import DailyQuest, KEYWORDS_DAILY_QUEST
         for quest in DailyQuest.instances.values():
             quest: DailyQuest
+            type_ = 'state'
+            option = ['achievable', 'not_set', 'not_supported']
+            if quest == KEYWORDS_DAILY_QUEST.Salvage_any_Relic:
+                type_ = 'select'
+                option = ['5-star_or_below', '4-star_or_below', '3-star_or_below', 'do_not_achieve']
+            if quest == KEYWORDS_DAILY_QUEST.Level_up_any_Relic_1_times:
+                type_ = 'select'
+                option = ['5-star_or_below', '4-star_or_below', '3-star_or_below', 'do_not_achieve']
             deep_set(raw, keys=['AchievableQuest', quest.name], value={
-                'type': 'state',
+                'type': type_,
                 'value': 'achievable',
-                'option': ['achievable', 'not_set', 'not_supported'],
+                'option': option,
                 'option_bold': ['achievable'],
                 'option_light': ['not_supported'],
             })
@@ -710,9 +717,9 @@ class ConfigUpdater:
         # Build
         set_daily('Level_up_any_character_1_times', 'not_supported')
         set_daily('Level_up_any_Light_Cone_1_times', 'not_supported')
-        set_daily('Level_up_any_Relic_1_times', 'not_supported')
+        set_daily('Level_up_any_Relic_1_times', '4-star_or_below')
         # Items
-        set_daily('Salvage_any_Relic', 'achievable')
+        set_daily('Salvage_any_Relic', '4-star_or_below')
         set_daily('Use_the_Omni_Synthesizer_1_times', 'achievable')
         set_daily('Use_Consumables_1_time', 'achievable')
 

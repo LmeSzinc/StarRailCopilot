@@ -80,7 +80,7 @@ class GeneratedConfig:
     AchievableQuest_Complete_Forgotten_Hall_1_time = 'achievable'  # achievable, not_set, not_supported
     AchievableQuest_Complete_Echo_of_War_1_times = 'achievable'  # achievable, not_set, not_supported
     AchievableQuest_Use_an_Ultimate_to_deal_the_final_blow_1_time = 'achievable'  # achievable, not_set, not_supported
-    AchievableQuest_Salvage_any_Relic = 'achievable'  # achievable, not_set, not_supported
+    AchievableQuest_Salvage_any_Relic = 'achievable'  # 5-star_or_below, 4-star_or_below, 3-star_or_below, do_not_achieve
     AchievableQuest_Use_Consumables_1_time = 'achievable'  # achievable, not_set, not_supported
     AchievableQuest_Log_in_to_the_game = 'achievable'  # achievable, not_set, not_supported
     AchievableQuest_Dispatch_1_assignments = 'achievable'  # achievable, not_set, not_supported
@@ -95,7 +95,7 @@ class GeneratedConfig:
     AchievableQuest_Use_the_Omni_Synthesizer_1_times = 'achievable'  # achievable, not_set, not_supported
     AchievableQuest_Take_photos_1_times = 'achievable'  # achievable, not_set, not_supported
     AchievableQuest_Consume_120_Trailblaze_Power = 'achievable'  # achievable, not_set, not_supported
-    AchievableQuest_Level_up_any_Relic_1_times = 'achievable'  # achievable, not_set, not_supported
+    AchievableQuest_Level_up_any_Relic_1_times = 'achievable'  # 5-star_or_below, 4-star_or_below, 3-star_or_below, do_not_achieve
 
     # Group `DailyStorage`
     DailyStorage_DailyActivity = {}

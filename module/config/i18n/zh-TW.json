@@ -556,6 +556,10 @@
     "Salvage_any_Relic": {
       "name": "分解任意1件遺器",
       "help": "預設可完成，將分解遺器稀有度倒序的第一個",
+      "5-star_or_below": "5-star_or_below",
+      "4-star_or_below": "4-star_or_below",
+      "3-star_or_below": "3-star_or_below",
+      "do_not_achieve": "do_not_achieve",
       "achievable": "可完成",
       "not_set": "未設定",
       "not_supported": "暫未支援"
@@ -661,6 +665,10 @@
     "Level_up_any_Relic_1_times": {
       "name": "將任意遺器等級提升1次",
       "help": "",
+      "5-star_or_below": "5-star_or_below",
+      "4-star_or_below": "4-star_or_below",
+      "3-star_or_below": "3-star_or_below",
+      "do_not_achieve": "do_not_achieve",
       "achievable": "可完成",
       "not_set": "未設定",
       "not_supported": "暫未支援"

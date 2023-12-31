@@ -556,6 +556,10 @@
     "Salvage_any_Relic": {
       "name": "Destruye 1 artefacto",
       "help": "Completable por defecto. Se destruirá la última ordenado ascendentemente por rareza.",
+      "5-star_or_below": "5-star_or_below",
+      "4-star_or_below": "4-star_or_below",
+      "3-star_or_below": "3-star_or_below",
+      "do_not_achieve": "do_not_achieve",
       "achievable": "Completable",
       "not_set": "No configurado",
       "not_supported": "No soportado aún"
@@ -661,6 +665,10 @@
     "Level_up_any_Relic_1_times": {
       "name": "Mejora cualquier artefacto 1 vez",
       "help": "",
+      "5-star_or_below": "5-star_or_below",
+      "4-star_or_below": "4-star_or_below",
+      "3-star_or_below": "3-star_or_below",
+      "do_not_achieve": "do_not_achieve",
       "achievable": "Completable",
       "not_set": "No configurado",
       "not_supported": "No soportado aún"

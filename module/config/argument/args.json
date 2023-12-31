@@ -797,10 +797,9 @@
         "type": "state",
         "value": "achievable",
         "option": [
-          "5-star_or_below",
-          "4-star_or_below",
-          "3-star_or_below",
-          "do_not_achieve"
+          "achievable",
+          "not_set",
+          "not_supported"
         ],
         "option_bold": [
           "achievable"
@@ -839,7 +838,7 @@
           "not_supported"
         ]
       },
-      "Level_up_any_Relic_1_time": {
+      "Level_up_any_Relic_1_times": {
         "type": "select",
         "value": "achievable",
         "option": [
@@ -854,7 +853,8 @@
         "option_light": [
           "not_supported"
         ]
-      },
+      }
+    },
     "DailyStorage": {
       "DailyActivity": {
         "type": "stored",

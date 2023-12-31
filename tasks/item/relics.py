@@ -240,9 +240,9 @@ class RelicsUI(ItemUI):
         slot_num = 8
 
         rarity_threshold = 5
-        if self.config.AchievableQuest_Level_up_any_Relic_1_time == '4-star_or_below':
+        if self.config.AchievableQuest_Level_up_any_Relic_1_times == '4-star_or_below':
             rarity_threshold = 4
-        if self.config.AchievableQuest_Level_up_any_Relic_1_time == '3-star_or_below':
+        if self.config.AchievableQuest_Level_up_any_Relic_1_times == '3-star_or_below':
             rarity_threshold = 3
 
         while 1:
@@ -349,9 +349,9 @@ class RelicsUI(ItemUI):
             return False
 
         rarity_threshold = 5
-        if self.config.AchievableQuest_Level_up_any_Relic_1_time == '4-star_or_below':
+        if self.config.AchievableQuest_Level_up_any_Relic_1_times == '4-star_or_below':
             rarity_threshold = 4
-        if self.config.AchievableQuest_Level_up_any_Relic_1_time == '3-star_or_below':
+        if self.config.AchievableQuest_Level_up_any_Relic_1_times == '3-star_or_below':
             rarity_threshold = 3
 
         if item.get_rarity(main=self) > rarity_threshold:

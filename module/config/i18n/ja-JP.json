@@ -556,6 +556,10 @@
     "Salvage_any_Relic": {
       "name": "任意の遺物1つを分解する",
       "help": "AchievableQuest.Salvage_any_Relic.help",
+      "5-star_or_below": "5-star_or_below",
+      "4-star_or_below": "4-star_or_below",
+      "3-star_or_below": "3-star_or_below",
+      "do_not_achieve": "do_not_achieve",
       "achievable": "achievable",
       "not_set": "not_set",
       "not_supported": "not_supported"
@@ -661,6 +665,10 @@
     "Level_up_any_Relic_1_times": {
       "name": "任意の遺物を1回レベルアップする",
       "help": "AchievableQuest.Level_up_any_Relic_1_times.help",
+      "5-star_or_below": "5-star_or_below",
+      "4-star_or_below": "4-star_or_below",
+      "3-star_or_below": "3-star_or_below",
+      "do_not_achieve": "do_not_achieve",
       "achievable": "achievable",
       "not_set": "not_set",
       "not_supported": "not_supported"

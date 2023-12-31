@@ -1,0 +1,4478 @@
+{
+    "goals": [
+        {
+            "type": "character",
+            "character": "seele",
+            "eidolon": 0,
+            "current": {
+                "level": 80,
+                "asc": 6,
+                "text": "80"
+            },
+            "goal": {
+                "level": 80,
+                "asc": 6,
+                "text": "80"
+            },
+            "id": 1
+        },
+        {
+            "type": "trace",
+            "character": "seele",
+            "basic": {
+                "current": 5,
+                "goal": 6
+            },
+            "skill": {
+                "current": 8,
+                "goal": 10
+            },
+            "ultimate": {
+                "current": 8,
+                "goal": 10
+            },
+            "talent": {
+                "current": 8,
+                "goal": 10
+            },
+            "bonus": {
+                "bonus-trace-1-5": {
+                    "type": "a4m",
+                    "done": true
+                },
+                "bonus-trace-1-5-1": {
+                    "type": "a4s",
+                    "done": true
+                },
+                "bonus-trace-1-1": {
+                    "type": "a2m",
+                    "done": true
+                },
+                "bonus-trace-1-1-1": {
+                    "type": "a2s",
+                    "done": true
+                },
+                "bonus-trace-1-1-1-1": {
+                    "type": "a3s",
+                    "done": true
+                },
+                "bonus-trace-1-3": {
+                    "type": "a3s",
+                    "done": true
+                },
+                "bonus-trace-1-2": {
+                    "type": "l1",
+                    "done": true
+                },
+                "bonus-trace-1-6": {
+                    "type": "a6m",
+                    "done": true
+                },
+                "bonus-trace-1-5-1-1": {
+                    "type": "a5s",
+                    "done": true
+                },
+                "bonus-trace-1-4": {
+                    "type": "a5s",
+                    "done": true
+                },
+                "bonus-trace-1-6-1": {
+                    "type": "a6s",
+                    "done": true
+                },
+                "bonus-trace-1-6-1-1": {
+                    "type": "l75",
+                    "done": true
+                },
+                "bonus-trace-1-6-1-2": {
+                    "type": "l80",
+                    "done": true
+                }
+            },
+            "id": 2
+        },
+        {
+            "type": "character",
+            "character": "jing_yuan",
+            "eidolon": 0,
+            "current": {
+                "level": 80,
+                "asc": 6,
+                "text": "80"
+            },
+            "goal": {
+                "level": 80,
+                "asc": 6,
+                "text": "80"
+            },
+            "id": 3
+        },
+        {
+            "type": "trace",
+            "character": "jing_yuan",
+            "basic": {
+                "current": 4,
+                "goal": 4
+            },
+            "skill": {
+                "current": 6,
+                "goal": 6
+            },
+            "ultimate": {
+                "current": 6,
+                "goal": 6
+            },
+            "talent": {
+                "current": 8,
+                "goal": 8
+            },
+            "bonus": {
+                "bonus-trace-1-3": {
+                    "type": "a6m",
+                    "done": true
+                },
+                "bonus-trace-1-3-2": {
+                    "type": "l75",
+                    "done": false
+                },
+                "bonus-trace-1-1": {
+                    "type": "a2m",
+                    "done": true
+                },
+                "bonus-trace-1-1-1": {
+                    "type": "a2s",
+                    "done": true
+                },
+                "bonus-trace-1-1-1-1": {
+                    "type": "a3s",
+                    "done": true
+                },
+                "bonus-trace-1-2": {
+                    "type": "a4m",
+                    "done": true
+                },
+                "bonus-trace-1-2-1": {
+                    "type": "a4s",
+                    "done": true
+                },
+                "bonus-trace-1-2-1-1": {
+                    "type": "a5s",
+                    "done": true
+                },
+                "bonus-trace-1-2-1-2": {
+                    "type": "a5s",
+                    "done": true
+                },
+                "bonus-trace-1-5": {
+                    "type": "l80",
+                    "done": false
+                },
+                "bonus-trace-1-4": {
+                    "type": "l1",
+                    "done": true
+                }
+            },
+            "id": 5
+        },
+        {
+            "type": "character",
+            "character": "gepard",
+            "eidolon": 0,
+            "current": {
+                "level": 80,
+                "asc": 6,
+                "text": "80"
+            },
+            "goal": {
+                "level": 80,
+                "asc": 6,
+                "text": "80"
+            },
+            "id": 6
+        },
+        {
+            "type": "trace",
+            "character": "gepard",
+            "basic": {
+                "current": 2,
+                "goal": 2
+            },
+            "skill": {
+                "current": 3,
+                "goal": 3
+            },
+            "ultimate": {
+                "current": 8,
+                "goal": 8
+            },
+            "talent": {
+                "current": 3,
+                "goal": 3
+            },
+            "bonus": {
+                "bonus-trace-1-2-1": {
+                    "type": "a2m",
+                    "done": true
+                },
+                "bonus-trace-1-2-1-1": {
+                    "type": "a2s",
+                    "done": true
+                },
+                "bonus-trace-1-3": {
+                    "type": "a3s",
+                    "done": true
+                }
+            },
+            "id": 7
+        },
+        {
+            "type": "character",
+            "character": "silver_wolf",
+            "eidolon": 0,
+            "current": {
+                "level": 80,
+                "asc": 6
+            },
+            "goal": {
+                "level": 80,
+                "asc": 6
+            },
+            "id": 9
+        },
+        {
+            "type": "trace",
+            "character": "silver_wolf",
+            "basic": {
+                "current": 4,
+                "goal": 4
+            },
+            "skill": {
+                "current": 8,
+                "goal": 8
+            },
+            "ultimate": {
+                "current": 8,
+                "goal": 8
+            },
+            "talent": {
+                "current": 8,
+                "goal": 8
+            },
+            "bonus": {
+                "bonus-trace-1-4": {
+                    "type": "a6m",
+                    "done": true
+                },
+                "bonus-trace-1-2": {
+                    "type": "a2m",
+                    "done": true
+                },
+                "bonus-trace-1-2-1": {
+                    "type": "a2s",
+                    "done": true
+                },
+                "bonus-trace-1-3": {
+                    "type": "a4m",
+                    "done": true
+                },
+                "bonus-trace-1-3-1": {
+                    "type": "a4s",
+                    "done": true
+                },
+                "bonus-trace-1-3-1-1": {
+                    "type": "a5s",
+                    "done": true
+                },
+                "bonus-trace-1-1": {
+                    "type": "l1",
+                    "done": true
+                }
+            },
+            "id": 10
+        },
+        {
+            "type": "character",
+            "character": "tingyun",
+            "eidolon": 6,
+            "current": {
+                "level": 80,
+                "asc": 6
+            },
+            "goal": {
+                "level": 80,
+                "asc": 6
+            },
+            "id": 12
+        },
+        {
+            "type": "trace",
+            "character": "tingyun",
+            "basic": {
+                "current": 4,
+                "goal": 4
+            },
+            "skill": {
+                "current": 10,
+                "goal": 10
+            },
+            "ultimate": {
+                "current": 10,
+                "goal": 10
+            },
+            "talent": {
+                "current": 4,
+                "goal": 4
+            },
+            "bonus": {
+                "bonus-trace-1-1": {
+                    "type": "a2m",
+                    "done": true
+                },
+                "bonus-trace-1-1-1": {
+                    "type": "a2s",
+                    "done": true
+                },
+                "bonus-trace-1-1-1-1": {
+                    "type": "a3s",
+                    "done": true
+                },
+                "bonus-trace-1-3": {
+                    "type": "l1",
+                    "done": true
+                },
+                "bonus-trace-1-3-2": {
+                    "type": "a5s",
+                    "done": true
+                },
+                "bonus-trace-1-4": {
+                    "type": "a4m",
+                    "done": true
+                },
+                "bonus-trace-1-4-1": {
+                    "type": "a4s",
+                    "done": true
+                },
+                "bonus-trace-1-2": {
+                    "type": "a6m",
+                    "done": true
+                },
+                "bonus-trace-1-4-1-1": {
+                    "type": "a5s",
+                    "done": true
+                },
+                "bonus-trace-1-2-1": {
+                    "type": "a6s",
+                    "done": false
+                },
+                "bonus-trace-1-2-1-1": {
+                    "type": "l75",
+                    "done": false
+                },
+                "bonus-trace-1-2-1-2": {
+                    "type": "l80",
+                    "done": false
+                }
+            },
+            "id": 13
+        },
+        {
+            "type": "character",
+            "character": "trailblazer_fire",
+            "eidolon": 5,
+            "current": {
+                "level": 70,
+                "asc": 6,
+                "text": "70 A"
+            },
+            "goal": {
+                "level": 80,
+                "asc": 6
+            },
+            "id": 14
+        },
+        {
+            "type": "trace",
+            "character": "trailblazer_fire",
+            "basic": {
+                "current": 2,
+                "goal": 2
+            },
+            "skill": {
+                "current": 4,
+                "goal": 4
+            },
+            "ultimate": {
+                "current": 3,
+                "goal": 3
+            },
+            "talent": {
+                "current": 4,
+                "goal": 4
+            },
+            "bonus": {
+                "bonus-trace-1-2-1": {
+                    "type": "a2m",
+                    "done": true
+                },
+                "bonus-trace-1-2-1-1": {
+                    "type": "a2s",
+                    "done": true
+                },
+                "bonus-trace-1-2-1-1-1": {
+                    "type": "a3s",
+                    "done": true
+                },
+                "bonus-trace-1-2": {
+                    "type": "l1",
+                    "done": true
+                }
+            },
+            "id": 15
+        },
+        {
+            "type": "character",
+            "character": "asta",
+            "eidolon": 6,
+            "current": {
+                "level": 80,
+                "asc": 6
+            },
+            "goal": {
+                "level": 80,
+                "asc": 6
+            },
+            "id": 17
+        },
+        {
+            "type": "trace",
+            "character": "asta",
+            "basic": {
+                "current": 2,
+                "goal": 2
+            },
+            "skill": {
+                "current": 3,
+                "goal": 3
+            },
+            "ultimate": {
+                "current": 8,
+                "goal": 8
+            },
+            "talent": {
+                "current": 8,
+                "goal": 8
+            },
+            "bonus": {
+                "bonus-trace-1-1": {
+                    "type": "a2m",
+                    "done": true
+                },
+                "bonus-trace-1-1-1": {
+                    "type": "a2s",
+                    "done": true
+                }
+            },
+            "id": 19
+        },
+        {
+            "type": "character",
+            "character": "bronya",
+            "eidolon": 1,
+            "current": {
+                "level": 80,
+                "asc": 6
+            },
+            "goal": {
+                "level": 80,
+                "asc": 6
+            },
+            "id": 20
+        },
+        {
+            "type": "trace",
+            "character": "bronya",
+            "basic": {
+                "current": 2,
+                "goal": 2
+            },
+            "skill": {
+                "current": 10,
+                "goal": 10
+            },
+            "ultimate": {
+                "current": 10,
+                "goal": 10
+            },
+            "talent": {
+                "current": 6,
+                "goal": 6
+            },
+            "bonus": {
+                "bonus-trace-1-1": {
+                    "type": "a2m",
+                    "done": true
+                },
+                "bonus-trace-1-1-1": {
+                    "type": "a2s",
+                    "done": true
+                },
+                "bonus-trace-1-4": {
+                    "type": "l1",
+                    "done": true
+                },
+                "bonus-trace-1-3": {
+                    "type": "a6m",
+                    "done": true
+                },
+                "bonus-trace-1-2": {
+                    "type": "a4m",
+                    "done": true
+                },
+                "bonus-trace-1-2-1": {
+                    "type": "a4s",
+                    "done": true
+                },
+                "bonus-trace-1-2-1-1": {
+                    "type": "a5s",
+                    "done": true
+                },
+                "bonus-trace-1-3-1": {
+                    "type": "a6s",
+                    "done": true
+                },
+                "bonus-trace-1-4-1": {
+                    "type": "a3s",
+                    "done": true
+                },
+                "bonus-trace-1-3-1-1": {
+                    "type": "l75",
+                    "done": true
+                }
+            },
+            "id": 21
+        },
+        {
+            "type": "character",
+            "character": "natasha",
+            "eidolon": 6,
+            "current": {
+                "level": 70,
+                "asc": 6,
+                "text": "70 A"
+            },
+            "goal": {
+                "level": 80,
+                "asc": 6,
+                "text": "80"
+            },
+            "id": 22
+        },
+        {
+            "type": "trace",
+            "character": "natasha",
+            "basic": {
+                "current": 2,
+                "goal": 2
+            },
+            "skill": {
+                "current": 7,
+                "goal": 7
+            },
+            "ultimate": {
+                "current": 7,
+                "goal": 7
+            },
+            "talent": {
+                "current": 3,
+                "goal": 3
+            },
+            "bonus": {
+                "bonus-trace-1-2": {
+                    "type": "a4m",
+                    "done": true
+                },
+                "bonus-trace-1-2-1": {
+                    "type": "a4s",
+                    "done": true
+                },
+                "bonus-trace-1-1": {
+                    "type": "a2m",
+                    "done": true
+                },
+                "bonus-trace-1-1-1": {
+                    "type": "a2s",
+                    "done": true
+                },
+                "bonus-trace-1-1-1-1": {
+                    "type": "a3s",
+                    "done": true
+                },
+                "bonus-trace-1-4": {
+                    "type": "l1",
+                    "done": true
+                }
+            },
+            "id": 24
+        },
+        {
+            "type": "character",
+            "character": "pela",
+            "eidolon": 6,
+            "current": {
+                "level": 80,
+                "asc": 6
+            },
+            "goal": {
+                "level": 80,
+                "asc": 6
+            },
+            "id": 25
+        },
+        {
+            "type": "trace",
+            "character": "pela",
+            "basic": {
+                "current": 2,
+                "goal": 2
+            },
+            "skill": {
+                "current": 3,
+                "goal": 3
+            },
+            "ultimate": {
+                "current": 8,
+                "goal": 10
+            },
+            "talent": {
+                "current": 8,
+                "goal": 10
+            },
+            "bonus": {
+                "bonus-trace-1-4": {
+                    "type": "l1",
+                    "done": true
+                },
+                "bonus-trace-1-1": {
+                    "type": "a2m",
+                    "done": true
+                },
+                "bonus-trace-1-2": {
+                    "type": "a4m",
+                    "done": true
+                }
+            },
+            "id": 26
+        },
+        {
+            "type": "character",
+            "character": "dan_heng",
+            "eidolon": 2,
+            "current": {
+                "level": 70,
+                "asc": 6,
+                "text": "70 A"
+            },
+            "goal": {
+                "level": 70,
+                "asc": 6,
+                "text": "70 A"
+            },
+            "id": 28
+        },
+        {
+            "type": "trace",
+            "character": "dan_heng",
+            "basic": {
+                "current": 4,
+                "goal": 4
+            },
+            "skill": {
+                "current": 6,
+                "goal": 6
+            },
+            "ultimate": {
+                "current": 6,
+                "goal": 6
+            },
+            "talent": {
+                "current": 6,
+                "goal": 6
+            },
+            "bonus": {
+                "bonus-trace-1-1": {
+                    "type": "a2m",
+                    "done": true
+                },
+                "bonus-trace-1-1-1": {
+                    "type": "a2s",
+                    "done": true
+                },
+                "bonus-trace-1-1-1-1": {
+                    "type": "a3s",
+                    "done": true
+                },
+                "bonus-trace-1-3": {
+                    "type": "l1",
+                    "done": true
+                },
+                "bonus-trace-1-6": {
+                    "type": "a4m",
+                    "done": true
+                },
+                "bonus-trace-1-6-1": {
+                    "type": "a4s",
+                    "done": true
+                }
+            },
+            "id": 29
+        },
+        {
+            "type": "character",
+            "character": "sushang",
+            "eidolon": 5,
+            "current": {
+                "level": 70,
+                "asc": 6
+            },
+            "goal": {
+                "level": 70,
+                "asc": 6
+            },
+            "id": 32
+        },
+        {
+            "type": "trace",
+            "character": "sushang",
+            "basic": {
+                "current": 4,
+                "goal": 4
+            },
+            "skill": {
+                "current": 6,
+                "goal": 6
+            },
+            "ultimate": {
+                "current": 6,
+                "goal": 6
+            },
+            "talent": {
+                "current": 4,
+                "goal": 4
+            },
+            "bonus": {
+                "bonus-trace-1-1": {
+                    "type": "a2m",
+                    "done": true
+                },
+                "bonus-trace-1-2": {
+                    "type": "a4m",
+                    "done": true
+                },
+                "bonus-trace-1-4": {
+                    "type": "l1",
+                    "done": true
+                }
+            },
+            "id": 33
+        },
+        {
+            "type": "character",
+            "character": "hook",
+            "eidolon": 3,
+            "current": {
+                "level": 70,
+                "asc": 6
+            },
+            "goal": {
+                "level": 70,
+                "asc": 6
+            },
+            "id": 34
+        },
+        {
+            "type": "trace",
+            "character": "hook",
+            "basic": {
+                "current": 3,
+                "goal": 3
+            },
+            "skill": {
+                "current": 6,
+                "goal": 6
+            },
+            "ultimate": {
+                "current": 6,
+                "goal": 6
+            },
+            "talent": {
+                "current": 6,
+                "goal": 6
+            },
+            "bonus": {
+                "bonus-trace-1-1": {
+                    "type": "a2m",
+                    "done": true
+                },
+                "bonus-trace-1-3": {
+                    "type": "l1",
+                    "done": true
+                }
+            },
+            "id": 36
+        },
+        {
+            "type": "character",
+            "character": "clara",
+            "eidolon": 0,
+            "current": {
+                "level": 70,
+                "asc": 6
+            },
+            "goal": {
+                "level": 80,
+                "asc": 6
+            },
+            "id": 37
+        },
+        {
+            "type": "trace",
+            "character": "clara",
+            "basic": {
+                "current": 3,
+                "goal": 3
+            },
+            "skill": {
+                "current": 7,
+                "goal": 7
+            },
+            "ultimate": {
+                "current": 8,
+                "goal": 8
+            },
+            "talent": {
+                "current": 8,
+                "goal": 8
+            },
+            "bonus": {
+                "bonus-trace-1-4": {
+                    "type": "l1",
+                    "done": true
+                },
+                "bonus-trace-1-1": {
+                    "type": "a4m",
+                    "done": true
+                },
+                "bonus-trace-1-1-1": {
+                    "type": "a4s",
+                    "done": true
+                },
+                "bonus-trace-1-2": {
+                    "type": "a2m",
+                    "done": true
+                },
+                "bonus-trace-1-2-1": {
+                    "type": "a2s",
+                    "done": true
+                },
+                "bonus-trace-1-2-1-1": {
+                    "type": "a3s",
+                    "done": true
+                },
+                "bonus-trace-1-1-1-1": {
+                    "type": "a5s",
+                    "done": true
+                },
+                "bonus-trace-1-3": {
+                    "type": "a6m",
+                    "done": true
+                },
+                "bonus-trace-1-1-1-1-1": {
+                    "type": "a5s",
+                    "done": true
+                }
+            },
+            "id": 38
+        },
+        {
+            "type": "character",
+            "character": "qingque",
+            "eidolon": 0,
+            "current": {
+                "level": 70,
+                "asc": 6
+            },
+            "goal": {
+                "level": 70,
+                "asc": 6
+            },
+            "id": 40
+        },
+        {
+            "type": "trace",
+            "character": "qingque",
+            "basic": {
+                "current": 1,
+                "goal": 1
+            },
+            "skill": {
+                "current": 2,
+                "goal": 2
+            },
+            "ultimate": {
+                "current": 2,
+                "goal": 2
+            },
+            "talent": {
+                "current": 2,
+                "goal": 2
+            },
+            "bonus": {
+                "bonus-trace-1-4": {
+                    "type": "l1",
+                    "done": true
+                }
+            },
+            "id": 41
+        },
+        {
+            "type": "character",
+            "character": "luocha",
+            "eidolon": 0,
+            "current": {
+                "level": 80,
+                "asc": 6
+            },
+            "goal": {
+                "level": 80,
+                "asc": 6
+            },
+            "id": 42
+        },
+        {
+            "type": "trace",
+            "character": "luocha",
+            "basic": {
+                "current": 4,
+                "goal": 4
+            },
+            "skill": {
+                "current": 8,
+                "goal": 8
+            },
+            "ultimate": {
+                "current": 6,
+                "goal": 6
+            },
+            "talent": {
+                "current": 8,
+                "goal": 8
+            },
+            "bonus": {
+                "bonus-trace-1-1": {
+                    "type": "a2m",
+                    "done": true
+                },
+                "bonus-trace-1-1-1": {
+                    "type": "a2s",
+                    "done": true
+                },
+                "bonus-trace-1-1-1-1": {
+                    "type": "a3s",
+                    "done": true
+                },
+                "bonus-trace-1-2": {
+                    "type": "a6m",
+                    "done": true
+                },
+                "bonus-trace-1-3": {
+                    "type": "l1",
+                    "done": true
+                },
+                "bonus-trace-1-5": {
+                    "type": "a4m",
+                    "done": true
+                },
+                "bonus-trace-1-5-1": {
+                    "type": "a4s",
+                    "done": true
+                },
+                "bonus-trace-1-5-1-1": {
+                    "type": "a5s",
+                    "done": true
+                },
+                "bonus-trace-1-5-1-1-1": {
+                    "type": "a5s",
+                    "done": true
+                }
+            },
+            "id": 43
+        },
+        {
+            "type": "character",
+            "character": "yukong",
+            "eidolon": 0,
+            "current": {
+                "level": 80,
+                "asc": 6
+            },
+            "goal": {
+                "level": 80,
+                "asc": 6
+            },
+            "id": 45
+        },
+        {
+            "type": "trace",
+            "character": "yukong",
+            "basic": {
+                "current": 1,
+                "goal": 1
+            },
+            "skill": {
+                "current": 8,
+                "goal": 8
+            },
+            "ultimate": {
+                "current": 8,
+                "goal": 8
+            },
+            "talent": {
+                "current": 2,
+                "goal": 2
+            },
+            "bonus": {
+                "bonus-trace-1-2": {
+                    "type": "a6m",
+                    "done": true
+                },
+                "bonus-trace-1-4": {
+                    "type": "a2m",
+                    "done": true
+                },
+                "bonus-trace-1-1": {
+                    "type": "a4m",
+                    "done": true
+                },
+                "bonus-trace-1-3": {
+                    "type": "l1",
+                    "done": true
+                }
+            },
+            "id": 46
+        },
+        {
+            "type": "trace",
+            "character": "blade_char",
+            "basic": {
+                "current": 5,
+                "goal": 5
+            },
+            "skill": {
+                "current": 8,
+                "goal": 8
+            },
+            "ultimate": {
+                "current": 8,
+                "goal": 8
+            },
+            "talent": {
+                "current": 8,
+                "goal": 8
+            },
+            "bonus": {
+                "bonus-trace-1-4": {
+                    "type": "l1",
+                    "done": true
+                },
+                "bonus-trace-1-1-1": {
+                    "type": "a2s",
+                    "done": true
+                },
+                "bonus-trace-1-1-1-1": {
+                    "type": "a3s",
+                    "done": true
+                },
+                "bonus-trace-1-3-1": {
+                    "type": "a4s",
+                    "done": true
+                },
+                "bonus-trace-1-1": {
+                    "type": "a2m",
+                    "done": true
+                },
+                "bonus-trace-1-2": {
+                    "type": "a6m",
+                    "done": true
+                },
+                "bonus-trace-1-3": {
+                    "type": "a4m",
+                    "done": true
+                },
+                "bonus-trace-1-3-1-1": {
+                    "type": "a5s",
+                    "done": true
+                },
+                "bonus-trace-1-3-1-1-1": {
+                    "type": "a5s",
+                    "done": true
+                },
+                "bonus-trace-1-2-1": {
+                    "type": "a6s",
+                    "done": true
+                },
+                "bonus-trace-1-2-1-1": {
+                    "type": "l75",
+                    "done": true
+                },
+                "bonus-trace-1-2-1-2": {
+                    "type": "l80",
+                    "done": true
+                }
+            },
+            "id": 49
+        },
+        {
+            "type": "character",
+            "character": "blade_char",
+            "eidolon": 0,
+            "current": {
+                "level": 80,
+                "asc": 6,
+                "text": "80"
+            },
+            "goal": {
+                "level": 80,
+                "asc": 6,
+                "text": "80"
+            },
+            "id": 50
+        },
+        {
+            "type": "character",
+            "character": "kafka",
+            "eidolon": 0,
+            "current": {
+                "level": 80,
+                "asc": 6
+            },
+            "goal": {
+                "level": 80,
+                "asc": 6
+            },
+            "id": 52
+        },
+        {
+            "type": "trace",
+            "character": "kafka",
+            "basic": {
+                "current": 4,
+                "goal": 4
+            },
+            "skill": {
+                "current": 8,
+                "goal": 8
+            },
+            "ultimate": {
+                "current": 8,
+                "goal": 8
+            },
+            "talent": {
+                "current": 6,
+                "goal": 6
+            },
+            "bonus": {
+                "bonus-trace-1-1": {
+                    "type": "a4m",
+                    "done": true
+                },
+                "bonus-trace-1-2": {
+                    "type": "l1",
+                    "done": true
+                },
+                "bonus-trace-1-3": {
+                    "type": "a2m",
+                    "done": true
+                },
+                "bonus-trace-1-4": {
+                    "type": "a6m",
+                    "done": true
+                },
+                "bonus-trace-1-1-1": {
+                    "type": "a4s",
+                    "done": true
+                },
+                "bonus-trace-1-1-1-1": {
+                    "type": "a5s",
+                    "done": true
+                },
+                "bonus-trace-1-3-1": {
+                    "type": "a2s",
+                    "done": true
+                }
+            },
+            "id": 53
+        },
+        {
+            "type": "cone",
+            "id": 55,
+            "cone": "a_secret_vow",
+            "current": {
+                "level": 70,
+                "asc": 6,
+                "text": "70 A"
+            },
+            "goal": {
+                "level": 80,
+                "asc": 6,
+                "text": "80"
+            }
+        },
+        {
+            "type": "character",
+            "character": "luka",
+            "eidolon": 0,
+            "current": {
+                "level": 70,
+                "asc": 6
+            },
+            "goal": {
+                "level": 70,
+                "asc": 6
+            },
+            "id": 57
+        },
+        {
+            "type": "cone",
+            "id": 58,
+            "character": null,
+            "cone": "solitary_healing",
+            "current": {
+                "level": 1,
+                "asc": 0,
+                "text": "1"
+            },
+            "goal": {
+                "level": 80,
+                "asc": 6,
+                "text": "80"
+            }
+        },
+        {
+            "type": "trace",
+            "character": "luka",
+            "basic": {
+                "current": 4,
+                "goal": 4
+            },
+            "skill": {
+                "current": 8,
+                "goal": 8
+            },
+            "ultimate": {
+                "current": 8,
+                "goal": 8
+            },
+            "talent": {
+                "current": 8,
+                "goal": 8
+            },
+            "bonus": {
+                "bonus-trace-1-1": {
+                    "type": "a2m",
+                    "done": true
+                },
+                "bonus-trace-1-2": {
+                    "type": "a4m",
+                    "done": true
+                },
+                "bonus-trace-1-3": {
+                    "type": "a6m",
+                    "done": true
+                },
+                "bonus-trace-1-1-1": {
+                    "type": "a2s",
+                    "done": true
+                },
+                "bonus-trace-1-2-1": {
+                    "type": "a4s",
+                    "done": true
+                },
+                "bonus-trace-1-2-1-1": {
+                    "type": "a5s",
+                    "done": true
+                },
+                "bonus-trace-1-4": {
+                    "type": "l1",
+                    "done": true
+                },
+                "bonus-trace-1-2-1-1-1": {
+                    "type": "a5s",
+                    "done": true
+                },
+                "bonus-trace-1-1-1-1": {
+                    "type": "a3s",
+                    "done": true
+                }
+            },
+            "id": 59
+        },
+        {
+            "type": "trace",
+            "character": "fu_xuan",
+            "basic": {
+                "current": 4,
+                "goal": 5
+            },
+            "skill": {
+                "current": 8,
+                "goal": 8
+            },
+            "ultimate": {
+                "current": 7,
+                "goal": 8
+            },
+            "talent": {
+                "current": 8,
+                "goal": 8
+            },
+            "bonus": {
+                "bonus-trace-1-1": {
+                    "type": "l1",
+                    "done": true
+                },
+                "bonus-trace-1-1-1": {
+                    "type": "a4m",
+                    "done": true
+                },
+                "bonus-trace-1-1-1-1-1": {
+                    "type": "a5s",
+                    "done": true
+                },
+                "bonus-trace-1-1-1-1": {
+                    "type": "a4s",
+                    "done": true
+                },
+                "bonus-trace-1-1-2": {
+                    "type": "a2m",
+                    "done": true
+                },
+                "bonus-trace-1-1-2-1": {
+                    "type": "a2s",
+                    "done": true
+                },
+                "bonus-trace-1-4": {
+                    "type": "a6m",
+                    "done": true
+                },
+                "bonus-trace-1-4-1": {
+                    "type": "a6s",
+                    "done": true
+                },
+                "bonus-trace-1-4-1-1": {
+                    "type": "l75",
+                    "done": true
+                },
+                "bonus-trace-1-2": {
+                    "type": "a3s",
+                    "done": true
+                },
+                "bonus-trace-1-3": {
+                    "type": "a5s",
+                    "done": true
+                },
+                "bonus-trace-1-1-2-1-1": {
+                    "type": "a3s",
+                    "done": false
+                },
+                "bonus-trace-1-4-1-2": {
+                    "type": "l80",
+                    "done": false
+                }
+            },
+            "id": 60
+        },
+        {
+            "type": "character",
+            "character": "fu_xuan",
+            "eidolon": 0,
+            "current": {
+                "level": 80,
+                "asc": 6
+            },
+            "goal": {
+                "level": 80,
+                "asc": 6
+            },
+            "id": 61
+        },
+        {
+            "type": "character",
+            "character": "dan_heng_imbibitor_lunae",
+            "eidolon": 0,
+            "current": {
+                "level": 80,
+                "asc": 6
+            },
+            "goal": {
+                "level": 80,
+                "asc": 6
+            },
+            "id": 62
+        },
+        {
+            "type": "character",
+            "character": "lynx",
+            "eidolon": 5,
+            "current": {
+                "level": 80,
+                "asc": 6
+            },
+            "goal": {
+                "level": 80,
+                "asc": 6
+            },
+            "id": 63
+        },
+        {
+            "type": "trace",
+            "character": "lynx",
+            "basic": {
+                "current": 4,
+                "goal": 4
+            },
+            "skill": {
+                "current": 8,
+                "goal": 8
+            },
+            "ultimate": {
+                "current": 8,
+                "goal": 8
+            },
+            "talent": {
+                "current": 8,
+                "goal": 8
+            },
+            "bonus": {
+                "bonus-trace-1-1": {
+                    "type": "a2m",
+                    "done": true
+                },
+                "bonus-trace-1-1-1": {
+                    "type": "a2s",
+                    "done": true
+                },
+                "bonus-trace-1-1-1-1": {
+                    "type": "a3s",
+                    "done": true
+                },
+                "bonus-trace-1-2": {
+                    "type": "a4m",
+                    "done": true
+                },
+                "bonus-trace-1-2-1": {
+                    "type": "a4s",
+                    "done": true
+                },
+                "bonus-trace-1-2-1-1": {
+                    "type": "a5s",
+                    "done": true
+                },
+                "bonus-trace-1-2-1-1-1": {
+                    "type": "a5s",
+                    "done": true
+                },
+                "bonus-trace-1-3": {
+                    "type": "a6m",
+                    "done": true
+                },
+                "bonus-trace-1-4": {
+                    "type": "l1",
+                    "done": true
+                },
+                "bonus-trace-1-5": {
+                    "type": "l80",
+                    "done": true
+                }
+            },
+            "id": 64
+        },
+        {
+            "type": "character",
+            "character": "sampo",
+            "eidolon": 4,
+            "current": {
+                "level": 70,
+                "asc": 6
+            },
+            "goal": {
+                "level": 70,
+                "asc": 6
+            },
+            "id": 65
+        },
+        {
+            "type": "character",
+            "character": "serval",
+            "eidolon": 0,
+            "current": {
+                "level": 70,
+                "asc": 6
+            },
+            "goal": {
+                "level": 70,
+                "asc": 6
+            },
+            "id": 66
+        },
+        {
+            "type": "trace",
+            "character": "sampo",
+            "basic": {
+                "current": 1,
+                "goal": 1
+            },
+            "skill": {
+                "current": 4,
+                "goal": 4
+            },
+            "ultimate": {
+                "current": 8,
+                "goal": 8
+            },
+            "talent": {
+                "current": 8,
+                "goal": 8
+            },
+            "bonus": {
+                "bonus-trace-1-4": {
+                    "type": "a2m",
+                    "done": true
+                },
+                "bonus-trace-1-4-1": {
+                    "type": "a2s",
+                    "done": true
+                },
+                "bonus-trace-1-4-1-1": {
+                    "type": "a3s",
+                    "done": true
+                },
+                "bonus-trace-1-1": {
+                    "type": "a4m",
+                    "done": true
+                },
+                "bonus-trace-1-1-1": {
+                    "type": "a4s",
+                    "done": true
+                },
+                "bonus-trace-1-1-1-1": {
+                    "type": "a5s",
+                    "done": true
+                },
+                "bonus-trace-1-1-1-1-1": {
+                    "type": "a5s",
+                    "done": true
+                },
+                "bonus-trace-1-2": {
+                    "type": "a6m",
+                    "done": true
+                },
+                "bonus-trace-1-3": {
+                    "type": "l1",
+                    "done": true
+                }
+            },
+            "id": 67
+        },
+        {
+            "type": "cone",
+            "id": 68,
+            "cone": "eyes_of_the_prey",
+            "current": {
+                "level": 70,
+                "asc": 6,
+                "text": "70 A"
+            },
+            "goal": {
+                "level": 70,
+                "asc": 6,
+                "text": "70 A"
+            }
+        },
+        {
+            "type": "cone",
+            "id": 69,
+            "cone": "resolution_shines_as_pearls_of_sweat",
+            "current": {
+                "level": 70,
+                "asc": 6,
+                "text": "70 A"
+            },
+            "goal": {
+                "level": 70,
+                "asc": 6,
+                "text": "70 A"
+            }
+        },
+        {
+            "type": "trace",
+            "character": "dan_heng_imbibitor_lunae",
+            "basic": {
+                "current": 6,
+                "goal": 6
+            },
+            "skill": {
+                "current": 9,
+                "goal": 10
+            },
+            "ultimate": {
+                "current": 9,
+                "goal": 10
+            },
+            "talent": {
+                "current": 9,
+                "goal": 10
+            },
+            "bonus": {
+                "bonus-trace-1-1": {
+                    "type": "a2m",
+                    "done": true
+                },
+                "bonus-trace-1-2": {
+                    "type": "a4m",
+                    "done": true
+                },
+                "bonus-trace-1-3": {
+                    "type": "a6m",
+                    "done": true
+                },
+                "bonus-trace-1-3-1": {
+                    "type": "a6s",
+                    "done": true
+                },
+                "bonus-trace-1-4": {
+                    "type": "l1",
+                    "done": true
+                },
+                "bonus-trace-1-2-1": {
+                    "type": "a4s",
+                    "done": true
+                },
+                "bonus-trace-1-2-1-1": {
+                    "type": "a5s",
+                    "done": true
+                },
+                "bonus-trace-1-1-1": {
+                    "type": "a2s",
+                    "done": true
+                },
+                "bonus-trace-1-1-1-1": {
+                    "type": "a3s",
+                    "done": true
+                },
+                "bonus-trace-1-1-1-1-1": {
+                    "type": "a3s",
+                    "done": true
+                },
+                "bonus-trace-1-2-1-1-1": {
+                    "type": "a5s",
+                    "done": true
+                },
+                "bonus-trace-1-3-1-1": {
+                    "type": "l75",
+                    "done": true
+                },
+                "bonus-trace-1-3-1-2": {
+                    "type": "l80",
+                    "done": true
+                }
+            },
+            "id": 70
+        },
+        {
+            "type": "character",
+            "character": "march_7th",
+            "eidolon": 0,
+            "current": {
+                "level": 70,
+                "asc": 6
+            },
+            "goal": {
+                "level": 70,
+                "asc": 6
+            },
+            "id": 71
+        },
+        {
+            "type": "character",
+            "character": "arlan",
+            "eidolon": 0,
+            "current": {
+                "level": 70,
+                "asc": 6
+            },
+            "goal": {
+                "level": 70,
+                "asc": 6
+            },
+            "id": 72
+        },
+        {
+            "type": "character",
+            "character": "herta",
+            "eidolon": 0,
+            "current": {
+                "level": 70,
+                "asc": 6
+            },
+            "goal": {
+                "level": 70,
+                "asc": 6
+            },
+            "id": 73
+        },
+        {
+            "type": "character",
+            "character": "jingliu",
+            "eidolon": 0,
+            "current": {
+                "level": 80,
+                "asc": 6
+            },
+            "goal": {
+                "level": 80,
+                "asc": 6
+            },
+            "id": 77
+        },
+        {
+            "type": "character",
+            "character": "topaz_and_numby",
+            "eidolon": 0,
+            "current": {
+                "level": 80,
+                "asc": 6
+            },
+            "goal": {
+                "level": 80,
+                "asc": 6
+            },
+            "id": 78
+        },
+        {
+            "type": "trace",
+            "character": "jingliu",
+            "basic": {
+                "current": 4,
+                "goal": 4
+            },
+            "skill": {
+                "current": 8,
+                "goal": 10
+            },
+            "ultimate": {
+                "current": 8,
+                "goal": 10
+            },
+            "talent": {
+                "current": 8,
+                "goal": 10
+            },
+            "bonus": {
+                "bonus-trace-1-1": {
+                    "type": "a2m",
+                    "done": true
+                },
+                "bonus-trace-1-1-1": {
+                    "type": "a2s",
+                    "done": true
+                },
+                "bonus-trace-1-1-1-1": {
+                    "type": "a3s",
+                    "done": true
+                },
+                "bonus-trace-1-2": {
+                    "type": "a4m",
+                    "done": true
+                },
+                "bonus-trace-1-2-1": {
+                    "type": "a4s",
+                    "done": true
+                },
+                "bonus-trace-1-2-1-1": {
+                    "type": "a5s",
+                    "done": true
+                },
+                "bonus-trace-1-2-1-1-1": {
+                    "type": "a5s",
+                    "done": true
+                },
+                "bonus-trace-1-3": {
+                    "type": "a6m",
+                    "done": true
+                },
+                "bonus-trace-1-3-1": {
+                    "type": "a6s",
+                    "done": true
+                },
+                "bonus-trace-1-3-1-1": {
+                    "type": "l75",
+                    "done": true
+                },
+                "bonus-trace-1-3-1-2": {
+                    "type": "l80",
+                    "done": true
+                },
+                "bonus-trace-1-4": {
+                    "type": "l1",
+                    "done": true
+                },
+                "bonus-trace-1-1-1-1-1": {
+                    "type": "a3s",
+                    "done": false
+                }
+            },
+            "id": 79
+        },
+        {
+            "type": "cone",
+            "id": 80,
+            "cone": "a_secret_vow",
+            "current": {
+                "level": 1,
+                "asc": 0,
+                "text": "1"
+            },
+            "goal": {
+                "level": 80,
+                "asc": 6,
+                "text": "80"
+            }
+        },
+        {
+            "type": "character",
+            "character": "guinaifen",
+            "eidolon": 0,
+            "current": {
+                "level": 80,
+                "asc": 6
+            },
+            "goal": {
+                "level": 80,
+                "asc": 6
+            },
+            "id": 81
+        },
+        {
+            "type": "trace",
+            "character": "topaz_and_numby",
+            "basic": {
+                "current": 4,
+                "goal": 4
+            },
+            "skill": {
+                "current": 8,
+                "goal": 8
+            },
+            "ultimate": {
+                "current": 8,
+                "goal": 8
+            },
+            "talent": {
+                "current": 8,
+                "goal": 8
+            },
+            "bonus": {
+                "bonus-trace-1-1": {
+                    "type": "a2m",
+                    "done": true
+                },
+                "bonus-trace-1-1-1": {
+                    "type": "a2s",
+                    "done": true
+                },
+                "bonus-trace-1-1-1-1": {
+                    "type": "a3s",
+                    "done": true
+                },
+                "bonus-trace-1-2": {
+                    "type": "a4m",
+                    "done": true
+                },
+                "bonus-trace-1-2-1": {
+                    "type": "a4s",
+                    "done": true
+                },
+                "bonus-trace-1-2-1-1": {
+                    "type": "a5s",
+                    "done": true
+                },
+                "bonus-trace-1-3": {
+                    "type": "a6m",
+                    "done": true
+                },
+                "bonus-trace-1-3-1-1": {
+                    "type": "l75",
+                    "done": true
+                },
+                "bonus-trace-1-3-1-2": {
+                    "type": "l80",
+                    "done": true
+                },
+                "bonus-trace-1-4": {
+                    "type": "l1",
+                    "done": true
+                },
+                "bonus-trace-1-5": {
+                    "type": "a3s",
+                    "done": true
+                },
+                "bonus-trace-1-6": {
+                    "type": "a5s",
+                    "done": true
+                }
+            },
+            "id": 82
+        },
+        {
+            "type": "trace",
+            "character": "guinaifen",
+            "basic": {
+                "current": 1,
+                "goal": 4
+            },
+            "skill": {
+                "current": 1,
+                "goal": 8
+            },
+            "ultimate": {
+                "current": 1,
+                "goal": 8
+            },
+            "talent": {
+                "current": 1,
+                "goal": 8
+            },
+            "bonus": {
+                "bonus-trace-1-1": {
+                    "type": "a2m",
+                    "done": false
+                },
+                "bonus-trace-1-2": {
+                    "type": "a4m",
+                    "done": false
+                },
+                "bonus-trace-1-3": {
+                    "type": "a6m",
+                    "done": false
+                },
+                "bonus-trace-1-4": {
+                    "type": "l1",
+                    "done": false
+                },
+                "bonus-trace-1-3-1": {
+                    "type": "a6s",
+                    "done": false
+                },
+                "bonus-trace-1-1-1": {
+                    "type": "a2s",
+                    "done": false
+                },
+                "bonus-trace-1-1-1-1": {
+                    "type": "a3s",
+                    "done": false
+                },
+                "bonus-trace-1-1-1-1-1": {
+                    "type": "a3s",
+                    "done": false
+                }
+            },
+            "id": 84
+        },
+        {
+            "type": "character",
+            "character": "yanqing",
+            "eidolon": 0,
+            "current": {
+                "level": 80,
+                "asc": 6
+            },
+            "goal": {
+                "level": 80,
+                "asc": 6
+            },
+            "id": 85
+        },
+        {
+            "type": "trace",
+            "character": "yanqing",
+            "basic": {
+                "current": 1,
+                "goal": 4
+            },
+            "skill": {
+                "current": 1,
+                "goal": 8
+            },
+            "ultimate": {
+                "current": 1,
+                "goal": 8
+            },
+            "talent": {
+                "current": 1,
+                "goal": 8
+            },
+            "bonus": {
+                "bonus-trace-1-1": {
+                    "type": "a2m",
+                    "done": false
+                },
+                "bonus-trace-1-2": {
+                    "type": "a4m",
+                    "done": false
+                },
+                "bonus-trace-1-3": {
+                    "type": "a6m",
+                    "done": false
+                },
+                "bonus-trace-1-1-1": {
+                    "type": "a2s",
+                    "done": false
+                },
+                "bonus-trace-1-1-1-1": {
+                    "type": "a3s",
+                    "done": false
+                },
+                "bonus-trace-1-2-1": {
+                    "type": "a4s",
+                    "done": false
+                },
+                "bonus-trace-1-2-1-1": {
+                    "type": "a5s",
+                    "done": false
+                },
+                "bonus-trace-1-3-1": {
+                    "type": "a6s",
+                    "done": false
+                },
+                "bonus-trace-1-4": {
+                    "type": "l1",
+                    "done": false
+                },
+                "bonus-trace-1-6": {
+                    "type": "a5s",
+                    "done": false
+                },
+                "bonus-trace-1-3-1-1": {
+                    "type": "l75",
+                    "done": false
+                },
+                "bonus-trace-1-3-1-2": {
+                    "type": "l80",
+                    "done": false
+                }
+            },
+            "id": 86
+        },
+        {
+            "type": "trace",
+            "character": "argenti",
+            "basic": {
+                "current": 2,
+                "goal": 2
+            },
+            "skill": {
+                "current": 8,
+                "goal": 8
+            },
+            "ultimate": {
+                "current": 8,
+                "goal": 8
+            },
+            "talent": {
+                "current": 8,
+                "goal": 8
+            },
+            "bonus": {
+                "bonus-trace-1-1-1": {
+                    "type": "a2m",
+                    "done": true
+                },
+                "bonus-trace-1-1": {
+                    "type": "a2s",
+                    "done": true
+                },
+                "bonus-trace-1-1-1-1": {
+                    "type": "a3s",
+                    "done": true
+                },
+                "bonus-trace-1-2": {
+                    "type": "a6m",
+                    "done": true
+                },
+                "bonus-trace-1-2-2": {
+                    "type": "l75",
+                    "done": true
+                },
+                "bonus-trace-1-3": {
+                    "type": "l1",
+                    "done": true
+                },
+                "bonus-trace-1-4": {
+                    "type": "l80",
+                    "done": true
+                },
+                "bonus-trace-1-5": {
+                    "type": "a4m",
+                    "done": true
+                },
+                "bonus-trace-1-5-1": {
+                    "type": "a4s",
+                    "done": true
+                },
+                "bonus-trace-1-5-1-1": {
+                    "type": "a5s",
+                    "done": true
+                },
+                "bonus-trace-1-5-1-2": {
+                    "type": "a5s",
+                    "done": true
+                }
+            },
+            "id": 88
+        },
+        {
+            "type": "character",
+            "character": "argenti",
+            "eidolon": 0,
+            "current": {
+                "level": 80,
+                "asc": 6
+            },
+            "goal": {
+                "level": 80,
+                "asc": 6
+            },
+            "id": 89
+        },
+        {
+            "type": "character",
+            "character": "huohuo",
+            "eidolon": 0,
+            "current": {
+                "level": 80,
+                "asc": 6
+            },
+            "goal": {
+                "level": 80,
+                "asc": 6
+            },
+            "id": 91
+        },
+        {
+            "type": "trace",
+            "character": "huohuo",
+            "basic": {
+                "current": 2,
+                "goal": 2
+            },
+            "skill": {
+                "current": 8,
+                "goal": 8
+            },
+            "ultimate": {
+                "current": 10,
+                "goal": 10
+            },
+            "talent": {
+                "current": 8,
+                "goal": 8
+            },
+            "bonus": {
+                "bonus-trace-1-1": {
+                    "type": "a4m",
+                    "done": true
+                },
+                "bonus-trace-1-1-1": {
+                    "type": "a4s",
+                    "done": true
+                },
+                "bonus-trace-1-1-1-1": {
+                    "type": "a5s",
+                    "done": true
+                },
+                "bonus-trace-1-1-1-1-1": {
+                    "type": "a5s",
+                    "done": true
+                },
+                "bonus-trace-1-2": {
+                    "type": "a6m",
+                    "done": true
+                },
+                "bonus-trace-1-2-1": {
+                    "type": "a6s",
+                    "done": true
+                },
+                "bonus-trace-1-3": {
+                    "type": "l1",
+                    "done": true
+                },
+                "bonus-trace-1-4": {
+                    "type": "l80",
+                    "done": true
+                },
+                "bonus-trace-1-5": {
+                    "type": "a2m",
+                    "done": true
+                },
+                "bonus-trace-1-5-1": {
+                    "type": "a2s",
+                    "done": true
+                },
+                "bonus-trace-1-5-1-1": {
+                    "type": "a3s",
+                    "done": true
+                },
+                "bonus-trace-1-5-1-1-1": {
+                    "type": "a3s",
+                    "done": true
+                }
+            },
+            "id": 92
+        },
+        {
+            "type": "character",
+            "character": "hanya",
+            "eidolon": 0,
+            "current": {
+                "level": 80,
+                "asc": 6
+            },
+            "goal": {
+                "level": 80,
+                "asc": 6
+            },
+            "id": 93
+        },
+        {
+            "type": "trace",
+            "character": "hanya",
+            "basic": {
+                "current": 4,
+                "goal": 4
+            },
+            "skill": {
+                "current": 6,
+                "goal": 6
+            },
+            "ultimate": {
+                "current": 8,
+                "goal": 8
+            },
+            "talent": {
+                "current": 8,
+                "goal": 8
+            },
+            "bonus": {
+                "bonus-trace-1-1": {
+                    "type": "a2m",
+                    "done": true
+                },
+                "bonus-trace-1-1-1": {
+                    "type": "a2s",
+                    "done": true
+                },
+                "bonus-trace-1-2": {
+                    "type": "a4m",
+                    "done": true
+                },
+                "bonus-trace-1-2-1": {
+                    "type": "a4s",
+                    "done": true
+                },
+                "bonus-trace-1-2-1-1": {
+                    "type": "a5s",
+                    "done": true
+                },
+                "bonus-trace-1-3": {
+                    "type": "a6m",
+                    "done": true
+                },
+                "bonus-trace-1-3-1": {
+                    "type": "a6s",
+                    "done": true
+                },
+                "bonus-trace-1-3-1-1": {
+                    "type": "l75",
+                    "done": true
+                },
+                "bonus-trace-1-4": {
+                    "type": "l1",
+                    "done": true
+                }
+            },
+            "id": 94
+        },
+        {
+            "type": "character",
+            "character": "ruan_mei",
+            "eidolon": 0,
+            "current": {
+                "level": 80,
+                "asc": 6
+            },
+            "goal": {
+                "level": 80,
+                "asc": 6
+            },
+            "id": 96
+        },
+        {
+            "type": "trace",
+            "character": "ruan_mei",
+            "basic": {
+                "current": 4,
+                "goal": 4
+            },
+            "skill": {
+                "current": 9,
+                "goal": 10
+            },
+            "ultimate": {
+                "current": 9,
+                "goal": 10
+            },
+            "talent": {
+                "current": 9,
+                "goal": 10
+            },
+            "bonus": {
+                "bonus-trace-1-1": {
+                    "type": "a2m",
+                    "done": true
+                },
+                "bonus-trace-1-1-1-1": {
+                    "type": "a3s",
+                    "done": true
+                },
+                "bonus-trace-1-2": {
+                    "type": "a4m",
+                    "done": true
+                },
+                "bonus-trace-1-2-1": {
+                    "type": "a4s",
+                    "done": true
+                },
+                "bonus-trace-1-3": {
+                    "type": "a6m",
+                    "done": true
+                },
+                "bonus-trace-1-3-1": {
+                    "type": "a6s",
+                    "done": true
+                },
+                "bonus-trace-1-3-1-2": {
+                    "type": "l80",
+                    "done": true
+                },
+                "bonus-trace-1-4": {
+                    "type": "l1",
+                    "done": true
+                },
+                "bonus-trace-1-4-1": {
+                    "type": "a3s",
+                    "done": true
+                },
+                "bonus-trace-1-4-2": {
+                    "type": "a5s",
+                    "done": true
+                },
+                "bonus-trace-1-1-1": {
+                    "type": "a2s",
+                    "done": true
+                }
+            },
+            "id": 97
+        },
+        {
+            "type": "character",
+            "character": "xueyi",
+            "eidolon": 0,
+            "current": {
+                "level": 1,
+                "asc": 0
+            },
+            "goal": {
+                "level": 80,
+                "asc": 6
+            },
+            "id": 98
+        },
+        {
+            "type": "trace",
+            "character": "xueyi",
+            "basic": {
+                "current": 1,
+                "goal": 2
+            },
+            "skill": {
+                "current": 1,
+                "goal": 6
+            },
+            "ultimate": {
+                "current": 1,
+                "goal": 8
+            },
+            "talent": {
+                "current": 1,
+                "goal": 8
+            },
+            "bonus": {
+                "bonus-trace-1-1": {
+                    "type": "a2m",
+                    "done": false
+                },
+                "bonus-trace-1-2": {
+                    "type": "a4m",
+                    "done": false
+                },
+                "bonus-trace-1-3": {
+                    "type": "a6m",
+                    "done": false
+                },
+                "bonus-trace-1-1-1": {
+                    "type": "a2s",
+                    "done": false
+                },
+                "bonus-trace-1-1-1-1": {
+                    "type": "a3s",
+                    "done": false
+                },
+                "bonus-trace-1-2-1": {
+                    "type": "a4s",
+                    "done": false
+                },
+                "bonus-trace-1-2-1-1": {
+                    "type": "a5s",
+                    "done": false
+                },
+                "bonus-trace-1-2-1-1-1": {
+                    "type": "a5s",
+                    "done": false
+                },
+                "bonus-trace-1-3-1": {
+                    "type": "a6s",
+                    "done": false
+                },
+                "bonus-trace-1-3-1-2": {
+                    "type": "l80",
+                    "done": false
+                },
+                "bonus-trace-1-4": {
+                    "type": "l1",
+                    "done": false
+                }
+            },
+            "id": 99
+        },
+        {
+            "type": "character",
+            "character": "custom-ldy01n",
+            "eidolon": 0,
+            "current": {
+                "level": 1,
+                "asc": 0
+            },
+            "goal": {
+                "level": 80,
+                "asc": 6
+            },
+            "id": 100
+        },
+        {
+            "type": "trace",
+            "character": "custom-ldy01n",
+            "basic": {
+                "current": 1,
+                "goal": 4
+            },
+            "skill": {
+                "current": 1,
+                "goal": 8
+            },
+            "ultimate": {
+                "current": 1,
+                "goal": 8
+            },
+            "talent": {
+                "current": 1,
+                "goal": 8
+            },
+            "bonus": {
+                "bonus-trace-1-1": {
+                    "type": "l1",
+                    "done": false
+                },
+                "bonus-trace-1-2": {
+                    "type": "a2m",
+                    "done": false
+                },
+                "bonus-trace-1-3": {
+                    "type": "a2s",
+                    "done": false
+                },
+                "bonus-trace-1-4": {
+                    "type": "a3s",
+                    "done": false
+                },
+                "bonus-trace-1-6": {
+                    "type": "a4m",
+                    "done": false
+                },
+                "bonus-trace-1-7": {
+                    "type": "a4s",
+                    "done": false
+                },
+                "bonus-trace-1-8": {
+                    "type": "a5s",
+                    "done": false
+                },
+                "bonus-trace-1-9": {
+                    "type": "a5s",
+                    "done": false
+                },
+                "bonus-trace-1-10": {
+                    "type": "a6m",
+                    "done": false
+                },
+                "bonus-trace-1-12": {
+                    "type": "l75",
+                    "done": false
+                },
+                "bonus-trace-1-13": {
+                    "type": "l80",
+                    "done": false
+                }
+            },
+            "id": 101
+        },
+        {
+            "type": "character",
+            "character": "custom-5n2cig",
+            "eidolon": 0,
+            "current": {
+                "level": 1,
+                "asc": 0
+            },
+            "goal": {
+                "level": 80,
+                "asc": 6
+            },
+            "id": 102
+        },
+        {
+            "type": "character",
+            "character": "custom-cy6lu8",
+            "eidolon": 0,
+            "current": {
+                "level": 1,
+                "asc": 0
+            },
+            "goal": {
+                "level": 80,
+                "asc": 6
+            },
+            "id": 103
+        }
+    ],
+    "inactive": {
+        "55": true,
+        "58": true,
+        "68": true,
+        "69": true,
+        "80": true,
+        "jing_yuan": true,
+        "blade_char": true,
+        "sampo": true,
+        "luka": true,
+        "gepard": true,
+        "lynx": true,
+        "fu_xuan": true,
+        "kafka": true,
+        "luocha": true,
+        "silver_wolf": true,
+        "yukong": true,
+        "asta": true,
+        "natasha": true,
+        "dan_heng": true,
+        "sushang": true,
+        "topaz_and_numby": true,
+        "guinaifen": true,
+        "yanqing": true,
+        "huohuo": true,
+        "march_7th": true,
+        "arlan": true,
+        "qingque": true,
+        "herta": true,
+        "hook": true,
+        "serval": true,
+        "argenti": true,
+        "hanya": true,
+        "xueyi": true,
+        "custom-cy6lu8": true,
+        "seele": true,
+        "pela": true,
+        "bronya": true,
+        "clara": true,
+        "trailblazer_fire": true,
+        "custom-5n2cig": true,
+        "tingyun": true
+    },
+    "notes": {},
+    "custom_items": [],
+    "customs": {
+        "custom-ldy01n": {
+            "custom": "character",
+            "tier": 5,
+            "char_asc": "suppressing_edict",
+            "trace_char": "instinct",
+            "trace_cone": "arrow",
+            "trace_epic": null,
+            "path": "the_hunt",
+            "type": "imaginary",
+            "name": "真理医生",
+            "gender": "male"
+        },
+        "custom-5n2cig": {
+            "custom": "character",
+            "tier": 5,
+            "char_asc": null,
+            "trace_char": null,
+            "trace_cone": null,
+            "trace_epic": "past_evils",
+            "path": "harmony",
+            "type": "quantum",
+            "name": "花火",
+            "gender": "female"
+        },
+        "custom-cy6lu8": {
+            "custom": "character",
+            "tier": 5,
+            "char_asc": "ascendant_debris",
+            "trace_char": "core",
+            "trace_cone": null,
+            "trace_epic": "past_evils",
+            "path": "nihility",
+            "type": "wind",
+            "name": "黑天鹅",
+            "gender": "female"
+        }
+    },
+    "inventory": [
+        {
+            "type": "char_xp",
+            "item": "char_xp_2",
+            "tier": 0,
+            "value": 504
+        },
+        {
+            "type": "cone_xp",
+            "item": "cone_xp_2",
+            "tier": 0,
+            "value": 211
+        },
+        {
+            "type": "char_asc",
+            "item": "lightning_staff",
+            "tier": 0,
+            "value": 0
+        },
+        {
+            "type": "char_asc",
+            "item": "void_cast_iron",
+            "tier": 0,
+            "value": 0
+        },
+        {
+            "type": "char_asc",
+            "item": "storm_eye",
+            "tier": 0,
+            "value": 0
+        },
+        {
+            "type": "char_asc",
+            "item": "lightning_crown",
+            "tier": 0,
+            "value": 0
+        },
+        {
+            "type": "char_asc",
+            "item": "horn_of_snow",
+            "tier": 0,
+            "value": 0
+        },
+        {
+            "type": "char_asc",
+            "item": "endotherm_chitin",
+            "tier": 0,
+            "value": 0
+        },
+        {
+            "type": "char_asc",
+            "item": "broken_teeth",
+            "tier": 0,
+            "value": 0
+        },
+        {
+            "type": "trace_cone",
+            "item": "blade",
+            "tier": 2,
+            "value": 0
+        },
+        {
+            "type": "trace_cone",
+            "item": "blade",
+            "tier": 1,
+            "value": 32
+        },
+        {
+            "type": "trace_cone",
+            "item": "blade",
+            "tier": 0,
+            "value": 79
+        },
+        {
+            "type": "trace_cone",
+            "item": "arrow",
+            "tier": 0,
+            "value": 176
+        },
+        {
+            "type": "trace_cone",
+            "item": "key",
+            "tier": 0,
+            "value": 5
+        },
+        {
+            "type": "trace_cone",
+            "item": "endurance",
+            "tier": 1,
+            "value": 0
+        },
+        {
+            "type": "trace_cone",
+            "item": "endurance",
+            "tier": 0,
+            "value": 28
+        },
+        {
+            "type": "trace_cone",
+            "item": "obsidian",
+            "tier": 2,
+            "value": 0
+        },
+        {
+            "type": "trace_cone",
+            "item": "obsidian",
+            "tier": 1,
+            "value": 0
+        },
+        {
+            "type": "trace_cone",
+            "item": "obsidian",
+            "tier": 0,
+            "value": 12
+        },
+        {
+            "type": "trace_cone",
+            "item": "harmonic",
+            "tier": 2,
+            "value": 2
+        },
+        {
+            "type": "trace_cone",
+            "item": "harmonic",
+            "tier": 0,
+            "value": 32
+        },
+        {
+            "type": "trace_cone",
+            "item": "seed",
+            "tier": 1,
+            "value": 0
+        },
+        {
+            "type": "trace_cone",
+            "item": "seed",
+            "tier": 0,
+            "value": 27
+        },
+        {
+            "type": "special",
+            "item": "destiny",
+            "tier": 0,
+            "value": 35
+        },
+        {
+            "type": "trace_epic",
+            "item": "guardian",
+            "tier": 0,
+            "value": 16
+        },
+        {
+            "type": "trace_epic",
+            "item": "destroyer",
+            "tier": 0,
+            "value": 14
+        },
+        {
+            "type": "trace_char",
+            "item": "core",
+            "tier": 2,
+            "value": 9
+        },
+        {
+            "type": "trace_char",
+            "item": "core",
+            "tier": 1,
+            "value": 29
+        },
+        {
+            "type": "trace_char",
+            "item": "core",
+            "tier": 0,
+            "value": 1331
+        },
+        {
+            "type": "trace_char",
+            "item": "instinct",
+            "tier": 2,
+            "value": 11
+        },
+        {
+            "type": "trace_char",
+            "item": "instinct",
+            "tier": 1,
+            "value": 21
+        },
+        {
+            "type": "trace_char",
+            "item": "instinct",
+            "tier": 0,
+            "value": 1558
+        },
+        {
+            "type": "trace_char",
+            "item": "silvermane",
+            "tier": 2,
+            "value": 4
+        },
+        {
+            "type": "trace_char",
+            "item": "silvermane",
+            "tier": 1,
+            "value": 34
+        },
+        {
+            "type": "trace_char",
+            "item": "silvermane",
+            "tier": 0,
+            "value": 973
+        },
+        {
+            "type": "trace_char",
+            "item": "ancient",
+            "tier": 2,
+            "value": 23
+        },
+        {
+            "type": "trace_char",
+            "item": "ancient",
+            "tier": 1,
+            "value": 59
+        },
+        {
+            "type": "trace_char",
+            "item": "ancient",
+            "tier": 0,
+            "value": 1658
+        },
+        {
+            "type": "trace_char",
+            "item": "immortal",
+            "tier": 1,
+            "value": 43
+        },
+        {
+            "type": "trace_char",
+            "item": "immortal",
+            "tier": 0,
+            "value": 605
+        },
+        {
+            "type": "trace_char",
+            "item": "artifex",
+            "tier": 2,
+            "value": 11
+        },
+        {
+            "type": "trace_char",
+            "item": "artifex",
+            "tier": 1,
+            "value": 145
+        },
+        {
+            "type": "trace_char",
+            "item": "artifex",
+            "tier": 0,
+            "value": 1034
+        },
+        {
+            "type": "credit",
+            "item": "credit",
+            "tier": 0,
+            "value": 3122721
+        },
+        {
+            "type": "char_xp",
+            "item": "char_xp_1",
+            "tier": 0,
+            "value": 24
+        },
+        {
+            "type": "char_xp",
+            "item": "char_xp_0",
+            "tier": 0,
+            "value": 5
+        },
+        {
+            "type": "char_asc",
+            "item": "golden_crown",
+            "tier": 0,
+            "value": 0
+        },
+        {
+            "type": "trace_cone",
+            "item": "seed",
+            "tier": 2,
+            "value": 0
+        },
+        {
+            "type": "cone_xp",
+            "item": "cone_xp_1",
+            "tier": 0,
+            "value": 0
+        },
+        {
+            "type": "cone_xp",
+            "item": "cone_xp_0",
+            "tier": 0,
+            "value": 169
+        },
+        {
+            "type": "trace_cone",
+            "item": "harmonic",
+            "tier": 1,
+            "value": 24
+        },
+        {
+            "type": "trace_char",
+            "item": "immortal",
+            "tier": 2,
+            "value": 18
+        },
+        {
+            "type": "trace_cone",
+            "item": "arrow",
+            "tier": 1,
+            "value": 128
+        },
+        {
+            "type": "trace_cone",
+            "item": "arrow",
+            "tier": 2,
+            "value": 18
+        },
+        {
+            "type": "trace_epic",
+            "item": "regret",
+            "tier": 0,
+            "value": 98
+        },
+        {
+            "type": "char_asc",
+            "item": "ascendant_debris",
+            "tier": 0,
+            "value": 0
+        },
+        {
+            "type": "trace_cone",
+            "item": "endurance",
+            "tier": 2,
+            "value": 0
+        },
+        {
+            "type": "char_asc",
+            "item": "suppressing_edict",
+            "tier": 0,
+            "value": 65
+        },
+        {
+            "type": "char_asc",
+            "item": "nail_of_the_ape",
+            "tier": 0,
+            "value": 50
+        },
+        {
+            "type": "char_asc",
+            "item": "gelid_chitin",
+            "tier": 0,
+            "value": 0
+        },
+        {
+            "type": "char_asc",
+            "item": "searing_steel_blade",
+            "tier": 0,
+            "value": 0
+        },
+        {
+            "type": "trace_cone",
+            "item": "key",
+            "tier": 1,
+            "value": 0
+        },
+        {
+            "type": "char_asc",
+            "item": "netherworld_token",
+            "tier": 0,
+            "value": 0
+        },
+        {
+            "type": "trace_cone",
+            "item": "key",
+            "tier": 2,
+            "value": 0
+        },
+        {
+            "type": "trace_epic",
+            "item": "past_evils",
+            "tier": 0,
+            "value": 7
+        }
+    ],
+    "tasks": [],
+    "achievements": {
+        "4010101": {
+            "done": true
+        },
+        "4010102": {
+            "done": true
+        },
+        "4010103": {
+            "done": true
+        },
+        "4010104": {
+            "done": true
+        },
+        "4010105": {
+            "done": true
+        },
+        "4010201": {
+            "done": true
+        },
+        "4010202": {
+            "done": true
+        },
+        "4010203": {
+            "done": true
+        },
+        "4010301": {
+            "done": true
+        },
+        "4010302": {
+            "done": true
+        },
+        "4010303": {
+            "done": true
+        },
+        "4010401": {
+            "done": true
+        },
+        "4010501": {
+            "done": true
+        },
+        "4010502": {
+            "done": true
+        },
+        "4010503": {
+            "done": true
+        },
+        "4010504": {
+            "done": true
+        },
+        "4012301": {
+            "done": true
+        },
+        "4012801": {
+            "done": true
+        },
+        "4020201": {
+            "done": true
+        },
+        "4020202": {
+            "done": true
+        },
+        "4020401": {
+            "done": true
+        },
+        "4020402": {
+            "done": true
+        },
+        "4020403": {
+            "done": true
+        },
+        "4020502": {
+            "done": true
+        },
+        "4020503": {
+            "done": true
+        },
+        "4020701": {
+            "done": true
+        },
+        "4020702": {
+            "done": true
+        },
+        "4022401": {
+            "done": true
+        },
+        "4022402": {
+            "done": true
+        },
+        "4022403": {
+            "done": true
+        },
+        "4022404": {
+            "done": true
+        },
+        "4030101": {
+            "done": true
+        },
+        "4030102": {
+            "done": true
+        },
+        "4030103": {
+            "done": true
+        },
+        "4030104": {
+            "done": true
+        },
+        "4030105": {
+            "done": true
+        },
+        "4030201": {
+            "done": true
+        },
+        "4030202": {
+            "done": true
+        },
+        "4032305": {
+            "done": true
+        },
+        "4032306": {
+            "done": true
+        },
+        "4032307": {
+            "done": true
+        },
+        "4032308": {
+            "done": true
+        },
+        "4032309": {
+            "done": true
+        },
+        "4032501": {
+            "done": true
+        },
+        "4032502": {
+            "done": true
+        },
+        "4032503": {
+            "done": true
+        },
+        "4032601": {
+            "done": true
+        },
+        "4032701": {
+            "done": true
+        },
+        "4032801": {
+            "done": true
+        },
+        "4032802": {
+            "done": true
+        },
+        "4032901": {
+            "done": true
+        },
+        "4040101": {
+            "done": true
+        },
+        "4040102": {
+            "done": true
+        },
+        "4040201": {
+            "done": true
+        },
+        "4040202": {
+            "done": true
+        },
+        "4040301": {
+            "done": true
+        },
+        "4040302": {
+            "done": true
+        },
+        "4040402": {
+            "done": true
+        },
+        "4040403": {
+            "done": true
+        },
+        "4040404": {
+            "done": true
+        },
+        "4040406": {
+            "done": true
+        },
+        "4040407": {
+            "done": true
+        },
+        "4040408": {
+            "done": true
+        },
+        "4040409": {
+            "done": true
+        },
+        "4040410": {
+            "done": true
+        },
+        "4040411": {
+            "done": true
+        },
+        "4040412": {
+            "done": true
+        },
+        "4040503": {
+            "done": true
+        },
+        "4040504": {
+            "done": true
+        },
+        "4040601": {
+            "done": true
+        },
+        "4040602": {
+            "done": true
+        },
+        "4040603": {
+            "done": true
+        },
+        "4040604": {
+            "done": true
+        },
+        "4040701": {
+            "done": true
+        },
+        "4040702": {
+            "done": true
+        },
+        "4042307": {
+            "done": true
+        },
+        "4042308": {
+            "done": true
+        },
+        "4042401": {
+            "done": true
+        },
+        "4042501": {
+            "done": true
+        },
+        "4042502": {
+            "done": true
+        },
+        "4042503": {
+            "done": true
+        },
+        "4042504": {
+            "done": true
+        },
+        "4042505": {
+            "done": true
+        },
+        "4042506": {
+            "done": true
+        },
+        "4042507": {
+            "done": true
+        },
+        "4051001": {
+            "done": true
+        },
+        "4051002": {
+            "done": true
+        },
+        "4051003": {
+            "done": true
+        },
+        "4051004": {
+            "done": true
+        },
+        "4051005": {
+            "done": true
+        },
+        "4051006": {
+            "done": true
+        },
+        "4051101": {
+            "done": true
+        },
+        "4051103": {
+            "done": true
+        },
+        "4051104": {
+            "done": true
+        },
+        "4051105": {
+            "done": true
+        },
+        "4051106": {
+            "done": true
+        },
+        "4051107": {
+            "done": true
+        },
+        "4051108": {
+            "done": true
+        },
+        "4051109": {
+            "done": true
+        },
+        "4051110": {
+            "done": true
+        },
+        "4051111": {
+            "done": true
+        },
+        "4052302": {
+            "done": true
+        },
+        "4052304": {
+            "done": true
+        },
+        "4052305": {
+            "done": true
+        },
+        "4052306": {
+            "done": true
+        },
+        "4052307": {
+            "done": true
+        },
+        "4052308": {
+            "done": true
+        },
+        "4052309": {
+            "done": true
+        },
+        "4052310": {
+            "done": true
+        },
+        "4052311": {
+            "done": true
+        },
+        "4052312": {
+            "done": true
+        },
+        "4052313": {
+            "done": true
+        },
+        "4052314": {
+            "done": true
+        },
+        "4052315": {
+            "done": true
+        },
+        "4052316": {
+            "done": true
+        },
+        "4052317": {
+            "done": true
+        },
+        "4052318": {
+            "done": true
+        },
+        "4052319": {
+            "done": true
+        },
+        "4052320": {
+            "done": true
+        },
+        "4052321": {
+            "done": true
+        },
+        "4052323": {
+            "done": true
+        },
+        "4052324": {
+            "done": true
+        },
+        "4052325": {
+            "done": true
+        },
+        "4052326": {
+            "done": true
+        },
+        "4052327": {
+            "done": true
+        },
+        "4052328": {
+            "done": true
+        },
+        "4052329": {
+            "done": true
+        },
+        "4052330": {
+            "done": true
+        },
+        "4052331": {
+            "done": true
+        },
+        "4052332": {
+            "done": true
+        },
+        "4052333": {
+            "done": true
+        },
+        "4052334": {
+            "done": true
+        },
+        "4052335": {
+            "done": true
+        },
+        "4052336": {
+            "done": true
+        },
+        "4052337": {
+            "done": true
+        },
+        "4052338": {
+            "done": true
+        },
+        "4052339": {
+            "done": true
+        },
+        "4052340": {
+            "done": true
+        },
+        "4052341": {
+            "done": true
+        },
+        "4052342": {
+            "done": true
+        },
+        "4052343": {
+            "done": true
+        },
+        "4052344": {
+            "done": true
+        },
+        "4052345": {
+            "done": true
+        },
+        "4052346": {
+            "done": true
+        },
+        "4052347": {
+            "done": true
+        },
+        "4052348": {
+            "done": true
+        },
+        "4052349": {
+            "done": true
+        },
+        "4052401": {
+            "done": true
+        },
+        "4052402": {
+            "done": true
+        },
+        "4052403": {
+            "done": true
+        },
+        "4052404": {
+            "done": true
+        },
+        "4052405": {
+            "done": true
+        },
+        "4052406": {
+            "done": true
+        },
+        "4052407": {
+            "done": true
+        },
+        "4052408": {
+            "done": true
+        },
+        "4052409": {
+            "done": true
+        },
+        "4052501": {
+            "done": true
+        },
+        "4052502": {
+            "done": true
+        },
+        "4052503": {
+            "done": true
+        },
+        "4052504": {
+            "done": true
+        },
+        "4052505": {
+            "done": true
+        },
+        "4052506": {
+            "done": true
+        },
+        "4052507": {
+            "done": true
+        },
+        "4052508": {
+            "done": true
+        },
+        "4052509": {
+            "done": true
+        },
+        "4052510": {
+            "done": true
+        },
+        "4052511": {
+            "done": true
+        },
+        "4052601": {
+            "done": true
+        },
+        "4052603": {
+            "done": true
+        },
+        "4052604": {
+            "done": true
+        },
+        "4052605": {
+            "done": true
+        },
+        "4052606": {
+            "done": true
+        },
+        "4052607": {
+            "done": true
+        },
+        "4052608": {
+            "done": true
+        },
+        "4052609": {
+            "done": true
+        },
+        "4052610": {
+            "done": true
+        },
+        "4052611": {
+            "done": true
+        },
+        "4052612": {
+            "done": true
+        },
+        "4052615": {
+            "done": true
+        },
+        "4052616": {
+            "done": true
+        },
+        "4052617": {
+            "done": true
+        },
+        "4052618": {
+            "done": true
+        },
+        "4052619": {
+            "done": true
+        },
+        "4052701": {
+            "done": true
+        },
+        "4052702": {
+            "done": true
+        },
+        "4052703": {
+            "done": true
+        },
+        "4052704": {
+            "done": true
+        },
+        "4052705": {
+            "done": true
+        },
+        "4052706": {
+            "done": true
+        },
+        "4052707": {
+            "done": true
+        },
+        "4052708": {
+            "done": true
+        },
+        "4052709": {
+            "done": true
+        },
+        "4052710": {
+            "done": true
+        },
+        "4052711": {
+            "done": true
+        },
+        "4052716": {
+            "done": true
+        },
+        "4052718": {
+            "done": true
+        },
+        "4052719": {
+            "done": true
+        },
+        "4052722": {
+            "done": true
+        },
+        "4052801": {
+            "done": true
+        },
+        "4052802": {
+            "done": true
+        },
+        "4052803": {
+            "done": true
+        },
+        "4052804": {
+            "done": true
+        },
+        "4052805": {
+            "done": true
+        },
+        "4052806": {
+            "done": true
+        },
+        "4052807": {
+            "done": true
+        },
+        "4052808": {
+            "done": true
+        },
+        "4052809": {
+            "done": true
+        },
+        "4052810": {
+            "done": true
+        },
+        "4052811": {
+            "done": true
+        },
+        "4052812": {
+            "done": true
+        },
+        "4052819": {
+            "done": true
+        },
+        "4052820": {
+            "done": true
+        },
+        "4052821": {
+            "done": true,
+            "trashed": false
+        },
+        "4052822": {
+            "done": true
+        },
+        "4052823": {
+            "done": true
+        },
+        "4052905": {
+            "done": true
+        },
+        "4052906": {
+            "done": false
+        },
+        "4052907": {
+            "done": true
+        },
+        "4052908": {
+            "done": true
+        },
+        "4052915": {
+            "done": true
+        },
+        "4052917": {
+            "done": true
+        },
+        "4052918": {
+            "done": true
+        },
+        "4060101": {
+            "done": true
+        },
+        "4060102": {
+            "done": true
+        },
+        "4060201": {
+            "done": true
+        },
+        "4060202": {
+            "done": true
+        },
+        "4060203": {
+            "done": true
+        },
+        "4060301": {
+            "done": true
+        },
+        "4060401": {
+            "done": true
+        },
+        "4060402": {
+            "done": true
+        },
+        "4070101": {
+            "done": true
+        },
+        "4070201": {
+            "done": true
+        },
+        "4070301": {
+            "done": true
+        },
+        "4070302": {
+            "done": true
+        },
+        "4070303": {
+            "done": true
+        },
+        "4070401": {
+            "done": true
+        },
+        "4070402": {
+            "done": true
+        },
+        "4070403": {
+            "done": true
+        },
+        "4070421": {
+            "done": true
+        },
+        "4070441": {
+            "done": true
+        },
+        "4070501": {
+            "done": true
+        },
+        "4070502": {
+            "done": true
+        },
+        "4070601": {
+            "done": true
+        },
+        "4070602": {
+            "done": true
+        },
+        "4070603": {
+            "done": true
+        },
+        "4070604": {
+            "done": true
+        },
+        "4070605": {
+            "done": true
+        },
+        "4070606": {
+            "done": true
+        },
+        "4070607": {
+            "done": true
+        },
+        "4070608": {
+            "done": true
+        },
+        "4070609": {
+            "done": true
+        },
+        "4070610": {
+            "done": true
+        },
+        "4070611": {
+            "done": true
+        },
+        "4070612": {
+            "done": true
+        },
+        "4070701": {
+            "done": true
+        },
+        "4070702": {
+            "done": true
+        },
+        "4070703": {
+            "done": true
+        },
+        "4070704": {
+            "done": true
+        },
+        "4070705": {
+            "done": true
+        },
+        "4070706": {
+            "done": true
+        },
+        "4070707": {
+            "done": true
+        },
+        "4070708": {
+            "done": true
+        },
+        "4070709": {
+            "done": true
+        },
+        "4070801": {
+            "done": true
+        },
+        "4070802": {
+            "done": true
+        },
+        "4070803": {
+            "done": true
+        },
+        "4070804": {
+            "done": true
+        },
+        "4070805": {
+            "done": true
+        },
+        "4070806": {
+            "done": true
+        },
+        "4070807": {
+            "done": true
+        },
+        "4070808": {
+            "done": true
+        },
+        "4070810": {
+            "done": true
+        },
+        "4070812": {
+            "done": true
+        },
+        "4070901": {
+            "done": true
+        },
+        "4070902": {
+            "done": true
+        },
+        "4070903": {
+            "done": true
+        },
+        "4070905": {
+            "done": true
+        },
+        "4070907": {
+            "done": true
+        },
+        "4070908": {
+            "done": true
+        },
+        "4070909": {
+            "done": true
+        },
+        "4070911": {
+            "done": true
+        },
+        "4070912": {
+            "done": true
+        },
+        "4070913": {
+            "done": true
+        },
+        "4070917": {
+            "done": true
+        },
+        "4071001": {
+            "done": true
+        },
+        "4071002": {
+            "done": true
+        },
+        "4071003": {
+            "done": true
+        },
+        "4071004": {
+            "done": true
+        },
+        "4071005": {
+            "done": true
+        },
+        "4071006": {
+            "done": true
+        },
+        "4071007": {
+            "done": true
+        },
+        "4071008": {
+            "done": true
+        },
+        "4071009": {
+            "done": true
+        },
+        "4071012": {
+            "done": true
+        },
+        "4071013": {
+            "done": true
+        },
+        "4071014": {
+            "done": true
+        },
+        "4071015": {
+            "done": true
+        },
+        "4071016": {
+            "done": true
+        },
+        "4071017": {
+            "done": true
+        },
+        "4071018": {
+            "done": true
+        },
+        "4071401": {
+            "done": true
+        },
+        "4071501": {
+            "done": true
+        },
+        "4071502": {
+            "done": true
+        },
+        "4071503": {
+            "done": true
+        },
+        "4071504": {
+            "done": true
+        },
+        "4071505": {
+            "done": true
+        },
+        "4071506": {
+            "done": true
+        },
+        "4071602": {
+            "done": true
+        },
+        "4071603": {
+            "done": true
+        },
+        "4071609": {
+            "done": true
+        },
+        "4071610": {
+            "done": true
+        },
+        "4072001": {
+            "done": true
+        },
+        "4072002": {
+            "done": true
+        },
+        "4072003": {
+            "done": true
+        },
+        "4072004": {
+            "done": true
+        },
+        "4072008": {
+            "done": true
+        },
+        "4072012": {
+            "done": true
+        },
+        "4072013": {
+            "done": true
+        },
+        "4072014": {
+            "done": true
+        },
+        "4072016": {
+            "done": true
+        },
+        "4072017": {
+            "done": true
+        },
+        "4072018": {
+            "done": true
+        },
+        "4072019": {
+            "done": true
+        },
+        "4072020": {
+            "done": true
+        },
+        "4072022": {
+            "done": true
+        },
+        "4072023": {
+            "done": true
+        },
+        "4072024": {
+            "done": true
+        },
+        "4072026": {
+            "done": true
+        },
+        "4072027": {
+            "done": true
+        },
+        "4072101": {
+            "done": true
+        },
+        "4072103": {
+            "done": true
+        },
+        "4072104": {
+            "done": true
+        },
+        "4072105": {
+            "done": true
+        },
+        "4072305": {
+            "done": true
+        },
+        "4072401": {
+            "done": true
+        },
+        "4072402": {
+            "done": true
+        },
+        "4072501": {
+            "done": true
+        },
+        "4072502": {
+            "done": true
+        },
+        "4072504": {
+            "done": true
+        },
+        "4072505": {
+            "done": true
+        },
+        "4072506": {
+            "trashed": false,
+            "done": true
+        },
+        "4072605": {
+            "done": true
+        },
+        "4072606": {
+            "done": true
+        },
+        "4072610": {
+            "done": true
+        },
+        "4072611": {
+            "done": true
+        },
+        "4072612": {
+            "done": true
+        },
+        "4072704": {
+            "done": true
+        },
+        "4072803": {
+            "done": true
+        },
+        "4072804": {
+            "done": true
+        },
+        "4072805": {
+            "done": true
+        },
+        "4072904": {
+            "done": true
+        },
+        "4080101": {
+            "done": true
+        },
+        "4080201": {
+            "done": true
+        },
+        "4080202": {
+            "done": true
+        },
+        "4080203": {
+            "done": true
+        },
+        "4080301": {
+            "done": true
+        },
+        "4080302": {
+            "done": true
+        },
+        "4080303": {
+            "done": true
+        },
+        "4080304": {
+            "done": true
+        },
+        "4080305": {
+            "done": true
+        },
+        "4080401": {
+            "done": true
+        },
+        "4080402": {
+            "done": true
+        },
+        "4080403": {
+            "done": true
+        },
+        "4080404": {
+            "done": true
+        },
+        "4080501": {
+            "done": true
+        },
+        "4080502": {
+            "done": true
+        },
+        "4080504": {
+            "done": true
+        },
+        "4080505": {
+            "done": true
+        },
+        "4080601": {
+            "done": true
+        },
+        "4080602": {
+            "done": true
+        },
+        "4080603": {
+            "done": true
+        },
+        "4080604": {
+            "done": true
+        },
+        "4080605": {
+            "done": true
+        },
+        "4080606": {
+            "done": true
+        },
+        "4082303": {
+            "done": true
+        },
+        "4082401": {
+            "done": true
+        },
+        "4082402": {
+            "done": true
+        },
+        "4082601": {
+            "done": true
+        },
+        "4082602": {
+            "trashed": false,
+            "done": true
+        },
+        "4082603": {
+            "done": true
+        },
+        "4082604": {
+            "done": true
+        },
+        "4082605": {
+            "done": true
+        },
+        "4090201": {
+            "done": true
+        },
+        "4090202": {
+            "done": true
+        },
+        "4090203": {
+            "done": true
+        },
+        "4090204": {
+            "done": true
+        },
+        "4090205": {
+            "done": true
+        },
+        "4090206": {
+            "done": true
+        },
+        "4090207": {
+            "done": true
+        },
+        "4090301": {
+            "done": true
+        },
+        "4090303": {
+            "done": true
+        },
+        "4090501": {
+            "done": true
+        },
+        "4090503": {
+            "done": true
+        },
+        "4091001": {
+            "done": true
+        },
+        "4091003": {
+            "done": true
+        },
+        "4092301": {
+            "done": true
+        },
+        "4092302": {
+            "done": true
+        },
+        "4092303": {
+            "done": true
+        },
+        "4092312": {
+            "done": true
+        },
+        "4092313": {
+            "done": true
+        },
+        "4092314": {
+            "done": true
+        },
+        "4092315": {
+            "done": true
+        },
+        "4092316": {
+            "done": true
+        },
+        "4092317": {
+            "done": true
+        },
+        "4092318": {
+            "done": true
+        },
+        "4092319": {
+            "done": true
+        },
+        "4092320": {
+            "done": true
+        },
+        "4092321": {
+            "done": true
+        },
+        "4092322": {
+            "done": true
+        },
+        "4092323": {
+            "done": true
+        },
+        "4092324": {
+            "done": true
+        },
+        "4092325": {
+            "done": true
+        },
+        "4092326": {
+            "done": true
+        },
+        "4092327": {
+            "done": true
+        },
+        "4092328": {
+            "done": true
+        },
+        "4092329": {
+            "done": true
+        },
+        "4092330": {
+            "done": true
+        },
+        "4092331": {
+            "done": true
+        },
+        "4092332": {
+            "done": true
+        },
+        "4092333": {
+            "done": true
+        },
+        "4092334": {
+            "done": true
+        },
+        "4092335": {
+            "done": true
+        },
+        "4092336": {
+            "done": true
+        },
+        "4092337": {
+            "done": true
+        },
+        "4092338": {
+            "done": true
+        },
+        "4092339": {
+            "done": true
+        },
+        "4092340": {
+            "done": true
+        },
+        "4092341": {
+            "done": true
+        },
+        "4092342": {
+            "done": true
+        },
+        "4092343": {
+            "done": true
+        },
+        "4092344": {
+            "done": true
+        },
+        "4092345": {
+            "done": true
+        },
+        "4092346": {
+            "done": true
+        },
+        "4092347": {
+            "done": true
+        },
+        "4092349": {
+            "done": true
+        },
+        "4092350": {
+            "done": true
+        },
+        "4092351": {
+            "done": true
+        },
+        "4092352": {
+            "done": true
+        },
+        "4092353": {
+            "done": true
+        },
+        "4092361": {
+            "done": true
+        },
+        "4092609": {
+            "done": true
+        },
+        "4092610": {
+            "done": true
+        },
+        "4092613": {
+            "done": true
+        },
+        "4092624": {
+            "done": true
+        },
+        "4092625": {
+            "done": true
+        },
+        "4092626": {
+            "done": true
+        },
+        "4092627": {
+            "done": true
+        },
+        "4092629": {
+            "done": true
+        },
+        "4092630": {
+            "done": true
+        },
+        "4092631": {
+            "done": true
+        },
+        "4092633": {
+            "done": true
+        },
+        "4092634": {
+            "done": true
+        },
+        "4092635": {
+            "done": true
+        },
+        "4092636": {
+            "done": true
+        },
+        "4092639": {
+            "done": true
+        },
+        "4092640": {
+            "done": true
+        },
+        "4092641": {
+            "done": true
+        },
+        "4092902": {
+            "done": true
+        },
+        "4092905": {
+            "done": true
+        },
+        "4092906": {
+            "done": true
+        },
+        "4092907": {
+            "done": true
+        },
+        "4092912": {
+            "done": true
+        },
+        "4092925": {
+            "done": true
+        },
+        "4092927": {
+            "done": true
+        },
+        "4092928": {
+            "done": true
+        },
+        "4092929": {
+            "done": true
+        },
+        "4092930": {
+            "done": true
+        },
+        "4092939": {
+            "done": true
+        },
+        "4092940": {
+            "done": true
+        }
+    },
+    "tl": 70,
+    "el": 6,
+    "server": "asia"
+}

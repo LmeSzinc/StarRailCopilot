@@ -44,6 +44,7 @@ Daily:
     Freebies:
       - Scheduler
       - SupportReward
+
 # ==================== Weekly ====================
 
 Weekly:
@@ -57,6 +58,13 @@ Weekly:
       - Scheduler
       - RogueWorld
       - RogueBlessing
-      - RogueCurio
-      - RoguePath
       - RogueDebug
+
+# ==================== Tool ====================
+
+Tool:
+  menu: 'list'
+  page: 'tool'
+  tasks:
+    Daemon:
+      - Daemon

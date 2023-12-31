@@ -48,6 +48,12 @@ def character_name(name: str) -> str:
     return name
 
 
+def sort_type_name(name: str) -> str:
+    name = text_to_variable(name)
+    name = re.sub('{.*}', '', name)
+    return name
+
+
 def convert_inner_character_to_keyword(name):
     convert_dict = {
         'Silwolf': 'SilverWolf',
@@ -252,42 +258,45 @@ class KeywordExtract:
         gen.CommentAutoGenerage('dev_tools.keyword_extract')
 
         old_quest = [
-            "Go_on_assignment_1_time", # -> Dispatch_1_assignments
-            "Complete_1_stage_in_Simulated_Universe_Any_world", # -> Complete_Simulated_Universe_1_times
-            "Complete_Calyx_Crimson_1_time", # -> Clear_Calyx_Crimson_1_times
-            "Enter_combat_by_attacking_enemy_Weakness_and_win_3_times", # -> Enter_combat_by_attacking_enemie_Weakness_and_win_1_times
-            "Use_Technique_2_times", # -> Use_Technique_1_times
-            "Destroy_3_destructible_objects", # -> Destroy_1_destructible_objects
-            "Obtain_victory_in_combat_with_Support_Characters_1_time", # -> Obtain_victory_in_combat_with_Support_Characters_1_times
-            "Level_up_any_character_1_time", # -> Level_up_any_character_1_times
-            "Level_up_any_Light_Cone_1_time", # -> Level_up_any_Light_Cone_1_times
-            "Synthesize_Consumable_1_time", # -> Use_the_Omni_Synthesizer_1_times
-            "Synthesize_material_1_time", # -> Use_the_Omni_Synthesizer_1_times
-            "Take_1_photo", # -> Take_photos_1_times
-            "Level_up_any_Relic_1_time", # -> Level_up_any_Relic_1_times
+            "Go_on_assignment_1_time",  # -> Dispatch_1_assignments
+            "Complete_1_stage_in_Simulated_Universe_Any_world",  # -> Complete_Simulated_Universe_1_times
+            "Complete_Calyx_Crimson_1_time",  # -> Clear_Calyx_Crimson_1_times
+            "Enter_combat_by_attacking_enemy_Weakness_and_win_3_times",
+            # -> Enter_combat_by_attacking_enemie_Weakness_and_win_1_times
+            "Use_Technique_2_times",  # -> Use_Technique_1_times
+            "Destroy_3_destructible_objects",  # -> Destroy_1_destructible_objects
+            "Obtain_victory_in_combat_with_Support_Characters_1_time",
+            # -> Obtain_victory_in_combat_with_Support_Characters_1_times
+            "Level_up_any_character_1_time",  # -> Level_up_any_character_1_times
+            "Level_up_any_Light_Cone_1_time",  # -> Level_up_any_Light_Cone_1_times
+            "Synthesize_Consumable_1_time",  # -> Use_the_Omni_Synthesizer_1_times
+            "Synthesize_material_1_time",  # -> Use_the_Omni_Synthesizer_1_times
+            "Take_1_photo",  # -> Take_photos_1_times
+            "Level_up_any_Relic_1_time",  # -> Level_up_any_Relic_1_times
         ]
 
         correct_times = {
-        #    "Dispatch_1_assignments":  1,
-        #    "Complete_Simulated_Universe_1_times": 1,
-        #    "Clear_Calyx_Crimson_1_times": 1,
+            #    "Dispatch_1_assignments":  1,
+            #    "Complete_Simulated_Universe_1_times": 1,
+            #    "Clear_Calyx_Crimson_1_times": 1,
             "Enter_combat_by_attacking_enemie_Weakness_and_win_1_times": 3,
             "Use_Technique_1_times": 2,
             "Destroy_1_destructible_objects": 3,
-        #    "Obtain_victory_in_combat_with_Support_Characters_1_times": 1,
-        #    "Level_up_any_character_1_times": 1,
-        #    "Level_up_any_Light_Cone_1_times": 1,
-        #    "Use_the_Omni_Synthesizer_1_times": 1,
-        #    "Take_photos_1_times": 1,
-        #    "Level_up_any_Relic_1_times": 1,
+            #    "Obtain_victory_in_combat_with_Support_Characters_1_times": 1,
+            #    "Level_up_any_character_1_times": 1,
+            #    "Level_up_any_Light_Cone_1_times": 1,
+            #    "Use_the_Omni_Synthesizer_1_times": 1,
+            #    "Take_photos_1_times": 1,
+            #    "Level_up_any_Relic_1_times": 1,
             "Consume_1_Trailblaze_Power": 120
 
         }
-        def replace_templates_quest(text: str, correct_time = 1) -> str:
+
+        def replace_templates_quest(text: str, correct_time=1) -> str:
             text = replace_templates(text)
             text = text.replace('1', f'{correct_time}')
             return text
-        
+
         last_id = getattr(gen, 'last_id', 0)
         for index, keyword in enumerate(self.keywords_id):
             _, old_name = self.find_keyword(keyword, lang='en')
@@ -295,12 +304,13 @@ class KeywordExtract:
             if old_name in old_quest:
                 continue
             name = old_name.replace('1', str(correct_times.setdefault(old_name, 1)))
-            
+
             with gen.Object(key=name, object_class=keyword_class):
                 gen.ObjectAttr(key='id', value=index + last_id + 1)
                 gen.ObjectAttr(key='name', value=name)
                 for lang in UI_LANGUAGES:
-                    gen.ObjectAttr(key=lang, value=replace_templates_quest(self.find_keyword(keyword, lang=lang)[1], correct_times.setdefault(old_name, 1)))
+                    gen.ObjectAttr(key=lang, value=replace_templates_quest(self.find_keyword(keyword, lang=lang)[1],
+                                                                           correct_times.setdefault(old_name, 1)))
                 gen.last_id = index + last_id + 1
 
         output_file = './tasks/daily/keywords/daily_quest.py'
@@ -330,15 +340,15 @@ class KeywordExtract:
         # Damage type -> damage hash
         damage_info = dict()
         for type_name, data in read_file(os.path.join(
-            TextMap.DATA_FOLDER, 'ExcelOutput',
-            'DamageType.json'
+                TextMap.DATA_FOLDER, 'ExcelOutput',
+                'DamageType.json'
         )).items():
             damage_info[type_name] = deep_get(data, 'DamageTypeName.Hash')
         # Character id -> character hash & damage type
         character_info = dict()
         for data in read_file(os.path.join(
-            TextMap.DATA_FOLDER, 'ExcelOutput',
-            'AvatarConfig.json'
+                TextMap.DATA_FOLDER, 'ExcelOutput',
+                'AvatarConfig.json'
         )).values():
             name_hash = deep_get(data, 'AvatarName.Hash')
             damage_type = deep_get(data, 'DamageType')
@@ -347,8 +357,8 @@ class KeywordExtract:
         # Item id -> character id
         promotion_info = defaultdict(list)
         for data in read_file(os.path.join(
-            TextMap.DATA_FOLDER, 'ExcelOutput',
-            'AvatarPromotionConfig.json'
+                TextMap.DATA_FOLDER, 'ExcelOutput',
+                'AvatarPromotionConfig.json'
         )).values():
             character_id = deep_get(data, '0.AvatarID')
             item_id = deep_get(data, '2.PromotionCostList')[-1]['ItemID']
@@ -356,8 +366,8 @@ class KeywordExtract:
         # Shadow hash -> item id
         shadow_info = dict()
         for data in read_file(os.path.join(
-            TextMap.DATA_FOLDER, 'ExcelOutput',
-            'MappingInfo.json'
+                TextMap.DATA_FOLDER, 'ExcelOutput',
+                'MappingInfo.json'
         )).values():
             farm_type = deep_get(data, '0.FarmType')
             if farm_type != 'ELEMENT':
@@ -427,9 +437,9 @@ class KeywordExtract:
             output_file='./tasks/assignment/keywords/event_group.py'
         )
         for file_name, class_name, output_file in (
-            ('ExpeditionGroup.json', 'AssignmentGroup', './tasks/assignment/keywords/group.py'),
-            ('ExpeditionData.json', 'AssignmentEntry', './tasks/assignment/keywords/entry.py'),
-            ('ActivityExpedition.json', 'AssignmentEventEntry', './tasks/assignment/keywords/event_entry.py'),
+                ('ExpeditionGroup.json', 'AssignmentGroup', './tasks/assignment/keywords/group.py'),
+                ('ExpeditionData.json', 'AssignmentEntry', './tasks/assignment/keywords/entry.py'),
+                ('ActivityExpedition.json', 'AssignmentEventEntry', './tasks/assignment/keywords/event_entry.py'),
         ):
             file = os.path.join(TextMap.DATA_FOLDER, 'ExcelOutput', file_name)
             self.load_keywords(deep_get(data, 'Name.Hash') for data in read_file(file).values())
@@ -438,7 +448,7 @@ class KeywordExtract:
     def generate_map_planes(self):
         planes = {
             'Special': ['黑塔的办公室', '锋芒崭露'],
-            'Rogue': [ '区域-战斗', '区域-事件', '区域-遭遇', '区域-休整', '区域-精英', '区域-首领', '区域-交易'],
+            'Rogue': ['区域-战斗', '区域-事件', '区域-遭遇', '区域-休整', '区域-精英', '区域-首领', '区域-交易'],
             'Herta': ['观景车厢', '主控舱段', '基座舱段', '收容舱段', '支援舱段', '禁闭舱段'],
             'Jarilo': ['行政区', '城郊雪原', '边缘通路', '铁卫禁区', '残响回廊', '永冬岭',
                        '造物之柱', '旧武器试验场', '磐岩镇', '大矿区', '铆钉镇', '机械聚落'],
@@ -634,6 +644,7 @@ class KeywordExtract:
                 if option_dup_count[option_var] > 1:
                     option_var = f'{option_var}_{option_md5[:md5_prefix_len]}'
                 return option_var
+
             return wrapper
 
         option_gen = None
@@ -727,7 +738,8 @@ class KeywordExtract:
         self.generate_rogue_events()
         self.load_keywords(list(self.iter_without_duplication(read_file(
             os.path.join(TextMap.DATA_FOLDER, 'ExcelOutput', 'InventorySortType.json')), 'SortTypeName.Hash')))
-        self.write_keywords(keyword_class='SortType', output_file='./tasks/item/keywords/sort_type.py')
+        self.write_keywords(keyword_class='SortType', output_file='./tasks/item/keywords/sort_type.py',
+                            text_convert=sort_type_name)
 
 
 if __name__ == '__main__':

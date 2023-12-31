@@ -21,12 +21,12 @@ Rarity = SortType(
     jp='レア度',
     es='Rareza',
 )
-Lv = SortType(
+Lv_ = SortType(
     id=3,
-    name='Lv',
+    name='Lv_',
     cn='等级',
     cht='等級',
-    en='Lv.',
+    en='Lv.{SPACE}',
     jp='レベル',
     es='Nivel',
 )
@@ -182,4 +182,13 @@ Break_Effect = SortType(
     en='Break Effect',
     jp='撃破特効',
     es='Efecto de Ruptura',
+)
+Name = SortType(
+    id=21,
+    name='Name',
+    cn='名称',
+    cht='名稱',
+    en='Name',
+    jp='名前',
+    es='Nombre',
 )

@@ -65,7 +65,7 @@ class CharacterTrial(UI):
             # Switch to regular trial
             if self.match_template_color(REGULAR_GACHA_CHECK) \
                     and self.match_color(CHARACTER_TRIAL, interval=2):
-                #self.device.click(CHARACTER_TRIAL)
+                self.device.click(CHARACTER_TRIAL)
                 continue
             if self.match_template_color(REGULAR_GACHA_CLICK, interval=2):
                 # Poor sleep indeed, clicks won't be response unless other elements are loaded

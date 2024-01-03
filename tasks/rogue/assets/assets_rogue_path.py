@@ -87,10 +87,10 @@ CHECK_REMEMBRANCE = ButtonWrapper(
     name='CHECK_REMEMBRANCE',
     share=Button(
         file='./assets/share/rogue/path/CHECK_REMEMBRANCE.png',
-        area=(220, 326, 270, 376),
-        search=(200, 306, 290, 396),
-        color=(128, 105, 75),
-        button=(220, 326, 270, 376),
+        area=(235, 275, 262, 337),
+        search=(215, 255, 282, 357),
+        color=(145, 122, 86),
+        button=(235, 275, 262, 337),
     ),
 )
 CHECK_THE_HUNT = ButtonWrapper(

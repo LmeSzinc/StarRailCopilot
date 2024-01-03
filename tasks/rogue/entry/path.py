@@ -40,6 +40,7 @@ class RoguePathHandler(RogueUI):
             KEYWORDS_ROGUE_PATH.Destruction: CHECK_DESTRUCTION,
             KEYWORDS_ROGUE_PATH.Elation: CHECK_ELATION,
             KEYWORDS_ROGUE_PATH.Propagation: CHECK_PROPAGATION,
+            KEYWORDS_ROGUE_PATH.Erudition: CHECK_ERUDITION,
         }
         # 2023.12.28 Buttons moved up
         for b in buttons.values():
@@ -76,6 +77,7 @@ class RoguePathHandler(RogueUI):
             KEYWORDS_ROGUE_PATH.Destruction: 6,
             KEYWORDS_ROGUE_PATH.Elation: 7,
             KEYWORDS_ROGUE_PATH.Propagation: 8,
+            KEYWORDS_ROGUE_PATH.Erudition: 9
         }
         return buttons
 

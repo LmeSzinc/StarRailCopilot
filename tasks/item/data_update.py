@@ -112,7 +112,7 @@ class DataUpdate(UI):
         
         with self.config.multi_set():
             self._get_data()
-            self._get_stored()
+            #self._get_stored()
             self.config.task_delay(server_update=True)
 
 

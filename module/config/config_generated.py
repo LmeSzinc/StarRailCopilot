@@ -104,6 +104,13 @@ class GeneratedConfig:
     # Group `BattlePassStorage`
     BattlePassStorage_BattlePassLevel = {}
     BattlePassStorage_BattlePassWeeklyQuest = {}
+    BattlePassStorage_BattlePassSimulatedUniverse = {}
+    BattlePassStorage_BattlePassQuestCalyx = {}
+    BattlePassStorage_BattlePassQuestEchoOfWar = {}
+    BattlePassStorage_BattlePassQuestCredits = {}
+    BattlePassStorage_BattlePassQuestSynthesizeConsumables = {}
+    BattlePassStorage_BattlePassQuestCavernOfCorrosion = {}
+    BattlePassStorage_BattlePassQuestTrailblazePower = {}
 
     # Group `Assignment`
     Assignment_Name_1 = 'Nameless_Land_Nameless_People'  # Nine_Billion_Names, Destruction_of_the_Destroyer, Winter_Soldiers, Born_to_Obey, Root_Out_the_Turpitude, Fire_Lord_Inflames_Blades_of_War, Nameless_Land_Nameless_People, Akashic_Records, The_Invisible_Hand, Abandoned_and_Insulted, Spring_of_Life, The_Land_of_Gold, The_Blossom_in_the_Storm, Legend_of_the_Puppet_Master, The_Wages_of_Humanity
@@ -120,7 +127,7 @@ class GeneratedConfig:
 
     # Group `RogueWorld`
     RogueWorld_World = 'Simulated_Universe_World_7'  # Simulated_Universe_World_3, Simulated_Universe_World_4, Simulated_Universe_World_5, Simulated_Universe_World_6, Simulated_Universe_World_7, Simulated_Universe_World_8
-    RogueWorld_Path = 'The_Hunt'  # Preservation, Remembrance, Nihility, Abundance, The_Hunt, Destruction, Elation, Propagation
+    RogueWorld_Path = 'The_Hunt'  # Preservation, Remembrance, Nihility, Abundance, The_Hunt, Destruction, Elation, Propagation, Erudition
     RogueWorld_Bonus = 'Blessing Universe'  # Blessing Universe, Miracle Universe, Fragmented Universe
     RogueWorld_DomainStrategy = 'combat'  # combat, occurrence
     RogueWorld_UseImmersifier = True

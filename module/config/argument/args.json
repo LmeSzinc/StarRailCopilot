@@ -641,12 +641,13 @@
         ]
       },
       "Salvage_any_Relic": {
-        "type": "state",
+        "type": "select",
         "value": "achievable",
         "option": [
-          "achievable",
-          "not_set",
-          "not_supported"
+          "5-star_or_below",
+          "4-star_or_below",
+          "3-star_or_below",
+          "do_not_achieve"
         ],
         "option_bold": [
           "achievable"
@@ -866,12 +867,13 @@
         ]
       },
       "Level_up_any_Relic_1_times": {
-        "type": "state",
+        "type": "select",
         "value": "achievable",
         "option": [
-          "achievable",
-          "not_set",
-          "not_supported"
+          "5-star_or_below",
+          "4-star_or_below",
+          "3-star_or_below",
+          "do_not_achieve"
         ],
         "option_bold": [
           "achievable"

@@ -3,24 +3,14 @@ from module.base.button import Button, ButtonWrapper
 # This file was auto-generated, do not modify it manually. To generate:
 # ``` python -m dev_tools.button_extract ```
 
-FIRST_RELIC = ButtonWrapper(
-    name='FIRST_RELIC',
+ENHANCE_TAB = ButtonWrapper(
+    name='ENHANCE_TAB',
     share=Button(
-        file='./assets/share/item/relics/FIRST_RELIC.png',
-        area=(434, 160, 530, 260),
-        search=(414, 140, 550, 280),
-        color=(72, 92, 124),
-        button=(434, 160, 530, 260),
-    ),
-)
-FIRST_RELIC_SELECTED = ButtonWrapper(
-    name='FIRST_RELIC_SELECTED',
-    share=Button(
-        file='./assets/share/item/relics/FIRST_RELIC_SELECTED.png',
-        area=(424, 136, 452, 164),
-        search=(404, 116, 472, 184),
-        color=(193, 194, 198),
-        button=(424, 136, 452, 164),
+        file='./assets/share/item/relics/ENHANCE_TAB.png',
+        area=(40, 178, 64, 202),
+        search=(20, 158, 84, 222),
+        color=(108, 108, 118),
+        button=(40, 178, 64, 202),
     ),
 )
 GOTO_SALVAGE = ButtonWrapper(
@@ -33,33 +23,30 @@ GOTO_SALVAGE = ButtonWrapper(
         button=(668, 652, 690, 674),
     ),
 )
-ORDER_ASCENDING = ButtonWrapper(
-    name='ORDER_ASCENDING',
-    share=Button(
-        file='./assets/share/item/relics/ORDER_ASCENDING.png',
-        area=(720, 649, 737, 667),
-        search=(700, 629, 757, 687),
-        color=(176, 176, 178),
-        button=(720, 649, 737, 667),
+ITEM_DETAILS = ButtonWrapper(
+    name='ITEM_DETAILS',
+    cn=Button(
+        file='./assets/cn/item/relics/ITEM_DETAILS.png',
+        area=(1044, 648, 1084, 668),
+        search=(902, 634, 1225, 682),
+        color=(150, 150, 150),
+        button=(902, 634, 1225, 682),
+    ),
+    en=Button(
+        file='./assets/en/item/relics/ITEM_DETAILS.png',
+        area=(1031, 650, 1098, 666),
+        search=(902, 634, 1225, 682),
+        color=(148, 148, 148),
+        button=(902, 634, 1225, 682),
     ),
 )
-ORDER_DESCENDING = ButtonWrapper(
-    name='ORDER_DESCENDING',
+RELIC_MAIN_PAGE_SORT_TYPE_BUTTON = ButtonWrapper(
+    name='RELIC_MAIN_PAGE_SORT_TYPE_BUTTON',
     share=Button(
-        file='./assets/share/item/relics/ORDER_DESCENDING.png',
-        area=(720, 649, 738, 667),
-        search=(700, 629, 758, 687),
-        color=(179, 180, 180),
-        button=(720, 649, 738, 667),
-    ),
-)
-SALVAGE = ButtonWrapper(
-    name='SALVAGE',
-    share=Button(
-        file='./assets/share/item/relics/SALVAGE.png',
-        area=(1038, 646, 1062, 670),
-        search=(936, 642, 1213, 675),
-        color=(122, 115, 98),
-        button=(1038, 646, 1062, 670),
+        file='./assets/share/item/relics/RELIC_MAIN_PAGE_SORT_TYPE_BUTTON.png',
+        area=(223, 643, 410, 683),
+        search=(203, 623, 430, 703),
+        color=(209, 211, 211),
+        button=(223, 643, 410, 683),
     ),
 )

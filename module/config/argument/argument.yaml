@@ -157,6 +157,8 @@ AchievableQuest:
 #    value: achievable
 #    option: [ achievable, not_set, not_supported ]
 #    option_bold: [ achievable, ]
+
+
 DailyStorage:
   DailyActivity:
     stored: StoredDailyActivity

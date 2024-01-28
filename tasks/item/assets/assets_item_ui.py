@@ -23,6 +23,16 @@ CONSUMABLE_CLICK = ButtonWrapper(
         button=(38, 476, 80, 499),
     ),
 )
+ITEM_PAGE_INVENTORY = ButtonWrapper(
+    name='ITEM_PAGE_INVENTORY',
+    share=Button(
+        file='./assets/share/item/ui/ITEM_PAGE_INVENTORY.png',
+        area=(131, 75, 855, 637),
+        search=(111, 55, 875, 657),
+        color=(78, 71, 99),
+        button=(131, 75, 855, 637),
+    ),
+)
 LIGHT_CONE_CHECK = ButtonWrapper(
     name='LIGHT_CONE_CHECK',
     share=Button(
@@ -63,6 +73,36 @@ MISSIONS_CLICK = ButtonWrapper(
         button=(43, 569, 74, 589),
     ),
 )
+OCR_SORT_TYPE = ButtonWrapper(
+    name='OCR_SORT_TYPE',
+    share=Button(
+        file='./assets/share/item/ui/OCR_SORT_TYPE.png',
+        area=(206, 202, 1077, 479),
+        search=(186, 182, 1097, 499),
+        color=(220, 220, 219),
+        button=(206, 202, 1077, 479),
+    ),
+)
+ORDER_ASCENDING = ButtonWrapper(
+    name='ORDER_ASCENDING',
+    share=Button(
+        file='./assets/share/item/ui/ORDER_ASCENDING.png',
+        area=(720, 649, 737, 667),
+        search=(700, 629, 757, 687),
+        color=(176, 176, 178),
+        button=(720, 649, 737, 667),
+    ),
+)
+ORDER_DESCENDING = ButtonWrapper(
+    name='ORDER_DESCENDING',
+    share=Button(
+        file='./assets/share/item/ui/ORDER_DESCENDING.png',
+        area=(720, 649, 738, 667),
+        search=(700, 629, 758, 687),
+        color=(179, 180, 180),
+        button=(720, 649, 738, 667),
+    ),
+)
 OTHER_MATERIALS_CHECK = ButtonWrapper(
     name='OTHER_MATERIALS_CHECK',
     share=Button(
@@ -101,6 +141,16 @@ RELICS_CLICK = ButtonWrapper(
         search=(16, 278, 98, 339),
         color=(121, 124, 129),
         button=(36, 298, 78, 319),
+    ),
+)
+SORT_SCROLL = ButtonWrapper(
+    name='SORT_SCROLL',
+    share=Button(
+        file='./assets/share/item/ui/SORT_SCROLL.png',
+        area=(1069, 221, 1073, 457),
+        search=(1049, 201, 1093, 477),
+        color=(86, 89, 91),
+        button=(1069, 221, 1073, 457),
     ),
 )
 UPGRADE_MATERIAL_CHECK = ButtonWrapper(

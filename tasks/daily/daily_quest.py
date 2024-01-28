@@ -267,8 +267,13 @@ class DailyQuestUI(DungeonUI, RouteLoader):
         if KEYWORDS_DAILY_QUEST.Use_Technique_2_times in quests:
             UseTechniqueUI(self.config, self.device).use_technique(2)
             done += 1
-        if KEYWORDS_DAILY_QUEST.Salvage_any_Relic in quests:
+        if (self.config.AchievableQuest_Salvage_any_Relic != "do_not_achieve"
+                and KEYWORDS_DAILY_QUEST.Salvage_any_Relic in quests):
             if RelicsUI(self.config, self.device).salvage_relic():
+                done += 1
+        if (self.config.AchievableQuest_Level_up_any_Relic_1_times != "do_not_achieve"
+                and KEYWORDS_DAILY_QUEST.Level_up_any_Relic_1_times in quests):
+            if RelicsUI(self.config, self.device).level_up_relic():
                 done += 1
         if KEYWORDS_DAILY_QUEST.Complete_Forgotten_Hall_1_time in quests:
             self.route_run(ROUTE_DAILY.ForgottenHallStage1__route)

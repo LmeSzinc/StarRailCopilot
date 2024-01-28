@@ -1,5 +1,6 @@
 from module.logger import logger
-from tasks.daily.keywords.daily_quest import Complete_Simulated_Universe_1_times
+from tasks.battle_pass.keywords import KEYWORD_BATTLE_PASS_QUEST
+from tasks.daily.keywords import KEYWORDS_DAILY_QUEST
 from tasks.rogue.entry.entry import RogueEntry
 from tasks.rogue.exception import RogueReachedWeeklyPointLimit, RogueTeamNotPrepared
 from tasks.rogue.route.loader import RouteLoader
@@ -30,7 +31,12 @@ class Rogue(RouteLoader, RogueEntry):
         return True
 
     def run(self):
+        self.config.update_battle_pass_quests()
         self.config.update_daily_quests()
+        if self.config.stored.DungeonDouble.is_expired():
+            self.config.task_call('Dungeon')
+            self.config.task_stop()
+
         while 1:
             # Run
             success = self.rogue_once()
@@ -43,9 +49,14 @@ class Rogue(RouteLoader, RogueEntry):
                 # Archived daily quest
                 if success:
                     quests = self.config.stored.DailyQuest.load_quests()
-                    if Complete_Simulated_Universe_1_times in quests:
+                    if KEYWORDS_DAILY_QUEST.Complete_Simulated_Universe_1_times in quests:
                         logger.info('Achieve daily quest Complete_Simulated_Universe_1_times')
                         self.config.task_call('DailyQuest')
+                        self.config.task_stop()
+                    quests = self.config.stored.BattlePassWeeklyQuest.load_quests()
+                    if KEYWORD_BATTLE_PASS_QUEST.Complete_Simulated_Universe_1_times in quests:
+                        logger.info('Achieve battle pass quest Complete_Simulated_Universe_1_times')
+                        self.config.task_call('BattlePass')
                         self.config.task_stop()
                 # End
                 if not success:

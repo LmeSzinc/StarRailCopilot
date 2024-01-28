@@ -17,6 +17,7 @@ class GeneratedConfig:
 
     # Group `Emulator`
     Emulator_Serial = 'auto'
+    Emulator_GameClient = 'android'  # android, cloud_android
     Emulator_PackageName = 'auto'  # auto, CN-Official, CN-Bilibili, OVERSEA-America, OVERSEA-Asia, OVERSEA-Europe, OVERSEA-TWHKMO
     Emulator_GameLanguage = 'auto'  # auto, cn, en
     Emulator_ScreenshotMethod = 'auto'  # auto, ADB, ADB_nc, uiautomator2, aScreenCap, aScreenCap_nc, DroidCast, DroidCast_raw, scrcpy
@@ -38,6 +39,11 @@ class GeneratedConfig:
     Optimization_ScreenshotInterval = 0.3
     Optimization_CombatScreenshotInterval = 1.0
     Optimization_WhenTaskQueueEmpty = 'goto_main'  # stay_there, goto_main, close_game
+
+    # Group `CloudStorage`
+    CloudStorage_CloudRemainSeasonPass = {}
+    CloudStorage_CloudRemainPaid = {}
+    CloudStorage_CloudRemainFree = {}
 
     # Group `Dungeon`
     Dungeon_Name = 'Calyx_Golden_Treasures'  # Calyx_Golden_Memories, Calyx_Golden_Aether, Calyx_Golden_Treasures, Calyx_Crimson_Destruction, Calyx_Crimson_Preservation, Calyx_Crimson_The_Hunt, Calyx_Crimson_Abundance, Calyx_Crimson_Erudition, Calyx_Crimson_Harmony, Calyx_Crimson_Nihility, Stagnant_Shadow_Quanta, Stagnant_Shadow_Gust, Stagnant_Shadow_Fulmination, Stagnant_Shadow_Blaze, Stagnant_Shadow_Spike, Stagnant_Shadow_Rime, Stagnant_Shadow_Mirage, Stagnant_Shadow_Icicle, Stagnant_Shadow_Doom, Stagnant_Shadow_Puppetry, Stagnant_Shadow_Abomination, Stagnant_Shadow_Scorch, Stagnant_Shadow_Celestial, Stagnant_Shadow_Perdition, Cavern_of_Corrosion_Path_of_Gelid_Wind, Cavern_of_Corrosion_Path_of_Jabbing_Punch, Cavern_of_Corrosion_Path_of_Drifting, Cavern_of_Corrosion_Path_of_Providence, Cavern_of_Corrosion_Path_of_Holy_Hymn, Cavern_of_Corrosion_Path_of_Conflagration, Cavern_of_Corrosion_Path_of_Elixir_Seekers, Cavern_of_Corrosion_Path_of_Darkness
@@ -104,6 +110,13 @@ class GeneratedConfig:
     # Group `BattlePassStorage`
     BattlePassStorage_BattlePassLevel = {}
     BattlePassStorage_BattlePassWeeklyQuest = {}
+    BattlePassStorage_BattlePassSimulatedUniverse = {}
+    BattlePassStorage_BattlePassQuestCalyx = {}
+    BattlePassStorage_BattlePassQuestEchoOfWar = {}
+    BattlePassStorage_BattlePassQuestCredits = {}
+    BattlePassStorage_BattlePassQuestSynthesizeConsumables = {}
+    BattlePassStorage_BattlePassQuestCavernOfCorrosion = {}
+    BattlePassStorage_BattlePassQuestTrailblazePower = {}
 
     # Group `Assignment`
     Assignment_Name_1 = 'Nameless_Land_Nameless_People'  # Nine_Billion_Names, Destruction_of_the_Destroyer, Winter_Soldiers, Born_to_Obey, Root_Out_the_Turpitude, Fire_Lord_Inflames_Blades_of_War, Nameless_Land_Nameless_People, Akashic_Records, The_Invisible_Hand, Abandoned_and_Insulted, Spring_of_Life, The_Land_of_Gold, The_Blossom_in_the_Storm, Legend_of_the_Puppet_Master, The_Wages_of_Humanity
@@ -120,10 +133,11 @@ class GeneratedConfig:
 
     # Group `RogueWorld`
     RogueWorld_World = 'Simulated_Universe_World_7'  # Simulated_Universe_World_3, Simulated_Universe_World_4, Simulated_Universe_World_5, Simulated_Universe_World_6, Simulated_Universe_World_7, Simulated_Universe_World_8
-    RogueWorld_Path = 'The_Hunt'  # Preservation, Remembrance, Nihility, Abundance, The_Hunt, Destruction, Elation, Propagation
+    RogueWorld_Path = 'The_Hunt'  # Preservation, Remembrance, Nihility, Abundance, The_Hunt, Destruction, Elation, Propagation, Erudition
     RogueWorld_Bonus = 'Blessing Universe'  # Blessing Universe, Miracle Universe, Fragmented Universe
     RogueWorld_DomainStrategy = 'combat'  # combat, occurrence
     RogueWorld_UseImmersifier = True
+    RogueWorld_DoubleEvent = True
     RogueWorld_UseStamina = False
 
     # Group `RogueBlessing`

@@ -20,6 +20,7 @@ def text_to_variable(text):
     text = re.sub(r'[(),#"?!&%*]|</?\w+>', '', text)
     # text = re.sub(r'[#_]?\d+(_times?)?', '', text)
     text = re.sub(r'<color=#?\w+>', '', text)
+    text = text.replace('é', 'e')
     return text.strip('_')
 
 
@@ -526,6 +527,11 @@ class KeywordExtract:
                         if not deep_get(blessing, '1.AeonID')][1:]
         resonances_id = [deep_get(blessing, '1.MazeBuffID') for blessing in blessings_info.values()
                          if deep_get(blessing, '1.AeonID')]
+
+        # ignore endless buffs
+        endless_buffs = read_file(os.path.join(TextMap.DATA_FOLDER, 'ExcelOutput', 'RogueEndlessMegaBuffDesc.json'))
+        endless_buff_ids = [int(id_) for id_ in endless_buffs]
+        blessings_id = [id_ for id_ in blessings_id if id_ not in endless_buff_ids]
 
         def get_blessing_infos(id_list, with_enhancement: bool):
             blessings_hash = [deep_get(blessings_name_map, f"{blessing_id}.1.BuffName.Hash")

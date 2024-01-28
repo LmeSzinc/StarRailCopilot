@@ -6,6 +6,7 @@ from tasks.base.ui import UI
 from tasks.dungeon.assets.assets_dungeon_event import (
     DOUBLE_CALYX_EVENT_TAG,
     DOUBLE_RELIC_EVENT_TAG,
+    DOUBLE_ROGUE_EVENT_TAG,
     OCR_DOUBLE_EVENT_REMAIN,
     OCR_DOUBLE_EVENT_REMAIN_AT_COMBAT,
 )
@@ -41,6 +42,16 @@ class DungeonEvent(UI):
         has = self.image_color_count(DOUBLE_RELIC_EVENT_TAG, color=(252, 209, 123), threshold=221, count=50)
         has |= self.image_color_count(DOUBLE_RELIC_EVENT_TAG, color=(252, 251, 140), threshold=221, count=50)
         logger.attr('Double relic', has)
+        return has
+
+    def has_double_rogue_event(self) -> bool:
+        """
+        Pages:
+            in: page_guide, Survival_Index, nav at top
+        """
+        has = self.image_color_count(DOUBLE_ROGUE_EVENT_TAG, color=(252, 209, 123), threshold=221, count=50)
+        has |= self.image_color_count(DOUBLE_ROGUE_EVENT_TAG, color=(252, 251, 140), threshold=221, count=50)
+        logger.attr('Double rogue', has)
         return has
 
     def has_double_event_at_combat(self) -> bool:
@@ -84,7 +95,7 @@ class DungeonEvent(UI):
 
         ocr = DoubleEventOcr(OCR_DOUBLE_EVENT_REMAIN_AT_COMBAT)
         for row in ocr.detect_and_ocr(self.device.image):
-            if '/' not in row.ocr_text:
+            if not ocr.is_format_matched(row.ocr_text):
                 continue
             remain, _, total = ocr.format_result(row.ocr_text)
             if total in [3, 12]:

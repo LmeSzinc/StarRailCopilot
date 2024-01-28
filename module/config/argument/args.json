@@ -6,6 +6,14 @@
         "value": "auto",
         "valuetype": "str"
       },
+      "GameClient": {
+        "type": "select",
+        "value": "android",
+        "option": [
+          "android",
+          "cloud_android"
+        ]
+      },
       "PackageName": {
         "type": "select",
         "value": "auto",
@@ -130,6 +138,26 @@
           "goto_main",
           "close_game"
         ]
+      }
+    },
+    "CloudStorage": {
+      "CloudRemainSeasonPass": {
+        "type": "stored",
+        "value": {},
+        "display": "hide",
+        "stored": "StoredInt"
+      },
+      "CloudRemainPaid": {
+        "type": "stored",
+        "value": {},
+        "display": "hide",
+        "stored": "StoredInt"
+      },
+      "CloudRemainFree": {
+        "type": "stored",
+        "value": {},
+        "display": "hide",
+        "stored": "StoredInt"
       }
     }
   },
@@ -912,6 +940,48 @@
         "value": {},
         "display": "hide",
         "stored": "StoredBattlePassWeeklyQuest"
+      },
+      "BattlePassSimulatedUniverse": {
+        "type": "stored",
+        "value": {},
+        "display": "hide",
+        "stored": "StoredBattlePassSimulatedUniverse"
+      },
+      "BattlePassQuestCalyx": {
+        "type": "stored",
+        "value": {},
+        "display": "hide",
+        "stored": "StoredBattlePassQuestCalyx"
+      },
+      "BattlePassQuestEchoOfWar": {
+        "type": "stored",
+        "value": {},
+        "display": "hide",
+        "stored": "StoredBattlePassQuestEchoOfWar"
+      },
+      "BattlePassQuestCredits": {
+        "type": "stored",
+        "value": {},
+        "display": "hide",
+        "stored": "StoredBattlePassQuestCredits"
+      },
+      "BattlePassQuestSynthesizeConsumables": {
+        "type": "stored",
+        "value": {},
+        "display": "hide",
+        "stored": "StoredBattlePassQuestSynthesizeConsumables"
+      },
+      "BattlePassQuestCavernOfCorrosion": {
+        "type": "stored",
+        "value": {},
+        "display": "hide",
+        "stored": "StoredBattlePassQuestCavernOfCorrosion"
+      },
+      "BattlePassQuestTrailblazePower": {
+        "type": "stored",
+        "value": {},
+        "display": "hide",
+        "stored": "StoredBattlePassQuestTrailblazePower"
       }
     }
   },
@@ -1235,7 +1305,8 @@
           "The_Hunt",
           "Destruction",
           "Elation",
-          "Propagation"
+          "Propagation",
+          "Erudition"
         ]
       },
       "Bonus": {
@@ -1256,6 +1327,10 @@
         ]
       },
       "UseImmersifier": {
+        "type": "checkbox",
+        "value": true
+      },
+      "DoubleEvent": {
         "type": "checkbox",
         "value": true
       },

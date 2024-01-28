@@ -7,7 +7,7 @@ import module.config.server as server
 from module.exception import ScriptError
 
 # ord('．') = 65294
-REGEX_PUNCTUATION = re.compile(r'[ ,.．\'"“”，。:：;；!！?？·・•*※\-—－/\\\n\t()\[\]（）「」『』【】《》［］]')
+REGEX_PUNCTUATION = re.compile(r'[ ,.．\'"“”，。…:：;；!！?？·・•*※\-—－/\\\n\t()\[\]（）「」『』【】《》［］]')
 
 
 def parse_name(n):
@@ -201,3 +201,17 @@ class Keyword:
 
         # Not found
         raise ScriptError(f'Cannot find a {cls.__name__} instance that matches "{name}"')
+
+
+class KeywordDigitCounter(Keyword):
+    """
+    A fake Keyword class to filter digit counters in ocr results
+    OcrResultButton.match_keyword will be a str
+    """
+    @classmethod
+    def find(cls, name, lang: str = None, ignore_punctuation=True):
+        from module.ocr.ocr import DigitCounter
+        if DigitCounter.is_format_matched(name):
+            return name
+        else:
+            raise ScriptError

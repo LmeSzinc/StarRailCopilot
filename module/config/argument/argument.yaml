@@ -18,6 +18,9 @@ Emulator:
   Serial:
     value: auto
     valuetype: str
+  GameClient:
+    value: android
+    option: [ android, cloud_android ]
   PackageName:
     value: auto
     option: [ auto, ]
@@ -72,6 +75,13 @@ Optimization:
   WhenTaskQueueEmpty:
     value: goto_main
     option: [ stay_there, goto_main, close_game ]
+CloudStorage:
+  CloudRemainSeasonPass:
+    stored: StoredInt
+  CloudRemainPaid:
+    stored: StoredInt
+  CloudRemainFree:
+    stored: StoredInt
 
 # ==================== Daily ====================
 
@@ -164,6 +174,21 @@ BattlePassStorage:
     color: "#cbe45b"
   BattlePassWeeklyQuest:
     stored: StoredBattlePassWeeklyQuest
+  # Quests progress
+  BattlePassSimulatedUniverse:
+    stored: StoredBattlePassSimulatedUniverse
+  BattlePassQuestCalyx:
+    stored: StoredBattlePassQuestCalyx
+  BattlePassQuestEchoOfWar:
+    stored: StoredBattlePassQuestEchoOfWar
+  BattlePassQuestCredits:
+    stored: StoredBattlePassQuestCredits
+  BattlePassQuestSynthesizeConsumables:
+    stored: StoredBattlePassQuestSynthesizeConsumables
+  BattlePassQuestCavernOfCorrosion:
+    stored: StoredBattlePassQuestCavernOfCorrosion
+  BattlePassQuestTrailblazePower:
+    stored: StoredBattlePassQuestTrailblazePower
 
 Assignment:
   # Options in Name_x will be injected in config updater
@@ -214,7 +239,7 @@ RogueWorld:
     ]
   Path:
     value: The_Hunt
-    option: [ Preservation, Remembrance, Nihility, Abundance, The_Hunt, Destruction, Elation, Propagation ]
+    option: [ Preservation, Remembrance, Nihility, Abundance, The_Hunt, Destruction, Elation, Propagation, Erudition ]
   Bonus:
     value: Blessing Universe
     option: [ Blessing Universe, Miracle Universe, Fragmented Universe ]
@@ -222,6 +247,7 @@ RogueWorld:
     value: combat
     option: [ combat, occurrence ]
   UseImmersifier: true
+  DoubleEvent: true
   UseStamina: false
 
 RogueBlessing:

@@ -1,5 +1,6 @@
 import re
 
+import cv2
 import numpy as np
 
 from module.base.base import ModuleBase
@@ -9,7 +10,7 @@ from module.base.utils import get_color
 from module.exception import ScriptError
 from module.logger import logger
 from module.ocr.ocr import Ocr, OcrResultButton
-from module.ocr.utils import split_and_pair_button_attr
+from module.ocr.utils import split_and_pair_button_attr, split_and_pair_buttons
 from module.ui.draggable_list import DraggableList
 from module.ui.switch import Switch
 from tasks.base.page import page_guide
@@ -27,6 +28,8 @@ from tasks.dungeon.keywords import (
 )
 from tasks.dungeon.keywords.classes import DungeonEntrance
 from tasks.dungeon.state import DungeonState
+from tasks.map.interact.aim import inrange
+from tasks.map.keywords import KEYWORDS_MAP_WORLD, MapPlane
 
 
 class DungeonTabSwitch(Switch):
@@ -76,7 +79,11 @@ class OcrDungeonNav(Ocr):
 
 class OcrDungeonList(Ocr):
     def after_process(self, result):
+        # 乙太之蕾•雅利洛-Ⅵ
+        result = result.replace('-VI', '-Ⅵ')
+
         result = super().after_process(result)
+
         if self.lang == 'cn':
             result = result.replace('翼', '巽')  # 巽风之形
             result = result.replace('皖A0', '50').replace('皖', '')
@@ -85,7 +92,24 @@ class OcrDungeonList(Ocr):
             result = re.sub('^灼之形', '燔灼之形', result)
             # 蛀星的旧·历战余响
             result = re.sub(r'蛀星的旧.*?历战', '蛀星的旧靥•历战', result)
+
+        # 9支援仓段
+        result = result.removeprefix('9')
+        result = result.removeprefix('Q')
         return result
+
+
+class OcrDungeonListCalyxCrimson(OcrDungeonList):
+    def _match_result(self, *args, **kwargs):
+        """
+        Convert MapPlane object to their corresponding DungeonList object
+        """
+        plane = super()._match_result(*args, **kwargs)
+        if plane is not None:
+            for dungeon in DungeonList.instances.values():
+                if dungeon.is_Calyx_Crimson and dungeon.plane == plane:
+                    return dungeon
+        return plane
 
 
 class OcrDungeonListLimitEntrance(OcrDungeonList):
@@ -104,25 +128,64 @@ class DraggableDungeonList(DraggableList):
     teleports: list[OcrResultButton] = []
     navigates: list[OcrResultButton] = []
 
-    def load_rows(self, main: ModuleBase):
+    # use_plane: True to use map planes to predict dungeons only.
+    #     Can only be True in Calyx Crimson
+    use_plane = False
+
+    def load_rows(self, main: ModuleBase, allow_early_access=False):
+        """
+        Args:
+            main:
+            allow_early_access: True to allow dungeons that are in temporarily early access during events
+        """
+        relative_area = (0, 0, 1280, 120)
+        if self.use_plane:
+            self.keyword_class = [MapPlane, DungeonEntrance]
+            self.ocr_class = OcrDungeonListCalyxCrimson
+        else:
+            self.keyword_class = [DungeonList, DungeonEntrance]
+            self.ocr_class = OcrDungeonList
         super().load_rows(main=main)
+
+        # Check early access dungeons
+        buttons = DUNGEON_LIST.cur_buttons.copy()
+        for name, button in split_and_pair_buttons(
+                DUNGEON_LIST.cur_buttons,
+                split_func=lambda x: x != KEYWORDS_DUNGEON_ENTRANCE.Enter,
+                relative_area=relative_area
+        ):
+            logger.warning(f'Early access dungeon: {name}')
+            buttons.remove(name)
+            buttons.remove(button)
+
+        # Remove early access dungeons
+        if not allow_early_access:
+            DUNGEON_LIST.cur_buttons = buttons
+            # From super.load_rows(), re-calculate indexes
+            indexes = [self.keyword2index(row.matched_keyword)
+                       for row in self.cur_buttons]
+            indexes = [index for index in indexes if index]
+            self.cur_min = min(indexes)
+            self.cur_max = max(indexes)
+            logger.attr(self.name, f'{self.cur_min} - {self.cur_max}')
+
         # Replace dungeon.button with teleport
         self.teleports = list(split_and_pair_button_attr(
             DUNGEON_LIST.cur_buttons,
-            split_func=lambda x: x != KEYWORDS_DUNGEON_ENTRANCE.Teleport,
-            relative_area=(0, 0, 1280, 120)
+            split_func=lambda x: x != KEYWORDS_DUNGEON_ENTRANCE.Teleport and x != KEYWORDS_DUNGEON_ENTRANCE.Enter,
+            relative_area=relative_area
         ))
         self.navigates = list(split_and_pair_button_attr(
             DUNGEON_LIST.cur_buttons,
             split_func=lambda x: x != KEYWORDS_DUNGEON_ENTRANCE.Navigate,
-            relative_area=(0, 0, 1280, 120)
+            relative_area=relative_area
         ))
 
 
 DUNGEON_NAV_LIST = DraggableDungeonNav(
     'DungeonNavList', keyword_class=DungeonNav, ocr_class=OcrDungeonNav, search_button=OCR_DUNGEON_NAV)
 DUNGEON_LIST = DraggableDungeonList(
-    'DungeonList', keyword_class=[DungeonList, DungeonEntrance],
+    'DungeonList', keyword_class=[DungeonList, DungeonEntrance, MapPlane],
     ocr_class=OcrDungeonList, search_button=OCR_DUNGEON_LIST)
 
 
@@ -214,6 +277,8 @@ class DungeonUI(DungeonState):
             in: page_guide, Survival_Index
         """
         timeout = Timer(2, count=4).start()
+        TREASURES_LIGHTWARD_LOADED.set_search_offset((5, 5))
+        TREASURES_LIGHTWARD_LOCKED.set_search_offset((5, 5))
         while 1:
             if skip_first_screenshot:
                 skip_first_screenshot = False
@@ -224,8 +289,33 @@ class DungeonUI(DungeonState):
                 logger.warning('Wait treasures lightward loaded timeout')
                 return False
             if self.appear(TREASURES_LIGHTWARD_LOADED):
-                logger.info('Treasures lightward loaded')
+                logger.info('Treasures lightward loaded (event unlocked)')
                 return True
+            if self.appear(TREASURES_LIGHTWARD_LOCKED):
+                logger.info('Treasures lightward loaded (event locked)')
+                return True
+
+    def _dungeon_wait_until_dungeon_list_loaded(self, skip_first_screenshot=True):
+        timeout = Timer(1, count=3).start()
+        while 1:
+            if skip_first_screenshot:
+                skip_first_screenshot = False
+            else:
+                self.device.screenshot()
+
+            # End
+            if timeout.reached():
+                logger.warning('Wait until dungeon list loaded timeout')
+                return False
+
+            # Check if having any content
+            # List background: 254, guild border: 225
+            r, g, b = cv2.split(self.image_crop(LIST_LOADED_CHECK))
+            minimum = cv2.min(cv2.min(r, g), b)
+            minimum = inrange(minimum, lower=0, upper=180)
+            if minimum.size > 100:
+                logger.info('Dungeon list loaded')
+                break
 
     def _dungeon_wait_until_echo_or_war_stabled(self, skip_first_screenshot=True):
         """
@@ -338,6 +428,43 @@ class DungeonUI(DungeonState):
                 DUNGEON_NAV_LIST.select_row(dungeon.dungeon_nav, main=self, insight=False)
                 return True
 
+    def _dungeon_world_set(self, dungeon: DungeonList, skip_first_screenshot=True):
+        """
+        Switch worlds in Calyx_Golden
+        """
+        logger.hr('Dungeon world set', level=2)
+        if not dungeon.is_Calyx_Golden:
+            logger.warning(f'Dungeon {dungeon} is not Calyx Golden, no need to set world')
+            return
+        if dungeon.world is None:
+            logger.error(f'Dungeon {dungeon} does not belongs to any world')
+            return
+        dic_world_button = {
+            KEYWORDS_MAP_WORLD.Jarilo_VI: CALYX_WORLD_1,
+            KEYWORDS_MAP_WORLD.The_Xianzhou_Luofu: CALYX_WORLD_2,
+            KEYWORDS_MAP_WORLD.Penacony: CALYX_WORLD_3,
+        }
+        button = dic_world_button.get(dungeon.world)
+        if button is None:
+            logger.error(f'Dungeon {dungeon} with world {dungeon.world} has no corresponding world button')
+            return
+
+        logger.info(f'Dungeon world set {dungeon.world}')
+        while 1:
+            if skip_first_screenshot:
+                skip_first_screenshot = False
+            else:
+                self.device.screenshot()
+
+            # End
+            if self.image_color_count(button, color=(18, 18, 18), threshold=180, count=50):
+                logger.info(f'Dungeon world at {dungeon.world}')
+                break
+            # Click
+            if self.ui_page_appear(page_guide, interval=2):
+                self.device.click(button)
+                continue
+
     def _dungeon_insight(self, dungeon: DungeonList):
         """
         Pages:
@@ -345,6 +472,7 @@ class DungeonUI(DungeonState):
             out: page_guide, Survival_Index, nav including dungeon, dungeon insight
         """
         logger.hr('Dungeon insight', level=2)
+        DUNGEON_LIST.use_plane = bool(dungeon.is_Calyx_Crimson)
         # Insight dungeon
         DUNGEON_LIST.insight_row(dungeon, main=self)
         # Check if dungeon unlocked
@@ -383,6 +511,7 @@ class DungeonUI(DungeonState):
             out: COMBAT_PREPARE, FORGOTTEN_HALL_CHECK
         """
         logger.hr('Dungeon enter', level=2)
+        DUNGEON_LIST.use_plane = bool(dungeon.is_Calyx_Crimson)
         skip_first_load = True
         while 1:
             if skip_first_screenshot:
@@ -500,12 +629,20 @@ class DungeonUI(DungeonState):
         # Reset search button
         DUNGEON_LIST.search_button = OCR_DUNGEON_LIST
 
-        if dungeon.is_Calyx_Golden \
-                or dungeon.is_Calyx_Crimson \
+        if dungeon.is_Calyx_Crimson \
                 or dungeon.is_Stagnant_Shadow \
                 or dungeon.is_Cavern_of_Corrosion \
                 or dungeon.is_Echo_of_War:
             self._dungeon_nav_goto(dungeon)
+            self._dungeon_wait_until_dungeon_list_loaded()
+            self._dungeon_insight(dungeon)
+            self._dungeon_enter(dungeon)
+            return True
+        if dungeon.is_Calyx_Golden:
+            self._dungeon_nav_goto(dungeon)
+            self._dungeon_wait_until_dungeon_list_loaded()
+            self._dungeon_world_set(dungeon)
+            self._dungeon_wait_until_dungeon_list_loaded()
             self._dungeon_insight(dungeon)
             self._dungeon_enter(dungeon)
             return True

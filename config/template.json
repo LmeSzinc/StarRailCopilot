@@ -47,8 +47,8 @@
       "Team": 1
     },
     "DungeonDaily": {
-      "CalyxGolden": "Calyx_Golden_Treasures",
-      "CalyxCrimson": "Calyx_Crimson_Erudition",
+      "CalyxGolden": "Calyx_Golden_Treasures_Jarilo_VI",
+      "CalyxCrimson": "Calyx_Crimson_Destruction_Herta_StorageZone",
       "StagnantShadow": "Stagnant_Shadow_Quanta",
       "CavernOfCorrosion": "Cavern_of_Corrosion_Path_of_Providence"
     },
@@ -188,6 +188,7 @@
       "Bonus": "Blessing Universe",
       "DomainStrategy": "combat",
       "UseImmersifier": true,
+      "DoubleEvent": true,
       "UseStamina": false
     },
     "RogueBlessing": {
@@ -205,7 +206,8 @@
   },
   "Daemon": {
     "Daemon": {
-      "Enable": true
+      "Enable": true,
+      "AimClicker": "do_not_click"
     }
   }
 }

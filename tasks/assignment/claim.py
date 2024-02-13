@@ -28,15 +28,14 @@ class AssignmentClaim(AssignmentDispatch):
         if should_redispatch:
             redispatched = self._is_duration_expected(duration_expected)
         self._exit_report(redispatched)
+        self._set_row_changed()
         if redispatched:
             self._wait_until_assignment_started()
             future = now() + timedelta(hours=duration_expected)
             logger.info(f'Assignment redispatched, will finish at {future}')
             self.dispatched[assignment] = future
             self.has_new_dispatch = True
-            self._set_row_changed()
         elif should_redispatch:
-            self._set_row_changed()
             # Re-select duration and dispatch
             self.goto_entry(assignment)
             self.dispatch(assignment, duration_expected)

@@ -4,6 +4,8 @@ from module.config.stored.classes import now
 from module.logger import logger
 from module.ocr.ocr import Duration
 from tasks.assignment.assets.assets_assignment_claim import *
+from tasks.assignment.assets.assets_assignment_dispatch import \
+    ASSIGNMENT_STARTED_CHECK
 from tasks.assignment.dispatch import AssignmentDispatch
 from tasks.assignment.keywords import AssignmentEntry
 from tasks.base.page import page_assignment
@@ -32,7 +34,9 @@ class AssignmentClaim(AssignmentDispatch):
             logger.info(f'Assignment redispatched, will finish at {future}')
             self.dispatched[assignment] = future
             self.has_new_dispatch = True
+            self._set_row_changed()
         elif should_redispatch:
+            self._set_row_changed()
             # Re-select duration and dispatch
             self.goto_entry(assignment)
             self.dispatch(assignment, duration_expected)
@@ -76,15 +80,14 @@ class AssignmentClaim(AssignmentDispatch):
             else:
                 self.device.screenshot()
             # End
-            if self.appear(page_assignment.check_button):
+            if self.appear(page_assignment.check_button) and \
+                    self.match_color(ASSIGNMENT_STARTED_CHECK):
                 logger.info('Assignment report is closed')
                 break
             # Close report
             if self.appear(REPORT, interval=1):
                 self.device.click(click_button)
                 continue
-        # Ensure report totally disappears
-        self._wait_until_entry_loaded()
 
     def _is_duration_expected(self, duration: int) -> bool:
         """

@@ -33,16 +33,18 @@ class AssignmentOcr(Ocr):
     OCR_REPLACE = {
         'cn': [
             (KEYWORDS_ASSIGNMENT_ENTRY.Destruction_of_the_Destroyer.name,
-             '毁[灭火]者的覆[灭火]'),
+             '[毁没]?[灭火]者的(覆[灭火])?'),
             (KEYWORDS_ASSIGNMENT_ENTRY.Winter_Soldiers.name, '[黑]冬的战[士工土]们'),
             (KEYWORDS_ASSIGNMENT_ENTRY.Born_to_Obey.name, '[牛]而服从'),
             (KEYWORDS_ASSIGNMENT_ENTRY.Root_Out_the_Turpitude.name,
              '根除恶[擎薯尊掌鞋]?'),
+            (KEYWORDS_ASSIGNMENT_ENTRY.A_Startling_Night_Terror.name, '^梦惊魂'),
             (KEYWORDS_ASSIGNMENT_ENTRY.Akashic_Records.name, '阿[未][夏复]记录'),
             (KEYWORDS_ASSIGNMENT_ENTRY.The_Blossom_in_the_Storm.name,
-             '风暴中[怒慈]放的[花化]'),
+             '[风凡]?暴中[怒慈][放方]?的[花化]'),
             (KEYWORDS_ASSIGNMENT_ENTRY.Legend_of_the_Puppet_Master.name, '^师传说'),
             (KEYWORDS_ASSIGNMENT_ENTRY.The_Wages_of_Humanity.name, '[赠]?养人类'),
+            (KEYWORDS_ASSIGNMENT_ENTRY.Scalpel_and_Screwdriver.name, '手术刀与.丝刀')
         ],
         'en': [
             (KEYWORDS_ASSIGNMENT_EVENT_ENTRY.Food_Improvement_Plan.name,
@@ -108,6 +110,7 @@ class DraggableAssignmentList(DraggableList):
        or not unreliable.
     """
     ROWS_IN_ONE_PAGE = 6    # One page can fit 6 rows at most
+    SPECIAL_GROUP = KEYWORDS_ASSIGNMENT_GROUP.EXP_Materials_Credits
 
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)
@@ -115,18 +118,43 @@ class DraggableAssignmentList(DraggableList):
             kw for kc in self.keyword_class
             for kw in kc.instances.values()
         ]
-        self.skip_first_load_rows: bool = False
+        self.row_changed: bool = True
         self.at_top: bool = True    # Remain unchanged when changing group
+
+    def load_rows(self, main: ModuleBase):
+        super().load_rows(main)
+        self.row_changed = False
 
     @property
     def cur_indexes(self):
         return [index for row in self.cur_buttons
                 if (index := self.keyword2index(row.matched_keyword))]
 
+    def _ensure_top_hack(self, main: 'AssignmentUI'):
+        """
+        Returns:
+            bool: if succeeded
+        """
+        if len(self.SPECIAL_GROUP.entries) > self.ROWS_IN_ONE_PAGE:
+            return False
+        old_group = ASSIGNMENT_GROUP_SWITCH.get(main=main)
+        ASSIGNMENT_GROUP_SWITCH.set(self.SPECIAL_GROUP, main=main)
+        ASSIGNMENT_GROUP_SWITCH.set(old_group, main=main)
+        main._wait_until_entry_loaded()
+        self.row_changed = True
+        self.at_top = True
+        return True
+
     def ensure_top(self, main: ModuleBase, skip_first_screenshot=True):
+        """
+        Returns:
+            bool: if changed
+        """
         if self.at_top:
-            return
-        timeout = Timer(5, count=3).start()
+            return False
+        if self._ensure_top_hack(main=main):
+            return True
+        timeout = Timer(5, count=5).start()
         first_row_index: int = 0
         while 1:
             if skip_first_screenshot:
@@ -144,21 +172,20 @@ class DraggableAssignmentList(DraggableList):
                     break
                 continue
 
-            if self.skip_first_load_rows:
-                self.skip_first_load_rows = False
-            else:
+            if self.row_changed:
                 self.load_rows(main=main)
             cur_indexes = self.cur_indexes
             if first_row_index == cur_indexes[0]:
                 self.at_top = True
                 if main.image_color_count(LIST_TOP_BOX, (199, 178, 144), count=200):
                     logger.info(f'{self} is dragged to the top')
-                    self.skip_first_load_rows = True
                     break
                 continue
             first_row_index = cur_indexes[0]
             self.drag_page(self.reverse_direction(
                 self.drag_direction), main=main)
+            self.row_changed = True
+        return True
 
     def insight_row(self, row: AssignmentEntry, main: ModuleBase, skip_first_screenshot=True) -> bool:
         row_index = self.keyword2index(row)
@@ -167,22 +194,17 @@ class DraggableAssignmentList(DraggableList):
             return False
 
         logger.info(f'Insight row: {row}, index={row_index}')
-        # Early check to avoid unnecessary call of ensure_top
-        if self.skip_first_load_rows and row_index in self.cur_indexes:
-            return True
-
         if len(row.group.entries) <= self.ROWS_IN_ONE_PAGE:
             self.at_top = True
-        self.ensure_top(
-            main=main, skip_first_screenshot=skip_first_screenshot)
 
+        first_loop: bool = True
         last_row_index: int = 0
         cur_indexes: list[int] = []
         seen_indexes: set[int] = set()
+        if not skip_first_screenshot:
+            main.device.screenshot()
         while 1:
-            if self.skip_first_load_rows:
-                self.skip_first_load_rows = False
-            else:
+            if self.row_changed:
                 self.load_rows(main=main)
             cur_indexes = self.cur_indexes
             seen_indexes.update(cur_indexes)
@@ -191,16 +213,29 @@ class DraggableAssignmentList(DraggableList):
             if self.cur_buttons and row_index in cur_indexes:
                 break
 
+            # Go to top only in first loop
+            if first_loop:
+                first_loop = False
+                if self.ensure_top(main=main):
+                    seen_indexes.clear()
+                    continue
+
             # Drag pages
             self.drag_page(self.drag_direction, main=main)
+            self.row_changed = True
             self.at_top = False
 
             # Wait for bottoming out
             main.wait_until_stable(self.search_button, timer=Timer(
                 0, count=0), timeout=Timer(1.5, count=5))
             if cur_indexes and last_row_index == cur_indexes[-1]:
-                logger.warning(f'No more rows in {self}')
-                return False
+                if len(row.group.entries) == len(seen_indexes):
+                    logger.warning(f'No more rows in {self}')
+                    return False
+                if self.ensure_top(main=main):
+                    last_row_index = 0
+                    seen_indexes.clear()
+                    continue
             last_row_index = cur_indexes[-1]
         # Not at bottom
         if isinstance(row, AssignmentEventEntry) or \
@@ -221,7 +256,6 @@ class DraggableAssignmentList(DraggableList):
             if main.image_color_count(LIST_BOTTOM_SHADOW, (190, 190, 190), count=1000):
                 logger.info(f'{self} rows stabled')
                 self.load_rows(main=main)
-                self.skip_first_load_rows = True
                 break
         return True
 
@@ -305,6 +339,13 @@ class AssignmentUI(UI):
             self.goto_group(entry.group)
             ASSIGNMENT_ENTRY_LIST.select_row(entry, self, insight=insight)
 
+    def _set_row_changed(self, changed=True):
+        """
+        Should be called when order of rows changes,
+        Typically after dispatching or claiming
+        """
+        ASSIGNMENT_ENTRY_LIST.row_changed = changed
+
     def _wait_until_group_loaded(self):
         skip_first_screenshot = True
         timeout = Timer(2, count=3).start()
@@ -324,7 +365,7 @@ class AssignmentUI(UI):
 
     def _wait_until_entry_loaded(self, old_rows: set = None):
         skip_first_screenshot = True
-        load_interval = Timer(0.5, count=1)
+        load_interval = Timer(0.3, count=1).start()
         timeout = Timer(2, count=3).start()
         changed = (old_rows is None)
         while 1:
@@ -338,7 +379,6 @@ class AssignmentUI(UI):
                 break
             if not changed and load_interval.reached_and_reset():
                 ASSIGNMENT_ENTRY_LIST.load_rows(main=self)
-                ASSIGNMENT_ENTRY_LIST.skip_first_load_rows = True
                 new_rows = set(ASSIGNMENT_ENTRY_LIST.cur_buttons)
                 changed = (new_rows != old_rows)
             if changed and self.image_color_count(ENTRY_LOADED, (82, 82, 82), count=1000):
@@ -393,7 +433,11 @@ class AssignmentUI(UI):
 
     def _iter_groups(self) -> Iterator[AssignmentGroup]:
         self._wait_until_group_loaded()
+        # Yield special group first to ensure top
+        yield ASSIGNMENT_ENTRY_LIST.SPECIAL_GROUP
         for state in ASSIGNMENT_GROUP_SWITCH.state_list:
+            if state['state'] == ASSIGNMENT_ENTRY_LIST.SPECIAL_GROUP:
+                continue
             check = state['check_button']
             click = state['click_button']
             if self.appear(check) or self.appear(click):
@@ -401,10 +445,10 @@ class AssignmentUI(UI):
 
     def _iter_entries(self) -> Iterator[AssignmentEntry]:
         """
-        Iterate entries from top to bottom
+        Iterate entries from top to bottom on top page
         """
         ASSIGNMENT_ENTRY_LIST.ensure_top(main=self)
-        if not ASSIGNMENT_ENTRY_LIST.skip_first_load_rows:
+        if ASSIGNMENT_ENTRY_LIST.row_changed:
             ASSIGNMENT_ENTRY_LIST.load_rows(main=self)
         # Freeze ocr results here
         yield from [
@@ -418,7 +462,7 @@ if __name__ == "__main__":
     t.device.screenshot()
     import random
     l = list(AssignmentEntry.instances.values())
-    random.shuffle(l)
-    for e in l:
+    while 1:
+        e = random.choice(l)
+        print(e.ch)
         t.goto_entry(e)
-        input()

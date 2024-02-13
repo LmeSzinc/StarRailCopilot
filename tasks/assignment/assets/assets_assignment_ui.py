@@ -76,10 +76,10 @@ ENTRY_LOADED = ButtonWrapper(
     name='ENTRY_LOADED',
     share=Button(
         file='./assets/share/assignment/ui/ENTRY_LOADED.png',
-        area=(474, 161, 491, 615),
-        search=(454, 141, 511, 635),
-        color=(197, 193, 186),
-        button=(474, 161, 491, 615),
+        area=(533, 188, 630, 214),
+        search=(513, 168, 650, 234),
+        color=(107, 106, 105),
+        button=(533, 188, 630, 214),
     ),
 )
 EXP_MATERIALS_CREDITS_CHECK = ButtonWrapper(
@@ -142,6 +142,26 @@ GROUP_SEARCH = ButtonWrapper(
         search=(91, 56, 855, 160),
         color=(82, 79, 77),
         button=(111, 76, 835, 140),
+    ),
+)
+LIST_BOTTOM_SHADOW = ButtonWrapper(
+    name='LIST_BOTTOM_SHADOW',
+    share=Button(
+        file='./assets/share/assignment/ui/LIST_BOTTOM_SHADOW.png',
+        area=(139, 580, 488, 588),
+        search=(119, 560, 508, 608),
+        color=(210, 207, 204),
+        button=(139, 580, 488, 588),
+    ),
+)
+LIST_TOP_BOX = ButtonWrapper(
+    name='LIST_TOP_BOX',
+    share=Button(
+        file='./assets/share/assignment/ui/LIST_TOP_BOX.png',
+        area=(141, 159, 478, 162),
+        search=(121, 139, 498, 182),
+        color=(222, 214, 199),
+        button=(141, 159, 478, 162),
     ),
 )
 LOCKED = ButtonWrapper(

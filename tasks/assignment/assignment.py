@@ -1,4 +1,5 @@
 from datetime import datetime
+from functools import cmp_to_key
 
 from module.logger import logger
 from tasks.assignment.claim import AssignmentClaim
@@ -15,11 +16,27 @@ class Assignment(AssignmentClaim, SynthesizeUI):
         self.config.update_daily_quests()
 
         if assignments is None:
+            def assignment_cmp(a: AssignmentEntry, b: AssignmentEntry):
+                aid = a.group.id
+                bid = b.group.id
+                if aid == bid:
+                    aid = a.id
+                    bid = b.id
+                if aid > bid:
+                    return 1
+                if aid < bid:
+                    return -1
+                return 0
             assignments = (
                 getattr(self.config, f'Assignment_Name_{i + 1}', None) for i in range(4))
-            # remove duplicate while keeping order
+            # Remove duplicate while keeping order
             assignments = list(dict.fromkeys(
                 x for x in assignments if x is not None))
+            # Reduce possible group switching
+            assignments = sorted(
+                (AssignmentEntry.find(x) for x in assignments),
+                key=cmp_to_key(assignment_cmp)
+            )
             assignments = [AssignmentEntry.find(x) for x in assignments]
             if len(assignments) < 4:
                 logger.warning(

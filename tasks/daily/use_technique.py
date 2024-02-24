@@ -8,7 +8,7 @@ from tasks.map.control.joystick import MapControlJoystick
 
 class UseTechniqueUI(MapControlJoystick, ForgottenHallUI):
 
-    def _use_technique(self, count: int, skip_first_screenshot=True):
+    def use_technique_(self, count: int, skip_first_screenshot=True):
         remains = self.map_get_technique_points()
         if count > remains:
             logger.warning(f"Try to use technique {count} times but only have {remains}")
@@ -59,6 +59,6 @@ class UseTechniqueUI(MapControlJoystick, ForgottenHallUI):
         if not self.team_is_prepared():
             self.team_choose_first_4()
         self.enter_forgotten_hall_dungeon()
-        self._use_technique(count, skip_first_screenshot=skip_first_screenshot)
+        self.use_technique_(count, skip_first_screenshot=skip_first_screenshot)
         self.exit_dungeon()
         self.ui_goto_main()

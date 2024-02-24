@@ -11,7 +11,8 @@ from module.logger import logger
 from module.ocr.ocr import BoxedResult, OcrResultButton, OcrWhiteLetterOnComplexBackground
 from tasks.base.ui import UI
 from tasks.character.assets.assets_character_switch import *
-from tasks.character.keywords import CharacterList, DICT_SORTED_RANGES, KEYWORDS_CHARACTER_LIST
+from tasks.character.keywords import (CharacterList, DICT_SORTED_RANGES, KEYWORDS_CHARACTER_LIST,
+                                      LIST_ROGUE_SPECIAL_TECHNIQUE_RANGES)
 
 
 class OcrCharacterName(OcrWhiteLetterOnComplexBackground):
@@ -231,6 +232,14 @@ class CharacterSwitch(UI):
                 count += 1
 
     def _get_ranged_character(self) -> CharacterList | bool:
+        # Check if using special ranged characters:
+        if self.character_current in LIST_ROGUE_SPECIAL_TECHNIQUE_RANGES:
+            logger.info(f'Already using a ranged character: {self.character_current}')
+            return
+        for ranged_character in LIST_ROGUE_SPECIAL_TECHNIQUE_RANGES:
+            if ranged_character in self.characters:
+                logger.info(f'Use ranged character: {ranged_character}')
+                return ranged_character
         # Check if it's using a ranged character already
         for level, character_list in DICT_SORTED_RANGES.items():
             if self.character_current in character_list:

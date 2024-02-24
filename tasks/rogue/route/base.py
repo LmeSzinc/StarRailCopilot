@@ -3,6 +3,7 @@ from module.base.timer import Timer
 from module.base.utils import area_offset
 from module.logger import logger
 from tasks.base.page import page_rogue
+from tasks.daily.use_technique import UseTechniqueUI
 from tasks.map.control.waypoint import Waypoint, ensure_waypoints
 from tasks.map.route.base import RouteBase as RouteBase_
 from tasks.rogue.assets.assets_rogue_ui import BLESSING_CONFIRM
@@ -144,6 +145,10 @@ class RouteBase(RouteBase_, RogueExit, RogueEvent, RogueReward):
             for point in waypoints:
                 if 'item' not in point.expected_enroute:
                     point.expected_enroute.append('item')
+
+        # Use techniques before enemy
+        UseTechniqueUI(self.config, self.device).use_technique(1)
+
         return super().clear_enemy(*waypoints)
 
     def clear_item(self, *waypoints):
@@ -166,8 +171,8 @@ class RouteBase(RouteBase_, RogueExit, RogueEvent, RogueReward):
         end_point = waypoints[-1]
         end_point.speed = 'run_2x'
 
-        # TODO: Use techniques before BOSS
-        pass
+        # Use techniques before BOSS
+        UseTechniqueUI(self.config, self.device).use_technique(1)
 
         result = super().clear_enemy(*waypoints)
         return result

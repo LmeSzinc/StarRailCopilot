@@ -28,6 +28,10 @@ class Button(Resource):
     def button(self):
         return area_offset(self._button, self._button_offset)
 
+    @property
+    def offset_area(self):
+        return area_offset(self.area, self._button_offset)
+
     def load_offset(self, button):
         self._button_offset = button._button_offset
 
@@ -254,6 +258,10 @@ class ButtonWrapper(Resource):
     @property
     def area(self) -> tuple[int, int, int, int]:
         return self.matched_button.area
+
+    @property
+    def offset_area(self) -> tuple[int, int, int, int]:
+        return self.matched_button.offset_area
 
     @property
     def search(self) -> tuple[int, int, int, int]:

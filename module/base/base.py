@@ -164,29 +164,31 @@ class ModuleBase:
                 prev_image = image
                 timer.reset()
 
-    def image_crop(self, button, copy=True):
+    def image_crop(self, button, copy=True, offset=False):
         """Extract the area from image.
 
         Args:
             button(Button, tuple): Button instance or area tuple.
             copy:
+            offset:
         """
         if isinstance(button, Button):
-            return crop(self.device.image, button.area, copy=copy)
+            return crop(self.device.image, button.offset_area if offset else button.area, copy=copy)
         elif isinstance(button, ButtonWrapper):
-            return crop(self.device.image, button.area, copy=copy)
+            return crop(self.device.image, button.offset_area if offset else button.area, copy=copy)
         elif hasattr(button, 'area'):
             return crop(self.device.image, button.area, copy=copy)
         else:
             return crop(self.device.image, button, copy=copy)
 
-    def image_color_count(self, button, color, threshold=221, count=50):
+    def image_color_count(self, button, color, threshold=221, count=50, offset=False):
         """
         Args:
             button (Button, tuple): Button instance or area.
             color (tuple): RGB.
             threshold: 255 means colors are the same, the lower the worse.
             count (int): Pixels count.
+            offset: if the button is offset
 
         Returns:
             bool:
@@ -194,7 +196,7 @@ class ModuleBase:
         if isinstance(button, np.ndarray):
             image = button
         else:
-            image = self.image_crop(button, copy=False)
+            image = self.image_crop(button, copy=False, offset=offset)
         mask = color_similarity_2d(image, color=color)
         cv2.inRange(mask, threshold, 255, dst=mask)
         sum_ = cv2.countNonZero(mask)

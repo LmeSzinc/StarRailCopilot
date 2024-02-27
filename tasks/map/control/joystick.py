@@ -195,18 +195,19 @@ class MapControlJoystick(UI):
     def map_get_technique_points(self):
         """
         Returns:
-            int: 0 to 5.
+            int: 0 to 5
         """
-        points = [
-            self.image_color_count(button, color=(255, 255, 255), threshold=221, count=20)
-            for button in [
-                TECHNIQUE_POINT_1,
-                TECHNIQUE_POINT_2,
-                TECHNIQUE_POINT_3,
-                TECHNIQUE_POINT_4,
-                TECHNIQUE_POINT_5,
-            ]
-        ]
+        TECHNIQUE_POINT_STRICT_1.match_template(self.device.image)
+        points = []
+        for button in [
+                TECHNIQUE_POINT_STRICT_1,
+                TECHNIQUE_POINT_STRICT_2,
+                TECHNIQUE_POINT_STRICT_3,
+                TECHNIQUE_POINT_STRICT_4,
+                TECHNIQUE_POINT_STRICT_5,
+            ]:
+            button.load_offset(TECHNIQUE_POINT_STRICT_1)
+            points.append(self.image_color_count(button, color=(255, 255, 255), threshold=221, count=20, offset=True))
         count = sum(points)
         logger.attr('TechniquePoints', count)
         return count

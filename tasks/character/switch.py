@@ -235,7 +235,7 @@ class CharacterSwitch(UI):
         # Check if using special ranged characters:
         if self.character_current in LIST_ROGUE_SPECIAL_TECHNIQUE_RANGES:
             logger.info(f'Already using a ranged character: {self.character_current}')
-            return True
+            return
         for ranged_character in LIST_ROGUE_SPECIAL_TECHNIQUE_RANGES:
             if ranged_character in self.characters:
                 logger.info(f'Use ranged character: {ranged_character}')

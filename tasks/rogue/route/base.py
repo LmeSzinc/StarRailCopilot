@@ -147,7 +147,7 @@ class RouteBase(RouteBase_, RogueExit, RogueEvent, RogueReward):
                     point.expected_enroute.append('item')
 
         # Use techniques before enemy
-        logger.info('Use techniques', level=2)
+        logger.info('Trying to use technique')
         UseTechniqueUI(self.config, self.device).use_technique_(1)
 
         return super().clear_enemy(*waypoints)
@@ -167,14 +167,14 @@ class RouteBase(RouteBase_, RogueExit, RogueEvent, RogueReward):
     """
 
     def clear_elite(self, *waypoints):
+        # Use techniques before BOSS
+        logger.info('Trying to use technique')
+        UseTechniqueUI(self.config, self.device).use_technique_(1)
+
         logger.hr('Clear elite', level=1)
         waypoints = ensure_waypoints(waypoints)
         end_point = waypoints[-1]
         end_point.speed = 'run_2x'
-
-        # Use techniques before BOSS
-        logger.info('Use techniques', level=2)
-        UseTechniqueUI(self.config, self.device).use_technique_(1)
 
         result = super().clear_enemy(*waypoints)
         return result

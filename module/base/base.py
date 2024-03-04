@@ -170,6 +170,7 @@ class ModuleBase:
         Args:
             button(Button, tuple): Button instance or area tuple.
             copy:
+            offset:
         """
         if isinstance(button, Button):
             return crop(self.device.image, button.area, copy=copy)
@@ -187,6 +188,7 @@ class ModuleBase:
             color (tuple): RGB.
             threshold: 255 means colors are the same, the lower the worse.
             count (int): Pixels count.
+            offset: if the button is offset
 
         Returns:
             bool:

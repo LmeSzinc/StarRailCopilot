@@ -12,7 +12,7 @@ from module.ocr.ocr import BoxedResult, OcrResultButton, OcrWhiteLetterOnComplex
 from tasks.base.ui import UI
 from tasks.character.assets.assets_character_switch import *
 from tasks.character.keywords import (CharacterList, DICT_SORTED_RANGES, KEYWORDS_CHARACTER_LIST,
-                                      LIST_ROGUE_SPECIAL_TECHNIQUE_RANGES)
+                                      LIST_ENHANCE_TECHNIQUE_RANGES)
 
 
 class OcrCharacterName(OcrWhiteLetterOnComplexBackground):
@@ -231,15 +231,17 @@ class CharacterSwitch(UI):
                 interval.reset()
                 count += 1
 
-    def _get_ranged_character(self) -> CharacterList | bool:
+    def _get_enhance_technique_ranged_character(self) -> CharacterList | bool:
         # Check if using special ranged characters:
-        if self.character_current in LIST_ROGUE_SPECIAL_TECHNIQUE_RANGES:
+        if self.character_current in LIST_ENHANCE_TECHNIQUE_RANGES:
             logger.info(f'Already using a ranged character: {self.character_current}')
             return True
-        for ranged_character in LIST_ROGUE_SPECIAL_TECHNIQUE_RANGES:
+        for ranged_character in LIST_ENHANCE_TECHNIQUE_RANGES:
             if ranged_character in self.characters:
                 logger.info(f'Use ranged character: {ranged_character}')
                 return ranged_character
+
+    def _get_ranged_character(self) -> CharacterList | bool:
         # Check if it's using a ranged character already
         for level, character_list in DICT_SORTED_RANGES.items():
             if self.character_current in character_list:
@@ -275,10 +277,13 @@ class CharacterSwitch(UI):
         if update:
             self.character_update()
 
-        character = self._get_ranged_character()
+        character = self._get_enhance_technique_ranged_character()
+        if character is False:
+            character = self._get_ranged_character()
         if character is True:
             return True
         elif character is False:
             return False
         else:
             return self.character_switch(character)
+

@@ -36,6 +36,10 @@ DICT_SORTED_RANGES = {
 }
 
 # Special character that has special effects in rogues
-LIST_ROGUE_SPECIAL_TECHNIQUE_RANGES = [
-    RuanMei,    TopazNumby, FuXuan, BlackSwan
+LIST_BACKGROUND_TECHNIQUE_RANGES = [
+    RuanMei, TopazNumby, FuXuan, BlackSwan, Bronya, Qingque
+]
+
+LIST_BACKGROUND_TECHNIQUE = LIST_BACKGROUND_TECHNIQUE_RANGES + [
+    Sparkle, JingYuan, Jingliu, Yanqing, Luocha, Bailu, Gepard, Lynx, Herta, Tingyun,
 ]

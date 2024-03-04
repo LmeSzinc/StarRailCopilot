@@ -3,6 +3,7 @@ from module.base.timer import Timer
 from module.base.utils import area_offset
 from module.logger import logger
 from tasks.base.page import page_rogue
+from tasks.character.switch import CharacterSwitch
 from tasks.daily.use_technique import UseTechniqueUI
 from tasks.map.control.waypoint import Waypoint, ensure_waypoints
 from tasks.map.route.base import RouteBase as RouteBase_
@@ -148,7 +149,7 @@ class RouteBase(RouteBase_, RogueExit, RogueEvent, RogueReward):
 
         # Use techniques before enemy
         logger.info('Trying to use technique')
-        UseTechniqueUI(self.config, self.device).use_technique_(1)
+        UseTechniqueUI(self.config, self.device).use_background_technique()
 
         return super().clear_enemy(*waypoints)
 
@@ -169,7 +170,10 @@ class RouteBase(RouteBase_, RogueExit, RogueEvent, RogueReward):
     def clear_elite(self, *waypoints):
         # Use techniques before BOSS
         logger.info('Trying to use technique')
-        UseTechniqueUI(self.config, self.device).use_technique_(1)
+        if self.plane.is_rogue_boss:
+            UseTechniqueUI(self.config, self.device).use_background_technique_deplete()
+        else:
+            UseTechniqueUI(self.config, self.device).use_background_technique()
 
         logger.hr('Clear elite', level=1)
         waypoints = ensure_waypoints(waypoints)

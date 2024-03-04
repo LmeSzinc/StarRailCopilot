@@ -1,5 +1,7 @@
 from module.base.timer import Timer
 from module.logger import logger
+from tasks.character.keywords import LIST_BACKGROUND_TECHNIQUE_RANGES, LIST_BACKGROUND_TECHNIQUE
+from tasks.character.switch import CharacterSwitch
 from tasks.dungeon.keywords import KEYWORDS_DUNGEON_LIST
 from tasks.forgotten_hall.keywords import KEYWORDS_FORGOTTEN_HALL_STAGE
 from tasks.forgotten_hall.ui import ForgottenHallUI
@@ -62,3 +64,22 @@ class UseTechniqueUI(MapControlJoystick, ForgottenHallUI):
         self.use_technique_(count, skip_first_screenshot=skip_first_screenshot)
         self.exit_dungeon()
         self.ui_goto_main()
+
+    def use_background_technique(self):
+        character_switch = CharacterSwitch(self.config, self.device)
+        character_switch.character_update()
+        if character_switch.character_current in LIST_BACKGROUND_TECHNIQUE_RANGES:
+            self.use_technique_(1)
+
+    def use_background_technique_deplete(self):
+        character_switch = CharacterSwitch(self.config, self.device)
+        character_switch.character_update()
+        last_character = character_switch.character_current
+        characters = [c for c in LIST_BACKGROUND_TECHNIQUE if c in character_switch.characters]
+        remains = self.map_get_technique_points()
+        for i, c in enumerate(characters[:remains]):
+            if i > 0:
+                character_switch.character_update()
+            character_switch.character_switch(c)
+            self.use_technique_(1)
+        character_switch.character_switch(last_character)

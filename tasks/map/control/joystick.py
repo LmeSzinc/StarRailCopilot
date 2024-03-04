@@ -5,6 +5,7 @@ import cv2
 import numpy as np
 
 from module.base.timer import Timer
+from module.base.utils import area_offset
 from module.device.method.maatouch import MaatouchBuilder
 from module.device.method.minitouch import CommandBuilder, insert_swipe, random_normal_distribution
 from module.exception import ScriptError
@@ -236,7 +237,8 @@ class MapControlJoystick(UI):
         ]:
             if matched_button is not None:
                 button.load_offset(matched_button)
-            points.append(self.image_color_count(button, color=(255, 255, 255), threshold=221, count=20, offset=True))
+            points.append(self.image_color_count(area_offset(button.area, button.button_offset), color=(255, 255, 255),
+                                                 threshold=221, count=20))
         count = sum(points)
         logger.attr('TechniquePoints', count)
         return count

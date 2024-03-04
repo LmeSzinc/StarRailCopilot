@@ -218,11 +218,11 @@ class MapControlJoystick(UI):
         Returns:
             int: 0 to 5
         """
-        matched = TECHNIQUE_POINT_STRICT_1.match_template(self.device.image)
+        matched = TECHNIQUE_POINT_1.match_template(self.device.image)
         if matched:
             matched_button = TECHNIQUE_POINT_1
         else:
-            matched = TECHNIQUE_POINT_STRICT_0.match_template(self.device.image)
+            matched = TECHNIQUE_POINT_0.match_template(self.device.image)
             if matched:
                 matched_button = TECHNIQUE_POINT_0
             else:

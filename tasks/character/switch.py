@@ -22,6 +22,8 @@ class OcrCharacterName(OcrWhiteLetterOnComplexBackground):
         result = result.replace('蛆', '妲')
         # Dan Heng o.ImbibitorLunae
         result = re.sub(r'[0Oo\-. ]{1,3}Imbi', 'Imbi', result)
+        
+        result = result.replace('院·梅', '阮•梅')
 
         return super().after_process(result)
 

@@ -15,6 +15,7 @@ class RogueSelector:
         self.main = main
         self.filter_ = None
         self.ocr_results = []
+        self.sort_fn = None
 
     def recognition(self):
         ...
@@ -55,8 +56,8 @@ class RogueSelector:
             return None
 
         if self.filter_:
-            keywords = [result.matched_keyword for result in self.ocr_results]
-            priority = self.filter_.apply(keywords)
+            keywords = [result.matched_keyword for result in self.ocr_results if result.matched_keyword is not None]
+            priority = self.filter_.apply(keywords, self.sort_fn)
             priority = [option if isinstance(option, str) else match_ocr_result(option) for option in priority]
         else:
             logger.warning("No filter loaded, use random instead")

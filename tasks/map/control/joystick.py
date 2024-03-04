@@ -18,8 +18,8 @@ def build_technique_points_strict(button: ButtonWrapper):
     kwargs = {}
     for trial, b in button.data_buttons.items():
         x, y, x_, y_ = b.area
-        qw = int((x_ - x) / 4)
-        qh = int((y_ - y) / 4)
+        qw = int((x_ - x) / 6)
+        qh = int((y_ - y) / 6)
         area = x + qw, y + qh, x_ - qw, y_ - qh
         search = 0, y, 1280, y_
         kwargs[trial] = Button(b.file, area, search, b.color, b.button)
@@ -218,13 +218,13 @@ class MapControlJoystick(UI):
         Returns:
             int: 0 to 5
         """
-        matched = TECHNIQUE_POINT_1.match_template(self.device.image)
+        matched = TECHNIQUE_POINT_STRICT_1.match_template(self.device.image)
         if matched:
-            matched_button = TECHNIQUE_POINT_1
+            matched_button = TECHNIQUE_POINT_STRICT_1
         else:
-            matched = TECHNIQUE_POINT_0.match_template(self.device.image)
+            matched = TECHNIQUE_POINT_STRICT_0.match_template(self.device.image)
             if matched:
-                matched_button = TECHNIQUE_POINT_0
+                matched_button = TECHNIQUE_POINT_STRICT_0
             else:
                 matched_button = None
         points = []

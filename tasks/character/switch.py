@@ -12,7 +12,7 @@ from module.ocr.ocr import BoxedResult, OcrResultButton, OcrWhiteLetterOnComplex
 from tasks.base.ui import UI
 from tasks.character.assets.assets_character_switch import *
 from tasks.character.keywords import (CharacterList, DICT_SORTED_RANGES, KEYWORDS_CHARACTER_LIST,
-                                      LIST_ENHANCE_TECHNIQUE_RANGES)
+                                      LIST_BACKGROUND_TECHNIQUE_RANGES)
 
 
 class OcrCharacterName(OcrWhiteLetterOnComplexBackground):
@@ -233,10 +233,10 @@ class CharacterSwitch(UI):
 
     def _get_enhance_technique_ranged_character(self) -> CharacterList | bool:
         # Check if using special ranged characters:
-        if self.character_current in LIST_ENHANCE_TECHNIQUE_RANGES:
+        if self.character_current in LIST_BACKGROUND_TECHNIQUE_RANGES:
             logger.info(f'Already using a ranged character: {self.character_current}')
             return True
-        for ranged_character in LIST_ENHANCE_TECHNIQUE_RANGES:
+        for ranged_character in LIST_BACKGROUND_TECHNIQUE_RANGES:
             if ranged_character in self.characters:
                 logger.info(f'Use ranged character: {ranged_character}')
                 return ranged_character

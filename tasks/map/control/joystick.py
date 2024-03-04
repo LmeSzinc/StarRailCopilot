@@ -13,6 +13,26 @@ from tasks.base.ui import UI
 from tasks.map.assets.assets_map_control import *
 
 
+def build_technique_points_strict(button: ButtonWrapper):
+    kwargs = {}
+    for trial, b in button.data_buttons.items():
+        x, y, x_, y_ = b.area
+        qw = int((x_ - x) / 4)
+        qh = int((y_ - y) / 4)
+        area = x + qw, y + qh, x_ - qw, y_ - qh
+        search = 0, y, 1280, y_
+        kwargs[trial] = Button(b.file, area, search, b.color, b.button)
+    return ButtonWrapper(f'{button.name}_STRICT', **kwargs)
+
+
+TECHNIQUE_POINT_STRICT_0 = build_technique_points_strict(TECHNIQUE_POINT_0)
+TECHNIQUE_POINT_STRICT_1 = build_technique_points_strict(TECHNIQUE_POINT_1)
+TECHNIQUE_POINT_STRICT_2 = build_technique_points_strict(TECHNIQUE_POINT_2)
+TECHNIQUE_POINT_STRICT_3 = build_technique_points_strict(TECHNIQUE_POINT_3)
+TECHNIQUE_POINT_STRICT_4 = build_technique_points_strict(TECHNIQUE_POINT_4)
+TECHNIQUE_POINT_STRICT_5 = build_technique_points_strict(TECHNIQUE_POINT_5)
+
+
 class JoystickContact:
     CENTER = (JOYSTICK.area[0] + JOYSTICK.area[2]) / 2, (JOYSTICK.area[1] + JOYSTICK.area[3]) / 2
     # Minimum radius 49px
@@ -197,16 +217,25 @@ class MapControlJoystick(UI):
         Returns:
             int: 0 to 5
         """
-        TECHNIQUE_POINT_STRICT_1.match_template(self.device.image)
+        matched = TECHNIQUE_POINT_STRICT_1.match_template(self.device.image)
+        if matched:
+            matched_button = TECHNIQUE_POINT_1
+        else:
+            matched = TECHNIQUE_POINT_STRICT_0.match_template(self.device.image)
+            if matched:
+                matched_button = TECHNIQUE_POINT_0
+            else:
+                matched_button = None
         points = []
         for button in [
-                TECHNIQUE_POINT_STRICT_1,
-                TECHNIQUE_POINT_STRICT_2,
-                TECHNIQUE_POINT_STRICT_3,
-                TECHNIQUE_POINT_STRICT_4,
-                TECHNIQUE_POINT_STRICT_5,
-            ]:
-            button.load_offset(TECHNIQUE_POINT_STRICT_1)
+            TECHNIQUE_POINT_STRICT_1,
+            TECHNIQUE_POINT_STRICT_2,
+            TECHNIQUE_POINT_STRICT_3,
+            TECHNIQUE_POINT_STRICT_4,
+            TECHNIQUE_POINT_STRICT_5,
+        ]:
+            if matched_button is not None:
+                button.load_offset(matched_button)
             points.append(self.image_color_count(button, color=(255, 255, 255), threshold=221, count=20, offset=True))
         count = sum(points)
         logger.attr('TechniquePoints', count)

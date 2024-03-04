@@ -10,7 +10,7 @@ from tasks.map.control.joystick import MapControlJoystick
 
 class UseTechniqueUI(MapControlJoystick, ForgottenHallUI):
 
-    def use_technique_(self, count: int, skip_first_screenshot=True):
+    def use_technique_(self, count: int, skip_first_screenshot=True, limit=.5, n=2):
         remains = self.map_get_technique_points()
         if count > remains:
             logger.warning(f"Try to use technique {count} times but only have {remains}")
@@ -23,7 +23,7 @@ class UseTechniqueUI(MapControlJoystick, ForgottenHallUI):
         # INFO │ [TechniquePoints] 4
         # INFO │ [TechniquePoints] 3
         # INFO │ [TechniquePoints] 3
-        confirm = Timer(0.5, count=2).start()
+        confirm = Timer(limit, n).start()
         while 1:
             if skip_first_screenshot:
                 skip_first_screenshot = False
@@ -69,7 +69,8 @@ class UseTechniqueUI(MapControlJoystick, ForgottenHallUI):
         character_switch = CharacterSwitch(self.config, self.device)
         character_switch.character_update()
         if character_switch.character_current in LIST_BACKGROUND_TECHNIQUE_RANGES:
-            self.use_technique_(1)
+            self.device.screenshot()
+            self.use_technique_(1, limit=.2, n=1)
 
     def use_background_technique_deplete(self):
         character_switch = CharacterSwitch(self.config, self.device)
@@ -81,5 +82,6 @@ class UseTechniqueUI(MapControlJoystick, ForgottenHallUI):
             if i > 0:
                 character_switch.character_update()
             character_switch.character_switch(c)
-            self.use_technique_(1)
+            self.device.screenshot()
+            self.use_technique_(1, limit=.2, n=1)
         character_switch.character_switch(last_character)

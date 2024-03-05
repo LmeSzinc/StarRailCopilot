@@ -23,7 +23,7 @@ class OcrCharacterName(OcrWhiteLetterOnComplexBackground):
         # Dan Heng o.ImbibitorLunae
         result = re.sub(r'[0Oo\-. ]{1,3}Imbi', 'Imbi', result)
 
-        result = re.sub(r'院[.·•]梅', '阮•梅', result)
+        result = re.sub(r'院.?梅', '阮•梅', result)
 
         return super().after_process(result)
 

@@ -14,36 +14,6 @@ from tasks.base.ui import UI
 from tasks.map.assets.assets_map_control import *
 
 
-def build_technique_points_strict(button: ButtonWrapper):
-    kwargs = {}
-    for trial, b in button.data_buttons.items():
-        x, y, x_, y_ = b.area
-        qw = int((x_ - x) / 4)
-        qh = int((y_ - y) / 4)
-        area = x + qw, y + qh, x_ - qw, y_ - qh
-        kwargs[trial] = Button(b.file, area, b.search, b.color, b.button)
-    return ButtonWrapper(f'{button.name}_STRICT', **kwargs)
-
-
-def build_technique_points_loose(button: ButtonWrapper):
-    kwargs = {}
-    for trial, b in button.data_buttons.items():
-        x, y, x_, y_ = b.area
-        search = x - 50, y - 5, x_ + 50, y_ + 5
-        kwargs[trial] = Button(b.file, b.area, search, b.color, b.button)
-    return ButtonWrapper(f'{button.name}_STRICT', **kwargs)
-
-
-TECHNIQUE_POINT_LOOSE_0 = build_technique_points_loose(TECHNIQUE_POINT_0)
-TECHNIQUE_POINT_LOOSE_1 = build_technique_points_loose(TECHNIQUE_POINT_1)
-
-TECHNIQUE_POINT_STRICT_1 = build_technique_points_strict(TECHNIQUE_POINT_1)
-TECHNIQUE_POINT_STRICT_2 = build_technique_points_strict(TECHNIQUE_POINT_2)
-TECHNIQUE_POINT_STRICT_3 = build_technique_points_strict(TECHNIQUE_POINT_3)
-TECHNIQUE_POINT_STRICT_4 = build_technique_points_strict(TECHNIQUE_POINT_4)
-TECHNIQUE_POINT_STRICT_5 = build_technique_points_strict(TECHNIQUE_POINT_5)
-
-
 class JoystickContact:
     CENTER = (JOYSTICK.area[0] + JOYSTICK.area[2]) / 2, (JOYSTICK.area[1] + JOYSTICK.area[3]) / 2
     # Minimum radius 49px
@@ -230,13 +200,13 @@ class MapControlJoystick(UI):
         """
         confirm = Timer(3, count=0).start()
         while 1:
-            matched = TECHNIQUE_POINT_LOOSE_1.match_template(self.device.image)
+            matched = TECHNIQUE_POINT_1_LOOSE.match_template(self.device.image)
             if matched:
-                matched_button = TECHNIQUE_POINT_LOOSE_1
+                matched_button = TECHNIQUE_POINT_1_LOOSE
                 break
-            matched = TECHNIQUE_POINT_LOOSE_0.match_template(self.device.image)
+            matched = TECHNIQUE_POINT_0_LOOSE.match_template(self.device.image)
             if matched:
-                matched_button = TECHNIQUE_POINT_LOOSE_0
+                matched_button = TECHNIQUE_POINT_0_LOOSE
                 break
             if confirm.reached():
                 logger.warning('Can not match technique points.')
@@ -245,11 +215,11 @@ class MapControlJoystick(UI):
                 self.device.screenshot()
         points = []
         for button in [
-            TECHNIQUE_POINT_STRICT_1,
-            TECHNIQUE_POINT_STRICT_2,
-            TECHNIQUE_POINT_STRICT_3,
-            TECHNIQUE_POINT_STRICT_4,
-            TECHNIQUE_POINT_STRICT_5,
+            TECHNIQUE_POINT_1_STRICT,
+            TECHNIQUE_POINT_2_STRICT,
+            TECHNIQUE_POINT_3_STRICT,
+            TECHNIQUE_POINT_4_STRICT,
+            TECHNIQUE_POINT_5_STRICT,
         ]:
             if matched_button is not None:
                 button.load_offset(matched_button)

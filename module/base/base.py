@@ -170,7 +170,6 @@ class ModuleBase:
         Args:
             button(Button, tuple): Button instance or area tuple.
             copy:
-            offset:
         """
         if isinstance(button, Button):
             return crop(self.device.image, button.area, copy=copy)

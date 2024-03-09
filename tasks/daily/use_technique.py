@@ -10,7 +10,7 @@ from tasks.map.control.joystick import MapControlJoystick
 
 class UseTechniqueUI(MapControlJoystick, ForgottenHallUI):
 
-    def use_technique_(self, count: int, skip_first_screenshot=True, limit=.5, n=2):
+    def use_technique_(self, count: int, skip_first_screenshot=True):
         remains = self.map_get_technique_points()
         if count > remains:
             logger.warning(f"Try to use technique {count} times but only have {remains}")
@@ -23,7 +23,7 @@ class UseTechniqueUI(MapControlJoystick, ForgottenHallUI):
         # INFO │ [TechniquePoints] 4
         # INFO │ [TechniquePoints] 3
         # INFO │ [TechniquePoints] 3
-        confirm = Timer(limit, n).start()
+        confirm = Timer(.5, 2).start()
         while 1:
             if skip_first_screenshot:
                 skip_first_screenshot = False
@@ -31,8 +31,10 @@ class UseTechniqueUI(MapControlJoystick, ForgottenHallUI):
                 self.device.screenshot()
 
             remains_after = self.map_get_technique_points()
+            # In case the first count of remains is wrong
+            remains = max(remains_after, remains)
             if remains - remains_after >= count:
-                if confirm.reached():
+                if confirm.reached() or count <= 1:
                     logger.info(f"{remains - remains_after} techniques used")
                     break
             else:
@@ -67,21 +69,15 @@ class UseTechniqueUI(MapControlJoystick, ForgottenHallUI):
 
     def use_background_technique(self):
         character_switch = CharacterSwitch(self.config, self.device)
-        character_switch.character_update()
         if character_switch.character_current in LIST_BACKGROUND_TECHNIQUE_RANGES:
-            self.device.screenshot()
-            self.use_technique_(1, limit=.2, n=1)
+            self.use_technique_(1)
 
     def use_background_technique_deplete(self):
         character_switch = CharacterSwitch(self.config, self.device)
-        character_switch.character_update()
         last_character = character_switch.character_current
         characters = [c for c in LIST_BACKGROUND_TECHNIQUE if c in character_switch.characters]
         remains = self.map_get_technique_points()
         for i, c in enumerate(characters[:remains]):
-            if i > 0:
-                character_switch.character_update()
             character_switch.character_switch(c)
-            self.device.screenshot()
-            self.use_technique_(1, limit=.2, n=1)
+            self.use_technique_(1)
         character_switch.character_switch(last_character)

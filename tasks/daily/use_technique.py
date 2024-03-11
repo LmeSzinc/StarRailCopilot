@@ -71,6 +71,7 @@ class UseTechniqueUI(MapControlJoystick, ForgottenHallUI):
         character_switch = CharacterSwitch(self.config, self.device)
         if character_switch.character_current is None:
             character_switch.character_switch_to_ranged()
+            character_switch.character_update()
         if character_switch.character_current in LIST_BACKGROUND_TECHNIQUE_RANGES:
             self.use_technique_(1)
 
@@ -78,10 +79,13 @@ class UseTechniqueUI(MapControlJoystick, ForgottenHallUI):
         character_switch = CharacterSwitch(self.config, self.device)
         if character_switch.character_current is None:
             character_switch.character_switch_to_ranged()
+            character_switch.character_update()
         last_character = character_switch.character_current
         characters = [c for c in LIST_BACKGROUND_TECHNIQUE if c in character_switch.characters]
         remains = self.map_get_technique_points()
         for i, c in enumerate(characters[:remains]):
+            character_switch.character_update()
             character_switch.character_switch(c)
             self.use_technique_(1)
+        character_switch.character_update()
         character_switch.character_switch(last_character)

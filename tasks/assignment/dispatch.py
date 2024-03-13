@@ -72,6 +72,7 @@ class AssignmentDispatch(AssignmentUI):
         logger.info(f'Assignment dispatched, will finish at {future}')
         self.dispatched[assignment] = future
         self.has_new_dispatch = True
+        self._set_row_changed()
 
     def _select_characters(self):
         """

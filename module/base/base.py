@@ -187,7 +187,6 @@ class ModuleBase:
             color (tuple): RGB.
             threshold: 255 means colors are the same, the lower the worse.
             count (int): Pixels count.
-            offset: if the button is offset
 
         Returns:
             bool:

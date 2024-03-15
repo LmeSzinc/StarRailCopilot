@@ -200,13 +200,13 @@ class MapControlJoystick(UI):
         """
         confirm = Timer(3, count=0).start()
         while 1:
-            matched = TECHNIQUE_POINT_1_LOOSE.match_template(self.device.image)
+            matched = TECHNIQUE_POINT_1.match_template(self.device.image)
             if matched:
-                matched_button = TECHNIQUE_POINT_1_LOOSE
+                matched_button = TECHNIQUE_POINT_1
                 break
-            matched = TECHNIQUE_POINT_0_LOOSE.match_template(self.device.image)
+            matched = TECHNIQUE_POINT_0.match_template(self.device.image)
             if matched:
-                matched_button = TECHNIQUE_POINT_0_LOOSE
+                matched_button = TECHNIQUE_POINT_0
                 break
             if confirm.reached():
                 logger.warning('Can not match technique points.')
@@ -215,11 +215,11 @@ class MapControlJoystick(UI):
                 self.device.screenshot()
         points = []
         for button in [
-            TECHNIQUE_POINT_1_STRICT,
-            TECHNIQUE_POINT_2_STRICT,
-            TECHNIQUE_POINT_3_STRICT,
-            TECHNIQUE_POINT_4_STRICT,
-            TECHNIQUE_POINT_5_STRICT,
+            TECHNIQUE_POINT_1,
+            TECHNIQUE_POINT_2,
+            TECHNIQUE_POINT_3,
+            TECHNIQUE_POINT_4,
+            TECHNIQUE_POINT_5,
         ]:
             if matched_button is not None:
                 button.load_offset(matched_button)

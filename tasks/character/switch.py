@@ -196,7 +196,7 @@ class CharacterSwitch(UI):
                 return False
             try:
                 index = self.characters.index(character) + 1
-            except IndexError:
+            except (IndexError, ValueError):
                 logger.warning(f'Cannot choose character {character} as it was not detected')
                 return False
         else:
@@ -204,7 +204,7 @@ class CharacterSwitch(UI):
                 character = CharacterList.find(character)
             try:
                 index = self.characters.index(character) + 1
-            except IndexError:
+            except (IndexError, ValueError):
                 logger.warning(f'Cannot choose character {character} as it was not detected')
                 return False
 

@@ -158,7 +158,7 @@
       "ServerUpdate": {
         "type": "input",
         "value": "04:00",
-        "display": "hide"
+        "display": "show"
       }
     }
   },
@@ -185,7 +185,7 @@
       "ServerUpdate": {
         "type": "input",
         "value": "04:00",
-        "display": "hide"
+        "display": "show"
       }
     },
     "Dungeon": {
@@ -496,7 +496,7 @@
       "ServerUpdate": {
         "type": "input",
         "value": "04:00",
-        "display": "hide"
+        "display": "show"
       }
     },
     "AchievableQuest": {
@@ -931,7 +931,7 @@
       "ServerUpdate": {
         "type": "input",
         "value": "04:00",
-        "display": "hide"
+        "display": "show"
       }
     },
     "BattlePassStorage": {
@@ -1016,7 +1016,7 @@
       "ServerUpdate": {
         "type": "input",
         "value": "04:00",
-        "display": "hide"
+        "display": "show"
       }
     },
     "Assignment": {
@@ -1169,7 +1169,7 @@
       "ServerUpdate": {
         "type": "input",
         "value": "04:00",
-        "display": "hide"
+        "display": "show"
       }
     },
     "ItemStorage": {
@@ -1214,7 +1214,7 @@
       "ServerUpdate": {
         "type": "input",
         "value": "04:00",
-        "display": "hide"
+        "display": "show"
       }
     },
     "SupportReward": {
@@ -1247,7 +1247,7 @@
       "ServerUpdate": {
         "type": "input",
         "value": "04:00",
-        "display": "hide"
+        "display": "show"
       }
     },
     "Weekly": {
@@ -1364,7 +1364,7 @@
       "ServerUpdate": {
         "type": "input",
         "value": "04:00",
-        "display": "hide"
+        "display": "show"
       }
     },
     "RogueWorld": {

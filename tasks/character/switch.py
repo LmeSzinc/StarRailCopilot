@@ -192,16 +192,14 @@ class CharacterSwitch(UI):
         logger.info(f'Character choose: {character}')
         if isinstance(character, int):
             character = self._convert_selected_to_character([character])
-            if character is None:
-                return False
-            try:
-                index = self.characters.index(character) + 1
-            except (IndexError, ValueError):
-                logger.warning(f'Cannot choose character {character} as it was not detected')
-                return False
-        else:
-            if isinstance(character, str):
-                character = CharacterList.find(character)
+        elif isinstance(character, str):
+            character = CharacterList.find(character)
+        if character is None:
+            return False
+        try:
+            index = self.characters.index(character) + 1
+        except (IndexError, ValueError):
+            self.character_update(False)
             try:
                 index = self.characters.index(character) + 1
             except (IndexError, ValueError):

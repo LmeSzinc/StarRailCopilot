@@ -34,3 +34,12 @@ DICT_SORTED_RANGES = {
     # Melee
     # rest of the characters are classified as melee and will not be switched to
 }
+
+# Special character that has special effects in rogues
+LIST_BACKGROUND_TECHNIQUE_RANGES = [
+    RuanMei, TopazNumby, FuXuan, BlackSwan, Bronya, Qingque
+]
+
+LIST_BACKGROUND_TECHNIQUE = LIST_BACKGROUND_TECHNIQUE_RANGES + [
+    Sparkle, JingYuan, Jingliu, Yanqing, Luocha, Bailu, Gepard, Lynx, Herta, Tingyun,
+]

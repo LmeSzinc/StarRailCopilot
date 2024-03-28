@@ -247,6 +247,7 @@ RogueWorld:
   UseImmersifier: true
   DoubleEvent: true
   UseStamina: false
+  WeeklyFarming: false
 
 RogueBlessing:
   PresetBlessingFilter:

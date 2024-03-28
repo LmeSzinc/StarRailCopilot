@@ -972,6 +972,10 @@
     "UseStamina": {
       "name": "RogueWorld.UseStamina.name",
       "help": "RogueWorld.UseStamina.help"
+    },
+    "WeeklyFarming": {
+      "name": "ボス素材を収集",
+      "help": "週間ポイントが満点に達しても停止せず、100回のボスをファームして軌跡素材を入手"
     }
   },
   "RogueBlessing": {

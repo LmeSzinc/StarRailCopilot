@@ -79,11 +79,11 @@ Deploy:
     # [Default] false
     StartOcrServer: false
     # Port of ocr server runs by GUI
-    # [Default] 22268
-    OcrServerPort: 22268
+    # [Default] 22368
+    OcrServerPort: 22368
     # Address of ocr server for alas instance to connect
-    # [Default] 127.0.0.1:22268
-    OcrClientAddress: 127.0.0.1:22268
+    # [Default] 127.0.0.1:22368
+    OcrClientAddress: 127.0.0.1:22368
 
   Update:
     # Use auto update and builtin updater feature

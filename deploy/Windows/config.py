@@ -36,8 +36,8 @@ class ConfigModel:
     # Ocr
     UseOcrServer: bool = False
     StartOcrServer: bool = False
-    OcrServerPort: int = 22268
-    OcrClientAddress: str = "127.0.0.1:22268"
+    OcrServerPort: int = 22368
+    OcrClientAddress: str = "127.0.0.1:22368"
 
     # Update
     EnableReload: bool = True

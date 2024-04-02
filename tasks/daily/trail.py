@@ -74,6 +74,10 @@ class CharacterTrial(UI):
                     first_gacha = False
                 self.device.click(REGULAR_GACHA_CLICK)
                 continue
+            # Slide down to find Himeko gacha
+            if first_gacha:
+                self.device.swipe((70, 520), (70, 180))
+                self.wait_until_stable(REGULAR_GACHA_CHECK)
 
     def exit_trial(self, skip_first_screenshot=True):
         """

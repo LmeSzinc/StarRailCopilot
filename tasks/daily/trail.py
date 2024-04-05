@@ -66,6 +66,7 @@ class CharacterTrial(UI):
                     and self.match_color(CHARACTER_TRIAL, interval=2):
                 self.device.click(CHARACTER_TRIAL)
                 continue
+            # Switch to regular gacha
             if self.match_template_color(REGULAR_GACHA_CLICK, interval=2):
                 # Poor sleep indeed, clicks won't be response unless other elements are loaded
                 # Waiting for gacha banner moving
@@ -74,10 +75,17 @@ class CharacterTrial(UI):
                     first_gacha = False
                 self.device.click(REGULAR_GACHA_CLICK)
                 continue
-            # Slide down to find Himeko gacha
-            if first_gacha:
-                self.device.swipe((70, 520), (70, 180))
-                self.wait_until_stable(REGULAR_GACHA_CHECK)
+            else:
+                # Unable to match REGULAR_GACHA_CLICK(bottom of all gacha)
+                # Try slide down to find
+                swipe_vector = (0, -REGULAR_GACHA_CLICK.height)
+                self.device.swipe_vector(swipe_vector, box=REGULAR_GACHA_CLICK.search,
+                                 random_range=(-10, -10, 10, 10), name='FIND_REGULAR_GACHA_DRAG')
+                if self.match_template_color(REGULAR_GACHA_CHECK):
+                    self.device.click(REGULAR_GACHA_CLICK)
+                continue
+
+                
 
     def exit_trial(self, skip_first_screenshot=True):
         """

@@ -76,13 +76,11 @@ class CharacterTrial(UI):
                 self.device.click(REGULAR_GACHA_CLICK)
                 continue
             else:
-                # Unable to match REGULAR_GACHA_CLICK(bottom of all gacha)
+                # Fail to match REGULAR_GACHA_CLICK(bottom of all gacha)
                 # Try slide down to find
-                swipe_vector = (0, -REGULAR_GACHA_CLICK.height)
+                swipe_vector = (0, -4*REGULAR_GACHA_CLICK.height)
                 self.device.swipe_vector(swipe_vector, box=REGULAR_GACHA_CLICK.search,
                                  random_range=(-10, -10, 10, 10), name='FIND_REGULAR_GACHA_DRAG')
-                if self.match_template_color(REGULAR_GACHA_CHECK):
-                    self.device.click(REGULAR_GACHA_CLICK)
                 continue
 
                 

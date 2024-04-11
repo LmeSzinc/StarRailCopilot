@@ -31,7 +31,6 @@ class CharacterTrial(UI):
         info_closed = False
         info_timeout = Timer(2, count=4).start()
         first_gacha = switched
-        dragged_time = 0
         while 1:
             if skip_first_screenshot:
                 skip_first_screenshot = False
@@ -76,14 +75,11 @@ class CharacterTrial(UI):
                     first_gacha = False
                 self.device.click(REGULAR_GACHA_CLICK)
                 continue
-            elif not self.match_color(CHARACTER_TRIAL, interval=2)\
-                and dragged_time < 5:
-                # Fail to match REGULAR_GACHA_CLICK(bottom of all gacha)
-                # Try slide down to find
+            # Slide down to find regular gacha if beginner gacha found
+            if self.match_template_color(BEGINNER_GACHA_CHECK,interval=2):
                 swipe_vector = (0, -4*REGULAR_GACHA_CLICK.height)
                 self.device.swipe_vector(swipe_vector, box=REGULAR_GACHA_CLICK.search,
                                  random_range=(-10, -10, 10, 10), name='FIND_REGULAR_GACHA_DRAG')
-                dragged_time += 1
                 continue
 
                 

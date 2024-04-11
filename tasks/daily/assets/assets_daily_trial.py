@@ -3,6 +3,16 @@ from module.base.button import Button, ButtonWrapper
 # This file was auto-generated, do not modify it manually. To generate:
 # ``` python -m dev_tools.button_extract ```
 
+BEGINNER_GACHA_CHECK = ButtonWrapper(
+    name='BEGINNER_GACHA_CHECK',
+    share=Button(
+        file='./assets/share/daily/trial/BEGINNER_GACHA_CHECK.png',
+        area=(209, 428, 309, 460),
+        search=(189, 408, 329, 480),
+        color=(87, 139, 198),
+        button=(209, 428, 309, 460),
+    ),
+)
 CHARACTER_TRIAL = ButtonWrapper(
     name='CHARACTER_TRIAL',
     share=Button(

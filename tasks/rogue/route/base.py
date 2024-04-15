@@ -3,6 +3,8 @@ from module.base.timer import Timer
 from module.base.utils import area_offset
 from module.logger import logger
 from tasks.base.page import page_rogue
+from tasks.character.switch import CharacterSwitch
+from tasks.daily.use_technique import UseTechniqueUI
 from tasks.map.control.waypoint import Waypoint, ensure_waypoints
 from tasks.map.route.base import RouteBase as RouteBase_
 from tasks.rogue.assets.assets_rogue_ui import BLESSING_CONFIRM
@@ -144,6 +146,11 @@ class RouteBase(RouteBase_, RogueExit, RogueEvent, RogueReward):
             for point in waypoints:
                 if 'item' not in point.expected_enroute:
                     point.expected_enroute.append('item')
+
+        # Use techniques before enemy
+        logger.info('Trying to use technique')
+        UseTechniqueUI(self.config, self.device).use_background_technique()
+
         return super().clear_enemy(*waypoints)
 
     def clear_item(self, *waypoints):
@@ -161,13 +168,17 @@ class RouteBase(RouteBase_, RogueExit, RogueEvent, RogueReward):
     """
 
     def clear_elite(self, *waypoints):
+        # Use techniques before BOSS
+        logger.info('Trying to use technique')
+        if self.plane.is_rogue_boss:
+            UseTechniqueUI(self.config, self.device).use_background_technique_deplete()
+        else:
+            UseTechniqueUI(self.config, self.device).use_background_technique()
+
         logger.hr('Clear elite', level=1)
         waypoints = ensure_waypoints(waypoints)
         end_point = waypoints[-1]
         end_point.speed = 'run_2x'
-
-        # TODO: Use techniques before BOSS
-        pass
 
         result = super().clear_enemy(*waypoints)
         # logger.attr("result",result)

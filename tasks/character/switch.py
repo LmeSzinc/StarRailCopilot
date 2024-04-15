@@ -11,7 +11,8 @@ from module.logger import logger
 from module.ocr.ocr import BoxedResult, OcrResultButton, OcrWhiteLetterOnComplexBackground
 from tasks.base.ui import UI
 from tasks.character.assets.assets_character_switch import *
-from tasks.character.keywords import CharacterList, DICT_SORTED_RANGES, KEYWORDS_CHARACTER_LIST
+from tasks.character.keywords import (CharacterList, DICT_SORTED_RANGES, KEYWORDS_CHARACTER_LIST,
+                                      LIST_BACKGROUND_TECHNIQUE_RANGES)
 
 
 class OcrCharacterName(OcrWhiteLetterOnComplexBackground):
@@ -192,19 +193,17 @@ class CharacterSwitch(UI):
         logger.info(f'Character choose: {character}')
         if isinstance(character, int):
             character = self._convert_selected_to_character([character])
-            if character is None:
-                return False
+        elif isinstance(character, str):
+            character = CharacterList.find(character)
+        if character is None:
+            return False
+        try:
+            index = self.characters.index(character) + 1
+        except (IndexError, ValueError):
+            self.character_update(False)
             try:
                 index = self.characters.index(character) + 1
-            except IndexError:
-                logger.warning(f'Cannot choose character {character} as it was not detected')
-                return False
-        else:
-            if isinstance(character, str):
-                character = CharacterList.find(character)
-            try:
-                index = self.characters.index(character) + 1
-            except IndexError:
+            except (IndexError, ValueError):
                 logger.warning(f'Cannot choose character {character} as it was not detected')
                 return False
 
@@ -230,6 +229,16 @@ class CharacterSwitch(UI):
                 self.device.click(button)
                 interval.reset()
                 count += 1
+
+    def _get_enhance_technique_ranged_character(self) -> CharacterList | bool:
+        # Check if using special ranged characters:
+        if self.character_current in LIST_BACKGROUND_TECHNIQUE_RANGES:
+            logger.info(f'Already using a ranged character: {self.character_current}')
+            return True
+        for ranged_character in LIST_BACKGROUND_TECHNIQUE_RANGES:
+            if ranged_character in self.characters:
+                logger.info(f'Use ranged character: {ranged_character}')
+                return ranged_character
 
     def _get_ranged_character(self) -> CharacterList | bool:
         # Check if it's using a ranged character already
@@ -267,10 +276,13 @@ class CharacterSwitch(UI):
         if update:
             self.character_update()
 
-        character = self._get_ranged_character()
+        character = self._get_enhance_technique_ranged_character()
+        if character is False:
+            character = self._get_ranged_character()
         if character is True:
             return True
         elif character is False:
             return False
         else:
             return self.character_switch(character)
+

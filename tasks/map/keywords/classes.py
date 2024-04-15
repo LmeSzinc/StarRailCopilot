@@ -133,6 +133,10 @@ class MapPlane(Keyword):
     def is_rogue_elite(self) -> bool:
         return self.rogue_domain in ['Elite', 'Boss']
 
+    @cached_property
+    def is_rogue_boss(self) -> bool:
+        return self.rogue_domain in ['Boss']
+
 
 @dataclass(repr=False)
 class MapWorld(Keyword):

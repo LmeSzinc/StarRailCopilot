@@ -17,6 +17,7 @@ from tasks.rogue.route.exit import RogueExit
 
 class RouteBase(RouteBase_, RogueExit, RogueEvent, RogueReward):
     registered_domain_exit = None
+    enroute_add_item = True
 
     def combat_expected_end(self):
         if self.is_page_choose_blessing():
@@ -140,10 +141,9 @@ class RouteBase(RouteBase_, RogueExit, RogueEvent, RogueReward):
 
     def clear_enemy(self, *waypoints):
         waypoints = ensure_waypoints(waypoints)
-        if self.plane.is_rogue_combat:
+        if self.enroute_add_item and self.plane.is_rogue_combat:
             for point in waypoints:
-                if 'item' not in point.expected_enroute:
-                    point.expected_enroute.append('item')
+                point.enroute_add_item()
         return super().clear_enemy(*waypoints)
 
     def clear_item(self, *waypoints):
@@ -173,11 +173,11 @@ class RouteBase(RouteBase_, RogueExit, RogueEvent, RogueReward):
         # logger.attr("result",result)
 
         if 'enemy' in result:
-            # runs when one elite battle finishes, and decreases rogue farming count by 1
-            if self.config.RogueWorld_WeeklyFarming and self.config.stored.SimulatedUniverseElite.farm_not_complete():
-                self.config.stored.SimulatedUniverseElite.farm_dec()
+            # runs when one elite battle finishes, and increases rogue farming count by 1
+            if self.config.RogueWorld_WeeklyFarming and not self.config.stored.SimulatedUniverseElite.is_full():
+                self.config.stored.SimulatedUniverseElite.add()
                 logger.info(
-                    f"Cleared elite boss, decreasing farming count by 1, now {self.config.stored.SimulatedUniverseElite.farm_get_remain()}")
+                    f"Cleared elite boss, increasing farming count by 1, now " + self.config.stored.SimulatedUniverseElite.to_counter())
         return result
 
     def _domain_event_expected_end(self):
@@ -199,10 +199,9 @@ class RouteBase(RouteBase_, RogueExit, RogueEvent, RogueReward):
         end_point.endpoint_threshold = 1.5
         end_point.interact_radius = 7
         end_point.expected_end.append(self._domain_event_expected_end)
-        if self.plane.is_rogue_occurrence:
+        if self.enroute_add_item and self.plane.is_rogue_occurrence:
             for point in waypoints:
-                if 'item' not in point.expected_enroute:
-                    point.expected_enroute.append('item')
+                point.enroute_add_item()
 
         result = self.goto(*waypoints)
         self.clear_occurrence()
@@ -302,9 +301,9 @@ class RouteBase(RouteBase_, RogueExit, RogueEvent, RogueReward):
         logger.hr('Domain single exit', level=1)
         waypoints = ensure_waypoints(waypoints)
 
-        for point in waypoints:
-            if 'item' not in point.expected_enroute:
-                point.expected_enroute.append('item')
+        if self.enroute_add_item:
+            for point in waypoints:
+                point.enroute_add_item()
 
         end_point = waypoints[-1]
         end_point.min_speed = 'run'

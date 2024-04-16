@@ -362,7 +362,7 @@ class RogueEntry(RouteBase, RogueRewardHandler, RoguePathHandler, DungeonUI):
                 logger.info(
                     'Reached weekly point limit but still continue to farm materials')
                 logger.attr(
-                    "Farming Counter", self.config.stored.SimulatedUniverseElite.get_remain())
+                    "Farming Counter", self.config.stored.SimulatedUniverseElite.to_counter())
             else:
                 raise RogueReachedWeeklyPointLimit
         else:

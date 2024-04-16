@@ -174,10 +174,10 @@ class RouteBase(RouteBase_, RogueExit, RogueEvent, RogueReward):
 
         if 'enemy' in result:
             # runs when one elite battle finishes, and increases rogue farming count by 1
-            if self.config.RogueWorld_WeeklyFarming and not self.config.stored.SimulatedUniverseElite.is_full():
-                self.config.stored.SimulatedUniverseElite.add()
+            if self.config.RogueWorld_WeeklyFarming and not self.config.stored.SimulatedUniverseFarm.is_full():
+                self.config.stored.SimulatedUniverseFarm.add()
                 logger.info(
-                    f"Cleared elite boss, increasing farming count by 1, now " + self.config.stored.SimulatedUniverseElite.to_counter())
+                    f"Cleared elite boss, increasing farming count by 1, now " + self.config.stored.SimulatedUniverseFarm.to_counter())
         return result
 
     def _domain_event_expected_end(self):

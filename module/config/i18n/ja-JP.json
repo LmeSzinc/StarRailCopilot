@@ -978,9 +978,9 @@
       "name": "RogueWorld.UseStamina.name",
       "help": "RogueWorld.UseStamina.help"
     },
-    "SimulatedUniverseElite": {
-      "name": "RogueWorld.SimulatedUniverseElite.name",
-      "help": "RogueWorld.SimulatedUniverseElite.help"
+    "SimulatedUniverseFarm": {
+      "name": "RogueWorld.SimulatedUniverseFarm.name",
+      "help": "RogueWorld.SimulatedUniverseFarm.help"
     }
   },
   "RogueBlessing": {

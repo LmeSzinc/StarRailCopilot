@@ -978,7 +978,7 @@
       "name": "使用开拓力刷内圈遗器",
       "help": "每日副本任务将不再打本，所有开拓力将优先被用于领取浸器奖励，双倍活动时除外"
     },
-    "SimulatedUniverseElite": {
+    "SimulatedUniverseFarm": {
       "name": "已刷精英怪次数",
       "help": ""
     }

@@ -51,4 +51,4 @@ class StoredGenerated:
     Assignment = StoredAssignment("Assignment.Assignment.Assignment")
     Credit = StoredInt("DataUpdate.ItemStorage.Credit")
     StallerJade = StoredInt("DataUpdate.ItemStorage.StallerJade")
-    SimulatedUniverseElite = StoredSimulatedUniverseElite("Rogue.RogueWorld.SimulatedUniverseElite")
+    SimulatedUniverseFarm = StoredSimulatedUniverseElite("Rogue.RogueWorld.SimulatedUniverseFarm")

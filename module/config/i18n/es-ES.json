@@ -978,9 +978,9 @@
       "name": "Reclamar de planers mediante poder trazacaminos",
       "help": "La tarea de mazmorra ya no se ejecutará y todo el poder trazacaminos se usará primero para reclamar recompensas de inmersión, excepto para eventos dobles"
     },
-    "SimulatedUniverseElite": {
-      "name": "RogueWorld.SimulatedUniverseElite.name",
-      "help": "RogueWorld.SimulatedUniverseElite.help"
+    "SimulatedUniverseFarm": {
+      "name": "RogueWorld.SimulatedUniverseFarm.name",
+      "help": "RogueWorld.SimulatedUniverseFarm.help"
     }
   },
   "RogueBlessing": {

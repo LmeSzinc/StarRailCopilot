@@ -1475,7 +1475,7 @@
         "type": "checkbox",
         "value": false
       },
-      "SimulatedUniverseElite": {
+      "SimulatedUniverseFarm": {
         "type": "stored",
         "value": {},
         "display": "hide",

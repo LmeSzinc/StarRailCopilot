@@ -261,6 +261,7 @@ RogueWorld:
   UseStamina: false
   SimulatedUniverseFarm:
     stored: StoredSimulatedUniverseElite
+    display: disabled
 
 RogueBlessing:
   PresetBlessingFilter:

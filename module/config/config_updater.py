@@ -864,6 +864,8 @@ class ConfigUpdater:
             yield 'Rogue.RogueBlessing.CustomResonanceFilter'
         if deep_get(data, 'Rogue.RogueBlessing.PresetCurioFilter') != 'custom':
             yield 'Rogue.RogueBlessing.CustomCurioFilter'
+        if deep_get(data, 'Rogue.RogueWorld.WeeklyFarming') != True:
+            yield 'Rogue.RogueWorld.SimulatedUniverseFarm'
 
     def get_hidden_args(self, data) -> t.Set[str]:
         """

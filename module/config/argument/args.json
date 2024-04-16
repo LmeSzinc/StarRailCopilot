@@ -1478,7 +1478,7 @@
       "SimulatedUniverseFarm": {
         "type": "stored",
         "value": {},
-        "display": "hide",
+        "display": "disabled",
         "stored": "StoredSimulatedUniverseElite"
       }
     },

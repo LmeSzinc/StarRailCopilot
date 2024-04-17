@@ -33,5 +33,6 @@ def convert_20_dungeon(value):
 
 
 def convert_rogue_farm(value):
-    value['value'] = 100 - value['value']
-    return value
+    if isinstance(value, dict) and 'value' in value.keys():
+        value['value'] = 100 - value['value']
+        return value

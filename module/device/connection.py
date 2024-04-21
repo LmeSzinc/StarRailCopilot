@@ -955,7 +955,7 @@ class Connection(ConnectionAttr):
             list[str]: List of package names
         """
         packages = self.list_package(show_log=show_log)
-        packages = [p for p in packages if p in server_.VALID_PACKAGE]
+        packages = [p for p in packages if p in server_.VALID_PACKAGE or p in server_.VALID_CLOUD_PACKAGE]
         return packages
 
     def detect_package(self, set_config=True):

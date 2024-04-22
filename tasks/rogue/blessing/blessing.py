@@ -306,7 +306,7 @@ class RogueBlessingSelector(RogueSelector):
                 "strategy_config": self.main.config.RogueBlessing_SelectionStrategy,
                 "preset_values": {
                     'preset': RESONANCE_PRESET[self.main.config.RogueWorld_Path],
-                    'custom': self.main.config.RogueBlessing_PresetResonanceFilter,
+                    'custom': self.main.config.RogueBlessing_CustomResonanceFilter,
                 },
             }
         }

@@ -35,4 +35,5 @@ def convert_20_dungeon(value):
 def convert_rogue_farm(value):
     if isinstance(value, dict) and 'value' in value.keys():
         value['value'] = 100 - value['value']
+        value['total'] = 100
         return value

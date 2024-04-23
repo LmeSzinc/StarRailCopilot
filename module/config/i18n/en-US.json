@@ -975,7 +975,7 @@
       "help": ""
     },
     "SimulatedUniverseFarm": {
-      "name": "Number of elite boss farmed",
+      "name": "Progress of elite boss farmed",
       "help": ""
     },
     "UseStamina": {

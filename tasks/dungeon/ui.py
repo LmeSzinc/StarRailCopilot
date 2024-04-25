@@ -90,6 +90,8 @@ class OcrDungeonList(Ocr):
             # 燔灼之形•凝滞虚影
             result = result.replace('熠', '燔')
             result = re.sub('^灼之形', '燔灼之形', result)
+            # 偃偶之形•凝滞虚影
+            result = re.sub('^偶之形', '偃偶之形', result)
             # 蛀星的旧·历战余响
             result = re.sub(r'蛀星的旧.*?历战', '蛀星的旧靥•历战', result)
 

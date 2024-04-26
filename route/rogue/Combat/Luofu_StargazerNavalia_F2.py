@@ -70,6 +70,7 @@ class Route(RouteBase):
 
         # 1, enemy first
         self.clear_enemy(enemy1)
-        self.clear_item(item1)
+        # item1 is cleared on the way to enemy2, or will get stuck at corner
+        # self.clear_item(item1)
         # 2, ignore item2, bad way
         self.clear_enemy(enemy2)

@@ -215,7 +215,7 @@ class Dungeon(DungeonStamina, DungeonEvent, Combat):
                 calyx = self.get_double_event_remain()
             if self.has_double_relic_event():
                 self._dungeon_nav_goto(KEYWORDS_DUNGEON_NAV.Cavern_of_Corrosion)
-                relic = self.get_double_event_remain()
+                relic = self.get_double_rogue_remain()
             with self.config.multi_set():
                 self.config.stored.DungeonDouble.calyx = calyx
                 self.config.stored.DungeonDouble.relic = relic

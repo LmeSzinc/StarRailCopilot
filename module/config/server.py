@@ -18,7 +18,7 @@ VALID_PACKAGE = set(list(VALID_SERVER.values()))
 VALID_CLOUD_SERVER = {
     'CN-Official': 'com.miHoYo.cloudgames.hkrpg',
 }
-VALID_CLOUD_PACKAGE = set(list(VALID_SERVER.values()))
+VALID_CLOUD_PACKAGE = set(list(VALID_CLOUD_SERVER.values()))
 
 
 def set_lang(lang_: str):

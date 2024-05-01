@@ -74,8 +74,8 @@ class DungeonEvent(UI):
         # Anniversary 3x event
         has |= self.image_color_count(
             OCR_DOUBLE_EVENT_REMAIN_AT_COMBAT,
-            color=(230, 160, 100),
-            threshold=240, count=1000
+            color=(229, 62, 44),
+            threshold=221, count=50
         )
         logger.attr('Double event at combat', has)
         return has

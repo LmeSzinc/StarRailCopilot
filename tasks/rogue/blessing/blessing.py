@@ -187,6 +187,9 @@ class RogueBlessingSelector(RogueSelector):
             else:
                 self.main.device.screenshot()
 
+            if self.main.handle_blessing_popup():
+                logger.warning('Mistakenly recognized current page as blessing choosing page, quit')
+                return
             if is_card_selected(self.main, target, confirm_button=BLESSING_CONFIRM):
                 if enforce:
                     logger.info("Buff selected (enforce)")

@@ -9,6 +9,7 @@ DICT_SORTED_RANGES = {
         RuanMei,
         DanHengImbibitorLunae,
         Welt,
+        Aventurine,
         FuXuan,
         # Longer precast
         BlackSwan,

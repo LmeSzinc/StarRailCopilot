@@ -180,6 +180,9 @@ class RouteLoader(RogueUI, MinimapWrapper, RouteLoader_, CharacterSwitch):
         # Before Occurrence_Luofu_DivinationCommission_F2_X425Y791
         if route.name in [
             'Occurrence_Jarilo_RivetTown_F1_X157Y435',
+            # ('Occurrence_Luofu_DivinationCommission_F2_X149Y659', 0.237, (148.9, 658.8)),
+            # ('Occurrence_Luofu_DivinationCommission_F2_X425Y791', 0.11, (425.2, 793.8))
+            'Occurrence_Luofu_DivinationCommission_F2_X149Y659',
         ] and similarity > 0.15:
             return True
         if route.name in [

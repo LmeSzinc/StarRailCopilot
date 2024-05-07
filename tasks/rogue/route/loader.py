@@ -168,6 +168,11 @@ class RouteLoader(RogueUI, MinimapWrapper, RouteLoader_, CharacterSwitch):
         if route.name in [
             'Combat_Herta_SupplyZone_F2_X543Y255',  # 0.462, (543.3, 255.4)
             'Combat_Luofu_DivinationCommission_F1_X737Y237',
+            # ('Occurrence_Luofu_Cloudford_F1_X241Y947', 0.307, (236.5, 949.6)),
+            # ('Occurrence_Luofu_Cloudford_F1_X244Y951', 0.307, (236.5, 949.6)),
+            # ('Occurrence_Jarilo_SilvermaneGuardRestrictedZone_F1_X509Y541', 0.154, (507.8, 515.2))
+            'Occurrence_Luofu_Cloudford_F1_X241Y947',
+            'Occurrence_Luofu_Cloudford_F1_X244Y951',
         ] and similarity > 0.25:
             return True
         # Before Combat_Luofu_Cloudford_F1_X281Y873
@@ -180,6 +185,9 @@ class RouteLoader(RogueUI, MinimapWrapper, RouteLoader_, CharacterSwitch):
         # Before Occurrence_Luofu_DivinationCommission_F2_X425Y791
         if route.name in [
             'Occurrence_Jarilo_RivetTown_F1_X157Y435',
+            # ('Occurrence_Luofu_DivinationCommission_F2_X149Y659', 0.237, (148.9, 658.8)),
+            # ('Occurrence_Luofu_DivinationCommission_F2_X425Y791', 0.11, (425.2, 793.8))
+            'Occurrence_Luofu_DivinationCommission_F2_X149Y659',
         ] and similarity > 0.15:
             return True
         if route.name in [

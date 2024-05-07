@@ -1,3 +1,5 @@
+import re
+
 from module.base.timer import Timer
 from module.logger import logger
 from module.ocr.ocr import Digit
@@ -19,7 +21,7 @@ class DataUpdate(UI):
         while 1:
             data = ocr.detect_and_ocr(self.device.image)
             if len(data) == 2:
-                credit, jade = [int(d.ocr_text) for d in data]
+                credit, jade = [int(re.sub(r'\s', '', d.ocr_text)) for d in data]
                 if credit > 0 or jade > 0:
                     break
 

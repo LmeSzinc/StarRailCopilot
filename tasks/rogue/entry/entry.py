@@ -250,6 +250,9 @@ class RogueEntry(RouteBase, RogueRewardHandler, RoguePathHandler, DungeonUI):
                 self.interval_reset(REWARD_ENTER, interval=2)
                 continue
             if self.match_template_color(LEVEL_CONFIRM, interval=2):
+                if not self.image_color_count(LEVEL_CONFIRM, color=(223, 223, 225), threshold=240, count=50):
+                    self.interval_clear(LEVEL_CONFIRM)
+                    continue
                 self.dungeon_update_stamina()
                 self.check_stop_condition()
                 self.device.click(LEVEL_CONFIRM)

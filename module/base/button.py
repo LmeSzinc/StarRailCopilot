@@ -34,6 +34,23 @@ class Button(Resource):
     def clear_offset(self):
         self._button_offset = (0, 0)
 
+    def is_offset_in(self, x=0, y=0):
+        """
+        Args:
+            x:
+            y:
+
+        Returns:
+            bool: If _button_offset is in (-x, -y, x, y)
+        """
+        if x:
+            if self._button_offset[0] < -x or self._button_offset[0] > x:
+                return False
+        if y:
+            if self._button_offset[1] < -y or self._button_offset[1] > y:
+                return False
+        return True
+
     @cached_property
     def image(self):
         return load_image(self.file, self.area)
@@ -294,6 +311,17 @@ class ButtonWrapper(Resource):
     def clear_offset(self):
         for b in self.iter_buttons():
             b.clear_offset()
+
+    def is_offset_in(self, x=0, y=0):
+        """
+        Args:
+            x:
+            y:
+
+        Returns:
+            bool: If _button_offset is in (-x, -y, x, y)
+        """
+        return self.matched_button.is_offset_in(x=x, y=y)
 
     def load_search(self, area):
         """

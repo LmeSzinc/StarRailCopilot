@@ -285,6 +285,7 @@ class RouteLoader(RogueUI, MinimapWrapper, RouteLoader_, CharacterSwitch):
         """
         base = RouteBase(config=self.config, device=self.device, task=self.config.task.command)
         count = 1
+        self.character_is_ranged = None
         while 1:
             if skip_first_screenshot:
                 skip_first_screenshot = False
@@ -293,8 +294,7 @@ class RouteLoader(RogueUI, MinimapWrapper, RouteLoader_, CharacterSwitch):
 
             logger.hr(f'Route run: {count}', level=1)
             base.clear_blessing()
-            if count == 1:
-                self.character_switch_to_ranged(update=True)
+            self.character_switch_to_ranged(update=True)
 
             self.route_run()
             # if not success:

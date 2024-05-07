@@ -59,8 +59,11 @@ class MapControl(Combat, AimDetectorMixin):
             skip_first_screenshot:
 
         Returns:
-            bool: If swiped rotation
+            list[str]: A list of walk result
+                Enemy may attack character during rotation_set, function returns walk result
         """
+        logger.hr('Rotation set')
+        result = []
         interval = Timer(1, count=2)
         while 1:
             if skip_first_screenshot:
@@ -70,15 +73,27 @@ class MapControl(Combat, AimDetectorMixin):
                 self.minimap.update_rotation(self.device.image)
                 self.minimap.log_minimap()
 
-            # End
-            if self.minimap.is_rotation_near(target, threshold=threshold):
-                logger.info(f'Rotation is now at: {target}')
-                break
+            # Additional
+            if self.is_combat_executing():
+                logger.info('Walk result add: enemy')
+                result.append('enemy')
+                logger.hr('Combat', level=2)
+                self.combat_execute()
+            if self.walk_additional():
+                continue
 
-            if interval.reached():
-                if self.handle_rotation_set(target, threshold=threshold):
-                    interval.reset()
-                    continue
+            if self.is_in_main():
+                # End
+                if self.minimap.is_rotation_near(target, threshold=threshold):
+                    logger.info(f'Rotation is now at: {target}')
+                    break
+                # Swipe
+                if interval.reached():
+                    if self.handle_rotation_set(target, threshold=threshold):
+                        interval.reset()
+                        continue
+
+        return result
 
     def walk_additional(self) -> bool:
         """

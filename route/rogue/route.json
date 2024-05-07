@@ -913,6 +913,17 @@
     "domain": "Combat"
   },
   {
+    "name": "Combat_Luofu_Cloudford_F1Rogue_X44Y405",
+    "route": "route.rogue.Combat.Luofu_Cloudford_F1Rogue:Luofu_Cloudford_F1Rogue_X44Y405",
+    "plane": "Luofu_Cloudford",
+    "floor": "F1Rogue",
+    "position": [
+      43.8,
+      405.0
+    ],
+    "domain": "Combat"
+  },
+  {
     "name": "Combat_Luofu_Cloudford_F2_X425Y111",
     "route": "route.rogue.Combat.Luofu_Cloudford_F2:Luofu_Cloudford_F2_X425Y111",
     "plane": "Luofu_Cloudford",
@@ -1943,6 +1954,17 @@
     "position": [
       554.6,
       245.0
+    ],
+    "domain": "Respite"
+  },
+  {
+    "name": "Respite_Herta_SupplyZone_F2_X550Y248",
+    "route": "route.rogue.Respite.Herta_SupplyZone_F2:Herta_SupplyZone_F2_X550Y248",
+    "plane": "Herta_SupplyZone",
+    "floor": "F2",
+    "position": [
+      550.7,
+      248.7
     ],
     "domain": "Respite"
   },

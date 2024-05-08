@@ -33,7 +33,8 @@ class RouteBase(RouteBase_, RogueExit, RogueEvent, RogueReward):
         return False
 
     def combat_execute(self, expected_end=None):
-        return super().combat_execute(expected_end=self.combat_expected_end)
+        super().combat_execute(expected_end=self.combat_expected_end)
+        self.clear_blessing()
 
     def walk_additional(self) -> bool:
         if self.handle_blessing_popup():
@@ -125,12 +126,6 @@ class RouteBase(RouteBase_, RogueExit, RogueEvent, RogueReward):
                     continue
                 if self.handle_event_option():
                     continue
-
-    def _goto(self, *args, **kwargs):
-        result = super()._goto(*args, **kwargs)
-        if 'enemy' in result:
-            self.clear_blessing()
-        return result
 
     def wait_until_minimap_stabled(self):
         logger.info('Wait until minimap stabled')

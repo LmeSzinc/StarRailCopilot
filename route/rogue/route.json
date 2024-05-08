@@ -1595,6 +1595,17 @@
     "domain": "Occurrence"
   },
   {
+    "name": "Occurrence_Jarilo_BackwaterPass_F1_X611Y761",
+    "route": "route.rogue.Occurrence.Jarilo_BackwaterPass_F1:Jarilo_BackwaterPass_F1_X611Y761",
+    "plane": "Jarilo_BackwaterPass",
+    "floor": "F1",
+    "position": [
+      611.4,
+      761.2
+    ],
+    "domain": "Occurrence"
+  },
+  {
     "name": "Occurrence_Jarilo_CorridorofFadingEchoes_F1_X236Y903",
     "route": "route.rogue.Occurrence.Jarilo_CorridorofFadingEchoes_F1:Jarilo_CorridorofFadingEchoes_F1_X236Y903",
     "plane": "Jarilo_CorridorofFadingEchoes",
@@ -1712,6 +1723,17 @@
     "position": [
       439.3,
       237.1
+    ],
+    "domain": "Occurrence"
+  },
+  {
+    "name": "Occurrence_Jarilo_SilvermaneGuardRestrictedZone_F1_X435Y233",
+    "route": "route.rogue.Occurrence.Jarilo_SilvermaneGuardRestrictedZone_F1:Jarilo_SilvermaneGuardRestrictedZone_F1_X435Y233",
+    "plane": "Jarilo_SilvermaneGuardRestrictedZone",
+    "floor": "F1",
+    "position": [
+      435.5,
+      233.5
     ],
     "domain": "Occurrence"
   },

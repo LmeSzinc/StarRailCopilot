@@ -156,3 +156,12 @@ Stagnant_Shadow_Ire = DungeonDetailed(
     jp='キャラクター昇格素材：炎（ギャラガー）',
     es='Ascension: Fuego (Gallagher)',
 )
+Stagnant_Shadow_Duty = DungeonDetailed(
+    id=18,
+    name='Stagnant_Shadow_Duty',
+    cn='角色晋阶材料：物理（波提欧 / 知更鸟）',
+    cht='角色晉階材料：物理（波提歐 / 知更鳥）',
+    en='Ascension: Physical (Boothill / Robin)',
+    jp='キャラクター昇格素材：物理（ブートヒル / ロビン）',
+    es='Ascension: Físico (Boothill / Robin)',
+)

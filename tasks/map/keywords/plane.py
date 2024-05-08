@@ -487,3 +487,36 @@ Penacony_ClockStudiosThemePark = MapPlane(
     world_id=3,
     plane_id=2032101,
 )
+Penacony_DreamfluxReef = MapPlane(
+    id=45,
+    name='Penacony_DreamfluxReef',
+    cn='流梦礁',
+    cht='流夢礁',
+    en='Dreamflux Reef',
+    jp='ドリームリーフ',
+    es='Arrecife Flujosueño',
+    world_id=3,
+    plane_id=1030401,
+)
+Penacony_SoulGladScorchsandAuditionVenue = MapPlane(
+    id=46,
+    name='Penacony_SoulGladScorchsandAuditionVenue',
+    cn='苏乐达™热砂海选会场',
+    cht='蘇樂達™熱砂海選會場',
+    en='SoulGlad™ Scorchsand Audition Venue',
+    jp='スラーダ™熱砂オーディション会場',
+    es='Recinto de las Audiciones FelizAlma™ en la Arena Ardiente',
+    world_id=3,
+    plane_id=2033101,
+)
+Penacony_PenaconyGrandTheater = MapPlane(
+    id=47,
+    name='Penacony_PenaconyGrandTheater',
+    cn='匹诺康尼大剧院',
+    cht='匹諾康尼大劇院',
+    en='Penacony Grand Theater',
+    jp='ピノコニー大劇場',
+    es='Gran Teatro de Colonipenal',
+    world_id=3,
+    plane_id=2033201,
+)

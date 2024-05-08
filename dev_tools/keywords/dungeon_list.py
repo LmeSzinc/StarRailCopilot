@@ -16,6 +16,8 @@ def dungeon_name(name: str) -> str:
         name = f'Echo_of_War_{name}'
     if name in ['The_Swarm_Disaster', 'Gold_and_Gears']:
         name = f'Simulated_Universe_{name}'
+    name = name.replace('Stagnant_Shadow_Stagnant_Shadow', 'Stagnant_Shadow')
+    name = name.replace('Cavern_of_Corrosion_Cavern_of_Corrosion', 'Cavern_of_Corrosion')
     return name
 
 
@@ -70,7 +72,10 @@ class GenerateDungeonList(GenerateKeyword):
 
         if text.startswith('Calyx_Crimson'):
             plane = MapPlane.find_plane_id(keyword['plane_id'])
-            text = f'{text}_{plane.name}'
+            if plane is not None:
+                text = f'{text}_{plane.name}'
+            else:
+                text = f'{text}_unknown_plane'
         return text
 
     def convert_keyword(self, text: str, lang: str) -> str:

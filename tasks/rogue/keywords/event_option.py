@@ -162,7 +162,7 @@ Jim_Hulk_collection = RogueEventOption(
     cn='杰姆·哈克的藏品。',
     cht='傑姆•哈克的收藏。',
     en="Jim Hulk's collection.",
-    jp='ジェム・ハックの所蔵品',
+    jp='ジャック・ハックの所蔵品',
     es='Colección de Jim Hulk.',
 )
 Walk_away = RogueEventOption(
@@ -1097,7 +1097,7 @@ Hurry_and_delete_the_Cyclic_Demon_Lord_life_algorithm = RogueEventOption(
     name='Hurry_and_delete_the_Cyclic_Demon_Lord_life_algorithm',
     cn='抓紧时间，删除周期性魔王的生命方程。',
     cht='把握時間，刪除週期性魔王的生命方程式。',
-    en="Hurry and delete the Cyclic Demon Lord's life algorithm",
+    en="Hurry and delete the Cyclic Demon Lord's life algorithm.",
     jp='事態は一刻を争う、周期性魔王の生命方程式を削除する',
     es='Date prisa y borra el algoritmo vital del Rey Demonio Cíclico.',
 )
@@ -1187,7 +1187,7 @@ Purchase_a_1_2_star_Blessing = RogueEventOption(
     name='Purchase_a_1_2_star_Blessing',
     cn='购买1个1-2星祝福',
     cht='購買1個一至二星祝福',
-    en='Purchase a 1-2 star Blessing',
+    en='Purchase a 1–2 star Blessing',
     jp='★1～2の祝福を1個購入する',
     es='Compra 1 bendición de 1-2 estrellas.',
 )
@@ -1196,7 +1196,7 @@ Purchase_a_1_3_star_Blessing = RogueEventOption(
     name='Purchase_a_1_3_star_Blessing',
     cn='购买1个1-3星祝福',
     cht='購買1個一至三星祝福',
-    en='Purchase a 1-3 star Blessing',
+    en='Purchase a 1–3 star Blessing',
     jp='★1～3の祝福を1個購入する',
     es='Compra 1 bendición de 1-3 estrellas.',
 )

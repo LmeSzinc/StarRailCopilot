@@ -3,7 +3,7 @@ from functools import cached_property
 from typing import ClassVar
 
 from module.exception import ScriptError
-from module.ocr.keyword import Keyword
+from module.ocr.keyword import Keyword, parse_name
 
 
 @dataclass(repr=False)
@@ -182,6 +182,48 @@ class DungeonList(Keyword):
                 return 'dlc'
         else:
             return ''
+
+    @classmethod
+    def find_dungeon_by_string(cls, cn='', en='', **kwargs):
+        """
+        Args:
+            cn: Any substring in dungeon name
+            en:
+            **kwargs: Filter properties, e.g. is_Echo_of_War=True
+
+        Returns:
+            DungeonList: or None
+        """
+        if cn:
+            string = parse_name(cn)
+            lang = 'cn'
+        elif en:
+            string = parse_name(en)
+            lang = 'en'
+        else:
+            return None
+
+        def find(obj: "DungeonList"):
+            name = obj._keywords_to_find(lang=lang, ignore_punctuation=True)[0]
+            if string in name:
+                return True
+            return False
+
+        # From SelectedGrids
+        def matched(obj):
+            flag = True
+            for k, v in kwargs.items():
+                obj_v = obj.__getattribute__(k)
+                if type(obj_v) != type(v) or obj_v != v:
+                    flag = False
+            return flag
+
+        dungeons = [grid for grid in cls.instances.values() if find(grid) and matched(grid)]
+        if len(dungeons) == 1:
+            return dungeons[0]
+        else:
+            return None
+
 
 
 @dataclass(repr=False)

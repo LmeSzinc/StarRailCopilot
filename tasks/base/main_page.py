@@ -54,6 +54,7 @@ class OcrPlaneName(OcrWhiteLetterOnComplexBackground):
         result = result.replace('累塔', '黑塔')
         if '星港' in result:
             result = '迴星港'
+        result = result.replace('太司', '太卜司')
 
         result = result.replace(' ', '')
 

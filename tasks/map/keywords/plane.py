@@ -501,11 +501,11 @@ Penacony_DreamfluxReef = MapPlane(
 Penacony_SoulGladScorchsandAuditionVenue = MapPlane(
     id=46,
     name='Penacony_SoulGladScorchsandAuditionVenue',
-    cn='苏乐达™热砂海选会场',
-    cht='蘇樂達™熱砂海選會場',
-    en='SoulGlad™ Scorchsand Audition Venue',
-    jp='スラーダ™熱砂オーディション会場',
-    es='Recinto de las Audiciones FelizAlma™ en la Arena Ardiente',
+    cn='苏乐达热砂海选会场',
+    cht='蘇樂達熱砂海選會場',
+    en='SoulGlad Scorchsand Audition Venue',
+    jp='スラーダ熱砂オーディション会場',
+    es='Recinto de las Audiciones FelizAlma en la Arena Ardiente',
     world_id=3,
     plane_id=2033101,
 )

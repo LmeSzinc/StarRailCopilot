@@ -430,7 +430,7 @@ class ConfigGenerator:
                          value=i18n_crimson[ingame_lang].format(path=path, plane=plane))
             if dungeon.is_Cavern_of_Corrosion:
                 value = deep_get(new, keys=['Dungeon', 'Name', dungeon.name], default='')
-                suffix = i18n_relic[ingame_lang].format(dungeon=dungeon_name)
+                suffix = i18n_relic[ingame_lang].format(dungeon=dungeon_name).replace('Cavern of Corrosion: ', '')
                 if not value.endswith(suffix):
                     deep_set(new, keys=['Dungeon', 'Name', dungeon.name], value=f'{value}{suffix}')
 
@@ -489,7 +489,7 @@ class ConfigGenerator:
         for dungeon in dungeons:
             world = dungeon.plane.world
             world_name = world.__getattribute__(ingame_lang)
-            dungeon_name = dungeon.__getattribute__(ingame_lang)
+            dungeon_name = dungeon.__getattribute__(ingame_lang).replace('Echo of War: ', '')
             value = f'{dungeon_name} ({world_name})'
             deep_set(new, keys=['Weekly', 'Name', dungeon.name], value=value)
         # Rogue worlds

@@ -982,13 +982,13 @@
       "name": "Farm 100 Elites Weekly",
       "help": ""
     },
-    "SimulatedUniverseFarm": {
-      "name": "Progress of elite boss farmed",
-      "help": ""
-    },
     "UseStamina": {
       "name": "Farm Planers Using Trailblase Power",
       "help": "Task \"Dungeon\" will no longer run, and all trailblaze power will be used first to claim immersion rewards, except for double events."
+    },
+    "SimulatedUniverseFarm": {
+      "name": "Progress of elite boss farmed",
+      "help": ""
     }
   },
   "RogueBlessing": {

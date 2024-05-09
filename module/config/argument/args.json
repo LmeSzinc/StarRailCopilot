@@ -1481,15 +1481,15 @@
         "type": "checkbox",
         "value": false
       },
+      "UseStamina": {
+        "type": "checkbox",
+        "value": false
+      },
       "SimulatedUniverseFarm": {
         "type": "stored",
         "value": {},
         "display": "disabled",
         "stored": "StoredSimulatedUniverseElite"
-      },
-      "UseStamina": {
-        "type": "checkbox",
-        "value": false
       }
     },
     "RogueBlessing": {

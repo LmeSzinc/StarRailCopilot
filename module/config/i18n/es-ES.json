@@ -982,13 +982,13 @@
       "name": "Granja 100 élites semanalmente",
       "help": ""
     },
-    "SimulatedUniverseFarm": {
-      "name": "Progreso de élites derrotadas",
-      "help": ""
-    },
     "UseStamina": {
       "name": "Reclamar de planers mediante poder trazacaminos",
       "help": "La tarea de mazmorra ya no se ejecutará y todo el poder trazacaminos se usará primero para reclamar recompensas de inmersión, excepto para eventos dobles"
+    },
+    "SimulatedUniverseFarm": {
+      "name": "Progreso de élites derrotadas",
+      "help": ""
     }
   },
   "RogueBlessing": {

@@ -325,11 +325,17 @@ def put_arg_input(kwargs: T_Output_Kwargs) -> Output:
     )
 
 
-def product_stored_row(kwargs: T_Output_Kwargs, key, value, style = "--input--"):
-    kwargs = copy.copy(kwargs)
-    kwargs["name"] += f'_{key}'
-    kwargs["value"] = value
-    return put_input(**kwargs).style(style)
+def product_stored_row(key, value):
+    if key[-1].isdigit():
+        # quest1, quest2, quest3
+        return [put_text(value).style("--dashboard-time--")]
+    else:
+        # calyx, relic
+        # 3 (relic)
+        return [
+            put_text(value).style("--dashboard-value--"),
+            put_text(f" ({key})").style("--dashboard-time--"),
+        ]
 
 
 def put_arg_stored(kwargs: T_Output_Kwargs) -> Output:
@@ -337,42 +343,42 @@ def put_arg_stored(kwargs: T_Output_Kwargs) -> Output:
     kwargs["disabled"] = True
 
     values = kwargs.pop("value", {})
+    value = values.pop("value", "")
+    total = values.pop("total", "")
     time_ = values.pop("time", "")
-    
-    if "value" in values and "total" in values:
-        # display as counter style
-        counter = f'{values["value"]} / {values["total"]}'
-        rows = [product_stored_row(
-            kwargs, "counter", counter)]
-        if time_:
-            rows += [product_stored_row(kwargs, "time", time_)]
-        return put_scope(
-            f"arg_container-stored-{name}",
-            [
-                get_title_help(kwargs),
-                put_scope(
-                    f"arg_stored-stored-value-{name}",
-                    rows,
-                )
-            ]
-        )
+
+    if value != "" and total != "":
+        rows = [put_scope(f"dashboard-value-{name}", [
+            put_text(value).style("--dashboard-value--"),
+            put_text(f" / {total}").style("--dashboard-time--"),
+        ])]
+    elif value != "":
+        rows = [put_scope(f"dashboard-value-{name}", [
+            put_text(value).style("--dashboard-value--")
+        ])]
     else:
-        # display per key
-        rows = [product_stored_row(kwargs, key, value)
-                for key, value in values.items() if value]
-        if time_:
-            rows += [product_stored_row(kwargs, "time", time_)]
-        
-        return put_scope(
-            f"arg_container-stored-{name}",
-            [
-                get_title_help(kwargs),
-                put_scope(
-                    f"arg_stored-stored-value-{name}",
-                    rows,
-                )
-            ]
+        rows = []
+    if values:
+        rows += [
+            put_scope(f"dashboard-value-{name}-{key}", product_stored_row(key, value))
+            for key, value in values.items() if value != ""
+        ]
+
+    if time_:
+        rows.append(
+            put_text(time_).style("--dashboard-time--")
         )
+
+    return put_scope(
+        f"arg_container-stored-{name}",
+        [
+            get_title_help(kwargs),
+            put_scope(
+                f"arg_stored-stored-value-{name}",
+                rows,
+            )
+        ]
+    )
 
 
 def put_arg_select(kwargs: T_Output_Kwargs) -> Output:

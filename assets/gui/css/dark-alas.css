@@ -83,11 +83,6 @@ select.state-light {
     background-color: transparent !important;
 }
 
-[id^="pywebio-scope-arg_stored-stored-value-"] {
-    border-bottom: .125rem solid #7a77bb;
-    background-color: #343a40;
-}
-
 textarea {
     border: 1px solid #21262d;
 }

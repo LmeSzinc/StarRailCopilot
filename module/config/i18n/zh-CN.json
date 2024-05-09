@@ -976,13 +976,13 @@
       "name": "每周刷100精英怪",
       "help": ""
     },
+    "SimulatedUniverseFarm": {
+      "name": "刷精英怪进度",
+      "help": ""
+    },
     "UseStamina": {
       "name": "使用开拓力刷内圈遗器",
       "help": "每日副本任务将不再打本，所有开拓力将优先被用于领取浸器奖励，双倍活动时除外"
-    },
-    "SimulatedUniverseElite": {
-      "name": "剩余Boss材料掉落次数",
-      "help": "RogueWorld.SimulatedUniverseElite.help"
     }
   },
   "RogueBlessing": {

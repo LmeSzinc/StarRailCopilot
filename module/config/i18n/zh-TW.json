@@ -976,13 +976,13 @@
       "name": "每週農100精英怪",
       "help": ""
     },
+    "SimulatedUniverseFarm": {
+      "name": "農精英怪進度",
+      "help": ""
+    },
     "UseStamina": {
       "name": "用開拓力農遺器",
       "help": "每日副本任務將不再打本，所有開拓力將優先被用於領取浸器獎勵，雙倍活動時除外"
-    },
-    "SimulatedUniverseElite": {
-      "name": "RogueWorld.SimulatedUniverseElite.name",
-      "help": "RogueWorld.SimulatedUniverseElite.help"
     }
   },
   "RogueBlessing": {

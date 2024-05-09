@@ -653,6 +653,7 @@ class ConfigUpdater:
         ('Dungeon.Dungeon.NameAtDoubleCalyx', 'Dungeon.Dungeon.NameAtDoubleCalyx', convert_20_dungeon),
         ('Dungeon.DungeonDaily.CalyxGolden', 'Dungeon.DungeonDaily.CalyxGolden', convert_20_dungeon),
         ('Dungeon.DungeonDaily.CalyxCrimson', 'Dungeon.DungeonDaily.CalyxCrimson', convert_20_dungeon),
+        ('Rogue.RogueWorld.SimulatedUniverseElite', 'Rogue.RogueWorld.SimulatedUniverseFarm', convert_rogue_farm),
     ]
 
     @cached_property
@@ -863,6 +864,8 @@ class ConfigUpdater:
             yield 'Rogue.RogueBlessing.CustomResonanceFilter'
         if deep_get(data, 'Rogue.RogueBlessing.PresetCurioFilter') != 'custom':
             yield 'Rogue.RogueBlessing.CustomCurioFilter'
+        if deep_get(data, 'Rogue.RogueWorld.WeeklyFarming') != True:
+            yield 'Rogue.RogueWorld.SimulatedUniverseFarm'
 
     def get_hidden_args(self, data) -> t.Set[str]:
         """

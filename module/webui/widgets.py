@@ -325,11 +325,11 @@ def put_arg_input(kwargs: T_Output_Kwargs) -> Output:
     )
 
 
-def product_stored_row(kwargs: T_Output_Kwargs, key, value):
+def product_stored_row(kwargs: T_Output_Kwargs, key, value, style = "--input--"):
     kwargs = copy.copy(kwargs)
     kwargs["name"] += f'_{key}'
     kwargs["value"] = value
-    return put_input(**kwargs).style("--input--")
+    return put_input(**kwargs).style(style)
 
 
 def put_arg_stored(kwargs: T_Output_Kwargs) -> Output:
@@ -338,20 +338,41 @@ def put_arg_stored(kwargs: T_Output_Kwargs) -> Output:
 
     values = kwargs.pop("value", {})
     time_ = values.pop("time", "")
-
-    rows = [product_stored_row(kwargs, key, value) for key, value in values.items() if value]
-    if time_:
-        rows += [product_stored_row(kwargs, "time", time_)]
-    return put_scope(
-        f"arg_container-stored-{name}",
-        [
-            get_title_help(kwargs),
-            put_scope(
-                f"arg_stored-stored-value-{name}",
-                rows,
-            )
-        ]
-    )
+    
+    if "value" in values and "total" in values:
+        # display as counter style
+        counter = f'{values["value"]} / {values["total"]}'
+        rows = [product_stored_row(
+            kwargs, "counter", counter)]
+        if time_:
+            rows += [product_stored_row(kwargs, "time", time_)]
+        return put_scope(
+            f"arg_container-stored-{name}",
+            [
+                get_title_help(kwargs),
+                put_scope(
+                    f"arg_stored-stored-value-{name}",
+                    rows,
+                )
+            ]
+        )
+    else:
+        # display per key
+        rows = [product_stored_row(kwargs, key, value)
+                for key, value in values.items() if value]
+        if time_:
+            rows += [product_stored_row(kwargs, "time", time_)]
+        
+        return put_scope(
+            f"arg_container-stored-{name}",
+            [
+                get_title_help(kwargs),
+                put_scope(
+                    f"arg_stored-stored-value-{name}",
+                    rows,
+                )
+            ]
+        )
 
 
 def put_arg_select(kwargs: T_Output_Kwargs) -> Output:

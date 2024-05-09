@@ -258,9 +258,10 @@ RogueWorld:
   UseImmersifier: true
   DoubleEvent: true
   WeeklyFarming: false
-  UseStamina: false
-  SimulatedUniverseElite:
+  SimulatedUniverseFarm:
     stored: StoredSimulatedUniverseElite
+    display: disabled
+  UseStamina: false
 
 RogueBlessing:
   PresetBlessingFilter:

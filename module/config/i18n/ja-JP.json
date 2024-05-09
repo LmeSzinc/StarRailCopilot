@@ -976,13 +976,13 @@
       "name": "RogueWorld.WeeklyFarming.name",
       "help": "RogueWorld.WeeklyFarming.help"
     },
+    "SimulatedUniverseFarm": {
+      "name": "RogueWorld.SimulatedUniverseFarm.name",
+      "help": "RogueWorld.SimulatedUniverseFarm.help"
+    },
     "UseStamina": {
       "name": "RogueWorld.UseStamina.name",
       "help": "RogueWorld.UseStamina.help"
-    },
-    "SimulatedUniverseElite": {
-      "name": "RogueWorld.SimulatedUniverseElite.name",
-      "help": "RogueWorld.SimulatedUniverseElite.help"
     }
   },
   "RogueBlessing": {

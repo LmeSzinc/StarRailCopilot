@@ -262,6 +262,7 @@
       "Calyx_Crimson_Preservation_Herta_SupplyZone": "Rastros: Conservación (Zona de suministros)",
       "Calyx_Crimson_Preservation_Penacony_ClockStudiosThemePark": "Rastros: Conservación (Parque temático de los Estudios Reloj)",
       "Calyx_Crimson_The_Hunt_Jarilo_OutlyingSnowPlains": "Rastros: Cacería (Llanuras nevadas de las afueras)",
+      "Calyx_Crimson_The_Hunt_Penacony_SoulGladScorchsandAuditionVenue": "Rastros: Cacería (Recinto de las Audiciones FelizAlma en la Arena Ardiente)",
       "Calyx_Crimson_Abundance_Jarilo_BackwaterPass": "Rastros: Abundancia (Paso del Remanso)",
       "Calyx_Crimson_Abundance_Luofu_FyxestrollGarden": "Rastros: Abundancia (Jardín del Sosiego)",
       "Calyx_Crimson_Erudition_Jarilo_RivetTown": "Rastros: Erudición (Villarremache)",
@@ -271,6 +272,7 @@
       "Calyx_Crimson_Nihility_Luofu_AlchemyCommission": "Rastros: Nihilidad (Comisión de Alquimia)",
       "Stagnant_Shadow_Spike": "Ascension: Físico (Natasha / Clara / Luka / Sushang)",
       "Stagnant_Shadow_Perdition": "Ascension: Físico (Hanya / Argenti)",
+      "Stagnant_Shadow_Duty": "Ascension: Físico (Boothill / Robin)",
       "Stagnant_Shadow_Blaze": "Ascension: Fuego (Himeko / Asta / Hook)",
       "Stagnant_Shadow_Scorch": "Ascension: Fuego (Guinaifen / Topaz y Conti)",
       "Stagnant_Shadow_Ire": "Ascension: Fuego (Gallagher)",
@@ -313,6 +315,7 @@
       "Calyx_Crimson_Preservation_Herta_SupplyZone": "Rastros: Conservación (Zona de suministros)",
       "Calyx_Crimson_Preservation_Penacony_ClockStudiosThemePark": "Rastros: Conservación (Parque temático de los Estudios Reloj)",
       "Calyx_Crimson_The_Hunt_Jarilo_OutlyingSnowPlains": "Rastros: Cacería (Llanuras nevadas de las afueras)",
+      "Calyx_Crimson_The_Hunt_Penacony_SoulGladScorchsandAuditionVenue": "Rastros: Cacería (Recinto de las Audiciones FelizAlma en la Arena Ardiente)",
       "Calyx_Crimson_Abundance_Jarilo_BackwaterPass": "Rastros: Abundancia (Paso del Remanso)",
       "Calyx_Crimson_Abundance_Luofu_FyxestrollGarden": "Rastros: Abundancia (Jardín del Sosiego)",
       "Calyx_Crimson_Erudition_Jarilo_RivetTown": "Rastros: Erudición (Villarremache)",
@@ -376,6 +379,7 @@
       "Calyx_Crimson_Preservation_Herta_SupplyZone": "Rastros: Conservación (Zona de suministros)",
       "Calyx_Crimson_Preservation_Penacony_ClockStudiosThemePark": "Rastros: Conservación (Parque temático de los Estudios Reloj)",
       "Calyx_Crimson_The_Hunt_Jarilo_OutlyingSnowPlains": "Rastros: Cacería (Llanuras nevadas de las afueras)",
+      "Calyx_Crimson_The_Hunt_Penacony_SoulGladScorchsandAuditionVenue": "Rastros: Cacería (Recinto de las Audiciones FelizAlma en la Arena Ardiente)",
       "Calyx_Crimson_Abundance_Jarilo_BackwaterPass": "Rastros: Abundancia (Paso del Remanso)",
       "Calyx_Crimson_Abundance_Luofu_FyxestrollGarden": "Rastros: Abundancia (Jardín del Sosiego)",
       "Calyx_Crimson_Erudition_Jarilo_RivetTown": "Rastros: Erudición (Villarremache)",
@@ -390,6 +394,7 @@
       "do_not_achieve": "No hacer esta misión",
       "Stagnant_Shadow_Spike": "Ascension: Físico (Natasha / Clara / Luka / Sushang)",
       "Stagnant_Shadow_Perdition": "Ascension: Físico (Hanya / Argenti)",
+      "Stagnant_Shadow_Duty": "Ascension: Físico (Boothill / Robin)",
       "Stagnant_Shadow_Blaze": "Ascension: Fuego (Himeko / Asta / Hook)",
       "Stagnant_Shadow_Scorch": "Ascension: Fuego (Guinaifen / Topaz y Conti)",
       "Stagnant_Shadow_Ire": "Ascension: Fuego (Gallagher)",
@@ -535,7 +540,8 @@
       "Echo_of_War_Destruction_Beginning": "El principio de la Destrucción (Estación Espacial Herta)",
       "Echo_of_War_End_of_the_Eternal_Freeze": "El fin del Hielo Eterno (Jarilo-VI)",
       "Echo_of_War_Divine_Seed": "Semilla divina (El Luofu de Xianzhou)",
-      "Echo_of_War_Borehole_Planet_Old_Crater": "Cráter del planeta devorado (Estación Espacial Herta)"
+      "Echo_of_War_Borehole_Planet_Old_Crater": "Cráter del planeta devorado (Estación Espacial Herta)",
+      "Echo_of_War_Salutations_of_Ashen_Dreams": "Ecos de la guerra: Tributo del sueño ceniciento (Colonipenal)"
     },
     "Team": {
       "name": "Equipo de mazmorra",
@@ -980,9 +986,9 @@
       "name": "Reclamar de planers mediante poder trazacaminos",
       "help": "La tarea de mazmorra ya no se ejecutará y todo el poder trazacaminos se usará primero para reclamar recompensas de inmersión, excepto para eventos dobles"
     },
-    "SimulatedUniverseElite": {
-      "name": "RogueWorld.SimulatedUniverseElite.name",
-      "help": "RogueWorld.SimulatedUniverseElite.help"
+    "SimulatedUniverseFarm": {
+      "name": "Progreso de élites derrotadas",
+      "help": ""
     }
   },
   "RogueBlessing": {

@@ -262,6 +262,7 @@
       "Calyx_Crimson_Preservation_Herta_SupplyZone": "軌跡素材：存護（サポート部分）",
       "Calyx_Crimson_Preservation_Penacony_ClockStudiosThemePark": "軌跡素材：存護（クラークフィルムランド）",
       "Calyx_Crimson_The_Hunt_Jarilo_OutlyingSnowPlains": "軌跡素材：巡狩（郊外雪原）",
+      "Calyx_Crimson_The_Hunt_Penacony_SoulGladScorchsandAuditionVenue": "軌跡素材：巡狩（スラーダ熱砂オーディション会場）",
       "Calyx_Crimson_Abundance_Jarilo_BackwaterPass": "軌跡素材：豊穣（外縁通路）",
       "Calyx_Crimson_Abundance_Luofu_FyxestrollGarden": "軌跡素材：豊穣（綏園）",
       "Calyx_Crimson_Erudition_Jarilo_RivetTown": "軌跡素材：知恵（リベットタウン）",
@@ -271,6 +272,7 @@
       "Calyx_Crimson_Nihility_Luofu_AlchemyCommission": "軌跡素材：虚無（丹鼎司）",
       "Stagnant_Shadow_Spike": "キャラクター昇格素材：物理（ナターシャ / クラーラ / ルカ / 素裳）",
       "Stagnant_Shadow_Perdition": "キャラクター昇格素材：物理（寒鴉 / アルジェンティ）",
+      "Stagnant_Shadow_Duty": "キャラクター昇格素材：物理（ブートヒル / ロビン）",
       "Stagnant_Shadow_Blaze": "キャラクター昇格素材：炎（姫子 / アスター / フック）",
       "Stagnant_Shadow_Scorch": "キャラクター昇格素材：炎（桂乃芬 / トパーズ&カブ）",
       "Stagnant_Shadow_Ire": "キャラクター昇格素材：炎（ギャラガー）",
@@ -313,6 +315,7 @@
       "Calyx_Crimson_Preservation_Herta_SupplyZone": "軌跡素材：存護（サポート部分）",
       "Calyx_Crimson_Preservation_Penacony_ClockStudiosThemePark": "軌跡素材：存護（クラークフィルムランド）",
       "Calyx_Crimson_The_Hunt_Jarilo_OutlyingSnowPlains": "軌跡素材：巡狩（郊外雪原）",
+      "Calyx_Crimson_The_Hunt_Penacony_SoulGladScorchsandAuditionVenue": "軌跡素材：巡狩（スラーダ熱砂オーディション会場）",
       "Calyx_Crimson_Abundance_Jarilo_BackwaterPass": "軌跡素材：豊穣（外縁通路）",
       "Calyx_Crimson_Abundance_Luofu_FyxestrollGarden": "軌跡素材：豊穣（綏園）",
       "Calyx_Crimson_Erudition_Jarilo_RivetTown": "軌跡素材：知恵（リベットタウン）",
@@ -376,6 +379,7 @@
       "Calyx_Crimson_Preservation_Herta_SupplyZone": "軌跡素材：存護（サポート部分）",
       "Calyx_Crimson_Preservation_Penacony_ClockStudiosThemePark": "軌跡素材：存護（クラークフィルムランド）",
       "Calyx_Crimson_The_Hunt_Jarilo_OutlyingSnowPlains": "軌跡素材：巡狩（郊外雪原）",
+      "Calyx_Crimson_The_Hunt_Penacony_SoulGladScorchsandAuditionVenue": "軌跡素材：巡狩（スラーダ熱砂オーディション会場）",
       "Calyx_Crimson_Abundance_Jarilo_BackwaterPass": "軌跡素材：豊穣（外縁通路）",
       "Calyx_Crimson_Abundance_Luofu_FyxestrollGarden": "軌跡素材：豊穣（綏園）",
       "Calyx_Crimson_Erudition_Jarilo_RivetTown": "軌跡素材：知恵（リベットタウン）",
@@ -390,6 +394,7 @@
       "do_not_achieve": "do_not_achieve",
       "Stagnant_Shadow_Spike": "キャラクター昇格素材：物理（ナターシャ / クラーラ / ルカ / 素裳）",
       "Stagnant_Shadow_Perdition": "キャラクター昇格素材：物理（寒鴉 / アルジェンティ）",
+      "Stagnant_Shadow_Duty": "キャラクター昇格素材：物理（ブートヒル / ロビン）",
       "Stagnant_Shadow_Blaze": "キャラクター昇格素材：炎（姫子 / アスター / フック）",
       "Stagnant_Shadow_Scorch": "キャラクター昇格素材：炎（桂乃芬 / トパーズ&カブ）",
       "Stagnant_Shadow_Ire": "キャラクター昇格素材：炎（ギャラガー）",
@@ -535,7 +540,8 @@
       "Echo_of_War_Destruction_Beginning": "歴戦余韻・壊滅の始まり (宇宙ステーション「ヘルタ」)",
       "Echo_of_War_End_of_the_Eternal_Freeze": "歴戦余韻・寒波の幕切れ (ヤリーロ-VI)",
       "Echo_of_War_Divine_Seed": "歴戦余韻・不死の神実 (仙舟「羅浮」)",
-      "Echo_of_War_Borehole_Planet_Old_Crater": "歴戦余韻・星を蝕む往日の面影 (宇宙ステーション「ヘルタ」)"
+      "Echo_of_War_Borehole_Planet_Old_Crater": "歴戦余韻・星を蝕む往日の面影 (宇宙ステーション「ヘルタ」)",
+      "Echo_of_War_Salutations_of_Ashen_Dreams": "歴戦余韻・現世の夢の礼賛 (ピノコニー)"
     },
     "Team": {
       "name": "Weekly.Team.name",
@@ -980,9 +986,9 @@
       "name": "RogueWorld.UseStamina.name",
       "help": "RogueWorld.UseStamina.help"
     },
-    "SimulatedUniverseElite": {
-      "name": "RogueWorld.SimulatedUniverseElite.name",
-      "help": "RogueWorld.SimulatedUniverseElite.help"
+    "SimulatedUniverseFarm": {
+      "name": "RogueWorld.SimulatedUniverseFarm.name",
+      "help": "RogueWorld.SimulatedUniverseFarm.help"
     }
   },
   "RogueBlessing": {

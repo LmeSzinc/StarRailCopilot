@@ -201,7 +201,7 @@
       "DoubleEvent": true,
       "WeeklyFarming": false,
       "UseStamina": false,
-      "SimulatedUniverseElite": {}
+      "SimulatedUniverseFarm": {}
     },
     "RogueBlessing": {
       "PresetBlessingFilter": "preset",

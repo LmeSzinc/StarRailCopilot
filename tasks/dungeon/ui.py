@@ -82,6 +82,9 @@ class OcrDungeonList(Ocr):
         # 乙太之蕾•雅利洛-Ⅵ
         result = re.sub(r'-[VⅤ][IⅠ]', '-Ⅵ', result)
 
+        # 苏乐达™热砂海选会场
+        result = re.sub(r'(苏乐达|蘇樂達|SoulGlad|スラーダ|FelizAlma)[rtT]*M', r'\1', result)
+
         result = super().after_process(result)
 
         if self.lang == 'cn':

@@ -325,11 +325,17 @@ def put_arg_input(kwargs: T_Output_Kwargs) -> Output:
     )
 
 
-def product_stored_row(kwargs: T_Output_Kwargs, key, value):
-    kwargs = copy.copy(kwargs)
-    kwargs["name"] += f'_{key}'
-    kwargs["value"] = value
-    return put_input(**kwargs).style("--input--")
+def product_stored_row(key, value):
+    if key[-1].isdigit():
+        # quest1, quest2, quest3
+        return [put_text(value).style("--dashboard-time--")]
+    else:
+        # calyx, relic
+        # 3 (relic)
+        return [
+            put_text(value).style("--dashboard-value--"),
+            put_text(f" ({key})").style("--dashboard-time--"),
+        ]
 
 
 def put_arg_stored(kwargs: T_Output_Kwargs) -> Output:
@@ -337,11 +343,32 @@ def put_arg_stored(kwargs: T_Output_Kwargs) -> Output:
     kwargs["disabled"] = True
 
     values = kwargs.pop("value", {})
+    value = values.pop("value", "")
+    total = values.pop("total", "")
     time_ = values.pop("time", "")
 
-    rows = [product_stored_row(kwargs, key, value) for key, value in values.items() if value]
+    if value != "" and total != "":
+        rows = [put_scope(f"dashboard-value-{name}", [
+            put_text(value).style("--dashboard-value--"),
+            put_text(f" / {total}").style("--dashboard-time--"),
+        ])]
+    elif value != "":
+        rows = [put_scope(f"dashboard-value-{name}", [
+            put_text(value).style("--dashboard-value--")
+        ])]
+    else:
+        rows = []
+    if values:
+        rows += [
+            put_scope(f"dashboard-value-{name}-{key}", product_stored_row(key, value))
+            for key, value in values.items() if value != ""
+        ]
+
     if time_:
-        rows += [product_stored_row(kwargs, "time", time_)]
+        rows.append(
+            put_text(time_).style("--dashboard-time--")
+        )
+
     return put_scope(
         f"arg_container-stored-{name}",
         [

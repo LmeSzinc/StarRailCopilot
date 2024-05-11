@@ -159,6 +159,7 @@ class GenerateKeyword:
         base = self.keyword_format.copy()
         text_id = keyword.pop('text_id')
         if text_id is None:
+            logger.warning(f'Empty text_id in {keyword}')
             return
         # id
         self.keyword_index += 1
@@ -191,3 +192,20 @@ class GenerateKeyword:
 
     def __call__(self, *args, **kwargs):
         self.generate()
+
+
+class ShareData(GenerateKeyword):
+    @cached_property
+    def GameplayGuideData(self):
+        return self.read_file('./ExcelOutput/GameplayGuideData.json')
+
+    @cached_property
+    def MappingInfo(self):
+        return self.read_file('./ExcelOutput/MappingInfo.json')
+
+    @cached_property
+    def ItemConfig(self):
+        return self.read_file('./ExcelOutput/ItemConfig.json')
+
+
+SHARE_DATA = ShareData()

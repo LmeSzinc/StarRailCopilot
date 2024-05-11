@@ -20,6 +20,7 @@ class DungeonTab(Keyword):
 class DungeonList(Keyword):
     instances: ClassVar = {}
 
+    dungeon_id: int
     plane_id: int
 
     @cached_property
@@ -184,6 +185,20 @@ class DungeonList(Keyword):
             return ''
 
     @classmethod
+    def find_dungeon_id(cls, dungeon_id):
+        """
+        Args:
+            dungeon_id:
+
+        Returns:
+            DungeonList: DungeonList object or None
+        """
+        for instance in cls.instances.values():
+            if instance.dungeon_id == dungeon_id:
+                return instance
+        return None
+
+    @classmethod
     def find_dungeon_by_string(cls, cn='', en='', **kwargs):
         """
         Args:
@@ -223,7 +238,6 @@ class DungeonList(Keyword):
             return dungeons[0]
         else:
             return None
-
 
 
 @dataclass(repr=False)

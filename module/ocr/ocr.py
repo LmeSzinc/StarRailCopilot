@@ -325,7 +325,7 @@ class Ocr:
 
 
 class Digit(Ocr):
-    def __init__(self, button: ButtonWrapper, lang='en', name=None):
+    def __init__(self, button: ButtonWrapper, lang=None, name=None):
         super().__init__(button, lang=lang, name=name)
 
     def format_result(self, result) -> int:
@@ -345,7 +345,7 @@ class Digit(Ocr):
 
 
 class DigitCounter(Ocr):
-    def __init__(self, button: ButtonWrapper, lang='en', name=None):
+    def __init__(self, button: ButtonWrapper, lang=None, name=None):
         super().__init__(button, lang=lang, name=name)
 
     @classmethod

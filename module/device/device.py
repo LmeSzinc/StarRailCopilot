@@ -87,6 +87,12 @@ class Device(Screenshot, Control, AppControl):
         if self.config.EmulatorInfo_Emulator == 'auto':
             _ = self.emulator_instance
 
+        # SRC only, use nemu_ipc if available
+        available = self.nemu_ipc_available()
+        logger.attr('nemu_ipc_available', available)
+        if available:
+            self.config.override(Emulator_ScreenshotMethod='nemu_ipc')
+
         self.screenshot_interval_set()
         self.method_check()
 
@@ -100,12 +106,6 @@ class Device(Screenshot, Control, AppControl):
                 self.early_maatouch_init()
             if self.config.Emulator_ControlMethod == 'minitouch':
                 self.early_minitouch_init()
-
-        # SRC only, use nemu_ipc if available
-        available = self.nemu_ipc_available()
-        logger.attr('nemu_ipc_available', available)
-        if available:
-            self.config.override(Emulator_ScreenshotMethod='nemu_ipc')
 
     def run_simple_screenshot_benchmark(self):
         """

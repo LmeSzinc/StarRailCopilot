@@ -1,10 +1,12 @@
+import re
+
 import cv2
 from pponnxcr.predict_system import BoxedResult
 from pydantic import BaseModel
 
 from module.base.utils import area_center, area_in_area
 from module.logger import logger
-from module.ocr.ocr import OcrWhiteLetterOnComplexBackground
+from module.ocr.ocr import Ocr, OcrWhiteLetterOnComplexBackground
 from module.ui.scroll import AdaptiveScroll
 from tasks.daily.synthesize import SynthesizeUI
 from tasks.planner.assets.assets_planner_result import *
@@ -26,7 +28,16 @@ class PlannerResultRow(BaseModel):
         return self.item == other.item
 
 
-class OcrPlannerResult(OcrWhiteLetterOnComplexBackground):
+class OcrItemName(Ocr):
+    def after_process(self, result):
+        result = result.replace('念火之心', '忿火之心')
+        result = re.sub('工造机$', '工造机杼', result)
+        result = re.sub('工造轮', '工造迴轮', result)
+        result = re.sub('月狂牙', '月狂獠牙', result)
+        return result
+
+
+class OcrPlannerResult(OcrWhiteLetterOnComplexBackground, OcrItemName):
     def __init__(self):
         # Planner currently CN only
         super().__init__(OCR_RESULT, lang='cn')
@@ -146,7 +157,7 @@ class PlannerResult(SynthesizeUI):
         Pages:
             in: planner result
         """
-        logger.hr('Parse planner result')
+        logger.hr('Parse planner result', level=2)
         scroll = AdaptiveScroll(RESULT_SCROLL.button, name=RESULT_SCROLL.name)
         scroll.drag_threshold = 0.1
         scroll.edge_threshold = 0.1

@@ -28,6 +28,22 @@ class ItemBase(Keyword):
         else:
             return None
 
+    @cached_property
+    def is_rarity_gold(self):
+        return self.rarity == 'SuperRare'
+
+    @cached_property
+    def is_rarity_purple(self):
+        return self.rarity == 'VeryRare'
+
+    @cached_property
+    def is_rarity_blue(self):
+        return self.rarity == 'Rare'
+
+    @cached_property
+    def is_rarity_green(self):
+        return self.rarity == 'NotNormal'
+
 
 @dataclass(repr=False)
 class ItemAscension(ItemBase):

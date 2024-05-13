@@ -188,7 +188,11 @@ class RogueEvent(RogueUI):
         # Only one option, click directly
         if count == 1:
             if self.interval_is_reached(CHOOSE_OPTION, interval=2):
-                self.device.click(self.valid_options[0].prefix_icon)
+                button = self.valid_options[0].prefix_icon
+                # Option at bottom
+                if button.area[1] > 500 and SCROLL_OPTION.appear(main=self):
+                    SCROLL_OPTION.set_bottom(main=self)
+                self.device.click(button)
                 self.interval_reset(CHOOSE_OPTION, interval=2)
                 return True
 

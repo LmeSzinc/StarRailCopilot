@@ -235,6 +235,10 @@ class RogueExit(CombatInteract):
 
         ocr = OcrDomainExit(OCR_DOMAIN_EXIT)
         results = ocr.matched_ocr(image, keyword_classes=MapPlane)
+        # Try without preprocess
+        if not len(results):
+            ocr.white_preprocess = False
+            results = ocr.matched_ocr(image, keyword_classes=MapPlane)
         centers = [area_center(result.area) for result in results]
         logger.info(f'DomainDoor: {centers}')
         directions = [self.screen2direction(center) for center in centers]

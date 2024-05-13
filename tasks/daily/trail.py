@@ -90,7 +90,8 @@ class CharacterTrial(UI):
 
             if self.match_template_color(START_TRIAL):
                 break
-            if self.appear_then_click(MAP_EXIT):
+            if self.is_in_map_exit(interval=2):
+                self.device.click(MAP_EXIT)
                 continue
             if self.handle_popup_confirm():
                 continue

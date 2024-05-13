@@ -292,7 +292,8 @@ class RogueEntry(RouteBase, RogueRewardHandler, RoguePathHandler, DungeonUI):
             if self.handle_ui_back(self._is_page_rogue_path):
                 continue
             # From ui_leave_special()
-            if self.appear_then_click(MAP_EXIT, interval=2):
+            if self.is_in_map_exit(interval=2):
+                self.device.click(MAP_EXIT)
                 continue
             if self.handle_popup_confirm():
                 continue

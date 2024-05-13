@@ -31,6 +31,7 @@ class Route(RouteBase):
         | ----------- | -------------------------- | --------- | -------- |
         | spawn       | Waypoint((201.2, 1071.4)), | 6.7       | 4        |
         | enemy1right | Waypoint((200.3, 1032.4)), | 342.0     | 343      |
+        | node1       | Waypoint((194.6, 1023.4)), | 109.3     | 294      |
         | enemy1left  | Waypoint((168.6, 1022.3)), | 279.8     | 89       |
         | node2       | Waypoint((118.4, 1019.0)), | 282.9     | 285      |
         | enemy2left  | Waypoint((105.2, 1012.0)), | 317.9     | 315      |
@@ -46,6 +47,7 @@ class Route(RouteBase):
             Waypoint((103.4, 919.2)), end_rotation=4,
             left_door=Waypoint((98.8, 908.9)), right_door=Waypoint((111.4, 909.8)))
         enemy1right = Waypoint((200.3, 1032.4))
+        node1 = Waypoint((194.6, 1023.4))
         enemy1left = Waypoint((168.6, 1022.3))
         node2 = Waypoint((118.4, 1019.0))
         enemy2left = Waypoint((105.2, 1012.0))
@@ -57,20 +59,22 @@ class Route(RouteBase):
         # 1
         self.rotation_set(315)
         self.clear_enemy(
-            enemy1right.set_threshold(5),
-            enemy1left.set_threshold(5),
+            enemy1right.set_threshold(3),
+            node1.set_threshold(3),
+            enemy1left.set_threshold(3),
         )
         # 2
         self.clear_enemy(
-            enemy1left.set_threshold(5),
+            enemy1left.set_threshold(3),
             node2.set_threshold(5),
             enemy2left,
             enemy2right,
         )
         # 3
+        self.rotation_set(0)
         self.clear_enemy(
-            node3.set_threshold(5),
-            enemy3.straight_run(),
+            node3.set_threshold(3),
+            enemy3,
         )
 
     def Jarilo_CorridorofFadingEchoes_F1_X266Y457(self):

@@ -9,7 +9,7 @@ from module.ui.scroll import AdaptiveScroll
 from tasks.base.assets.assets_base_popup import POPUP_CANCEL
 from tasks.base.ui import UI
 from tasks.combat.assets.assets_combat_support import COMBAT_SUPPORT_ADD, COMBAT_SUPPORT_LIST, \
-    COMBAT_SUPPORT_LIST_GRID, COMBAT_SUPPORT_LIST_SCROLL, COMBAT_SUPPORT_SELECTED, SUPPORT_SELECTED
+    COMBAT_SUPPORT_LIST_GRID, COMBAT_SUPPORT_LIST_SCROLL, SUPPORT_SELECTED
 from tasks.combat.assets.assets_combat_team import COMBAT_TEAM_DISMISSSUPPORT, COMBAT_TEAM_SUPPORT
 
 
@@ -79,8 +79,8 @@ class SupportCharacter:
         Returns:
             tuple: (x1, y1, x2, y2) of selected icon search area
         """
-        return (
-            self.button[0], self.button[1] - 5, self.button[0] + 30, self.button[1]) if self.button else None
+        # Check the left of character avatar
+        return 0, self.button[1], self.button[0], self.button[3]
 
 
 class NextSupportCharacter:
@@ -227,7 +227,7 @@ class CombatSupport(UI):
             out: COMBAT_SUPPORT_LIST
         """
         logger.hr("Combat support select")
-        COMBAT_SUPPORT_SELECTED.matched_button.search = character.selected_icon_search()
+        logger.info(f'Select: {character}')
         skip_first_screenshot = False
         interval = Timer(2)
         while 1:
@@ -237,7 +237,10 @@ class CombatSupport(UI):
                 self.device.screenshot()
 
             # End
-            if self.appear(COMBAT_SUPPORT_SELECTED, similarity=0.75):
+            area = character.selected_icon_search()
+            image = self.image_crop(area, copy=False)
+            if SUPPORT_SELECTED.match_template(image, similarity=0.75, direct_match=True):
+                logger.info('Character support selected')
                 return True
 
             if interval.reached():
@@ -274,6 +277,7 @@ class CombatSupport(UI):
             in: COMBAT_SUPPORT_LIST
             out: COMBAT_SUPPORT_LIST
         """
+        logger.hr("Next support select")
         skip_first_screenshot = True
         scroll = AdaptiveScroll(area=COMBAT_SUPPORT_LIST_SCROLL.area,
                                 name=COMBAT_SUPPORT_LIST_SCROLL.name)
@@ -288,6 +292,7 @@ class CombatSupport(UI):
 
                 # End
                 if next_support is not None and next_support.is_next_support_character_selected(self.device.image):
+                    logger.info('Next support selected')
                     return
 
                 if interval.reached():

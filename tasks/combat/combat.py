@@ -218,6 +218,9 @@ class Combat(CombatInteract, CombatPrepare, CombatState, CombatTeam, CombatSuppo
         Returns:
             bool: True to re-enter combat and run with another wave settings
         """
+        if self.config.stored.TrailblazePower.value < self.combat_wave_cost:
+            logger.info('Current trailblaze power is not enough for next run')
+            return False
         # Wave limit
         if self.combat_wave_limit:
             if self.combat_wave_done < self.combat_wave_limit:
@@ -230,6 +233,7 @@ class Combat(CombatInteract, CombatPrepare, CombatState, CombatTeam, CombatSuppo
         if self.config.stored.TrailblazePower.value >= self.combat_wave_cost:
             logger.info('Still having some trailblaze power run with less waves to empty it')
             return True
+        return False
 
     def combat_finish(self) -> bool:
         """

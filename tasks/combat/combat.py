@@ -133,6 +133,7 @@ class Combat(CombatInteract, CombatPrepare, CombatState, CombatTeam, CombatSuppo
                 trial += 1
                 continue
             if self.handle_combat_interact():
+                self.map_A_timer.reset()
                 continue
             if self.handle_ascension_dungeon_prepare():
                 continue

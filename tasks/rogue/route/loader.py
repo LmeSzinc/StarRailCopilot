@@ -177,6 +177,10 @@ class RouteLoader(RogueUI, MinimapWrapper, RouteLoader_, CharacterSwitch):
             return True
         # Before Combat_Luofu_Cloudford_F1_X281Y873
         if route.name in [
+            # ('Combat_Jarilo_BackwaterPass_F1_X507Y733', 0.26, (503.2, 736.9)),
+            # ('Combat_Herta_SupplyZone_F2_X45Y369', 0.168, (46.5, 370.0))
+            'Jarilo_BackwaterPass_F1_X507Y733',
+            'Jarilo_BackwaterPass_F1_X555Y643',
             'Occurrence_Jarilo_BackwaterPass_F1_X553Y643',
             'Combat_Jarilo_GreatMine_F1_X545Y513',
             'Combat_Herta_SupplyZone_F2_X45Y369',

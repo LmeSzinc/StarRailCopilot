@@ -4,13 +4,14 @@ from module.base.timer import Timer
 from module.exception import GameNotRunningError, GamePageUnknownError
 from module.logger import logger
 from module.ocr.ocr import Ocr
-from tasks.base.assets.assets_base_page import MAP_EXIT
+from tasks.base.assets.assets_base_main_page import ROGUE_LEAVE_FOR_NOW
+from tasks.base.assets.assets_base_page import CLOSE, MAIN_GOTO_CHARACTER, MAP_EXIT
 from tasks.base.main_page import MainPage
-from tasks.base.page import Page, page_main
+from tasks.base.page import Page, page_gacha, page_main
 from tasks.combat.assets.assets_combat_finish import COMBAT_EXIT
 from tasks.combat.assets.assets_combat_interact import MAP_LOADING
 from tasks.combat.assets.assets_combat_prepare import COMBAT_PREPARE
-from tasks.daily.assets.assets_daily_trial import INFO_CLOSE
+from tasks.daily.assets.assets_daily_trial import INFO_CLOSE, START_TRIAL
 from tasks.login.assets.assets_login import LOGIN_CONFIRM
 
 
@@ -24,6 +25,8 @@ class UI(MainPage):
             page (Page):
             interval:
         """
+        if page == page_main:
+            return self.is_in_main(interval=interval)
         return self.appear(page.check_button, interval=interval)
 
     def ui_get_current_page(self, skip_first_screenshot=True):
@@ -139,7 +142,7 @@ class UI(MainPage):
             for page in Page.iter_pages():
                 if page.parent is None or page.check_button is None:
                     continue
-                if self.appear(page.check_button, interval=5):
+                if self.ui_page_appear(page, interval=5):
                     logger.info(f'Page switch: {page} -> {page.parent}')
                     self.handle_lang_check(page)
                     if self.ui_page_confirm(page):
@@ -297,14 +300,41 @@ class UI(MainPage):
                 if additional():
                     continue
 
-    def is_in_main(self):
-        if self.appear(page_main.check_button):
-            if self.image_color_count(page_main.check_button, color=(235, 235, 235), threshold=234, count=400):
-                return True
-        if self.appear(MAP_EXIT):
+    def is_in_main(self, interval=0):
+        self.device.stuck_record_add(MAIN_GOTO_CHARACTER)
+
+        if interval and not self.interval_is_reached(MAIN_GOTO_CHARACTER, interval=interval):
+            return False
+
+        appear = False
+        if MAIN_GOTO_CHARACTER.match_template_binary(self.device.image):
+            if self.image_color_count(MAIN_GOTO_CHARACTER, color=(235, 235, 235), threshold=234, count=400):
+                appear = True
+        if not appear:
+            if MAP_EXIT.match_template_binary(self.device.image):
+                if self.image_color_count(MAP_EXIT, color=(235, 235, 235), threshold=221, count=50):
+                    appear = True
+
+        if appear and interval:
+            self.interval_reset(MAIN_GOTO_CHARACTER, interval=interval)
+
+        return appear
+
+    def is_in_map_exit(self, interval=0):
+        self.device.stuck_record_add(MAP_EXIT)
+
+        if interval and not self.interval_is_reached(MAP_EXIT, interval=interval):
+            return False
+
+        appear = False
+        if MAP_EXIT.match_template_binary(self.device.image):
             if self.image_color_count(MAP_EXIT, color=(235, 235, 235), threshold=221, count=50):
-                return True
-        return False
+                appear = True
+
+        if appear and interval:
+            self.interval_reset(MAP_EXIT, interval=interval)
+
+        return appear
 
     def ui_goto_main(self):
         return self.ui_ensure(destination=page_main)
@@ -380,3 +410,50 @@ class UI(MainPage):
             button (Button):
         """
         pass
+
+    def ui_leave_special(self):
+        """
+        Leave from:
+        - Rogue domains
+        - Character trials
+
+        Returns:
+            bool: If left a special plane
+
+        Pages:
+            in: Any
+            out: page_main
+        """
+        if not self.is_in_map_exit():
+            return False
+
+        logger.info('UI leave special')
+        skip_first_screenshot = True
+        clicked = False
+        while 1:
+            if skip_first_screenshot:
+                skip_first_screenshot = False
+            else:
+                self.device.screenshot()
+
+            # End
+            if clicked:
+                if self.is_in_main():
+                    logger.info(f'Leave to {page_main}')
+                    break
+
+            if self.is_in_map_exit(interval=2):
+                self.device.click(MAP_EXIT)
+                continue
+            if self.handle_popup_confirm():
+                continue
+            if self.match_template_color(START_TRIAL, interval=2):
+                logger.info(f'{START_TRIAL} -> {CLOSE}')
+                self.device.click(CLOSE)
+                clicked = True
+                continue
+            if self.handle_ui_close(page_gacha.check_button, interval=2):
+                continue
+            if self.appear_then_click(ROGUE_LEAVE_FOR_NOW, interval=2):
+                clicked = True
+                continue

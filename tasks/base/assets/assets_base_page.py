@@ -280,13 +280,22 @@ MAP_CHECK = ButtonWrapper(
 )
 MAP_EXIT = ButtonWrapper(
     name='MAP_EXIT',
-    share=Button(
-        file='./assets/share/base/page/MAP_EXIT.png',
-        area=(27, 46, 44, 74),
-        search=(7, 26, 64, 94),
-        color=(142, 144, 148),
-        button=(27, 46, 44, 74),
-    ),
+    share=[
+        Button(
+            file='./assets/share/base/page/MAP_EXIT.png',
+            area=(27, 46, 44, 74),
+            search=(7, 26, 64, 94),
+            color=(142, 144, 148),
+            button=(27, 46, 44, 74),
+        ),
+        Button(
+            file='./assets/share/base/page/MAP_EXIT.2.png',
+            area=(27, 46, 44, 74),
+            search=(7, 26, 64, 94),
+            color=(160, 187, 206),
+            button=(27, 46, 44, 74),
+        ),
+    ],
 )
 MAP_GOTO_WORLD = ButtonWrapper(
     name='MAP_GOTO_WORLD',

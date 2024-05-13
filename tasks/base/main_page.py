@@ -5,11 +5,9 @@ from module.config.server import VALID_LANG
 from module.exception import RequestHumanTakeover, ScriptError
 from module.logger import logger
 from module.ocr.ocr import OcrWhiteLetterOnComplexBackground
-from tasks.base.assets.assets_base_main_page import OCR_MAP_NAME, ROGUE_LEAVE_FOR_NOW
-from tasks.base.assets.assets_base_page import CLOSE, MAP_EXIT
-from tasks.base.page import Page, page_gacha, page_main
+from tasks.base.assets.assets_base_main_page import OCR_MAP_NAME
+from tasks.base.page import Page, page_main
 from tasks.base.popup import PopupHandler
-from tasks.daily.assets.assets_daily_trial import START_TRIAL
 from tasks.map.keywords import KEYWORDS_MAP_PLANE, MapPlane
 
 
@@ -158,49 +156,3 @@ class MainPage(PopupHandler):
 
         self.handle_lang_check(page=page_main)
         return True
-
-    def ui_leave_special(self):
-        """
-        Leave from:
-        - Rogue domains
-        - Character trials
-
-        Returns:
-            bool: If left a special plane
-
-        Pages:
-            in: Any
-            out: page_main
-        """
-        if not self.appear(MAP_EXIT):
-            return False
-
-        logger.info('UI leave special')
-        skip_first_screenshot = True
-        clicked = False
-        while 1:
-            if skip_first_screenshot:
-                skip_first_screenshot = False
-            else:
-                self.device.screenshot()
-
-            # End
-            if clicked:
-                if self.appear(page_main.check_button):
-                    logger.info(f'Leave to {page_main}')
-                    break
-
-            if self.appear_then_click(MAP_EXIT, interval=2):
-                continue
-            if self.handle_popup_confirm():
-                continue
-            if self.match_template_color(START_TRIAL, interval=2):
-                logger.info(f'{START_TRIAL} -> {CLOSE}')
-                self.device.click(CLOSE)
-                clicked = True
-                continue
-            if self.handle_ui_close(page_gacha.check_button, interval=2):
-                continue
-            if self.appear_then_click(ROGUE_LEAVE_FOR_NOW, interval=2):
-                clicked = True
-                continue

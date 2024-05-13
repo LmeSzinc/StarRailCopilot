@@ -210,7 +210,8 @@ class ForgottenHallUI(DungeonUI, ForgottenHallTeam):
                 logger.info("Forgotten hall dungeon exited")
                 break
 
-            if self.appear_then_click(MAP_EXIT):
+            if self.is_in_map_exit(interval=2):
+                self.device.click(MAP_EXIT)
                 continue
             if self.handle_popup_confirm():
                 continue

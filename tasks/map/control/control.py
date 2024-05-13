@@ -133,6 +133,7 @@ class MapControl(Combat, AimDetectorMixin):
         """
         logger.hr('Goto', level=2)
         logger.info(f'Goto {waypoint}')
+        self.screenshot_tracking_add()
         self.waypoint = waypoint
         self.device.stuck_record_clear()
         self.device.click_record_clear()
@@ -353,7 +354,6 @@ class MapControl(Combat, AimDetectorMixin):
             list[str]: A list of walk result
         """
         logger.hr('Goto', level=1)
-        self.screenshot_tracking_add()
         self.map_A_timer.clear()
         self.map_E_timer.clear()
         self.map_run_2x_timer.clear()

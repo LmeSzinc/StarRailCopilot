@@ -63,7 +63,7 @@ class Route(RouteBase):
         )
         # 2
         self.clear_enemy(
-            node2,
+            node2.set_threshold(3),
             enemy2.straight_run(),
         )
         # 3

@@ -192,6 +192,10 @@ class RouteLoader(RogueUI, MinimapWrapper, RouteLoader_, CharacterSwitch):
             # ('Occurrence_Luofu_DivinationCommission_F2_X149Y659', 0.237, (148.9, 658.8)),
             # ('Occurrence_Luofu_DivinationCommission_F2_X425Y791', 0.11, (425.2, 793.8))
             'Occurrence_Luofu_DivinationCommission_F2_X149Y659',
+            # ('Combat_Luofu_DivinationCommission_F1_X97Y457', 0.222, (97.8, 456.9)),
+            # ('Combat_Luofu_ScalegorgeWaterscape_F1_X415Y261', 0.112, (371.8, 289.4)),
+            # ('Combat_Herta_SupplyZone_F2_X45Y369', 0.104, (11.7, 367.6))
+            'Combat_Luofu_DivinationCommission_F1_X97Y457',
         ] and similarity > 0.15:
             return True
         if route.name in [

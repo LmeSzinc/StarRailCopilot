@@ -16,7 +16,7 @@ from tasks.character.keywords import CharacterList, DICT_SORTED_RANGES, KEYWORDS
 
 class OcrCharacterName(OcrWhiteLetterOnComplexBackground):
     merge_thres_x = 20
-    merge_thres_y = 20
+    merge_thres_y = 10
 
     def after_process(self, result):
         result = result.replace('蛆', '妲')

@@ -181,6 +181,9 @@ class Combat(CombatInteract, CombatPrepare, CombatState, CombatTeam, CombatSuppo
                 is_executing = False
             if self.handle_combat_state():
                 continue
+            # Battle pass popup appears just after combat finished and before blessings
+            if self.handle_battle_pass_notification():
+                continue
 
     def _combat_can_again(self) -> bool:
         """

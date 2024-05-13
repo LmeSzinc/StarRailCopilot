@@ -192,6 +192,14 @@ class CombatSupport(UI):
             out: COMBAT_SUPPORT_LIST
         """
         logger.hr("Combat support search")
+        # Search prioritize characters
+        character = self._get_character(support_character_name)
+        if character:
+            logger.info("Support found in first page")
+            if self._select_support(character):
+                return True
+
+        # Search in the following pages
         scroll = AdaptiveScroll(area=COMBAT_SUPPORT_LIST_SCROLL.area,
                                 name=COMBAT_SUPPORT_LIST_SCROLL.name)
         if scroll.appear(main=self):

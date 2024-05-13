@@ -253,8 +253,17 @@ class RogueExit(CombatInteract):
             else:
                 return None, results[0].matched_keyword
         else:
-            results = [r for d, r in sorted(zip(directions, results))]
-            return results[0].matched_keyword, results[-1].matched_keyword
+            left = [r for d, r in sorted(zip(directions, results)) if d < 0]
+            right = [r for d, r in sorted(zip(directions, results)) if d >= 0]
+            if len(left):
+                left = left[0].matched_keyword
+            else:
+                left = None
+            if len(right):
+                right = right[-1].matched_keyword
+            else:
+                right = None
+            return left, right
 
     def choose_door(self, left_door: MapPlane | None, right_door: MapPlane | None) -> str | None:
         """

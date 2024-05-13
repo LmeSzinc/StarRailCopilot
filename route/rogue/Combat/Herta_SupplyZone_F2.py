@@ -15,6 +15,7 @@ class Route(RouteBase):
         | enemy1         | Waypoint((46.2, 328.2)),  | 12.6      | 8        |
         | item2          | Waypoint((42.4, 299.0)),  | 352.8     | 348      |
         | door2          | Waypoint((46.4, 284.5)),  | 4.2       | 1        |
+        | door2end       | Waypoint((47.2, 274.8)),  | 11.1      | 4        |
         | enemy2left     | Waypoint((31.2, 248.8)),  | 183.8     | 84       |
         | enemy2right    | Waypoint((55.2, 247.2)),  | 96.7      | 91       |
         | item3          | Waypoint((68.5, 226.5)),  | 30.2      | 29       |
@@ -32,6 +33,7 @@ class Route(RouteBase):
         enemy1 = Waypoint((46.2, 328.2))
         item2 = Waypoint((42.4, 299.0))
         door2 = Waypoint((46.4, 284.5))
+        door2end = Waypoint((47.2, 274.8))
         enemy2left = Waypoint((31.2, 248.8))
         enemy2right = Waypoint((55.2, 247.2))
         item3 = Waypoint((68.5, 226.5))
@@ -47,6 +49,7 @@ class Route(RouteBase):
         # self.clear_item(item2)
         self.clear_enemy(
             door2.set_threshold(3),
+            door2end.set_threshold(3),
             # Go through door
             enemy2left,
             enemy2right.straight_run(),
@@ -58,6 +61,7 @@ class Route(RouteBase):
         self.clear_enemy(
             enemy3.straight_run(),
         )
+        # ('Combat_Herta_SupplyZone_F2_X45Y369', 0.243, (57.2, 351.6))
 
     def Herta_SupplyZone_F2_X397Y233(self):
         """

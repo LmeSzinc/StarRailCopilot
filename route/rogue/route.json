@@ -913,6 +913,17 @@
     "domain": "Combat"
   },
   {
+    "name": "Combat_Luofu_Cloudford_F1_X432Y685",
+    "route": "route.rogue.Combat.Luofu_Cloudford_F1:Luofu_Cloudford_F1_X432Y685",
+    "plane": "Luofu_Cloudford",
+    "floor": "F1",
+    "position": [
+      432.8,
+      685.1
+    ],
+    "domain": "Combat"
+  },
+  {
     "name": "Combat_Luofu_Cloudford_F1Rogue_X59Y405",
     "route": "route.rogue.Combat.Luofu_Cloudford_F1Rogue:Luofu_Cloudford_F1Rogue_X59Y405",
     "plane": "Luofu_Cloudford",
@@ -1298,6 +1309,17 @@
     "domain": "Elite"
   },
   {
+    "name": "Elite_Jarilo_CorridorofFadingEchoes_F1_X415Y953",
+    "route": "route.rogue.Elite.Jarilo_CorridorofFadingEchoes_F1:Jarilo_CorridorofFadingEchoes_F1_X415Y953",
+    "plane": "Jarilo_CorridorofFadingEchoes",
+    "floor": "F1",
+    "position": [
+      415.4,
+      953.3
+    ],
+    "domain": "Elite"
+  },
+  {
     "name": "Elite_Jarilo_CorridorofFadingEchoes_F1_X415Y947",
     "route": "route.rogue.Elite.Jarilo_CorridorofFadingEchoes_F1:Jarilo_CorridorofFadingEchoes_F1_X415Y947",
     "plane": "Jarilo_CorridorofFadingEchoes",
@@ -1397,6 +1419,17 @@
     "domain": "Elite"
   },
   {
+    "name": "Elite_Luofu_ArtisanshipCommission_F1_X391Y493",
+    "route": "route.rogue.Elite.Luofu_ArtisanshipCommission_F1:Luofu_ArtisanshipCommission_F1_X391Y493",
+    "plane": "Luofu_ArtisanshipCommission",
+    "floor": "F1",
+    "position": [
+      391.1,
+      493.2
+    ],
+    "domain": "Elite"
+  },
+  {
     "name": "Elite_Luofu_ArtisanshipCommission_F1_X504Y493",
     "route": "route.rogue.Elite.Luofu_ArtisanshipCommission_F1:Luofu_ArtisanshipCommission_F1_X504Y493",
     "plane": "Luofu_ArtisanshipCommission",
@@ -1414,6 +1447,17 @@
     "floor": "F1",
     "position": [
       337.3,
+      1003.4
+    ],
+    "domain": "Elite"
+  },
+  {
+    "name": "Elite_Luofu_Cloudford_F1_X342Y1003",
+    "route": "route.rogue.Elite.Luofu_Cloudford_F1:Luofu_Cloudford_F1_X342Y1003",
+    "plane": "Luofu_Cloudford",
+    "floor": "F1",
+    "position": [
+      342.3,
       1003.4
     ],
     "domain": "Elite"
@@ -1437,6 +1481,17 @@
     "position": [
       1368.9,
       261.5
+    ],
+    "domain": "Elite"
+  },
+  {
+    "name": "Elite_Luofu_StargazerNavalia_F1_X617Y511",
+    "route": "route.rogue.Elite.Luofu_StargazerNavalia_F1:Luofu_StargazerNavalia_F1_X617Y511",
+    "plane": "Luofu_StargazerNavalia",
+    "floor": "F1",
+    "position": [
+      617.5,
+      511.5
     ],
     "domain": "Elite"
   },

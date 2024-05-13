@@ -256,3 +256,58 @@ class Route(RouteBase):
         )
         self.clear_item(item4)
         self.clear_enemy(enemy4)
+
+    def Luofu_Cloudford_F1_X432Y685(self):
+        """
+        | Waypoint | Position                  | Direction | Rotation |
+        | -------- | ------------------------- | --------- | -------- |
+        | spawn    | Waypoint((435.4, 669.2)), | 6.7       | 4        |
+        | item1    | Waypoint((432.2, 628.3)), | 2.7       | 357      |
+        | enemy1   | Waypoint((428.6, 598.8)), | 8.0       | 177      |
+        | node2    | Waypoint((421.2, 590.8)), | 44.2      | 285      |
+        | node3    | Waypoint((366.6, 588.2)), | 274.2     | 274      |
+        | enemy3   | Waypoint((344.9, 590.4)), | 191.8     | 357      |
+        | item4    | Waypoint((309.6, 580.2)), | 290.1     | 281      |
+        | enemy4   | Waypoint((271.3, 585.5)), | 285.0     | 274      |
+        | exit_    | Waypoint((271.3, 585.5)), | 285.0     | 274      |
+        | exit1    | Waypoint((267.9, 592.3)), | 275.9     | 274      |
+        | exit2    | Waypoint((267.8, 580.0)), | 275.8     | 274      |
+        """
+        self.map_init(plane=Luofu_Cloudford, floor="F1", position=(432.8, 685.1))
+        self.register_domain_exit(
+            Waypoint((271.3, 585.5)), end_rotation=274,
+            left_door=Waypoint((267.9, 592.3)), right_door=Waypoint((267.8, 580.0)))
+        item1 = Waypoint((432.2, 628.3))
+        enemy1 = Waypoint((428.6, 598.8))
+        node2 = Waypoint((421.2, 590.8))
+        node3 = Waypoint((366.6, 588.2))
+        enemy3 = Waypoint((344.9, 590.4))
+        item4 = Waypoint((309.6, 580.2))
+        enemy4 = Waypoint((271.3, 585.5))
+        # ===== End of generated waypoints =====
+
+        self.clear_item(item1)
+        self.clear_enemy(enemy1)
+        # Go through bridges
+        self.rotation_set(270)
+        self.minimap.lock_rotation(270)
+        self.clear_enemy(
+            node2.set_threshold(3),
+            node3.set_threshold(3),
+            enemy3,
+        )
+        self.clear_item(item4)
+        self.clear_enemy(enemy4)
+
+        """
+        Notes
+        Luofu_Cloudford_F1_X435Y685 is the same as Luofu_Cloudford_F1_X435Y669
+        but for wrong spawn point detected
+        """
+        # Best 3 predictions: [
+        # ('Combat_Luofu_Cloudford_F1_X433Y617', 0.195, (432.8, 668.4)),
+        # ('Combat_Herta_SupplyZone_F2_X45Y369', 0.18, (24.2, 372.2)),
+        # ('Combat_Luofu_Cloudford_F1_X435Y669', 0.18, (432.8, 685.1))
+        # ]
+        # (432.9, 684.9)
+        # ('Combat_Luofu_Cloudford_F1_X435Y669', 0.172, (432.8, 685.0))

@@ -96,6 +96,10 @@ class BattlePassUI(UI):
     MAX_LEVEL = 70
 
     def _battle_pass_wait_rewards_loaded(self, skip_first_screenshot=True):
+        """
+        Returns:
+            bool: If load success
+        """
         timeout = Timer(2, count=4).start()
         while 1:
             if skip_first_screenshot:
@@ -105,12 +109,16 @@ class BattlePassUI(UI):
 
             if timeout.reached():
                 logger.warning('Wait rewards tab loaded timeout')
-                break
+                return False
             if self.appear(REWARDS_LOADED):
                 logger.info('Rewards tab loaded')
-                break
+                return True
 
     def _battle_pass_wait_missions_loaded(self, skip_first_screenshot=True):
+        """
+        Returns:
+            bool: If load success
+        """
         timeout = Timer(2, count=4).start()
         while 1:
             if skip_first_screenshot:
@@ -120,14 +128,14 @@ class BattlePassUI(UI):
 
             if timeout.reached():
                 logger.warning('Wait missions tab loaded timeout')
-                break
+                return False
 
             # Has scroll and last mission loaded
             if self.appear(MISSION_PAGE_SCROLL):
                 color = get_color(self.device.image, MISSIONS_LOADED.area)
                 if np.mean(color) > 128:
                     logger.info('Missions tab loaded')
-                    break
+                    return True
 
     def battle_pass_goto(self, state: KEYWORDS_BATTLE_PASS_TAB):
         """

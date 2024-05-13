@@ -116,6 +116,43 @@ class Route(RouteBase):
         self.clear_enemy(enemy2left.straight_run())
         self.clear_enemy(enemy3.straight_run())
 
+    def Jarilo_BackwaterPass_F1_X503Y736(self):
+        """
+        | Waypoint   | Position                  | Direction | Rotation |
+        | ---------- | ------------------------- | --------- | -------- |
+        | spawn      | Waypoint((507.2, 733.7)), | 6.7       | 4        |
+        | enemy1     | Waypoint((507.0, 644.0)), | 12.6      | 6        |
+        | enemy2left | Waypoint((536.0, 630.5)), | 48.1      | 43       |
+        | enemy3     | Waypoint((557.0, 585.2)), | 114.1     | 6        |
+        | exit_      | Waypoint((557.0, 585.2)), | 114.1     | 6        |
+        | exit1      | Waypoint((549.5, 575.4)), | 356.2     | 354      |
+        | exit2      | Waypoint((565.4, 575.6)), | 4.1       | 359      |
+        """
+        self.map_init(plane=Jarilo_BackwaterPass, floor="F1", position=(503.2, 736.9))
+        self.register_domain_exit(
+            Waypoint((557.0, 585.2)), end_rotation=6,
+            left_door=Waypoint((549.5, 575.4)), right_door=Waypoint((565.4, 575.6)))
+        enemy1 = Waypoint((507.0, 644.0))
+        enemy2left = Waypoint((536.0, 630.5))
+        enemy3 = Waypoint((557.0, 585.2))
+        # ===== End of generated waypoints =====
+
+        self.clear_enemy(enemy1)
+        self.clear_enemy(enemy2left.straight_run())
+        self.clear_enemy(enemy3.straight_run())
+
+        """
+        Notes
+        Herta_SupplyZone_F2_X397Y239 is the same as Herta_SupplyZone_F2_X397Y233
+        but for wrong spawn point detected
+        """
+        # Best 3 predictions: [
+        # ('Combat_Jarilo_BackwaterPass_F1_X507Y733', 0.26, (503.2, 736.9)),
+        # ('Combat_Luofu_ArtisanshipCommission_F1_X41Y640', 0.18, (50.7, 644.4)),
+        # ('Combat_Luofu_DivinationCommission_F1_X737Y372', 0.174, (717.2, 355.4)),
+        # ('Combat_Herta_SupplyZone_F2_X45Y369', 0.168, (46.5, 370.0))
+        # ]
+
     def Jarilo_BackwaterPass_F1_X555Y643(self):
         """
         | Waypoint | Position                  | Direction | Rotation |

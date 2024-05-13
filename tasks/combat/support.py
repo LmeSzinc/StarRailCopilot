@@ -130,6 +130,7 @@ class CombatSupport(UI):
             out: COMBAT_PREPARE
         """
         logger.hr("Combat support")
+        self.interval_clear(COMBAT_TEAM_SUPPORT)
         skip_first_screenshot = True
         selected_support = False
         while 1:
@@ -143,7 +144,7 @@ class CombatSupport(UI):
                 return True
 
             # Click
-            if self.appear(COMBAT_TEAM_SUPPORT, interval=1):
+            if self.appear(COMBAT_TEAM_SUPPORT, interval=2):
                 self.device.click(COMBAT_TEAM_SUPPORT)
                 self.interval_reset(COMBAT_TEAM_SUPPORT)
                 continue
@@ -154,14 +155,29 @@ class CombatSupport(UI):
                 self._select_next_support()
                 self.interval_reset(POPUP_CANCEL)
                 continue
-            if self.appear(COMBAT_SUPPORT_LIST, interval=1):
+            if self.appear(COMBAT_SUPPORT_LIST, interval=2):
+                scroll = AdaptiveScroll(area=COMBAT_SUPPORT_LIST_SCROLL.area,
+                                        name=COMBAT_SUPPORT_LIST_SCROLL.name)
+                if not scroll.appear(main=self):
+                    self.interval_clear(COMBAT_SUPPORT_LIST)
+                    continue
                 if not selected_support and support_character_name != "FirstCharacter":
-                    self._search_support(
-                        support_character_name)  # Search support
+                    self._search_support(support_character_name)  # Search support
                     selected_support = True
                 self.device.click(COMBAT_SUPPORT_ADD)
                 self.interval_reset(COMBAT_SUPPORT_LIST)
                 continue
+
+    def _get_character(self, support_character_name: str) -> SupportCharacter:
+        if support_character_name.startswith("Trailblazer"):
+            character = SupportCharacter(f"Stelle{support_character_name[11:]}", self.device.image)
+            if character:
+                return character
+            character = SupportCharacter(f"Caelum{support_character_name[11:]}", self.device.image)
+            # Should return something
+            return character
+        else:
+            return SupportCharacter(support_character_name, self.device.image)
 
     def _search_support(self, support_character_name: str = "JingYuan"):
         """
@@ -186,36 +202,29 @@ class CombatSupport(UI):
                 scroll.drag_threshold = backup
                 scroll.set_top(main=self)
 
-            logger.info("Searching support")
-            skip_first_screenshot = False
-            while 1:
-                if skip_first_screenshot:
-                    skip_first_screenshot = False
-                else:
-                    self.device.screenshot()
+        logger.info("Searching support")
+        skip_first_screenshot = True
+        while 1:
+            if skip_first_screenshot:
+                skip_first_screenshot = False
+            else:
+                self.device.screenshot()
 
-                if not support_character_name.startswith("Trailblazer"):
-                    character = SupportCharacter(
-                        support_character_name, self.device.image)
+            character = self._get_character(support_character_name)
+            if character:
+                logger.info("Support found")
+                if self._select_support(character):
+                    return True
                 else:
-                    character = SupportCharacter(f"Stelle{support_character_name[11:]}",
-                                                 self.device.image) or SupportCharacter(
-                        f"Caelum{support_character_name[11:]}", self.device.image)
-
-                if character:
-                    logger.info("Support found")
-                    if self._select_support(character):
-                        return True
-                    else:
-                        logger.warning("Support not selected")
-                        return False
-
-                if not scroll.at_bottom(main=self):
-                    scroll.next_page(main=self)
-                    continue
-                else:
-                    logger.info("Support not found")
+                    logger.warning("Support not selected")
                     return False
+
+            if not scroll.at_bottom(main=self):
+                scroll.next_page(main=self)
+                continue
+            else:
+                logger.info("Support not found")
+                return False
 
     def _select_support(self, character: SupportCharacter):
         """

@@ -82,14 +82,11 @@ class Combat(CombatInteract, CombatPrepare, CombatState, CombatTeam, CombatSuppo
         logger.hr('Combat prepare')
         skip_first_screenshot = True
         if support_character:
-            # To set team before support set
-            pre_set_team = True
             # Block COMBAT_TEAM_PREPARE before support set
             support_set = False
         else:
-            pre_set_team = False
             support_set = True
-        logger.info([support_character, pre_set_team, support_set])
+        logger.info([support_character, support_set])
         trial = 0
         while 1:
             if skip_first_screenshot:
@@ -108,10 +105,7 @@ class Combat(CombatInteract, CombatPrepare, CombatState, CombatTeam, CombatSuppo
 
             # Click
             if support_character and self.appear(COMBAT_TEAM_SUPPORT, interval=2):
-                if pre_set_team:
-                    self.team_set(team)
-                    pre_set_team = False
-                    continue
+                self.team_set(team)
                 self.support_set(support_character)
                 self.interval_reset(COMBAT_TEAM_SUPPORT)
                 support_set = True

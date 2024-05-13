@@ -60,12 +60,13 @@ class CombatTeam(UI):
                 logger.warning('Wait current team timeout')
                 break
             current = self._get_team()
-            if current == index:
-                logger.attr('Team', current)
-                logger.info(f'Already selected to the correct team')
-                return False
-            else:
-                break
+            if current:
+                if current == index:
+                    logger.attr('Team', current)
+                    logger.info(f'Already selected to the correct team')
+                    return False
+                else:
+                    break
 
         # Set team
         retry = Timer(2, count=10)

@@ -77,6 +77,17 @@ COSMIC_FRAGMENT = ButtonWrapper(
         button=(1146, 19, 1181, 55),
     ),
 )
+CURIO_FIXED = ButtonWrapper(
+    name='CURIO_FIXED',
+    cn=Button(
+        file='./assets/cn/rogue/ui/CURIO_FIXED.png',
+        area=(558, 54, 626, 75),
+        search=(538, 34, 646, 95),
+        color=(126, 123, 122),
+        button=(558, 54, 626, 75),
+    ),
+    en=None,
+)
 CURIO_OBTAINED = ButtonWrapper(
     name='CURIO_OBTAINED',
     cn=[

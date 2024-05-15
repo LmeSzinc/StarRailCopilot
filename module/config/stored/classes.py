@@ -398,3 +398,9 @@ class StoredBattlePassQuestCavernOfCorrosion(StoredCounter):
 class StoredBattlePassQuestTrailblazePower(StoredCounter):
     # Dynamic total from 100 to 1400
     LIST_TOTAL = [100, 200, 300, 400, 500, 600, 700, 800, 900, 1000, 1100, 1200, 1300, 1400]
+
+
+class StoredPlanner(StoredBase):
+    value: int
+    total: int
+    synthesize: int

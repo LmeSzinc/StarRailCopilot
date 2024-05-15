@@ -25,6 +25,7 @@ Daily:
   tasks:
     Dungeon:
       - Scheduler
+      - Planner
       - Dungeon
       - DungeonDaily
       - DungeonSupport

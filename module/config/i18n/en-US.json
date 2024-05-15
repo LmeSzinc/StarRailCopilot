@@ -529,6 +529,208 @@
       "help": ""
     }
   },
+  "Planner": {
+    "_info": {
+      "name": "Character Planner Progress",
+      "help": ""
+    },
+    "Item_Credit": {
+      "name": "Credit",
+      "help": ""
+    },
+    "Item_Traveler_Guide": {
+      "name": " Character EXP ",
+      "help": ""
+    },
+    "Item_Refined_Aether": {
+      "name": " Light Cone EXP ",
+      "help": ""
+    },
+    "Item_Lost_Crystal": {
+      "name": "Lost Crystal",
+      "help": ""
+    },
+    "Item_Broken_Teeth_of_Iron_Wolf": {
+      "name": "Ascension: Physical (Natasha / Clara / Luka / Sushang)",
+      "help": ""
+    },
+    "Item_Endotherm_Chitin": {
+      "name": "Ascension: Fire (Himeko / Asta / Hook)",
+      "help": ""
+    },
+    "Item_Horn_of_Snow": {
+      "name": "Ascension: Ice (March 7th / Herta / Gepard / Pela)",
+      "help": ""
+    },
+    "Item_Lightning_Crown_of_the_Past_Shadow": {
+      "name": "Ascension: Lightning (Arlan / Serval / Tingyun / Bailu)",
+      "help": ""
+    },
+    "Item_Storm_Eye": {
+      "name": "Ascension: Wind (Dan Heng / Bronya / Sampo)",
+      "help": ""
+    },
+    "Item_Void_Cast_Iron": {
+      "name": "Ascension: Quantum (Silver Wolf / Seele / Qingque)",
+      "help": ""
+    },
+    "Item_Golden_Crown_of_the_Past_Shadow": {
+      "name": "Ascension: Imaginary (Welt / Luocha / Yukong)",
+      "help": ""
+    },
+    "Item_Netherworld_Token": {
+      "name": "Ascension: Physical (Hanya / Argenti)",
+      "help": ""
+    },
+    "Item_Searing_Steel_Blade": {
+      "name": "Ascension: Fire (Guinaifen / Topaz & Numby)",
+      "help": ""
+    },
+    "Item_Gelid_Chitin": {
+      "name": "Ascension: Ice (Yanqing / Jingliu / Ruan Mei)",
+      "help": ""
+    },
+    "Item_Shape_Shifter_Lightning_Staff": {
+      "name": "Ascension: Lightning (Kafka / Jing Yuan / Acheron)",
+      "help": ""
+    },
+    "Item_Ascendant_Debris": {
+      "name": "Ascension: Wind (Blade / Huohuo / Black Swan)",
+      "help": ""
+    },
+    "Item_Nail_of_the_Ape": {
+      "name": "Ascension: Quantum (Lynx / Fu Xuan / Xueyi)",
+      "help": ""
+    },
+    "Item_Suppressing_Edict": {
+      "name": "Ascension: Imaginary (Dan Heng • Imbibitor Lunae / Aventurine / Dr. Ratio)",
+      "help": ""
+    },
+    "Item_IPC_Work_Permit": {
+      "name": "Ascension: Physical (Boothill / Robin)",
+      "help": ""
+    },
+    "Item_Raging_Heart": {
+      "name": "Ascension: Fire (Gallagher)",
+      "help": ""
+    },
+    "Item_Dream_Fridge": {
+      "name": "Ascension: Ice (Misha)",
+      "help": ""
+    },
+    "Item_Dream_Flamer": {
+      "name": "Ascension: Quantum (Sparkle)",
+      "help": ""
+    },
+    "Item_Worldbreaker_Blade": {
+      "name": "Trace: Destruction (Storage Zone)",
+      "help": ""
+    },
+    "Item_Arrow_of_the_Starchaser": {
+      "name": "Trace: The Hunt (Outlying Snow Plains)",
+      "help": ""
+    },
+    "Item_Key_of_Wisdom": {
+      "name": "Trace: Erudition (Rivet Town)",
+      "help": ""
+    },
+    "Item_Safeguard_of_Amber": {
+      "name": "Trace: Preservation (Supply Zone)",
+      "help": ""
+    },
+    "Item_Obsidian_of_Obsession": {
+      "name": "Trace: Nihility (Great Mine)",
+      "help": ""
+    },
+    "Item_Stellaris_Symphony": {
+      "name": "Trace: The Harmony (Robot Settlement)",
+      "help": ""
+    },
+    "Item_Flower_of_Eternity": {
+      "name": "Trace: Abundance (Backwater Pass)",
+      "help": ""
+    },
+    "Item_Moon_Madness_Fang": {
+      "name": "Trace: Destruction (Scalegorge Waterscape)",
+      "help": ""
+    },
+    "Item_Countertemporal_Shot": {
+      "name": "Trace: The Hunt (SoulGlad Scorchsand Audition Venue)",
+      "help": ""
+    },
+    "Item_Divine_Amber": {
+      "name": "Trace: Preservation (Clock Studios Theme Park)",
+      "help": ""
+    },
+    "Item_Heaven_Incinerator": {
+      "name": "Trace: Nihility (Alchemy Commission)",
+      "help": ""
+    },
+    "Item_Heavenly_Melody": {
+      "name": "Trace: The Harmony (The Reverie (Dreamscape))",
+      "help": ""
+    },
+    "Item_Myriad_Fruit": {
+      "name": "Trace: Abundance (Fyxestroll Garden)",
+      "help": ""
+    },
+    "Item_Tracks_of_Destiny": {
+      "name": "Tracks of Destiny",
+      "help": ""
+    },
+    "Item_Destroyer_Final_Road": {
+      "name": "Destruction's Beginning (Herta Space Station)",
+      "help": ""
+    },
+    "Item_Guardian_Lament": {
+      "name": "End of the Eternal Freeze (Jarilo-VI)",
+      "help": ""
+    },
+    "Item_Regret_of_Infinite_Ochema": {
+      "name": "Divine Seed (The Xianzhou Luofu)",
+      "help": ""
+    },
+    "Item_Past_Evils_of_the_Borehole_Planet_Disaster": {
+      "name": "Borehole Planet's Old Crater (Herta Space Station)",
+      "help": ""
+    },
+    "Item_Lost_Echo_of_the_Shared_Wish": {
+      "name": "Salutations of Ashen Dreams (Penacony)",
+      "help": ""
+    },
+    "Item_Squirming_Core": {
+      "name": "Squirming Core",
+      "help": ""
+    },
+    "Item_Conqueror_Will": {
+      "name": "Conqueror's Will",
+      "help": ""
+    },
+    "Item_Silvermane_Medal": {
+      "name": "Silvermane Medal",
+      "help": ""
+    },
+    "Item_Ancient_Engine": {
+      "name": "Ancient Engine",
+      "help": ""
+    },
+    "Item_Immortal_Lumintwig": {
+      "name": "Immortal Lumintwig",
+      "help": ""
+    },
+    "Item_Artifex_Gyreheart": {
+      "name": "Artifex's Gyreheart",
+      "help": ""
+    },
+    "Item_Dream_Making_Engine": {
+      "name": "Dream Making Engine",
+      "help": ""
+    },
+    "Item_Shards_of_Desires": {
+      "name": "Shards of Desires",
+      "help": ""
+    }
+  },
   "Weekly": {
     "_info": {
       "name": "Echo of War Settings",

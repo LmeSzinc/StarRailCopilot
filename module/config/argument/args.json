@@ -219,6 +219,302 @@
         "display": "hide"
       }
     },
+    "Planner": {
+      "Item_Credit": {
+        "type": "stored",
+        "value": {},
+        "display": "hide",
+        "stored": "StoredPlanner"
+      },
+      "Item_Traveler_Guide": {
+        "type": "stored",
+        "value": {},
+        "display": "hide",
+        "stored": "StoredPlanner"
+      },
+      "Item_Refined_Aether": {
+        "type": "stored",
+        "value": {},
+        "display": "hide",
+        "stored": "StoredPlanner"
+      },
+      "Item_Lost_Crystal": {
+        "type": "stored",
+        "value": {},
+        "display": "hide",
+        "stored": "StoredPlanner"
+      },
+      "Item_Broken_Teeth_of_Iron_Wolf": {
+        "type": "stored",
+        "value": {},
+        "display": "hide",
+        "stored": "StoredPlanner"
+      },
+      "Item_Endotherm_Chitin": {
+        "type": "stored",
+        "value": {},
+        "display": "hide",
+        "stored": "StoredPlanner"
+      },
+      "Item_Horn_of_Snow": {
+        "type": "stored",
+        "value": {},
+        "display": "hide",
+        "stored": "StoredPlanner"
+      },
+      "Item_Lightning_Crown_of_the_Past_Shadow": {
+        "type": "stored",
+        "value": {},
+        "display": "hide",
+        "stored": "StoredPlanner"
+      },
+      "Item_Storm_Eye": {
+        "type": "stored",
+        "value": {},
+        "display": "hide",
+        "stored": "StoredPlanner"
+      },
+      "Item_Void_Cast_Iron": {
+        "type": "stored",
+        "value": {},
+        "display": "hide",
+        "stored": "StoredPlanner"
+      },
+      "Item_Golden_Crown_of_the_Past_Shadow": {
+        "type": "stored",
+        "value": {},
+        "display": "hide",
+        "stored": "StoredPlanner"
+      },
+      "Item_Netherworld_Token": {
+        "type": "stored",
+        "value": {},
+        "display": "hide",
+        "stored": "StoredPlanner"
+      },
+      "Item_Searing_Steel_Blade": {
+        "type": "stored",
+        "value": {},
+        "display": "hide",
+        "stored": "StoredPlanner"
+      },
+      "Item_Gelid_Chitin": {
+        "type": "stored",
+        "value": {},
+        "display": "hide",
+        "stored": "StoredPlanner"
+      },
+      "Item_Shape_Shifter_Lightning_Staff": {
+        "type": "stored",
+        "value": {},
+        "display": "hide",
+        "stored": "StoredPlanner"
+      },
+      "Item_Ascendant_Debris": {
+        "type": "stored",
+        "value": {},
+        "display": "hide",
+        "stored": "StoredPlanner"
+      },
+      "Item_Nail_of_the_Ape": {
+        "type": "stored",
+        "value": {},
+        "display": "hide",
+        "stored": "StoredPlanner"
+      },
+      "Item_Suppressing_Edict": {
+        "type": "stored",
+        "value": {},
+        "display": "hide",
+        "stored": "StoredPlanner"
+      },
+      "Item_IPC_Work_Permit": {
+        "type": "stored",
+        "value": {},
+        "display": "hide",
+        "stored": "StoredPlanner"
+      },
+      "Item_Raging_Heart": {
+        "type": "stored",
+        "value": {},
+        "display": "hide",
+        "stored": "StoredPlanner"
+      },
+      "Item_Dream_Fridge": {
+        "type": "stored",
+        "value": {},
+        "display": "hide",
+        "stored": "StoredPlanner"
+      },
+      "Item_Dream_Flamer": {
+        "type": "stored",
+        "value": {},
+        "display": "hide",
+        "stored": "StoredPlanner"
+      },
+      "Item_Worldbreaker_Blade": {
+        "type": "stored",
+        "value": {},
+        "display": "hide",
+        "stored": "StoredPlanner"
+      },
+      "Item_Arrow_of_the_Starchaser": {
+        "type": "stored",
+        "value": {},
+        "display": "hide",
+        "stored": "StoredPlanner"
+      },
+      "Item_Key_of_Wisdom": {
+        "type": "stored",
+        "value": {},
+        "display": "hide",
+        "stored": "StoredPlanner"
+      },
+      "Item_Safeguard_of_Amber": {
+        "type": "stored",
+        "value": {},
+        "display": "hide",
+        "stored": "StoredPlanner"
+      },
+      "Item_Obsidian_of_Obsession": {
+        "type": "stored",
+        "value": {},
+        "display": "hide",
+        "stored": "StoredPlanner"
+      },
+      "Item_Stellaris_Symphony": {
+        "type": "stored",
+        "value": {},
+        "display": "hide",
+        "stored": "StoredPlanner"
+      },
+      "Item_Flower_of_Eternity": {
+        "type": "stored",
+        "value": {},
+        "display": "hide",
+        "stored": "StoredPlanner"
+      },
+      "Item_Moon_Madness_Fang": {
+        "type": "stored",
+        "value": {},
+        "display": "hide",
+        "stored": "StoredPlanner"
+      },
+      "Item_Countertemporal_Shot": {
+        "type": "stored",
+        "value": {},
+        "display": "hide",
+        "stored": "StoredPlanner"
+      },
+      "Item_Divine_Amber": {
+        "type": "stored",
+        "value": {},
+        "display": "hide",
+        "stored": "StoredPlanner"
+      },
+      "Item_Heaven_Incinerator": {
+        "type": "stored",
+        "value": {},
+        "display": "hide",
+        "stored": "StoredPlanner"
+      },
+      "Item_Heavenly_Melody": {
+        "type": "stored",
+        "value": {},
+        "display": "hide",
+        "stored": "StoredPlanner"
+      },
+      "Item_Myriad_Fruit": {
+        "type": "stored",
+        "value": {},
+        "display": "hide",
+        "stored": "StoredPlanner"
+      },
+      "Item_Tracks_of_Destiny": {
+        "type": "stored",
+        "value": {},
+        "display": "hide",
+        "stored": "StoredPlanner"
+      },
+      "Item_Destroyer_Final_Road": {
+        "type": "stored",
+        "value": {},
+        "display": "hide",
+        "stored": "StoredPlanner"
+      },
+      "Item_Guardian_Lament": {
+        "type": "stored",
+        "value": {},
+        "display": "hide",
+        "stored": "StoredPlanner"
+      },
+      "Item_Regret_of_Infinite_Ochema": {
+        "type": "stored",
+        "value": {},
+        "display": "hide",
+        "stored": "StoredPlanner"
+      },
+      "Item_Past_Evils_of_the_Borehole_Planet_Disaster": {
+        "type": "stored",
+        "value": {},
+        "display": "hide",
+        "stored": "StoredPlanner"
+      },
+      "Item_Lost_Echo_of_the_Shared_Wish": {
+        "type": "stored",
+        "value": {},
+        "display": "hide",
+        "stored": "StoredPlanner"
+      },
+      "Item_Squirming_Core": {
+        "type": "stored",
+        "value": {},
+        "display": "hide",
+        "stored": "StoredPlanner"
+      },
+      "Item_Conqueror_Will": {
+        "type": "stored",
+        "value": {},
+        "display": "hide",
+        "stored": "StoredPlanner"
+      },
+      "Item_Silvermane_Medal": {
+        "type": "stored",
+        "value": {},
+        "display": "hide",
+        "stored": "StoredPlanner"
+      },
+      "Item_Ancient_Engine": {
+        "type": "stored",
+        "value": {},
+        "display": "hide",
+        "stored": "StoredPlanner"
+      },
+      "Item_Immortal_Lumintwig": {
+        "type": "stored",
+        "value": {},
+        "display": "hide",
+        "stored": "StoredPlanner"
+      },
+      "Item_Artifex_Gyreheart": {
+        "type": "stored",
+        "value": {},
+        "display": "hide",
+        "stored": "StoredPlanner"
+      },
+      "Item_Dream_Making_Engine": {
+        "type": "stored",
+        "value": {},
+        "display": "hide",
+        "stored": "StoredPlanner"
+      },
+      "Item_Shards_of_Desires": {
+        "type": "stored",
+        "value": {},
+        "display": "hide",
+        "stored": "StoredPlanner"
+      }
+    },
     "Dungeon": {
       "Name": {
         "type": "select",

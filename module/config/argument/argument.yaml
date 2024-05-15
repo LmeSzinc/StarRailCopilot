@@ -151,6 +151,8 @@ DungeonStorage:
     color: "#8fb5fe"
 SupportReward:
   Collect: true
+Planner: {}
+  # Items will be injected in config updater
 
 Weekly:
   Name:

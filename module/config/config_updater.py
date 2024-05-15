@@ -66,8 +66,9 @@ class ConfigGenerator:
         # Insert dungeons
         from tasks.dungeon.keywords import DungeonList
         calyx_golden = [dungeon.name for dungeon in DungeonList.instances.values() if dungeon.is_Calyx_Golden_Memories] \
-            + [dungeon.name for dungeon in DungeonList.instances.values() if dungeon.is_Calyx_Golden_Aether] \
-            + [dungeon.name for dungeon in DungeonList.instances.values() if dungeon.is_Calyx_Golden_Treasures]
+                       + [dungeon.name for dungeon in DungeonList.instances.values() if dungeon.is_Calyx_Golden_Aether] \
+                       + [dungeon.name for dungeon in DungeonList.instances.values() if
+                          dungeon.is_Calyx_Golden_Treasures]
         # calyx_crimson
         from tasks.rogue.keywords import KEYWORDS_ROGUE_PATH as Path
         order = [Path.Destruction, Path.Preservation, Path.The_Hunt, Path.Abundance,
@@ -82,7 +83,8 @@ class ConfigGenerator:
         for type_ in CombatType.instances.values():
             stagnant_shadow += [dungeon.name for dungeon in DungeonList.instances.values()
                                 if dungeon.Stagnant_Shadow_Combat_Type == type_]
-        cavern_of_corrosion = [dungeon.name for dungeon in DungeonList.instances.values() if dungeon.is_Cavern_of_Corrosion]
+        cavern_of_corrosion = [dungeon.name for dungeon in DungeonList.instances.values() if
+                               dungeon.is_Cavern_of_Corrosion]
         option_add(
             keys='Dungeon.Name.option',
             options=calyx_golden + calyx_crimson + stagnant_shadow + cavern_of_corrosion
@@ -120,6 +122,11 @@ class ConfigGenerator:
         assignments = [entry.name for entry in AssignmentEntry.instances.values()]
         for i in range(4):
             option_add(keys=f'Assignment.Name_{i + 1}.option', options=assignments)
+        # Insert planner items
+        from tasks.planner.keywords.classes import ItemBase
+        for item in ItemBase.instances.values():
+            base = item.group_base
+            deep_set(raw, keys=['Planner', f'Item_{base.name}'], value={'stored': 'StoredPlanner'})
 
         # Load
         for path, value in deep_iter(raw, depth=2):
@@ -381,7 +388,7 @@ class ConfigGenerator:
         i18n_aether = {
             'cn': '材料：武器经验（{dungeon}）',
             'cht': '材料：武器經驗（{dungeon}）',
-            'jp': '素材：武器経験（{dungeon}）：',
+            'jp': '素材：武器経験（{dungeon}）',
             'en': 'Material: Light Cone EXP ({dungeon})',
             'es': 'Material: EXP de conos de luz ({dungeon})',
         }
@@ -497,6 +504,37 @@ class ConfigGenerator:
             name = deep_get(new, keys=['RogueWorld', 'World', dungeon.name], default=None)
             if name:
                 deep_set(new, keys=['RogueWorld', 'World', dungeon.name], value=dungeon.__getattribute__(ingame_lang))
+        # Planner items
+        from tasks.planner.keywords.classes import ItemBase
+        for item in ItemBase.instances.values():
+            item: ItemBase = item
+            name = f'Item_{item.name}'
+            if item.is_ItemCurrency or item.name == 'Tracks_of_Destiny':
+                i18n = item.__getattribute__(ingame_lang)
+            elif item.is_ItemExp and item.is_group_base:
+                dungeon = item.dungeon
+                if dungeon is None:
+                    i18n = item.__getattribute__(ingame_lang)
+                elif dungeon.is_Calyx_Golden_Memories:
+                    i18n = i18n_memories[ingame_lang]
+                elif dungeon.is_Calyx_Golden_Aether:
+                    i18n = i18n_aether[ingame_lang]
+                else:
+                    continue
+                if res := re.search(r'[:：](.*)[(（]', i18n):
+                    i18n = res.group(1)
+            elif item.is_ItemAscension or (item.is_ItemTrace and item.is_group_base):
+                dungeon = item.group_base.dungeon.name
+                i18n = deep_get(new, keys=['Dungeon', 'Name', dungeon], default='Unknown_Dungeon_Come_From')
+            elif item.is_ItemWeekly:
+                dungeon = item.dungeon.name
+                i18n = deep_get(new, keys=['Weekly', 'Name', dungeon], default='Unknown_Dungeon_Come_From')
+            elif item.is_ItemCalyx and item.is_group_base:
+                i18n = item.__getattribute__(ingame_lang)
+            else:
+                continue
+            deep_set(new, keys=['Planner', name, 'name'], value=i18n)
+            deep_set(new, keys=['Planner', name, 'help'], value='')
 
         # GUI i18n
         for path, _ in deep_iter(self.gui, depth=2):

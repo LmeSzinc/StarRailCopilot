@@ -71,6 +71,57 @@ class GeneratedConfig:
     # Group `SupportReward`
     SupportReward_Collect = True
 
+    # Group `Planner`
+    Planner_Item_Credit = {}
+    Planner_Item_Traveler_Guide = {}
+    Planner_Item_Refined_Aether = {}
+    Planner_Item_Lost_Crystal = {}
+    Planner_Item_Broken_Teeth_of_Iron_Wolf = {}
+    Planner_Item_Endotherm_Chitin = {}
+    Planner_Item_Horn_of_Snow = {}
+    Planner_Item_Lightning_Crown_of_the_Past_Shadow = {}
+    Planner_Item_Storm_Eye = {}
+    Planner_Item_Void_Cast_Iron = {}
+    Planner_Item_Golden_Crown_of_the_Past_Shadow = {}
+    Planner_Item_Netherworld_Token = {}
+    Planner_Item_Searing_Steel_Blade = {}
+    Planner_Item_Gelid_Chitin = {}
+    Planner_Item_Shape_Shifter_Lightning_Staff = {}
+    Planner_Item_Ascendant_Debris = {}
+    Planner_Item_Nail_of_the_Ape = {}
+    Planner_Item_Suppressing_Edict = {}
+    Planner_Item_IPC_Work_Permit = {}
+    Planner_Item_Raging_Heart = {}
+    Planner_Item_Dream_Fridge = {}
+    Planner_Item_Dream_Flamer = {}
+    Planner_Item_Worldbreaker_Blade = {}
+    Planner_Item_Arrow_of_the_Starchaser = {}
+    Planner_Item_Key_of_Wisdom = {}
+    Planner_Item_Safeguard_of_Amber = {}
+    Planner_Item_Obsidian_of_Obsession = {}
+    Planner_Item_Stellaris_Symphony = {}
+    Planner_Item_Flower_of_Eternity = {}
+    Planner_Item_Moon_Madness_Fang = {}
+    Planner_Item_Countertemporal_Shot = {}
+    Planner_Item_Divine_Amber = {}
+    Planner_Item_Heaven_Incinerator = {}
+    Planner_Item_Heavenly_Melody = {}
+    Planner_Item_Myriad_Fruit = {}
+    Planner_Item_Tracks_of_Destiny = {}
+    Planner_Item_Destroyer_Final_Road = {}
+    Planner_Item_Guardian_Lament = {}
+    Planner_Item_Regret_of_Infinite_Ochema = {}
+    Planner_Item_Past_Evils_of_the_Borehole_Planet_Disaster = {}
+    Planner_Item_Lost_Echo_of_the_Shared_Wish = {}
+    Planner_Item_Squirming_Core = {}
+    Planner_Item_Conqueror_Will = {}
+    Planner_Item_Silvermane_Medal = {}
+    Planner_Item_Ancient_Engine = {}
+    Planner_Item_Immortal_Lumintwig = {}
+    Planner_Item_Artifex_Gyreheart = {}
+    Planner_Item_Dream_Making_Engine = {}
+    Planner_Item_Shards_of_Desires = {}
+
     # Group `Weekly`
     Weekly_Name = 'Echo_of_War_Divine_Seed'  # Echo_of_War_Destruction_Beginning, Echo_of_War_End_of_the_Eternal_Freeze, Echo_of_War_Divine_Seed, Echo_of_War_Borehole_Planet_Old_Crater, Echo_of_War_Salutations_of_Ashen_Dreams
     Weekly_Team = 1  # 1, 2, 3, 4, 5, 6, 7, 8, 9

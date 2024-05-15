@@ -529,6 +529,208 @@
       "help": ""
     }
   },
+  "Planner": {
+    "_info": {
+      "name": "Progreso del planificador de personajes",
+      "help": ""
+    },
+    "Item_Credit": {
+      "name": "Crédito",
+      "help": ""
+    },
+    "Item_Traveler_Guide": {
+      "name": " EXP de personaje ",
+      "help": ""
+    },
+    "Item_Refined_Aether": {
+      "name": " EXP de conos de luz ",
+      "help": ""
+    },
+    "Item_Lost_Crystal": {
+      "name": "Cristal perdido",
+      "help": ""
+    },
+    "Item_Broken_Teeth_of_Iron_Wolf": {
+      "name": "Ascension: Físico (Natasha / Clara / Luka / Sushang)",
+      "help": ""
+    },
+    "Item_Endotherm_Chitin": {
+      "name": "Ascension: Fuego (Himeko / Asta / Hook)",
+      "help": ""
+    },
+    "Item_Horn_of_Snow": {
+      "name": "Ascension: Hielo (Siete de Marzo / Herta / Gepard / Pela)",
+      "help": ""
+    },
+    "Item_Lightning_Crown_of_the_Past_Shadow": {
+      "name": "Ascension: Rayo (Arlan / Serval / Tingyun / Bailu)",
+      "help": ""
+    },
+    "Item_Storm_Eye": {
+      "name": "Ascension: Viento (Dan Heng / Bronya / Sampo)",
+      "help": ""
+    },
+    "Item_Void_Cast_Iron": {
+      "name": "Ascension: Cuántico (Silver Wolf / Seele / Qingque)",
+      "help": ""
+    },
+    "Item_Golden_Crown_of_the_Past_Shadow": {
+      "name": "Ascension: Imaginario (Welt / Luocha / Yukong)",
+      "help": ""
+    },
+    "Item_Netherworld_Token": {
+      "name": "Ascension: Físico (Hanya / Argenti)",
+      "help": ""
+    },
+    "Item_Searing_Steel_Blade": {
+      "name": "Ascension: Fuego (Guinaifen / Topaz y Conti)",
+      "help": ""
+    },
+    "Item_Gelid_Chitin": {
+      "name": "Ascension: Hielo (Yanqing / Jingliu / Ruan Mei)",
+      "help": ""
+    },
+    "Item_Shape_Shifter_Lightning_Staff": {
+      "name": "Ascension: Rayo (Kafka / Jing Yuan / Acheron)",
+      "help": ""
+    },
+    "Item_Ascendant_Debris": {
+      "name": "Ascension: Viento (Blade / Huohuo / Cisne Negro)",
+      "help": ""
+    },
+    "Item_Nail_of_the_Ape": {
+      "name": "Ascension: Cuántico (Lynx / Fu Xuan / Xueyi)",
+      "help": ""
+    },
+    "Item_Suppressing_Edict": {
+      "name": "Ascension: Imaginario (Dan Heng - Imbibitor Lunae / Aventurino / Dr. Ratio)",
+      "help": ""
+    },
+    "Item_IPC_Work_Permit": {
+      "name": "Ascension: Físico (Boothill / Robin)",
+      "help": ""
+    },
+    "Item_Raging_Heart": {
+      "name": "Ascension: Fuego (Gallagher)",
+      "help": ""
+    },
+    "Item_Dream_Fridge": {
+      "name": "Ascension: Hielo (Misha)",
+      "help": ""
+    },
+    "Item_Dream_Flamer": {
+      "name": "Ascension: Cuántico (Sparkle)",
+      "help": ""
+    },
+    "Item_Worldbreaker_Blade": {
+      "name": "Rastros: Destrucción (Zona de almacenamiento)",
+      "help": ""
+    },
+    "Item_Arrow_of_the_Starchaser": {
+      "name": "Rastros: Cacería (Llanuras nevadas de las afueras)",
+      "help": ""
+    },
+    "Item_Key_of_Wisdom": {
+      "name": "Rastros: Erudición (Villarremache)",
+      "help": ""
+    },
+    "Item_Safeguard_of_Amber": {
+      "name": "Rastros: Conservación (Zona de suministros)",
+      "help": ""
+    },
+    "Item_Obsidian_of_Obsession": {
+      "name": "Rastros: Nihilidad (Mina principal)",
+      "help": ""
+    },
+    "Item_Stellaris_Symphony": {
+      "name": "Rastros: Armonía (Asentamiento robot)",
+      "help": ""
+    },
+    "Item_Flower_of_Eternity": {
+      "name": "Rastros: Abundancia (Paso del Remanso)",
+      "help": ""
+    },
+    "Item_Moon_Madness_Fang": {
+      "name": "Rastros: Destrucción (Desfiladero de Escamas)",
+      "help": ""
+    },
+    "Item_Countertemporal_Shot": {
+      "name": "Rastros: Cacería (Recinto de las Audiciones FelizAlma en la Arena Ardiente)",
+      "help": ""
+    },
+    "Item_Divine_Amber": {
+      "name": "Rastros: Conservación (Parque temático de los Estudios Reloj)",
+      "help": ""
+    },
+    "Item_Heaven_Incinerator": {
+      "name": "Rastros: Nihilidad (Comisión de Alquimia)",
+      "help": ""
+    },
+    "Item_Heavenly_Melody": {
+      "name": "Rastros: Armonía (Hotel Fantasía (paisaje onírico))",
+      "help": ""
+    },
+    "Item_Myriad_Fruit": {
+      "name": "Rastros: Abundancia (Jardín del Sosiego)",
+      "help": ""
+    },
+    "Item_Tracks_of_Destiny": {
+      "name": "Huellas del destino",
+      "help": ""
+    },
+    "Item_Destroyer_Final_Road": {
+      "name": "El principio de la Destrucción (Estación Espacial Herta)",
+      "help": ""
+    },
+    "Item_Guardian_Lament": {
+      "name": "El fin del Hielo Eterno (Jarilo-VI)",
+      "help": ""
+    },
+    "Item_Regret_of_Infinite_Ochema": {
+      "name": "Semilla divina (El Luofu de Xianzhou)",
+      "help": ""
+    },
+    "Item_Past_Evils_of_the_Borehole_Planet_Disaster": {
+      "name": "Cráter del planeta devorado (Estación Espacial Herta)",
+      "help": ""
+    },
+    "Item_Lost_Echo_of_the_Shared_Wish": {
+      "name": "Ecos de la guerra: Tributo del sueño ceniciento (Colonipenal)",
+      "help": ""
+    },
+    "Item_Squirming_Core": {
+      "name": "Núcleo serpenteante",
+      "help": ""
+    },
+    "Item_Conqueror_Will": {
+      "name": "Voluntad de conquista",
+      "help": ""
+    },
+    "Item_Silvermane_Medal": {
+      "name": "Medalla del guardia",
+      "help": ""
+    },
+    "Item_Ancient_Engine": {
+      "name": "Motor antiguo",
+      "help": ""
+    },
+    "Item_Immortal_Lumintwig": {
+      "name": "Rama gloriosa inmortal",
+      "help": ""
+    },
+    "Item_Artifex_Gyreheart": {
+      "name": "Corazón armonioso mecánico",
+      "help": ""
+    },
+    "Item_Dream_Making_Engine": {
+      "name": "Motor creasueños",
+      "help": ""
+    },
+    "Item_Shards_of_Desires": {
+      "name": "Fragmento de deseos",
+      "help": ""
+    }
+  },
   "Weekly": {
     "_info": {
       "name": "Ajustes de Ecos de la guerra",

@@ -529,6 +529,208 @@
       "help": ""
     }
   },
+  "Planner": {
+    "_info": {
+      "name": "養成規劃進度",
+      "help": ""
+    },
+    "Item_Credit": {
+      "name": "信用點",
+      "help": ""
+    },
+    "Item_Traveler_Guide": {
+      "name": "角色經驗",
+      "help": ""
+    },
+    "Item_Refined_Aether": {
+      "name": "武器經驗",
+      "help": ""
+    },
+    "Item_Lost_Crystal": {
+      "name": "遺失晶塊",
+      "help": ""
+    },
+    "Item_Broken_Teeth_of_Iron_Wolf": {
+      "name": "角色晉階材料：物理（娜塔莎 / 克拉拉 / 盧卡 / 素裳）",
+      "help": ""
+    },
+    "Item_Endotherm_Chitin": {
+      "name": "角色晉階材料：火（姬子 / 艾絲妲 / 虎克）",
+      "help": ""
+    },
+    "Item_Horn_of_Snow": {
+      "name": "角色晉階材料：冰（三月七 / 黑塔 / 傑帕德 / 佩拉）",
+      "help": ""
+    },
+    "Item_Lightning_Crown_of_the_Past_Shadow": {
+      "name": "角色晉階材料：雷（阿蘭 / 希露瓦 / 停雲 / 白露）",
+      "help": ""
+    },
+    "Item_Storm_Eye": {
+      "name": "角色晉階材料：風（丹恆 / 布洛妮婭 / 桑博）",
+      "help": ""
+    },
+    "Item_Void_Cast_Iron": {
+      "name": "角色晉階材料：量子（銀狼 / 希兒 / 青雀）",
+      "help": ""
+    },
+    "Item_Golden_Crown_of_the_Past_Shadow": {
+      "name": "角色晉階材料：虛數（瓦爾特 / 羅剎 / 馭空）",
+      "help": ""
+    },
+    "Item_Netherworld_Token": {
+      "name": "角色晉階材料：物理（寒鴉 / 銀枝）",
+      "help": ""
+    },
+    "Item_Searing_Steel_Blade": {
+      "name": "角色晉階材料：火（桂乃芬 / 托帕&帳帳）",
+      "help": ""
+    },
+    "Item_Gelid_Chitin": {
+      "name": "角色晉階材料：冰（彥卿 / 鏡流 / 阮•梅）",
+      "help": ""
+    },
+    "Item_Shape_Shifter_Lightning_Staff": {
+      "name": "角色晉階材料：雷（卡芙卡 / 景元 / 黃泉）",
+      "help": ""
+    },
+    "Item_Ascendant_Debris": {
+      "name": "角色晉階材料：風（刃 / 藿藿 / 黑天鵝）",
+      "help": ""
+    },
+    "Item_Nail_of_the_Ape": {
+      "name": "角色晉階材料：量子（玲可 / 符玄 / 雪衣）",
+      "help": ""
+    },
+    "Item_Suppressing_Edict": {
+      "name": "角色晉階材料：虛數（丹恆•飲月 / 砂金 / 真理醫生）",
+      "help": ""
+    },
+    "Item_IPC_Work_Permit": {
+      "name": "角色晉階材料：物理（波提歐 / 知更鳥）",
+      "help": ""
+    },
+    "Item_Raging_Heart": {
+      "name": "角色晉階材料：火（加拉赫）",
+      "help": ""
+    },
+    "Item_Dream_Fridge": {
+      "name": "角色晉階材料：冰（米沙）",
+      "help": ""
+    },
+    "Item_Dream_Flamer": {
+      "name": "角色晉階材料：量子（花火）",
+      "help": ""
+    },
+    "Item_Worldbreaker_Blade": {
+      "name": "行跡材料：毀滅（收容艙段）",
+      "help": ""
+    },
+    "Item_Arrow_of_the_Starchaser": {
+      "name": "行跡材料：巡獵（城郊雪原）",
+      "help": ""
+    },
+    "Item_Key_of_Wisdom": {
+      "name": "行跡材料：智識（鉚釘鎮）",
+      "help": ""
+    },
+    "Item_Safeguard_of_Amber": {
+      "name": "行跡材料：存護（支援艙段）",
+      "help": ""
+    },
+    "Item_Obsidian_of_Obsession": {
+      "name": "行跡材料：虛無（大礦區）",
+      "help": ""
+    },
+    "Item_Stellaris_Symphony": {
+      "name": "行跡材料：同諧（機械聚落）",
+      "help": ""
+    },
+    "Item_Flower_of_Eternity": {
+      "name": "行跡材料：豐饒（邊緣通道）",
+      "help": ""
+    },
+    "Item_Moon_Madness_Fang": {
+      "name": "行跡材料：毀滅（鱗淵境）",
+      "help": ""
+    },
+    "Item_Countertemporal_Shot": {
+      "name": "行跡材料：巡獵（蘇樂達熱砂海選會場）",
+      "help": ""
+    },
+    "Item_Divine_Amber": {
+      "name": "行跡材料：存護（克勞克影視樂園）",
+      "help": ""
+    },
+    "Item_Heaven_Incinerator": {
+      "name": "行跡材料：虛無（丹鼎司）",
+      "help": ""
+    },
+    "Item_Heavenly_Melody": {
+      "name": "行跡材料：同諧（白日夢飯店-夢境）",
+      "help": ""
+    },
+    "Item_Myriad_Fruit": {
+      "name": "行跡材料：豐饒（綏園）",
+      "help": ""
+    },
+    "Item_Tracks_of_Destiny": {
+      "name": "命運的足跡",
+      "help": ""
+    },
+    "Item_Destroyer_Final_Road": {
+      "name": "毀滅的開端•歷戰餘響 (太空站「黑塔」)",
+      "help": ""
+    },
+    "Item_Guardian_Lament": {
+      "name": "寒潮的落幕•歷戰餘響 (雅利洛-Ⅵ)",
+      "help": ""
+    },
+    "Item_Regret_of_Infinite_Ochema": {
+      "name": "不死的神實•歷戰餘響 (仙舟「羅浮」)",
+      "help": ""
+    },
+    "Item_Past_Evils_of_the_Borehole_Planet_Disaster": {
+      "name": "蛀星的舊靨•歷戰餘響 (太空站「黑塔」)",
+      "help": ""
+    },
+    "Item_Lost_Echo_of_the_Shared_Wish": {
+      "name": "塵夢的讚禮•歷戰餘響 (匹諾康尼)",
+      "help": ""
+    },
+    "Item_Squirming_Core": {
+      "name": "蠢動原核",
+      "help": ""
+    },
+    "Item_Conqueror_Will": {
+      "name": "踐踏的意志",
+      "help": ""
+    },
+    "Item_Silvermane_Medal": {
+      "name": "鐵衛勳章",
+      "help": ""
+    },
+    "Item_Ancient_Engine": {
+      "name": "古代引擎",
+      "help": ""
+    },
+    "Item_Immortal_Lumintwig": {
+      "name": "永壽榮枝",
+      "help": ""
+    },
+    "Item_Artifex_Gyreheart": {
+      "name": "工造渾心",
+      "help": ""
+    },
+    "Item_Dream_Making_Engine": {
+      "name": "造夢馬達",
+      "help": ""
+    },
+    "Item_Shards_of_Desires": {
+      "name": "欲念碎鏡",
+      "help": ""
+    }
+  },
   "Weekly": {
     "_info": {
       "name": "歷戰餘響設定",

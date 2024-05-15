@@ -422,9 +422,12 @@ class Duration(Ocr):
 
 
 class OcrWhiteLetterOnComplexBackground(Ocr):
+    white_preprocess = True
+
     def pre_process(self, image):
-        image = extract_white_letters(image, threshold=255)
-        image = cv2.merge([image, image, image])
+        if self.white_preprocess:
+            image = extract_white_letters(image, threshold=255)
+            image = cv2.merge([image, image, image])
         return image
 
     def detect_and_ocr(self, *args, **kwargs):

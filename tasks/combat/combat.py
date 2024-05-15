@@ -82,14 +82,11 @@ class Combat(CombatInteract, CombatPrepare, CombatState, CombatTeam, CombatSuppo
         logger.hr('Combat prepare')
         skip_first_screenshot = True
         if support_character:
-            # To set team before support set
-            pre_set_team = True
             # Block COMBAT_TEAM_PREPARE before support set
             support_set = False
         else:
-            pre_set_team = False
             support_set = True
-        logger.info([support_character, pre_set_team, support_set])
+        logger.info([support_character, support_set])
         trial = 0
         while 1:
             if skip_first_screenshot:
@@ -107,18 +104,17 @@ class Combat(CombatInteract, CombatPrepare, CombatState, CombatTeam, CombatSuppo
                 raise RequestHumanTakeover
 
             # Click
-            if support_character and self.appear(COMBAT_TEAM_SUPPORT):
-                if pre_set_team:
-                    self.team_set(team)
-                    pre_set_team = False
-                    continue
+            if support_character and self.appear(COMBAT_TEAM_SUPPORT, interval=2):
+                self.team_set(team)
                 self.support_set(support_character)
+                self.interval_reset(COMBAT_TEAM_SUPPORT)
                 support_set = True
                 continue
             if support_set and self.appear(COMBAT_TEAM_PREPARE, interval=2):
                 self.team_set(team)
                 self.device.click(COMBAT_TEAM_PREPARE)
                 self.interval_reset(COMBAT_TEAM_PREPARE)
+                self.interval_reset(COMBAT_TEAM_SUPPORT)
                 continue
             if self.appear(COMBAT_TEAM_PREPARE):
                 self.interval_reset(COMBAT_PREPARE)
@@ -131,6 +127,7 @@ class Combat(CombatInteract, CombatPrepare, CombatState, CombatTeam, CombatSuppo
                 trial += 1
                 continue
             if self.handle_combat_interact():
+                self.map_A_timer.reset()
                 continue
             if self.handle_ascension_dungeon_prepare():
                 continue
@@ -160,7 +157,8 @@ class Combat(CombatInteract, CombatPrepare, CombatState, CombatTeam, CombatSuppo
             if callable(expected_end) and expected_end():
                 logger.info(f'Combat execute ended at {expected_end.__name__}')
                 break
-            if self.appear(COMBAT_AGAIN):
+            if (self.appear(COMBAT_AGAIN) and
+                    self.image_color_count(COMBAT_AGAIN, color=(227, 227, 228), threshold=221, count=50)):
                 logger.info(f'Combat execute ended at {COMBAT_AGAIN}')
                 break
             if self.is_in_main():
@@ -176,6 +174,9 @@ class Combat(CombatInteract, CombatPrepare, CombatState, CombatTeam, CombatSuppo
             else:
                 is_executing = False
             if self.handle_combat_state():
+                continue
+            # Battle pass popup appears just after combat finished and before blessings
+            if self.handle_battle_pass_notification():
                 continue
 
     def _combat_can_again(self) -> bool:
@@ -215,6 +216,9 @@ class Combat(CombatInteract, CombatPrepare, CombatState, CombatTeam, CombatSuppo
         Returns:
             bool: True to re-enter combat and run with another wave settings
         """
+        if self.config.stored.TrailblazePower.value < self.combat_wave_cost:
+            logger.info('Current trailblaze power is not enough for next run')
+            return False
         # Wave limit
         if self.combat_wave_limit:
             if self.combat_wave_done < self.combat_wave_limit:
@@ -227,6 +231,7 @@ class Combat(CombatInteract, CombatPrepare, CombatState, CombatTeam, CombatSuppo
         if self.config.stored.TrailblazePower.value >= self.combat_wave_cost:
             logger.info('Still having some trailblaze power run with less waves to empty it')
             return True
+        return False
 
     def combat_finish(self) -> bool:
         """

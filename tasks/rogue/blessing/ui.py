@@ -80,4 +80,9 @@ class RogueUI(UI):
             logger.info(f'{CURIO_OBTAINED} -> {BLESSING_CONFIRM}')
             self.device.click(BLESSING_CONFIRM)
             return True
+        # Fixed a curio from occurrence
+        if self.appear(CURIO_FIXED, interval=2):
+            logger.info(f'{CURIO_FIXED} -> {BLESSING_CONFIRM}')
+            self.device.click(BLESSING_CONFIRM)
+            return True
         return False

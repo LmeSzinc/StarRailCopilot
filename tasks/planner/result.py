@@ -2,7 +2,6 @@ import re
 
 import cv2
 from pponnxcr.predict_system import BoxedResult
-from pydantic import BaseModel
 
 from module.base.utils import area_center, area_in_area
 from module.logger import logger
@@ -11,21 +10,15 @@ from module.ui.scroll import AdaptiveScroll
 from tasks.daily.synthesize import SynthesizeUI
 from tasks.planner.assets.assets_planner_result import *
 from tasks.planner.keywords import ITEM_CLASSES
-from tasks.planner.keywords.classes import ItemBase, ItemCurrency
+from tasks.planner.keywords.classes import ItemCurrency
+from tasks.planner.model import PlannerProgressMixin, PlannerResultRow
 
 CALCULATE_TITLE.load_search(RESULT_CHECK.search)
 MATERIAL_TITLE.load_search(RESULT_CHECK.search)
 DETAIL_TITLE.load_search(RESULT_CHECK.search)
 
 
-class PlannerResultRow(BaseModel):
-    item: ItemBase
-    total: int
-    synthesize: int
-    demand: int
 
-    def __eq__(self, other):
-        return self.item == other.item
 
 
 class OcrItemName(Ocr):
@@ -43,6 +36,21 @@ class OcrPlannerResult(OcrWhiteLetterOnComplexBackground, OcrItemName):
         super().__init__(OCR_RESULT, lang='cn')
         self.limited_area = OCR_RESULT.area
         self.limit_y = 720
+
+    def _match_result(
+            self,
+            result: str,
+            keyword_classes,
+            lang: str = 'cn',
+            ignore_punctuation=True,
+            ignore_digit=True):
+        return super()._match_result(
+            result,
+            keyword_classes,
+            lang,
+            ignore_punctuation,
+            ignore_digit,
+        )
 
     def filter_detected(self, result: BoxedResult) -> bool:
         if not area_in_area(result.box, self.limited_area, threshold=0):
@@ -67,7 +75,7 @@ class OcrPlannerResult(OcrWhiteLetterOnComplexBackground, OcrItemName):
         return image
 
 
-class PlannerResult(SynthesizeUI):
+class PlannerResult(SynthesizeUI, PlannerProgressMixin):
     def is_in_planner_result(self):
         if self.appear(RESULT_CHECK):
             return True
@@ -116,12 +124,12 @@ class PlannerResult(SynthesizeUI):
                 if y_match(number, y_item):
                     total = int(number.ocr_text)
                     break
-            synthesize = -1
+            synthesize = 0
             for number in list_synthesize:
                 if y_match(number, y_item):
                     synthesize = int(number.ocr_text)
                     break
-            demand = -1
+            demand = 0
             for number in list_demand:
                 if y_match(number, y_item):
                     demand = int(number.ocr_text)
@@ -139,7 +147,7 @@ class PlannerResult(SynthesizeUI):
                 logger.warning(f'Planner row with total <= 0, {row}')
                 continue
             if row.synthesize < 0:
-                # Credits always have synthesize="-"
+                # Credits always have `synthesize`=="-"
                 if row.item.__class__ != ItemCurrency:
                     logger.warning(f'Planner row with synthesize < 0, {row}')
                     continue
@@ -203,7 +211,9 @@ class PlannerResult(SynthesizeUI):
 
         logger.hr('Planner Result')
         for row in out:
-            logger.info(f'Item: {row.item.name}, {row.total}, {row.synthesize}, {row.demand}')
+            logger.info(f'Planner item: {row.item.name}, {row.total}, {row.synthesize}, {row.demand}')
+
+        self.planner_write_results(out)
         return out
 
 

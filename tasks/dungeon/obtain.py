@@ -1,23 +1,15 @@
 import re
 
-from pydantic import BaseModel
-
 from module.base.timer import Timer
 from module.exception import ScriptError
 from module.logger import logger
 from module.ocr.ocr import Digit
-from tasks.base.ui import UI
-from tasks.combat.assets.assets_combat_prepare import COMBAT_PREPARE
+from tasks.combat.assets.assets_combat_prepare import COMBAT_PREPARE, WAVE_MINUS, WAVE_PLUS
 from tasks.dungeon.assets.assets_dungeon_obtain import *
 from tasks.dungeon.keywords import DungeonList
 from tasks.planner.keywords import ITEM_CLASSES
-from tasks.planner.keywords.classes import ItemBase
+from tasks.planner.model import ObtainedAmmount, PlannerProgressMixin
 from tasks.planner.result import OcrItemName
-
-
-class ItemAmount(BaseModel):
-    item: ItemBase
-    amount: int
 
 
 class OcrItemAmount(Digit):
@@ -27,7 +19,7 @@ class OcrItemAmount(Digit):
         return super().format_result(result)
 
 
-class DungeonObtain(UI):
+class DungeonObtain(PlannerProgressMixin):
     """
     Parse items that can be obtained from dungeon
 
@@ -92,13 +84,15 @@ class DungeonObtain(UI):
             else:
                 self.device.screenshot()
 
-            if self.appear(COMBAT_PREPARE):
-                break
+            if not self.appear(ITEM_CLOSE) and self.appear(COMBAT_PREPARE):
+                if self.image_color_count(WAVE_MINUS, color=(246, 246, 246), threshold=221, count=100) \
+                        or self.image_color_count(WAVE_PLUS, color=(246, 246, 246), threshold=221, count=100):
+                    break
             if self.appear_then_click(ITEM_CLOSE, interval=2):
                 continue
 
     @staticmethod
-    def _obtain_get_entry(dungeon: DungeonList, index: int = 1, prev: ItemAmount = None):
+    def _obtain_get_entry(dungeon: DungeonList, index: int = 1, prev: ObtainedAmmount = None):
         """
         Args:
             dungeon: Current dungeon
@@ -149,7 +143,7 @@ class DungeonObtain(UI):
 
         raise ScriptError(f'_obtain_get_entry: Cannot get entry from {dungeon}')
 
-    def _obtain_parse(self) -> ItemAmount | None:
+    def _obtain_parse(self) -> ObtainedAmmount | None:
         """
         Pages:
             in: ITEM_CLOSE
@@ -163,13 +157,13 @@ class DungeonObtain(UI):
             logger.warning('_obtain_parse: Unknown item name')
             return None
 
-        logger.info(f'Item amount: item={item}, amount={amount}')
-        return ItemAmount(
+        # logger.info(f'ObtainedAmmount: item={item}, value={amount}')
+        return ObtainedAmmount(
             item=item,
-            amount=amount,
+            value=amount,
         )
 
-    def obtain_get(self, dungeon=None, skip_first_screenshot=True) -> list[ItemAmount]:
+    def obtain_get(self, dungeon=None, skip_first_screenshot=True) -> list[ObtainedAmmount]:
         """
         Args:
             dungeon: Current dungeon,
@@ -177,7 +171,7 @@ class DungeonObtain(UI):
             skip_first_screenshot:
 
         Returns:
-            list[ItemAmount]:
+            list[ObtainedAmmount]:
 
         Pages:
             in: COMBAT_PREPARE
@@ -204,15 +198,17 @@ class DungeonObtain(UI):
                 prev = item
             self._obtain_close()
 
-        logger.hr('Obtain get result')
+        logger.hr('Obtained Result')
         for item in items:
-            logger.info(f'ItemAmount: {item.item.name}, {item.amount}')
+            logger.info(f'Obtained item: {item.item.name}, {item.value}')
         """
         <<< OBTAIN GET RESULT >>>                   
         ItemAmount: Arrow_of_the_Starchaser, 15     
         ItemAmount: Arrow_of_the_Demon_Slayer, 68   
         ItemAmount: Arrow_of_the_Beast_Hunter, 85   
         """
+        self.planner.load_obtained_amount(items)
+        self.planner_write()
         return items
 
 

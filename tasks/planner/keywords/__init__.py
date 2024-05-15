@@ -1,3 +1,5 @@
+from typing import Union
+
 import tasks.planner.keywords.item_ascension as KEYWORDS_ITEM_ASCENSION
 import tasks.planner.keywords.item_calyx as KEYWORDS_ITEM_CALYX
 import tasks.planner.keywords.item_currency as KEYWORDS_ITEM_CURRENCY
@@ -7,3 +9,4 @@ import tasks.planner.keywords.item_weekly as KEYWORDS_ITEM_WEEKLY
 from tasks.planner.keywords.classes import ItemAscension, ItemCalyx, ItemCurrency, ItemExp, ItemTrace, ItemWeekly
 
 ITEM_CLASSES = [ItemAscension, ItemCalyx, ItemCurrency, ItemExp, ItemTrace, ItemWeekly]
+ITEM_TYPES = Union[ItemAscension, ItemCalyx, ItemCurrency, ItemExp, ItemTrace, ItemWeekly]

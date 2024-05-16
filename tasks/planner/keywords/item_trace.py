@@ -3,21 +3,8 @@ from .classes import ItemTrace
 # This file was auto-generated, do not modify it manually. To generate:
 # ``` python -m dev_tools.keyword_extract ```
 
-Tears_of_Dreams = ItemTrace(
-    id=1,
-    name='Tears_of_Dreams',
-    cn='梦之珠泪',
-    cht='夢之珠淚',
-    en='Tears of Dreams',
-    jp='夢の涙',
-    es='Lágrima de los sueños',
-    rarity='VeryRare',
-    item_id=110101,
-    item_group=1200,
-    dungeon_id=-1,
-)
 Shattered_Blade = ItemTrace(
-    id=2,
+    id=1,
     name='Shattered_Blade',
     cn='破碎残刃',
     cht='破碎殘刃',
@@ -30,7 +17,7 @@ Shattered_Blade = ItemTrace(
     dungeon_id=1004,
 )
 Lifeless_Blade = ItemTrace(
-    id=3,
+    id=2,
     name='Lifeless_Blade',
     cn='无生残刃',
     cht='無生殘刃',
@@ -43,7 +30,7 @@ Lifeless_Blade = ItemTrace(
     dungeon_id=1004,
 )
 Worldbreaker_Blade = ItemTrace(
-    id=4,
+    id=3,
     name='Worldbreaker_Blade',
     cn='净世残刃',
     cht='淨世殘刃',
@@ -56,7 +43,7 @@ Worldbreaker_Blade = ItemTrace(
     dungeon_id=1004,
 )
 Arrow_of_the_Beast_Hunter = ItemTrace(
-    id=5,
+    id=4,
     name='Arrow_of_the_Beast_Hunter',
     cn='猎兽之矢',
     cht='獵獸之矢',
@@ -69,7 +56,7 @@ Arrow_of_the_Beast_Hunter = ItemTrace(
     dungeon_id=1006,
 )
 Arrow_of_the_Demon_Slayer = ItemTrace(
-    id=6,
+    id=5,
     name='Arrow_of_the_Demon_Slayer',
     cn='屠魔之矢',
     cht='屠魔之矢',
@@ -82,7 +69,7 @@ Arrow_of_the_Demon_Slayer = ItemTrace(
     dungeon_id=1006,
 )
 Arrow_of_the_Starchaser = ItemTrace(
-    id=7,
+    id=6,
     name='Arrow_of_the_Starchaser',
     cn='逐星之矢',
     cht='逐星之矢',
@@ -95,7 +82,7 @@ Arrow_of_the_Starchaser = ItemTrace(
     dungeon_id=1006,
 )
 Key_of_Inspiration = ItemTrace(
-    id=8,
+    id=7,
     name='Key_of_Inspiration',
     cn='灵感之钥',
     cht='靈感之鑰',
@@ -108,7 +95,7 @@ Key_of_Inspiration = ItemTrace(
     dungeon_id=1008,
 )
 Key_of_Knowledge = ItemTrace(
-    id=9,
+    id=8,
     name='Key_of_Knowledge',
     cn='启迪之钥',
     cht='啟迪之鑰',
@@ -121,7 +108,7 @@ Key_of_Knowledge = ItemTrace(
     dungeon_id=1008,
 )
 Key_of_Wisdom = ItemTrace(
-    id=10,
+    id=9,
     name='Key_of_Wisdom',
     cn='智识之钥',
     cht='智識之鑰',
@@ -134,7 +121,7 @@ Key_of_Wisdom = ItemTrace(
     dungeon_id=1008,
 )
 Endurance_of_Bronze = ItemTrace(
-    id=11,
+    id=10,
     name='Endurance_of_Bronze',
     cn='青铜的执着',
     cht='青銅的執著',
@@ -147,7 +134,7 @@ Endurance_of_Bronze = ItemTrace(
     dungeon_id=1005,
 )
 Oath_of_Steel = ItemTrace(
-    id=12,
+    id=11,
     name='Oath_of_Steel',
     cn='寒铁的誓言',
     cht='寒鐵的誓言',
@@ -160,7 +147,7 @@ Oath_of_Steel = ItemTrace(
     dungeon_id=1005,
 )
 Safeguard_of_Amber = ItemTrace(
-    id=13,
+    id=12,
     name='Safeguard_of_Amber',
     cn='琥珀的坚守',
     cht='琥珀的堅守',
@@ -173,7 +160,7 @@ Safeguard_of_Amber = ItemTrace(
     dungeon_id=1005,
 )
 Obsidian_of_Dread = ItemTrace(
-    id=14,
+    id=13,
     name='Obsidian_of_Dread',
     cn='黯淡黑曜',
     cht='黯淡黑曜',
@@ -186,7 +173,7 @@ Obsidian_of_Dread = ItemTrace(
     dungeon_id=1010,
 )
 Obsidian_of_Desolation = ItemTrace(
-    id=15,
+    id=14,
     name='Obsidian_of_Desolation',
     cn='虚空黑曜',
     cht='虛空黑曜',
@@ -199,7 +186,7 @@ Obsidian_of_Desolation = ItemTrace(
     dungeon_id=1010,
 )
 Obsidian_of_Obsession = ItemTrace(
-    id=16,
+    id=15,
     name='Obsidian_of_Obsession',
     cn='沉沦黑曜',
     cht='沉淪黑曜',
@@ -212,7 +199,7 @@ Obsidian_of_Obsession = ItemTrace(
     dungeon_id=1010,
 )
 Harmonic_Tune = ItemTrace(
-    id=17,
+    id=16,
     name='Harmonic_Tune',
     cn='谐乐小调',
     cht='諧樂小調',
@@ -225,7 +212,7 @@ Harmonic_Tune = ItemTrace(
     dungeon_id=1009,
 )
 Ancestral_Hymn = ItemTrace(
-    id=18,
+    id=17,
     name='Ancestral_Hymn',
     cn='家族颂歌',
     cht='家族頌歌',
@@ -238,7 +225,7 @@ Ancestral_Hymn = ItemTrace(
     dungeon_id=1009,
 )
 Stellaris_Symphony = ItemTrace(
-    id=19,
+    id=18,
     name='Stellaris_Symphony',
     cn='群星乐章',
     cht='群星樂章',
@@ -251,7 +238,7 @@ Stellaris_Symphony = ItemTrace(
     dungeon_id=1009,
 )
 Seed_of_Abundance = ItemTrace(
-    id=20,
+    id=19,
     name='Seed_of_Abundance',
     cn='丰饶之种',
     cht='豐饒之種',
@@ -264,7 +251,7 @@ Seed_of_Abundance = ItemTrace(
     dungeon_id=1007,
 )
 Sprout_of_Life = ItemTrace(
-    id=21,
+    id=20,
     name='Sprout_of_Life',
     cn='生命之芽',
     cht='生命之芽',
@@ -277,7 +264,7 @@ Sprout_of_Life = ItemTrace(
     dungeon_id=1007,
 )
 Flower_of_Eternity = ItemTrace(
-    id=22,
+    id=21,
     name='Flower_of_Eternity',
     cn='永恒之花',
     cht='永恆之花',
@@ -290,7 +277,7 @@ Flower_of_Eternity = ItemTrace(
     dungeon_id=1007,
 )
 Borisin_Teeth = ItemTrace(
-    id=23,
+    id=22,
     name='Borisin_Teeth',
     cn='步离犬牙',
     cht='步離犬牙',
@@ -303,7 +290,7 @@ Borisin_Teeth = ItemTrace(
     dungeon_id=1018,
 )
 Lupitoxin_Sawteeth = ItemTrace(
-    id=24,
+    id=23,
     name='Lupitoxin_Sawteeth',
     cn='狼毒锯牙',
     cht='狼毒鋸牙',
@@ -316,7 +303,7 @@ Lupitoxin_Sawteeth = ItemTrace(
     dungeon_id=1018,
 )
 Moon_Madness_Fang = ItemTrace(
-    id=25,
+    id=24,
     name='Moon_Madness_Fang',
     cn='月狂獠牙',
     cht='月狂獠牙',
@@ -329,7 +316,7 @@ Moon_Madness_Fang = ItemTrace(
     dungeon_id=1018,
 )
 Meteoric_Bullet = ItemTrace(
-    id=26,
+    id=25,
     name='Meteoric_Bullet',
     cn='陨铁弹丸',
     cht='隕鐵彈丸',
@@ -342,7 +329,7 @@ Meteoric_Bullet = ItemTrace(
     dungeon_id=1022,
 )
 Destined_Expiration = ItemTrace(
-    id=27,
+    id=26,
     name='Destined_Expiration',
     cn='命定死因',
     cht='命定死因',
@@ -355,7 +342,7 @@ Destined_Expiration = ItemTrace(
     dungeon_id=1022,
 )
 Countertemporal_Shot = ItemTrace(
-    id=28,
+    id=27,
     name='Countertemporal_Shot',
     cn='逆时一击',
     cht='逆時一擊',
@@ -368,7 +355,7 @@ Countertemporal_Shot = ItemTrace(
     dungeon_id=1022,
 )
 Scattered_Stardust = ItemTrace(
-    id=29,
+    id=28,
     name='Scattered_Stardust',
     cn='散逸星砂',
     cht='散逸星砂',
@@ -381,7 +368,7 @@ Scattered_Stardust = ItemTrace(
     dungeon_id=1020,
 )
 Crystal_Meteorites = ItemTrace(
-    id=30,
+    id=29,
     name='Crystal_Meteorites',
     cn='流星棱晶',
     cht='流星稜晶',
@@ -394,7 +381,7 @@ Crystal_Meteorites = ItemTrace(
     dungeon_id=1020,
 )
 Divine_Amber = ItemTrace(
-    id=31,
+    id=30,
     name='Divine_Amber',
     cn='神体琥珀',
     cht='神體琥珀',
@@ -407,7 +394,7 @@ Divine_Amber = ItemTrace(
     dungeon_id=1020,
 )
 Fiery_Spirit = ItemTrace(
-    id=32,
+    id=31,
     name='Fiery_Spirit',
     cn='炽情之灵',
     cht='熾情之靈',
@@ -420,7 +407,7 @@ Fiery_Spirit = ItemTrace(
     dungeon_id=1017,
 )
 Starfire_Essence = ItemTrace(
-    id=33,
+    id=32,
     name='Starfire_Essence',
     cn='星火之精',
     cht='星火之精',
@@ -433,7 +420,7 @@ Starfire_Essence = ItemTrace(
     dungeon_id=1017,
 )
 Heaven_Incinerator = ItemTrace(
-    id=34,
+    id=33,
     name='Heaven_Incinerator',
     cn='焚天之魔',
     cht='焚天之魔',
@@ -446,7 +433,7 @@ Heaven_Incinerator = ItemTrace(
     dungeon_id=1017,
 )
 Firmament_Note = ItemTrace(
-    id=35,
+    id=34,
     name='Firmament_Note',
     cn='云际音符',
     cht='雲際音符',
@@ -459,7 +446,7 @@ Firmament_Note = ItemTrace(
     dungeon_id=1019,
 )
 Celestial_Section = ItemTrace(
-    id=36,
+    id=35,
     name='Celestial_Section',
     cn='空际小节',
     cht='空際小節',
@@ -472,7 +459,7 @@ Celestial_Section = ItemTrace(
     dungeon_id=1019,
 )
 Heavenly_Melody = ItemTrace(
-    id=37,
+    id=36,
     name='Heavenly_Melody',
     cn='天外乐章',
     cht='天外樂章',
@@ -485,7 +472,7 @@ Heavenly_Melody = ItemTrace(
     dungeon_id=1019,
 )
 Alien_Tree_Seed = ItemTrace(
-    id=38,
+    id=37,
     name='Alien_Tree_Seed',
     cn='异木种籽',
     cht='異木種籽',
@@ -498,7 +485,7 @@ Alien_Tree_Seed = ItemTrace(
     dungeon_id=1021,
 )
 Nourishing_Honey = ItemTrace(
-    id=39,
+    id=38,
     name='Nourishing_Honey',
     cn='滋长花蜜',
     cht='滋長花蜜',
@@ -511,7 +498,7 @@ Nourishing_Honey = ItemTrace(
     dungeon_id=1021,
 )
 Myriad_Fruit = ItemTrace(
-    id=40,
+    id=39,
     name='Myriad_Fruit',
     cn='万相果实',
     cht='萬相果實',

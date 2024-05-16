@@ -120,16 +120,3 @@ Lost_Crystal = ItemExp(
     item_group=1030,
     dungeon_id=-1,
 )
-Lost_Essence = ItemExp(
-    id=10,
-    name='Lost_Essence',
-    cn='遗失精粹',
-    cht='遺失精粹',
-    en='Lost Essence',
-    jp='遺失精華',
-    es='Esencia perdida',
-    rarity='SuperRare',
-    item_id=234,
-    item_group=1030,
-    dungeon_id=-1,
-)

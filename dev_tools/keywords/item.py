@@ -7,6 +7,7 @@ from module.config.utils import deep_get
 
 class GenerateItemBase(GenerateKeyword):
     purpose_type = []
+    blacklist = []
 
     def iter_items(self) -> t.Iterable[dict]:
         for data in SHARE_DATA.ItemConfig.values():
@@ -29,6 +30,8 @@ class GenerateItemBase(GenerateKeyword):
     def iter_keywords(self) -> t.Iterable[dict]:
         for data in self.iter_items():
             if data['subtype'] == 'Material' and data['purpose'] in self.purpose_type:
+                if data['item_id'] in self.blacklist:
+                    continue
                 data['dungeon_id'] = self.dict_itemid_to_dungeonid.get(data['item_id'], -1)
                 yield data
 
@@ -68,26 +71,36 @@ class GenerateItemBase(GenerateKeyword):
 
 class GenerateItemCurrency(GenerateItemBase):
     output_file = './tasks/planner/keywords/item_currency.py'
+    # Leave 'Credit' only
+    whitelist = [2]
 
     def iter_keywords(self) -> t.Iterable[dict]:
         for data in self.iter_items():
             if data['subtype'] == 'Virtual' and data['item_id'] < 100:
+                if data['item_id'] not in self.whitelist:
+                    continue
                 yield data
 
 
 class GenerateItemExp(GenerateItemBase):
     output_file = './tasks/planner/keywords/item_exp.py'
     purpose_type = [1, 5, 6]
+    # 'Lost_Essence' is not available in game currently
+    blacklist = [234]
 
 
 class GenerateItemAscension(GenerateItemBase):
     output_file = './tasks/planner/keywords/item_ascension.py'
     purpose_type = [2]
+    # 'Enigmatic_Ectostella' is not available in game currently
+    blacklist = [110400]
 
 
 class GenerateItemTrace(GenerateItemBase):
     output_file = './tasks/planner/keywords/item_trace.py'
     purpose_type = [3]
+    # Can't farm Tears_of_Dreams
+    blacklist = [110101]
 
 
 class GenerateItemWeekly(GenerateItemBase):

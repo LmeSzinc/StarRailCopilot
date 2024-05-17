@@ -75,7 +75,9 @@ class Dungeon(DungeonStamina, DungeonEvent, Combat):
             if relic == 0:
                 return 0
         # Combat
+        self.dungeon = dungeon
         count = self.combat(team=team, wave_limit=wave_limit, support_character=support_character)
+        self.dungeon = None
 
         # Update quest states
         with self.config.multi_set():
@@ -225,10 +227,13 @@ class Dungeon(DungeonStamina, DungeonEvent, Combat):
         ran_calyx_golden = False
         ran_calyx_crimson = False
         ran_cavern_of_corrosion = False
+        planner = self.planner.get_dungeon(double_calyx=True)
         # Double calyx
         if self.config.stored.DungeonDouble.calyx > 0:
             logger.info('Run double calyx')
             dungeon = DungeonList.find(self.config.Dungeon_NameAtDoubleCalyx)
+            if planner is not None:
+                dungeon = planner
             self.running_double = True
             if self.dungeon_run(dungeon=dungeon, wave_limit=self.config.stored.DungeonDouble.calyx):
                 if dungeon.is_Calyx_Golden:
@@ -258,6 +263,10 @@ class Dungeon(DungeonStamina, DungeonEvent, Combat):
             final = KEYWORDS_DUNGEON_LIST.Simulated_Universe_World_1
         else:
             final = DungeonList.find(self.config.Dungeon_Name)
+        # Planner
+        planner = self.planner.get_dungeon()
+        if planner is not None:
+            final = planner
 
         # Run dungeon that required by daily quests
         # Calyx_Golden

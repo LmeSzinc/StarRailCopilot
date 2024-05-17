@@ -284,6 +284,8 @@ class PlannerProgressParser:
             if not row.item.is_group_base:
                 logger.error(f'from_config: item is not group base {row}')
                 continue
+            row.update_synthesize()
+            row.update_progress()
             self.rows[row.item.name] = row
         return self
 
@@ -296,43 +298,61 @@ class PlannerProgressParser:
             data[name] = dic
         return data
 
-    def iter_item_to_farm(self) -> t.Iterable[ItemBase]:
-        rows = [row for row in self.rows.values() if row.need_farm()]
+    def iter_row_to_farm(self, need_farm=True) -> t.Iterable[StoredPlannerProxy]:
+        """
+        Args:
+            need_farm: True if filter rows that need farm
+
+        Yields:
+
+        """
+        if need_farm:
+            rows = [row for row in self.rows.values() if row.need_farm()]
+        else:
+            rows = self.rows.values()
+
         for row in rows:
             if row.item.is_ItemWeekly:
-                yield row.item
+                yield row
         for row in rows:
             if row.item.is_ItemAscension:
-                yield row.item
+                yield row
         for row in rows:
             if row.item.is_ItemTrace:
-                yield row.item
+                yield row
         for row in rows:
             if row.item.is_ItemExp:
-                yield row.item
+                yield row
         for row in rows:
             if row.item.is_ItemCurrency:
-                yield row.item
+                yield row
 
-    def get_dungeon(self) -> DungeonList | None:
+    def get_dungeon(self, double_calyx=False) -> DungeonList | None:
         """
         Get dungeon to farm, or None if planner finished or the remaining items cannot be farmed
         """
-        for item in self.iter_item_to_farm():
+        for row in self.iter_row_to_farm():
+            item = row.item
             if item.is_ItemWeekly:
                 continue
             dungeon = item.dungeon
             if dungeon is None:
                 logger.error(f'Item {item} has nowhere to be farmed')
                 continue
-            logger.info(f'Planner farm: {dungeon}')
-            return dungeon
+            if double_calyx:
+                if dungeon.is_Calyx:
+                    logger.info(f'Planner farm (double_calyx): {dungeon}')
+                    return dungeon
+            else:
+                logger.info(f'Planner farm: {dungeon}')
+                return dungeon
 
         logger.info('Planner farm empty')
         return None
 
     def get_weekly(self) -> DungeonList | None:
-        for item in self.iter_item_to_farm():
+        for row in self.iter_row_to_farm():
+            item = row.item
             if not item.is_ItemWeekly:
                 continue
             dungeon = item.dungeon
@@ -345,6 +365,17 @@ class PlannerProgressParser:
         logger.info('Planner farm empty')
         return None
 
+    def row_come_from_dungeon(self, dungeon: DungeonList | None) -> StoredPlannerProxy | None:
+        """
+        If any items in planner is able to be farmed from given dungeon
+        """
+        if dungeon is None:
+            return None
+        for row in self.iter_row_to_farm(need_farm=False):
+            if row.item.dungeon == dungeon:
+                logger.info(f'Planner {row} come from {dungeon}')
+                return row
+        return None
 
 
 class PlannerMixin(UI):

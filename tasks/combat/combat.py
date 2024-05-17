@@ -5,15 +5,20 @@ from tasks.combat.assets.assets_combat_finish import COMBAT_AGAIN, COMBAT_EXIT
 from tasks.combat.assets.assets_combat_prepare import COMBAT_PREPARE
 from tasks.combat.assets.assets_combat_team import COMBAT_TEAM_PREPARE, COMBAT_TEAM_SUPPORT
 from tasks.combat.interact import CombatInteract
+from tasks.combat.obtain import CombatObtain
 from tasks.combat.prepare import CombatPrepare
 from tasks.combat.skill import CombatSkill
 from tasks.combat.state import CombatState
 from tasks.combat.support import CombatSupport
 from tasks.combat.team import CombatTeam
+from tasks.dungeon.keywords import DungeonList
 from tasks.map.control.joystick import MapControlJoystick
 
 
-class Combat(CombatInteract, CombatPrepare, CombatState, CombatTeam, CombatSupport, CombatSkill, MapControlJoystick):
+class Combat(CombatInteract, CombatPrepare, CombatState, CombatTeam, CombatSupport, CombatSkill, CombatObtain,
+             MapControlJoystick):
+    dungeon: DungeonList | None = None
+
     def handle_combat_prepare(self):
         """
         Returns:
@@ -120,6 +125,9 @@ class Combat(CombatInteract, CombatPrepare, CombatState, CombatTeam, CombatSuppo
                 self.interval_reset(COMBAT_PREPARE)
                 self.map_A_timer.reset()
             if self.appear(COMBAT_PREPARE, interval=2):
+                if self.obtained_is_full(self.dungeon):
+                    self.combat_exit()
+                    self.config.task_stop()
                 if not self.handle_combat_prepare():
                     return False
                 self.device.click(COMBAT_PREPARE)
@@ -191,6 +199,11 @@ class Combat(CombatInteract, CombatPrepare, CombatState, CombatTeam, CombatSuppo
                 logger.info(f'Combat wave limit: {self.combat_wave_done}/{self.combat_wave_limit}, '
                             f'can not run again')
                 return False
+        # Planner
+        logger.attr('obtain_frequent_check', self.obtain_frequent_check)
+        if self.obtain_frequent_check:
+            logger.info('Exit combat to check obtained items')
+            return False
 
         # Cost limit
         if self.combat_wave_cost == 10:

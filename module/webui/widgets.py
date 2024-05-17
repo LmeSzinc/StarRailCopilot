@@ -340,7 +340,7 @@ def product_stored_row(key, value):
 
 def put_arg_stored(kwargs: T_Output_Kwargs) -> Output:
     name: str = kwargs["name"]
-    kwargs["disabled"] = True
+    # kwargs["disabled"] = True
 
     values = kwargs.pop("value", {})
     value = values.pop("value", "")
@@ -348,22 +348,26 @@ def put_arg_stored(kwargs: T_Output_Kwargs) -> Output:
     time_ = values.pop("time", "")
 
     if value != "" and total != "":
+        # 0 / 100
         rows = [put_scope(f"dashboard-value-{name}", [
             put_text(value).style("--dashboard-value--"),
             put_text(f" / {total}").style("--dashboard-time--"),
         ])]
     elif value != "":
+        # 100
         rows = [put_scope(f"dashboard-value-{name}", [
             put_text(value).style("--dashboard-value--")
         ])]
     else:
+        # Empty
         rows = []
+    # Add other key-value in stored
     if values:
         rows += [
             put_scope(f"dashboard-value-{name}-{key}", product_stored_row(key, value))
             for key, value in values.items() if value != ""
         ]
-
+    # Add time
     if time_:
         rows.append(
             put_text(time_).style("--dashboard-time--")
@@ -377,6 +381,36 @@ def put_arg_stored(kwargs: T_Output_Kwargs) -> Output:
                 f"arg_stored-stored-value-{name}",
                 rows,
             )
+        ]
+    )
+
+def put_arg_planner(kwargs: T_Output_Kwargs) -> Output | None:
+    name: str = kwargs["name"]
+
+    values = kwargs.pop("value", {})
+    try:
+        progress = values["progress"]
+    except KeyError:
+        # Hide items not needed by the planner
+        return None
+
+    value = values.pop('value', 0)
+    if isinstance(value, dict):
+        value = tuple(value.values())
+    total = values.pop('total', 0)
+    if isinstance(total, dict):
+        total = tuple(total.values())
+
+    row = put_scope(f"arg_stored-stored-value-{name}", [
+        put_text(f"{progress:.2f}%").style("--dashboard-bold--"),
+        put_text(f"{value} / {total}").style("--dashboard-time--"),
+    ])
+
+    return put_scope(
+        f"arg_container-planner-{name}",
+        [
+            get_title_help(kwargs),
+            row,
         ]
     )
 
@@ -528,6 +562,7 @@ _widget_type_to_func: Dict[str, Callable] = {
     "storage": put_arg_storage,
     "state": put_arg_state,
     "stored": put_arg_stored,
+    "planner": put_arg_planner,
 }
 
 

@@ -126,7 +126,11 @@ class ConfigGenerator:
         from tasks.planner.keywords.classes import ItemBase
         for item in ItemBase.instances.values():
             base = item.group_base
-            deep_set(raw, keys=['Planner', f'Item_{base.name}'], value={'stored': 'StoredPlanner'})
+            deep_set(raw, keys=['Planner', f'Item_{base.name}'], value={
+                'stored': 'StoredPlanner',
+                'display': 'display',
+                'type': 'planner',
+            })
 
         # Load
         for path, value in deep_iter(raw, depth=2):
@@ -138,7 +142,7 @@ class ConfigGenerator:
             if not isinstance(value, dict):
                 value = {'value': value}
             arg['type'] = data_to_type(value, arg=path[1])
-            if arg['type'] == 'stored':
+            if arg['type'] in ['stored', 'planner']:
                 value['value'] = {}
                 arg['display'] = 'hide'  # Hide `stored` by default
             if isinstance(value['value'], datetime):
@@ -593,7 +597,7 @@ class ConfigGenerator:
         import module.config.stored.classes as classes
         data = {}
         for path, value in deep_iter(self.args, depth=3):
-            if value.get('type') != 'stored':
+            if value.get('type') not in ['stored', 'planner']:
                 continue
             name = path[-1]
             stored = value.get('stored')

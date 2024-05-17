@@ -346,7 +346,8 @@ class PlannerProgressParser:
         return None
 
 
-class PlannerProgressMixin(UI):
+
+class PlannerMixin(UI):
     def planner_write_results(self, results: list[PlannerResultRow]):
         """
         Write planner detection results info user config

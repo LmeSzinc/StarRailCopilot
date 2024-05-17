@@ -11,7 +11,7 @@ from tasks.daily.synthesize import SynthesizeUI
 from tasks.planner.assets.assets_planner_result import *
 from tasks.planner.keywords import ITEM_CLASSES
 from tasks.planner.keywords.classes import ItemCurrency
-from tasks.planner.model import PlannerProgressMixin, PlannerResultRow
+from tasks.planner.model import PlannerMixin, PlannerResultRow
 
 CALCULATE_TITLE.load_search(RESULT_CHECK.search)
 MATERIAL_TITLE.load_search(RESULT_CHECK.search)
@@ -75,7 +75,7 @@ class OcrPlannerResult(OcrWhiteLetterOnComplexBackground, OcrItemName):
         return image
 
 
-class PlannerResult(SynthesizeUI, PlannerProgressMixin):
+class PlannerResult(SynthesizeUI, PlannerMixin):
     def is_in_planner_result(self):
         if self.appear(RESULT_CHECK):
             return True

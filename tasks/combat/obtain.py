@@ -5,10 +5,10 @@ from module.exception import ScriptError
 from module.logger import logger
 from module.ocr.ocr import Digit
 from tasks.combat.assets.assets_combat_prepare import COMBAT_PREPARE, WAVE_MINUS, WAVE_PLUS
-from tasks.dungeon.assets.assets_dungeon_obtain import *
+from tasks.combat.assets.assets_combat_obtain import *
 from tasks.dungeon.keywords import DungeonList
 from tasks.planner.keywords import ITEM_CLASSES
-from tasks.planner.model import ObtainedAmmount, PlannerProgressMixin
+from tasks.planner.model import ObtainedAmmount, PlannerMixin
 from tasks.planner.result import OcrItemName
 
 
@@ -19,13 +19,16 @@ class OcrItemAmount(Digit):
         return super().format_result(result)
 
 
-class DungeonObtain(PlannerProgressMixin):
+class CombatObtain(PlannerMixin):
     """
     Parse items that can be obtained from dungeon
 
     Pages:
         in: COMBAT_PREPARE
     """
+    # False to click again when combat ends
+    # True to exit and reenter to get obtained items
+    obtain_frequent_check = False
 
     def _obtain_enter(self, entry, skip_first_screenshot=True):
         """
@@ -200,6 +203,8 @@ class DungeonObtain(PlannerProgressMixin):
 
         logger.hr('Obtained Result')
         for item in items:
+            # Pretend everything is full
+            # item.value += 1000
             logger.info(f'Obtained item: {item.item.name}, {item.value}')
         """
         <<< OBTAIN GET RESULT >>>                   
@@ -211,8 +216,35 @@ class DungeonObtain(PlannerProgressMixin):
         self.planner_write()
         return items
 
+    def obtained_is_full(self, dungeon: DungeonList | None) -> bool:
+        if dungeon is None:
+            self.obtain_frequent_check = False
+            return False
+        row = self.planner.row_come_from_dungeon(dungeon)
+        if row is None:
+            self.obtain_frequent_check = False
+            return False
+
+        # Update
+        self.obtain_get(dungeon)
+
+        # Check progress
+        row = self.planner.row_come_from_dungeon(dungeon)
+        if row is None:
+            logger.error(f'obtained_is_full: Row disappeared after obtain_get')
+            self.obtain_frequent_check = False
+            return False
+        if not row.need_farm():
+            logger.info('Planner row full')
+            self.obtain_frequent_check = False
+            return True
+
+        # obtain_frequent_check
+        self.obtain_frequent_check = True
+        return False
+
 
 if __name__ == '__main__':
-    self = DungeonObtain('src')
+    self = CombatObtain('src')
     self.device.screenshot()
     self.obtain_get()

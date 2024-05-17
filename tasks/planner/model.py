@@ -383,9 +383,8 @@ class PlannerMixin(UI):
         """
         Write planner detection results info user config
         """
-        model = PlannerProgressParser().from_planner_results(results)
-        data = model.to_config()
-        self.config.cross_set('Dungeon.Planner', data)
+        planner = PlannerProgressParser().from_planner_results(results)
+        self.planner_write(planner)
 
     @cached_property
     def planner(self) -> PlannerProgressParser:
@@ -396,10 +395,16 @@ class PlannerMixin(UI):
             logger.info(row)
         return model
 
-    def planner_write(self):
+    def planner_write(self, planner=None):
         """
         Write planner into user config, delete planner object
         """
-        data = self.planner.to_config()
-        self.config.cross_set('Dungeon.Planner', data)
+        if planner is None:
+            planner = self.planner
+
+        data = planner.to_config()
+
+        with self.config.multi_set():
+            for key, value in data.items():
+                self.config.cross_set(f'Dungeon.Planner.{key}', value)
         del_cached_property(self, 'planner')

@@ -137,7 +137,7 @@ class StoredPlannerProxy(BaseModelWithFallback):
             if self.synthesize.blue > 0:
                 self.value.green += self.synthesize.purple * 9
             else:
-                self.value.blue += self.synthesize.blue * 3
+                self.value.blue += self.synthesize.purple * 3
 
     def update_progress(self):
         if self.item.has_group_base:
@@ -153,8 +153,8 @@ class StoredPlannerProxy(BaseModelWithFallback):
             self.progress = round(min(max(progress, 0), 100), 2)
 
     def update(self):
-        self.update_progress()
         self.update_synthesize()
+        self.update_progress()
         self.time = now()
 
     def load_value_total(self, item: ItemBase, value=None, total=None, synthesize=None):

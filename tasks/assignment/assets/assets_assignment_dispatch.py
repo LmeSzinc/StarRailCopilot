@@ -34,40 +34,40 @@ CHARACTER_1 = ButtonWrapper(
     name='CHARACTER_1',
     share=Button(
         file='./assets/share/assignment/dispatch/CHARACTER_1.png',
-        area=(110, 202, 202, 309),
-        search=(90, 182, 222, 329),
+        area=(96, 200, 188, 307),
+        search=(76, 180, 208, 327),
         color=(153, 141, 159),
-        button=(110, 202, 202, 309),
+        button=(96, 200, 188, 307),
     ),
 )
 CHARACTER_1_SELECTED = ButtonWrapper(
     name='CHARACTER_1_SELECTED',
     share=Button(
         file='./assets/share/assignment/dispatch/CHARACTER_1_SELECTED.png',
-        area=(107, 199, 126, 217),
-        search=(87, 179, 146, 237),
+        area=(93, 197, 112, 215),
+        search=(73, 177, 132, 235),
         color=(217, 218, 216),
-        button=(107, 199, 126, 217),
+        button=(93, 197, 112, 215),
     ),
 )
 CHARACTER_2 = ButtonWrapper(
     name='CHARACTER_2',
     share=Button(
         file='./assets/share/assignment/dispatch/CHARACTER_2.png',
-        area=(222, 202, 314, 309),
-        search=(202, 182, 334, 329),
+        area=(208, 200, 300, 307),
+        search=(188, 180, 320, 327),
         color=(120, 120, 138),
-        button=(222, 202, 314, 309),
+        button=(208, 200, 300, 307),
     ),
 )
 CHARACTER_2_SELECTED = ButtonWrapper(
     name='CHARACTER_2_SELECTED',
     share=Button(
         file='./assets/share/assignment/dispatch/CHARACTER_2_SELECTED.png',
-        area=(219, 199, 238, 217),
-        search=(199, 179, 258, 237),
+        area=(205, 197, 224, 215),
+        search=(185, 177, 244, 235),
         color=(206, 207, 204),
-        button=(219, 199, 238, 217),
+        button=(205, 197, 224, 215),
     ),
 )
 CHARACTER_LIST = ButtonWrapper(

@@ -112,6 +112,9 @@ class RogueExit(CombatInteract):
         distant_point = np.array((1509.46, 247.34))
         name_y = 77.60
         foot_y = 621.82
+        if point[1] < 80:
+            logger.warning(f'screen2direction: Point {point} to high')
+            point = (point[0], 80)
 
         door_projection_bottom = (
             Points([point]).link(vanish_point).get_x(name_y)[0],
@@ -129,6 +132,8 @@ class RogueExit(CombatInteract):
             door_projection_bottom[0] - screen_middle[0],
             door_projection_bottom[0] - door_distant[0],
         )
+        if planar_door[1] < 0:
+            logger.warning('screen2direction: planer_door at back')
         if abs(planar_door[0]) < 5:
             direction = 0
         else:
@@ -230,6 +235,10 @@ class RogueExit(CombatInteract):
 
         ocr = OcrDomainExit(OCR_DOMAIN_EXIT)
         results = ocr.matched_ocr(image, keyword_classes=MapPlane)
+        # Try without preprocess
+        if not len(results):
+            ocr.white_preprocess = False
+            results = ocr.matched_ocr(image, keyword_classes=MapPlane)
         centers = [area_center(result.area) for result in results]
         logger.info(f'DomainDoor: {centers}')
         directions = [self.screen2direction(center) for center in centers]
@@ -244,8 +253,17 @@ class RogueExit(CombatInteract):
             else:
                 return None, results[0].matched_keyword
         else:
-            results = [r for d, r in sorted(zip(directions, results))]
-            return results[0].matched_keyword, results[-1].matched_keyword
+            left = [r for d, r in sorted(zip(directions, results)) if d < 0]
+            right = [r for d, r in sorted(zip(directions, results)) if d >= 0]
+            if len(left):
+                left = left[0].matched_keyword
+            else:
+                left = None
+            if len(right):
+                right = right[-1].matched_keyword
+            else:
+                right = None
+            return left, right
 
     def choose_door(self, left_door: MapPlane | None, right_door: MapPlane | None) -> str | None:
         """

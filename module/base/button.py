@@ -34,12 +34,34 @@ class Button(Resource):
     def clear_offset(self):
         self._button_offset = (0, 0)
 
+    def is_offset_in(self, x=0, y=0):
+        """
+        Args:
+            x:
+            y:
+
+        Returns:
+            bool: If _button_offset is in (-x, -y, x, y)
+        """
+        if x:
+            if self._button_offset[0] < -x or self._button_offset[0] > x:
+                return False
+        if y:
+            if self._button_offset[1] < -y or self._button_offset[1] > y:
+                return False
+        return True
+
     @cached_property
     def image(self):
         return load_image(self.file, self.area)
 
+    @cached_property
+    def image_binary(self):
+        return rgb2gray(self.image)
+
     def resource_release(self):
         del_cached_property(self, 'image')
+        del_cached_property(self, 'image_binary')
         self.clear_offset()
 
     def __str__(self):
@@ -91,6 +113,29 @@ class Button(Resource):
         if not direct_match:
             image = crop(image, self.search, copy=False)
         res = cv2.matchTemplate(self.image, image, cv2.TM_CCOEFF_NORMED)
+        _, sim, _, point = cv2.minMaxLoc(res)
+
+        self._button_offset = np.array(point) + self.search[:2] - self.area[:2]
+        return sim > similarity
+
+    def match_template_binary(self, image, similarity=0.85, direct_match=False) -> bool:
+        """
+        Detects assets by template matching.
+
+        To Some buttons, its location may not be static, `_button_offset` will be set.
+
+        Args:
+            image: Screenshot.
+            similarity (float): 0-1.
+            direct_match: True to ignore `self.search`
+
+        Returns:
+            bool.
+        """
+        if not direct_match:
+            image = crop(image, self.search, copy=False)
+        image = rgb2gray(image)
+        res = cv2.matchTemplate(self.image_binary, image, cv2.TM_CCOEFF_NORMED)
         _, sim, _, point = cv2.minMaxLoc(res)
 
         self._button_offset = np.array(point) + self.search[:2] - self.area[:2]
@@ -208,6 +253,13 @@ class ButtonWrapper(Resource):
                 return True
         return False
 
+    def match_template_binary(self, image, similarity=0.85, direct_match=False) -> bool:
+        for assets in self.buttons:
+            if assets.match_template_binary(image, similarity=similarity, direct_match=direct_match):
+                self._matched_button = assets
+                return True
+        return False
+
     def match_multi_template(self, image, similarity=0.85, threshold=5, direct_match=False):
         """
         Detects assets by template matching, return multiple results
@@ -294,6 +346,17 @@ class ButtonWrapper(Resource):
     def clear_offset(self):
         for b in self.iter_buttons():
             b.clear_offset()
+
+    def is_offset_in(self, x=0, y=0):
+        """
+        Args:
+            x:
+            y:
+
+        Returns:
+            bool: If _button_offset is in (-x, -y, x, y)
+        """
+        return self.matched_button.is_offset_in(x=x, y=y)
 
     def load_search(self, area):
         """

@@ -21,6 +21,10 @@ class WeeklyDungeon(Dungeon):
             dungeon=dungeon, team=team, wave_limit=wave_limit,
             support_character=support_character, skip_ui_switch=skip_ui_switch)
 
+    def handle_ascension_dungeon_prepare(self):
+        # combat_wave_cost==30 in weekly, but no handle_ascension_dungeon_prepare required
+        return False
+
     def get_weekly_remain(self) -> int:
         """
         Pages:

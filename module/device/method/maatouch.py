@@ -1,14 +1,15 @@
 import socket
+import threading
 from functools import wraps
 
 from adbutils.errors import AdbError
 
-from module.base.decorator import cached_property, del_cached_property
+from module.base.decorator import cached_property, del_cached_property, has_cached_property
 from module.base.timer import Timer
 from module.base.utils import *
 from module.device.connection import Connection
 from module.device.method.minitouch import CommandBuilder, insert_swipe
-from module.device.method.utils import RETRY_TRIES, retry_sleep, handle_adb_error
+from module.device.method.utils import RETRY_TRIES, handle_adb_error, retry_sleep
 from module.exception import RequestHumanTakeover
 from module.logger import logger
 
@@ -36,20 +37,20 @@ def retry(func):
 
                 def init():
                     self.adb_reconnect()
-                    del_cached_property(self, 'maatouch_builder')
+                    del_cached_property(self, '_maatouch_builder')
             # Emulator closed
             except ConnectionAbortedError as e:
                 logger.error(e)
 
                 def init():
                     self.adb_reconnect()
-                    del_cached_property(self, 'maatouch_builder')
+                    del_cached_property(self, '_maatouch_builder')
             # AdbError
             except AdbError as e:
                 if handle_adb_error(e):
                     def init():
                         self.adb_reconnect()
-                        del_cached_property(self, 'maatouch_builder')
+                        del_cached_property(self, '_maatouch_builder')
                 else:
                     break
             # MaaTouchNotInstalledError: Received "Aborted" from MaaTouch
@@ -58,12 +59,12 @@ def retry(func):
 
                 def init():
                     self.maatouch_install()
-                    del_cached_property(self, 'maatouch_builder')
+                    del_cached_property(self, '_maatouch_builder')
             except BrokenPipeError as e:
                 logger.error(e)
 
                 def init():
-                    del_cached_property(self, 'maatouch_builder')
+                    del_cached_property(self, '_maatouch_builder')
             # Unknown, probably a trucked image
             except Exception as e:
                 logger.exception(e)
@@ -101,19 +102,75 @@ class MaaTouch(Connection):
     """
     max_x: int
     max_y: int
-    _maatouch_stream = socket.socket
+    _maatouch_stream: socket.socket = None
     _maatouch_stream_storage = None
+    _maatouch_init_thread = None
+    _maatouch_orientation: int = None
 
     @cached_property
-    def maatouch_builder(self):
+    @retry
+    def _maatouch_builder(self):
         self.maatouch_init()
         return MaatouchBuilder(self)
+
+    @property
+    def maatouch_builder(self):
+        # Wait init thread
+        if self._maatouch_init_thread is not None:
+            self._maatouch_init_thread.join()
+            del self._maatouch_init_thread
+            self._maatouch_init_thread = None
+
+        return self._maatouch_builder
+
+    def early_maatouch_init(self):
+        """
+        Start a thread to init maatouch connection while the Alas instance just starting to take screenshots
+        This would speed up the first click 0.2 ~ 0.4s.
+        """
+        if has_cached_property(self, '_maatouch_builder'):
+            return
+
+        def early_maatouch_init_func():
+            _ = self._maatouch_builder
+
+        thread = threading.Thread(target=early_maatouch_init_func, daemon=True)
+        self._maatouch_init_thread = thread
+        thread.start()
+
+    def on_orientation_change_maatouch(self):
+        """
+        MaaTouch caches devices orientation at its startup
+        A restart is required when orientation changed
+        """
+        if self._maatouch_orientation is None:
+            return
+        if self.orientation == self._maatouch_orientation:
+            return
+
+        logger.info(f'Orientation changed {self._maatouch_orientation} => {self.orientation}, re-init MaaTouch')
+        del_cached_property(self, '_maatouch_builder')
+        self.early_maatouch_init()
 
     def maatouch_init(self):
         logger.hr('MaaTouch init')
         max_x, max_y = 1280, 720
         max_contacts = 2
         max_pressure = 50
+
+        # Try to close existing stream
+        if self._maatouch_stream is not None:
+            try:
+                self._maatouch_stream.close()
+            except Exception as e:
+                logger.error(e)
+            del self._maatouch_stream
+        if self._maatouch_stream_storage is not None:
+            del self._maatouch_stream_storage
+
+        # MaaTouch caches devices orientation at its startup
+        super(MaaTouch, self).get_orientation()
+        self._maatouch_orientation = self.orientation
 
         # CLASSPATH=/data/local/tmp/maatouch app_process / com.shxyke.MaaTouch.App
         stream = self.adb_shell(
@@ -245,3 +302,8 @@ class MaaTouch(Connection):
 
         builder.up().commit()
         builder.send()
+
+
+if __name__ == '__main__':
+    self = MaaTouch('src')
+    self.maatouch_uninstall()

@@ -49,6 +49,38 @@ class Route(RouteBase):
         self.clear_event(event)
         # ===== End of generated waypoints =====
 
+    def Jarilo_SilvermaneGuardRestrictedZone_F1_X435Y233(self):
+        """
+        | Waypoint | Position                  | Direction | Rotation |
+        | -------- | ------------------------- | --------- | -------- |
+        | spawn    | Waypoint((439.3, 237.1)), | 354.1     | 348      |
+        | item     | Waypoint((440.8, 215.2)), | 15.6      | 11       |
+        | event    | Waypoint((434.8, 192.4)), | 355.9     | 359      |
+        | exit_    | Waypoint((428.6, 190.4)), | 76.4      | 338      |
+        | exit1    | Waypoint((416.8, 184.4)), | 337.5     | 334      |
+        | exit2    | Waypoint((428.8, 180.4)), | 339.1     | 336      |
+        """
+        self.map_init(plane=Jarilo_SilvermaneGuardRestrictedZone, floor="F1", position=(435.5, 233.5))
+        self.register_domain_exit(
+            Waypoint((428.6, 190.4)), end_rotation=338,
+            left_door=Waypoint((416.8, 184.4)), right_door=Waypoint((428.8, 180.4)))
+        item = Waypoint((440.8, 215.2))
+        event = Waypoint((434.8, 192.4))
+
+        self.clear_item(item)
+        self.clear_event(event)
+        # ===== End of generated waypoints =====
+        # Best 3 predictions: [
+        # ('Occurrence_Jarilo_SilvermaneGuardRestrictedZone_F1_X439Y237', 0.194, (435.5, 233.5)),
+        # ('Occurrence_Luofu_ScalegorgeWaterscape_F1_X619Y387', 0.118, (593.5, 412.0)),
+        # ('Occurrence_Luofu_Cloudford_F1_X244Y951', 0.098, (193.8, 931.7))
+        # ]
+        """
+        Notes
+        Jarilo_SilvermaneGuardRestrictedZone_F1_X435Y233 is the same as Jarilo_SilvermaneGuardRestrictedZone_F1_X439Y237
+        but for wrong spawn point detected
+        """
+
     def Jarilo_SilvermaneGuardRestrictedZone_F1_X509Y541(self):
         """
         | Waypoint | Position                  | Direction | Rotation |

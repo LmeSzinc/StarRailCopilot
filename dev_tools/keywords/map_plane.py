@@ -68,3 +68,7 @@ class GenerateMapPlane(GenerateKeyword):
                 return f'Special_{text}'
         else:
             return f'{world.short_name}_{text}'
+
+    def convert_keyword(self, text: str, lang: str) -> str:
+        text = text.replace('™', '')
+        return super().convert_keyword(text, lang=lang)

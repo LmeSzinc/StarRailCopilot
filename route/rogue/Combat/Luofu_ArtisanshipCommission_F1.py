@@ -105,6 +105,51 @@ class Route(RouteBase):
         if self.minimap.position_diff(enemy3.position) > 25:
             self.clear_enemy(enemy3)
 
+    def Luofu_ArtisanshipCommission_F1_X481Y920(self):
+        """
+        | Waypoint    | Position                  | Direction | Rotation |
+        | ----------- | ------------------------- | --------- | -------- |
+        | spawn       | Waypoint((473.5, 920.9)), | 4.5       | 4        |
+        | enemy1left  | Waypoint((475.0, 848.4)), | 4.4       | 4        |
+        | enemy2right | Waypoint((493.5, 807.4)), | 157.1     | 48       |
+        | enemy3      | Waypoint((528.9, 782.9)), | 198.5     | 91       |
+        | exit_       | Waypoint((528.9, 782.9)), | 198.5     | 91       |
+        | exit1       | Waypoint((537.0, 773.2)), | 99.0      | 89       |
+        | exit2       | Waypoint((537.5, 790.6)), | 101.1     | 91       |
+        """
+        self.map_init(plane=Luofu_ArtisanshipCommission, floor="F1", position=(481.5, 920.9))
+        self.register_domain_exit(
+            Waypoint((528.9, 782.9)), end_rotation=91,
+            left_door=Waypoint((537.0, 773.2)), right_door=Waypoint((537.5, 790.6)))
+        enemy1left = Waypoint((475.0, 848.4))
+        enemy2right = Waypoint((493.5, 807.4))
+        enemy3 = Waypoint((528.9, 782.9))
+        # ===== End of generated waypoints =====
+
+        self.rotation_set(30)
+        self.clear_enemy(
+            enemy1left,
+            enemy2right,
+        )
+        self.clear_enemy(enemy3)
+        if self.minimap.position_diff(enemy3.position) > 25:
+            self.clear_enemy(enemy3)
+
+        """
+        Notes
+        Luofu_ArtisanshipCommission_F1_X481Y920 is the same as Luofu_ArtisanshipCommission_F1_X473Y920
+        but for wrong spawn point detected
+        """
+        # Best 3 predictions: [
+        # ('Combat_Luofu_ArtisanshipCommission_F1_X473Y920', 0.168, (481.0, 920.9)),
+        # ('Combat_Luofu_ArtisanshipCommission_F1_X41Y640', 0.163, (40.8, 664.0)),
+        # ('Combat_Luofu_ArtisanshipCommission_F1_X667Y189', 0.14, (705.0, 193.3))
+        # ]
+        # Best 3 nearby predictions: [
+        # ('Combat_Herta_SupplyZone_F2_X45Y369', 0.128, (47.6, 369.4)),
+        # ('Combat_Herta_SupplyZone_F2Rogue_X219Y112', 0.093, (219.6, 108.7))
+        # ]
+
     def Luofu_ArtisanshipCommission_F1_X543Y269(self):
         """
         | Waypoint | Position                  | Direction | Rotation |

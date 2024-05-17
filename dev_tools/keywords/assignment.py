@@ -5,6 +5,22 @@ from dev_tools.keywords.base import UI_LANGUAGES, GenerateKeyword
 from module.config.utils import deep_get
 
 
+def resort(dic: dict):
+    # Poor assigment sort for 2.2
+    order = [
+        1008, 1007, 1006, 1005, 1004, 1003, 1002, 1001,
+        3001, 2001, 4001,
+        5008, 5006, 5005, 5003, 5002, 5007, 5004, 5001,
+    ]
+    out = {}
+    for index in order:
+        value = dic.pop(index)
+        out[index] = value
+    for k, v, in dic.items():
+        out[k] = v
+    return out
+
+
 @cache
 def get_assignment_entry_data():
     """
@@ -16,6 +32,9 @@ def get_assignment_entry_data():
         deep_get(expedition, 'Name.Hash'): deep_get(expedition, 'ExpeditionID')
         for expedition in GenerateKeyword.read_file('./ExcelOutput/ExpeditionData.json').values()
     }
+    rev = {v: k for k, v in expedition_namehash_to_id.items()}
+    rev = resort(rev)
+    expedition_namehash_to_id = {v: k for k, v in rev.items()}
     expedition_id_to_reward_id = {
         deep_get(expedition, '4.2.ExpeditionID'): deep_get(expedition, '4.2.RewardID')
         for expedition in GenerateKeyword.read_file('./ExcelOutput/ExpeditionReward.json').values()
@@ -119,5 +138,6 @@ class GenerateAssignmentEventEntry(GenerateKeyword):
 
 if __name__ == "__main__":
     from dev_tools.keywords.base import TextMap
+
     TextMap.DATA_FOLDER = '../StarRailData'
     GenerateAssignment()()

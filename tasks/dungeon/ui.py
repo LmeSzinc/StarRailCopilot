@@ -82,6 +82,9 @@ class OcrDungeonList(Ocr):
         # 乙太之蕾•雅利洛-Ⅵ
         result = re.sub(r'-[VⅤ][IⅠ]', '-Ⅵ', result)
 
+        # 苏乐达™热砂海选会场
+        result = re.sub(r'(苏乐达|蘇樂達|SoulGlad|スラーダ|FelizAlma)[rtT]*M', r'\1', result)
+
         result = super().after_process(result)
 
         if self.lang == 'cn':
@@ -90,6 +93,10 @@ class OcrDungeonList(Ocr):
             # 燔灼之形•凝滞虚影
             result = result.replace('熠', '燔')
             result = re.sub('^灼之形', '燔灼之形', result)
+            # 偃偶之形•凝滞虚影
+            result = re.sub('^偶之形', '偃偶之形', result)
+            # 嗔怒之形•凝滞虚影
+            result = re.sub('^怒之形', '嗔怒之形', result)
             # 蛀星的旧·历战余响
             result = re.sub(r'蛀星的旧.*?历战', '蛀星的旧靥•历战', result)
 
@@ -610,23 +617,46 @@ class DungeonUI(DungeonState):
             logger.info('No dungeon interact')
             return None
 
+        self.acquire_lang_checked()
+
         ocr = OcrDungeonList(DUNGEON_COMBAT_INTERACT_TEXT)
         result = ocr.detect_and_ocr(self.device.image)
 
+        dungeon = None
+        # Special match names in English
+        # Second row must have at least 3 characters which is the shortest name "Ire"
+        # Stangnant Shadow: Shape of
+        # Quanta
+        if len(result) == 2 and len(result[1].ocr_text) >= 3:
+            first, second = result[0].ocr_text, result[1].ocr_text
+            if re.search(r'Stagnant\s*Shadow', first):
+                dungeon = DungeonList.find_dungeon_by_string(en=second, is_Stagnant_Shadow=True)
+            elif re.search(r'Cavern\s*of\s*Corrosion', first):
+                dungeon = DungeonList.find_dungeon_by_string(en=second, is_Cavern_of_Corrosion=True)
+            elif re.search(r'Echo\s*of\s*War', first):
+                dungeon = DungeonList.find_dungeon_by_string(en=second, is_Echo_of_War=True)
+            elif re.search(r'Calyx[\s(]+Golden', first):
+                dungeon = DungeonList.find_dungeon_by_string(en=second, is_Calyx_Golden=True, world=self.plane.world)
+            elif re.search(r'Calyx[\s(]+Crimson', first):
+                dungeon = DungeonList.find_dungeon_by_string(en=second, is_Calyx_Crimson=True, plane=self.plane)
+        if dungeon is not None:
+            logger.attr('DungeonInteract', dungeon)
+            return dungeon
+
+        # Join
         result = ' '.join([row.ocr_text for row in result])
 
-        # Calyx (Crimson): Bud of XXX -> Bud of XXX
-        result = re.sub(r'Calyx\s*\(.*?\):*', '', result)
-        # Stagnant Shadow: Shap XXX -> Shape of XXX
-        result = re.sub(r'Stagnant\s*Shadow[:\s]*\w*', 'Shape of', result)
-        # Cavern of Corrosion: Pa XXX -> Path of XXX
-        result = re.sub(r'Cavern\s*of\s*Corrosion[:\s]*\w*', 'Path of', result)
-        # Echo of War: XXX -> XXX
-        result = re.sub(r'Echo\s*of\s*War:*', '', result)
-        # Divine See -> Divine Seed
-        result = re.sub(r'Divine\s*\w*', 'Divine Seed', result)
-        # Destructio Beginning -> Destruction's Beginning
-        result = re.sub(r"Destruct[a-zA-Z0-9_']*", "Destruction's", result)
+        # Special match names in Chinese
+        # Only calyxes need spacial match
+        if res := re.search(r'(^.+之蕾)', result):
+            dungeon = DungeonList.find_dungeon_by_string(cn=res.group(1), is_Calyx_Crimson=True, plane=self.plane)
+            if dungeon is not None:
+                logger.attr('DungeonInteract', dungeon)
+                return dungeon
+            dungeon = DungeonList.find_dungeon_by_string(cn=res.group(1), is_Calyx_Golden=True, world=self.plane.world)
+            if dungeon is not None:
+                logger.attr('DungeonInteract', dungeon)
+                return dungeon
 
         # Dungeons
         try:

@@ -67,3 +67,35 @@ class Route(RouteBase):
         self.clear_item(item)
         self.clear_event(event)
         # ===== End of generated waypoints =====
+
+    def Jarilo_BackwaterPass_F1_X611Y761(self):
+        """
+        | Waypoint | Position                  | Direction | Rotation |
+        | -------- | ------------------------- | --------- | -------- |
+        | spawn    | Waypoint((613.3, 755.7)), | 319.8     | 318      |
+        | item     | Waypoint((603.0, 734.6)), | 342.6     | 343      |
+        | event    | Waypoint((586.8, 724.7)), | 318.0     | 315      |
+        | exit_    | Waypoint((576.9, 728.6)), | 126.2     | 304      |
+        | exit1    | Waypoint((567.0, 732.7)), | 311.8     | 306      |
+        | exit2    | Waypoint((576.2, 722.0)), | 308.1     | 306      |
+        """
+        self.map_init(plane=Jarilo_BackwaterPass, floor="F1", position=(611.4, 761.2))
+        self.register_domain_exit(
+            Waypoint((576.9, 728.6)), end_rotation=304,
+            left_door=Waypoint((567.0, 732.7)), right_door=Waypoint((576.2, 722.0)))
+        item = Waypoint((603.0, 734.6))
+        event = Waypoint((586.8, 724.7))
+
+        self.clear_item(item)
+        self.clear_event(event)
+        # ===== End of generated waypoints =====
+        # Best 3 predictions: [
+        # ('Occurrence_Jarilo_BackwaterPass_F1_X613Y755', 0.203, (611.4, 761.2)),
+        # ('Occurrence_Herta_SupplyZone_F2Rogue_X397Y223', 0.148, (381.4, 207.5)),
+        # ('Occurrence_Herta_SupplyZone_F2Rogue_X397Y227', 0.148, (381.4, 207.5))
+        # ]
+        """
+        Notes
+        Jarilo_BackwaterPass_F1_X611Y761 is the same as Jarilo_BackwaterPass_F1_X613Y755
+        but for wrong spawn point detected
+        """

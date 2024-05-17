@@ -16,7 +16,7 @@ from tasks.character.keywords import CharacterList, DICT_SORTED_RANGES, KEYWORDS
 
 class OcrCharacterName(OcrWhiteLetterOnComplexBackground):
     merge_thres_x = 20
-    merge_thres_y = 20
+    merge_thres_y = 10
 
     def after_process(self, result):
         result = result.replace('蛆', '妲')
@@ -32,6 +32,7 @@ class CharacterSwitch(UI):
     characters: list[CharacterList] = []
     character_current: CharacterList | None = None
     character_buttons: list[OcrResultButton] = []
+    character_is_ranged: t.Optional[bool] = None
 
     def character_update(self, skip_first_screenshot=True) -> list[CharacterList]:
         """
@@ -187,7 +188,7 @@ class CharacterSwitch(UI):
             skip_first_screenshot:
 
         Returns:
-            bool: If chose
+            bool: If chose success
         """
         logger.info(f'Character choose: {character}')
         if isinstance(character, int):
@@ -220,8 +221,12 @@ class CharacterSwitch(UI):
             # End
             selected = self._update_current_character()
             if index in selected:
-                logger.info('Character chose')
-                return True
+                if len(selected) > 1:
+                    logger.warning('Multiple selected characters found, cannot guarantee character selected')
+                    return False
+                else:
+                    logger.info('Character chose')
+                    return True
             if count > 3:
                 logger.warning('Failed to choose character, assume chose')
                 return False
@@ -255,22 +260,35 @@ class CharacterSwitch(UI):
         logger.info('No ranged characters in team')
         return False
 
-    def character_switch_to_ranged(self, update=True) -> bool:
+    def character_switch_to_ranged(self, update=True) -> bool | None:
         """
         Args:
             update: If update characters before switching
 
         Returns:
             bool: If using a ranged character now
+                or None if failed to switch
         """
+        if self.character_is_ranged is not None:
+            return self.character_is_ranged
+
         logger.hr('Character switch to ranged')
         if update:
             self.character_update()
 
         character = self._get_ranged_character()
         if character is True:
+            self.character_is_ranged = True
             return True
         elif character is False:
+            self.character_is_ranged = False
             return False
+
+        success = self.character_switch(character)
+        if success:
+            self.character_is_ranged = True
+            return True
         else:
-            return self.character_switch(character)
+            # Cannot switch, keep None to retry at next call
+            self.character_is_ranged = None
+            return None

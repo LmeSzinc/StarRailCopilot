@@ -4,8 +4,8 @@ from module.base.utils import area_offset
 from module.logger import logger
 from module.ocr.ocr import Digit, Ocr, OcrResultButton
 from tasks.base.ui import UI
-from tasks.rogue.assets.assets_rogue_weekly import REWARD_ENTER
 from tasks.rogue.assets.assets_rogue_ui import *
+from tasks.rogue.assets.assets_rogue_weekly import REWARD_ENTER
 from tasks.rogue.keywords import RoguePath
 
 
@@ -78,6 +78,11 @@ class RogueUI(UI):
         # Obtain a curio from occurrence
         if self.appear(CURIO_OBTAINED, interval=2):
             logger.info(f'{CURIO_OBTAINED} -> {BLESSING_CONFIRM}')
+            self.device.click(BLESSING_CONFIRM)
+            return True
+        # Fixed a curio from occurrence
+        if self.appear(CURIO_FIXED, interval=2):
+            logger.info(f'{CURIO_FIXED} -> {BLESSING_CONFIRM}')
             self.device.click(BLESSING_CONFIRM)
             return True
         return False

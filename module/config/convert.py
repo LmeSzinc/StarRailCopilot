@@ -30,3 +30,10 @@ def convert_20_dungeon(value):
         return 'Calyx_Crimson_Abundance_Jarilo_BackwaterPass'
 
     return value
+
+
+def convert_rogue_farm(value):
+    if isinstance(value, dict) and 'value' in value.keys():
+        value['value'] = 100 - value['value']
+        value['total'] = 100
+        return value

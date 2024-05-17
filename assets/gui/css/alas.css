@@ -441,10 +441,13 @@ pre.rich-traceback-code {
 
 [id^="pywebio-scope-dashboard-value-"] {
     display: flex;
-    align-items: flex-end;
+    align-items: baseline;
     height: 1.5rem;
 }
 
+[id^="pywebio-scope-arg_stored-stored-value-"] p {
+    margin-bottom: 0;
+}
 
 #pywebio-scope-log {
     line-height: 1.2;

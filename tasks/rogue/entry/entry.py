@@ -249,7 +249,10 @@ class RogueEntry(RouteBase, RogueRewardHandler, RoguePathHandler, DungeonUI):
                 self.device.click(WORLD_ENTER)
                 self.interval_reset(REWARD_ENTER, interval=2)
                 continue
-            if self.appear(LEVEL_CONFIRM, interval=2):
+            if self.match_template_color(LEVEL_CONFIRM, interval=2):
+                if not self.image_color_count(LEVEL_CONFIRM, color=(223, 223, 225), threshold=240, count=50):
+                    self.interval_clear(LEVEL_CONFIRM)
+                    continue
                 self.dungeon_update_stamina()
                 self.check_stop_condition()
                 self.device.click(LEVEL_CONFIRM)
@@ -289,7 +292,8 @@ class RogueEntry(RouteBase, RogueRewardHandler, RoguePathHandler, DungeonUI):
             if self.handle_ui_back(self._is_page_rogue_path):
                 continue
             # From ui_leave_special()
-            if self.appear_then_click(MAP_EXIT, interval=2):
+            if self.is_in_map_exit(interval=2):
+                self.device.click(MAP_EXIT)
                 continue
             if self.handle_popup_confirm():
                 continue
@@ -332,7 +336,8 @@ class RogueEntry(RouteBase, RogueRewardHandler, RoguePathHandler, DungeonUI):
         """
         logger.info(f'RogueWorld_UseImmersifier={self.config.RogueWorld_UseImmersifier}, '
                     f'RogueWorld_UseStamina={self.config.RogueWorld_UseStamina}, '
-                    f'RogueWorld_DoubleEvent={self.config.RogueWorld_DoubleEvent}'
+                    f'RogueWorld_DoubleEvent={self.config.RogueWorld_DoubleEvent}, '
+                    f'RogueWorld_WeeklyFarming={self.config.RogueWorld_WeeklyFarming}, '
                     f'RogueDebug_DebugMode={self.config.RogueDebug_DebugMode}')
         # This shouldn't happen
         if self.config.RogueWorld_UseStamina and not self.config.RogueWorld_UseImmersifier:
@@ -345,13 +350,23 @@ class RogueEntry(RouteBase, RogueRewardHandler, RoguePathHandler, DungeonUI):
         if self.config.RogueDebug_DebugMode:
             # Always run
             return
-
+        
+        if self.config.stored.SimulatedUniverseFarm.is_expired():
+            # Expired, reset farming counter
+            self.config.stored.SimulatedUniverseFarm.set(0)
+        
         if self.config.stored.SimulatedUniverse.is_expired():
             # Expired, do rogue
             pass
         elif self.config.stored.SimulatedUniverse.is_full():
             if self.config.RogueWorld_UseImmersifier and self.config.stored.Immersifier.value > 0:
-                logger.info('Reached weekly point limit but still have immersifiers left, continue to use them')
+                logger.info(
+                    'Reached weekly point limit but still have immersifiers left, continue to use them')
+            elif self.config.RogueWorld_WeeklyFarming and not self.config.stored.SimulatedUniverseFarm.is_full():
+                logger.info(
+                    'Reached weekly point limit but still continue to farm materials')
+                logger.attr(
+                    "Farming Counter", self.config.stored.SimulatedUniverseFarm.to_counter())
             else:
                 raise RogueReachedWeeklyPointLimit
         else:

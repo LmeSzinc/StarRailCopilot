@@ -32,6 +32,8 @@ class DungeonEvent(UI):
         """
         has = self.image_color_count(DOUBLE_CALYX_EVENT_TAG, color=(252, 209, 123), threshold=221, count=50)
         has |= self.image_color_count(DOUBLE_CALYX_EVENT_TAG, color=(252, 251, 140), threshold=221, count=50)
+        # Anniversary 3x rogue event
+        has |= self.image_color_count(DOUBLE_CALYX_EVENT_TAG, color=(229, 62, 44), threshold=221, count=50)
         logger.attr('Double calyx', has)
         return has
 
@@ -42,6 +44,8 @@ class DungeonEvent(UI):
         """
         has = self.image_color_count(DOUBLE_RELIC_EVENT_TAG, color=(252, 209, 123), threshold=221, count=50)
         has |= self.image_color_count(DOUBLE_RELIC_EVENT_TAG, color=(252, 251, 140), threshold=221, count=50)
+        # Anniversary 3x rogue event
+        has |= self.image_color_count(DOUBLE_RELIC_EVENT_TAG, color=(229, 62, 44), threshold=221, count=50)
         logger.attr('Double relic', has)
         return has
 
@@ -66,6 +70,12 @@ class DungeonEvent(UI):
             OCR_DOUBLE_EVENT_REMAIN_AT_COMBAT,
             color=(231, 188, 103),
             threshold=240, count=1000
+        )
+        # Anniversary 3x event
+        has |= self.image_color_count(
+            OCR_DOUBLE_EVENT_REMAIN_AT_COMBAT,
+            color=(229, 62, 44),
+            threshold=221, count=50
         )
         logger.attr('Double event at combat', has)
         return has

@@ -5,12 +5,19 @@ from module.base.button import Button, ButtonWrapper
 
 ASSIGNMENT_CHECK = ButtonWrapper(
     name='ASSIGNMENT_CHECK',
-    share=Button(
-        file='./assets/share/base/page/ASSIGNMENT_CHECK.png',
-        area=(45, 21, 70, 53),
-        search=(25, 1, 90, 73),
-        color=(162, 145, 112),
-        button=(45, 21, 70, 53),
+    cn=Button(
+        file='./assets/cn/base/page/ASSIGNMENT_CHECK.png',
+        area=(535, 165, 587, 181),
+        search=(515, 145, 607, 201),
+        color=(207, 199, 181),
+        button=(535, 165, 587, 181),
+    ),
+    en=Button(
+        file='./assets/en/base/page/ASSIGNMENT_CHECK.png',
+        area=(535, 165, 581, 180),
+        search=(515, 145, 601, 200),
+        color=(204, 195, 176),
+        button=(535, 165, 581, 180),
     ),
 )
 BACK = ButtonWrapper(
@@ -273,13 +280,22 @@ MAP_CHECK = ButtonWrapper(
 )
 MAP_EXIT = ButtonWrapper(
     name='MAP_EXIT',
-    share=Button(
-        file='./assets/share/base/page/MAP_EXIT.png',
-        area=(27, 46, 44, 74),
-        search=(7, 26, 64, 94),
-        color=(142, 144, 148),
-        button=(27, 46, 44, 74),
-    ),
+    share=[
+        Button(
+            file='./assets/share/base/page/MAP_EXIT.png',
+            area=(27, 46, 44, 74),
+            search=(7, 26, 64, 94),
+            color=(142, 144, 148),
+            button=(27, 46, 44, 74),
+        ),
+        Button(
+            file='./assets/share/base/page/MAP_EXIT.2.png',
+            area=(27, 46, 44, 74),
+            search=(7, 26, 64, 94),
+            color=(160, 187, 206),
+            button=(27, 46, 44, 74),
+        ),
+    ],
 )
 MAP_GOTO_WORLD = ButtonWrapper(
     name='MAP_GOTO_WORLD',

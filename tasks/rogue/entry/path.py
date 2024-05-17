@@ -205,7 +205,10 @@ class RoguePathHandler(RogueUI):
                 logger.info('rogue_path_select ended at page_main')
                 break
 
-            if self.appear(ROGUE_LAUNCH, interval=2):
+            if self.match_template_color(ROGUE_LAUNCH, interval=2):
+                if not self.image_color_count(ROGUE_LAUNCH, color=(223, 223, 225), threshold=240, count=50):
+                    self.interval_clear(ROGUE_LAUNCH)
+                    continue
                 if not self._is_team_prepared():
                     raise RogueTeamNotPrepared
                 self.device.click(ROGUE_LAUNCH)
@@ -216,11 +219,19 @@ class RoguePathHandler(RogueUI):
                 continue
             # Select path
             if self.interval_is_reached(entry, interval=2) and self._is_page_rogue_path():
-                if self.appear_then_click(entry, interval=2):
+                if not self.image_color_count(PATH_LOADED_CHECK, color=(246, 246, 246), threshold=240, count=50):
+                    self.interval_clear(entry)
+                    continue
+                if self.appear(entry):
+                    self.device.click(entry)
                     self.interval_reset(entry, interval=2)
                     continue
             # Confirm path
             if self.appear(CONFIRM_PATH, interval=2):
+                if not self.image_color_count(CONFIRM_PATH, color=(223, 223, 225), threshold=240, count=50):
+                    self.interval_clear(CONFIRM_PATH)
+                    continue
                 if self._change_confirm_path(path):
                     self.device.click(CONFIRM_PATH)
+                    self.interval_reset(CONFIRM_PATH)
                     continue

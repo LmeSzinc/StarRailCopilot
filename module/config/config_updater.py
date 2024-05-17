@@ -100,7 +100,7 @@ class ConfigGenerator:
             options=[dungeon.name for dungeon in DungeonList.instances.values() if dungeon.is_Echo_of_War])
         # Insert characters
         from tasks.character.keywords import CharacterList
-        unsupported_characters = ['Aventurine']
+        unsupported_characters = ["Boothill", "TrailblazerHarmony"]
         characters = [character.name for character in CharacterList.instances.values()
                       if character.name not in unsupported_characters]
         option_add(keys='DungeonSupport.Character.option', options=characters)
@@ -430,7 +430,7 @@ class ConfigGenerator:
                          value=i18n_crimson[ingame_lang].format(path=path, plane=plane))
             if dungeon.is_Cavern_of_Corrosion:
                 value = deep_get(new, keys=['Dungeon', 'Name', dungeon.name], default='')
-                suffix = i18n_relic[ingame_lang].format(dungeon=dungeon_name)
+                suffix = i18n_relic[ingame_lang].format(dungeon=dungeon_name).replace('Cavern of Corrosion: ', '')
                 if not value.endswith(suffix):
                     deep_set(new, keys=['Dungeon', 'Name', dungeon.name], value=f'{value}{suffix}')
 
@@ -489,7 +489,7 @@ class ConfigGenerator:
         for dungeon in dungeons:
             world = dungeon.plane.world
             world_name = world.__getattribute__(ingame_lang)
-            dungeon_name = dungeon.__getattribute__(ingame_lang)
+            dungeon_name = dungeon.__getattribute__(ingame_lang).replace('Echo of War: ', '')
             value = f'{dungeon_name} ({world_name})'
             deep_set(new, keys=['Weekly', 'Name', dungeon.name], value=value)
         # Rogue worlds
@@ -653,6 +653,7 @@ class ConfigUpdater:
         ('Dungeon.Dungeon.NameAtDoubleCalyx', 'Dungeon.Dungeon.NameAtDoubleCalyx', convert_20_dungeon),
         ('Dungeon.DungeonDaily.CalyxGolden', 'Dungeon.DungeonDaily.CalyxGolden', convert_20_dungeon),
         ('Dungeon.DungeonDaily.CalyxCrimson', 'Dungeon.DungeonDaily.CalyxCrimson', convert_20_dungeon),
+        ('Rogue.RogueWorld.SimulatedUniverseElite', 'Rogue.RogueWorld.SimulatedUniverseFarm', convert_rogue_farm),
     ]
 
     @cached_property
@@ -863,6 +864,8 @@ class ConfigUpdater:
             yield 'Rogue.RogueBlessing.CustomResonanceFilter'
         if deep_get(data, 'Rogue.RogueBlessing.PresetCurioFilter') != 'custom':
             yield 'Rogue.RogueBlessing.CustomCurioFilter'
+        if deep_get(data, 'Rogue.RogueWorld.WeeklyFarming', default=False) is False:
+            yield 'Rogue.RogueWorld.SimulatedUniverseFarm'
 
     def get_hidden_args(self, data) -> t.Set[str]:
         """

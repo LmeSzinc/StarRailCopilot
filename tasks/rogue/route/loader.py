@@ -164,12 +164,44 @@ class RouteLoader(RogueUI, MinimapWrapper, RouteLoader_, CharacterSwitch):
         # if route.name == 'Occurrence_Herta_StorageZone_F2_X363Y166' and similarity > 0.05:
         #     return True
 
+        # Before Combat_Herta_SupplyZone_F2_X45Y369
+        if route.name in [
+            'Combat_Herta_SupplyZone_F2_X543Y255',  # 0.462, (543.3, 255.4)
+            'Combat_Luofu_DivinationCommission_F1_X737Y237',
+            # ('Occurrence_Luofu_Cloudford_F1_X241Y947', 0.307, (236.5, 949.6)),
+            # ('Occurrence_Luofu_Cloudford_F1_X244Y951', 0.307, (236.5, 949.6)),
+            # ('Occurrence_Jarilo_SilvermaneGuardRestrictedZone_F1_X509Y541', 0.154, (507.8, 515.2))
+            'Occurrence_Luofu_Cloudford_F1_X241Y947',
+            'Occurrence_Luofu_Cloudford_F1_X244Y951',
+        ] and similarity > 0.25:
+            return True
         # Before Combat_Luofu_Cloudford_F1_X281Y873
         if route.name in [
+            # ('Combat_Jarilo_BackwaterPass_F1_X507Y733', 0.26, (503.2, 736.9)),
+            # ('Combat_Herta_SupplyZone_F2_X45Y369', 0.168, (46.5, 370.0))
+            'Jarilo_BackwaterPass_F1_X507Y733',
+            'Jarilo_BackwaterPass_F1_X555Y643',
             'Occurrence_Jarilo_BackwaterPass_F1_X553Y643',
             'Combat_Jarilo_GreatMine_F1_X545Y513',
             'Combat_Herta_SupplyZone_F2_X45Y369',
         ] and similarity > 0.20:
+            return True
+        # Before Occurrence_Luofu_DivinationCommission_F2_X425Y791
+        if route.name in [
+            'Occurrence_Jarilo_RivetTown_F1_X157Y435',
+            # ('Occurrence_Luofu_DivinationCommission_F2_X149Y659', 0.237, (148.9, 658.8)),
+            # ('Occurrence_Luofu_DivinationCommission_F2_X425Y791', 0.11, (425.2, 793.8))
+            'Occurrence_Luofu_DivinationCommission_F2_X149Y659',
+            # ('Combat_Luofu_DivinationCommission_F1_X97Y457', 0.222, (97.8, 456.9)),
+            # ('Combat_Luofu_ScalegorgeWaterscape_F1_X415Y261', 0.112, (371.8, 289.4)),
+            # ('Combat_Herta_SupplyZone_F2_X45Y369', 0.104, (11.7, 367.6))
+            'Combat_Luofu_DivinationCommission_F1_X97Y457',
+            # ('Occurrence_Jarilo_BackwaterPass_F1_X613Y755', 0.206, (611.3, 759.0)),
+            # ('Occurrence_Jarilo_BackwaterPass_F1_X611Y761', 0.206, (611.3, 759.0)),
+            # ('Occurrence_Luofu_DivinationCommission_F2_X425Y791', 0.105, (429.7, 791.6))
+            'Occurrence_Jarilo_BackwaterPass_F1_X613Y755',
+            'Occurrence_Jarilo_BackwaterPass_F1_X611Y761',
+        ] and similarity > 0.15:
             return True
         if route.name in [
             'Combat_Herta_StorageZone_F1_X273Y92',
@@ -266,6 +298,7 @@ class RouteLoader(RogueUI, MinimapWrapper, RouteLoader_, CharacterSwitch):
         """
         base = RouteBase(config=self.config, device=self.device, task=self.config.task.command)
         count = 1
+        self.character_is_ranged = None
         while 1:
             if skip_first_screenshot:
                 skip_first_screenshot = False
@@ -274,8 +307,7 @@ class RouteLoader(RogueUI, MinimapWrapper, RouteLoader_, CharacterSwitch):
 
             logger.hr(f'Route run: {count}', level=1)
             base.clear_blessing()
-            if count == 1:
-                self.character_switch_to_ranged(update=True)
+            self.character_switch_to_ranged(update=True)
 
             self.route_run()
             # if not success:

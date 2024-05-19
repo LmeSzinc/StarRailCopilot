@@ -1,6 +1,5 @@
 import re
 
-import cv2
 from pponnxcr.predict_system import BoxedResult
 
 from module.base.utils import area_center, area_in_area
@@ -28,6 +27,8 @@ class OcrItemName(Ocr):
 
 
 class OcrPlannerResult(OcrWhiteLetterOnComplexBackground, OcrItemName):
+    min_box = (16, 20)
+
     def __init__(self):
         # Planner currently CN only
         super().__init__(OCR_RESULT, lang='cn')
@@ -65,10 +66,10 @@ class OcrPlannerResult(OcrWhiteLetterOnComplexBackground, OcrItemName):
         return super().detect_and_ocr(image, *args, **kwargs)
 
     def pre_process(self, image):
-        r, g, b = cv2.split(image)
-        cv2.max(r, g, dst=r)
-        cv2.max(r, b, dst=r)
-        image = cv2.merge([r, r, r])
+        # gray = rgb2gray(image)
+        # from PIL import Image
+        # Image.fromarray(gray).show()
+        # image = cv2.merge([gray, gray, gray])
         return image
 
 

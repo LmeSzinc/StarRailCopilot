@@ -40,6 +40,7 @@ class AssignmentOcr(Ocr):
             (KEYWORDS_ASSIGNMENT_ENTRY.Legend_of_the_Puppet_Master, '^师传说'),
             (KEYWORDS_ASSIGNMENT_ENTRY.The_Wages_of_Humanity, '[赠]养人类'),
             (KEYWORDS_ASSIGNMENT_EVENT_ENTRY.Car_Thief, '.*的偷车贼.*'),
+            (KEYWORDS_ASSIGNMENT_EVENT_ENTRY.Synesthesia_Beacon_Function_Iteration, '联觉信标功能[送]代'),
         ],
         'en': [
             # (KEYWORDS_ASSIGNMENT_EVENT_ENTRY.Food_Improvement_Plan.name,

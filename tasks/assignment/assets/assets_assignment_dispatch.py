@@ -5,30 +5,57 @@ from module.base.button import Button, ButtonWrapper
 
 ASSIGNMENT_START = ButtonWrapper(
     name='ASSIGNMENT_START',
-    cn=Button(
-        file='./assets/cn/assignment/dispatch/ASSIGNMENT_START.png',
-        area=(563, 341, 716, 376),
-        search=(552, 299, 725, 412),
-        color=(103, 92, 72),
-        button=(563, 341, 716, 376),
-    ),
-    en=Button(
-        file='./assets/en/assignment/dispatch/ASSIGNMENT_START.png',
-        area=(693, 343, 831, 374),
-        search=(669, 297, 831, 416),
-        color=(95, 86, 67),
-        button=(693, 343, 831, 374),
-    ),
+    cn=[
+        Button(
+            file='./assets/cn/assignment/dispatch/ASSIGNMENT_START.png',
+            area=(563, 341, 716, 376),
+            search=(552, 299, 725, 412),
+            color=(103, 92, 72),
+            button=(563, 341, 716, 376),
+        ),
+        Button(
+            file='./assets/cn/assignment/dispatch/ASSIGNMENT_START.2.png',
+            area=(579, 373, 702, 405),
+            search=(552, 299, 725, 412),
+            color=(84, 75, 59),
+            button=(579, 373, 702, 405),
+        ),
+    ],
+    en=[
+        Button(
+            file='./assets/en/assignment/dispatch/ASSIGNMENT_START.png',
+            area=(693, 343, 831, 374),
+            search=(669, 297, 831, 416),
+            color=(95, 86, 67),
+            button=(693, 343, 831, 374),
+        ),
+        Button(
+            file='./assets/en/assignment/dispatch/ASSIGNMENT_START.2.png',
+            area=(676, 376, 787, 404),
+            search=(669, 297, 831, 416),
+            color=(80, 71, 56),
+            button=(676, 376, 787, 404),
+        ),
+    ],
 )
 ASSIGNMENT_STARTED_CHECK = ButtonWrapper(
     name='ASSIGNMENT_STARTED_CHECK',
-    share=Button(
-        file='./assets/share/assignment/dispatch/ASSIGNMENT_STARTED_CHECK.png',
-        area=(542, 412, 1156, 422),
-        search=(522, 392, 1176, 442),
-        color=(232, 230, 226),
-        button=(542, 412, 1156, 422),
-    ),
+    share=[
+        Button(
+            file='./assets/share/assignment/dispatch/ASSIGNMENT_STARTED_CHECK.png',
+            area=(542, 412, 1156, 422),
+            search=(522, 392, 1176, 442),
+            color=(232, 230, 226),
+            button=(542, 412, 1156, 422),
+        ),
+        Button(
+            file='./assets/share/assignment/dispatch/ASSIGNMENT_STARTED_CHECK.2.png',
+            area=(542, 412, 1156, 422),
+            search=(522, 392, 1176, 442),
+            color=(254, 244, 221),
+            button=(542, 412, 1156, 422),
+        ),
+    ],
 )
 CHARACTER_1 = ButtonWrapper(
     name='CHARACTER_1',

@@ -4,12 +4,12 @@ from module.base.timer import Timer
 from module.exception import ScriptError
 from module.logger import logger
 from module.ocr.ocr import Digit
-from tasks.combat.assets.assets_combat_prepare import COMBAT_PREPARE
 from tasks.combat.assets.assets_combat_obtain import *
+from tasks.combat.assets.assets_combat_prepare import COMBAT_PREPARE
 from tasks.dungeon.keywords import DungeonList
 from tasks.planner.keywords import ITEM_CLASSES
 from tasks.planner.model import ObtainedAmmount, PlannerMixin
-from tasks.planner.result import OcrItemName
+from tasks.planner.scan import OcrItemName
 
 
 class OcrItemAmount(Digit):

@@ -69,6 +69,11 @@ class MultiValue(BaseModelWithFallback):
     blue: int = 0
     purple: int = 0
 
+    def add(self, other: "MultiValue"):
+        self.green += other.green
+        self.blue += other.blue
+        self.purple += other.purple
+
 
 class StoredPlannerProxy(BaseModelWithFallback):
     item: ITEM_TYPES
@@ -178,8 +183,10 @@ class StoredPlannerProxy(BaseModelWithFallback):
                     self.value.green = value
                 if total is not None:
                     self.total.green = total
+                # Cannot synthesize green
                 # if synthesize is not None:
                 #     self.synthesize.green = synthesize
+                self.synthesize.green = 0
             elif item.is_rarity_blue:
                 if value is not None:
                     self.value.blue = value
@@ -198,10 +205,38 @@ class StoredPlannerProxy(BaseModelWithFallback):
                 raise ScriptError(
                     f'load_value_total: Trying to load {item} in to {self} but item is in invalid rarity')
         else:
+            # Cannot synthesize if item doesn't have multiple rarity
+            self.synthesize = 0
             if value is not None:
                 self.value = value
             if total is not None:
                 self.total = total
+
+    def add_planner_result(self, row: "StoredPlannerProxy"):
+        """
+        Add data from another StoredPlannerProxy to self
+        """
+        item = row.item
+        if self.item.has_group_base:
+            if item.group_base != self.item:
+                raise ScriptError(
+                    f'load_value_total: Trying to load {item} into {self} but they are different items')
+        else:
+            if item != self.item:
+                raise ScriptError(
+                    f'load_value_total: Trying to load {item} into {self} but they are different items')
+        if self.item.has_group_base:
+            if not self.item.is_rarity_purple:
+                raise ScriptError(
+                    f'load_value_total: Trying to load {item} into {self} but self is not in rarity purple')
+            # Add `total` only
+            # `synthesize` will be updated later
+            # `value` remains unchanged since you still having that many items
+            self.total.add(row.total)
+        else:
+            self.value += row.value
+            self.total += row.total
+            self.synthesize += row.synthesize
 
     def need_farm(self):
         return self.progress < 100
@@ -288,6 +323,20 @@ class PlannerProgressParser:
             row.update_progress()
             self.rows[row.item.name] = row
         return self
+
+    def add_planner_result(self, planner: "PlannerProgressParser"):
+        """
+        Add another planner result to self
+        """
+        for name, row in planner.rows.items():
+            if name in self.rows:
+                self_row = self.rows[name]
+                self_row.add_planner_result(row)
+            else:
+                self.rows[name] = row
+
+        for row in self.rows.values():
+            row.update()
 
     def to_config(self) -> dict:
         data = {}
@@ -383,7 +432,13 @@ class PlannerMixin(UI):
         """
         Write planner detection results info user config
         """
+        add = self.config.PlannerScan_ResultAdd
+        logger.attr('ResultAdd', add)
+
         planner = PlannerProgressParser().from_planner_results(results)
+        if add:
+            planner.add_planner_result(self.planner)
+
         self.planner_write(planner)
 
     @cached_property
@@ -405,6 +460,15 @@ class PlannerMixin(UI):
         data = planner.to_config()
 
         with self.config.multi_set():
+            # Set value
             for key, value in data.items():
                 self.config.cross_set(f'Dungeon.Planner.{key}', value)
+            # Remove other value
+            remove = []
+            for key, value in self.config.cross_get('Dungeon.Planner', default={}).items():
+                if value != {} and key not in data:
+                    remove.append(key)
+            for key in remove:
+                self.config.cross_set(f'Dungeon.Planner.{key}', {})
+
         del_cached_property(self, 'planner')

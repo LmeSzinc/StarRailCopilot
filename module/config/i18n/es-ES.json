@@ -61,6 +61,10 @@
     "Daemon": {
       "name": "Clic de diálogo",
       "help": ""
+    },
+    "PlannerScan": {
+      "name": "Planificador de personajes",
+      "help": ""
     }
   },
   "Scheduler": {
@@ -1263,6 +1267,16 @@
       "item": "Haz clic solo en elementos",
       "enemy": "Haz clic solo en enemigos",
       "do_not_click": "No hacer clic"
+    }
+  },
+  "PlannerScan": {
+    "_info": {
+      "name": "Escanear resultados del planificador de caracteres",
+      "help": "Las herramientas deben detener el programador y luego ejecutarse de forma independiente\nAntes de usarlo, establezca el objetivo del planificador en el planificador del juego, calcule los resultados y comience a escanear desde la página de resultados. Para uso detallado, consulte: https://github .com/LmeSzinc/StarRailCopilot/wiki/planner_cn"
+    },
+    "ResultAdd": {
+      "name": "Acumular múltiples resultados de escaneo",
+      "help": "Activar cuando se planifican varios personajes, generará varios personajes todos juntos\nDesactivar cuando se planifica un personaje, el objetivo de planificación se actualizará en cada escaneo"
     }
   },
   "Gui": {

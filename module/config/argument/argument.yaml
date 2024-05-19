@@ -307,3 +307,5 @@ Daemon:
   AimClicker:
     value: do_not_click
     option: [ item_enemy, item, enemy, do_not_click ]
+PlannerScan:
+  ResultAdd: false

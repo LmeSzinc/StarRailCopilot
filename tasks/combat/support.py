@@ -156,11 +156,6 @@ class CombatSupport(UI):
                 self.interval_reset(POPUP_CANCEL)
                 continue
             if self.appear(COMBAT_SUPPORT_LIST, interval=2):
-                scroll = AdaptiveScroll(area=COMBAT_SUPPORT_LIST_SCROLL.area,
-                                        name=COMBAT_SUPPORT_LIST_SCROLL.name)
-                if not scroll.appear(main=self):
-                    self.interval_clear(COMBAT_SUPPORT_LIST)
-                    continue
                 if not selected_support and support_character_name != "FirstCharacter":
                     self._search_support(support_character_name)  # Search support
                     selected_support = True

@@ -272,5 +272,10 @@
       "Enable": true,
       "AimClicker": "do_not_click"
     }
+  },
+  "PlannerScan": {
+    "PlannerScan": {
+      "ResultAdd": false
+    }
   }
 }

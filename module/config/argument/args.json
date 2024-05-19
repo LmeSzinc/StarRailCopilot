@@ -1865,5 +1865,13 @@
         ]
       }
     }
+  },
+  "PlannerScan": {
+    "PlannerScan": {
+      "ResultAdd": {
+        "type": "checkbox",
+        "value": false
+      }
+    }
   }
 }

@@ -71,3 +71,5 @@ Tool:
   tasks:
     Daemon:
       - Daemon
+    PlannerScan:
+      - PlannerScan

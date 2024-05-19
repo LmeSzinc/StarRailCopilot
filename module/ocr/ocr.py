@@ -1,15 +1,13 @@
-import re
 import time
 from datetime import timedelta
 
-import cv2
 import numpy as np
 from pponnxcr.predict_system import BoxedResult
 
 import module.config.server as server
 from module.base.button import ButtonWrapper
 from module.base.decorator import cached_property
-from module.base.utils import area_pad, corner2area, crop, extract_white_letters, float2str
+from module.base.utils import *
 from module.exception import ScriptError
 from module.logger import logger
 from module.ocr.models import OCR_MODEL, TextSystem
@@ -423,6 +421,12 @@ class Duration(Ocr):
 
 class OcrWhiteLetterOnComplexBackground(Ocr):
     white_preprocess = True
+    # 0.6 by default, 0.2 for lower
+    box_thresh = 0.2
+    # (x, y) Enlarge detected boxes to `min_boxes`
+    # So standalone digits can be better detected
+    # Note that min_box should be 4px larger than the actual letter
+    min_box = None
 
     def pre_process(self, image):
         if self.white_preprocess:
@@ -430,12 +434,46 @@ class OcrWhiteLetterOnComplexBackground(Ocr):
             image = cv2.merge([image, image, image])
         return image
 
+    @staticmethod
+    def enlarge_box(box, min_box):
+        area = corner2area(box)
+        center = (int(x) for x in area_center(area))
+        size_x, size_y = area_size(area)
+        min_x, min_y = min_box
+        if size_x < min_x or size_y < min_y:
+            size_x = max(size_x, min_x) // 2
+            size_y = max(size_y, min_y) // 2
+            area = area_offset((-size_x, -size_y, size_x, size_y), center)
+            box = area2corner(area)
+            box = np.array([box[0], box[1], box[3], box[2]]).astype(np.float32)
+            return box
+        else:
+            return box
+
+    def enlarge_boxes(self, boxes):
+        if self.min_box is None:
+            return boxes
+
+        boxes = [self.enlarge_box(box, self.min_box) for box in boxes]
+        boxes = np.array(boxes)
+        return boxes
+
     def detect_and_ocr(self, *args, **kwargs):
         # Try hard to lower TextSystem.box_thresh
         backup = self.model.text_detector.box_thresh
         self.model.text_detector.box_thresh = 0.2
+        # Patch TextDetector
+        text_detector = self.model.text_detector
 
-        result = super().detect_and_ocr(*args, **kwargs)
+        def text_detector_with_min_box(*args, **kwargs):
+            dt_boxes, elapse = text_detector(*args, **kwargs)
+            dt_boxes = self.enlarge_boxes(dt_boxes)
+            return dt_boxes, elapse
 
-        self.model.text_detector.box_thresh = backup
+        self.model.text_detector = text_detector_with_min_box
+        try:
+            result = super().detect_and_ocr(*args, **kwargs)
+        finally:
+            self.model.text_detector.box_thresh = backup
+            self.model.text_detector = text_detector
         return result

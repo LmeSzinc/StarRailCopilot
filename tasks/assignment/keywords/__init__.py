@@ -30,7 +30,7 @@ KEYWORDS_ASSIGNMENT_GROUP.Synthesis_Materials.entries = (
     KEYWORDS_ASSIGNMENT_ENTRY.Fragments_of_Illusory_Dreams,
     KEYWORDS_ASSIGNMENT_ENTRY.Scalpel_and_Screwdriver,
 )
-KEYWORDS_ASSIGNMENT_EVENT_GROUP.Space_Station_Task_Force.entries = (
+KEYWORDS_ASSIGNMENT_EVENT_GROUP.All_About_Boothill.entries = (
     KEYWORDS_ASSIGNMENT_EVENT_ENTRY.Activate_Genetic_Samples,
     KEYWORDS_ASSIGNMENT_EVENT_ENTRY.Reproduce_Experimental_Data,
     KEYWORDS_ASSIGNMENT_EVENT_ENTRY.Burned_Warehouse,
@@ -60,7 +60,7 @@ for group in (
         KEYWORDS_ASSIGNMENT_GROUP.Character_Materials,
         KEYWORDS_ASSIGNMENT_GROUP.EXP_Materials_Credits,
         KEYWORDS_ASSIGNMENT_GROUP.Synthesis_Materials,
-        KEYWORDS_ASSIGNMENT_EVENT_GROUP.Space_Station_Task_Force,
+        KEYWORDS_ASSIGNMENT_EVENT_GROUP.All_About_Boothill,
 ):
     for entry in group.entries:
         assert entry.group is None

@@ -1,6 +1,5 @@
 import re
 
-import cv2
 from pponnxcr.predict_system import BoxedResult
 
 from module.base.utils import area_center, area_in_area
@@ -18,9 +17,6 @@ MATERIAL_TITLE.load_search(RESULT_CHECK.search)
 DETAIL_TITLE.load_search(RESULT_CHECK.search)
 
 
-
-
-
 class OcrItemName(Ocr):
     def after_process(self, result):
         result = result.replace('念火之心', '忿火之心')
@@ -31,6 +27,8 @@ class OcrItemName(Ocr):
 
 
 class OcrPlannerResult(OcrWhiteLetterOnComplexBackground, OcrItemName):
+    min_box = (16, 20)
+
     def __init__(self):
         # Planner currently CN only
         super().__init__(OCR_RESULT, lang='cn')
@@ -68,14 +66,14 @@ class OcrPlannerResult(OcrWhiteLetterOnComplexBackground, OcrItemName):
         return super().detect_and_ocr(image, *args, **kwargs)
 
     def pre_process(self, image):
-        r, g, b = cv2.split(image)
-        cv2.max(r, g, dst=r)
-        cv2.max(r, b, dst=r)
-        image = cv2.merge([r, r, r])
+        # gray = rgb2gray(image)
+        # from PIL import Image
+        # Image.fromarray(gray).show()
+        # image = cv2.merge([gray, gray, gray])
         return image
 
 
-class PlannerResult(SynthesizeUI, PlannerMixin):
+class PlannerScan(SynthesizeUI, PlannerMixin):
     def is_in_planner_result(self):
         if self.appear(RESULT_CHECK):
             return True
@@ -216,8 +214,12 @@ class PlannerResult(SynthesizeUI, PlannerMixin):
         self.planner_write_results(out)
         return out
 
+    def run(self):
+        self.device.screenshot()
+        self.parse_planner_result()
+
 
 if __name__ == '__main__':
-    self = PlannerResult('src')
+    self = PlannerScan('src', task='PlannerScan')
     self.device.screenshot()
     self.parse_planner_result()

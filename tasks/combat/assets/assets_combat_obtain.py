@@ -33,6 +33,23 @@ ITEM_NAME = ButtonWrapper(
         button=(495, 187, 855, 211),
     ),
 )
+MAY_OBTAIN = ButtonWrapper(
+    name='MAY_OBTAIN',
+    cn=Button(
+        file='./assets/cn/combat/obtain/MAY_OBTAIN.png',
+        area=(813, 379, 893, 397),
+        search=(812, 373, 895, 468),
+        color=(63, 71, 87),
+        button=(813, 379, 893, 397),
+    ),
+    en=Button(
+        file='./assets/en/combat/obtain/MAY_OBTAIN.png',
+        area=(813, 379, 922, 397),
+        search=(813, 373, 923, 468),
+        color=(53, 61, 78),
+        button=(813, 379, 922, 397),
+    ),
+)
 OBTAIN_1 = ButtonWrapper(
     name='OBTAIN_1',
     share=Button(

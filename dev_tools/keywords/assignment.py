@@ -126,6 +126,7 @@ class GenerateAssignmentEventGroup(GenerateKeyword):
 
     def iter_keywords(self) -> Iterable[dict]:
         yield dict(text_id=self.find_keyword('空间站特派', lang='cn')[0])
+        yield dict(text_id=self.find_keyword('关于波提欧的一切…', lang='cn')[0])
 
 
 class GenerateAssignmentEventEntry(GenerateKeyword):

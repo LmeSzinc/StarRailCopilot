@@ -247,9 +247,10 @@ class CombatObtain(PlannerMixin):
     def _find_may_obtain(self, skip_first_screenshot=True):
         logger.info('Find may obtain')
         while 1:
-            if not skip_first_screenshot:
-                self.device.screenshot()
+            if skip_first_screenshot:
                 skip_first_screenshot = False
+            else:
+                self.device.screenshot()
             if MAY_OBTAIN.match_template(self.device.image):
                 OBTAIN_1.load_offset(MAY_OBTAIN)
                 return True

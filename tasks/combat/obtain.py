@@ -91,6 +91,8 @@ class CombatObtain(PlannerMixin):
                 if self.image_color_count(WAVE_MINUS, color=(246, 246, 246), threshold=221, count=100) \
                         or self.image_color_count(WAVE_PLUS, color=(246, 246, 246), threshold=221, count=100):
                     break
+                if self.image_color_count(OBTAIN_CLOSED, color=(8, 9, 12), threshold=221, count=100):
+                    break
             if self.appear_then_click(ITEM_CLOSE, interval=2):
                 continue
 
@@ -110,6 +112,18 @@ class CombatObtain(PlannerMixin):
 
         if index > 3:
             return None
+
+        def obtain_stagnant_shadow():
+            if prev is None:
+                return OBTAIN_STAGNANT_SHADOW
+            else:
+                return None
+
+        def obtain_echo_of_war():
+            if prev is None:
+                return OBTAIN_ECHO_OF_WAR
+            else:
+                return None
 
         def may_obtain_one():
             if prev is None:
@@ -131,11 +145,11 @@ class CombatObtain(PlannerMixin):
         if dungeon is None:
             return may_obtain_multi()
         if dungeon.is_Echo_of_War:
-            return may_obtain_one()
+            return obtain_echo_of_war()
         if dungeon.is_Cavern_of_Corrosion:
             return None
         if dungeon.is_Stagnant_Shadow:
-            return may_obtain_one()
+            return obtain_stagnant_shadow()
         if dungeon.is_Calyx_Golden:
             if dungeon.is_Calyx_Golden_Treasures:
                 return may_obtain_one()

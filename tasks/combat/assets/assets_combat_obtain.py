@@ -63,3 +63,33 @@ OBTAIN_3 = ButtonWrapper(
         button=(965, 414, 1029, 478),
     ),
 )
+OBTAIN_CLOSED = ButtonWrapper(
+    name='OBTAIN_CLOSED',
+    share=Button(
+        file='./assets/share/combat/obtain/OBTAIN_CLOSED.png',
+        area=(1087, 256, 1106, 345),
+        search=(1067, 236, 1126, 365),
+        color=(220, 204, 210),
+        button=(1087, 256, 1106, 345),
+    ),
+)
+OBTAIN_ECHO_OF_WAR = ButtonWrapper(
+    name='OBTAIN_ECHO_OF_WAR',
+    share=Button(
+        file='./assets/share/combat/obtain/OBTAIN_ECHO_OF_WAR.png',
+        area=(818, 436, 873, 492),
+        search=(798, 416, 893, 512),
+        color=(135, 115, 166),
+        button=(818, 436, 873, 492),
+    ),
+)
+OBTAIN_STAGNANT_SHADOW = ButtonWrapper(
+    name='OBTAIN_STAGNANT_SHADOW',
+    share=Button(
+        file='./assets/share/combat/obtain/OBTAIN_STAGNANT_SHADOW.png',
+        area=(821, 478, 871, 530),
+        search=(801, 458, 891, 550),
+        color=(110, 90, 121),
+        button=(821, 478, 871, 530),
+    ),
+)

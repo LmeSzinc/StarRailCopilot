@@ -33,6 +33,23 @@ ITEM_NAME = ButtonWrapper(
         button=(495, 187, 855, 211),
     ),
 )
+MAY_OBTAIN = ButtonWrapper(
+    name='MAY_OBTAIN',
+    cn=Button(
+        file='./assets/cn/combat/obtain/MAY_OBTAIN.png',
+        area=(813, 379, 893, 397),
+        search=(812, 373, 895, 468),
+        color=(63, 71, 87),
+        button=(813, 379, 893, 397),
+    ),
+    en=Button(
+        file='./assets/en/combat/obtain/MAY_OBTAIN.png',
+        area=(813, 379, 922, 397),
+        search=(813, 373, 923, 468),
+        color=(53, 61, 78),
+        button=(813, 379, 922, 397),
+    ),
+)
 OBTAIN_1 = ButtonWrapper(
     name='OBTAIN_1',
     share=Button(
@@ -61,35 +78,5 @@ OBTAIN_3 = ButtonWrapper(
         search=(945, 394, 1049, 498),
         color=(76, 101, 109),
         button=(965, 414, 1029, 478),
-    ),
-)
-OBTAIN_CLOSED = ButtonWrapper(
-    name='OBTAIN_CLOSED',
-    share=Button(
-        file='./assets/share/combat/obtain/OBTAIN_CLOSED.png',
-        area=(1087, 256, 1106, 345),
-        search=(1067, 236, 1126, 365),
-        color=(220, 204, 210),
-        button=(1087, 256, 1106, 345),
-    ),
-)
-OBTAIN_ECHO_OF_WAR = ButtonWrapper(
-    name='OBTAIN_ECHO_OF_WAR',
-    share=Button(
-        file='./assets/share/combat/obtain/OBTAIN_ECHO_OF_WAR.png',
-        area=(818, 436, 873, 492),
-        search=(798, 416, 893, 512),
-        color=(135, 115, 166),
-        button=(818, 436, 873, 492),
-    ),
-)
-OBTAIN_STAGNANT_SHADOW = ButtonWrapper(
-    name='OBTAIN_STAGNANT_SHADOW',
-    share=Button(
-        file='./assets/share/combat/obtain/OBTAIN_STAGNANT_SHADOW.png',
-        area=(821, 478, 871, 530),
-        search=(801, 458, 891, 550),
-        color=(110, 90, 121),
-        button=(821, 478, 871, 530),
     ),
 )

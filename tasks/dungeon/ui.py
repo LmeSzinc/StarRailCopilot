@@ -592,7 +592,7 @@ class DungeonUI(DungeonState):
 
             # Additional
             # Popup that confirm character switch
-            if self.handle_popup_confirm('DUNGEON_ENTER'):
+            if self.handle_popup_confirm():
                 continue
 
             # Click teleport

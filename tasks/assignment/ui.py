@@ -8,13 +8,14 @@ from module.base.timer import Timer
 from module.exception import ScriptError
 from module.logger import logger
 from module.ocr.ocr import DigitCounter, Duration, Ocr
-from tasks.dungeon.ui import DungeonTabSwitch as Switch
 from module.ui.draggable_list import DraggableList
 from tasks.assignment.assets.assets_assignment_claim import CLAIM
 from tasks.assignment.assets.assets_assignment_dispatch import EMPTY_SLOT
 from tasks.assignment.assets.assets_assignment_ui import *
 from tasks.assignment.keywords import *
+from tasks.base.assets.assets_base_page import ASSIGNMENT_CHECK
 from tasks.base.ui import UI
+from tasks.dungeon.ui import DungeonTabSwitch as Switch
 
 
 class AssignmentStatus(Enum):
@@ -31,17 +32,19 @@ class AssignmentOcr(Ocr):
 
     OCR_REPLACE = {
         'cn': [
-            (KEYWORDS_ASSIGNMENT_ENTRY.Winter_Soldiers.name, '[黑]冬的战士们'),
-            (KEYWORDS_ASSIGNMENT_ENTRY.Born_to_Obey.name, '[牛]而服从'),
-            (KEYWORDS_ASSIGNMENT_ENTRY.Root_Out_the_Turpitude.name,
+            (KEYWORDS_ASSIGNMENT_ENTRY.Winter_Soldiers, '[黑]冬的战士们'),
+            (KEYWORDS_ASSIGNMENT_ENTRY.Born_to_Obey, '[牛]而服从'),
+            (KEYWORDS_ASSIGNMENT_ENTRY.Root_Out_the_Turpitude,
              '根除恶[擎薯尊掌鞋]?'),
-            (KEYWORDS_ASSIGNMENT_ENTRY.Akashic_Records.name, '阿[未][夏复]记录'),
-            (KEYWORDS_ASSIGNMENT_ENTRY.Legend_of_the_Puppet_Master.name, '^师传说'),
-            (KEYWORDS_ASSIGNMENT_ENTRY.The_Wages_of_Humanity.name, '[赠]养人类'),
+            (KEYWORDS_ASSIGNMENT_ENTRY.Akashic_Records, '阿[未][夏复]记录'),
+            (KEYWORDS_ASSIGNMENT_ENTRY.Legend_of_the_Puppet_Master, '^师传说'),
+            (KEYWORDS_ASSIGNMENT_ENTRY.The_Wages_of_Humanity, '[赠]养人类'),
+            (KEYWORDS_ASSIGNMENT_EVENT_ENTRY.Car_Thief, '.*的偷车贼.*'),
         ],
         'en': [
             # (KEYWORDS_ASSIGNMENT_EVENT_ENTRY.Food_Improvement_Plan.name,
             #  'Food\s*[I]{0}mprovement Plan'),
+            (KEYWORDS_ASSIGNMENT_EVENT_ENTRY.Car_Thief, '.*Car Thief.*'),
         ]
     }
 
@@ -50,7 +53,10 @@ class AssignmentOcr(Ocr):
         rules = AssignmentOcr.OCR_REPLACE.get(self.lang)
         if rules is None:
             return None
-        return re.compile('|'.join('(?P<%s>%s)' % pair for pair in rules))
+        return re.compile('|'.join(
+            f'(?P<{kw.name}>{pat})'
+            for kw, pat in rules
+        ))
 
     def filter_detected(self, result) -> bool:
         # Drop duration rows
@@ -78,17 +84,17 @@ class AssignmentOcr(Ocr):
         matched = self.ocr_regex.fullmatch(result)
         if matched is None:
             return result
-        keyword_lang = self.lang
         for keyword_class in (
             KEYWORDS_ASSIGNMENT_ENTRY,
             KEYWORDS_ASSIGNMENT_EVENT_ENTRY,
         ):
-            matched = getattr(keyword_class, matched.lastgroup, None)
-            if matched is not None:
+            kw = getattr(keyword_class, matched.lastgroup, None)
+            if kw is not None:
+                matched = kw
                 break
         else:
             raise ScriptError(f'No keyword found for {matched.lastgroup}')
-        matched = getattr(matched, keyword_lang)
+        matched = getattr(matched, self.lang)
         logger.attr(name=f'{self.name} after_process',
                     text=f'{result} -> {matched}')
         return matched
@@ -98,10 +104,15 @@ ASSIGNMENT_GROUP_SWITCH = Switch(
     'AssignmentGroupSwitch',
     is_selector=True
 )
+# ASSIGNMENT_GROUP_SWITCH.add_state(
+#     KEYWORDS_ASSIGNMENT_EVENT_GROUP.Space_Station_Task_Force,
+#     check_button=SPACE_STATION_TASK_FORCE_CHECK,
+#     click_button=SPACE_STATION_TASK_FORCE_CLICK
+# )
 ASSIGNMENT_GROUP_SWITCH.add_state(
-    KEYWORDS_ASSIGNMENT_EVENT_GROUP.Space_Station_Task_Force,
-    check_button=SPACE_STATION_TASK_FORCE_CHECK,
-    click_button=SPACE_STATION_TASK_FORCE_CLICK
+    KEYWORDS_ASSIGNMENT_EVENT_GROUP.All_About_Boothill,
+    check_button=ALL_ABOUT_BOOTHILL_CHECK,
+    click_button=ALL_ABOUT_BOOTHILL_CLICK
 )
 ASSIGNMENT_GROUP_SWITCH.add_state(
     KEYWORDS_ASSIGNMENT_GROUP.Character_Materials,
@@ -174,7 +185,7 @@ class AssignmentUI(UI):
 
     def _wait_until_group_loaded(self):
         skip_first_screenshot = True
-        timeout = Timer(2, count=3).start()
+        timeout = Timer(3, count=3).start()
         while 1:
             if skip_first_screenshot:
                 skip_first_screenshot = False
@@ -201,13 +212,17 @@ class AssignmentUI(UI):
             if timeout.reached():
                 logger.warning('Wait entry loaded timeout')
                 break
-            if self.image_color_count(ENTRY_LOADED, (35, 35, 35), count=800):
+            if self.appear(ASSIGNMENT_CHECK) and \
+                    self.image_color_count(ENTRY_LOADED, (35, 35, 35), count=800):
                 logger.info('Entry loaded')
                 break
 
     @property
     def _limit_status(self) -> tuple[int, int, int]:
         self.device.screenshot()
+        if isinstance(ASSIGNMENT_GROUP_SWITCH.get(self), AssignmentEventGroup):
+            ASSIGNMENT_GROUP_SWITCH.set(
+                KEYWORDS_ASSIGNMENT_GROUP.Character_Materials, self)
         current, remain, total = DigitCounter(
             OCR_ASSIGNMENT_LIMIT).ocr_single_line(self.device.image)
         if total and current <= total:

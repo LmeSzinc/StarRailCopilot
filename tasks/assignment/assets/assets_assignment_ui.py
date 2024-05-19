@@ -3,6 +3,40 @@ from module.base.button import Button, ButtonWrapper
 # This file was auto-generated, do not modify it manually. To generate:
 # ``` python -m dev_tools.button_extract ```
 
+ALL_ABOUT_BOOTHILL_CHECK = ButtonWrapper(
+    name='ALL_ABOUT_BOOTHILL_CHECK',
+    cn=Button(
+        file='./assets/cn/assignment/ui/ALL_ABOUT_BOOTHILL_CHECK.png',
+        area=(153, 98, 226, 118),
+        search=(133, 78, 246, 138),
+        color=(186, 180, 164),
+        button=(153, 98, 226, 118),
+    ),
+    en=Button(
+        file='./assets/en/assignment/ui/ALL_ABOUT_BOOTHILL_CHECK.png',
+        area=(154, 89, 240, 129),
+        search=(134, 69, 260, 149),
+        color=(207, 201, 183),
+        button=(154, 89, 240, 129),
+    ),
+)
+ALL_ABOUT_BOOTHILL_CLICK = ButtonWrapper(
+    name='ALL_ABOUT_BOOTHILL_CLICK',
+    cn=Button(
+        file='./assets/cn/assignment/ui/ALL_ABOUT_BOOTHILL_CLICK.png',
+        area=(153, 98, 227, 119),
+        search=(133, 78, 247, 139),
+        color=(80, 79, 77),
+        button=(153, 98, 227, 119),
+    ),
+    en=Button(
+        file='./assets/en/assignment/ui/ALL_ABOUT_BOOTHILL_CLICK.png',
+        area=(154, 90, 241, 128),
+        search=(134, 70, 261, 148),
+        color=(59, 57, 56),
+        button=(154, 90, 241, 128),
+    ),
+)
 CHARACTER_MATERIALS_CHECK = ButtonWrapper(
     name='CHARACTER_MATERIALS_CHECK',
     cn=Button(

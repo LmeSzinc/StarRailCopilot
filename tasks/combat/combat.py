@@ -232,8 +232,15 @@ class Combat(CombatInteract, CombatPrepare, CombatState, CombatTeam, CombatSuppo
         # Planner
         logger.attr('obtain_frequent_check', self.obtain_frequent_check)
         if self.obtain_frequent_check:
-            logger.info('Re-enter combat to check obtained items')
-            return True
+            if self.config.stored.TrailblazePower.value >= self.combat_wave_cost \
+                    and (self.combat_wave_limit and self.combat_wave_done < self.combat_wave_limit):
+                logger.info(f'Stall having some trailblaze power '
+                            f'but wave limit reached {self.combat_wave_done}/{self.combat_wave_limit}, '
+                            f'ignore obtain_frequent_check cause will reenter later')
+                return False
+            else:
+                logger.info('Re-enter combat to check obtained items')
+                return True
         # Stamina
         if self.config.stored.TrailblazePower.value < self.combat_wave_cost:
             logger.info('Current trailblaze power is not enough for next run')

@@ -61,6 +61,10 @@
     "Daemon": {
       "name": "Dialogue Clicker",
       "help": ""
+    },
+    "PlannerScan": {
+      "name": "Character Planner",
+      "help": ""
     }
   },
   "Scheduler": {
@@ -1263,6 +1267,16 @@
       "item": "Click items only",
       "enemy": "Click enemies only",
       "do_not_click": "Don't click"
+    }
+  },
+  "PlannerScan": {
+    "_info": {
+      "name": "Scan Character Planner Results",
+      "help": "Tools need to stop the scheduler and then run independently\nBefore use, set planner goal in the in-game planner, calculate the results, and start scanning from the result page. Detailed usage see: https://github.com/LmeSzinc/StarRailCopilot/wiki/planner_cn"
+    },
+    "ResultAdd": {
+      "name": "Accumulate multiple scan results",
+      "help": "Turn on when planning multiple characters, will raise multiple characters all together\nTurn off when planning one character, planning goal will be refreshed at every scan"
     }
   },
   "Gui": {

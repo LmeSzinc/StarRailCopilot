@@ -18,9 +18,6 @@ MATERIAL_TITLE.load_search(RESULT_CHECK.search)
 DETAIL_TITLE.load_search(RESULT_CHECK.search)
 
 
-
-
-
 class OcrItemName(Ocr):
     def after_process(self, result):
         result = result.replace('念火之心', '忿火之心')
@@ -75,7 +72,7 @@ class OcrPlannerResult(OcrWhiteLetterOnComplexBackground, OcrItemName):
         return image
 
 
-class PlannerResult(SynthesizeUI, PlannerMixin):
+class PlannerScan(SynthesizeUI, PlannerMixin):
     def is_in_planner_result(self):
         if self.appear(RESULT_CHECK):
             return True
@@ -216,8 +213,12 @@ class PlannerResult(SynthesizeUI, PlannerMixin):
         self.planner_write_results(out)
         return out
 
+    def run(self):
+        self.device.screenshot()
+        self.parse_planner_result()
+
 
 if __name__ == '__main__':
-    self = PlannerResult('src')
+    self = PlannerScan('src', task='PlannerScan')
     self.device.screenshot()
     self.parse_planner_result()

@@ -61,6 +61,10 @@
     "Daemon": {
       "name": "Task.Daemon.name",
       "help": "Task.Daemon.help"
+    },
+    "PlannerScan": {
+      "name": "Task.PlannerScan.name",
+      "help": "Task.PlannerScan.help"
     }
   },
   "Scheduler": {
@@ -1263,6 +1267,16 @@
       "item": "item",
       "enemy": "enemy",
       "do_not_click": "do_not_click"
+    }
+  },
+  "PlannerScan": {
+    "_info": {
+      "name": "PlannerScan._info.name",
+      "help": "PlannerScan._info.help"
+    },
+    "ResultAdd": {
+      "name": "PlannerScan.ResultAdd.name",
+      "help": "PlannerScan.ResultAdd.help"
     }
   },
   "Gui": {

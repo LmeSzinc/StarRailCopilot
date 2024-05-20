@@ -157,6 +157,8 @@ class AssignmentUI(UI):
             self.goto_group(KEYWORDS_ASSIGNMENT_GROUP.Character_Materials)
         """
         if ASSIGNMENT_GROUP_SWITCH.get(self) == group:
+            if not ASSIGNMENT_ENTRY_LIST.cur_buttons:
+                ASSIGNMENT_ENTRY_LIST.load_rows(self)
             return
         logger.hr('Assignment group goto', level=3)
         if ASSIGNMENT_GROUP_SWITCH.set(group, self):
@@ -302,7 +304,7 @@ class AssignmentUI(UI):
         """
         Iterate entries from top to bottom
         """
-        # load_rows is done in _wait_until_correct_entry_loaded already
+        # load_rows is done in goto_group already
         # Freeze ocr results here
         yield from [
             button.matched_keyword

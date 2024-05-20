@@ -151,19 +151,23 @@ class AssignmentUI(UI):
         Args:
             group (AssignmentGroup):
 
+        Returns:
+            bool: If group switched
+
         Examples:
             self = AssignmentUI('src')
             self.device.screenshot()
             self.goto_group(KEYWORDS_ASSIGNMENT_GROUP.Character_Materials)
         """
-        if ASSIGNMENT_GROUP_SWITCH.get(self) == group:
-            if not ASSIGNMENT_ENTRY_LIST.cur_buttons:
-                ASSIGNMENT_ENTRY_LIST.load_rows(self)
-            return
         logger.hr('Assignment group goto', level=3)
         if ASSIGNMENT_GROUP_SWITCH.set(group, self):
             self._wait_until_entry_loaded()
             self._wait_until_correct_entry_loaded(group)
+            return True
+        else:
+            if not ASSIGNMENT_ENTRY_LIST.cur_buttons:
+                ASSIGNMENT_ENTRY_LIST.load_rows(self)
+            return False
 
     def goto_entry(self, entry: AssignmentEntry, insight: bool = True):
         """
@@ -185,8 +189,11 @@ class AssignmentUI(UI):
                     return
             raise ScriptError(err_msg)
         else:
-            self.goto_group(entry.group)
-            ASSIGNMENT_ENTRY_LIST.select_row(entry, self, insight=insight)
+            if self.goto_group(entry.group):
+                # Already insight in goto_group() - _wait_until_correct_entry_loaded()
+                ASSIGNMENT_ENTRY_LIST.select_row(entry, self, insight=False)
+            else:
+                ASSIGNMENT_ENTRY_LIST.select_row(entry, self, insight=insight)
 
     def _wait_until_group_loaded(self):
         skip_first_screenshot = True

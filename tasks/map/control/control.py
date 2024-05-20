@@ -135,6 +135,7 @@ class MapControl(Combat, AimDetectorMixin):
         logger.info(f'Goto {waypoint}')
         self.screenshot_tracking_add()
         self.waypoint = waypoint
+        waypoint.unexpected_confirm.reset()
         self.device.stuck_record_clear()
         self.device.click_record_clear()
 

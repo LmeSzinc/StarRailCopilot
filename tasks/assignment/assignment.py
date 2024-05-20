@@ -205,8 +205,8 @@ class Assignment(AssignmentClaim, SynthesizeUI):
                     continue
                 logger.hr('Assignment event', level=2)
                 logger.info(f'Check assignment event: {assignment}')
-                # Order of entries does not change during iteration
-                self.goto_entry(assignment, insight=False)
+                # Order of entries changes if claimed
+                self.goto_entry(assignment, insight=claimed)
                 status = self._check_assignment_status()
                 if status == AssignmentStatus.LOCKED:
                     continue

@@ -135,6 +135,7 @@ class MapControl(Combat, AimDetectorMixin):
         logger.info(f'Goto {waypoint}')
         self.screenshot_tracking_add()
         self.waypoint = waypoint
+        waypoint.unexpected_confirm.reset()
         self.device.stuck_record_clear()
         self.device.click_record_clear()
 
@@ -176,6 +177,12 @@ class MapControl(Combat, AimDetectorMixin):
                 if waypoint.early_stop:
                     return result
             if self.walk_additional():
+                # Clearing items may trigger additional popups
+                if attacked_item.started() and attacked_item.reached():
+                    logger.info('Walk result add: item')
+                    result.append('item')
+                    if 'item' in waypoint.expected_end and waypoint.early_stop:
+                        return result
                 attacked_enemy.clear()
                 attacked_item.clear()
                 continue
@@ -227,7 +234,7 @@ class MapControl(Combat, AimDetectorMixin):
                 if attacked_item.started() and attacked_item.reached():
                     logger.info('Walk result add: item')
                     result.append('item')
-                    if waypoint.early_stop:
+                    if 'item' in waypoint.expected_end and waypoint.early_stop:
                         return result
             if waypoint.interact_radius > 0:
                 if diff < waypoint.interact_radius:

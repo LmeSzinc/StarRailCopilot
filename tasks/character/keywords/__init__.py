@@ -11,6 +11,8 @@ DICT_SORTED_RANGES = {
         Welt,
         Aventurine,
         FuXuan,
+        # Slow bullet
+        Robin,
         # Longer precast
         BlackSwan,
     ],

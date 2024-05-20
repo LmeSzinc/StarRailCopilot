@@ -20,6 +20,10 @@ class RouteBase(RouteBase_, RogueExit, RogueEvent, RogueReward):
     enroute_add_item = True
 
     def combat_expected_end(self):
+        # Curio effect, that drops curio after combat
+        if self.handle_blessing_popup():
+            return False
+        # Blessings after combat
         if self.is_page_choose_blessing():
             logger.info('Combat ended at is_page_choose_blessing()')
             return True

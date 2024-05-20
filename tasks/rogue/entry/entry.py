@@ -164,6 +164,11 @@ class RogueEntry(RouteBase, RogueRewardHandler, RoguePathHandler, DungeonUI):
             if interval.reached() and self.is_page_rogue_main():
                 self.device.click(THEME_SWITCH)
                 interval.reset()
+            # Weekly refresh popup
+            if self.appear_then_click(REWARD_CLOSE, interval=2):
+                continue
+            if self.handle_reward():
+                continue
 
     def _rogue_world_set(self, world: int | DungeonList, skip_first_screenshot=True):
         """

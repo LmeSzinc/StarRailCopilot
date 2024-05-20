@@ -4,7 +4,10 @@ import numpy as np
 
 from module.base.decorator import cached_property
 from module.base.timer import Timer
-from module.logger import logger
+from module.exception import GameStuckError, HandledError
+from module.logger import logger, save_error_log
+from tasks.base.assets.assets_base_main_page import ROGUE_LEAVE_FOR_NOW
+from tasks.base.assets.assets_base_page import MAP_EXIT
 from tasks.character.switch import CharacterSwitch
 from tasks.map.keywords import MapPlane
 from tasks.map.keywords.plane import (
@@ -17,6 +20,8 @@ from tasks.map.keywords.plane import (
 from tasks.map.minimap.minimap import Minimap
 from tasks.map.resource.resource import SPECIAL_PLANES
 from tasks.map.route.loader import RouteLoader as RouteLoader_
+from tasks.rogue.assets.assets_rogue_ui import BLESSING_CONFIRM
+from tasks.rogue.assets.assets_rogue_weekly import ROGUE_REPORT
 from tasks.rogue.blessing.ui import RogueUI
 from tasks.rogue.route.base import RouteBase
 from tasks.rogue.route.model import RogueRouteListModel, RogueRouteModel
@@ -75,7 +80,7 @@ class MinimapWrapper:
         return self.all_minimap[route.plane_floor]
 
 
-class RouteLoader(RogueUI, MinimapWrapper, RouteLoader_, CharacterSwitch):
+class RouteLoader(RouteBase, MinimapWrapper, RouteLoader_, CharacterSwitch):
     def position_find_known(self, image, force_return=False) -> Optional[RogueRouteModel]:
         """
         Try to find from known route spawn point
@@ -271,6 +276,43 @@ class RouteLoader(RogueUI, MinimapWrapper, RouteLoader_, CharacterSwitch):
             if route is not None:
                 return route
 
+    def rogue_leave(self, skip_first_screenshot=True):
+        logger.hr('Rogue leave', level=1)
+        while 1:
+            if skip_first_screenshot:
+                skip_first_screenshot = False
+            else:
+                self.device.screenshot()
+
+            # End
+            if self.is_page_rogue_main():
+                logger.info('Rogue left')
+                break
+
+            # Re-enter
+            if self.handle_combat_interact():
+                continue
+            # From ui_leave_special
+            if self.is_in_map_exit(interval=2):
+                self.device.click(MAP_EXIT)
+                continue
+            if self.handle_popup_confirm():
+                continue
+            if self.appear_then_click(ROGUE_LEAVE_FOR_NOW, interval=2):
+                continue
+            # Blessing
+            if self.handle_blessing():
+                continue
+            # _domain_exit_wait_next()
+            if self.match_template_color(ROGUE_REPORT, interval=2):
+                logger.info(f'{ROGUE_REPORT} -> {BLESSING_CONFIRM}')
+                self.device.click(BLESSING_CONFIRM)
+                continue
+            if self.handle_reward():
+                continue
+            if self.handle_get_character():
+                continue
+
     def route_run(self, route=None):
         """
         Run a rogue domain
@@ -286,7 +328,15 @@ class RouteLoader(RogueUI, MinimapWrapper, RouteLoader_, CharacterSwitch):
         # To have a newer image, since previous loadings took some time
         route = self.position_find(skip_first_screenshot=False)
         self.screenshot_tracking_add()
-        super().route_run(route)
+
+        try:
+            super().route_run(route)
+            return True
+        except GameStuckError as e:
+            logger.error(e)
+            save_error_log(config=self.config, device=self.device)
+            self.rogue_leave()
+            raise HandledError('Rogue run failed')
 
     def rogue_run(self, skip_first_screenshot=True):
         """

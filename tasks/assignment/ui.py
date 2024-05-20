@@ -40,7 +40,8 @@ class AssignmentOcr(Ocr):
             (KEYWORDS_ASSIGNMENT_ENTRY.Legend_of_the_Puppet_Master, '^师传说'),
             (KEYWORDS_ASSIGNMENT_ENTRY.The_Wages_of_Humanity, '[赠]养人类'),
             (KEYWORDS_ASSIGNMENT_EVENT_ENTRY.Car_Thief, '.*的偷车贼.*'),
-            (KEYWORDS_ASSIGNMENT_EVENT_ENTRY.Synesthesia_Beacon_Function_Iteration, '联觉信标功能[送]代'),
+            (KEYWORDS_ASSIGNMENT_EVENT_ENTRY.Synesthesia_Beacon_Function_Iteration,
+             '联觉信标功能[送]代'),
         ],
         'en': [
             # (KEYWORDS_ASSIGNMENT_EVENT_ENTRY.Food_Improvement_Plan.name,
@@ -156,10 +157,13 @@ class AssignmentUI(UI):
             self.goto_group(KEYWORDS_ASSIGNMENT_GROUP.Character_Materials)
         """
         if ASSIGNMENT_GROUP_SWITCH.get(self) == group:
+            if not ASSIGNMENT_ENTRY_LIST.cur_buttons:
+                ASSIGNMENT_ENTRY_LIST.load_rows(self)
             return
         logger.hr('Assignment group goto', level=3)
         if ASSIGNMENT_GROUP_SWITCH.set(group, self):
             self._wait_until_entry_loaded()
+            self._wait_until_correct_entry_loaded(group)
 
     def goto_entry(self, entry: AssignmentEntry, insight: bool = True):
         """
@@ -213,9 +217,36 @@ class AssignmentUI(UI):
             if timeout.reached():
                 logger.warning('Wait entry loaded timeout')
                 break
+            if self.appear(EVENT_FINISHED):
+                logger.info('Event finished')
+                break
             if self.appear(ASSIGNMENT_CHECK) and \
                     self.image_color_count(ENTRY_LOADED, (35, 35, 35), count=800):
                 logger.info('Entry loaded')
+                break
+
+    def _wait_until_correct_entry_loaded(self, group: AssignmentGroup):
+        skip_first_screenshot = True
+        timeout = Timer(3, count=3).start()
+        while 1:
+            if skip_first_screenshot:
+                skip_first_screenshot = False
+            else:
+                self.device.screenshot()
+
+            if timeout.reached():
+                logger.warning('Wait correct entry loaded timeout')
+                break
+            if self.appear(EVENT_FINISHED):
+                logger.info('Event finished')
+                break
+
+            ASSIGNMENT_ENTRY_LIST.load_rows(self)
+            if all(
+                x.matched_keyword.group == group
+                for x in ASSIGNMENT_ENTRY_LIST.cur_buttons
+            ):
+                logger.info('Correct entry loaded')
                 break
 
     @property
@@ -279,7 +310,7 @@ class AssignmentUI(UI):
         """
         Iterate entries from top to bottom
         """
-        ASSIGNMENT_ENTRY_LIST.load_rows(main=self)
+        # load_rows is done in goto_group already
         # Freeze ocr results here
         yield from [
             button.matched_keyword

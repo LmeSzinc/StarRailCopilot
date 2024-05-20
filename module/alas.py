@@ -115,6 +115,9 @@ class AzurLaneAutoScript:
             else:
                 self.checker.wait_until_available()
                 return False
+        except HandledError as e:
+            logger.error(e)
+            return False
         except ScriptError as e:
             logger.critical(e)
             logger.critical('This is likely to be a mistake of developers, but sometimes just random issues')

@@ -17,6 +17,12 @@ class GameTooManyClickError(Exception):
     pass
 
 
+class HandledError(Exception):
+    # Error handled before raising
+    # No extra handling required, just retry
+    pass
+
+
 class EmulatorNotRunningError(Exception):
     pass
 

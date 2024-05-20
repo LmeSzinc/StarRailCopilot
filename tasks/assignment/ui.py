@@ -217,6 +217,9 @@ class AssignmentUI(UI):
             if timeout.reached():
                 logger.warning('Wait entry loaded timeout')
                 break
+            if self.appear(EVENT_FINISHED):
+                logger.info('Event finished')
+                break
             if self.appear(ASSIGNMENT_CHECK) and \
                     self.image_color_count(ENTRY_LOADED, (35, 35, 35), count=800):
                 logger.info('Entry loaded')
@@ -233,6 +236,9 @@ class AssignmentUI(UI):
 
             if timeout.reached():
                 logger.warning('Wait correct entry loaded timeout')
+                break
+            if self.appear(EVENT_FINISHED):
+                logger.info('Event finished')
                 break
 
             ASSIGNMENT_ENTRY_LIST.load_rows(self)

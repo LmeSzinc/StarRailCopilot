@@ -74,6 +74,9 @@ class MultiValue(BaseModelWithFallback):
         self.blue += other.blue
         self.purple += other.purple
 
+    def equivalent_green(self):
+        return self.green + self.blue * 3 + self.purple * 9
+
 
 class StoredPlannerProxy(BaseModelWithFallback):
     item: ITEM_TYPES
@@ -144,9 +147,37 @@ class StoredPlannerProxy(BaseModelWithFallback):
             else:
                 self.value.blue += self.synthesize.purple * 3
 
+    def is_approaching_total(self):
+        """
+        Returns:
+            bool: True if the future value may >= total after next combat
+        """
+        if self.item.dungeon.is_Calyx_Golden_Treasures:
+            return self.value + 24000 >= self.total
+        if self.item.dungeon.is_Calyx_Golden_Memories:
+            # purple, blue, green = 5, 1, 0
+            value = self.value.equivalent_green()
+            total = self.total.equivalent_green()
+            return value + 48 >= total
+        if self.item.dungeon.Calyx_Golden_Aether:
+            # purple, blue, green = 1, 2, 2.5
+            value = self.value.equivalent_green()
+            total = self.total.equivalent_green()
+            return value + 17.5 >= total
+        if self.item.is_ItemAscension:
+            return self.value + 3 >= self.total
+        if self.item.is_ItemTrace:
+            # purple, blue, green = 0.155, 1, 1.25
+            value = self.value.equivalent_green()
+            total = self.total.equivalent_green()
+            return value + 33.87 >= total
+        if self.item.is_ItemWeekly:
+            return self.value + 3 >= self.total
+        return False
+
     def update_progress(self):
         if self.item.has_group_base:
-            total = self.total.green + self.total.blue * 3 + self.total.purple * 9
+            total = self.total.equivalent_green()
             green = min(self.value.green, self.total.green)
             blue = min(self.value.blue + self.synthesize.blue, self.total.blue)
             purple = min(self.value.purple + self.synthesize.purple, self.total.purple)

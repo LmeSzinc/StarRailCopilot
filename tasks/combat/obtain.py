@@ -241,7 +241,9 @@ class CombatObtain(PlannerMixin):
             return True
 
         # obtain_frequent_check
-        self.obtain_frequent_check = True
+        # approaching = row.is_approaching_total()
+        # logger.attr('is_approaching_total', approaching)
+        # self.obtain_frequent_check = approaching
         return False
 
     def _find_may_obtain(self, skip_first_screenshot=True):

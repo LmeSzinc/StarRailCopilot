@@ -116,16 +116,22 @@ ENTRY_LOADED = ButtonWrapper(
         button=(474, 161, 491, 615),
     ),
 )
-EVENT_FINISHED = ButtonWrapper(
-    name='EVENT_FINISHED',
+EVENT_COMPLETED = ButtonWrapper(
+    name='EVENT_COMPLETED',
     cn=Button(
-        file='./assets/cn/assignment/ui/EVENT_FINISHED.png',
+        file='./assets/cn/assignment/ui/EVENT_COMPLETED.png',
         area=(700, 300, 752, 331),
         search=(680, 280, 772, 351),
         color=(223, 215, 195),
         button=(700, 300, 752, 331),
     ),
-    en=None,
+    en=Button(
+        file='./assets/en/assignment/ui/EVENT_COMPLETED.png',
+        area=(721, 302, 851, 331),
+        search=(701, 282, 871, 351),
+        color=(229, 220, 200),
+        button=(721, 302, 851, 331),
+    ),
 )
 EXP_MATERIALS_CREDITS_CHECK = ButtonWrapper(
     name='EXP_MATERIALS_CREDITS_CHECK',

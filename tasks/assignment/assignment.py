@@ -5,7 +5,7 @@ from tasks.assignment.claim import AssignmentClaim
 from tasks.assignment.keywords import (KEYWORDS_ASSIGNMENT_GROUP,
                                        AssignmentEntry, AssignmentEventEntry,
                                        AssignmentEventGroup)
-from tasks.assignment.ui import AssignmentStatus
+from tasks.assignment.ui import ASSIGNMENT_ENTRY_LIST, AssignmentStatus
 from tasks.base.page import page_assignment, page_menu
 from tasks.daily.keywords import KEYWORDS_DAILY_QUEST
 from tasks.daily.synthesize import SynthesizeUI
@@ -33,6 +33,7 @@ class Assignment(AssignmentClaim, SynthesizeUI):
 
         self.dispatched = dict()
         self.has_new_dispatch = False
+        ASSIGNMENT_ENTRY_LIST.cur_buttons = []
         self.ensure_scroll_top(page_menu)
         self.ui_ensure(page_assignment)
         event_ongoing = next((

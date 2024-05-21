@@ -4,7 +4,7 @@ from module.config.stored.classes import now
 from module.logger import logger
 from module.ocr.ocr import Duration
 from tasks.assignment.assets.assets_assignment_claim import *
-from tasks.assignment.assets.assets_assignment_ui import EVENT_FINISHED
+from tasks.assignment.assets.assets_assignment_ui import EVENT_COMPLETED
 from tasks.assignment.dispatch import AssignmentDispatch
 from tasks.assignment.keywords import AssignmentEntry
 from tasks.base.page import page_assignment
@@ -80,8 +80,8 @@ class AssignmentClaim(AssignmentDispatch):
             if self.appear(page_assignment.check_button):
                 logger.info('Assignment report is closed')
                 break
-            if self.appear(EVENT_FINISHED):
-                logger.info('Event finished')
+            if self.appear(EVENT_COMPLETED):
+                logger.info('Event completed')
                 return
             # Close report
             if self.appear(REPORT, interval=1):

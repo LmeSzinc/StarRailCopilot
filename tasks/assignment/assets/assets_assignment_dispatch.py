@@ -50,10 +50,10 @@ ASSIGNMENT_STARTED_CHECK = ButtonWrapper(
         ),
         Button(
             file='./assets/share/assignment/dispatch/ASSIGNMENT_STARTED_CHECK.2.png',
-            area=(508, 316, 526, 384),
-            search=(488, 296, 546, 404),
-            color=(225, 217, 196),
-            button=(508, 316, 526, 384),
+            area=(509, 317, 525, 383),
+            search=(489, 297, 545, 403),
+            color=(253, 243, 219),
+            button=(509, 317, 525, 383),
         ),
     ],
 )

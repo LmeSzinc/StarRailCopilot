@@ -27,7 +27,7 @@ Glimmering_Core = ItemCalyx(
     rarity='Rare',
     item_id=111002,
     item_group=1401,
-    dungeon_id=-1,
+    dungeon_id=1011,
 )
 Squirming_Core = ItemCalyx(
     id=3,
@@ -40,7 +40,7 @@ Squirming_Core = ItemCalyx(
     rarity='VeryRare',
     item_id=111003,
     item_group=1401,
-    dungeon_id=-1,
+    dungeon_id=1011,
 )
 Thief_Instinct = ItemCalyx(
     id=4,
@@ -66,7 +66,7 @@ Usurper_Scheme = ItemCalyx(
     rarity='Rare',
     item_id=111012,
     item_group=1402,
-    dungeon_id=-1,
+    dungeon_id=1001,
 )
 Conqueror_Will = ItemCalyx(
     id=6,
@@ -79,7 +79,7 @@ Conqueror_Will = ItemCalyx(
     rarity='VeryRare',
     item_id=111013,
     item_group=1402,
-    dungeon_id=-1,
+    dungeon_id=1001,
 )
 Silvermane_Badge = ItemCalyx(
     id=7,
@@ -105,7 +105,7 @@ Silvermane_Insignia = ItemCalyx(
     rarity='Rare',
     item_id=112002,
     item_group=1403,
-    dungeon_id=-1,
+    dungeon_id=1001,
 )
 Silvermane_Medal = ItemCalyx(
     id=9,
@@ -118,7 +118,7 @@ Silvermane_Medal = ItemCalyx(
     rarity='VeryRare',
     item_id=112003,
     item_group=1403,
-    dungeon_id=-1,
+    dungeon_id=1001,
 )
 Ancient_Part = ItemCalyx(
     id=10,
@@ -144,7 +144,7 @@ Ancient_Spindle = ItemCalyx(
     rarity='Rare',
     item_id=112012,
     item_group=1404,
-    dungeon_id=-1,
+    dungeon_id=1001,
 )
 Ancient_Engine = ItemCalyx(
     id=12,
@@ -157,7 +157,7 @@ Ancient_Engine = ItemCalyx(
     rarity='VeryRare',
     item_id=112013,
     item_group=1404,
-    dungeon_id=-1,
+    dungeon_id=1001,
 )
 Immortal_Scionette = ItemCalyx(
     id=13,
@@ -183,7 +183,7 @@ Immortal_Aeroblossom = ItemCalyx(
     rarity='Rare',
     item_id=113002,
     item_group=1405,
-    dungeon_id=-1,
+    dungeon_id=1011,
 )
 Immortal_Lumintwig = ItemCalyx(
     id=15,
@@ -196,7 +196,7 @@ Immortal_Lumintwig = ItemCalyx(
     rarity='VeryRare',
     item_id=113003,
     item_group=1405,
-    dungeon_id=-1,
+    dungeon_id=1011,
 )
 Artifex_Module = ItemCalyx(
     id=16,
@@ -222,7 +222,7 @@ Artifex_Cogwheel = ItemCalyx(
     rarity='Rare',
     item_id=113012,
     item_group=1406,
-    dungeon_id=-1,
+    dungeon_id=1011,
 )
 Artifex_Gyreheart = ItemCalyx(
     id=18,
@@ -235,7 +235,7 @@ Artifex_Gyreheart = ItemCalyx(
     rarity='VeryRare',
     item_id=113013,
     item_group=1406,
-    dungeon_id=-1,
+    dungeon_id=1011,
 )
 Dream_Collection_Component = ItemCalyx(
     id=19,
@@ -261,7 +261,7 @@ Dream_Flow_Valve = ItemCalyx(
     rarity='Rare',
     item_id=114002,
     item_group=1407,
-    dungeon_id=-1,
+    dungeon_id=1014,
 )
 Dream_Making_Engine = ItemCalyx(
     id=21,
@@ -274,7 +274,7 @@ Dream_Making_Engine = ItemCalyx(
     rarity='VeryRare',
     item_id=114003,
     item_group=1407,
-    dungeon_id=-1,
+    dungeon_id=1014,
 )
 Tatters_of_Thought = ItemCalyx(
     id=22,
@@ -300,7 +300,7 @@ Fragments_of_Impression = ItemCalyx(
     rarity='Rare',
     item_id=114012,
     item_group=1408,
-    dungeon_id=-1,
+    dungeon_id=1014,
 )
 Shards_of_Desires = ItemCalyx(
     id=24,
@@ -313,5 +313,5 @@ Shards_of_Desires = ItemCalyx(
     rarity='VeryRare',
     item_id=114013,
     item_group=1408,
-    dungeon_id=-1,
+    dungeon_id=1014,
 )

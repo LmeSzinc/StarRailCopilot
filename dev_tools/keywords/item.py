@@ -112,6 +112,21 @@ class GenerateItemCalyx(GenerateItemBase):
     output_file = './tasks/planner/keywords/item_calyx.py'
     purpose_type = [7]
 
+    def iter_keywords(self) -> t.Iterable[dict]:
+        items = list(super().iter_keywords())
+
+        # Copy dungeon_id from green item to all items in group
+        dic_group_to_dungeonid = {}
+        for item in items:
+            dungeon = item['dungeon_id']
+            if dungeon > 0:
+                dic_group_to_dungeonid[item['item_group']] = dungeon
+        for item in items:
+            dungeon = dic_group_to_dungeonid[item['item_group']]
+            item['dungeon_id'] = dungeon
+
+        yield from items
+
 
 def generate_items():
     GenerateItemCurrency()()

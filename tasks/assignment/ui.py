@@ -244,8 +244,9 @@ class AssignmentUI(UI):
             if timeout.reached():
                 logger.warning('Wait correct entry loaded timeout')
                 break
-            if self.appear(EVENT_FINISHED):
-                logger.info('Event finished')
+            if isinstance(group, AssignmentEventGroup) and self.appear(EVENT_FINISHED):
+                logger.info('Correct entry loaded')
+                ASSIGNMENT_ENTRY_LIST.cur_buttons = []
                 break
 
             ASSIGNMENT_ENTRY_LIST.load_rows(self)

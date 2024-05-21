@@ -143,7 +143,7 @@ class Assignment(AssignmentClaim, SynthesizeUI):
                     continue
                 logger.hr('Assignment all', level=2)
                 logger.info(f'Check assignment all: {assignment}')
-                self.goto_entry(assignment, insight)
+                self.goto_entry(assignment, insight=insight)
                 status = self._check_assignment_status()
                 if status == AssignmentStatus.CLAIMABLE:
                     self.claim(assignment, None, should_redispatch=False)
@@ -202,22 +202,25 @@ class Assignment(AssignmentClaim, SynthesizeUI):
             if not isinstance(group, AssignmentEventGroup):
                 continue
             self.goto_group(group)
+            insight = False
             for assignment in self._iter_entries():
                 if assignment in self.dispatched:
                     continue
                 logger.hr('Assignment event', level=2)
                 logger.info(f'Check assignment event: {assignment}')
                 # Order of entries changes if claimed
-                self.goto_entry(assignment, insight=claimed)
+                self.goto_entry(assignment, insight=insight)
+                insight = False
                 status = self._check_assignment_status()
                 if status == AssignmentStatus.LOCKED:
                     continue
-                if status == AssignmentStatus.CLAIMABLE:
+                elif status == AssignmentStatus.CLAIMABLE:
                     self.claim(assignment, None, should_redispatch=False)
                     claimed = True
-                if status == AssignmentStatus.DISPATCHABLE:
+                    insight = True
+                elif status == AssignmentStatus.DISPATCHABLE:
                     self.dispatch(assignment, None)
-                if status == AssignmentStatus.DISPATCHED:
+                elif status == AssignmentStatus.DISPATCHED:
                     self.dispatched[assignment] = datetime.now() + \
                         self._get_assignment_time()
         return claimed

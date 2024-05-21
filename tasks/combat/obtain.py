@@ -253,8 +253,11 @@ class CombatObtain(PlannerMixin):
                 skip_first_screenshot = False
             else:
                 self.device.screenshot()
+
             if MAY_OBTAIN.match_template(self.device.image):
                 OBTAIN_1.load_offset(MAY_OBTAIN)
+                OBTAIN_2.load_offset(MAY_OBTAIN)
+                OBTAIN_3.load_offset(MAY_OBTAIN)
                 return True
 
 

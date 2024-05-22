@@ -86,8 +86,6 @@ class Combat(CombatInteract, CombatPrepare, CombatState, CombatTeam, CombatSuppo
             support_set = False
         else:
             support_set = True
-        # Reset combat_wave_cost, so handle_combat_interact() won't activate before handle_combat_prepare()
-        self.combat_wave_cost = 10
         logger.info([support_character, support_set])
         trial = 0
         while 1:
@@ -363,6 +361,8 @@ class Combat(CombatInteract, CombatPrepare, CombatState, CombatTeam, CombatSuppo
             finish = self.combat_finish()
             if self._combat_should_reenter():
                 continue
+            # Reset combat_wave_cost, so handle_combat_interact() won't activate before handle_combat_prepare()
+            self.combat_wave_cost = 10
             if finish:
                 break
 

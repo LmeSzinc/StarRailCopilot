@@ -439,10 +439,10 @@ class PlannerProgressParser:
             if dungeon is None:
                 logger.error(f'Item {item} has nowhere to be farmed')
                 continue
-            logger.info(f'Planner farm: {dungeon}')
+            logger.info(f'Planner weekly farm: {dungeon}')
             return dungeon
 
-        logger.info('Planner farm empty')
+        logger.info('Planner weekly farm empty')
         return None
 
     def row_come_from_dungeon(self, dungeon: DungeonList | None) -> StoredPlannerProxy | None:

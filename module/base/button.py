@@ -6,7 +6,7 @@ from module.exception import ScriptError
 
 
 class Button(Resource):
-    def __init__(self, file, area, search, color, button):
+    def __init__(self, file, area, search, color, button, posi=None):
         """
         Args:
             file: Filepath to an assets
@@ -20,6 +20,7 @@ class Button(Resource):
         self.search: t.Tuple[int, int, int, int] = search
         self.color: t.Tuple[int, int, int] = color
         self._button: t.Tuple[int, int, int, int] = button
+        self.posi: t.Optional[t.Tuple[int, int]] = posi
 
         self.resource_add(self.file)
         self._button_offset: t.Tuple[int, int] = (0, 0)

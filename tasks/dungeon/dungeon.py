@@ -263,10 +263,10 @@ class Dungeon(DungeonStamina, DungeonEvent, Combat):
             final = KEYWORDS_DUNGEON_LIST.Simulated_Universe_World_1
         else:
             final = DungeonList.find(self.config.Dungeon_Name)
-        # Planner
-        planner = self.planner.get_dungeon()
-        if planner is not None:
-            final = planner
+            # Planner
+            planner = self.planner.get_dungeon()
+            if planner is not None:
+                final = planner
 
         # Run dungeon that required by daily quests
         # Calyx_Golden

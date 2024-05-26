@@ -224,9 +224,6 @@ class Dungeon(DungeonStamina, DungeonEvent, Combat):
                 self.config.stored.DungeonDouble.rogue = rogue
 
         # Run double events
-        ran_calyx_golden = False
-        ran_calyx_crimson = False
-        ran_cavern_of_corrosion = False
         planner = self.planner.get_dungeon(double_calyx=True)
         # Double calyx
         if self.config.stored.DungeonDouble.calyx > 0:
@@ -235,18 +232,13 @@ class Dungeon(DungeonStamina, DungeonEvent, Combat):
             if planner is not None:
                 dungeon = planner
             self.running_double = True
-            if self.dungeon_run(dungeon=dungeon, wave_limit=self.config.stored.DungeonDouble.calyx):
-                if dungeon.is_Calyx_Golden:
-                    ran_calyx_golden = True
-                if dungeon.is_Calyx_Crimson:
-                    ran_calyx_crimson = True
+            self.dungeon_run(dungeon=dungeon, wave_limit=self.config.stored.DungeonDouble.calyx)
         # Double relic
         if self.config.stored.DungeonDouble.relic > 0:
             logger.info('Run double relic')
             dungeon = DungeonList.find(self.config.Dungeon_NameAtDoubleRelic)
             self.running_double = True
-            if self.dungeon_run(dungeon=dungeon, wave_limit=self.config.stored.DungeonDouble.relic):
-                ran_cavern_of_corrosion = True
+            self.dungeon_run(dungeon=dungeon, wave_limit=self.config.stored.DungeonDouble.relic)
         self.running_double = False
 
         # Dungeon to clear all trailblaze power
@@ -267,39 +259,6 @@ class Dungeon(DungeonStamina, DungeonEvent, Combat):
             planner = self.planner.get_dungeon()
             if planner is not None:
                 final = planner
-
-        # Run dungeon that required by daily quests
-        # Calyx_Golden
-        if KEYWORDS_DAILY_QUEST.Clear_Calyx_Golden_1_times in self.daily_quests \
-                and self.config.DungeonDaily_CalyxGolden != 'do_not_achieve' \
-                and not final.is_Calyx_Golden \
-                and not ran_calyx_golden:
-            logger.info('Run Calyx_Golden once')
-            dungeon = DungeonList.find(self.config.DungeonDaily_CalyxGolden)
-            self.dungeon_run(dungeon=dungeon, wave_limit=1)
-        # Calyx_Crimson
-        if KEYWORDS_DAILY_QUEST.Clear_Calyx_Crimson_1_times in self.daily_quests \
-                and self.config.DungeonDaily_CalyxCrimson != 'do_not_achieve' \
-                and not final.is_Calyx_Crimson \
-                and not ran_calyx_crimson:
-            logger.info('Run Calyx_Crimson once')
-            dungeon = DungeonList.find(self.config.DungeonDaily_CalyxCrimson)
-            self.dungeon_run(dungeon=dungeon, wave_limit=1)
-        # Stagnant_Shadow
-        if KEYWORDS_DAILY_QUEST.Clear_Stagnant_Shadow_1_times in self.daily_quests \
-                and self.config.DungeonDaily_StagnantShadow != 'do_not_achieve' \
-                and not final.is_Stagnant_Shadow:
-            logger.info('Run Stagnant_Shadow once')
-            dungeon = DungeonList.find(self.config.DungeonDaily_StagnantShadow)
-            self.dungeon_run(dungeon=dungeon, wave_limit=1)
-        # Cavern_of_Corrosion
-        if KEYWORDS_DAILY_QUEST.Clear_Cavern_of_Corrosion_1_times in self.daily_quests \
-                and self.config.DungeonDaily_CavernOfCorrosion != 'do_not_achieve' \
-                and not final.is_Cavern_of_Corrosion \
-                and not ran_cavern_of_corrosion:
-            logger.info('Run Cavern_of_Corrosion once')
-            dungeon = DungeonList.find(self.config.DungeonDaily_CavernOfCorrosion)
-            self.dungeon_run(dungeon=dungeon, wave_limit=1)
 
         # Check daily
         if self.achieved_daily_quest:

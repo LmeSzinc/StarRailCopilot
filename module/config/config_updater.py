@@ -92,11 +92,6 @@ class ConfigGenerator:
         # Double events
         option_add(keys='Dungeon.NameAtDoubleCalyx.option', options=calyx_golden + calyx_crimson)
         option_add(keys='Dungeon.NameAtDoubleRelic.option', options=cavern_of_corrosion)
-        # Dungeon daily
-        option_add(keys='DungeonDaily.CalyxGolden.option', options=calyx_golden)
-        option_add(keys='DungeonDaily.CalyxCrimson.option', options=calyx_crimson)
-        option_add(keys='DungeonDaily.StagnantShadow.option', options=stagnant_shadow)
-        option_add(keys='DungeonDaily.CavernOfCorrosion.option', options=cavern_of_corrosion)
         option_add(
             keys='Weekly.Name.option',
             options=[dungeon.name for dungeon in DungeonList.instances.values() if dungeon.is_Echo_of_War])
@@ -460,10 +455,6 @@ class ConfigGenerator:
 
         update_dungeon_names('Dungeon.NameAtDoubleCalyx')
         update_dungeon_names('Dungeon.NameAtDoubleRelic')
-        update_dungeon_names('DungeonDaily.CalyxGolden')
-        update_dungeon_names('DungeonDaily.CalyxCrimson')
-        update_dungeon_names('DungeonDaily.StagnantShadow')
-        update_dungeon_names('DungeonDaily.CavernOfCorrosion')
 
         # Character names
         from tasks.character.keywords import CharacterList
@@ -691,10 +682,10 @@ class ConfigGenerator:
 class ConfigUpdater:
     # source, target, (optional)convert_func
     redirection = [
-        ('Dungeon.Dungeon.Name', 'Dungeon.Dungeon.Name', convert_20_dungeon),
-        ('Dungeon.Dungeon.NameAtDoubleCalyx', 'Dungeon.Dungeon.NameAtDoubleCalyx', convert_20_dungeon),
-        ('Dungeon.DungeonDaily.CalyxGolden', 'Dungeon.DungeonDaily.CalyxGolden', convert_20_dungeon),
-        ('Dungeon.DungeonDaily.CalyxCrimson', 'Dungeon.DungeonDaily.CalyxCrimson', convert_20_dungeon),
+        # ('Dungeon.Dungeon.Name', 'Dungeon.Dungeon.Name', convert_20_dungeon),
+        # ('Dungeon.Dungeon.NameAtDoubleCalyx', 'Dungeon.Dungeon.NameAtDoubleCalyx', convert_20_dungeon),
+        # ('Dungeon.DungeonDaily.CalyxGolden', 'Dungeon.DungeonDaily.CalyxGolden', convert_20_dungeon),
+        # ('Dungeon.DungeonDaily.CalyxCrimson', 'Dungeon.DungeonDaily.CalyxCrimson', convert_20_dungeon),
         ('Rogue.RogueWorld.SimulatedUniverseElite', 'Rogue.RogueWorld.SimulatedUniverseFarm', convert_rogue_farm),
     ]
 
@@ -794,14 +785,10 @@ class ConfigUpdater:
         set_daily('Complete_1_Daily_Mission', 'not_supported')
         # Dungeon
         dungeon = deep_get(data, keys='Dungeon.Scheduler.Enable')
-        set_daily('Clear_Calyx_Golden_1_times',
-                  dungeon and deep_get(data, 'Dungeon.DungeonDaily.CalyxGolden') != 'do_not_achieve')
-        set_daily('Clear_Calyx_Crimson_1_times',
-                  dungeon and deep_get(data, 'Dungeon.DungeonDaily.CalyxCrimson') != 'do_not_achieve')
-        set_daily('Clear_Stagnant_Shadow_1_times',
-                  dungeon and deep_get(data, 'Dungeon.DungeonDaily.StagnantShadow') != 'do_not_achieve')
-        set_daily('Clear_Cavern_of_Corrosion_1_times',
-                  dungeon and deep_get(data, 'Dungeon.DungeonDaily.CavernOfCorrosion') != 'do_not_achieve')
+        set_daily('Clear_Calyx_Golden_1_times', 'not_set')
+        set_daily('Clear_Calyx_Crimson_1_times', 'not_set')
+        set_daily('Clear_Stagnant_Shadow_1_times', 'not_set')
+        set_daily('Clear_Cavern_of_Corrosion_1_times', 'not_set')
         # Combat requirements
         set_daily('In_a_single_battle_inflict_3_Weakness_Break_of_different_Types', 'achievable')
         set_daily('Inflict_Weakness_Break_5_times', 'achievable')
@@ -864,22 +851,10 @@ class ConfigUpdater:
             if key.endswith('Name'):
                 if dungeon.is_Calyx_Golden:
                     yield 'Dungeon.Dungeon.NameAtDoubleCalyx', value
-                    yield 'Dungeon.DungeonDaily.CalyxGolden', value
                 elif dungeon.is_Calyx_Crimson:
                     yield 'Dungeon.Dungeon.NameAtDoubleCalyx', value
-                    yield 'Dungeon.DungeonDaily.CalyxCrimson', value
-                elif dungeon.is_Stagnant_Shadow:
-                    yield 'Dungeon.DungeonDaily.StagnantShadow', value
                 elif dungeon.is_Cavern_of_Corrosion:
                     yield 'Dungeon.Dungeon.NameAtDoubleRelic', value
-                    yield 'Dungeon.DungeonDaily.CavernOfCorrosion', value
-            elif key.endswith('NameAtDoubleCalyx'):
-                if dungeon.is_Calyx_Golden:
-                    yield 'Dungeon.DungeonDaily.CalyxGolden', value
-                elif dungeon.is_Calyx_Crimson:
-                    yield 'Dungeon.DungeonDaily.CalyxCrimson', value
-            elif key.endswith('NameAtDoubleRelic'):
-                yield 'Dungeon.DungeonDaily.CavernOfCorrosion', value
             elif key.endswith('CavernOfCorrosion'):
                 yield 'Dungeon.Dungeon.NameAtDoubleRelic', value
         elif key == 'Rogue.RogueWorld.UseImmersifier' and value is False:

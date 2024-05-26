@@ -27,7 +27,6 @@ Daily:
       - Scheduler
       - Planner
       - Dungeon
-      - DungeonDaily
       - DungeonSupport
       - DungeonStorage
     DailyQuest:

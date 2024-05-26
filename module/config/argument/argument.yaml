@@ -110,20 +110,6 @@ Dungeon:
   Team:
     value: 1
     option: [ 1, 2, 3, 4, 5, 6, 7, 8, 9 ]
-DungeonDaily:
-  # Dungeon names will be injected in config updater
-  CalyxGolden:
-    value: Calyx_Golden_Treasures_Jarilo_VI
-    option: [ do_not_achieve, ]
-  CalyxCrimson:
-    value: Calyx_Crimson_Destruction_Herta_StorageZone
-    option: [ do_not_achieve, ]
-  StagnantShadow:
-    value: Stagnant_Shadow_Quanta
-    option: [ do_not_achieve, ]
-  CavernOfCorrosion:
-    value: Cavern_of_Corrosion_Path_of_Providence
-    option: [ do_not_achieve, ]
 DungeonSupport:
   Use:
     value: when_daily

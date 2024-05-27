@@ -99,10 +99,10 @@ CloudStorage:
 Dungeon:
   Name:
     # Dungeon names will be injected in config updater
-    value: Calyx_Golden_Treasures
+    value: Calyx_Golden_Treasures_Jarilo_VI
     option: [ ]
   NameAtDoubleCalyx:
-    value: Calyx_Golden_Treasures
+    value: Calyx_Golden_Treasures_Jarilo_VI
     option: [ ]
   NameAtDoubleRelic:
     value: Cavern_of_Corrosion_Path_of_Providence

@@ -30,6 +30,9 @@ Dungeon:
       value: true
       option: [ true, ]
       option_bold: [ true, ]
+  DungeonSupport:
+    Use:
+      option: [ when_daily, always_use ]
 DailyQuest:
   Scheduler:
     Enable:

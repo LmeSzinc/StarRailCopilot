@@ -635,9 +635,8 @@
         "type": "select",
         "value": "when_daily",
         "option": [
-          "always_use",
           "when_daily",
-          "do_not_use"
+          "always_use"
         ]
       },
       "Character": {

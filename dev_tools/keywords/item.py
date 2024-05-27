@@ -71,8 +71,8 @@ class GenerateItemBase(GenerateKeyword):
 
 class GenerateItemCurrency(GenerateItemBase):
     output_file = './tasks/planner/keywords/item_currency.py'
-    # Leave 'Credit' only
-    whitelist = [2]
+    # Leave 'Credit' and `Trailblaze_EXP`
+    whitelist = [2, 22]
 
     def iter_keywords(self) -> t.Iterable[dict]:
         for data in self.iter_items():

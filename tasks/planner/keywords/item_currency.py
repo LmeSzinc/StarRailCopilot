@@ -16,3 +16,16 @@ Credit = ItemCurrency(
     item_group=0,
     dungeon_id=-1,
 )
+Trailblaze_EXP = ItemCurrency(
+    id=2,
+    name='Trailblaze_EXP',
+    cn='里程',
+    cht='里程',
+    en='Trailblaze EXP',
+    jp='マイレージ',
+    es='EXP trazacaminos',
+    rarity='Rare',
+    item_id=22,
+    item_group=0,
+    dungeon_id=-1,
+)

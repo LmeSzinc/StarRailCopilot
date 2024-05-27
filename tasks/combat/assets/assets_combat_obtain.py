@@ -80,3 +80,23 @@ OBTAIN_3 = ButtonWrapper(
         button=(965, 414, 1029, 478),
     ),
 )
+OBTAIN_4 = ButtonWrapper(
+    name='OBTAIN_4',
+    share=Button(
+        file='./assets/share/combat/obtain/OBTAIN_4.png',
+        area=(1041, 414, 1105, 478),
+        search=(1021, 394, 1125, 498),
+        color=(76, 101, 109),
+        button=(1041, 414, 1105, 478),
+    ),
+)
+OBTAIN_TRAILBLAZE_EXP = ButtonWrapper(
+    name='OBTAIN_TRAILBLAZE_EXP',
+    share=Button(
+        file='./assets/share/combat/obtain/OBTAIN_TRAILBLAZE_EXP.png',
+        area=(827, 425, 860, 451),
+        search=(813, 349, 877, 589),
+        color=(167, 173, 194),
+        button=(827, 425, 860, 451),
+    ),
+)

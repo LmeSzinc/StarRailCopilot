@@ -22,7 +22,7 @@ class OcrItemName(Ocr):
         result = result.replace('念火之心', '忿火之心')
         result = re.sub('工造机$', '工造机杼', result)
         result = re.sub('工造轮', '工造迴轮', result)
-        result = re.sub('月狂牙', '月狂獠牙', result)
+        result = re.sub('月狂[療撩]?牙', '月狂獠牙', result)
         return result
 
 

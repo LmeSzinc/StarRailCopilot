@@ -7,7 +7,7 @@ from module.ocr.ocr import Digit
 from tasks.combat.assets.assets_combat_obtain import *
 from tasks.combat.assets.assets_combat_prepare import COMBAT_PREPARE
 from tasks.dungeon.keywords import DungeonList
-from tasks.planner.keywords import ITEM_CLASSES
+from tasks.planner.keywords import ITEM_CLASSES, KEYWORDS_ITEM_CURRENCY
 from tasks.planner.model import ObtainedAmmount, PlannerMixin
 from tasks.planner.scan import OcrItemName
 
@@ -93,7 +93,7 @@ class CombatObtain(PlannerMixin):
                 continue
 
     @staticmethod
-    def _obtain_get_entry(dungeon: DungeonList, index: int = 1, prev: ObtainedAmmount = None):
+    def _obtain_get_entry(dungeon: DungeonList, index: int = 1, prev: ObtainedAmmount = None, start: int = 0):
         """
         Args:
             dungeon: Current dungeon
@@ -101,7 +101,7 @@ class CombatObtain(PlannerMixin):
             prev: Previous item checked
 
         Returns:
-            ButtonWrapper: Item entry, or None if no more check needed
+            int: Item entry index, or None if no more check needed
         """
         if (index > 1 and prev is None) or (index <= 1 and prev is not None):
             raise ScriptError(f'_obtain_get_entry: index and prev must be set together, index={index}, prev={prev}')
@@ -111,20 +111,29 @@ class CombatObtain(PlannerMixin):
 
         def may_obtain_one():
             if prev is None:
-                return OBTAIN_1
+                if start:
+                    return 1 + start
+                else:
+                    return 1
             else:
                 return None
 
         def may_obtain_multi():
             if prev is None:
-                return OBTAIN_1
+                if start:
+                    return 1 + start
+                else:
+                    return 1
             # End at the item with the lowest rarity
             if prev.item.is_rarity_green:
                 return None
-            if index == 2:
-                return OBTAIN_2
-            if index == 3:
-                return OBTAIN_3
+            # End at credict
+            if prev.item == KEYWORDS_ITEM_CURRENCY.Credit:
+                return None
+            if start:
+                return index + start
+            else:
+                return index
 
         if dungeon is None:
             return may_obtain_multi()
@@ -185,18 +194,38 @@ class CombatObtain(PlannerMixin):
         index = 1
         prev = None
         items = []
+        dic_entry = {
+            1: OBTAIN_1,
+            2: OBTAIN_2,
+            3: OBTAIN_3,
+            4: OBTAIN_4,
+        }
 
         self._find_may_obtain()
 
+        trailblaze_exp = False
         for _ in range(5):
-            entry = self._obtain_get_entry(dungeon, index=index, prev=prev)
-            if entry is None:
+            if not trailblaze_exp and self.appear(OBTAIN_TRAILBLAZE_EXP):
+                trailblaze_exp = True
+            logger.attr('trailblaze_exp', trailblaze_exp)
+
+            entry_index = self._obtain_get_entry(dungeon, index=index, prev=prev, start=int(trailblaze_exp))
+            if entry_index is None:
                 logger.info('Obtain get end')
+                break
+            try:
+                entry = dic_entry[entry_index]
+            except KeyError:
+                logger.error(f'No obtain entry for {entry_index}')
                 break
 
             self._obtain_enter(entry)
             item = self._obtain_parse()
-            if item is not None:
+            if item.item == KEYWORDS_ITEM_CURRENCY.Trailblaze_EXP:
+                logger.warning('Trailblaze_EXP is in obtain list, OBTAIN_TRAILBLAZE_EXP may need to verify')
+                index += 1
+                prev = item
+            elif item is not None:
                 items.append(item)
                 index += 1
                 prev = item
@@ -258,6 +287,7 @@ class CombatObtain(PlannerMixin):
                 OBTAIN_1.load_offset(MAY_OBTAIN)
                 OBTAIN_2.load_offset(MAY_OBTAIN)
                 OBTAIN_3.load_offset(MAY_OBTAIN)
+                OBTAIN_4.load_offset(MAY_OBTAIN)
                 return True
 
 

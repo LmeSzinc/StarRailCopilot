@@ -246,7 +246,7 @@ class CombatObtain(PlannerMixin):
         self.planner_write()
         return items
 
-    def obtained_is_full(self, dungeon: DungeonList | None) -> bool:
+    def obtained_is_full(self, dungeon: DungeonList | None, wave_done=0) -> bool:
         if dungeon is None:
             self.obtain_frequent_check = False
             return False
@@ -270,9 +270,9 @@ class CombatObtain(PlannerMixin):
             return True
 
         # obtain_frequent_check
-        # approaching = row.is_approaching_total()
-        # logger.attr('is_approaching_total', approaching)
-        # self.obtain_frequent_check = approaching
+        approaching = row.is_approaching_total(wave_done)
+        logger.attr('is_approaching_total', approaching)
+        self.obtain_frequent_check = approaching
         return False
 
     def _find_may_obtain(self, skip_first_screenshot=True):

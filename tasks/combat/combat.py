@@ -125,7 +125,7 @@ class Combat(CombatInteract, CombatPrepare, CombatState, CombatTeam, CombatSuppo
                 self.interval_reset(COMBAT_PREPARE)
                 self.map_A_timer.reset()
             if self.appear(COMBAT_PREPARE, interval=2):
-                if self.obtained_is_full(self.dungeon):
+                if self.obtained_is_full(self.dungeon, wave_done=self.combat_wave_done):
                     # Update stamina so task can be delayed if both obtained_is_full and stamina exhausted
                     self.combat_get_trailblaze_power()
                     return False

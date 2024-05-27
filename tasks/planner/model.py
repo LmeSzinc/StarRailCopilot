@@ -147,32 +147,37 @@ class StoredPlannerProxy(BaseModelWithFallback):
             else:
                 self.value.blue += self.synthesize.purple * 3
 
-    def is_approaching_total(self):
+    def is_approaching_total(self, wave_done: int = 0):
         """
+        Args:
+            wave_done:
+
         Returns:
             bool: True if the future value may >= total after next combat
         """
+        wave_done = max(wave_done, 0)
+        # Items with a static drop rate will have `AVG * (wave_done + 1)
         if self.item.dungeon.is_Calyx_Golden_Treasures:
-            return self.value + 24000 >= self.total
+            return self.value + 24000 * (wave_done + 12) >= self.total
         if self.item.dungeon.is_Calyx_Golden_Memories:
             # purple, blue, green = 5, 1, 0
             value = self.value.equivalent_green()
             total = self.total.equivalent_green()
-            return value + 48 >= total
-        if self.item.dungeon.Calyx_Golden_Aether:
+            return value + 48 * (wave_done + 12) >= total
+        if self.item.dungeon.is_Calyx_Golden_Aether:
             # purple, blue, green = 1, 2, 2.5
             value = self.value.equivalent_green()
             total = self.total.equivalent_green()
-            return value + 17.5 >= total
+            return value + 17.5 * (wave_done + 12) >= total
         if self.item.is_ItemAscension:
-            return self.value + 3 >= self.total
+            return self.value + 3 * (wave_done + 1) >= self.total
         if self.item.is_ItemTrace:
             # purple, blue, green = 0.155, 1, 1.25
             value = self.value.equivalent_green()
             total = self.total.equivalent_green()
-            return value + 33.87 >= total
+            return value + 5.645 * (wave_done + 12) >= total
         if self.item.is_ItemWeekly:
-            return self.value + 3 >= self.total
+            return self.value + 3 * (wave_done + 1) >= self.total
         return False
 
     def update_progress(self):

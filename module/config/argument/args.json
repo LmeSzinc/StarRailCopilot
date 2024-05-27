@@ -222,7 +222,7 @@
     "Dungeon": {
       "Name": {
         "type": "select",
-        "value": "Calyx_Golden_Treasures",
+        "value": "Calyx_Golden_Treasures_Jarilo_VI",
         "option": [
           "Calyx_Golden_Memories_Jarilo_VI",
           "Calyx_Golden_Memories_The_Xianzhou_Luofu",
@@ -277,7 +277,7 @@
       },
       "NameAtDoubleCalyx": {
         "type": "select",
-        "value": "Calyx_Golden_Treasures",
+        "value": "Calyx_Golden_Treasures_Jarilo_VI",
         "option": [
           "Calyx_Golden_Memories_Jarilo_VI",
           "Calyx_Golden_Memories_The_Xianzhou_Luofu",

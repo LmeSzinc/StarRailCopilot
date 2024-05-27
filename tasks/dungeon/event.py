@@ -83,7 +83,10 @@ class DungeonEvent(UI):
     def _get_double_event_remain(self, button) -> int:
         ocr = DoubleEventOcr(button)
         remain, _, total = ocr.ocr_single_line(self.device.image)
-        if total not in [3, 12]:
+        # 3 is double relic
+        # 12 is double calyx
+        # 6 is double calyx on beginner account
+        if total not in [3, 6, 12]:
             logger.warning(f'Invalid double event remain')
             remain = 0
         return remain

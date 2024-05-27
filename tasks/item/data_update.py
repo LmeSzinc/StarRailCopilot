@@ -8,13 +8,20 @@ from tasks.base.ui import UI
 from tasks.item.assets.assets_item_data import OCR_DATA
 
 
+class DataDigit(Digit):
+    def after_process(self, result):
+        result = re.sub(r'[l|]', '1', result)
+        result = re.sub(r'[oO]', '0', result)
+        return super().after_process(result)
+
+
 class DataUpdate(UI):
     def _get_data(self):
         """
         Page:
             in: page_item
         """
-        ocr = Digit(OCR_DATA)
+        ocr = DataDigit(OCR_DATA)
 
         timeout = Timer(2, count=6).start()
         credit, jade = 0, 0

@@ -133,7 +133,7 @@ class Dungeon(DungeonStamina, DungeonEvent, Combat):
             # Support quest
             if support_character is not None:
                 self.called_daily_support = True
-                if KEYWORDS_DAILY_QUEST.Obtain_victory_in_combat_with_Support_Characters_1_times:
+                if KEYWORDS_DAILY_QUEST.Obtain_victory_in_combat_with_Support_Characters_1_times in self.daily_quests:
                     logger.info('Achieve daily quest Obtain_victory_in_combat_with_Support_Characters_1_times')
                     self.achieved_daily_quest = True
             # Stamina quest
@@ -305,6 +305,12 @@ class Dungeon(DungeonStamina, DungeonEvent, Combat):
             # Check daily
             if self.achieved_daily_quest:
                 self.config.task_call('DailyQuest')
+            else:
+                # Check future daily
+                if KEYWORDS_DAILY_QUEST.Obtain_victory_in_combat_with_Support_Characters_1_times in self.daily_quests:
+                    logger.error("Dungeon ran but support daily haven't been finished yet")
+                    self.config.task_call('DailyQuest')
+
             # Delay tasks
             self.dungeon_stamina_delay(dungeon)
 

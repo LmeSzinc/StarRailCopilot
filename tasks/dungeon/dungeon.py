@@ -251,14 +251,11 @@ class Dungeon(DungeonStamina, DungeonEvent, Combat):
                     and self.config.stored.DungeonDouble.rogue > 0:
                 logger.info('Going to use stamina in double rogue event')
                 do_rogue = True
-        if do_rogue:
-            final = KEYWORDS_DUNGEON_LIST.Simulated_Universe_World_1
-        else:
-            final = DungeonList.find(self.config.Dungeon_Name)
-            # Planner
-            planner = self.planner.get_dungeon()
-            if planner is not None:
-                final = planner
+        final = DungeonList.find(self.config.Dungeon_Name)
+        # Planner
+        planner = self.planner.get_dungeon()
+        if planner is not None:
+            final = planner
 
         # Check daily
         if self.achieved_daily_quest:
@@ -269,11 +266,11 @@ class Dungeon(DungeonStamina, DungeonEvent, Combat):
             self.config.task_stop()
 
         # Use all stamina
-        if final.is_Simulated_Universe:
+        if do_rogue:
             # Use support if prioritize rogue
             if self.require_compulsory_support():
                 logger.info('Run dungeon with support once as stamina is rogue prioritized')
-                self.dungeon_run(dungeon=DungeonList.find(self.config.Dungeon_Name), wave_limit=1)
+                self.dungeon_run(dungeon=final, wave_limit=1)
             # Store immersifiers
             logger.info('Prioritize stamina for simulated universe, skip dungeon')
             amount = 0

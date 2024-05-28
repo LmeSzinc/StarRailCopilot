@@ -158,3 +158,7 @@ page_forgotten_hall.link(CLOSE, destination=page_main)
 # Rogue, Simulated Universe
 page_rogue = Page(ROGUE_CHECK)
 page_rogue.link(CLOSE, destination=page_main)
+
+# Planner result
+page_planner = Page(PLANNER_CHECK)
+page_planner.link(CLOSE, destination=page_menu)

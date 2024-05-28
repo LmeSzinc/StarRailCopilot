@@ -34,6 +34,7 @@ class StoredGenerated:
     CloudRemainPaid = StoredInt("Alas.CloudStorage.CloudRemainPaid")
     CloudRemainFree = StoredInt("Alas.CloudStorage.CloudRemainFree")
     Item_Credit = StoredPlanner("Dungeon.Planner.Item_Credit")
+    Item_Trailblaze_EXP = StoredPlanner("Dungeon.Planner.Item_Trailblaze_EXP")
     Item_Traveler_Guide = StoredPlanner("Dungeon.Planner.Item_Traveler_Guide")
     Item_Refined_Aether = StoredPlanner("Dungeon.Planner.Item_Refined_Aether")
     Item_Lost_Crystal = StoredPlanner("Dungeon.Planner.Item_Lost_Crystal")

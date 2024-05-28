@@ -461,18 +461,22 @@
   "Planner": {
     "_info": {
       "name": "Character Planner Progress",
-      "help": ""
+      "help": "Character planner is prioritized. After completed, \"Dungeon Settings\" will be executed."
     },
     "Item_Credit": {
       "name": "Credit",
       "help": ""
     },
+    "Item_Trailblaze_EXP": {
+      "name": "Trailblaze EXP",
+      "help": ""
+    },
     "Item_Traveler_Guide": {
-      "name": " Character EXP ",
+      "name": "Character EXP",
       "help": ""
     },
     "Item_Refined_Aether": {
-      "name": " Light Cone EXP ",
+      "name": "Light Cone EXP",
       "help": ""
     },
     "Item_Lost_Crystal": {
@@ -1197,7 +1201,7 @@
   "PlannerScan": {
     "_info": {
       "name": "Scan Character Planner Results",
-      "help": "Tools need to stop the scheduler and then run independently\nBefore use, set planner goal in the in-game planner, calculate the results, and start scanning from the result page. Detailed usage see: https://github.com/LmeSzinc/StarRailCopilot/wiki/planner_cn"
+      "help": "Tools need to stop the scheduler and then run independently\nBefore use, set planner goal in the in-game planner, calculate the results, and start scanning from the result page. Detailed usage see: https://github.com/LmeSzinc/StarRailCopilot/wiki/Planner_cn"
     },
     "ResultAdd": {
       "name": "Accumulate multiple scan results",

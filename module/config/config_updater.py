@@ -517,7 +517,7 @@ class ConfigGenerator:
                 else:
                     continue
                 if res := re.search(r'[:：](.*)[(（]', i18n):
-                    i18n = res.group(1)
+                    i18n = res.group(1).strip()
             elif item.is_ItemAscension or (item.is_ItemTrace and item.is_group_base):
                 dungeon = item.group_base.dungeon.name
                 i18n = deep_get(new, keys=['Dungeon', 'Name', dungeon], default='Unknown_Dungeon_Come_From')

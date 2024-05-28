@@ -461,10 +461,14 @@
   "Planner": {
     "_info": {
       "name": "養成規劃進度",
-      "help": ""
+      "help": "優先執行養成規劃，養成規劃完成後，執行 \"每日副本設定\""
     },
     "Item_Credit": {
       "name": "信用點",
+      "help": ""
+    },
+    "Item_Trailblaze_EXP": {
+      "name": "里程",
       "help": ""
     },
     "Item_Traveler_Guide": {
@@ -1197,7 +1201,7 @@
   "PlannerScan": {
     "_info": {
       "name": "辨識角色養成規劃計算結果",
-      "help": "工具需要停止調度器再單獨運行\n使用前需要在遊戲內養成計算器中設定養成目標，併計算出結果，在計算結果頁面啟動養成規劃識別。詳細使用教程 請參閱：\nhttps://github.com/LmeSzinc/StarRailCopilot/wiki/planner_cn"
+      "help": "工具需要停止調度器再單獨運行\n使用前需要在遊戲內養成計算器中設定養成目標，併計算出結果，在計算結果頁面啟動養成規劃識別。詳細使用教程 請參閱：\nhttps://github.com/LmeSzinc/StarRailCopilot/wiki/Planner_cn"
     },
     "ResultAdd": {
       "name": "累加多次掃描結果",

@@ -467,6 +467,10 @@
       "name": "信用ポイント",
       "help": ""
     },
+    "Item_Trailblaze_EXP": {
+      "name": "マイレージ",
+      "help": ""
+    },
     "Item_Traveler_Guide": {
       "name": "役割経験",
       "help": ""

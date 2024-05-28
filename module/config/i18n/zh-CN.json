@@ -461,10 +461,14 @@
   "Planner": {
     "_info": {
       "name": "养成规划进度",
-      "help": ""
+      "help": "优先执行养成规划，养成规划完成后，执行 \"每日副本设置\""
     },
     "Item_Credit": {
       "name": "信用点",
+      "help": ""
+    },
+    "Item_Trailblaze_EXP": {
+      "name": "里程",
       "help": ""
     },
     "Item_Traveler_Guide": {
@@ -1197,7 +1201,7 @@
   "PlannerScan": {
     "_info": {
       "name": "识别角色养成规划计算结果",
-      "help": "工具需要停止调度器再单独运行\n使用前需要在游戏内养成计算器中设定养成目标，并计算出结果，在计算结果页面启动养成规划识别。详细使用教程见：\nhttps://github.com/LmeSzinc/StarRailCopilot/wiki/planner_cn"
+      "help": "工具需要停止调度器再单独运行\n使用前需要在游戏内养成计算器中设定养成目标，并计算出结果，在计算结果页面启动养成规划识别。详细使用教程见：\nhttps://github.com/LmeSzinc/StarRailCopilot/wiki/Planner_cn"
     },
     "ResultAdd": {
       "name": "累加多次扫描结果",

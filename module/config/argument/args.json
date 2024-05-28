@@ -226,6 +226,12 @@
         "display": "display",
         "stored": "StoredPlanner"
       },
+      "Item_Trailblaze_EXP": {
+        "type": "planner",
+        "value": {},
+        "display": "display",
+        "stored": "StoredPlanner"
+      },
       "Item_Traveler_Guide": {
         "type": "planner",
         "value": {},

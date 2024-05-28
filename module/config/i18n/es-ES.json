@@ -461,18 +461,22 @@
   "Planner": {
     "_info": {
       "name": "Progreso del planificador de personajes",
-      "help": ""
+      "help": "Se prioriza el planificador de personajes. Una vez completado, se ejecutará la \"Ajustes de Mazmorra\"."
     },
     "Item_Credit": {
       "name": "Crédito",
       "help": ""
     },
+    "Item_Trailblaze_EXP": {
+      "name": "EXP trazacaminos",
+      "help": ""
+    },
     "Item_Traveler_Guide": {
-      "name": " EXP de personaje ",
+      "name": "EXP de personaje",
       "help": ""
     },
     "Item_Refined_Aether": {
-      "name": " EXP de conos de luz ",
+      "name": "EXP de conos de luz",
       "help": ""
     },
     "Item_Lost_Crystal": {
@@ -1197,7 +1201,7 @@
   "PlannerScan": {
     "_info": {
       "name": "Escanear resultados del planificador de caracteres",
-      "help": "Las herramientas deben detener el programador y luego ejecutarse de forma independiente\nAntes de usarlo, establezca el objetivo del planificador en el planificador del juego, calcule los resultados y comience a escanear desde la página de resultados. Para uso detallado, consulte: https://github .com/LmeSzinc/StarRailCopilot/wiki/planner_cn"
+      "help": "Las herramientas deben detener el programador y luego ejecutarse de forma independiente\nAntes de usarlo, establezca el objetivo del planificador en el planificador del juego, calcule los resultados y comience a escanear desde la página de resultados. Para uso detallado, consulte: https://github .com/LmeSzinc/StarRailCopilot/wiki/Planner_cn"
     },
     "ResultAdd": {
       "name": "Acumular múltiples resultados de escaneo",

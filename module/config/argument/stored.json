@@ -148,6 +148,17 @@
     "order": 0,
     "color": "#777777"
   },
+  "Item_Trailblaze_EXP": {
+    "name": "Item_Trailblaze_EXP",
+    "path": "Dungeon.Planner.Item_Trailblaze_EXP",
+    "i18n": "Planner.Item_Trailblaze_EXP.name",
+    "stored": "StoredPlanner",
+    "attrs": {
+      "time": "2020-01-01 00:00:00"
+    },
+    "order": 0,
+    "color": "#777777"
+  },
   "Item_Traveler_Guide": {
     "name": "Item_Traveler_Guide",
     "path": "Dungeon.Planner.Item_Traveler_Guide",

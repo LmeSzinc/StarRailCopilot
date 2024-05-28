@@ -67,6 +67,7 @@ class GeneratedConfig:
 
     # Group `Planner`
     Planner_Item_Credit = {}
+    Planner_Item_Trailblaze_EXP = {}
     Planner_Item_Traveler_Guide = {}
     Planner_Item_Refined_Aether = {}
     Planner_Item_Lost_Crystal = {}

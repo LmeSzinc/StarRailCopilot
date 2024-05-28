@@ -57,6 +57,11 @@ class UI(MainPage):
         def rotation_check():
             self.device.get_orientation()
 
+        @run_once
+        def cloud_login():
+            from tasks.login.login import Login
+            Login(config=self.config, device=self.device).cloud_login()
+
         timeout = Timer(10, count=20).start()
         while 1:
             if skip_first_screenshot:
@@ -101,6 +106,7 @@ class UI(MainPage):
             app_check()
             minicap_check()
             rotation_check()
+            cloud_login()
 
         # Unknown page, need manual switching
         logger.warning("Unknown ui page")

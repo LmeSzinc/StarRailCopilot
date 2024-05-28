@@ -91,7 +91,7 @@ class Login(UI, LoginAndroidCloud):
             self.cloud_ensure_ingame()
         else:
             self.device.app_start()
-        self.handle_app_login()
+            self.handle_app_login()
 
     def app_restart(self):
         logger.hr('App restart')
@@ -100,7 +100,7 @@ class Login(UI, LoginAndroidCloud):
             self.cloud_ensure_ingame()
         else:
             self.device.app_start()
-        self.handle_app_login()
+            self.handle_app_login()
         self.config.task_delay(server_update=True)
 
     def cloud_start(self):

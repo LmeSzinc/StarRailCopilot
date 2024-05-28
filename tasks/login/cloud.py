@@ -367,6 +367,31 @@ class LoginAndroidCloud(ModuleBase):
         logger.error('Failed to enter cloud game after 3 trials')
         return False
 
+    def is_in_cloud_page(self):
+        if self.appear(XPath.START_GAME):
+            logger.info('Cloud game is in main page')
+            return True
+        elif self.appear(XPath.FLOAT_DELAY):
+            logger.info('Cloud game is in game with float window expanded')
+            return True
+        elif self.appear(XPath.POPUP_CONFIRM):
+            logger.info('Cloud game have a popup')
+            return True
+
+        logger.info('Not in cloud page')
+        return False
+
+    def cloud_login(self):
+        if not self.config.is_cloud_game:
+            return False
+
+        self.device.dump_hierarchy()
+        if self.is_in_cloud_page():
+            self.cloud_ensure_ingame()
+            return True
+
+        return False
+
     def cloud_keep_alive(self):
         """
         Randomly do something to prevent being kicked

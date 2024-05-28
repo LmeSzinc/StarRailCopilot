@@ -6,16 +6,13 @@ Star Rail Instant Tea, a bot for Honkai: Star Rail, based on the next generation
 
 ![gui](https://raw.githubusercontent.com/wiki/LmeSzinc/StarRailCopilot/README.assets/gui_en.png)
 
-
-
 ## Features
 
-- **Dungeons**: Dungeons, dungeons at double event, echo of war.
+- **Dungeons**: [Character Planner](https://github.com/LmeSzinc/StarRailCopilot/wiki/Planner_cn), Dungeons, dungeons at double event, echo of war.
 - **Rewards**: Complete daily quests, do assignment, claim nameless horner rewards.
-- **Simulated Universe**: Farm SU til reaching weekly point limit, farm planers using trailbalze power.
+- **Simulated Universe**: Farm SU, farm planers using trailbalze power.
 - **AFK Auto Farming**: Automatically launch emulators and games, do dungeons and quests at background, keep track of resources through dashboard.
-
-
+- **Cloud Gaming**: [CN only] Support Cloud HSR.
 
 ## Install [![](https://img.shields.io/github/downloads/LmeSzinc/StarRailCopilot/total?color=4e4c97)](https://github.com/LmeSzinc/StarRailCopilot/releases)
 
@@ -25,9 +22,7 @@ Refers to [Installation tutorial](https://github.com/LmeSzinc/StarRailCopilot/wi
 
 > **How's the performance?** Lme's 8700k+1080ti using MuMu12 emulator with graphic settings very high  gets 40 fps. It shouldn't be a problem to run with maximum graphic settings and 60 fps if you have newer PC specs.
 
-
-
-## Development
+## Develpment
 
 Discord https://discord.gg/aJkt3mKDEr
 
@@ -38,8 +33,6 @@ Discord https://discord.gg/aJkt3mKDEr
 - Development Road Map: [#10](https://github.com/LmeSzinc/StarRailCopilot/issues/10). Pull Requests are welcomed, just pick the part you interested to work on.
 
 > **How to add multi-language or multi-server support?** Need assets updates, see ["Adding a Button" in development docs](https://github.com/LmeSzinc/AzurLaneAutoScript/wiki/4.1.-Detection-objects#%E6%B7%BB%E5%8A%A0%E4%B8%80%E4%B8%AA-button).
-
-
 
 ## About ALAS
 

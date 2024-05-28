@@ -51,6 +51,10 @@ class WeeklyDungeon(Dungeon):
         self.weekly_quests = self.config.stored.BattlePassWeeklyQuest.load_quests()
 
         dungeon = DungeonList.find(self.config.Weekly_Name)
+        planner = self.planner.get_weekly()
+        if planner is not None:
+            dungeon = planner
+        logger.attr('DungeonWeekly', dungeon)
 
         # UI switches
         self.dungeon_tab_goto(KEYWORDS_DUNGEON_TAB.Survival_Index)

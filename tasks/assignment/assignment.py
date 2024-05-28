@@ -1,5 +1,7 @@
-from datetime import datetime
+from datetime import datetime, timedelta
 
+from module.config.stored.classes import now
+from module.config.utils import get_server_next_update
 from module.logger import logger
 from tasks.assignment.claim import AssignmentClaim
 from tasks.assignment.keywords import (KEYWORDS_ASSIGNMENT_GROUP,
@@ -76,6 +78,12 @@ class Assignment(AssignmentClaim, SynthesizeUI):
                 # ValueError: min() arg is an empty sequence
                 logger.error('Empty dispatched list, delay 2 hours instead')
                 self.config.task_delay(minute=120)
+                # Check future daily
+                if now() > get_server_next_update(self.config.Scheduler_ServerUpdate) - timedelta(minutes=110) \
+                        and KEYWORDS_DAILY_QUEST.Dispatch_1_assignments in quests:
+                    logger.error(
+                        "Assigment is scheduled tomorrow but today's assignment daily haven't been finished yet")
+                    self.config.task_call('DailyQuest')
 
     def _check_inlist(self, assignments: list[AssignmentEntry], duration: int):
         """

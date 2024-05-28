@@ -1,7 +1,7 @@
 import re
 import typing as t
 
-from dev_tools.keywords.base import GenerateKeyword, text_to_variable
+from dev_tools.keywords.base import GenerateKeyword, SHARE_DATA, text_to_variable
 from module.base.decorator import cached_property
 from module.config.utils import deep_get
 
@@ -26,13 +26,14 @@ class GenerateDungeonList(GenerateKeyword):
 
     @cached_property
     def data(self):
-        return self.read_file('./ExcelOutput/GameplayGuideData.json')
+        return SHARE_DATA.GameplayGuideData
 
     def iter_keywords(self) -> t.Iterable[dict]:
         for keyword in self.iter_dungeon():
             if isinstance(keyword, str):
                 yield dict(
                     text_id=self.find_keyword(keyword, lang='cn')[0],
+                    dungeon_id=-1,
                     plane_id=-1,
                 )
             else:
@@ -41,6 +42,7 @@ class GenerateDungeonList(GenerateKeyword):
     def iter_dungeon(self):
         temp_save = ""
         for data in self.data.values():
+            dungeon_id = data.get('ID', 0)
             text_id = deep_get(data, keys='Name.Hash')
             plane_id = deep_get(data, 'MapEntranceID', 0)
             _, name = self.find_keyword(text_id, lang='cn')
@@ -51,6 +53,7 @@ class GenerateDungeonList(GenerateKeyword):
                 continue
             yield dict(
                 text_id=text_id,
+                dungeon_id=dungeon_id,
                 plane_id=plane_id,
             )
         if temp_save:

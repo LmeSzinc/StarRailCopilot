@@ -51,12 +51,6 @@ class GeneratedConfig:
     Dungeon_NameAtDoubleRelic = 'Cavern_of_Corrosion_Path_of_Providence'  # Cavern_of_Corrosion_Path_of_Gelid_Wind, Cavern_of_Corrosion_Path_of_Jabbing_Punch, Cavern_of_Corrosion_Path_of_Drifting, Cavern_of_Corrosion_Path_of_Providence, Cavern_of_Corrosion_Path_of_Holy_Hymn, Cavern_of_Corrosion_Path_of_Conflagration, Cavern_of_Corrosion_Path_of_Elixir_Seekers, Cavern_of_Corrosion_Path_of_Darkness, Cavern_of_Corrosion_Path_of_Dreamdive
     Dungeon_Team = 1  # 1, 2, 3, 4, 5, 6, 7, 8, 9
 
-    # Group `DungeonDaily`
-    DungeonDaily_CalyxGolden = 'Calyx_Golden_Treasures_Jarilo_VI'  # do_not_achieve, Calyx_Golden_Memories_Jarilo_VI, Calyx_Golden_Memories_The_Xianzhou_Luofu, Calyx_Golden_Memories_Penacony, Calyx_Golden_Aether_Jarilo_VI, Calyx_Golden_Aether_The_Xianzhou_Luofu, Calyx_Golden_Aether_Penacony, Calyx_Golden_Treasures_Jarilo_VI, Calyx_Golden_Treasures_The_Xianzhou_Luofu, Calyx_Golden_Treasures_Penacony
-    DungeonDaily_CalyxCrimson = 'Calyx_Crimson_Destruction_Herta_StorageZone'  # do_not_achieve, Calyx_Crimson_Destruction_Herta_StorageZone, Calyx_Crimson_Destruction_Luofu_ScalegorgeWaterscape, Calyx_Crimson_Preservation_Herta_SupplyZone, Calyx_Crimson_Preservation_Penacony_ClockStudiosThemePark, Calyx_Crimson_The_Hunt_Jarilo_OutlyingSnowPlains, Calyx_Crimson_The_Hunt_Penacony_SoulGladScorchsandAuditionVenue, Calyx_Crimson_Abundance_Jarilo_BackwaterPass, Calyx_Crimson_Abundance_Luofu_FyxestrollGarden, Calyx_Crimson_Erudition_Jarilo_RivetTown, Calyx_Crimson_Harmony_Jarilo_RobotSettlement, Calyx_Crimson_Harmony_Penacony_TheReverieDreamscape, Calyx_Crimson_Nihility_Jarilo_GreatMine, Calyx_Crimson_Nihility_Luofu_AlchemyCommission
-    DungeonDaily_StagnantShadow = 'Stagnant_Shadow_Quanta'  # do_not_achieve, Stagnant_Shadow_Spike, Stagnant_Shadow_Perdition, Stagnant_Shadow_Duty, Stagnant_Shadow_Blaze, Stagnant_Shadow_Scorch, Stagnant_Shadow_Ire, Stagnant_Shadow_Rime, Stagnant_Shadow_Icicle, Stagnant_Shadow_Nectar, Stagnant_Shadow_Fulmination, Stagnant_Shadow_Doom, Stagnant_Shadow_Gust, Stagnant_Shadow_Celestial, Stagnant_Shadow_Quanta, Stagnant_Shadow_Abomination, Stagnant_Shadow_Roast, Stagnant_Shadow_Mirage, Stagnant_Shadow_Puppetry
-    DungeonDaily_CavernOfCorrosion = 'Cavern_of_Corrosion_Path_of_Providence'  # do_not_achieve, Cavern_of_Corrosion_Path_of_Gelid_Wind, Cavern_of_Corrosion_Path_of_Jabbing_Punch, Cavern_of_Corrosion_Path_of_Drifting, Cavern_of_Corrosion_Path_of_Providence, Cavern_of_Corrosion_Path_of_Holy_Hymn, Cavern_of_Corrosion_Path_of_Conflagration, Cavern_of_Corrosion_Path_of_Elixir_Seekers, Cavern_of_Corrosion_Path_of_Darkness, Cavern_of_Corrosion_Path_of_Dreamdive
-
     # Group `DungeonSupport`
     DungeonSupport_Use = 'when_daily'  # always_use, when_daily, do_not_use
     DungeonSupport_Character = 'FirstCharacter'  # FirstCharacter, Acheron, Argenti, Arlan, Asta, Aventurine, Bailu, BlackSwan, Blade, Bronya, Clara, DanHeng, DanHengImbibitorLunae, DrRatio, FuXuan, Gallagher, Gepard, Guinaifen, Hanya, Herta, Himeko, Hook, Huohuo, JingYuan, Jingliu, Kafka, Luka, Luocha, Lynx, March7th, Misha, Natasha, Pela, Qingque, Robin, RuanMei, Sampo, Seele, Serval, SilverWolf, Sparkle, Sushang, Tingyun, TopazNumby, TrailblazerDestruction, TrailblazerPreservation, Welt, Xueyi, Yanqing, Yukong
@@ -70,6 +64,58 @@ class GeneratedConfig:
 
     # Group `SupportReward`
     SupportReward_Collect = True
+
+    # Group `Planner`
+    Planner_Item_Credit = {}
+    Planner_Item_Trailblaze_EXP = {}
+    Planner_Item_Traveler_Guide = {}
+    Planner_Item_Refined_Aether = {}
+    Planner_Item_Lost_Crystal = {}
+    Planner_Item_Broken_Teeth_of_Iron_Wolf = {}
+    Planner_Item_Endotherm_Chitin = {}
+    Planner_Item_Horn_of_Snow = {}
+    Planner_Item_Lightning_Crown_of_the_Past_Shadow = {}
+    Planner_Item_Storm_Eye = {}
+    Planner_Item_Void_Cast_Iron = {}
+    Planner_Item_Golden_Crown_of_the_Past_Shadow = {}
+    Planner_Item_Netherworld_Token = {}
+    Planner_Item_Searing_Steel_Blade = {}
+    Planner_Item_Gelid_Chitin = {}
+    Planner_Item_Shape_Shifter_Lightning_Staff = {}
+    Planner_Item_Ascendant_Debris = {}
+    Planner_Item_Nail_of_the_Ape = {}
+    Planner_Item_Suppressing_Edict = {}
+    Planner_Item_IPC_Work_Permit = {}
+    Planner_Item_Raging_Heart = {}
+    Planner_Item_Dream_Fridge = {}
+    Planner_Item_Dream_Flamer = {}
+    Planner_Item_Worldbreaker_Blade = {}
+    Planner_Item_Arrow_of_the_Starchaser = {}
+    Planner_Item_Key_of_Wisdom = {}
+    Planner_Item_Safeguard_of_Amber = {}
+    Planner_Item_Obsidian_of_Obsession = {}
+    Planner_Item_Stellaris_Symphony = {}
+    Planner_Item_Flower_of_Eternity = {}
+    Planner_Item_Moon_Madness_Fang = {}
+    Planner_Item_Countertemporal_Shot = {}
+    Planner_Item_Divine_Amber = {}
+    Planner_Item_Heaven_Incinerator = {}
+    Planner_Item_Heavenly_Melody = {}
+    Planner_Item_Myriad_Fruit = {}
+    Planner_Item_Tracks_of_Destiny = {}
+    Planner_Item_Destroyer_Final_Road = {}
+    Planner_Item_Guardian_Lament = {}
+    Planner_Item_Regret_of_Infinite_Ochema = {}
+    Planner_Item_Past_Evils_of_the_Borehole_Planet_Disaster = {}
+    Planner_Item_Lost_Echo_of_the_Shared_Wish = {}
+    Planner_Item_Squirming_Core = {}
+    Planner_Item_Conqueror_Will = {}
+    Planner_Item_Silvermane_Medal = {}
+    Planner_Item_Ancient_Engine = {}
+    Planner_Item_Immortal_Lumintwig = {}
+    Planner_Item_Artifex_Gyreheart = {}
+    Planner_Item_Dream_Making_Engine = {}
+    Planner_Item_Shards_of_Desires = {}
 
     # Group `Weekly`
     Weekly_Name = 'Echo_of_War_Divine_Seed'  # Echo_of_War_Destruction_Beginning, Echo_of_War_End_of_the_Eternal_Freeze, Echo_of_War_Divine_Seed, Echo_of_War_Borehole_Planet_Old_Crater, Echo_of_War_Salutations_of_Ashen_Dreams
@@ -157,3 +203,6 @@ class GeneratedConfig:
     # Group `Daemon`
     Daemon_Enable = True  # True
     Daemon_AimClicker = 'do_not_click'  # item_enemy, item, enemy, do_not_click
+
+    # Group `PlannerScan`
+    PlannerScan_ResultAdd = False

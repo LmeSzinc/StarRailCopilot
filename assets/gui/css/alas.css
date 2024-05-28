@@ -435,6 +435,13 @@ pre.rich-traceback-code {
     overflow-wrap: break-word;
 }
 
+*[style*="--dashboard-bold--"] {
+    font-size: 1rem;
+    font-weight: bold;
+    color: #7a77bb;
+    overflow-wrap: break-word;
+}
+
 [id^="pywebio-scope-dashboard-row-"] p {
     margin-bottom: 0;
 }

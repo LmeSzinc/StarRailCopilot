@@ -3,11 +3,13 @@ import re
 import typing as t
 from dataclasses import dataclass
 
+import cv2
 import numpy as np
 from tqdm import tqdm
 
 from module.base.code_generator import CodeGenerator
-from module.base.utils import SelectedGrids, area_limit, area_pad, get_bbox, get_color, image_size, load_image
+from module.base.utils import (
+    SelectedGrids, area_center, area_limit, area_pad, corner2area, get_bbox, get_color, image_size, load_image)
 from module.config.config_manual import ManualConfig as AzurLaneConfig
 from module.config.server import VALID_LANG
 from module.config.utils import deep_get, deep_iter, deep_set, iter_folder
@@ -17,6 +19,44 @@ SHARE_SERVER = 'share'
 ASSET_SERVER = [SHARE_SERVER] + VALID_LANG
 
 
+def parse_grid(image):
+    """
+    Args:
+        image:
+
+    Returns:
+        dict: Key: Grid position (x, y)
+            Value: Area on image
+    """
+    image = cv2.inRange(image, (127, 127, 127), (255, 255, 255))
+    contours, _ = cv2.findContours(image, cv2.RETR_TREE, cv2.CHAIN_APPROX_SIMPLE)
+    dic_rect = {}
+    for corners in contours:
+        area = corner2area(corners.reshape(4, 2)) + (0, 0, 1, 1)
+        center = area_center(area)
+        dic_rect[center] = area
+    # for k, v in dic_rect.items():
+    #     print(k, v)
+
+    dic_grid = {}
+    prev_y = -100
+    grid_y = -1
+    stack_center = []
+    for center in sorted(dic_rect.keys(), key=lambda x: x[1]):
+        if center[1] > prev_y + 3:
+            for x, c in enumerate(sorted(stack_center, key=lambda x: x[0])):
+                dic_grid[(x, grid_y)] = tuple(dic_rect[c].astype(int))
+            grid_y += 1
+            stack_center = []
+        stack_center.append(center)
+        prev_y = center[1]
+    for x, c in enumerate(sorted(stack_center, key=lambda x: x[0])):
+        dic_grid[(x, grid_y)] = tuple(dic_rect[c].astype(int))
+    # for k, v in dic_grid.items():
+    #     print(k, v)
+    return dic_grid
+
+
 class AssetsImage:
     REGEX_ASSETS = re.compile(
         f'^{AzurLaneConfig.ASSETS_FOLDER}/'
@@ -24,7 +64,7 @@ class AssetsImage:
         f'(?P<module>[a-zA-Z0-9_/]+?)/'
         f'(?P<assets>\w+)'
         f'(?P<frame>\.\d+)?'
-        f'(?P<attr>\.AREA|\.SEARCH|\.COLOR|\.BUTTON)?'
+        f'(?P<attr>\.AREA|\.SEARCH|\.COLOR|\.BUTTON|\.GRID)?'
         f'\.png$'
     )
 
@@ -46,6 +86,7 @@ class AssetsImage:
         self.assets = ''
         self.frame = 1
         self.attr = ''
+        self.posi = None
 
         if res:
             self.valid = True
@@ -66,6 +107,7 @@ class AssetsImage:
 
         self.bbox: t.Tuple = ()
         self.mean: t.Tuple = ()
+        self.grids = {}
 
     def parse(self):
         image = load_image(self.file)
@@ -79,6 +121,10 @@ class AssetsImage:
         mean = tuple(np.rint(mean).astype(int))
         self.bbox = bbox
         self.mean = mean
+
+        if self.attr == 'GRID':
+            self.grids = parse_grid(image)
+
         return bbox, mean
 
     def __str__(self):
@@ -86,6 +132,26 @@ class AssetsImage:
             return f'AssetsImage(module={self.module}, assets={self.assets}, server={self.server}, frame={self.frame}, attr={self.attr})'
         else:
             return f'AssetsImage(file={self.file}, valid={self.valid})'
+
+    @property
+    def is_GRID(self):
+        return self.attr == 'GRID'
+
+    @property
+    def is_base(self):
+        return self.attr == ''
+
+    def iter_grids(self):
+        frame = 0
+        for posi, rect in self.grids.items():
+            frame += 1
+            image = AssetsImage(self.file)
+            image.attr = ''
+            image.bbox = rect
+            image.mean = self.mean
+            image.frame = frame
+            image.posi = posi
+            yield image
 
 
 def iter_images():
@@ -97,6 +163,12 @@ def iter_images():
                     yield AssetsImage(file)
 
 
+def iter_grids(images):
+    for image in images:
+        for grid in image.iter_grids():
+            yield grid
+
+
 @dataclass
 class DataAssets:
     module: str
@@ -104,6 +176,7 @@ class DataAssets:
     server: str
     frame: int
     file: str = ''
+    posi = None
     area: t.Tuple[int, int, int, int] = ()
     search: t.Tuple[int, int, int, int] = ()
     color: t.Tuple[int, int, int] = ()
@@ -126,7 +199,6 @@ class DataAssets:
         Product DataAssets from AssetsImage with attr=""
         """
         data = cls(module=image.module, assets=image.assets, server=image.server, frame=image.frame, file=image.file)
-        data.load_image(image)
         return data
 
     def load_image(self, image: AssetsImage):
@@ -135,6 +207,7 @@ class DataAssets:
             self.area = image.bbox
             self.color = image.mean
             self.button = image.bbox
+            self.posi = image.posi
         elif image.attr == 'AREA':
             self.area = image.bbox
             self.has_raw_area = True
@@ -147,6 +220,8 @@ class DataAssets:
         elif image.attr == 'BUTTON':
             self.button = image.bbox
             self.has_raw_button = True
+        elif image.attr == 'GRID':
+            pass
         else:
             logger.warning(f'Trying to load an image with unknown attribute: {image}')
 
@@ -161,17 +236,22 @@ def iter_assets():
     for image in tqdm(images):
         image.parse()
 
+    images += list(iter_grids(images))
+
     # Validate images
     images = SelectedGrids(images).select(valid=True)
     images.create_index('module', 'assets', 'server', 'frame', 'attr')
     for image in images.filter(lambda x: bool(x.attr)):
         image: AssetsImage = image
-        if not images.indexed_select(image.module, image.assets, image.server, image.frame, ''):
-            logger.warning(f'Attribute assets has no parent assets: {image.file}')
-            image.valid = False
-        if not images.indexed_select(image.module, image.assets, image.server, 1, ''):
-            logger.warning(f'Attribute assets has no first frame: {image.file}')
-            image.valid = False
+        if image.is_GRID:
+            pass
+        else:
+            if not images.indexed_select(image.module, image.assets, image.server, image.frame, ''):
+                logger.warning(f'Attribute assets has no parent assets: {image.file}')
+                image.valid = False
+            if not images.indexed_select(image.module, image.assets, image.server, 1, ''):
+                logger.warning(f'Attribute assets has no first frame: {image.file}')
+                image.valid = False
         if image.attr == 'SEARCH' and image.frame > 1:
             logger.warning(f'Attribute SEARCH with frame > 1 is not allowed: {image.file}')
             image.valid = False
@@ -180,18 +260,18 @@ def iter_assets():
     # Convert to DataAssets
     data = {}
     for image in images:
-        if image.attr == '':
+        if image.is_base:
             row = DataAssets.product(image)
             row.load_image(image)
             deep_set(data, keys=[image.module, image.assets, image.server, image.frame], value=row)
     # Load attribute images
     for image in images:
-        if image.attr != '':
+        if not image.is_base:
             row = deep_get(data, keys=[image.module, image.assets, image.server, image.frame])
             row.load_image(image)
     # Set `search`
     for path, frames in deep_iter(data, depth=3):
-        print(path, frames)
+        # print(path, frames)
         for frame in frames.values():
             # Generate `search` from `area`
             if not frame.has_raw_search:
@@ -253,6 +333,8 @@ def generate_code():
                                     gen.ObjectAttr(key='search', value=frame.search)
                                     gen.ObjectAttr(key='color', value=frame.color)
                                     gen.ObjectAttr(key='button', value=frame.button)
+                                    if frame.posi is not None:
+                                        gen.ObjectAttr(key='posi', value=frame.posi)
                     elif len(frames) == 1:
                         frame = frames[0]
                         with gen.ObjectAttr(key=server, value=gen.Object(object_class='Button')):
@@ -261,6 +343,8 @@ def generate_code():
                             gen.ObjectAttr(key='search', value=frame.search)
                             gen.ObjectAttr(key='color', value=frame.color)
                             gen.ObjectAttr(key='button', value=frame.button)
+                            if frame.posi is not None:
+                                gen.ObjectAttr(key='posi', value=frame.posi)
                     else:
                         gen.ObjectAttr(key=server, value=None)
         gen.write(os.path.join(output, f'assets_{module.replace("/", "_")}.py'))

@@ -61,6 +61,10 @@
     "Daemon": {
       "name": "Dialogue Clicker",
       "help": ""
+    },
+    "PlannerScan": {
+      "name": "Character Planner",
+      "help": ""
     }
   },
   "Scheduler": {
@@ -351,81 +355,6 @@
       "9": "9"
     }
   },
-  "DungeonDaily": {
-    "_info": {
-      "name": "Daily Quest Settings",
-      "help": "Clear required dungeon once to achieve daily quests"
-    },
-    "CalyxGolden": {
-      "name": "Clear Calyx Golden 1 times",
-      "help": "",
-      "do_not_achieve": "Don't Do This Quest",
-      "Calyx_Golden_Memories_Jarilo_VI": "Material: Character EXP (Bud of Memories (Jarilo-Ⅵ))",
-      "Calyx_Golden_Memories_The_Xianzhou_Luofu": "Material: Character EXP (Bud of Memories (The Xianzhou Luofu))",
-      "Calyx_Golden_Memories_Penacony": "Material: Character EXP (Bud of Memories (Penacony))",
-      "Calyx_Golden_Aether_Jarilo_VI": "Material: Light Cone EXP (Bud of Aether (Jarilo-Ⅵ))",
-      "Calyx_Golden_Aether_The_Xianzhou_Luofu": "Material: Light Cone EXP (Bud of Aether (The Xianzhou Luofu))",
-      "Calyx_Golden_Aether_Penacony": "Material: Light Cone EXP (Bud of Aether (Penacony))",
-      "Calyx_Golden_Treasures_Jarilo_VI": "Material: Credit (Bud of Treasures (Jarilo-Ⅵ))",
-      "Calyx_Golden_Treasures_The_Xianzhou_Luofu": "Material: Credit (Bud of Treasures (The Xianzhou Luofu))",
-      "Calyx_Golden_Treasures_Penacony": "Material: Credit (Bud of Treasures (Penacony))"
-    },
-    "CalyxCrimson": {
-      "name": "Clear Calyx Crimson 1 times",
-      "help": "",
-      "do_not_achieve": "Don't Do This Quest",
-      "Calyx_Crimson_Destruction_Herta_StorageZone": "Trace: Destruction (Storage Zone)",
-      "Calyx_Crimson_Destruction_Luofu_ScalegorgeWaterscape": "Trace: Destruction (Scalegorge Waterscape)",
-      "Calyx_Crimson_Preservation_Herta_SupplyZone": "Trace: Preservation (Supply Zone)",
-      "Calyx_Crimson_Preservation_Penacony_ClockStudiosThemePark": "Trace: Preservation (Clock Studios Theme Park)",
-      "Calyx_Crimson_The_Hunt_Jarilo_OutlyingSnowPlains": "Trace: The Hunt (Outlying Snow Plains)",
-      "Calyx_Crimson_The_Hunt_Penacony_SoulGladScorchsandAuditionVenue": "Trace: The Hunt (SoulGlad Scorchsand Audition Venue)",
-      "Calyx_Crimson_Abundance_Jarilo_BackwaterPass": "Trace: Abundance (Backwater Pass)",
-      "Calyx_Crimson_Abundance_Luofu_FyxestrollGarden": "Trace: Abundance (Fyxestroll Garden)",
-      "Calyx_Crimson_Erudition_Jarilo_RivetTown": "Trace: Erudition (Rivet Town)",
-      "Calyx_Crimson_Harmony_Jarilo_RobotSettlement": "Trace: The Harmony (Robot Settlement)",
-      "Calyx_Crimson_Harmony_Penacony_TheReverieDreamscape": "Trace: The Harmony (The Reverie (Dreamscape))",
-      "Calyx_Crimson_Nihility_Jarilo_GreatMine": "Trace: Nihility (Great Mine)",
-      "Calyx_Crimson_Nihility_Luofu_AlchemyCommission": "Trace: Nihility (Alchemy Commission)"
-    },
-    "StagnantShadow": {
-      "name": "Clear Stagnant Shadow 1 times",
-      "help": "",
-      "do_not_achieve": "Don't Do This Quest",
-      "Stagnant_Shadow_Spike": "Ascension: Physical (Natasha / Clara / Luka / Sushang)",
-      "Stagnant_Shadow_Perdition": "Ascension: Physical (Hanya / Argenti)",
-      "Stagnant_Shadow_Duty": "Ascension: Physical (Boothill / Robin)",
-      "Stagnant_Shadow_Blaze": "Ascension: Fire (Himeko / Asta / Hook)",
-      "Stagnant_Shadow_Scorch": "Ascension: Fire (Guinaifen / Topaz & Numby)",
-      "Stagnant_Shadow_Ire": "Ascension: Fire (Gallagher)",
-      "Stagnant_Shadow_Rime": "Ascension: Ice (March 7th / Herta / Gepard / Pela)",
-      "Stagnant_Shadow_Icicle": "Ascension: Ice (Yanqing / Jingliu / Ruan Mei)",
-      "Stagnant_Shadow_Nectar": "Ascension: Ice (Misha)",
-      "Stagnant_Shadow_Fulmination": "Ascension: Lightning (Arlan / Serval / Tingyun / Bailu)",
-      "Stagnant_Shadow_Doom": "Ascension: Lightning (Kafka / Jing Yuan / Acheron)",
-      "Stagnant_Shadow_Gust": "Ascension: Wind (Dan Heng / Bronya / Sampo)",
-      "Stagnant_Shadow_Celestial": "Ascension: Wind (Blade / Huohuo / Black Swan)",
-      "Stagnant_Shadow_Quanta": "Ascension: Quantum (Silver Wolf / Seele / Qingque)",
-      "Stagnant_Shadow_Abomination": "Ascension: Quantum (Lynx / Fu Xuan / Xueyi)",
-      "Stagnant_Shadow_Roast": "Ascension: Quantum (Sparkle)",
-      "Stagnant_Shadow_Mirage": "Ascension: Imaginary (Welt / Luocha / Yukong)",
-      "Stagnant_Shadow_Puppetry": "Ascension: Imaginary (Dan Heng • Imbibitor Lunae / Aventurine / Dr. Ratio)"
-    },
-    "CavernOfCorrosion": {
-      "name": "Clear Cavern of Corrosion 1 times",
-      "help": "",
-      "do_not_achieve": "Don't Do This Quest",
-      "Cavern_of_Corrosion_Path_of_Gelid_Wind": "Relics: Ice Set & Wind Set (Path of Gelid Wind)",
-      "Cavern_of_Corrosion_Path_of_Jabbing_Punch": "Relics: Physical Set & Break Effect Set (Path of Jabbing Punch)",
-      "Cavern_of_Corrosion_Path_of_Drifting": "Relics: Healing Set & Musketeer Set (Path of Drifting)",
-      "Cavern_of_Corrosion_Path_of_Providence": "Relics: Guard Set & Quantum Set (Path of Providence)",
-      "Cavern_of_Corrosion_Path_of_Holy_Hymn": "Relics: DEF Set & Lighting Set (Path of Holy Hymn)",
-      "Cavern_of_Corrosion_Path_of_Conflagration": "Relics: Fire Set & Imaginary Set (Path of Conflagration)",
-      "Cavern_of_Corrosion_Path_of_Elixir_Seekers": "Relics: HP Set & SPD Set (Path of Elixir Seekers)",
-      "Cavern_of_Corrosion_Path_of_Darkness": "Relics: Pursuit Set & Dot Set (Path of Darkness)",
-      "Cavern_of_Corrosion_Path_of_Dreamdive": "Relics: Debuff Set & Break Effect Set (Path of Dreamdive)"
-    }
-  },
   "DungeonSupport": {
     "_info": {
       "name": "Support Settings",
@@ -526,6 +455,212 @@
     },
     "Collect": {
       "name": "Receive support reward",
+      "help": ""
+    }
+  },
+  "Planner": {
+    "_info": {
+      "name": "Character Planner Progress",
+      "help": "Character planner is prioritized. After completed, \"Dungeon Settings\" will be executed."
+    },
+    "Item_Credit": {
+      "name": "Credit",
+      "help": ""
+    },
+    "Item_Trailblaze_EXP": {
+      "name": "Trailblaze EXP",
+      "help": ""
+    },
+    "Item_Traveler_Guide": {
+      "name": "Character EXP",
+      "help": ""
+    },
+    "Item_Refined_Aether": {
+      "name": "Light Cone EXP",
+      "help": ""
+    },
+    "Item_Lost_Crystal": {
+      "name": "Lost Crystal",
+      "help": ""
+    },
+    "Item_Broken_Teeth_of_Iron_Wolf": {
+      "name": "Ascension: Physical (Natasha / Clara / Luka / Sushang)",
+      "help": ""
+    },
+    "Item_Endotherm_Chitin": {
+      "name": "Ascension: Fire (Himeko / Asta / Hook)",
+      "help": ""
+    },
+    "Item_Horn_of_Snow": {
+      "name": "Ascension: Ice (March 7th / Herta / Gepard / Pela)",
+      "help": ""
+    },
+    "Item_Lightning_Crown_of_the_Past_Shadow": {
+      "name": "Ascension: Lightning (Arlan / Serval / Tingyun / Bailu)",
+      "help": ""
+    },
+    "Item_Storm_Eye": {
+      "name": "Ascension: Wind (Dan Heng / Bronya / Sampo)",
+      "help": ""
+    },
+    "Item_Void_Cast_Iron": {
+      "name": "Ascension: Quantum (Silver Wolf / Seele / Qingque)",
+      "help": ""
+    },
+    "Item_Golden_Crown_of_the_Past_Shadow": {
+      "name": "Ascension: Imaginary (Welt / Luocha / Yukong)",
+      "help": ""
+    },
+    "Item_Netherworld_Token": {
+      "name": "Ascension: Physical (Hanya / Argenti)",
+      "help": ""
+    },
+    "Item_Searing_Steel_Blade": {
+      "name": "Ascension: Fire (Guinaifen / Topaz & Numby)",
+      "help": ""
+    },
+    "Item_Gelid_Chitin": {
+      "name": "Ascension: Ice (Yanqing / Jingliu / Ruan Mei)",
+      "help": ""
+    },
+    "Item_Shape_Shifter_Lightning_Staff": {
+      "name": "Ascension: Lightning (Kafka / Jing Yuan / Acheron)",
+      "help": ""
+    },
+    "Item_Ascendant_Debris": {
+      "name": "Ascension: Wind (Blade / Huohuo / Black Swan)",
+      "help": ""
+    },
+    "Item_Nail_of_the_Ape": {
+      "name": "Ascension: Quantum (Lynx / Fu Xuan / Xueyi)",
+      "help": ""
+    },
+    "Item_Suppressing_Edict": {
+      "name": "Ascension: Imaginary (Dan Heng • Imbibitor Lunae / Aventurine / Dr. Ratio)",
+      "help": ""
+    },
+    "Item_IPC_Work_Permit": {
+      "name": "Ascension: Physical (Boothill / Robin)",
+      "help": ""
+    },
+    "Item_Raging_Heart": {
+      "name": "Ascension: Fire (Gallagher)",
+      "help": ""
+    },
+    "Item_Dream_Fridge": {
+      "name": "Ascension: Ice (Misha)",
+      "help": ""
+    },
+    "Item_Dream_Flamer": {
+      "name": "Ascension: Quantum (Sparkle)",
+      "help": ""
+    },
+    "Item_Worldbreaker_Blade": {
+      "name": "Trace: Destruction (Storage Zone)",
+      "help": ""
+    },
+    "Item_Arrow_of_the_Starchaser": {
+      "name": "Trace: The Hunt (Outlying Snow Plains)",
+      "help": ""
+    },
+    "Item_Key_of_Wisdom": {
+      "name": "Trace: Erudition (Rivet Town)",
+      "help": ""
+    },
+    "Item_Safeguard_of_Amber": {
+      "name": "Trace: Preservation (Supply Zone)",
+      "help": ""
+    },
+    "Item_Obsidian_of_Obsession": {
+      "name": "Trace: Nihility (Great Mine)",
+      "help": ""
+    },
+    "Item_Stellaris_Symphony": {
+      "name": "Trace: The Harmony (Robot Settlement)",
+      "help": ""
+    },
+    "Item_Flower_of_Eternity": {
+      "name": "Trace: Abundance (Backwater Pass)",
+      "help": ""
+    },
+    "Item_Moon_Madness_Fang": {
+      "name": "Trace: Destruction (Scalegorge Waterscape)",
+      "help": ""
+    },
+    "Item_Countertemporal_Shot": {
+      "name": "Trace: The Hunt (SoulGlad Scorchsand Audition Venue)",
+      "help": ""
+    },
+    "Item_Divine_Amber": {
+      "name": "Trace: Preservation (Clock Studios Theme Park)",
+      "help": ""
+    },
+    "Item_Heaven_Incinerator": {
+      "name": "Trace: Nihility (Alchemy Commission)",
+      "help": ""
+    },
+    "Item_Heavenly_Melody": {
+      "name": "Trace: The Harmony (The Reverie (Dreamscape))",
+      "help": ""
+    },
+    "Item_Myriad_Fruit": {
+      "name": "Trace: Abundance (Fyxestroll Garden)",
+      "help": ""
+    },
+    "Item_Tracks_of_Destiny": {
+      "name": "Tracks of Destiny",
+      "help": ""
+    },
+    "Item_Destroyer_Final_Road": {
+      "name": "Destruction's Beginning (Herta Space Station)",
+      "help": ""
+    },
+    "Item_Guardian_Lament": {
+      "name": "End of the Eternal Freeze (Jarilo-VI)",
+      "help": ""
+    },
+    "Item_Regret_of_Infinite_Ochema": {
+      "name": "Divine Seed (The Xianzhou Luofu)",
+      "help": ""
+    },
+    "Item_Past_Evils_of_the_Borehole_Planet_Disaster": {
+      "name": "Borehole Planet's Old Crater (Herta Space Station)",
+      "help": ""
+    },
+    "Item_Lost_Echo_of_the_Shared_Wish": {
+      "name": "Salutations of Ashen Dreams (Penacony)",
+      "help": ""
+    },
+    "Item_Squirming_Core": {
+      "name": "Squirming Core",
+      "help": ""
+    },
+    "Item_Conqueror_Will": {
+      "name": "Conqueror's Will",
+      "help": ""
+    },
+    "Item_Silvermane_Medal": {
+      "name": "Silvermane Medal",
+      "help": ""
+    },
+    "Item_Ancient_Engine": {
+      "name": "Ancient Engine",
+      "help": ""
+    },
+    "Item_Immortal_Lumintwig": {
+      "name": "Immortal Lumintwig",
+      "help": ""
+    },
+    "Item_Artifex_Gyreheart": {
+      "name": "Artifex's Gyreheart",
+      "help": ""
+    },
+    "Item_Dream_Making_Engine": {
+      "name": "Dream Making Engine",
+      "help": ""
+    },
+    "Item_Shards_of_Desires": {
+      "name": "Shards of Desires",
       "help": ""
     }
   },
@@ -1061,6 +1196,16 @@
       "item": "Click items only",
       "enemy": "Click enemies only",
       "do_not_click": "Don't click"
+    }
+  },
+  "PlannerScan": {
+    "_info": {
+      "name": "Scan Character Planner Results",
+      "help": "Tools need to stop the scheduler and then run independently\nBefore use, set planner goal in the in-game planner, calculate the results, and start scanning from the result page. Detailed usage see: https://github.com/LmeSzinc/StarRailCopilot/wiki/Planner_cn"
+    },
+    "ResultAdd": {
+      "name": "Accumulate multiple scan results",
+      "help": "Turn on when planning multiple characters, will raise multiple characters all together\nTurn off when planning one character, planning goal will be refreshed at every scan"
     }
   },
   "Gui": {

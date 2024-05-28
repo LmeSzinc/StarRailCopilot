@@ -31,7 +31,8 @@
     "menu": "list",
     "page": "tool",
     "tasks": [
-      "Daemon"
+      "Daemon",
+      "PlannerScan"
     ]
   }
 }

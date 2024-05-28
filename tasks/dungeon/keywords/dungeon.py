@@ -11,6 +11,7 @@ Calyx_Golden_Memories_Jarilo_VI = DungeonList(
     en='Bud of Memories (Jarilo-Ⅵ)',
     jp='回憶の蕾・ヤリーロ-Ⅵ',
     es='Flor de los recuerdos (Jarilo-Ⅵ)',
+    dungeon_id=1001,
     plane_id=2010101,
 )
 Calyx_Golden_Aether_Jarilo_VI = DungeonList(
@@ -21,6 +22,7 @@ Calyx_Golden_Aether_Jarilo_VI = DungeonList(
     en='Bud of Aether (Jarilo-Ⅵ)',
     jp='エーテルの蕾・ヤリーロ-Ⅵ',
     es='Flor de éter (Jarilo-Ⅵ)',
+    dungeon_id=1002,
     plane_id=2011101,
 )
 Calyx_Golden_Treasures_Jarilo_VI = DungeonList(
@@ -31,6 +33,7 @@ Calyx_Golden_Treasures_Jarilo_VI = DungeonList(
     en='Bud of Treasures (Jarilo-Ⅵ)',
     jp='秘蔵の蕾・ヤリーロ-Ⅵ',
     es='Flor de tesoros (Jarilo-Ⅵ)',
+    dungeon_id=1003,
     plane_id=2012101,
 )
 Calyx_Golden_Memories_The_Xianzhou_Luofu = DungeonList(
@@ -41,6 +44,7 @@ Calyx_Golden_Memories_The_Xianzhou_Luofu = DungeonList(
     en='Bud of Memories (The Xianzhou Luofu)',
     jp='回憶の蕾・仙舟「羅浮」',
     es='Flor de los recuerdos (El Luofu de Xianzhou)',
+    dungeon_id=1011,
     plane_id=2021101,
 )
 Calyx_Golden_Aether_The_Xianzhou_Luofu = DungeonList(
@@ -51,6 +55,7 @@ Calyx_Golden_Aether_The_Xianzhou_Luofu = DungeonList(
     en='Bud of Aether (The Xianzhou Luofu)',
     jp='エーテルの蕾・仙舟「羅浮」',
     es='Flor de éter (El Luofu de Xianzhou)',
+    dungeon_id=1012,
     plane_id=2022101,
 )
 Calyx_Golden_Treasures_The_Xianzhou_Luofu = DungeonList(
@@ -61,6 +66,7 @@ Calyx_Golden_Treasures_The_Xianzhou_Luofu = DungeonList(
     en='Bud of Treasures (The Xianzhou Luofu)',
     jp='秘蔵の蕾・仙舟「羅浮」',
     es='Flor de tesoros (El Luofu de Xianzhou)',
+    dungeon_id=1013,
     plane_id=2022201,
 )
 Calyx_Golden_Memories_Penacony = DungeonList(
@@ -71,6 +77,7 @@ Calyx_Golden_Memories_Penacony = DungeonList(
     en='Bud of Memories (Penacony)',
     jp='回憶の蕾・ピノコニー',
     es='Flor de los recuerdos (Colonipenal)',
+    dungeon_id=1014,
     plane_id=2031301,
 )
 Calyx_Golden_Aether_Penacony = DungeonList(
@@ -81,6 +88,7 @@ Calyx_Golden_Aether_Penacony = DungeonList(
     en='Bud of Aether (Penacony)',
     jp='エーテルの蕾・ピノコニー',
     es='Flor de éter (Colonipenal)',
+    dungeon_id=1015,
     plane_id=2031201,
 )
 Calyx_Golden_Treasures_Penacony = DungeonList(
@@ -91,6 +99,7 @@ Calyx_Golden_Treasures_Penacony = DungeonList(
     en='Bud of Treasures (Penacony)',
     jp='秘蔵の蕾・ピノコニー',
     es='Flor de tesoros (Colonipenal)',
+    dungeon_id=1016,
     plane_id=2031101,
 )
 Calyx_Crimson_Destruction_Herta_StorageZone = DungeonList(
@@ -101,6 +110,7 @@ Calyx_Crimson_Destruction_Herta_StorageZone = DungeonList(
     en='Calyx (Crimson): Bud of Destruction',
     jp='疑似花萼（赤）・壊滅の蕾',
     es='Flor de la Destrucción',
+    dungeon_id=1004,
     plane_id=2000201,
 )
 Calyx_Crimson_Destruction_Luofu_ScalegorgeWaterscape = DungeonList(
@@ -111,6 +121,7 @@ Calyx_Crimson_Destruction_Luofu_ScalegorgeWaterscape = DungeonList(
     en='Calyx (Crimson): Bud of Destruction',
     jp='疑似花萼（赤）・壊滅の蕾',
     es='Flor de la Destrucción',
+    dungeon_id=1018,
     plane_id=2023201,
 )
 Calyx_Crimson_Preservation_Herta_SupplyZone = DungeonList(
@@ -121,6 +132,7 @@ Calyx_Crimson_Preservation_Herta_SupplyZone = DungeonList(
     en='Calyx (Crimson): Bud of Preservation',
     jp='疑似花萼（赤）・存護の蕾',
     es='Flor de la Conservación',
+    dungeon_id=1005,
     plane_id=2000301,
 )
 Calyx_Crimson_Preservation_Penacony_ClockStudiosThemePark = DungeonList(
@@ -131,6 +143,7 @@ Calyx_Crimson_Preservation_Penacony_ClockStudiosThemePark = DungeonList(
     en='Calyx (Crimson): Bud of Preservation',
     jp='疑似花萼（赤）・存護の蕾',
     es='Flor de la Conservación',
+    dungeon_id=1020,
     plane_id=2032101,
 )
 Calyx_Crimson_The_Hunt_Jarilo_OutlyingSnowPlains = DungeonList(
@@ -141,6 +154,7 @@ Calyx_Crimson_The_Hunt_Jarilo_OutlyingSnowPlains = DungeonList(
     en='Calyx (Crimson): Bud of The Hunt',
     jp='疑似花萼（赤）・巡狩の蕾',
     es='Flor de la Cacería',
+    dungeon_id=1006,
     plane_id=2010101,
 )
 Calyx_Crimson_The_Hunt_Penacony_SoulGladScorchsandAuditionVenue = DungeonList(
@@ -151,6 +165,7 @@ Calyx_Crimson_The_Hunt_Penacony_SoulGladScorchsandAuditionVenue = DungeonList(
     en='Calyx (Crimson): Bud of The Hunt',
     jp='疑似花萼（赤）・巡狩の蕾',
     es='Cáliz (carmesí): Flor de la Cacería',
+    dungeon_id=1022,
     plane_id=2033101,
 )
 Calyx_Crimson_Abundance_Jarilo_BackwaterPass = DungeonList(
@@ -161,6 +176,7 @@ Calyx_Crimson_Abundance_Jarilo_BackwaterPass = DungeonList(
     en='Calyx (Crimson): Bud of Abundance',
     jp='疑似花萼（赤）・豊穣の蕾',
     es='Flor de la Abundancia',
+    dungeon_id=1007,
     plane_id=2011101,
 )
 Calyx_Crimson_Abundance_Luofu_FyxestrollGarden = DungeonList(
@@ -171,6 +187,7 @@ Calyx_Crimson_Abundance_Luofu_FyxestrollGarden = DungeonList(
     en='Calyx (Crimson): Bud of Abundance',
     jp='疑似花萼（赤）・豊穣の蕾',
     es='Flor de la Abundancia',
+    dungeon_id=1021,
     plane_id=2022301,
 )
 Calyx_Crimson_Erudition_Jarilo_RivetTown = DungeonList(
@@ -181,6 +198,7 @@ Calyx_Crimson_Erudition_Jarilo_RivetTown = DungeonList(
     en='Calyx (Crimson): Bud of Erudition',
     jp='疑似花萼（赤）・知恵の蕾',
     es='Flor de la Erudición',
+    dungeon_id=1008,
     plane_id=2012201,
 )
 Calyx_Crimson_Harmony_Jarilo_RobotSettlement = DungeonList(
@@ -191,6 +209,7 @@ Calyx_Crimson_Harmony_Jarilo_RobotSettlement = DungeonList(
     en='Calyx (Crimson): Bud of Harmony',
     jp='疑似花萼（赤）・調和の蕾',
     es='Flor de la Armonía',
+    dungeon_id=1009,
     plane_id=2012301,
 )
 Calyx_Crimson_Harmony_Penacony_TheReverieDreamscape = DungeonList(
@@ -201,6 +220,7 @@ Calyx_Crimson_Harmony_Penacony_TheReverieDreamscape = DungeonList(
     en='Calyx (Crimson): Bud of Harmony',
     jp='疑似花萼（赤）・調和の蕾',
     es='Flor de la Armonía',
+    dungeon_id=1019,
     plane_id=2031101,
 )
 Calyx_Crimson_Nihility_Jarilo_GreatMine = DungeonList(
@@ -211,6 +231,7 @@ Calyx_Crimson_Nihility_Jarilo_GreatMine = DungeonList(
     en='Calyx (Crimson): Bud of Nihility',
     jp='疑似花萼（赤）・虚無の蕾',
     es='Flor de la Nihilidad',
+    dungeon_id=1010,
     plane_id=2012101,
 )
 Calyx_Crimson_Nihility_Luofu_AlchemyCommission = DungeonList(
@@ -221,6 +242,7 @@ Calyx_Crimson_Nihility_Luofu_AlchemyCommission = DungeonList(
     en='Calyx (Crimson): Bud of Nihility',
     jp='疑似花萼（赤）・虚無の蕾',
     es='Flor de la Nihilidad',
+    dungeon_id=1017,
     plane_id=2023101,
 )
 Stagnant_Shadow_Quanta = DungeonList(
@@ -231,6 +253,7 @@ Stagnant_Shadow_Quanta = DungeonList(
     en='Stagnant Shadow: Shape of Quanta',
     jp='凝結虚影・虚海の形',
     es='Forma del cuanto',
+    dungeon_id=1101,
     plane_id=2000101,
 )
 Stagnant_Shadow_Gust = DungeonList(
@@ -241,6 +264,7 @@ Stagnant_Shadow_Gust = DungeonList(
     en='Stagnant Shadow: Shape of Gust',
     jp='凝結虚影・薫風の形',
     es='Forma del aire',
+    dungeon_id=1102,
     plane_id=2012201,
 )
 Stagnant_Shadow_Fulmination = DungeonList(
@@ -251,6 +275,7 @@ Stagnant_Shadow_Fulmination = DungeonList(
     en='Stagnant Shadow: Shape of Fulmination',
     jp='凝結虚影・鳴雷の形',
     es='Forma del trueno',
+    dungeon_id=1103,
     plane_id=2013201,
 )
 Stagnant_Shadow_Blaze = DungeonList(
@@ -261,6 +286,7 @@ Stagnant_Shadow_Blaze = DungeonList(
     en='Stagnant Shadow: Shape of Blaze',
     jp='凝結虚影・炎華の形',
     es='Forma de las llamas',
+    dungeon_id=1104,
     plane_id=2013101,
 )
 Stagnant_Shadow_Spike = DungeonList(
@@ -271,6 +297,7 @@ Stagnant_Shadow_Spike = DungeonList(
     en='Stagnant Shadow: Shape of Spike',
     jp='凝結虚影・切先の形',
     es='Forma afilada',
+    dungeon_id=1105,
     plane_id=2012101,
 )
 Stagnant_Shadow_Rime = DungeonList(
@@ -281,6 +308,7 @@ Stagnant_Shadow_Rime = DungeonList(
     en='Stagnant Shadow: Shape of Rime',
     jp='凝結虚影・霜晶の形',
     es='Forma de la escarcha',
+    dungeon_id=1106,
     plane_id=2013201,
 )
 Stagnant_Shadow_Mirage = DungeonList(
@@ -291,6 +319,7 @@ Stagnant_Shadow_Mirage = DungeonList(
     en='Stagnant Shadow: Shape of Mirage',
     jp='凝結虚影・幻光の形',
     es='Forma del espejismo',
+    dungeon_id=1107,
     plane_id=2011101,
 )
 Stagnant_Shadow_Icicle = DungeonList(
@@ -301,6 +330,7 @@ Stagnant_Shadow_Icicle = DungeonList(
     en='Stagnant Shadow: Shape of Icicle',
     jp='凝結虚影・氷柱の形',
     es='Forma del témpano',
+    dungeon_id=1108,
     plane_id=2021101,
 )
 Stagnant_Shadow_Doom = DungeonList(
@@ -311,6 +341,7 @@ Stagnant_Shadow_Doom = DungeonList(
     en='Stagnant Shadow: Shape of Doom',
     jp='凝結虚影・震厄の形',
     es='Forma de la perdición',
+    dungeon_id=1109,
     plane_id=2021201,
 )
 Stagnant_Shadow_Puppetry = DungeonList(
@@ -321,6 +352,7 @@ Stagnant_Shadow_Puppetry = DungeonList(
     en='Stagnant Shadow: Shape of Puppetry',
     jp='凝結虚影・傀儡の形',
     es='Forma de las marionetas',
+    dungeon_id=1110,
     plane_id=2022201,
 )
 Stagnant_Shadow_Abomination = DungeonList(
@@ -331,6 +363,7 @@ Stagnant_Shadow_Abomination = DungeonList(
     en='Stagnant Shadow: Shape of Abomination',
     jp='凝結虚影・厄獣の形',
     es='Forma de la abominación',
+    dungeon_id=1111,
     plane_id=2023201,
 )
 Stagnant_Shadow_Scorch = DungeonList(
@@ -341,6 +374,7 @@ Stagnant_Shadow_Scorch = DungeonList(
     en='Stagnant Shadow: Shape of Scorch',
     jp='凝結虚影・燔灼の形',
     es='Forma abrasada',
+    dungeon_id=1112,
     plane_id=2012101,
 )
 Stagnant_Shadow_Celestial = DungeonList(
@@ -351,6 +385,7 @@ Stagnant_Shadow_Celestial = DungeonList(
     en='Stagnant Shadow: Shape of Celestial',
     jp='凝結虚影・天人の形',
     es='Forma de lo celestial',
+    dungeon_id=1113,
     plane_id=2023101,
 )
 Stagnant_Shadow_Perdition = DungeonList(
@@ -361,6 +396,7 @@ Stagnant_Shadow_Perdition = DungeonList(
     en='Stagnant Shadow: Shape of Perdition',
     jp='凝結虚影・幽府の形',
     es='Forma del aislamiento',
+    dungeon_id=1114,
     plane_id=2022301,
 )
 Stagnant_Shadow_Nectar = DungeonList(
@@ -371,6 +407,7 @@ Stagnant_Shadow_Nectar = DungeonList(
     en='Stagnant Shadow: Shape of Nectar',
     jp='凝結虚影・氷醸の形',
     es='Forma del néctar',
+    dungeon_id=1115,
     plane_id=2031101,
 )
 Stagnant_Shadow_Roast = DungeonList(
@@ -381,6 +418,7 @@ Stagnant_Shadow_Roast = DungeonList(
     en='Stagnant Shadow: Shape of Roast',
     jp='凝結虚影・焦灼の形',
     es='Forma del agostamiento',
+    dungeon_id=1116,
     plane_id=2031301,
 )
 Stagnant_Shadow_Ire = DungeonList(
@@ -391,6 +429,7 @@ Stagnant_Shadow_Ire = DungeonList(
     en='Stagnant Shadow: Shape of Ire',
     jp='凝結虚影・憤怒の形',
     es='Forma de la ira',
+    dungeon_id=1117,
     plane_id=2032201,
 )
 Stagnant_Shadow_Duty = DungeonList(
@@ -401,6 +440,7 @@ Stagnant_Shadow_Duty = DungeonList(
     en='Stagnant Shadow: Shape of Duty',
     jp='凝結虚影・職掌の形',
     es='Sombra paralizada: Forma del deber',
+    dungeon_id=1118,
     plane_id=2032101,
 )
 Cavern_of_Corrosion_Path_of_Gelid_Wind = DungeonList(
@@ -411,6 +451,7 @@ Cavern_of_Corrosion_Path_of_Gelid_Wind = DungeonList(
     en='Cavern of Corrosion: Path of Gelid Wind',
     jp='侵蝕トンネル・霜風の路',
     es='Senda del viento gélido',
+    dungeon_id=1201,
     plane_id=2000201,
 )
 Cavern_of_Corrosion_Path_of_Jabbing_Punch = DungeonList(
@@ -421,6 +462,7 @@ Cavern_of_Corrosion_Path_of_Jabbing_Punch = DungeonList(
     en='Cavern of Corrosion: Path of Jabbing Punch',
     jp='侵蝕トンネル・迅拳の路',
     es='Senda de los puños rápidos',
+    dungeon_id=1202,
     plane_id=2013101,
 )
 Cavern_of_Corrosion_Path_of_Drifting = DungeonList(
@@ -431,6 +473,7 @@ Cavern_of_Corrosion_Path_of_Drifting = DungeonList(
     en='Cavern of Corrosion: Path of Drifting',
     jp='侵蝕トンネル・漂泊の路',
     es='Senda de la deriva',
+    dungeon_id=1203,
     plane_id=2013201,
 )
 Cavern_of_Corrosion_Path_of_Providence = DungeonList(
@@ -441,6 +484,7 @@ Cavern_of_Corrosion_Path_of_Providence = DungeonList(
     en='Cavern of Corrosion: Path of Providence',
     jp='侵蝕トンネル・睿治の路',
     es='Senda de la providencia',
+    dungeon_id=1204,
     plane_id=2013401,
 )
 Cavern_of_Corrosion_Path_of_Holy_Hymn = DungeonList(
@@ -451,6 +495,7 @@ Cavern_of_Corrosion_Path_of_Holy_Hymn = DungeonList(
     en='Cavern of Corrosion: Path of Holy Hymn',
     jp='侵蝕トンネル・聖頌の路',
     es='Senda del himno sagrado',
+    dungeon_id=1205,
     plane_id=2021101,
 )
 Cavern_of_Corrosion_Path_of_Conflagration = DungeonList(
@@ -461,6 +506,7 @@ Cavern_of_Corrosion_Path_of_Conflagration = DungeonList(
     en='Cavern of Corrosion: Path of Conflagration',
     jp='侵蝕トンネル・野焔の路',
     es='Senda de la conflagración',
+    dungeon_id=1206,
     plane_id=2021201,
 )
 Cavern_of_Corrosion_Path_of_Elixir_Seekers = DungeonList(
@@ -471,6 +517,7 @@ Cavern_of_Corrosion_Path_of_Elixir_Seekers = DungeonList(
     en='Cavern of Corrosion: Path of Elixir Seekers',
     jp='侵蝕トンネル・薬使の路',
     es='Senda de los elixires',
+    dungeon_id=1207,
     plane_id=2023101,
 )
 Cavern_of_Corrosion_Path_of_Darkness = DungeonList(
@@ -481,6 +528,7 @@ Cavern_of_Corrosion_Path_of_Darkness = DungeonList(
     en='Cavern of Corrosion: Path of Darkness',
     jp='侵蝕トンネル・幽冥の路',
     es='Senda de la oscuridad',
+    dungeon_id=1208,
     plane_id=2022301,
 )
 Cavern_of_Corrosion_Path_of_Dreamdive = DungeonList(
@@ -491,6 +539,7 @@ Cavern_of_Corrosion_Path_of_Dreamdive = DungeonList(
     en='Cavern of Corrosion: Path of Dreamdive',
     jp='侵蝕トンネル・夢潜の路',
     es='Senda de los sueños',
+    dungeon_id=1209,
     plane_id=2031101,
 )
 Echo_of_War_Destruction_Beginning = DungeonList(
@@ -501,6 +550,7 @@ Echo_of_War_Destruction_Beginning = DungeonList(
     en="Echo of War: Destruction's Beginning",
     jp='歴戦余韻・壊滅の始まり',
     es='El principio de la Destrucción',
+    dungeon_id=1301,
     plane_id=2000301,
 )
 Echo_of_War_End_of_the_Eternal_Freeze = DungeonList(
@@ -511,6 +561,7 @@ Echo_of_War_End_of_the_Eternal_Freeze = DungeonList(
     en='Echo of War: End of the Eternal Freeze',
     jp='歴戦余韻・寒波の幕切れ',
     es='El fin del Hielo Eterno',
+    dungeon_id=1302,
     plane_id=2013401,
 )
 Echo_of_War_Divine_Seed = DungeonList(
@@ -521,6 +572,7 @@ Echo_of_War_Divine_Seed = DungeonList(
     en='Echo of War: Divine Seed',
     jp='歴戦余韻・不死の神実',
     es='Semilla divina',
+    dungeon_id=1303,
     plane_id=2023201,
 )
 Echo_of_War_Borehole_Planet_Old_Crater = DungeonList(
@@ -531,6 +583,7 @@ Echo_of_War_Borehole_Planet_Old_Crater = DungeonList(
     en="Echo of War: Borehole Planet's Old Crater",
     jp='歴戦余韻・星を蝕む往日の面影',
     es='Cráter del planeta devorado',
+    dungeon_id=1304,
     plane_id=2000401,
 )
 Echo_of_War_Salutations_of_Ashen_Dreams = DungeonList(
@@ -541,6 +594,7 @@ Echo_of_War_Salutations_of_Ashen_Dreams = DungeonList(
     en='Echo of War: Salutations of Ashen Dreams',
     jp='歴戦余韻・現世の夢の礼賛',
     es='Ecos de la guerra: Tributo del sueño ceniciento',
+    dungeon_id=1305,
     plane_id=2033201,
 )
 Simulated_Universe_World_1 = DungeonList(
@@ -551,6 +605,7 @@ Simulated_Universe_World_1 = DungeonList(
     en='Simulated Universe: World 1',
     jp='第一世界・模擬宇宙',
     es='Mundo 1',
+    dungeon_id=110,
     plane_id=100000104,
 )
 Simulated_Universe_World_3 = DungeonList(
@@ -561,6 +616,7 @@ Simulated_Universe_World_3 = DungeonList(
     en='Simulated Universe: World 3',
     jp='第三世界・模擬宇宙',
     es='Mundo 3',
+    dungeon_id=130,
     plane_id=100000104,
 )
 Simulated_Universe_World_4 = DungeonList(
@@ -571,6 +627,7 @@ Simulated_Universe_World_4 = DungeonList(
     en='Simulated Universe: World 4',
     jp='第四世界・模擬宇宙',
     es='Mundo 4',
+    dungeon_id=140,
     plane_id=100000104,
 )
 Simulated_Universe_World_5 = DungeonList(
@@ -581,6 +638,7 @@ Simulated_Universe_World_5 = DungeonList(
     en='Simulated Universe: World 5',
     jp='第五世界・模擬宇宙',
     es='Mundo 5',
+    dungeon_id=150,
     plane_id=100000104,
 )
 Simulated_Universe_World_6 = DungeonList(
@@ -591,6 +649,7 @@ Simulated_Universe_World_6 = DungeonList(
     en='Simulated Universe: World 6',
     jp='第六世界・模擬宇宙',
     es='Mundo 6',
+    dungeon_id=160,
     plane_id=100000104,
 )
 Simulated_Universe_World_7 = DungeonList(
@@ -601,6 +660,7 @@ Simulated_Universe_World_7 = DungeonList(
     en='Simulated Universe: World 7',
     jp='第七世界・模擬宇宙',
     es='Mundo 7',
+    dungeon_id=170,
     plane_id=100000104,
 )
 Simulated_Universe_World_8 = DungeonList(
@@ -611,6 +671,7 @@ Simulated_Universe_World_8 = DungeonList(
     en='Simulated Universe: World 8',
     jp='第八世界・模擬宇宙',
     es='Mundo 8',
+    dungeon_id=180,
     plane_id=100000104,
 )
 Simulated_Universe_World_9 = DungeonList(
@@ -621,6 +682,7 @@ Simulated_Universe_World_9 = DungeonList(
     en='Simulated Universe: World 9',
     jp='第九世界・模擬宇宙',
     es='Mundo 9',
+    dungeon_id=190,
     plane_id=100000104,
 )
 Simulated_Universe_The_Swarm_Disaster = DungeonList(
@@ -631,6 +693,7 @@ Simulated_Universe_The_Swarm_Disaster = DungeonList(
     en='The Swarm Disaster',
     jp='宇宙の蝗害',
     es='La Plaga',
+    dungeon_id=-1,
     plane_id=-1,
 )
 Simulated_Universe_Gold_and_Gears = DungeonList(
@@ -641,6 +704,7 @@ Simulated_Universe_Gold_and_Gears = DungeonList(
     en='Gold and Gears',
     jp='黄金と機械',
     es='Oro y maquinaria',
+    dungeon_id=-1,
     plane_id=-1,
 )
 Memory_of_Chaos = DungeonList(
@@ -651,6 +715,7 @@ Memory_of_Chaos = DungeonList(
     en='Memory of Chaos',
     jp='混沌の記憶',
     es='Evocación caótica',
+    dungeon_id=-1,
     plane_id=-1,
 )
 The_Voyage_of_Navis_Astriger = DungeonList(
@@ -661,6 +726,7 @@ The_Voyage_of_Navis_Astriger = DungeonList(
     en='The Voyage of Navis Astriger',
     jp='天艟求仙放浪記',
     es='El viaje de las naves astriger',
+    dungeon_id=-1,
     plane_id=-1,
 )
 The_Last_Vestiges_of_Towering_Citadel = DungeonList(
@@ -671,5 +737,6 @@ The_Last_Vestiges_of_Towering_Citadel = DungeonList(
     en='The Last Vestiges of Towering Citadel',
     jp='永屹の城の秘密',
     es='Herencia de la Ciudadela Imponente',
+    dungeon_id=-1,
     plane_id=-1,
 )

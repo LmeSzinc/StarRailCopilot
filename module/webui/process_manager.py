@@ -151,6 +151,10 @@ class ProcessManager:
                 from tasks.base.daemon import Daemon
 
                 Daemon(config=config_name, task="Daemon").run()
+            elif func == "PlannerScan":
+                from tasks.planner.scan import PlannerScan
+
+                PlannerScan(config=config_name, task="PlannerScan").run()
             else:
                 logger.critical(f"No function matched: {func}")
             logger.info(f"[{config_name}] exited. Reason: Finish\n")

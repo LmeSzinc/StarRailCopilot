@@ -7,10 +7,11 @@ Star Rail Copilot, un bot para Honkai: Star Rail, basado en la siguiente generac
 
 ## Características
 
-- **Mazmorras**: Mazmorras, y mazmorras en eventos de doble recompensa (materiales de XP de personaje, de conos de luz, rastros, ascensión, artefactos...), ecos de la guerra.
+- **Mazmorras**: [Planificador de personajes](https://github.com/LmeSzinc/StarRailCopilot/wiki/Planner_cn), Mazmorras, y mazmorras en eventos de doble recompensa (materiales de XP de personaje, de conos de luz, rastros, ascensión, artefactos...), ecos de la guerra.
 - **Recompensas diarias**: Se completan las misiones de actividad diarias, la misión diaria, las misiones de Honor Anónimo...
 - **Universo Simulado**: Farm SU hasta alcanzar el límite de puntos semanal, farm planars usando poder trazacaminos.
 - **Farmeo automático AFK**: El bot lo hace todo de manera automática, abre los emuladores, completa las misiones y realiza las tareas diarias, realice un seguimiento de los recursos a través del panel.
+- **Juegos en la nube**: [solo CN] Compatible con Cloud HSR.
 
 ## Instalación [![](https://img.shields.io/github/downloads/LmeSzinc/StarRailCopilot/total?color=4e4c97)](https://github.com/LmeSzinc/StarRailCopilot/releases)
 Dirígete a la [Guía de Instalación](https://github.com/LmeSzinc/StarRailCopilot/wiki/Installation_en) para consultar cómo hacer la instalación automática, el manual de uso, etc.

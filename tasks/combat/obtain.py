@@ -30,10 +30,11 @@ class CombatObtain(PlannerMixin):
     # True to exit and reenter to get obtained items
     obtain_frequent_check = False
 
-    def _obtain_enter(self, entry, skip_first_screenshot=True):
+    def _obtain_enter(self, entry, appear_button, skip_first_screenshot=True):
         """
         Args:
             entry: Item entry
+            appear_button:
             skip_first_screenshot:
 
         Pages:
@@ -41,7 +42,7 @@ class CombatObtain(PlannerMixin):
             out: ITEM_CLOSE
         """
         logger.info(f'Obtain enter {entry}')
-        self.interval_clear(COMBAT_PREPARE)
+        self.interval_clear(appear_button)
         while 1:
             if skip_first_screenshot:
                 skip_first_screenshot = False
@@ -50,9 +51,9 @@ class CombatObtain(PlannerMixin):
 
             if self.appear(ITEM_CLOSE):
                 break
-            if self.appear(COMBAT_PREPARE, interval=2):
+            if self.appear(appear_button, interval=2):
                 self.device.click(entry)
-                self.interval_reset(COMBAT_PREPARE)
+                self.interval_reset(appear_button)
                 continue
 
         # Wait animation
@@ -70,9 +71,10 @@ class CombatObtain(PlannerMixin):
                 logger.warning('Wait obtain item timeout')
                 break
 
-    def _obtain_close(self, skip_first_screenshot=True):
+    def _obtain_close(self, check_button, skip_first_screenshot=True):
         """
         Args:
+            check_button:
             skip_first_screenshot:
 
         Pages:
@@ -87,8 +89,13 @@ class CombatObtain(PlannerMixin):
             else:
                 self.device.screenshot()
 
-            if not self.appear(ITEM_CLOSE) and self.appear(COMBAT_PREPARE) and self.appear(MAY_OBTAIN):
-                break
+            if not self.appear(ITEM_CLOSE):
+                if callable(check_button):
+                    if check_button():
+                        break
+                else:
+                    if self.appear(check_button):
+                        break
             if self.appear_then_click(ITEM_CLOSE, interval=2):
                 continue
 
@@ -219,7 +226,7 @@ class CombatObtain(PlannerMixin):
                 logger.error(f'No obtain entry for {entry_index}')
                 break
 
-            self._obtain_enter(entry)
+            self._obtain_enter(entry, appear_button=COMBAT_PREPARE)
             item = self._obtain_parse()
             if item.item == KEYWORDS_ITEM_CURRENCY.Trailblaze_EXP:
                 logger.warning('Trailblaze_EXP is in obtain list, OBTAIN_TRAILBLAZE_EXP may need to verify')
@@ -229,7 +236,7 @@ class CombatObtain(PlannerMixin):
                 items.append(item)
                 index += 1
                 prev = item
-            self._obtain_close()
+            self._obtain_close(check_button=MAY_OBTAIN)
 
         logger.hr('Obtained Result')
         for item in items:

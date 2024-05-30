@@ -296,6 +296,8 @@ class Combat(CombatInteract, CombatPrepare, CombatState, CombatTeam, CombatSuppo
             # Game client might slow to response COMBAT_AGAIN clicks
             if self.appear(COMBAT_AGAIN, interval=5):
                 add_wave_done()
+                # Update obtain_frequent_check
+                self.obtained_is_full(dungeon=self.dungeon, wave_done=self.combat_wave_done, obtain_get=False)
                 # Cache the result of _combat_can_again() as no expected stamina reduce during retry
                 if combat_can_again is None:
                     combat_can_again = self._combat_can_again()

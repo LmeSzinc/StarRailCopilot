@@ -231,8 +231,10 @@ class Dungeon(DungeonStamina, DungeonEvent, Combat):
             dungeon = DungeonList.find(self.config.Dungeon_NameAtDoubleCalyx)
             if planner is not None:
                 dungeon = planner
+                self.is_doing_planner = True
             self.running_double = True
             self.dungeon_run(dungeon=dungeon, wave_limit=self.config.stored.DungeonDouble.calyx)
+            self.is_doing_planner = False
         # Double relic
         if self.config.stored.DungeonDouble.relic > 0:
             logger.info('Run double relic')
@@ -256,6 +258,7 @@ class Dungeon(DungeonStamina, DungeonEvent, Combat):
         planner = self.planner.get_dungeon()
         if planner is not None:
             final = planner
+            self.is_doing_planner = True
 
         # Check daily
         if self.achieved_daily_quest:
@@ -271,6 +274,7 @@ class Dungeon(DungeonStamina, DungeonEvent, Combat):
             if self.require_compulsory_support():
                 logger.info('Run dungeon with support once as stamina is rogue prioritized')
                 self.dungeon_run(dungeon=final, wave_limit=1)
+                self.is_doing_planner = False
             # Store immersifiers
             logger.info('Prioritize stamina for simulated universe, skip dungeon')
             amount = 0
@@ -290,6 +294,7 @@ class Dungeon(DungeonStamina, DungeonEvent, Combat):
         else:
             # Combat
             self.dungeon_run(final)
+            self.is_doing_planner = False
             self.delay_dungeon_task(final)
 
     def delay_dungeon_task(self, dungeon: DungeonList):

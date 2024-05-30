@@ -4,6 +4,9 @@ from tasks.item.keywords import KEYWORDS_ITEM_TAB
 from tasks.relics.ui import RelicsUI
 
 class RelicsSalvage(RelicsUI):
+    """Component of Relics class.
+    Contains methods of relic salvage.
+    """
     def salvage(self, skip_first_screenshot=True) -> bool:
         """Salvages useless relics.
 

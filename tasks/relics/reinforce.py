@@ -5,6 +5,9 @@ from tasks.relics.ui import RelicsUI
 
 
 class RelicsReinforce(RelicsUI):
+    """Component of Relics class.
+    Contains methods of relic reinforcement.
+    """
     def reinforce(self, skip_first_screenshot=True) -> bool:
         """Reinforce relics.
 

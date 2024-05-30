@@ -422,6 +422,10 @@ class LoginAndroidCloud(ModuleBase):
             out: XPath.START_GAME
         """
         logger.hr('Cloud exit')
+        if not self.device.app_is_running():
+            logger.info('App is not running, no need to exit')
+            return
+
         while 1:
             if skip_first:
                 skip_first = False
@@ -474,6 +478,8 @@ class LoginAndroidCloud(ModuleBase):
                     ]
                     if current != prev:
                         break
+
+        logger.info('Cloud exited')
 
     def cloud_keep_alive(self):
         """

@@ -6,6 +6,7 @@ from module.base.utils import area_center, area_in_area
 from module.logger import logger
 from module.ocr.ocr import Ocr, OcrWhiteLetterOnComplexBackground
 from module.ui.scroll import AdaptiveScroll
+from tasks.base.page import page_planner
 from tasks.daily.synthesize import SynthesizeUI
 from tasks.planner.assets.assets_planner_result import *
 from tasks.planner.keywords import ITEM_CLASSES
@@ -167,6 +168,10 @@ class PlannerScan(SynthesizeUI, PlannerMixin):
             in: planner result
         """
         logger.hr('Parse planner result', level=2)
+        if not self.ui_page_appear(page_planner):
+            logger.error('Not in page_planner, game must in the planner result page before scanning')
+            return []
+
         scroll = AdaptiveScroll(RESULT_SCROLL.button, name=RESULT_SCROLL.name)
         scroll.drag_threshold = 0.1
         scroll.edge_threshold = 0.1

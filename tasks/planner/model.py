@@ -65,9 +65,9 @@ class BaseModelWithFallback(BaseModel):
 
 
 class MultiValue(BaseModelWithFallback):
-    green: int = 0
-    blue: int = 0
     purple: int = 0
+    blue: int = 0
+    green: int = 0
 
     def add(self, other: "MultiValue"):
         self.green += other.green

@@ -119,7 +119,7 @@ class AzurLaneAutoScript:
             logger.error(e)
             return False
         except ScriptError as e:
-            logger.critical(e)
+            logger.exception(e)
             logger.critical('This is likely to be a mistake of developers, but sometimes just random issues')
             handle_notify(
                 self.config.Error_OnePushConfig,

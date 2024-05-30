@@ -5,12 +5,15 @@ import threading
 from multiprocessing import Process
 from typing import Dict, List, Union
 
+import inflection
 from filelock import FileLock
+from rich.console import Console, ConsoleRenderable
+
 from module.config.utils import filepath_config
 from module.logger import logger, set_file_logger, set_func_logger
 from module.webui.fake import get_config_mod, mod_instance
 from module.webui.setting import State
-from rich.console import Console, ConsoleRenderable
+from module.webui.submodule.utils import get_available_func
 
 
 class ProcessManager:
@@ -147,14 +150,10 @@ class ProcessManager:
                 if e is not None:
                     AzurLaneAutoScript.stop_event = e
                 StarRailCopilot(config_name=config_name).loop()
-            elif func == "Daemon":
-                from tasks.base.daemon import Daemon
+            elif func in get_available_func():
+                from src import StarRailCopilot
 
-                Daemon(config=config_name, task="Daemon").run()
-            elif func == "PlannerScan":
-                from tasks.planner.scan import PlannerScan
-
-                PlannerScan(config=config_name, task="PlannerScan").run()
+                StarRailCopilot(config_name=config_name).run(inflection.underscore(func))
             else:
                 logger.critical(f"No function matched: {func}")
             logger.info(f"[{config_name}] exited. Reason: Finish\n")

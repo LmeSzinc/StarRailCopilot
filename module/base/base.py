@@ -28,6 +28,8 @@ class ModuleBase:
         """
         if isinstance(config, AzurLaneConfig):
             self.config = config
+            if task is not None:
+                self.config.init_task(task)
         elif isinstance(config, str):
             self.config = AzurLaneConfig(config, task=task)
         else:

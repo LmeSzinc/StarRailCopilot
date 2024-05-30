@@ -8,7 +8,7 @@ from tasks.item.ui import ItemUI
 
 class RelicsUI(ItemUI):
     def _is_in_salvage(self) -> bool:
-        return self.appear(ORDER_ASCENDING) or self.appear(ORDER_DESCENDING)
+        return self.appear(SALVAGE_ORDER_ASCENDING) or self.appear(SALVAGE_ORDER_DESCENDING)
 
     def salvage_exit(self, skip_first_screenshot=True):
         """
@@ -80,9 +80,9 @@ class RelicsUI(ItemUI):
             if self.image_color_count(FIRST_RELIC_SELECTED, color=(245, 245, 245), threshold=221, count=300):
                 logger.info('First relic selected')
                 break
-            if self.appear_then_click(ORDER_DESCENDING, interval=2):
+            if self.appear_then_click(SALVAGE_ORDER_DESCENDING, interval=2):
                 continue
-            if interval.reached() and self.appear(ORDER_ASCENDING) \
+            if interval.reached() and self.appear(SALVAGE_ORDER_ASCENDING) \
                     and self.image_color_count(FIRST_RELIC, (233, 192, 108)):
                 self.device.click(FIRST_RELIC)
                 interval.reset()

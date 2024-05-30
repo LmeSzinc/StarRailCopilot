@@ -58,6 +58,18 @@ class StarRailCopilot(AzurLaneAutoScript):
         from tasks.rogue.rogue import Rogue
         Rogue(config=self.config, device=self.device).run()
 
+    def benchmark(self):
+        from module.daemon.benchmark import run_benchmark
+        run_benchmark(config=self.config)
+
+    def daemon(self):
+        from tasks.base.daemon import Daemon
+        Daemon(config=self.config, device=self.device, task="Daemon").run()
+
+    def planner_scan(self):
+        from tasks.planner.scan import PlannerScan
+        PlannerScan(config=self.config, device=self.device, task="PlannerScan").run()
+
 
 if __name__ == '__main__':
     src = StarRailCopilot('src')

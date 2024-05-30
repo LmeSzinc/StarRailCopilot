@@ -18,6 +18,7 @@ from tasks.map.control.joystick import MapControlJoystick
 class Combat(CombatInteract, CombatPrepare, CombatState, CombatTeam, CombatSupport, CombatSkill, CombatObtain,
              MapControlJoystick):
     dungeon: DungeonList | None = None
+    is_doing_planner: bool = False
 
     def handle_combat_prepare(self):
         """
@@ -243,8 +244,13 @@ class Combat(CombatInteract, CombatPrepare, CombatState, CombatTeam, CombatSuppo
                 return True
         # Stamina
         if self.config.stored.TrailblazePower.value < self.combat_wave_cost:
-            logger.info('Current trailblaze power is not enough for next run')
-            return False
+            if self.is_doing_planner:
+                logger.info('Current trailblaze power is not enough for next run, '
+                            're-enter combat to check obtained items')
+                return True
+            else:
+                logger.info('Current trailblaze power is not enough for next run')
+                return False
         # Wave limit
         if self.combat_wave_limit:
             if self.combat_wave_done < self.combat_wave_limit:
@@ -296,6 +302,8 @@ class Combat(CombatInteract, CombatPrepare, CombatState, CombatTeam, CombatSuppo
             # Game client might slow to response COMBAT_AGAIN clicks
             if self.appear(COMBAT_AGAIN, interval=5):
                 add_wave_done()
+                # Update obtain_frequent_check
+                self.obtained_is_full(dungeon=self.dungeon, wave_done=self.combat_wave_done, obtain_get=False)
                 # Cache the result of _combat_can_again() as no expected stamina reduce during retry
                 if combat_can_again is None:
                     combat_can_again = self._combat_can_again()

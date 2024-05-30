@@ -11,8 +11,6 @@ DICT_SORTED_RANGES = {
         Welt,
         Aventurine,
         FuXuan,
-        # Slow bullet
-        Robin,
         # Longer precast
         BlackSwan,
     ],
@@ -22,6 +20,7 @@ DICT_SORTED_RANGES = {
     ],
     # Archer
     'Archer': [
+        Boothill,
         Yukong,
         TopazNumby,
         March7th,
@@ -29,6 +28,8 @@ DICT_SORTED_RANGES = {
         Asta,
         Pela,
         Qingque,
+        # Slow bullet
+        Robin,
     ],
     # Archer, but her parabolic trajectory has 0% accuracy on moving targets
     'ArcherSecondary': [

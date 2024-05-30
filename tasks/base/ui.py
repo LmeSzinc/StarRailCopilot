@@ -59,8 +59,9 @@ class UI(MainPage):
 
         @run_once
         def cloud_login():
-            from tasks.login.login import Login
-            Login(config=self.config, device=self.device).cloud_login()
+            if self.config.is_cloud_game:
+                from tasks.login.login import Login
+                Login(config=self.config, device=self.device).cloud_login()
 
         timeout = Timer(10, count=20).start()
         while 1:

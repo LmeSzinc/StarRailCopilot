@@ -119,7 +119,7 @@ class AzurLaneAutoScript:
             logger.error(e)
             return False
         except ScriptError as e:
-            logger.critical(e)
+            logger.exception(e)
             logger.critical('This is likely to be a mistake of developers, but sometimes just random issues')
             handle_notify(
                 self.config.Error_OnePushConfig,
@@ -204,7 +204,8 @@ class AzurLaneAutoScript:
                     if not self.wait_until(task.next_run):
                         del_cached_property(self, 'config')
                         continue
-                    self.run('start')
+                    if task.command != 'Restart':
+                        self.run('start')
                 elif method == 'goto_main':
                     logger.info('Goto main page during wait')
                     self.run('goto_main')

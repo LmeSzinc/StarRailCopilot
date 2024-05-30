@@ -253,7 +253,7 @@ class CombatObtain(PlannerMixin):
         self.planner_write()
         return items
 
-    def obtained_is_full(self, dungeon: DungeonList | None, wave_done=0) -> bool:
+    def obtained_is_full(self, dungeon: DungeonList | None, wave_done=0, obtain_get=True) -> bool:
         if dungeon is None:
             self.obtain_frequent_check = False
             return False
@@ -263,7 +263,8 @@ class CombatObtain(PlannerMixin):
             return False
 
         # Update
-        self.obtain_get(dungeon)
+        if obtain_get:
+            self.obtain_get(dungeon)
 
         # Check progress
         row = self.planner.row_come_from_dungeon(dungeon)

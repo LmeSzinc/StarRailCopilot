@@ -443,7 +443,37 @@ class LoginAndroidCloud(ModuleBase):
                 continue
 
         # Update remain
-        self._cloud_get_remain()
+        if self.config.stored.CloudRemainSeasonPass:
+            self._cloud_get_remain()
+        else:
+            # Wait cloud remain reduce
+            # Value wasn't updated that fast at the time re-entering XPath.START_GAME
+            skip_first = True
+            timeout = Timer(2, count=4).start()
+            prev = [
+                self.config.stored.CloudRemainSeasonPass.value,
+                self.config.stored.CloudRemainPaid.value,
+                self.config.stored.CloudRemainFree.value,
+            ]
+            with self.config.multi_set():
+                while 1:
+                    if skip_first:
+                        skip_first = False
+                    else:
+                        self.device.dump_hierarchy()
+
+                    # End
+                    if timeout.reached():
+                        logger.warning('Wait cloud remain reduce timeout')
+                        break
+                    self._cloud_get_remain()
+                    current = [
+                        self.config.stored.CloudRemainSeasonPass.value,
+                        self.config.stored.CloudRemainPaid.value,
+                        self.config.stored.CloudRemainFree.value,
+                    ]
+                    if current != prev:
+                        break
 
     def cloud_keep_alive(self):
         """

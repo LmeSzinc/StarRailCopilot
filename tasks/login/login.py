@@ -83,6 +83,8 @@ class Login(UI, LoginAndroidCloud):
 
     def app_stop(self):
         logger.hr('App stop')
+        if self.config.is_cloud_game:
+            self.cloud_exit()
         self.device.app_stop()
 
     def app_start(self):
@@ -102,18 +104,3 @@ class Login(UI, LoginAndroidCloud):
             self.device.app_start()
             self.handle_app_login()
         self.config.task_delay(server_update=True)
-
-    def cloud_start(self):
-        if not self.config.is_cloud_game:
-            return
-
-        logger.hr('Cloud start')
-        self.cloud_ensure_ingame()
-        self.handle_app_login()
-
-    def cloud_stop(self):
-        if not self.config.is_cloud_game:
-            return
-
-        logger.hr('Cloud stop')
-        self.app_stop()

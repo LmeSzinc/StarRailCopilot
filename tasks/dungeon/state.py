@@ -141,21 +141,26 @@ class DungeonState(UI):
             limit = 60
 
         # Double event is not yet finished, do it today as possible
-        diff = get_server_next_update('04:00') - now()
+        update = get_server_next_update(self.config.Scheduler_ServerUpdate)
+        diff = update - now()
+        run_double = False
         if self.config.stored.DungeonDouble.relic > 0:
             if diff < timedelta(hours=4):
                 # 4h recover 40 stamina, run double relic at today
                 logger.info(f'Just less than 4h til the next day, '
                             f'double relic event is not yet finished, wait until 40')
+                run_double = True
                 limit = 40
         if self.config.stored.DungeonDouble.calyx > 0:
             if diff < timedelta(hours=3):
                 logger.info(f'Just less than 3h til the next day, '
                             f'double calyx event is not yet finished, wait until 10')
+                run_double = True
                 limit = 10
             elif diff < timedelta(hours=6):
                 logger.info(f'Just less than 6h til the next day, '
                             f'double calyx event is not yet finished, wait until 30')
+                run_double = True
                 limit = 30
 
         # Recover 1 trailbaze power each 6 minutes
@@ -163,6 +168,11 @@ class DungeonState(UI):
         cover = max(limit - current, 0) * 6
         future = now() + timedelta(minutes=cover)
         logger.info(f'Currently has {current} need {cover} minutes to reach {limit}')
+
+        # Align server update
+        if not run_double and update - future < timedelta(hours=2):
+            logger.info('Approaching next day, delay to server update instead')
+            future = update
 
         # Save stamina for the next week
         next_monday = get_server_next_monday_update('04:00')

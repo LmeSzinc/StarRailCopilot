@@ -67,6 +67,23 @@ GOTO_SALVAGE_FILTER = ButtonWrapper(
         button=(443, 647, 465, 670),
     ),
 )
+MAIN_STAT_PANEL = ButtonWrapper(
+    name='MAIN_STAT_PANEL',
+    cn=Button(
+        file='./assets/cn/relics/MAIN_STAT_PANEL.png',
+        area=(225, 221, 281, 241),
+        search=(205, 201, 301, 261),
+        color=(153, 153, 154),
+        button=(225, 221, 281, 241),
+    ),
+    en=Button(
+        file='./assets/en/relics/MAIN_STAT_PANEL.png',
+        area=(225, 223, 308, 240),
+        search=(205, 203, 328, 260),
+        color=(157, 157, 158),
+        button=(225, 223, 308, 240),
+    ),
+)
 MAIN_STAT_SELECT = ButtonWrapper(
     name='MAIN_STAT_SELECT',
     cn=Button(
@@ -79,7 +96,7 @@ MAIN_STAT_SELECT = ButtonWrapper(
     en=Button(
         file='./assets/en/relics/MAIN_STAT_SELECT.png',
         area=(832, 365, 925, 383),
-        search=(812, 345, 945, 403),
+        search=(831, 96, 927, 580),
         color=(73, 73, 75),
         button=(832, 394, 872, 434),
     ),
@@ -121,6 +138,23 @@ SALVAGE_ORDER_DESCENDING = ButtonWrapper(
         button=(720, 649, 738, 667),
     ),
 )
+SET_PANEL = ButtonWrapper(
+    name='SET_PANEL',
+    cn=Button(
+        file='./assets/cn/relics/SET_PANEL.png',
+        area=(226, 222, 298, 241),
+        search=(206, 202, 318, 261),
+        color=(138, 138, 139),
+        button=(226, 222, 298, 241),
+    ),
+    en=Button(
+        file='./assets/en/relics/SET_PANEL.png',
+        area=(226, 223, 351, 240),
+        search=(206, 203, 371, 260),
+        color=(163, 163, 164),
+        button=(226, 223, 351, 240),
+    ),
+)
 SET_SELECT = ButtonWrapper(
     name='SET_SELECT',
     cn=Button(
@@ -133,7 +167,7 @@ SET_SELECT = ButtonWrapper(
     en=Button(
         file='./assets/en/relics/SET_SELECT.png',
         area=(832, 117, 864, 135),
-        search=(812, 97, 884, 155),
+        search=(831, 96, 866, 580),
         color=(79, 78, 81),
         button=(832, 146, 872, 186),
     ),
@@ -143,6 +177,23 @@ SET_SELECT = ButtonWrapper(
         search=(812, 126, 892, 206),
         color=(236, 186, 105),
         button=(832, 146, 872, 186),
+    ),
+)
+SUB_STAT_PANEL = ButtonWrapper(
+    name='SUB_STAT_PANEL',
+    cn=Button(
+        file='./assets/cn/relics/SUB_STAT_PANEL.png',
+        area=(226, 252, 281, 271),
+        search=(206, 232, 301, 291),
+        color=(143, 143, 143),
+        button=(226, 252, 281, 271),
+    ),
+    en=Button(
+        file='./assets/en/relics/SUB_STAT_PANEL.png',
+        area=(226, 253, 371, 274),
+        search=(206, 233, 391, 294),
+        color=(168, 168, 169),
+        button=(226, 253, 371, 274),
     ),
 )
 SUB_STAT_SELECT = ButtonWrapper(
@@ -157,7 +208,7 @@ SUB_STAT_SELECT = ButtonWrapper(
     en=Button(
         file='./assets/en/relics/SUB_STAT_SELECT.png',
         area=(832, 463, 994, 485),
-        search=(812, 443, 1014, 505),
+        search=(831, 96, 998, 486),
         color=(65, 67, 72),
         button=(832, 580, 872, 620),
     ),

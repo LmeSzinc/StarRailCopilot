@@ -198,6 +198,84 @@ class RelicsUI(ItemUI):
             if self.handle_popup_confirm():
                 continue
 
+    def relic_filter_goto_set_selection(self, skip_first_screenshot=True) -> bool:
+        """relic filter -> set filter selection
+
+        Args:
+            skip_first_screenshot (bool, optional): Defaults to True.
+
+        Returns:
+            bool: True means reached set filter selection
+
+        Pages:
+            in: relic filter
+            out: set filter selection
+        """
+        # Enhance filter button is in a different location compared to salvage filter.
+        while 1:
+            if skip_first_screenshot:
+                skip_first_screenshot = False
+            else:
+                self.device.screenshot()
+
+            if self.appear(SET_PANEL):
+                logger.info('set select panel reached')
+                return True
+            if self.appear_then_click(SET_SELECT, interval=2):
+                continue
+            
+    def relic_filter_goto_main_stat_selection(self, skip_first_screenshot=True) -> bool:
+        """relic filter -> main stat filter selection
+
+        Args:
+            skip_first_screenshot (bool, optional): Defaults to True.
+
+        Returns:
+            bool: True means reached main stat filter selection
+
+        Pages:
+            in: relic filter
+            out: main stat filter selection
+        """
+        # Enhance filter button is in a different location compared to salvage filter.
+        while 1:
+            if skip_first_screenshot:
+                skip_first_screenshot = False
+            else:
+                self.device.screenshot()
+
+            if self.appear(MAIN_STAT_PANEL):
+                logger.info('set select panel reached')
+                return True
+            if self.appear_then_click(MAIN_STAT_SELECT, interval=2):
+                continue
+            
+    def relic_filter_goto_sub_stat_selection(self, skip_first_screenshot=True) -> bool:
+        """relic filter -> sub stat filter selection
+
+        Args:
+            skip_first_screenshot (bool, optional): Defaults to True.
+
+        Returns:
+            bool: True means reached sub stat filter selection
+
+        Pages:
+            in: relic filter
+            out: sub stat filter selection
+        """
+        # Enhance filter button is in a different location compared to salvage filter.
+        while 1:
+            if skip_first_screenshot:
+                skip_first_screenshot = False
+            else:
+                self.device.screenshot()
+
+            if self.appear(SUB_STAT_PANEL):
+                logger.info('set select panel reached')
+                return True
+            if self.appear_then_click(SUB_STAT_SELECT, interval=2):
+                continue
+
 
 
 if __name__ == '__main__':

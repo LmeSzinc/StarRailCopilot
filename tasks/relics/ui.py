@@ -39,7 +39,7 @@ class RelicsUI(ItemUI):
                 continue
 
     def _is_in_relic_filter(self) -> bool:
-        return self.appear(SET_SELECT) and self.appear(MAIN_STAT_SELECT)
+        return self.appear(FILTER_CONFIRM) and self.appear(FILTER_RESET)
 
     def item_goto_salvage(self, skip_first_screenshot=True) -> bool:
         """item/relic -> salvage
@@ -201,6 +201,6 @@ class RelicsUI(ItemUI):
 
 
 if __name__ == '__main__':
-    ui = RelicsUI('src', task='Alas')
-    ui.image_file = r"Screenshot_2024.05.24_21.36.38.511.png"
+    ui = RelicsUI('src')
+    ui.image_file = r"Screenshot_2024.05.31_02.00.56.554.png"
     print(ui.appear(SUB_STAT_SELECT))

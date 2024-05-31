@@ -7,34 +7,34 @@ FILTER_CONFIRM = ButtonWrapper(
     name='FILTER_CONFIRM',
     cn=Button(
         file='./assets/cn/relics/FILTER_CONFIRM.png',
-        area=(1008, 640, 1248, 688),
-        search=(988, 620, 1268, 708),
-        color=(208, 208, 209),
-        button=(1008, 640, 1248, 688),
+        area=(1107, 653, 1149, 674),
+        search=(1087, 633, 1169, 694),
+        color=(161, 161, 161),
+        button=(1107, 653, 1149, 674),
     ),
     en=Button(
         file='./assets/en/relics/FILTER_CONFIRM.png',
-        area=(1008, 640, 1248, 688),
-        search=(988, 620, 1268, 708),
-        color=(206, 206, 207),
-        button=(1008, 640, 1248, 688),
+        area=(1088, 655, 1167, 673),
+        search=(1068, 635, 1187, 693),
+        color=(166, 166, 166),
+        button=(1088, 655, 1167, 673),
     ),
 )
 FILTER_RESET = ButtonWrapper(
     name='FILTER_RESET',
     cn=Button(
         file='./assets/cn/relics/FILTER_RESET.png',
-        area=(832, 640, 992, 688),
-        search=(812, 620, 1012, 708),
-        color=(199, 199, 200),
-        button=(832, 640, 992, 688),
+        area=(891, 653, 932, 673),
+        search=(871, 633, 952, 693),
+        color=(135, 135, 135),
+        button=(891, 653, 932, 673),
     ),
     en=Button(
         file='./assets/en/relics/FILTER_RESET.png',
-        area=(832, 640, 992, 688),
-        search=(812, 620, 1012, 708),
-        color=(200, 200, 201),
-        button=(832, 640, 992, 688),
+        area=(884, 655, 940, 673),
+        search=(864, 635, 960, 693),
+        color=(157, 157, 157),
+        button=(884, 655, 940, 673),
     ),
 )
 GOTO_ENHANCE_FILTER = ButtonWrapper(
@@ -69,6 +69,20 @@ GOTO_SALVAGE_FILTER = ButtonWrapper(
 )
 MAIN_STAT_SELECT = ButtonWrapper(
     name='MAIN_STAT_SELECT',
+    cn=Button(
+        file='./assets/cn/relics/MAIN_STAT_SELECT.png',
+        area=(832, 363, 892, 384),
+        search=(831, 96, 894, 580),
+        color=(82, 82, 84),
+        button=(832, 394, 872, 434),
+    ),
+    en=Button(
+        file='./assets/en/relics/MAIN_STAT_SELECT.png',
+        area=(832, 365, 925, 383),
+        search=(812, 345, 945, 403),
+        color=(73, 73, 75),
+        button=(832, 394, 872, 434),
+    ),
     share=Button(
         file='./assets/share/relics/MAIN_STAT_SELECT.png',
         area=(832, 394, 872, 434),
@@ -109,6 +123,20 @@ SALVAGE_ORDER_DESCENDING = ButtonWrapper(
 )
 SET_SELECT = ButtonWrapper(
     name='SET_SELECT',
+    cn=Button(
+        file='./assets/cn/relics/SET_SELECT.png',
+        area=(832, 116, 872, 136),
+        search=(831, 96, 880, 580),
+        color=(91, 91, 93),
+        button=(832, 146, 872, 186),
+    ),
+    en=Button(
+        file='./assets/en/relics/SET_SELECT.png',
+        area=(832, 117, 864, 135),
+        search=(812, 97, 884, 155),
+        color=(79, 78, 81),
+        button=(832, 146, 872, 186),
+    ),
     share=Button(
         file='./assets/share/relics/SET_SELECT.png',
         area=(832, 146, 872, 186),
@@ -119,6 +147,20 @@ SET_SELECT = ButtonWrapper(
 )
 SUB_STAT_SELECT = ButtonWrapper(
     name='SUB_STAT_SELECT',
+    cn=Button(
+        file='./assets/cn/relics/SUB_STAT_SELECT.png',
+        area=(832, 462, 892, 482),
+        search=(831, 96, 895, 483),
+        color=(95, 97, 102),
+        button=(832, 580, 872, 620),
+    ),
+    en=Button(
+        file='./assets/en/relics/SUB_STAT_SELECT.png',
+        area=(832, 463, 994, 485),
+        search=(812, 443, 1014, 505),
+        color=(65, 67, 72),
+        button=(832, 580, 872, 620),
+    ),
     share=Button(
         file='./assets/share/relics/SUB_STAT_SELECT.png',
         area=(832, 580, 872, 620),

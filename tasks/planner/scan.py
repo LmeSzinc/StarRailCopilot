@@ -1,5 +1,6 @@
 import re
 
+import cv2
 from pponnxcr.predict_system import BoxedResult
 
 from module.base.utils import area_center, area_in_area
@@ -70,10 +71,7 @@ class OcrPlannerResult(OcrWhiteLetterOnComplexBackground, OcrItemName):
         return super().detect_and_ocr(image, *args, **kwargs)
 
     def pre_process(self, image):
-        # gray = rgb2gray(image)
-        # from PIL import Image
-        # Image.fromarray(gray).show()
-        # image = cv2.merge([gray, gray, gray])
+        image = cv2.subtract((255, 255, 255, 0), image)
         return image
 
 

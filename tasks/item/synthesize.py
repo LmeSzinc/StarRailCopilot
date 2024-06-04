@@ -56,11 +56,11 @@ class Synthesize(CombatObtain):
         Pages:
             in: page_synthesize
         """
-        image = self.image_crop(button)
+        image = self.image_crop(button, copy=False)
         image = cv2.GaussianBlur(image, (3, 3), 0)
         x2, y2 = image_size(image)
         y1 = y2 - int(y2 // 4)
-        image = crop(image, (0, y1, x2, y2))
+        image = crop(image, (0, y1, x2, y2), copy=False)
         # self.device.image_show(image)
         # print(image.shape)
 

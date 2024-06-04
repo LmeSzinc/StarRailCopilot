@@ -39,7 +39,7 @@ class DungeonState(UI):
         )
 
         ocr = OcrSimUniPoint(OCR_SIMUNI_POINT)
-        value, _, total = ocr.ocr_single_line(crop(image, area), direct_ocr=True)
+        value, _, total = ocr.ocr_single_line(crop(image, area, copy=False), direct_ocr=True)
         if total and value <= total:
             logger.attr('SimulatedUniverse', f'{value}/{total}')
             self.config.stored.SimulatedUniverse.set(value, total)

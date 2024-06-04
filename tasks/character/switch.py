@@ -122,7 +122,7 @@ class CharacterSwitch(UI):
         expected_peaks = np.array([201, 279, 357, 435])
         expected_peaks_in_area = expected_peaks - area[1]
         # Use Luminance to fit H264 video stream
-        image = rgb2luma(crop(self.device.image, area))
+        image = rgb2luma(crop(self.device.image, area, copy=False))
         # Remove character names
         kernel = cv2.getStructuringElement(cv2.MORPH_RECT, (3, 3))
         image = cv2.erode(image, kernel)

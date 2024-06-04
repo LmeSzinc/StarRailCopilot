@@ -23,7 +23,7 @@ class ForgottenHallStageOcr(Ocr):
     def _find_number(self, image):
         raw = image.copy()
         area = OCR_STAGE.area
-        image = crop(raw, area)
+        image = crop(raw, area, copy=False)
         yellow = color_similarity_2d(image, color=(255, 200, 112))
         gray = color_similarity_2d(image, color=(100, 109, 134))
         image = np.maximum(yellow, gray)

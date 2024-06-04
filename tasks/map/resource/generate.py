@@ -55,7 +55,7 @@ class ResourceGenerator(ResourceConst):
         arrows = {}
         for degree in range(0, 360):
             rotated = rotate_bound(image, degree)
-            rotated = crop(rotated, area=get_bbox(rotated, threshold=15))
+            rotated = crop(rotated, area=get_bbox(rotated, threshold=15), copy=False)
             # rotated = cv2.resize(rotated, None, fx=self.ROTATE, fy=self.ROTATE, interpolation=cv2.INTER_NEAREST)
             rotated = color_similarity_2d(rotated, color=self.DIRECTION_ARROW_COLOR)
             arrows[degree] = rotated

@@ -228,14 +228,17 @@ class CombatObtain(PlannerMixin):
 
             self._obtain_enter(entry, appear_button=COMBAT_PREPARE)
             item = self._obtain_parse()
-            if item.item == KEYWORDS_ITEM_CURRENCY.Trailblaze_EXP:
-                logger.warning('Trailblaze_EXP is in obtain list, OBTAIN_TRAILBLAZE_EXP may need to verify')
+            if item is not None:
+                if item.item == KEYWORDS_ITEM_CURRENCY.Trailblaze_EXP:
+                    logger.warning('Trailblaze_EXP is in obtain list, OBTAIN_TRAILBLAZE_EXP may need to verify')
+                    index += 1
+                    prev = item
+                else:
+                    items.append(item)
+                    index += 1
+                    prev = item
+            else:
                 index += 1
-                prev = item
-            elif item is not None:
-                items.append(item)
-                index += 1
-                prev = item
             self._obtain_close(check_button=MAY_OBTAIN)
 
         logger.hr('Obtained Result')

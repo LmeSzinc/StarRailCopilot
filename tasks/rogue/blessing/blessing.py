@@ -88,6 +88,8 @@ class RogueBuffOcr(Ocr):
                 "回馈底护": "回馈庇护",
                 "[范茫]+白夜": "茫茫白夜",
                 "阅下": "阈下",
+                '未日': '末日',
+                '尚末': '尚未',
             }
         elif self.lang == 'en':
             replace_pattern_dict = {

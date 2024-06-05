@@ -381,10 +381,10 @@ PLANNER_CHECK = ButtonWrapper(
     name='PLANNER_CHECK',
     share=Button(
         file='./assets/share/base/page/PLANNER_CHECK.png',
-        area=(39, 47, 74, 74),
-        search=(19, 27, 94, 94),
-        color=(148, 131, 98),
-        button=(39, 47, 74, 74),
+        area=(41, 48, 74, 73),
+        search=(21, 28, 94, 93),
+        color=(144, 128, 98),
+        button=(41, 48, 74, 73),
     ),
 )
 ROGUE_CHECK = ButtonWrapper(

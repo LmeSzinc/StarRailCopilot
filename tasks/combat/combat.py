@@ -2,6 +2,7 @@ from module.base.decorator import run_once
 from module.exception import RequestHumanTakeover
 from module.logger import logger
 from tasks.combat.assets.assets_combat_finish import COMBAT_AGAIN, COMBAT_EXIT
+from tasks.combat.assets.assets_combat_interact import DUNGEON_COMBAT_INTERACT
 from tasks.combat.assets.assets_combat_prepare import COMBAT_PREPARE
 from tasks.combat.assets.assets_combat_team import COMBAT_TEAM_PREPARE, COMBAT_TEAM_SUPPORT
 from tasks.combat.interact import CombatInteract
@@ -136,11 +137,13 @@ class Combat(CombatInteract, CombatPrepare, CombatState, CombatTeam, CombatSuppo
                 self.interval_reset(COMBAT_PREPARE)
                 trial += 1
                 continue
-            if self.handle_combat_interact():
-                self.map_A_timer.reset()
-                continue
-            if self.handle_ascension_dungeon_prepare():
-                continue
+            if self.appear(DUNGEON_COMBAT_INTERACT):
+                if self.handle_combat_interact():
+                    self.map_A_timer.reset()
+                    continue
+            else:
+                if self.handle_ascension_dungeon_prepare():
+                    continue
             if self.handle_popup_confirm():
                 continue
 

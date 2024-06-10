@@ -334,7 +334,7 @@ class DungeonUI(DungeonState):
 
             # Check if having any content
             # List background: 254, guild border: 225
-            r, g, b = cv2.split(self.image_crop(LIST_LOADED_CHECK))
+            r, g, b = cv2.split(self.image_crop(LIST_LOADED_CHECK, copy=False))
             minimum = cv2.min(cv2.min(r, g), b)
             minimum = inrange(minimum, lower=0, upper=180)
             if minimum.size > 100:

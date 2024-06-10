@@ -35,7 +35,7 @@ class ForgottenHallTeam(UI):
                 continue
 
     def is_character_chosen(self, button: ButtonWrapper) -> bool:
-        image = color_similarity_2d(self.image_crop(button), color=(255, 255, 255))
+        image = color_similarity_2d(self.image_crop(button, copy=False), color=(255, 255, 255))
         color = cv2.mean(image)[0]
         # print(button, color)
         # Chosen:

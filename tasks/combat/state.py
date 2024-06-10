@@ -22,7 +22,7 @@ class CombatState(UI):
         return False
 
     def _is_combat_button_active(self, button):
-        image = rgb2luma(self.image_crop(button))
+        image = rgb2luma(self.image_crop(button, copy=False))
         lines = cv2.reduce(image, 1, cv2.REDUCE_AVG).flatten()
         # [122 122 122 182 141 127 139 135 130 135 136 141 147 149 149 150 147 145
         #  148 150 150 150 150 150 144 138 134 141 136 133 173 183 130 128 127 126]

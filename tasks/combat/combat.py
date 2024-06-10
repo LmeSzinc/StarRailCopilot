@@ -2,6 +2,7 @@ from module.base.decorator import run_once
 from module.exception import RequestHumanTakeover
 from module.logger import logger
 from tasks.combat.assets.assets_combat_finish import COMBAT_AGAIN, COMBAT_EXIT
+from tasks.combat.assets.assets_combat_interact import DUNGEON_COMBAT_INTERACT
 from tasks.combat.assets.assets_combat_prepare import COMBAT_PREPARE
 from tasks.combat.assets.assets_combat_team import COMBAT_TEAM_PREPARE, COMBAT_TEAM_SUPPORT
 from tasks.combat.interact import CombatInteract
@@ -126,7 +127,7 @@ class Combat(CombatInteract, CombatPrepare, CombatState, CombatTeam, CombatSuppo
                 self.interval_reset(COMBAT_PREPARE)
                 self.map_A_timer.reset()
             if self.appear(COMBAT_PREPARE, interval=2):
-                if self.obtained_is_full(self.dungeon, wave_done=self.combat_wave_done):
+                if self.is_doing_planner and self.obtained_is_full(self.dungeon, wave_done=self.combat_wave_done):
                     # Update stamina so task can be delayed if both obtained_is_full and stamina exhausted
                     self.combat_get_trailblaze_power()
                     return False
@@ -136,11 +137,13 @@ class Combat(CombatInteract, CombatPrepare, CombatState, CombatTeam, CombatSuppo
                 self.interval_reset(COMBAT_PREPARE)
                 trial += 1
                 continue
-            if self.handle_combat_interact():
-                self.map_A_timer.reset()
-                continue
-            if self.handle_ascension_dungeon_prepare():
-                continue
+            if self.appear(DUNGEON_COMBAT_INTERACT):
+                if self.handle_combat_interact():
+                    self.map_A_timer.reset()
+                    continue
+            else:
+                if self.handle_ascension_dungeon_prepare():
+                    continue
             if self.handle_popup_confirm():
                 continue
 
@@ -303,7 +306,8 @@ class Combat(CombatInteract, CombatPrepare, CombatState, CombatTeam, CombatSuppo
             if self.appear(COMBAT_AGAIN, interval=5):
                 add_wave_done()
                 # Update obtain_frequent_check
-                self.obtained_is_full(dungeon=self.dungeon, wave_done=self.combat_wave_done, obtain_get=False)
+                if self.is_doing_planner:
+                    self.obtained_is_full(dungeon=self.dungeon, wave_done=self.combat_wave_done, obtain_get=False)
                 # Cache the result of _combat_can_again() as no expected stamina reduce during retry
                 if combat_can_again is None:
                     combat_can_again = self._combat_can_again()

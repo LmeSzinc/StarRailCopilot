@@ -33,10 +33,10 @@ class DailyQuestOcr(Ocr):
 
     def pre_process(self, image):
         image = super().pre_process(image)
-        image = crop(image, OCR_DAILY_QUEST.area)
+        image = crop(image, OCR_DAILY_QUEST.area, copy=False)
         mask = MASK_DAILY_QUEST.matched_button.image
         # Remove "+200Activity"
-        cv2.bitwise_and(image, mask, dst=image)
+        image = cv2.bitwise_and(image, mask)
         return image
 
     def after_process(self, result):

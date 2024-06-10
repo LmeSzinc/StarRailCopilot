@@ -101,7 +101,7 @@ class MapResource(ResourceConst):
         Crop the minimap area on image.
         """
         area = area_offset((-radius, -radius, radius, radius), offset=self.MINIMAP_CENTER)
-        image = crop(image, area)
+        image = crop(image, area, copy=False)
         return image
 
     def get_circle_mask(self, image):

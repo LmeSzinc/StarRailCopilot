@@ -150,7 +150,7 @@ class Minimap(MapResource):
         #     Image.fromarray((local_maximum * 255).astype(np.uint8)).save('local_maximum.png')
 
         # Calculate the precise location using CUBIC
-        # precise = crop(result, area=area_offset((-4, -4, 4, 4), offset=local_loca))
+        # precise = crop(result, area=area_offset((-4, -4, 4, 4), offset=local_loca), copy=False)
         # precise_sim, precise_loca = cubic_find_maximum(precise, precision=0.05)
         # precise_loca -= 5
         precise_loca = np.array((0, 0))
@@ -190,7 +190,7 @@ class Minimap(MapResource):
         loca = state.loca
         local_loca = state.local_loca
 
-        precise = crop(result, area=area_offset((-4, -4, 4, 4), offset=loca))
+        precise = crop(result, area=area_offset((-4, -4, 4, 4), offset=loca), copy=False)
         precise_sim, precise_loca = cubic_find_maximum(precise, precision=0.05)
         precise_loca -= 5
 
@@ -265,7 +265,7 @@ class Minimap(MapResource):
             logger.warning('No direction arrow on minimap')
             return
 
-        image = crop(image, area=area)
+        image = crop(image, area=area, copy=False)
         scale = self.DIRECTION_ROTATION_SCALE * self.DIRECTION_SEARCH_SCALE
         mapping = cv2.resize(image, None, fx=scale, fy=scale, interpolation=cv2.INTER_NEAREST)
         result = cv2.matchTemplate(self.ArrowRotateMap, mapping, cv2.TM_CCOEFF_NORMED)

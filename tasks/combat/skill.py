@@ -47,7 +47,7 @@ class CombatSkill(UI):
                     break
                 # New skill icon
                 if prev_image is not None:
-                    if not match_template(self.image_crop(button), prev_image):
+                    if not match_template(self.image_crop(button, copy=False), prev_image):
                         logger.info(f'Skill used: {button} (icon changed)')
                         break
 

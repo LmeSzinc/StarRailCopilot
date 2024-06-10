@@ -30,7 +30,7 @@ class SupportCharacter:
     def __init__(self, name, screenshot, similarity=0.75):
         self.name = name
         self.image = self._scale_character()
-        self.screenshot = crop(screenshot, SupportCharacter._crop_area)
+        self.screenshot = crop(screenshot, SupportCharacter._crop_area, copy=False)
         self.similarity = similarity
         self.button = self._find_character()
 

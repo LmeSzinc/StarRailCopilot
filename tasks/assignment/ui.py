@@ -228,7 +228,7 @@ class AssignmentUI(UI):
                 logger.info('Event completed')
                 break
             if self.appear(ASSIGNMENT_CHECK) and \
-                    self.image_color_count(ENTRY_LOADED, (35, 35, 35), count=800):
+                    self.image_color_count(ENTRY_LOADED, (35, 35, 35), count=400):
                 logger.info('Entry loaded')
                 break
 

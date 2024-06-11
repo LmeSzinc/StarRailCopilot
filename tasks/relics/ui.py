@@ -245,7 +245,7 @@ class RelicsUI(ItemUI):
                 self.device.screenshot()
 
             if self.appear(MAIN_STAT_PANEL):
-                logger.info('set select panel reached')
+                logger.info('main stat select panel reached')
                 return True
             if self.appear_then_click(MAIN_STAT_SELECT, interval=2):
                 continue
@@ -271,7 +271,7 @@ class RelicsUI(ItemUI):
                 self.device.screenshot()
 
             if self.appear(SUB_STAT_PANEL):
-                logger.info('set select panel reached')
+                logger.info('sub stat select panel reached')
                 return True
             if self.appear_then_click(SUB_STAT_SELECT, interval=2):
                 continue

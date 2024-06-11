@@ -314,11 +314,11 @@ class UI(MainPage):
             return False
 
         appear = False
-        if MAIN_GOTO_CHARACTER.match_template_binary(self.device.image):
+        if MAIN_GOTO_CHARACTER.match_template_luma(self.device.image):
             if self.image_color_count(MAIN_GOTO_CHARACTER, color=(235, 235, 235), threshold=234, count=400):
                 appear = True
         if not appear:
-            if MAP_EXIT.match_template_binary(self.device.image):
+            if MAP_EXIT.match_template_luma(self.device.image):
                 if self.image_color_count(MAP_EXIT, color=(235, 235, 235), threshold=221, count=50):
                     appear = True
 
@@ -334,7 +334,7 @@ class UI(MainPage):
             return False
 
         appear = False
-        if MAP_EXIT.match_template_binary(self.device.image):
+        if MAP_EXIT.match_template_luma(self.device.image):
             if self.image_color_count(MAP_EXIT, color=(235, 235, 235), threshold=221, count=50):
                 appear = True
 

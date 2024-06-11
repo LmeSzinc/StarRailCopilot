@@ -465,6 +465,10 @@
       "name": "Character Planner Progress",
       "help": "Character planner is prioritized. After completed, \"Dungeon Settings\" will be executed."
     },
+    "PlannerOverall": {
+      "name": "Planner",
+      "help": "Overall progress of character planner"
+    },
     "Item_Credit": {
       "name": "Credit",
       "help": ""
@@ -1269,7 +1273,8 @@
       "MinutesAgo": "{time}min ago",
       "HoursAgo": "{time}h ago",
       "DaysAgo": "{time}d ago",
-      "LongTimeAgo": "long time ago"
+      "LongTimeAgo": "long time ago",
+      "EtaDays": "ETA {time}d"
     },
     "AddAlas": {
       "PopupTitle": "Add new config",

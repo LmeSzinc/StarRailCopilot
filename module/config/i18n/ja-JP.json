@@ -465,6 +465,10 @@
       "name": "Planner._info.name",
       "help": "Planner._info.help"
     },
+    "PlannerOverall": {
+      "name": "Planner.PlannerOverall.name",
+      "help": "Planner.PlannerOverall.help"
+    },
     "Item_Credit": {
       "name": "信用ポイント",
       "help": ""
@@ -1269,7 +1273,8 @@
       "MinutesAgo": "Gui.Dashboard.MinutesAgo",
       "HoursAgo": "Gui.Dashboard.HoursAgo",
       "DaysAgo": "Gui.Dashboard.DaysAgo",
-      "LongTimeAgo": "Gui.Dashboard.LongTimeAgo"
+      "LongTimeAgo": "Gui.Dashboard.LongTimeAgo",
+      "EtaDays": "Gui.Dashboard.EtaDays"
     },
     "AddAlas": {
       "PopupTitle": "新しいコンフィグを追加",

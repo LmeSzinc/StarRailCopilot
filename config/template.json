@@ -47,6 +47,7 @@
       "ServerUpdate": "04:00"
     },
     "Planner": {
+      "PlannerOverall": {},
       "Item_Credit": {},
       "Item_Trailblaze_EXP": {},
       "Item_Traveler_Guide": {},

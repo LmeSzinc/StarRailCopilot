@@ -20,6 +20,7 @@ from module.config.stored.classes import (
     StoredImmersifier,
     StoredInt,
     StoredPlanner,
+    StoredPlannerOverall,
     StoredSimulatedUniverse,
     StoredSimulatedUniverseElite,
     StoredTrailblazePower,
@@ -33,6 +34,7 @@ class StoredGenerated:
     CloudRemainSeasonPass = StoredInt("Alas.CloudStorage.CloudRemainSeasonPass")
     CloudRemainPaid = StoredInt("Alas.CloudStorage.CloudRemainPaid")
     CloudRemainFree = StoredInt("Alas.CloudStorage.CloudRemainFree")
+    PlannerOverall = StoredPlannerOverall("Dungeon.Planner.PlannerOverall")
     Item_Credit = StoredPlanner("Dungeon.Planner.Item_Credit")
     Item_Trailblaze_EXP = StoredPlanner("Dungeon.Planner.Item_Trailblaze_EXP")
     Item_Traveler_Guide = StoredPlanner("Dungeon.Planner.Item_Traveler_Guide")

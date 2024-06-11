@@ -465,6 +465,10 @@
       "name": "養成規劃進度",
       "help": "優先執行養成規劃，養成規劃完成後，執行 \"每日副本設定\""
     },
+    "PlannerOverall": {
+      "name": "養成規劃",
+      "help": "角色養成規劃總體進度"
+    },
     "Item_Credit": {
       "name": "信用點",
       "help": ""
@@ -1269,7 +1273,8 @@
       "MinutesAgo": "{time}分鐘前",
       "HoursAgo": "{time}小時前",
       "DaysAgo": "{time}天前",
-      "LongTimeAgo": "很久以前"
+      "LongTimeAgo": "很久以前",
+      "EtaDays": "剩餘{time}日"
     },
     "AddAlas": {
       "PopupTitle": "添加新的設定",

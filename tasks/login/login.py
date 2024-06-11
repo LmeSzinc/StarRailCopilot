@@ -56,7 +56,7 @@ class Login(UI, LoginAndroidCloud):
                 orientation_timer.reset()
 
             # Login
-            if self.appear_then_click(LOGIN_CONFIRM, similarity=0.7):
+            if self.appear_then_click(LOGIN_CONFIRM):
                 login_success = True
                 continue
             if self.appear_then_click(USER_AGREEMENT_ACCEPT):

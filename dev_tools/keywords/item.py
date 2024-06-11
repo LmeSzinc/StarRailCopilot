@@ -66,6 +66,8 @@ class GenerateItemBase(GenerateKeyword):
                         continue
                     dic.setdefault(item_id, dungeon_id)
 
+        # Credict
+        dic.setdefault(2, 1003)
         return dic
 
 
@@ -79,6 +81,7 @@ class GenerateItemCurrency(GenerateItemBase):
             if data['subtype'] == 'Virtual' and data['item_id'] < 100:
                 if data['item_id'] not in self.whitelist:
                     continue
+                data['dungeon_id'] = self.dict_itemid_to_dungeonid.get(data['item_id'], -1)
                 yield data
 
 

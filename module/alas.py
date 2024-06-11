@@ -88,14 +88,14 @@ class AzurLaneAutoScript:
             logger.error(e)
             self.save_error_log()
             logger.warning(f'Game stuck, {self.device.package} will be restarted in 10 seconds')
-            logger.warning('If you are playing by hand, please stop Alas')
+            logger.warning('If you are playing by hand, please stop Src')
             self.config.task_call('Restart')
             self.device.sleep(10)
             return False
         except GameBugError as e:
             logger.warning(e)
             self.save_error_log()
-            logger.warning('An error has occurred in Azur Lane game client, Alas is unable to handle')
+            logger.warning('An error has occurred in Star Rail game client, Src is unable to handle')
             logger.warning(f'Restarting {self.device.package} to fix it')
             self.config.task_call('Restart')
             self.device.sleep(10)
@@ -108,7 +108,7 @@ class AzurLaneAutoScript:
                 self.save_error_log()
                 handle_notify(
                     self.config.Error_OnePushConfig,
-                    title=f"Alas <{self.config_name}> crashed",
+                    title=f"Src <{self.config_name}> crashed",
                     content=f"<{self.config_name}> GamePageUnknownError",
                 )
                 exit(1)
@@ -123,7 +123,7 @@ class AzurLaneAutoScript:
             logger.critical('This is likely to be a mistake of developers, but sometimes just random issues')
             handle_notify(
                 self.config.Error_OnePushConfig,
-                title=f"Alas <{self.config_name}> crashed",
+                title=f"Src <{self.config_name}> crashed",
                 content=f"<{self.config_name}> ScriptError",
             )
             exit(1)
@@ -131,7 +131,7 @@ class AzurLaneAutoScript:
             logger.critical('Request human takeover')
             handle_notify(
                 self.config.Error_OnePushConfig,
-                title=f"Alas <{self.config_name}> crashed",
+                title=f"Src <{self.config_name}> crashed",
                 content=f"<{self.config_name}> RequestHumanTakeover",
             )
             exit(1)
@@ -140,7 +140,7 @@ class AzurLaneAutoScript:
             self.save_error_log()
             handle_notify(
                 self.config.Error_OnePushConfig,
-                title=f"Alas <{self.config_name}> crashed",
+                title=f"Src <{self.config_name}> crashed",
                 content=f"<{self.config_name}> Exception occured",
             )
             exit(1)
@@ -242,7 +242,7 @@ class AzurLaneAutoScript:
             if self.stop_event is not None:
                 if self.stop_event.is_set():
                     logger.info("Update event detected")
-                    logger.info(f"Alas [{self.config_name}] exited.")
+                    logger.info(f"[{self.config_name}] exited.")
                     break
             # Check game server maintenance
             self.checker.wait_until_available()
@@ -287,7 +287,7 @@ class AzurLaneAutoScript:
                 logger.critical('Request human takeover')
                 handle_notify(
                     self.config.Error_OnePushConfig,
-                    title=f"Alas <{self.config_name}> crashed",
+                    title=f"Src <{self.config_name}> crashed",
                     content=f"<{self.config_name}> RequestHumanTakeover\nTask `{task}` failed 3 or more times.",
                 )
                 exit(1)

@@ -377,7 +377,7 @@ class RogueEntry(RouteBase, RogueRewardHandler, RoguePathHandler, DungeonUI):
                     'Reached weekly point limit but still continue to farm materials')
                 logger.attr(
                     "Farming Counter", self.config.stored.SimulatedUniverseFarm.to_counter())
-                if self.config.is_cloud_game and not self.config.stored.CloudRemainSeasonPass:
+                if self.config.is_cloud_game and not self.config.stored.CloudRemainSeasonPass.value:
                     logger.warning('Running WeeklyFarming on cloud game without season pass may cause fee, skip')
                     raise RogueReachedWeeklyPointLimit
             else:

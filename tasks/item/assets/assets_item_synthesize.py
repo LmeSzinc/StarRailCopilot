@@ -53,6 +53,16 @@ SYNTHESIZE_AMOUNT = ButtonWrapper(
         button=(683, 548, 1034, 568),
     ),
 )
+SYNTHESIZE_INVENTORY = ButtonWrapper(
+    name='SYNTHESIZE_INVENTORY',
+    share=Button(
+        file='./assets/share/item/synthesize/SYNTHESIZE_INVENTORY.png',
+        area=(116, 71, 453, 634),
+        search=(96, 51, 473, 654),
+        color=(255, 255, 255),
+        button=(116, 71, 453, 634),
+    ),
+)
 SYNTHESIZE_MINUS = ButtonWrapper(
     name='SYNTHESIZE_MINUS',
     share=Button(

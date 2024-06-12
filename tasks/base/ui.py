@@ -328,21 +328,18 @@ class UI(MainPage):
             self.interval_reset(MAIN_GOTO_CHARACTER, interval=interval)
 
         return appear
-    
+
     def is_in_login_confirm(self, interval=0):
         self.device.stuck_record_add(LOGIN_CONFIRM)
 
         if interval and not self.interval_is_reached(LOGIN_CONFIRM, interval=interval):
             return False
 
-        appear = False
-        if LOGIN_CONFIRM.match_template_luma(self.device.image):
-            if self.image_color_count(LOGIN_CONFIRM, color=(235, 235, 235), threshold=234, count=380):
-                appear = True
-        
+        appear = LOGIN_CONFIRM.match_template_luma(self.device.image)
+
         if appear and interval:
             self.interval_reset(LOGIN_CONFIRM, interval=interval)
-        
+
         return appear
 
 

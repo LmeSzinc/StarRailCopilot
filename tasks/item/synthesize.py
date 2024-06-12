@@ -203,7 +203,7 @@ class Synthesize(CombatObtain, ItemUI):
         items = []
 
         def obtain_end():
-            return self.item_get_rarity(ENTRY_ITEM_FROM) is not None
+            return self.ui_page_appear(page_synthesize) and self.item_get_rarity(ENTRY_ITEM_FROM) is not None
 
         # Purple
         self.synthesize_rarity_set('blue')
@@ -432,6 +432,7 @@ class Synthesize(CombatObtain, ItemUI):
             out: page_main
         """
         logger.hr('Synthesize exit')
+        self.interval_clear(page_synthesize.check_button)
         while 1:
             if skip_first_screenshot:
                 skip_first_screenshot = False
@@ -442,9 +443,9 @@ class Synthesize(CombatObtain, ItemUI):
             if self.is_in_main():
                 break
             # Click
-            if self.handle_ui_close(page_synthesize):
+            if self.handle_ui_close(page_synthesize.check_button):
                 continue
-            if self.handle_ui_close(page_menu):
+            if self.handle_ui_close(page_menu.check_button):
                 continue
             if self.handle_reward():
                 continue
@@ -475,7 +476,7 @@ class Synthesize(CombatObtain, ItemUI):
             self.planner.load_obtained_amount(obtained)
             if not row.need_synthesize():
                 logger.warning('Planner row do not need to synthesize')
-                return False
+                continue
 
             logger.info(f'Synthesize row: {row}')
             # green -> blue
@@ -496,10 +497,15 @@ class Synthesize(CombatObtain, ItemUI):
                 self.synthesize_amount_set(value, total)
                 self.synthesize_confirm()
 
+            # Update obtain amount
+            obtained = self.synthesize_obtain_get()
+            self.planner.load_obtained_amount(obtained)
+
         self.synthesize_exit()
+        self.planner_write()
 
 
 if __name__ == '__main__':
     self = Synthesize('src')
     self.device.screenshot()
-    self.synthesize_planner()
+    self.synthesize_obtain_get()

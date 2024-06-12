@@ -633,7 +633,7 @@ class PlannerMixin(UI):
                     remove.append(key)
             for key in remove:
                 self.config.cross_set(f'Dungeon.Planner.{key}', {})
-            print(progress, eta)
+            # print(progress, eta)
             # Set overall
             self.config.stored.PlannerOverall.value = f'{progress:.2f}%'
             self.config.stored.PlannerOverall.comment = f'<{eta:.1f}d'

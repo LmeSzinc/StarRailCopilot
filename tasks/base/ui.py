@@ -96,7 +96,8 @@ class UI(MainPage):
             if self.handle_popup_confirm():
                 timeout.reset()
                 continue
-            if self.appear_then_click(LOGIN_CONFIRM, interval=5):
+            if self.is_in_login_confirm(interval=5):
+                self.device.click(LOGIN_CONFIRM)
                 timeout.reset()
                 continue
             if self.appear(MAP_LOADING, interval=5):
@@ -169,7 +170,8 @@ class UI(MainPage):
                 continue
             if self.handle_popup_confirm():
                 continue
-            if self.appear_then_click(LOGIN_CONFIRM, interval=5):
+            if self.is_in_login_confirm(interval=5):
+                self.device.click(LOGIN_CONFIRM)
                 continue
 
         # Reset connection
@@ -326,6 +328,20 @@ class UI(MainPage):
             self.interval_reset(MAIN_GOTO_CHARACTER, interval=interval)
 
         return appear
+
+    def is_in_login_confirm(self, interval=0):
+        self.device.stuck_record_add(LOGIN_CONFIRM)
+
+        if interval and not self.interval_is_reached(LOGIN_CONFIRM, interval=interval):
+            return False
+
+        appear = LOGIN_CONFIRM.match_template_luma(self.device.image)
+
+        if appear and interval:
+            self.interval_reset(LOGIN_CONFIRM, interval=interval)
+
+        return appear
+
 
     def is_in_map_exit(self, interval=0):
         self.device.stuck_record_add(MAP_EXIT)

@@ -465,6 +465,10 @@
       "name": "Progreso del planificador de personajes",
       "help": "Se prioriza el planificador de personajes. Una vez completado, se ejecutará la \"Ajustes de Mazmorra\"."
     },
+    "PlannerOverall": {
+      "name": "Plan.",
+      "help": "Progreso general del planificador de personajes"
+    },
     "Item_Credit": {
       "name": "Crédito",
       "help": ""
@@ -1269,7 +1273,8 @@
       "MinutesAgo": "hace {time}m",
       "HoursAgo": "hace {time}h",
       "DaysAgo": "hace {time}d",
-      "LongTimeAgo": "hace mucho tiempo"
+      "LongTimeAgo": "hace mucho tiempo",
+      "EtaDays": "ETA {time}d"
     },
     "AddAlas": {
       "PopupTitle": "Añadir nueva configuración",

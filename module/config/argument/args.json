@@ -220,6 +220,14 @@
       }
     },
     "Planner": {
+      "PlannerOverall": {
+        "type": "stored",
+        "value": {},
+        "display": true,
+        "stored": "StoredPlannerOverall",
+        "order": 4,
+        "color": "#85e7f2"
+      },
       "Item_Credit": {
         "type": "planner",
         "value": {},
@@ -729,9 +737,7 @@
         "type": "stored",
         "value": {},
         "display": "hide",
-        "stored": "StoredEchoOfWar",
-        "order": 4,
-        "color": "#85e7f2"
+        "stored": "StoredEchoOfWar"
       },
       "SimulatedUniverse": {
         "type": "stored",

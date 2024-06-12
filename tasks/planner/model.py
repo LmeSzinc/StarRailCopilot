@@ -1,8 +1,9 @@
+import math
 import typing as t
 from datetime import datetime
-from functools import partial
+from functools import cached_property as functools_cached_property, partial
 
-from pydantic import BaseModel, ValidationError, WrapValidator, field_validator, model_validator
+from pydantic import BaseModel, ValidationError, WrapValidator, computed_field, field_validator, model_validator
 
 from module.base.decorator import cached_property, del_cached_property
 from module.config.stored.classes import now
@@ -74,8 +75,28 @@ class MultiValue(BaseModelWithFallback):
         self.blue += other.blue
         self.purple += other.purple
 
+    def __sub__(self, other):
+        green = max(self.green - other.green, 0)
+        blue = max(self.blue - other.blue, 0)
+        purple = max(self.purple - other.purple, 0)
+        return MultiValue(green=green, blue=blue, purple=purple)
+
     def equivalent_green(self):
         return self.green + self.blue * 3 + self.purple * 9
+
+    def clear(self):
+        self.green = 0
+        self.blue = 0
+        self.purple = 0
+
+
+SET_ROW_EXCLUDE = {
+    'drop_equivalent_green',
+    'combat_cost',
+    'progress_remain',
+    'progress_total',
+    'progress_current',
+}
 
 
 class StoredPlannerProxy(BaseModelWithFallback):
@@ -83,7 +104,8 @@ class StoredPlannerProxy(BaseModelWithFallback):
     value: int | MultiValue = 0
     total: int | MultiValue = 0
     synthesize: int | MultiValue = 0
-    progress: float = 0.
+    # progress: float = 0.
+    # eta: float = 0.
     time: datetime = DEFAULT_TIME
 
     @field_validator('item', mode='before')
@@ -109,6 +131,12 @@ class StoredPlannerProxy(BaseModelWithFallback):
             if not isinstance(self.synthesize, int):
                 self.synthesize = 0
         return self
+
+    def clear(self):
+        if self.item.has_group_base:
+            self.value.clear()
+        else:
+            self.value = 0
 
     def update_synthesize(self):
         if self.item.has_group_base:
@@ -147,6 +175,82 @@ class StoredPlannerProxy(BaseModelWithFallback):
             else:
                 self.value.blue += self.synthesize.purple * 3
 
+    @computed_field(repr=False)
+    @functools_cached_property
+    def drop_equivalent_green(self) -> float:
+        # Tracks_of_Destiny
+        if self.item.dungeon is None:
+            return 1
+        if self.item.dungeon.is_Calyx_Golden_Treasures:
+            return 24000
+        if self.item.dungeon.is_Calyx_Golden_Memories:
+            # purple, blue, green = 5, 1, 0
+            return 48
+        if self.item.dungeon.is_Calyx_Golden_Aether:
+            # purple, blue, green = 1, 2, 2.5
+            return 17.5
+        if self.item.is_ItemAscension:
+            return 3
+        if self.item.is_ItemTrace:
+            # purple, blue, green = 0.155, 1, 1.25
+            return 5.645
+        if self.item.is_ItemWeekly:
+            return 3
+        raise ScriptError(f'{self} has no drop_equivalent_green defined')
+
+    @computed_field(repr=False)
+    @functools_cached_property
+    def combat_cost(self) -> int:
+        # Tracks_of_Destiny
+        if self.item.dungeon is None:
+            return 30
+        if self.item.dungeon.is_Calyx_Golden:
+            return 10
+        if self.item.is_ItemAscension:
+            return 30
+        if self.item.is_ItemTrace:
+            return 10
+        if self.item.is_ItemWeekly:
+            return 30
+        raise ScriptError(f'{self} has no stamina_pre_combat defined')
+
+    @computed_field(repr=False)
+    @functools_cached_property
+    def progress_remain(self) -> float:
+        if self.item.has_group_base:
+            remain = self.total - self.value - self.synthesize
+            return remain.equivalent_green()
+        else:
+            remain = max(self.total - self.value, 0)
+            return remain
+
+    @computed_field(repr=False)
+    @functools_cached_property
+    def progress_total(self) -> float:
+        if self.item.has_group_base:
+            return self.total.equivalent_green()
+        else:
+            return self.total
+
+    @computed_field(repr=False)
+    @functools_cached_property
+    def progress_current(self) -> float:
+        if self.item.has_group_base:
+            current = self.progress_total - self.progress_remain
+            current = min(max(current, 0), self.progress_total)
+            return current
+        else:
+            current = self.value
+            current = min(max(current, 0), self.total)
+            return current
+
+    @computed_field
+    @functools_cached_property
+    def progress(self) -> float:
+        # 0 to 100
+        progress = self.progress_current / self.progress_total * 100
+        return round(min(max(progress, 0), 100), 2)
+
     def is_approaching_total(self, wave_done: int = 0):
         """
         Args:
@@ -157,46 +261,47 @@ class StoredPlannerProxy(BaseModelWithFallback):
         """
         wave_done = max(wave_done, 0)
         # Items with a static drop rate will have `AVG * (wave_done + 1)
-        if self.item.dungeon.is_Calyx_Golden_Treasures:
-            return self.value + 24000 * (wave_done + 12) >= self.total
-        if self.item.dungeon.is_Calyx_Golden_Memories:
-            # purple, blue, green = 5, 1, 0
-            value = self.value.equivalent_green()
-            total = self.total.equivalent_green()
-            return value + 48 * (wave_done + 12) >= total
-        if self.item.dungeon.is_Calyx_Golden_Aether:
-            # purple, blue, green = 1, 2, 2.5
-            value = self.value.equivalent_green()
-            total = self.total.equivalent_green()
-            return value + 17.5 * (wave_done + 12) >= total
-        if self.item.is_ItemAscension:
-            return self.value + 3 * (wave_done + 1) >= self.total
-        if self.item.is_ItemTrace:
-            # purple, blue, green = 0.155, 1, 1.25
-            value = self.value.equivalent_green()
-            total = self.total.equivalent_green()
-            return value + 5.645 * (wave_done + 12) >= total
-        if self.item.is_ItemWeekly:
-            return self.value + 3 * (wave_done + 1) >= self.total
-        return False
-
-    def update_progress(self):
-        if self.item.has_group_base:
-            total = self.total.equivalent_green()
-            green = min(self.value.green, self.total.green)
-            blue = min(self.value.blue + self.synthesize.blue, self.total.blue)
-            purple = min(self.value.purple + self.synthesize.purple, self.total.purple)
-            value = green + blue * 3 + purple * 9
-            progress = value / total * 100
-            self.progress = round(min(max(progress, 0), 100), 2)
+        remain = self.progress_remain
+        cost = self.combat_cost
+        drop = self.drop_equivalent_green
+        if cost == 10:
+            return remain <= drop * (wave_done + 12)
         else:
-            progress = self.value / self.total * 100
-            self.progress = round(min(max(progress, 0), 100), 2)
+            return remain <= drop * (wave_done + 1)
 
-    def update(self):
+    @computed_field
+    @functools_cached_property
+    def eta(self) -> float:
+        """
+        Estimate remaining days to farm
+        """
+        if not self.need_farm():
+            return 0.
+        if self.item.dungeon is None:
+            return 0.
+
+        remain = self.progress_remain
+        cost = self.combat_cost
+        drop = self.drop_equivalent_green
+
+        if self.item.is_ItemWeekly:
+            weeks = math.ceil(remain / drop / 3)
+            return weeks * 7
+        else:
+            stamina = math.ceil(remain / drop) * cost
+            return round(stamina / 240, 1)
+
+    def update(self, time=False):
+        for attr in SET_ROW_EXCLUDE:
+            del_cached_property(self, attr)
+        del_cached_property(self, 'progress')
+        del_cached_property(self, 'eta')
+
         self.update_synthesize()
-        self.update_progress()
-        self.time = now()
+        _ = self.progress
+        _ = self.eta
+        if time:
+            self.time = now()
 
     def load_value_total(self, item: ItemBase, value=None, total=None, synthesize=None):
         """
@@ -344,8 +449,10 @@ class PlannerProgressParser:
 
     def from_config(self, data):
         self.rows = {}
-        for row in data.values():
+        for name, row in data.items():
             if not row:
+                continue
+            if name == 'PlannerOverall':
                 continue
             try:
                 row = StoredPlannerProxy(**row)
@@ -355,8 +462,7 @@ class PlannerProgressParser:
             if not row.item.is_group_base:
                 logger.error(f'from_config: item is not group base {row}')
                 continue
-            row.update_synthesize()
-            row.update_progress()
+            row.update(time=False)
             self.rows[row.item.name] = row
         return self
 
@@ -372,16 +478,36 @@ class PlannerProgressParser:
                 self.rows[name] = row
 
         for row in self.rows.values():
-            row.update()
+            row.update(time=True)
 
     def to_config(self) -> dict:
         data = {}
         for row in self.rows.values():
             name = f'Item_{row.item.name}'
-            dic = row.model_dump()
+            dic = row.model_dump(exclude=SET_ROW_EXCLUDE)
             dic['item'] = row.item.name
             data[name] = dic
         return data
+
+    def get_overall(self):
+        """
+        Calculate overall progress
+        Note that this method will clear all values
+
+        Returns:
+            float: Progress percentage
+            float: ETA in days
+        """
+        eta = 0.
+        progress_current = 0.
+        progress_total = 0.
+        for row in self.rows.values():
+            eta += row.eta
+            progress_current += row.progress_current
+            progress_total += row.progress_total
+
+        progress = round(progress_current / progress_total * 100, 2)
+        return progress, eta
 
     def iter_row_to_farm(self, need_farm=True) -> t.Iterable[StoredPlannerProxy]:
         """
@@ -494,6 +620,7 @@ class PlannerMixin(UI):
             planner = self.planner
 
         data = planner.to_config()
+        progress, eta = planner.get_overall()
 
         with self.config.multi_set():
             # Set value
@@ -506,5 +633,14 @@ class PlannerMixin(UI):
                     remove.append(key)
             for key in remove:
                 self.config.cross_set(f'Dungeon.Planner.{key}', {})
+            print(progress, eta)
+            # Set overall
+            self.config.stored.PlannerOverall.value = f'{progress:.2f}%'
+            self.config.stored.PlannerOverall.comment = f'<{eta:.1f}d'
 
         del_cached_property(self, 'planner')
+
+
+if __name__ == '__main__':
+    self = PlannerMixin('src')
+    self.planner_write(self.planner)

@@ -38,15 +38,15 @@
     "order": 3,
     "color": "#79dbc4"
   },
-  "EchoOfWar": {
-    "name": "EchoOfWar",
-    "path": "Dungeon.DungeonStorage.EchoOfWar",
-    "i18n": "DungeonStorage.EchoOfWar.name",
-    "stored": "StoredEchoOfWar",
+  "PlannerOverall": {
+    "name": "PlannerOverall",
+    "path": "Dungeon.Planner.PlannerOverall",
+    "i18n": "Planner.PlannerOverall.name",
+    "stored": "StoredPlannerOverall",
     "attrs": {
       "time": "2020-01-01 00:00:00",
-      "total": 3,
-      "value": 0
+      "comment": "<??d",
+      "value": "??%"
     },
     "order": 4,
     "color": "#85e7f2"
@@ -710,6 +710,19 @@
       "calyx": 0,
       "relic": 0,
       "rogue": 0
+    },
+    "order": 0,
+    "color": "#777777"
+  },
+  "EchoOfWar": {
+    "name": "EchoOfWar",
+    "path": "Dungeon.DungeonStorage.EchoOfWar",
+    "i18n": "DungeonStorage.EchoOfWar.name",
+    "stored": "StoredEchoOfWar",
+    "attrs": {
+      "time": "2020-01-01 00:00:00",
+      "total": 3,
+      "value": 0
     },
     "order": 0,
     "color": "#777777"

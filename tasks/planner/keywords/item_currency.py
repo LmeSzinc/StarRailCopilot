@@ -14,7 +14,7 @@ Credit = ItemCurrency(
     rarity='Rare',
     item_id=2,
     item_group=0,
-    dungeon_id=-1,
+    dungeon_id=1003,
 )
 Trailblaze_EXP = ItemCurrency(
     id=2,

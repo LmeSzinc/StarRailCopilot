@@ -61,6 +61,8 @@ Dashboard:
   HoursAgo:
   DaysAgo:
   LongTimeAgo:
+  # Planner
+  EtaDays:
 
 AddAlas:
   PopupTitle:

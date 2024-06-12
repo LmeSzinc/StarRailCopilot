@@ -404,3 +404,8 @@ class StoredPlanner(StoredBase):
     value: int
     total: int
     synthesize: int
+
+
+class StoredPlannerOverall(StoredBase):
+    value: str = '??%'
+    comment: str = '<??d'

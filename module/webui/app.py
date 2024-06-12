@@ -341,6 +341,11 @@ class AlasGUI(Frame):
                     put_text(config.get("value", nodata)).style("--dashboard-value--"),
                     put_text(f' / {config.get("total", "")}').style("--dashboard-time--"),
                 ]
+            elif "comment" in dic.get("attrs", []) and config.get("comment") is not None:
+                return [
+                    put_text(config.get("value", nodata)).style("--dashboard-value--"),
+                    put_text(f' {config.get("comment", "")}').style("--dashboard-time--"),
+                ]
             else:
                 return [
                     put_text(config.get("value", nodata)).style("--dashboard-value--"),

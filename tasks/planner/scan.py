@@ -4,6 +4,7 @@ import cv2
 from pponnxcr.predict_system import BoxedResult
 
 from module.base.utils import area_center, area_in_area
+from module.exception import GamePageUnknownError
 from module.logger import logger
 from module.ocr.ocr import Ocr, OcrWhiteLetterOnComplexBackground
 from module.ui.scroll import AdaptiveScroll
@@ -22,6 +23,7 @@ DETAIL_TITLE.load_search(RESULT_CHECK.search)
 class OcrItemName(Ocr):
     def after_process(self, result):
         result = result.replace('念火之心', '忿火之心')
+        result = re.sub('^火之心', '忿火之心', result)
         result = re.sub('工造机$', '工造机杼', result)
         result = re.sub('工造迥?轮', '工造迴轮', result)
         result = re.sub('月狂[療撩]?牙', '月狂獠牙', result)
@@ -172,7 +174,7 @@ class PlannerScan(SynthesizeUI, PlannerMixin):
         logger.hr('Parse planner result', level=2)
         if not self.ui_page_appear(page_planner):
             logger.error('Not in page_planner, game must in the planner result page before scanning')
-            return []
+            raise GamePageUnknownError
 
         scroll = AdaptiveScroll(RESULT_SCROLL.button, name=RESULT_SCROLL.name)
         scroll.drag_threshold = 0.1

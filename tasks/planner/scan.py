@@ -4,6 +4,7 @@ import cv2
 from pponnxcr.predict_system import BoxedResult
 
 from module.base.utils import area_center, area_in_area
+from module.exception import GamePageUnknownError
 from module.logger import logger
 from module.ocr.ocr import Ocr, OcrWhiteLetterOnComplexBackground
 from module.ui.scroll import AdaptiveScroll
@@ -173,7 +174,7 @@ class PlannerScan(SynthesizeUI, PlannerMixin):
         logger.hr('Parse planner result', level=2)
         if not self.ui_page_appear(page_planner):
             logger.error('Not in page_planner, game must in the planner result page before scanning')
-            return []
+            raise GamePageUnknownError
 
         scroll = AdaptiveScroll(RESULT_SCROLL.button, name=RESULT_SCROLL.name)
         scroll.drag_threshold = 0.1

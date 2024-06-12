@@ -101,7 +101,7 @@ class AzurLaneAutoScript:
             self.device.sleep(10)
             return False
         except GamePageUnknownError:
-            logger.info('Game server may be under maintenance or network may be broken, check server status now')
+            # logger.info('Game server may be under maintenance or network may be broken, check server status now')
             self.checker.check_now()
             if self.checker.is_available():
                 logger.critical('Game page unknown')

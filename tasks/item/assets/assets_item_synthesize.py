@@ -83,3 +83,13 @@ SYNTHESIZE_PLUS = ButtonWrapper(
         button=(1125, 567, 1155, 589),
     ),
 )
+SYNTHESIZE_SLIDER = ButtonWrapper(
+    name='SYNTHESIZE_SLIDER',
+    share=Button(
+        file='./assets/share/item/synthesize/SYNTHESIZE_SLIDER.png',
+        area=(660, 575, 1070, 581),
+        search=(640, 555, 1090, 601),
+        color=(118, 96, 77),
+        button=(660, 575, 1070, 581),
+    ),
+)

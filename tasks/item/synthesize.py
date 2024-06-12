@@ -1,16 +1,18 @@
 import cv2
 import numpy as np
 
+import module.config.server as server
 from module.base.decorator import cached_property
 from module.base.timer import Timer
 from module.base.utils import SelectedGrids, color_similarity_2d, crop, image_size
 from module.exception import ScriptError
 from module.logger import logger
-from module.ocr.ocr import Ocr
+from module.ocr.ocr import Digit, Ocr
 from tasks.base.page import page_synthesize
 from tasks.combat.obtain import CombatObtain
 from tasks.item.assets.assets_item_synthesize import *
 from tasks.item.inventory import InventoryManager
+from tasks.item.slider import Slider
 from tasks.planner.keywords import ITEM_CLASSES, ItemCalyx, ItemTrace
 from tasks.planner.keywords.classes import ItemBase
 from tasks.planner.model import ObtainedAmmount
@@ -332,6 +334,18 @@ class Synthesize(CombatObtain):
                 logger.error(f'Unexpected switch_row={switch_row} during loop')
                 return False
 
+    def synthesize_amount_set(self, value: int, total: int):
+        """
+        Args:
+            value: Value to set
+            total: Maximum amount of slider
+        """
+        logger.hr('Synthesize amount set', level=2)
+        slider = Slider(main=self, slider=SYNTHESIZE_SLIDER)
+        slider.set(value, total)
+        ocr = Digit(SYNTHESIZE_AMOUNT, lang=server.lang)
+        self.ui_ensure_index(
+            value, letter=ocr, next_button=SYNTHESIZE_PLUS, prev_button=SYNTHESIZE_MINUS, interval=(0.1, 0.2))
 
 
 if __name__ == '__main__':

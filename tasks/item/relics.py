@@ -1,6 +1,7 @@
 from module.base.timer import Timer
 from module.logger import logger
 from tasks.base.assets.assets_base_page import CLOSE
+from tasks.base.page import page_item
 from tasks.item.assets.assets_item_relics import *
 from tasks.item.keywords import KEYWORDS_ITEM_TAB
 from tasks.item.ui import ItemUI
@@ -48,6 +49,7 @@ class RelicsUI(ItemUI):
             out: page_item, GOTO_SALVAGE
         """
         logger.hr('Salvage Relic', level=2)
+        self.ui_ensure(page_item)
         self.item_goto(KEYWORDS_ITEM_TAB.Relics, wait_until_stable=False)
         while 1:  # relic tab -> salvage
             if skip_first_screenshot:

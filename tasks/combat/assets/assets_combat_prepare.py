@@ -70,3 +70,13 @@ WAVE_PLUS = ButtonWrapper(
         button=(1204, 578, 1236, 598),
     ),
 )
+WAVE_SLIDER = ButtonWrapper(
+    name='WAVE_SLIDER',
+    share=Button(
+        file='./assets/share/combat/prepare/WAVE_SLIDER.png',
+        area=(911, 585, 1150, 591),
+        search=(891, 565, 1170, 611),
+        color=(167, 118, 68),
+        button=(911, 585, 1150, 591),
+    ),
+)

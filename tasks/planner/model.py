@@ -118,17 +118,23 @@ class StoredPlannerProxy(BaseModelWithFallback):
     def val_value(self):
         if self.item.has_group_base:
             if not isinstance(self.value, MultiValue):
+                logger.warning(f'Planner item {self.item} has_group_base but given `value` is not a MultiValue')
                 self.value = MultiValue()
             if not isinstance(self.total, MultiValue):
+                logger.warning(f'Planner item {self.item} has_group_base but given `total` is not a MultiValue')
                 self.total = MultiValue()
             if not isinstance(self.synthesize, MultiValue):
+                logger.warning(f'Planner item {self.item} has_group_base but given `synthesize` is not a MultiValue')
                 self.synthesize = MultiValue()
         else:
             if not isinstance(self.value, int):
+                logger.warning(f'Planner item {self.item} has no group base but given `value` is not an int')
                 self.value = 0
             if not isinstance(self.total, int):
+                logger.warning(f'Planner item {self.item} has no group base but given `total` is not an int')
                 self.total = 0
             if not isinstance(self.synthesize, int):
+                logger.warning(f'Planner item {self.item} has no group base but given `synthesize` is not an int')
                 self.synthesize = 0
         return self
 
@@ -247,9 +253,11 @@ class StoredPlannerProxy(BaseModelWithFallback):
     @computed_field
     @functools_cached_property
     def progress(self) -> float:
-        # 0 to 100
-        progress = self.progress_current / self.progress_total * 100
-        return round(min(max(progress, 0), 100), 2)
+        try:
+            progress = self.progress_current / self.progress_total * 100
+            return round(min(max(progress, 0), 100), 2)
+        except ZeroDivisionError:
+            return 100.
 
     def is_approaching_total(self, wave_done: int = 0):
         """
@@ -506,7 +514,10 @@ class PlannerProgressParser:
             progress_current += row.progress_current
             progress_total += row.progress_total
 
-        progress = round(progress_current / progress_total * 100, 2)
+        try:
+            progress = round(progress_current / progress_total * 100, 2)
+        except ZeroDivisionError:
+            progress = 100.
         return progress, eta
 
     def iter_row_to_farm(self, need_farm=True) -> t.Iterable[StoredPlannerProxy]:
@@ -605,9 +616,10 @@ class PlannerMixin(UI):
 
     @cached_property
     def planner(self) -> PlannerProgressParser:
-        data = self.config.cross_get('Dungeon.Planner', default={})
-        model = PlannerProgressParser().from_config(data)
         logger.hr('Planner')
+        data = self.config.cross_get('Dungeon.Planner', default={})
+        model = PlannerProgressParser()
+        model.from_config(data)
         for row in model.rows.values():
             logger.info(row)
         return model

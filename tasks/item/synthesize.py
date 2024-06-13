@@ -508,4 +508,4 @@ class Synthesize(CombatObtain, ItemUI):
 if __name__ == '__main__':
     self = Synthesize('src')
     self.device.screenshot()
-    self.synthesize_obtain_get()
+    self.synthesize_planner()

@@ -4,8 +4,9 @@ from module.base.timer import Timer
 from module.logger import logger
 from module.ocr.ocr import Digit
 from tasks.base.page import page_item
-from tasks.base.ui import UI
 from tasks.item.assets.assets_item_data import OCR_DATA
+from tasks.item.keywords import KEYWORDS_ITEM_TAB
+from tasks.item.ui import ItemUI
 
 
 class DataDigit(Digit):
@@ -15,7 +16,7 @@ class DataDigit(Digit):
         return super().after_process(result)
 
 
-class DataUpdate(UI):
+class DataUpdate(ItemUI):
     def _get_data(self):
         """
         Page:
@@ -39,15 +40,16 @@ class DataUpdate(UI):
 
         logger.attr('Credit', credit)
         logger.attr('StellarJade', jade)
-        with self.config.multi_set():
-            self.config.stored.Credit.value = credit
-            self.config.stored.StallerJade.value = jade
-
         return credit, jade
 
     def run(self):
         self.ui_ensure(page_item, acquire_lang_checked=False)
+        # item tab stays at the last used tab, switch to UpgradeMaterials
+        self.item_goto(KEYWORDS_ITEM_TAB.UpgradeMaterials, wait_until_stable=False)
+
+        credit, jade = self._get_data()
 
         with self.config.multi_set():
-            self._get_data()
+            self.config.stored.Credit.value = credit
+            self.config.stored.StallerJade.value = jade
             self.config.task_delay(server_update=True)

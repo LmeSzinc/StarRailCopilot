@@ -123,7 +123,7 @@ class DungeonEvent(UI):
             if not ocr.is_format_matched(row.ocr_text):
                 continue
             remain, _, total = ocr.format_result(row.ocr_text)
-            if total in [3, 12]:
+            if total in [3, 6, 12]:
                 logger.attr('Double event remain at combat', remain)
                 return remain
         logger.warning('Double event appears but failed to get remain')

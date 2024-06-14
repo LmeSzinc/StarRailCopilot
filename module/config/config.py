@@ -511,13 +511,11 @@ class AzurLaneConfig(ConfigUpdater, ManualConfig, GeneratedConfig, ConfigWatcher
             TaskEnd: Call task `DailyQuest` and stop current task
         """
         if self.stored.DailyActivity.is_expired():
-            logger.info('DailyActivity expired, call task to update')
-            self.task_call('DailyQuest')
-            self.task_stop()
+            logger.info('DailyActivity expired')
+            self.stored.DailyActivity.clear()
         if self.stored.DailyQuest.is_expired():
-            logger.info('DailyQuest expired, call task to update')
-            self.task_call('DailyQuest')
-            self.task_stop()
+            logger.info('DailyQuest expired')
+            self.stored.DailyQuest.clear()
 
     def update_battle_pass_quests(self):
         """
@@ -528,9 +526,8 @@ class AzurLaneConfig(ConfigUpdater, ManualConfig, GeneratedConfig, ConfigWatcher
             if self.stored.BattlePassLevel.is_full():
                 logger.info('BattlePassLevel full, no updates')
             else:
-                logger.info('BattlePassTodayQuest expired, call task to update')
-                self.task_call('BattlePass')
-                self.task_stop()
+                logger.info('BattlePassTodayQuest expired')
+                self.stored.BattlePassWeeklyQuest.clear()
 
     @property
     def DEVICE_SCREENSHOT_METHOD(self):

@@ -99,6 +99,10 @@ SET_ROW_EXCLUDE = {
 }
 
 
+class InvalidPlannerRow(Exception):
+    pass
+
+
 class StoredPlannerProxy(BaseModelWithFallback):
     item: ITEM_TYPES
     value: int | MultiValue = 0
@@ -125,11 +129,12 @@ class StoredPlannerProxy(BaseModelWithFallback):
                 logger.warning(f'Planner item {self.item} has_group_base '
                                f'but given total={self.total} is not a MultiValue')
                 self.total = MultiValue()
-                raise Exception
             if not isinstance(self.synthesize, MultiValue):
                 logger.warning(f'Planner item {self.item} has_group_base '
                                f'but given synthesize={self.synthesize} is not a MultiValue')
                 self.synthesize = MultiValue()
+            if self.total.equivalent_green() <= 0:
+                raise InvalidPlannerRow(f'Planner item {self.item} has invalid total={self.total}, drop')
         else:
             if not isinstance(self.value, int):
                 logger.warning(f'Planner item {self.item} has no group base '
@@ -142,6 +147,12 @@ class StoredPlannerProxy(BaseModelWithFallback):
             if not isinstance(self.synthesize, int):
                 logger.warning(f'Planner item {self.item} has no group base '
                                f'but given synthesize={self.synthesize} is not an int')
+                self.synthesize = 0
+            if self.total <= 0:
+                raise InvalidPlannerRow(f'Planner item {self.item} has invalid total={self.total}, drop')
+            if self.synthesize != 0:
+                logger.warning(f'Planner item {self.item} has no group base '
+                               f'its synthesize={self.synthesize} should be 0')
                 self.synthesize = 0
         return self
 
@@ -401,7 +412,7 @@ class StoredPlannerProxy(BaseModelWithFallback):
         if self.item.has_group_base:
             return self.synthesize.green > 0 or self.synthesize.blue > 0 or self.synthesize.purple > 0
         else:
-            return self.synthesize > 0
+            return False
 
     def load_planner_result(self, row: PlannerResultRow):
         """
@@ -475,7 +486,7 @@ class PlannerProgressParser:
                 continue
             try:
                 row = StoredPlannerProxy(**row)
-            except (ScriptError, ValidationError) as e:
+            except (ScriptError, ValidationError, InvalidPlannerRow) as e:
                 logger.error(e)
                 continue
             if not row.item.is_group_base:

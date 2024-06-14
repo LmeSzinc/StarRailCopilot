@@ -1,9 +1,9 @@
+import cv2
 import numpy as np
 from scipy import signal
 
 from module.base.button import ButtonWrapper, ClickButton
 from module.base.timer import Timer
-from module.base.utils import rgb2gray
 from module.exception import ScriptError
 from module.logger import logger
 from tasks.base.ui import UI
@@ -43,27 +43,42 @@ class Slider:
         area = self.slider.area
         area = (area[0], area[1] - self.background, area[2], area[3] + self.background)
         image = self.main.image_crop(area, copy=False)
-        image = rgb2gray(image)
-        image = image.flatten('F')
+        r, g, _ = cv2.split(image)
+        image = r.flatten('F')
         wlen = area[3] - area[1]
         total = area[2] - area[0]
 
         parameters = {
             'prominence': 15,
             'wlen': wlen,
-            'width': 4,
+            'width': 2,
             'distance': wlen / 2,
         }
         parameters.update(self.parameters)
         peaks, _ = signal.find_peaks(image, **parameters)
         peaks //= wlen
+        diff = np.diff(peaks)
+
+        # Mask controller
+        # Controller has orange border (240, 150, 57) and white center
+        r = cv2.reduce(r, 0, cv2.REDUCE_AVG).flatten()
+        g = cv2.reduce(g, 0, cv2.REDUCE_AVG).flatten()
+        mask = np.all([r > 160, g > 80], axis=0)
+        try:
+            index = np.where(mask == True)
+            left = max(index[0][0] - 3, 0)
+            right = min(index[0][-1] + 3, len(peaks))
+            diff[left:right] = 0
+        except IndexError:
+            pass
 
         # Ignore non-continuous peaks, which may be the letter to the right of slider
         try:
-            right = np.where(np.diff(peaks) >= 3)[0][0]
+            right = np.where(diff >= 3)[0][0]
             peaks = peaks[:right + 1]
         except IndexError:
             pass
+
         # Calculate actual slider area
         try:
             length = peaks[-1]
@@ -72,6 +87,10 @@ class Slider:
             length = total
             self.area = self.slider.area
         logger.info(f'Slider length: {length}/{total}')
+
+        if length < total / 2:
+            logger.warning('Detected slider too short')
+            # self.main.device.image_save()
 
     def set(self, value: int, total: int, skip_first_screenshot=True):
         """

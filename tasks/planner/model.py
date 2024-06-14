@@ -405,6 +405,22 @@ class StoredPlannerProxy(BaseModelWithFallback):
             self.total += row.total
             self.synthesize += row.synthesize
 
+    def can_daily_farm(self):
+        """
+        Returns:
+            bool: True if item can be farmed in daily
+                False if item.is_ItemWeekly or Tracks_of_Destiny
+        """
+        if self.item.is_ItemAscension:
+            return True
+        if self.item.is_ItemTrace:
+            return True
+        if self.item.is_ItemExp:
+            return True
+        if self.item.is_ItemCurrency:
+            return True
+        return False
+
     def need_farm(self):
         return self.progress < 100
 
@@ -532,6 +548,8 @@ class PlannerProgressParser:
         progress_current = 0.
         progress_total = 0.
         for row in self.rows.values():
+            if not row.can_daily_farm():
+                continue
             eta += row.eta
             progress_current += row.progress_current
             progress_total += row.progress_total

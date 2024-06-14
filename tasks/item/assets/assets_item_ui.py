@@ -103,6 +103,16 @@ RELICS_CLICK = ButtonWrapper(
         button=(36, 298, 78, 319),
     ),
 )
+SWITCH_CLICK = ButtonWrapper(
+    name='SWITCH_CLICK',
+    share=Button(
+        file='./assets/share/item/ui/SWITCH_CLICK.png',
+        area=(59, 60, 94, 672),
+        search=(39, 40, 114, 692),
+        color=(75, 79, 87),
+        button=(59, 60, 94, 672),
+    ),
+)
 SWITCH_SEARCH = ButtonWrapper(
     name='SWITCH_SEARCH',
     share=Button(

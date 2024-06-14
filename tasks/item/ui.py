@@ -13,6 +13,10 @@ class SwitchItemTab(Switch):
             check_button.load_search(SWITCH_SEARCH.area)
         if click_button is not None:
             click_button.load_search(SWITCH_SEARCH.area)
+            # Limit click_button.button
+            left = SWITCH_CLICK.area[0]
+            for button in click_button.buttons:
+                button._button = (left, button._button[1], button._button[2], button._button[3])
         return super().add_state(state, check_button, click_button)
 
     def click(self, state, main):

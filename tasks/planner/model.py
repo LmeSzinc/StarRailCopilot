@@ -118,23 +118,30 @@ class StoredPlannerProxy(BaseModelWithFallback):
     def val_value(self):
         if self.item.has_group_base:
             if not isinstance(self.value, MultiValue):
-                logger.warning(f'Planner item {self.item} has_group_base but given `value` is not a MultiValue')
+                logger.warning(f'Planner item {self.item} has_group_base '
+                               f'but given value={self.value} is not a MultiValue')
                 self.value = MultiValue()
             if not isinstance(self.total, MultiValue):
-                logger.warning(f'Planner item {self.item} has_group_base but given `total` is not a MultiValue')
+                logger.warning(f'Planner item {self.item} has_group_base '
+                               f'but given total={self.total} is not a MultiValue')
                 self.total = MultiValue()
+                raise Exception
             if not isinstance(self.synthesize, MultiValue):
-                logger.warning(f'Planner item {self.item} has_group_base but given `synthesize` is not a MultiValue')
+                logger.warning(f'Planner item {self.item} has_group_base '
+                               f'but given synthesize={self.synthesize} is not a MultiValue')
                 self.synthesize = MultiValue()
         else:
             if not isinstance(self.value, int):
-                logger.warning(f'Planner item {self.item} has no group base but given `value` is not an int')
+                logger.warning(f'Planner item {self.item} has no group base '
+                               f'but given value={self.value} is not an int')
                 self.value = 0
             if not isinstance(self.total, int):
-                logger.warning(f'Planner item {self.item} has no group base but given `total` is not an int')
+                logger.warning(f'Planner item {self.item} has no group base '
+                               f'but given total={self.total} is not an int')
                 self.total = 0
             if not isinstance(self.synthesize, int):
-                logger.warning(f'Planner item {self.item} has no group base but given `synthesize` is not an int')
+                logger.warning(f'Planner item {self.item} has no group base '
+                               f'but given synthesize={self.synthesize} is not an int')
                 self.synthesize = 0
         return self
 
@@ -424,7 +431,11 @@ class PlannerProgressParser:
             base = row.item.group_base
             if base.name not in self.rows:
                 try:
-                    obj = StoredPlannerProxy(item=base)
+                    if row.item.has_group_base:
+                        obj = StoredPlannerProxy(
+                            item=base, value=MultiValue(), total=MultiValue(), synthesize=MultiValue())
+                    else:
+                        obj = StoredPlannerProxy(item=base, value=0, total=0, synthesize=0)
                 except ScriptError as e:
                     logger.error(e)
                     continue

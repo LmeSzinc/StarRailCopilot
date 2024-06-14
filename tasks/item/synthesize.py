@@ -452,6 +452,19 @@ class Synthesize(CombatObtain, ItemUI):
             if self.handle_popup_confirm():
                 continue
 
+    def synthesize_needed(self):
+        """
+        Returns:
+            bool: True is any synthesizable items are full
+        """
+        for row in self.planner.rows.values():
+            if not row.need_farm() and row.need_synthesize():
+                logger.info(f'Going to synthesize {row.item}')
+                return True
+
+        logger.info('No items need to synthesize')
+        return False
+
     def synthesize_planner(self):
         """
         Synthesize items in planner

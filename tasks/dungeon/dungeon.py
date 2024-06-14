@@ -6,6 +6,7 @@ from tasks.daily.keywords import KEYWORDS_DAILY_QUEST
 from tasks.dungeon.event import DungeonEvent
 from tasks.dungeon.keywords import DungeonList, KEYWORDS_DUNGEON_LIST, KEYWORDS_DUNGEON_NAV, KEYWORDS_DUNGEON_TAB
 from tasks.dungeon.stamina import DungeonStamina
+from tasks.item.synthesize import Synthesize
 
 
 class Dungeon(DungeonStamina, DungeonEvent, Combat):
@@ -141,7 +142,10 @@ class Dungeon(DungeonStamina, DungeonEvent, Combat):
 
             # Check trailblaze power, this may stop current task
             if self.is_trailblaze_power_exhausted():
+                # Scheduler
                 self.delay_dungeon_task(dungeon)
+                self.check_synthesize()
+                self.config.task_stop()
 
         return count
 
@@ -290,12 +294,23 @@ class Dungeon(DungeonStamina, DungeonEvent, Combat):
                     # Schedule behind rogue
                     self.config.task_delay(minute=5)
                     self.config.task_call('Rogue')
+                # Scheduler
                 self.delay_dungeon_task(KEYWORDS_DUNGEON_LIST.Simulated_Universe_World_1)
+                self.config.task_stop()
         else:
             # Combat
             self.dungeon_run(final)
             self.is_doing_planner = False
+            # Scheduler
             self.delay_dungeon_task(final)
+            self.check_synthesize()
+            self.config.task_stop()
+
+    def check_synthesize(self):
+        logger.info('Check synthesize')
+        synthesize = Synthesize(config=self.config, device=self.device, task=self.config.task.command)
+        if synthesize.synthesize_needed():
+            synthesize.synthesize_planner()
 
     def delay_dungeon_task(self, dungeon: DungeonList):
         logger.attr('achieved_daily_quest', self.achieved_daily_quest)
@@ -315,8 +330,6 @@ class Dungeon(DungeonStamina, DungeonEvent, Combat):
 
             # Delay tasks
             self.dungeon_stamina_delay(dungeon)
-
-        self.config.task_stop()
 
     def handle_destructible_around_blaze(self):
         """

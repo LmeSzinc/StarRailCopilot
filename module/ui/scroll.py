@@ -248,6 +248,7 @@ class AdaptiveScroll(Scroll):
             'prominence': 30,
             'wlen': wlen,
             'width': 2,
+            # 'distance': wlen / 2,
         }
         parameters.update(self.parameters)
         peaks, _ = signal.find_peaks(image, **parameters)

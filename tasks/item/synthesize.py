@@ -1,16 +1,20 @@
 import cv2
 import numpy as np
 
+import module.config.server as server
 from module.base.decorator import cached_property
 from module.base.timer import Timer
 from module.base.utils import SelectedGrids, color_similarity_2d, crop, image_size
 from module.exception import ScriptError
 from module.logger import logger
-from module.ocr.ocr import Ocr
-from tasks.base.page import page_synthesize
+from module.ocr.ocr import Digit, Ocr
+from tasks.base.page import page_menu, page_synthesize
 from tasks.combat.obtain import CombatObtain
 from tasks.item.assets.assets_item_synthesize import *
 from tasks.item.inventory import InventoryManager
+from tasks.item.keywords import KEYWORDS_ITEM_TAB
+from tasks.item.slider import Slider
+from tasks.item.ui import ItemUI
 from tasks.planner.keywords import ITEM_CLASSES, ItemCalyx, ItemTrace
 from tasks.planner.keywords.classes import ItemBase
 from tasks.planner.model import ObtainedAmmount
@@ -86,7 +90,7 @@ class SynthesizeInventoryManager(InventoryManager):
         return id2 > id1
 
 
-class Synthesize(CombatObtain):
+class Synthesize(CombatObtain, ItemUI):
     def item_get_rarity(self, button) -> str | None:
         """
         Args:
@@ -199,7 +203,7 @@ class Synthesize(CombatObtain):
         items = []
 
         def obtain_end():
-            return self.item_get_rarity(ENTRY_ITEM_FROM) is not None
+            return self.ui_page_appear(page_synthesize) and self.item_get_rarity(ENTRY_ITEM_FROM) is not None
 
         # Purple
         self.synthesize_rarity_set('blue')
@@ -332,9 +336,189 @@ class Synthesize(CombatObtain):
                 logger.error(f'Unexpected switch_row={switch_row} during loop')
                 return False
 
+    def synthesize_amount_set(self, value: int, total: int):
+        """
+        Args:
+            value: Value to set
+            total: Maximum amount of slider
+        """
+        logger.hr('Synthesize amount set', level=2)
+        slider = Slider(main=self, slider=SYNTHESIZE_SLIDER)
+        slider.set(value, total)
+        ocr = Digit(SYNTHESIZE_AMOUNT, lang=server.lang)
+        self.ui_ensure_index(
+            value, letter=ocr, next_button=SYNTHESIZE_PLUS, prev_button=SYNTHESIZE_MINUS, interval=(0.1, 0.2))
+
+    def synthesize_tab_set(self, state, reset=True):
+        """
+        Args:
+            state:
+                KEYWORDS_ITEM_TAB.Consumables
+                KEYWORDS_ITEM_TAB.UpgradeMaterials
+                Exchange, not in KEYWORDS_ITEM_TAB yet
+                KEYWORDS_ITEM_TAB.Relics
+            reset: True to reset current list
+
+        Page:
+            in: page_synthesize
+        """
+        logger.info(f'Synthesize tab set {state}, reset={reset}')
+        if self.item_goto(state, wait_until_stable=False):
+            return True
+        else:
+            if reset:
+                if state == KEYWORDS_ITEM_TAB.Consumables:
+                    other = KEYWORDS_ITEM_TAB.UpgradeMaterials
+                else:
+                    other = KEYWORDS_ITEM_TAB.Consumables
+                self.item_goto(other, wait_until_stable=False)
+                self.item_goto(state, wait_until_stable=False)
+                return True
+            else:
+                return False
+
+    def synthesize_confirm(self, skip_first_screenshot=True):
+        """
+        Confirm synthesize
+        amount needs to be set before call
+
+        Pages:
+            in: page_synthesize, SYNTHESIZE_CONFIRM
+            out: page_synthesize, SYNTHESIZE_CONFIRM
+        """
+        logger.hr('Synthesize confirm')
+
+        def appear_confirm():
+            return self.image_color_count(SYNTHESIZE_CONFIRM, color=(226, 229, 232), threshold=221, count=1000)
+
+        # SYNTHESIZE_CONFIRM -> reward_appear
+        while 1:
+            if skip_first_screenshot:
+                skip_first_screenshot = False
+            else:
+                self.device.screenshot()
+
+            # End
+            if self.reward_appear():
+                logger.info('Got reward')
+                break
+            # Click
+            if self.handle_popup_confirm():
+                continue
+            if appear_confirm() and self.ui_page_appear(page_synthesize, interval=2):
+                self.device.click(SYNTHESIZE_CONFIRM)
+                continue
+
+        # reward_appear -> SYNTHESIZE_CONFIRM
+        skip_first_screenshot = True
+        while 1:
+            if skip_first_screenshot:
+                skip_first_screenshot = False
+            else:
+                self.device.screenshot()
+
+            # End
+            if appear_confirm():
+                logger.info('Synthesize end')
+                break
+            # Click
+            if self.handle_reward(click_button=SYNTHESIZE_MINUS):
+                continue
+
+    def synthesize_exit(self, skip_first_screenshot=True):
+        """
+        Pages:
+            in: page_synthesize
+            out: page_main
+        """
+        logger.hr('Synthesize exit')
+        self.interval_clear(page_synthesize.check_button)
+        while 1:
+            if skip_first_screenshot:
+                skip_first_screenshot = False
+            else:
+                self.device.screenshot()
+
+            # End
+            if self.is_in_main():
+                break
+            # Click
+            if self.handle_ui_close(page_synthesize.check_button):
+                continue
+            if self.handle_ui_close(page_menu.check_button):
+                continue
+            if self.handle_reward():
+                continue
+            if self.handle_popup_confirm():
+                continue
+
+    def synthesize_needed(self):
+        """
+        Returns:
+            bool: True is any synthesizable items are full
+        """
+        for row in self.planner.rows.values():
+            if not row.need_farm() and row.need_synthesize():
+                logger.info(f'Going to synthesize {row.item}')
+                return True
+
+        logger.info('No items need to synthesize')
+        return False
+
+    def synthesize_planner(self):
+        """
+        Synthesize items in planner
+
+        Pages:
+            in: Any
+            out: page_main
+        """
+        logger.hr('Synthesize planner', level=1)
+        self.ui_ensure(page_synthesize)
+
+        for row in self.planner.rows.values():
+            if not row.need_synthesize():
+                continue
+
+            logger.hr('Synthesize planner row', level=1)
+            self.synthesize_tab_set(KEYWORDS_ITEM_TAB.UpgradeMaterials, reset=True)
+            self.synthesize_inventory_select(row.item)
+
+            # Update obtain amount
+            obtained = self.synthesize_obtain_get()
+            self.planner.load_obtained_amount(obtained)
+            if not row.need_synthesize():
+                logger.warning('Planner row do not need to synthesize')
+                continue
+
+            logger.info(f'Synthesize row: {row}')
+            # green -> blue
+            value = row.synthesize.blue
+            total = int(row.value.green // 3)
+            if value:
+                logger.info(f'Synthesize green to blue: {value}/{total}')
+                self.synthesize_rarity_set('green')
+                self.synthesize_amount_set(value, total)
+                self.synthesize_confirm()
+            # blue -> purple
+            synthesized_blue = value
+            value = row.synthesize.purple
+            total = int((row.value.blue + synthesized_blue) // 3)
+            if value:
+                logger.info(f'Synthesize blue to purple: {value}/{total}')
+                self.synthesize_rarity_set('blue')
+                self.synthesize_amount_set(value, total)
+                self.synthesize_confirm()
+
+            # Update obtain amount
+            obtained = self.synthesize_obtain_get()
+            self.planner.load_obtained_amount(obtained)
+
+        self.synthesize_exit()
+        self.planner_write()
 
 
 if __name__ == '__main__':
     self = Synthesize('src')
     self.device.screenshot()
-    self.synthesize_obtain_get()
+    self.synthesize_planner()

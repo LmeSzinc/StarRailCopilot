@@ -1,12 +1,36 @@
 from module.logger import logger
 from module.ui.switch import Switch
-from tasks.base.page import page_item
 from tasks.base.ui import UI
 from tasks.item.assets.assets_item_consumable_usage import SIMPLE_PROTECTIVE_GEAR
 from tasks.item.assets.assets_item_ui import *
 from tasks.item.keywords import KEYWORDS_ITEM_TAB
 
-SWITCH_ITEM_TAB = Switch('ItemTab', is_selector=True)
+
+class SwitchItemTab(Switch):
+    def add_state(self, state, check_button, click_button=None):
+        # Load search
+        if check_button is not None:
+            check_button.load_search(SWITCH_SEARCH.area)
+        if click_button is not None:
+            click_button.load_search(SWITCH_SEARCH.area)
+            # Limit click_button.button
+            left = SWITCH_CLICK.area[0]
+            for button in click_button.buttons:
+                button._button = (left, button._button[1], button._button[2], button._button[3])
+        return super().add_state(state, check_button, click_button)
+
+    def click(self, state, main):
+        """
+        Args:
+            state (str):
+            main (ModuleBase):
+        """
+        button = self.get_data(state)['click_button']
+        _ = button.match_template_luma(main.device.image)  # Search button to load offset
+        main.device.click(button)
+
+
+SWITCH_ITEM_TAB = SwitchItemTab('ItemTab', is_selector=True)
 SWITCH_ITEM_TAB.add_state(
     KEYWORDS_ITEM_TAB.UpgradeMaterials,
     check_button=UPGRADE_MATERIAL_CHECK,
@@ -53,16 +77,20 @@ class ItemUI(UI):
                 inside the tab, wait_until_stable should set to True
 
         Returns:
+            bool: If switched
+
+        Examples:
             self = ItemUI('alas')
             self.device.screenshot()
             self.item_goto(KEYWORDS_ITEM_TAB.Relics)
             self.item_goto(KEYWORDS_ITEM_TAB.Consumables)
         """
-        logger.hr('Item tab goto', level=2)
-        self.ui_ensure(page_item)
-        SWITCH_ITEM_TAB.set(state, main=self)
-        if wait_until_stable:
-            logger.info(f'Tab goto {state}, wait until loaded')
-            self.wait_until_stable(SIMPLE_PROTECTIVE_GEAR)
+        if SWITCH_ITEM_TAB.set(state, main=self):
+            if wait_until_stable:
+                logger.info(f'Tab goto {state}, wait until loaded')
+                self.wait_until_stable(SIMPLE_PROTECTIVE_GEAR)
+            else:
+                logger.info(f'Tab goto {state}')
+            return True
         else:
-            logger.info(f'Tab goto {state}')
+            return False

@@ -99,6 +99,10 @@ SET_ROW_EXCLUDE = {
 }
 
 
+class InvalidPlannerRow(Exception):
+    pass
+
+
 class StoredPlannerProxy(BaseModelWithFallback):
     item: ITEM_TYPES
     value: int | MultiValue = 0
@@ -118,17 +122,37 @@ class StoredPlannerProxy(BaseModelWithFallback):
     def val_value(self):
         if self.item.has_group_base:
             if not isinstance(self.value, MultiValue):
+                logger.warning(f'Planner item {self.item} has_group_base '
+                               f'but given value={self.value} is not a MultiValue')
                 self.value = MultiValue()
             if not isinstance(self.total, MultiValue):
+                logger.warning(f'Planner item {self.item} has_group_base '
+                               f'but given total={self.total} is not a MultiValue')
                 self.total = MultiValue()
             if not isinstance(self.synthesize, MultiValue):
+                logger.warning(f'Planner item {self.item} has_group_base '
+                               f'but given synthesize={self.synthesize} is not a MultiValue')
                 self.synthesize = MultiValue()
+            if self.total.equivalent_green() <= 0:
+                raise InvalidPlannerRow(f'Planner item {self.item} has invalid total={self.total}, drop')
         else:
             if not isinstance(self.value, int):
+                logger.warning(f'Planner item {self.item} has no group base '
+                               f'but given value={self.value} is not an int')
                 self.value = 0
             if not isinstance(self.total, int):
+                logger.warning(f'Planner item {self.item} has no group base '
+                               f'but given total={self.total} is not an int')
                 self.total = 0
             if not isinstance(self.synthesize, int):
+                logger.warning(f'Planner item {self.item} has no group base '
+                               f'but given synthesize={self.synthesize} is not an int')
+                self.synthesize = 0
+            if self.total <= 0:
+                raise InvalidPlannerRow(f'Planner item {self.item} has invalid total={self.total}, drop')
+            if self.synthesize != 0:
+                logger.warning(f'Planner item {self.item} has no group base '
+                               f'its synthesize={self.synthesize} should be 0')
                 self.synthesize = 0
         return self
 
@@ -247,9 +271,11 @@ class StoredPlannerProxy(BaseModelWithFallback):
     @computed_field
     @functools_cached_property
     def progress(self) -> float:
-        # 0 to 100
-        progress = self.progress_current / self.progress_total * 100
-        return round(min(max(progress, 0), 100), 2)
+        try:
+            progress = self.progress_current / self.progress_total * 100
+            return round(min(max(progress, 0), 100), 2)
+        except ZeroDivisionError:
+            return 100.
 
     def is_approaching_total(self, wave_done: int = 0):
         """
@@ -379,6 +405,22 @@ class StoredPlannerProxy(BaseModelWithFallback):
             self.total += row.total
             self.synthesize += row.synthesize
 
+    def can_daily_farm(self):
+        """
+        Returns:
+            bool: True if item can be farmed in daily
+                False if item.is_ItemWeekly or Tracks_of_Destiny
+        """
+        if self.item.is_ItemAscension:
+            return True
+        if self.item.is_ItemTrace:
+            return True
+        if self.item.is_ItemExp:
+            return True
+        if self.item.is_ItemCurrency:
+            return True
+        return False
+
     def need_farm(self):
         return self.progress < 100
 
@@ -386,7 +428,7 @@ class StoredPlannerProxy(BaseModelWithFallback):
         if self.item.has_group_base:
             return self.synthesize.green > 0 or self.synthesize.blue > 0 or self.synthesize.purple > 0
         else:
-            return self.synthesize > 0
+            return False
 
     def load_planner_result(self, row: PlannerResultRow):
         """
@@ -416,7 +458,11 @@ class PlannerProgressParser:
             base = row.item.group_base
             if base.name not in self.rows:
                 try:
-                    obj = StoredPlannerProxy(item=base)
+                    if row.item.has_group_base:
+                        obj = StoredPlannerProxy(
+                            item=base, value=MultiValue(), total=MultiValue(), synthesize=MultiValue())
+                    else:
+                        obj = StoredPlannerProxy(item=base, value=0, total=0, synthesize=0)
                 except ScriptError as e:
                     logger.error(e)
                     continue
@@ -456,7 +502,7 @@ class PlannerProgressParser:
                 continue
             try:
                 row = StoredPlannerProxy(**row)
-            except (ScriptError, ValidationError) as e:
+            except (ScriptError, ValidationError, InvalidPlannerRow) as e:
                 logger.error(e)
                 continue
             if not row.item.is_group_base:
@@ -502,11 +548,16 @@ class PlannerProgressParser:
         progress_current = 0.
         progress_total = 0.
         for row in self.rows.values():
+            if not row.can_daily_farm():
+                continue
             eta += row.eta
             progress_current += row.progress_current
             progress_total += row.progress_total
 
-        progress = round(progress_current / progress_total * 100, 2)
+        try:
+            progress = round(progress_current / progress_total * 100, 2)
+        except ZeroDivisionError:
+            progress = 100.
         return progress, eta
 
     def iter_row_to_farm(self, need_farm=True) -> t.Iterable[StoredPlannerProxy]:
@@ -605,9 +656,10 @@ class PlannerMixin(UI):
 
     @cached_property
     def planner(self) -> PlannerProgressParser:
-        data = self.config.cross_get('Dungeon.Planner', default={})
-        model = PlannerProgressParser().from_config(data)
         logger.hr('Planner')
+        data = self.config.cross_get('Dungeon.Planner', default={})
+        model = PlannerProgressParser()
+        model.from_config(data)
         for row in model.rows.values():
             logger.info(row)
         return model
@@ -633,7 +685,7 @@ class PlannerMixin(UI):
                     remove.append(key)
             for key in remove:
                 self.config.cross_set(f'Dungeon.Planner.{key}', {})
-            print(progress, eta)
+            # print(progress, eta)
             # Set overall
             self.config.stored.PlannerOverall.value = f'{progress:.2f}%'
             self.config.stored.PlannerOverall.comment = f'<{eta:.1f}d'

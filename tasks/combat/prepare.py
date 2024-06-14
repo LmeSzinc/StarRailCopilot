@@ -11,8 +11,9 @@ from tasks.combat.assets.assets_combat_prepare import (
     OCR_WAVE_COST,
     OCR_WAVE_COUNT,
     WAVE_MINUS,
-    WAVE_PLUS
+    WAVE_PLUS, WAVE_SLIDER
 )
+from tasks.item.slider import Slider
 
 
 class TrailblazePowerOcr(DigitCounter):
@@ -43,6 +44,8 @@ class CombatPrepare(UI):
         Pages:
             in: COMBAT_PREPARE
         """
+        slider = Slider(main=self, slider=WAVE_SLIDER)
+        slider.set(count, 6)
         self.ui_ensure_index(
             count, letter=Digit(OCR_WAVE_COUNT, lang=server.lang),
             next_button=WAVE_PLUS, prev_button=WAVE_MINUS,

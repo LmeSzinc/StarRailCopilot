@@ -1,3 +1,4 @@
+from module.config.utils import get_server_next_monday_update
 from module.logger import logger
 from module.ocr.ocr import DigitCounter
 from tasks.daily.keywords import KEYWORDS_DAILY_QUEST
@@ -62,6 +63,7 @@ class WeeklyDungeon(Dungeon):
         DUNGEON_LIST.search_button = OCR_DUNGEON_LIST
         self._dungeon_nav_goto(KEYWORDS_DUNGEON_NAV.Echo_of_War)
         self._dungeon_wait_until_dungeon_list_loaded()
+        monday = get_server_next_monday_update(self.config.Scheduler_ServerUpdate)
 
         # Check limit
         remain = self.get_weekly_remain()
@@ -71,7 +73,7 @@ class WeeklyDungeon(Dungeon):
                 remain = 1
             else:
                 logger.info('Reached the limit to get Echo_of_War rewards, stop')
-                self.config.task_delay(server_update=True)
+                self.config.task_delay(target=monday)
                 self.config.task_stop()
 
         self._dungeon_insight(dungeon)
@@ -98,7 +100,7 @@ class WeeklyDungeon(Dungeon):
             # Finished all remains
             if count >= remain:
                 logger.info('All Echo_of_War rewards got')
-                self.config.task_delay(server_update=True)
+                self.config.task_delay(target=monday)
                 self.config.task_stop()
 
             logger.warning(f'Unexpected Echo_of_War case, count={count}, remain={remain}')

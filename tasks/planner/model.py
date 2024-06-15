@@ -133,8 +133,6 @@ class StoredPlannerProxy(BaseModelWithFallback):
                 logger.warning(f'Planner item {self.item} has_group_base '
                                f'but given synthesize={self.synthesize} is not a MultiValue')
                 self.synthesize = MultiValue()
-            if self.total.equivalent_green() <= 0:
-                raise InvalidPlannerRow(f'Planner item {self.item} has invalid total={self.total}, drop')
         else:
             if not isinstance(self.value, int):
                 logger.warning(f'Planner item {self.item} has no group base '
@@ -148,8 +146,6 @@ class StoredPlannerProxy(BaseModelWithFallback):
                 logger.warning(f'Planner item {self.item} has no group base '
                                f'but given synthesize={self.synthesize} is not an int')
                 self.synthesize = 0
-            if self.total <= 0:
-                raise InvalidPlannerRow(f'Planner item {self.item} has invalid total={self.total}, drop')
             if self.synthesize != 0:
                 logger.warning(f'Planner item {self.item} has no group base '
                                f'its synthesize={self.synthesize} should be 0')
@@ -505,6 +501,12 @@ class PlannerProgressParser:
             except (ScriptError, ValidationError, InvalidPlannerRow) as e:
                 logger.error(e)
                 continue
+            if row.item.has_group_base:
+                if row.total.equivalent_green() <= 0:
+                    raise InvalidPlannerRow(f'Planner item {row.item} has invalid total={row.total}, drop')
+            else:
+                if row.total <= 0:
+                    raise InvalidPlannerRow(f'Planner item {row.item} has invalid total={row.total}, drop')
             if not row.item.is_group_base:
                 logger.error(f'from_config: item is not group base {row}')
                 continue

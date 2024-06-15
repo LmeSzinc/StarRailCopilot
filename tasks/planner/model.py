@@ -506,10 +506,12 @@ class PlannerProgressParser:
                 continue
             if row.item.has_group_base:
                 if row.total.equivalent_green() <= 0:
-                    raise InvalidPlannerRow(f'Planner item {row.item} has invalid total={row.total}, drop')
+                    logger.error(f'Planner item {row.item} has invalid total={row.total}, drop')
+                    continue
             else:
                 if row.total <= 0:
-                    raise InvalidPlannerRow(f'Planner item {row.item} has invalid total={row.total}, drop')
+                    logger.error(f'Planner item {row.item} has invalid total={row.total}, drop')
+                    continue
             row.update(time=False)
             self.rows[row.item.name] = row
         return self

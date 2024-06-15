@@ -99,10 +99,6 @@ SET_ROW_EXCLUDE = {
 }
 
 
-class InvalidPlannerRow(Exception):
-    pass
-
-
 class StoredPlannerProxy(BaseModelWithFallback):
     item: ITEM_TYPES
     value: int | MultiValue = 0
@@ -498,7 +494,7 @@ class PlannerProgressParser:
                 continue
             try:
                 row = StoredPlannerProxy(**row)
-            except (ScriptError, ValidationError, InvalidPlannerRow) as e:
+            except (ScriptError, ValidationError) as e:
                 logger.error(e)
                 continue
             if not row.item.is_group_base:

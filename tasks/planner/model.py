@@ -421,7 +421,7 @@ class StoredPlannerProxy(BaseModelWithFallback):
         return self.progress < 100
 
     def need_synthesize(self):
-        if self.item.has_group_base:
+        if self.item.is_ItemCalyx or self.item.is_ItemTrace:
             return self.synthesize.green > 0 or self.synthesize.blue > 0 or self.synthesize.purple > 0
         else:
             return False

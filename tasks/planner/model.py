@@ -501,15 +501,15 @@ class PlannerProgressParser:
             except (ScriptError, ValidationError, InvalidPlannerRow) as e:
                 logger.error(e)
                 continue
+            if not row.item.is_group_base:
+                logger.error(f'from_config: item is not group base {row}')
+                continue
             if row.item.has_group_base:
                 if row.total.equivalent_green() <= 0:
                     raise InvalidPlannerRow(f'Planner item {row.item} has invalid total={row.total}, drop')
             else:
                 if row.total <= 0:
                     raise InvalidPlannerRow(f'Planner item {row.item} has invalid total={row.total}, drop')
-            if not row.item.is_group_base:
-                logger.error(f'from_config: item is not group base {row}')
-                continue
             row.update(time=False)
             self.rows[row.item.name] = row
         return self

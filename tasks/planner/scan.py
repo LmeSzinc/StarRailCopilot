@@ -259,7 +259,7 @@ class PlannerScan(SynthesizeUI, PlannerMixin):
             total_num = int(total_str)
             if item_name not in results:
                 item = ocr._match_result(
-                    item_name, keyword_classes=ITEM_CLASSES)
+                    item_name, keyword_classes=ITEM_CLASSES, lang=self.config.Emulator_GameLanguage)
                 results[item_name] = PlannerResultRow(
                     item=item, total=total_num, synthesize=0, demand=0)
 

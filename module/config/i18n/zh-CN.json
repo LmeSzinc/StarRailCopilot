@@ -1209,6 +1209,10 @@
       "name": "识别角色养成规划计算结果",
       "help": "工具需要停止调度器再单独运行\n使用前需要在游戏内养成计算器中设定养成目标，并计算出结果，在计算结果页面启动养成规划识别。详细使用教程见：\nhttps://github.com/LmeSzinc/StarRailCopilot/wiki/Planner_cn"
     },
+    "ParseHTML": {
+      "name": "解析养成网页",
+      "help": "解析国际服HoYoLab养成计算器结果。使用前请将计算结果保存为htm文件"
+    },
     "ResultAdd": {
       "name": "累加多次扫描结果",
       "help": "需要养成多个角色时勾选，同时养成多个角色\n仅养成一个角色不勾选，每次扫描时刷新养成目标"

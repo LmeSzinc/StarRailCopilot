@@ -1209,6 +1209,10 @@
       "name": "Escanear resultados del planificador de caracteres",
       "help": "Las herramientas deben detener el programador y luego ejecutarse de forma independiente\nAntes de usarlo, establezca el objetivo del planificador en el planificador del juego, calcule los resultados y comience a escanear desde la página de resultados. Para uso detallado, consulte: https://github .com/LmeSzinc/StarRailCopilot/wiki/Planner_cn"
     },
+    "ParseHTML": {
+      "name": "PlannerScan.ParseHTML.name",
+      "help": "PlannerScan.ParseHTML.help"
+    },
     "ResultAdd": {
       "name": "Acumular múltiples resultados de escaneo",
       "help": "Activar cuando se planifican varios personajes, generará varios personajes todos juntos\nDesactivar cuando se planifica un personaje, el objetivo de planificación se actualizará en cada escaneo"

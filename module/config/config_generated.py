@@ -206,4 +206,5 @@ class GeneratedConfig:
     Daemon_AimClicker = 'do_not_click'  # item_enemy, item, enemy, do_not_click
 
     # Group `PlannerScan`
+    PlannerScan_ParseHTML = False
     PlannerScan_ResultAdd = False

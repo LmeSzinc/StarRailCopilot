@@ -1804,6 +1804,10 @@
   },
   "PlannerScan": {
     "PlannerScan": {
+      "ParseHTML": {
+        "type": "checkbox",
+        "value": false
+      },
       "ResultAdd": {
         "type": "checkbox",
         "value": false

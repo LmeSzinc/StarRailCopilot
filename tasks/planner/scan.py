@@ -1,7 +1,8 @@
 import re
-
 import cv2
 from pponnxcr.predict_system import BoxedResult
+from tkinter import filedialog
+from lxml import etree
 
 from module.base.utils import area_center, area_in_area
 from module.exception import GamePageUnknownError
@@ -172,6 +173,9 @@ class PlannerScan(SynthesizeUI, PlannerMixin):
             in: planner result
         """
         logger.hr('Parse planner result', level=2)
+        if self.config.PlannerScan_ParseHTML:
+            out = self.parse_planner_html()
+            return out
         if not self.ui_page_appear(page_planner):
             logger.error('Not in page_planner, game must in the planner result page before scanning')
             raise GamePageUnknownError
@@ -225,6 +229,83 @@ class PlannerScan(SynthesizeUI, PlannerMixin):
 
         self.planner_write_results(out)
         return out
+
+    def parse_planner_html(self):
+        my_filetypes = [('HTML files', '*.htm;*.html'), ('all files', '.*')]
+        # TODO: dialog title i18n
+        html_filename = filedialog.askopenfilename(title="Please select saved plan page:",
+                                                   filetypes=my_filetypes)
+        with open(html_filename, 'r', encoding='utf-8') as file:
+            html_content = file.read()
+
+        tree = etree.parse(html_filename, etree.HTMLParser())
+
+        # find cost-table-row
+        rows = tree.xpath('//div[starts-with(@class, "cost-table-row")]')
+        img_name_table: dict[str, str] = {}
+        results: dict[str, PlannerResultRow] = {}
+        ocr = OcrPlannerResult()
+
+        for row in rows:
+            # create img to item name table
+            item_name = row.xpath(
+                './/div[starts-with(@class, "td td-name")]/div[@class="name"]/text()')[0].strip()
+            img_src = row.xpath(
+                './/div[starts-with(@class, "td td-icon")]//img/@src')[0].strip()
+            img_name = re.search(r'([^/]+\.png)$', img_src).group(1)
+            img_name_table[img_name] = item_name
+            total_str = row.xpath(
+                './/div[@class="td td-needs"]/text()')[0].strip()
+            total_num = int(total_str)
+            if item_name not in results:
+                item = ocr._match_result(
+                    item_name, keyword_classes=ITEM_CLASSES)
+                results[item_name] = PlannerResultRow(
+                    item=item, total=total_num, synthesize=0, demand=0)
+
+        result_inventory_required = tree.xpath(
+            '//div[@class="result-inventory-part part part-required"]/div[@class="cards"]/div')  # 需刷取
+        # result_inventory_payable = tree.xpath(
+        #     '//div[@class="result-inventory-part part part-payable"]/div[@class="cards"]/div')  # 可消耗
+        result_inventory_remaining = tree.xpath(
+            '//div[@class="result-inventory-part part part-remaining"]/div[@class="cards"]/div')  # 可合成
+
+        def _html_write_row(result_inventory, results: dict[str, PlannerResultRow], field: str):
+            # get item name
+            img_src = result_inventory.xpath(
+                './/div[@class="img-wrapper"]/img/@src')[0].strip()
+            img_name = re.search(r'([^/]+\.png)$', img_src).group(1)
+            item_name = img_name_table[img_name]
+            # get num
+            count_str = result_inventory.xpath(
+                './/div[starts-with(@class, "count")]/text()')[0].strip()
+            count = int(count_str)
+
+            # TODO:如何不依靠if else实现result添加？能否不使用dict对应item_name和PlannerResultRow？
+            if item_name in results:
+                if field == "total":
+                    results[item_name].total = count
+                elif field == "synthesize":
+                    results[item_name].synthesize = count
+                elif field == "demand":
+                    results[item_name].demand = count
+            else:
+                raise
+
+        for row in result_inventory_required:  # 需刷取
+            _html_write_row(row, results, "demand")
+        # for row in result_inventory_payable:  # 可消耗
+        #     _html_write_row(row, results, "synthesize")
+        for row in result_inventory_remaining:  # 可合成
+            _html_write_row(row, results, "synthesize")
+        results: list[PlannerResultRow] = results.values()
+        logger.hr('Planner Result')
+        for row in results:
+            logger.info(
+                f'Planner item: {row.item.name}, {row.total}, {row.synthesize}, {row.demand}')
+
+        self.planner_write_results(results)
+        return results
 
     def run(self):
         self.device.screenshot()

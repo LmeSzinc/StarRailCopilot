@@ -1209,6 +1209,10 @@
       "name": "PlannerScan._info.name",
       "help": "PlannerScan._info.help"
     },
+    "ParseHTML": {
+      "name": "PlannerScan.ParseHTML.name",
+      "help": "PlannerScan.ParseHTML.help"
+    },
     "ResultAdd": {
       "name": "PlannerScan.ResultAdd.name",
       "help": "PlannerScan.ResultAdd.help"

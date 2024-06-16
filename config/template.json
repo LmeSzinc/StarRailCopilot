@@ -271,6 +271,7 @@
   },
   "PlannerScan": {
     "PlannerScan": {
+      "ParseHTML": false,
       "ResultAdd": false
     }
   }

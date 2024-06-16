@@ -1209,6 +1209,10 @@
       "name": "辨識角色養成規劃計算結果",
       "help": "工具需要停止調度器再單獨運行\n使用前需要在遊戲內養成計算器中設定養成目標，併計算出結果，在計算結果頁面啟動養成規劃識別。詳細使用教程 請參閱：\nhttps://github.com/LmeSzinc/StarRailCopilot/wiki/Planner_cn"
     },
+    "ParseHTML": {
+      "name": "PlannerScan.ParseHTML.name",
+      "help": "PlannerScan.ParseHTML.help"
+    },
     "ResultAdd": {
       "name": "累加多次掃描結果",
       "help": "需要養成多個角色時勾選，同時養成多個角色\n只養成一個角色不勾選，每次掃描時刷新養成目標"

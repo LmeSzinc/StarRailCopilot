@@ -99,10 +99,6 @@ SET_ROW_EXCLUDE = {
 }
 
 
-class InvalidPlannerRow(Exception):
-    pass
-
-
 class StoredPlannerProxy(BaseModelWithFallback):
     item: ITEM_TYPES
     value: int | MultiValue = 0
@@ -133,8 +129,6 @@ class StoredPlannerProxy(BaseModelWithFallback):
                 logger.warning(f'Planner item {self.item} has_group_base '
                                f'but given synthesize={self.synthesize} is not a MultiValue')
                 self.synthesize = MultiValue()
-            if self.total.equivalent_green() <= 0:
-                raise InvalidPlannerRow(f'Planner item {self.item} has invalid total={self.total}, drop')
         else:
             if not isinstance(self.value, int):
                 logger.warning(f'Planner item {self.item} has no group base '
@@ -148,8 +142,6 @@ class StoredPlannerProxy(BaseModelWithFallback):
                 logger.warning(f'Planner item {self.item} has no group base '
                                f'but given synthesize={self.synthesize} is not an int')
                 self.synthesize = 0
-            if self.total <= 0:
-                raise InvalidPlannerRow(f'Planner item {self.item} has invalid total={self.total}, drop')
             if self.synthesize != 0:
                 logger.warning(f'Planner item {self.item} has no group base '
                                f'its synthesize={self.synthesize} should be 0')
@@ -425,7 +417,7 @@ class StoredPlannerProxy(BaseModelWithFallback):
         return self.progress < 100
 
     def need_synthesize(self):
-        if self.item.has_group_base:
+        if self.item.is_ItemCalyx or self.item.is_ItemTrace:
             return self.synthesize.green > 0 or self.synthesize.blue > 0 or self.synthesize.purple > 0
         else:
             return False
@@ -502,12 +494,20 @@ class PlannerProgressParser:
                 continue
             try:
                 row = StoredPlannerProxy(**row)
-            except (ScriptError, ValidationError, InvalidPlannerRow) as e:
+            except (ScriptError, ValidationError) as e:
                 logger.error(e)
                 continue
             if not row.item.is_group_base:
                 logger.error(f'from_config: item is not group base {row}')
                 continue
+            if row.item.has_group_base:
+                if row.total.equivalent_green() <= 0:
+                    logger.error(f'Planner item {row.item} has invalid total={row.total}, drop')
+                    continue
+            else:
+                if row.total <= 0:
+                    logger.error(f'Planner item {row.item} has invalid total={row.total}, drop')
+                    continue
             row.update(time=False)
             self.rows[row.item.name] = row
         return self

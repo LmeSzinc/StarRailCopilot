@@ -290,12 +290,13 @@ class StoredDaily(StoredCounter, StoredExpiredAt0400):
                 self.quest6 = ''
 
     def clear(self):
-        self.quest1 = ''
-        self.quest2 = ''
-        self.quest3 = ''
-        self.quest4 = ''
-        self.quest5 = ''
-        self.quest6 = ''
+        with self._config.multi_set():
+            self.quest1 = ''
+            self.quest2 = ''
+            self.quest3 = ''
+            self.quest4 = ''
+            self.quest5 = ''
+            self.quest6 = ''
 
 
 class StoredDungeonDouble(StoredExpiredAt0400):
@@ -380,13 +381,14 @@ class StoredBattlePassWeeklyQuest(StoredCounter, StoredExpiredAtMonday0400):
                 self.quest7 = ''
 
     def clear(self):
-        self.quest1 = ''
-        self.quest2 = ''
-        self.quest3 = ''
-        self.quest4 = ''
-        self.quest5 = ''
-        self.quest6 = ''
-        self.quest7 = ''
+        with self._config.multi_set():
+            self.quest1 = ''
+            self.quest2 = ''
+            self.quest3 = ''
+            self.quest4 = ''
+            self.quest5 = ''
+            self.quest6 = ''
+            self.quest7 = ''
 
 
 class StoredBattlePassSimulatedUniverse(StoredCounter):

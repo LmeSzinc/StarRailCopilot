@@ -510,12 +510,13 @@ class AzurLaneConfig(ConfigUpdater, ManualConfig, GeneratedConfig, ConfigWatcher
         Raises:
             TaskEnd: Call task `DailyQuest` and stop current task
         """
-        if self.stored.DailyActivity.is_expired():
-            logger.info('DailyActivity expired')
-            self.stored.DailyActivity.clear()
-        if self.stored.DailyQuest.is_expired():
-            logger.info('DailyQuest expired')
-            self.stored.DailyQuest.clear()
+        with self.multi_set():
+            if self.stored.DailyActivity.is_expired():
+                logger.info('DailyActivity expired')
+                self.stored.DailyActivity.clear()
+            if self.stored.DailyQuest.is_expired():
+                logger.info('DailyQuest expired')
+                self.stored.DailyQuest.clear()
 
     def update_battle_pass_quests(self):
         """

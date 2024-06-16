@@ -158,9 +158,9 @@ class LoginAndroidCloud(ModuleBase):
 
         logger.info(f'Cloud remain: season pass {season_pass} days, {paid} min paid, {free} min free')
         with self.config.multi_set():
-            self.config.stored.CloudRemainSeasonPass = season_pass
-            self.config.stored.CloudRemainPaid = paid
-            self.config.stored.CloudRemainFree = free
+            self.config.stored.CloudRemainSeasonPass.value = season_pass
+            self.config.stored.CloudRemainPaid.value = paid
+            self.config.stored.CloudRemainFree.value = free
 
     def _cloud_enter(self, skip_first=False):
         """

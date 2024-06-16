@@ -247,7 +247,7 @@ class PlannerScan(SynthesizeUI, PlannerMixin):
         ocr = OcrPlannerResult()
 
         for row in rows:
-            # create img to item name table
+            # get total num; create img to item name table
             item_name = row.xpath(
                 './/div[starts-with(@class, "td td-name")]/div[@class="name"]/text()')[0].strip()
             img_src = row.xpath(
@@ -275,6 +275,9 @@ class PlannerScan(SynthesizeUI, PlannerMixin):
             img_src = result_inventory.xpath(
                 './/div[@class="img-wrapper"]/img/@src')[0].strip()
             img_name = re.search(r'([^/]+\.png)$', img_src).group(1)
+            if img_name not in img_name_table:
+                raise KeyError(
+                    f"Unknown image name {img_name}")
             item_name = img_name_table[img_name]
             # get num
             count_str = result_inventory.xpath(
@@ -289,8 +292,6 @@ class PlannerScan(SynthesizeUI, PlannerMixin):
                     results[item_name].synthesize = count
                 elif field == "demand":
                     results[item_name].demand = count
-            else:
-                raise
 
         for row in result_inventory_required:  # 需刷取
             _html_write_row(row, results, "demand")
@@ -298,7 +299,7 @@ class PlannerScan(SynthesizeUI, PlannerMixin):
         #     _html_write_row(row, results, "synthesize")
         for row in result_inventory_remaining:  # 可合成
             _html_write_row(row, results, "synthesize")
-        results: list[PlannerResultRow] = results.values()
+        results: list[PlannerResultRow] = list(results.values())
         logger.hr('Planner Result')
         for row in results:
             logger.info(

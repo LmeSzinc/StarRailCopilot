@@ -413,10 +413,16 @@ def put_arg_planner(kwargs: T_Output_Kwargs) -> Output | None:
     if isinstance(total, dict):
         total = tuple(total.values())
 
-    row = put_scope(f"arg_stored-stored-value-{name}", [
-        put_text(f"{progress:.2f}%{eta}").style("--dashboard-bold--"),
-        put_text(f"{value} / {total}").style("--dashboard-time--"),
-    ])
+    if eta:
+        row = put_scope(f"arg_stored-stored-value-{name}", [
+            put_text(f"{progress:.2f}%{eta}").style("--dashboard-bold--"),
+            put_text(f"{value} / {total}").style("--dashboard-time--"),
+        ])
+    else:
+        row = put_scope(f"arg_stored-stored-value-{name}", [
+            put_text(f"{progress:.2f}%").style("--dashboard-value--"),
+            put_text(f"{value} / {total}").style("--dashboard-time--"),
+        ])
 
     return put_scope(
         f"arg_container-planner-{name}",

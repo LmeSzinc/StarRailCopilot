@@ -387,6 +387,7 @@ class Synthesize(CombatObtain, ItemUI):
             out: page_synthesize, SYNTHESIZE_CONFIRM
         """
         logger.hr('Synthesize confirm')
+        self.interval_clear([SYNTHESIZE_CONFIRM, page_synthesize.check_button])
 
         def appear_confirm():
             return self.image_color_count(SYNTHESIZE_CONFIRM, color=(226, 229, 232), threshold=221, count=1000)
@@ -404,6 +405,7 @@ class Synthesize(CombatObtain, ItemUI):
                 break
             # Click
             if self.handle_popup_confirm():
+                self.interval_reset(page_synthesize.check_button)
                 continue
             if appear_confirm() and self.ui_page_appear(page_synthesize, interval=2):
                 self.device.click(SYNTHESIZE_CONFIRM)
@@ -424,6 +426,8 @@ class Synthesize(CombatObtain, ItemUI):
             # Click
             if self.handle_reward(click_button=SYNTHESIZE_MINUS):
                 continue
+
+        self.interval_clear([SYNTHESIZE_CONFIRM, page_synthesize.check_button])
 
     def synthesize_exit(self, skip_first_screenshot=True):
         """

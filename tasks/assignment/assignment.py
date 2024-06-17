@@ -74,6 +74,11 @@ class Assignment(AssignmentClaim, SynthesizeUI):
                 delay = min(self.dispatched.values())
                 logger.info(f'Delay assignment check to {str(delay)}')
                 self.config.task_delay(target=delay)
+                # Align server update
+                update = get_server_next_update(self.config.Scheduler_ServerUpdate)
+                if update - delay < timedelta(hours=4):
+                    logger.info('Approaching next day, delay to server update instead')
+                    self.config.task_delay(target=update)
             else:
                 # ValueError: min() arg is an empty sequence
                 logger.error('Empty dispatched list, delay 2 hours instead')

@@ -55,6 +55,7 @@ class WeeklyDungeon(Dungeon):
         planner = self.planner.get_weekly()
         if planner is not None:
             dungeon = planner
+            self.is_doing_planner = True
         logger.attr('DungeonWeekly', dungeon)
 
         # UI switches
@@ -81,6 +82,7 @@ class WeeklyDungeon(Dungeon):
 
         # Combat
         count = self.dungeon_run(dungeon, wave_limit=min(remain, 3))
+        self.is_doing_planner = False
 
         logger.attr('achieved_daily_quest', self.achieved_daily_quest)
         logger.attr('achieved_weekly_quest', self.achieved_weekly_quest)

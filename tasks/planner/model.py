@@ -652,6 +652,15 @@ class PlannerMixin(UI):
         if add:
             planner.add_planner_result(self.planner)
 
+        # Load from dashboard
+        try:
+            row = planner.rows['Credit']
+            value = self.config.stored.Credit.value
+            if value:
+                row.value = value
+        except KeyError:
+            pass
+
         self.planner_write(planner)
 
     @cached_property

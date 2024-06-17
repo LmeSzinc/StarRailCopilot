@@ -253,7 +253,13 @@ class CombatObtain(PlannerMixin):
         ItemAmount: Arrow_of_the_Beast_Hunter, 85   
         """
         self.planner.load_obtained_amount(items)
-        self.planner_write()
+        with self.config.multi_set():
+            self.planner_write()
+            # Sync to dashboard
+            for item in items:
+                if item.item.name == 'Credit':
+                    self.config.stored.Credit.value = item.value
+
         return items
 
     def obtained_is_full(self, dungeon: DungeonList | None, wave_done=0, obtain_get=True) -> bool:

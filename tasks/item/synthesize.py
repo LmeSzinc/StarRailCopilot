@@ -392,6 +392,9 @@ class Synthesize(CombatObtain, ItemUI):
         def appear_confirm():
             return self.image_color_count(SYNTHESIZE_CONFIRM, color=(226, 229, 232), threshold=221, count=1000)
 
+        def appear_insufficient():
+            return self.image_color_count(SYNTHESIZE_INSUFFICIENT, color=(172, 95, 87), threshold=221, count=5000)
+
         # SYNTHESIZE_CONFIRM -> reward_appear
         while 1:
             if skip_first_screenshot:
@@ -422,6 +425,9 @@ class Synthesize(CombatObtain, ItemUI):
             # End
             if appear_confirm():
                 logger.info('Synthesize end')
+                break
+            if appear_insufficient():
+                logger.info('Synthesize end, item insufficient')
                 break
             # Click
             if self.handle_reward(click_button=SYNTHESIZE_MINUS):

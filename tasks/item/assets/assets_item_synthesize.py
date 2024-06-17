@@ -63,6 +63,16 @@ SYNTHESIZE_CONFIRM = ButtonWrapper(
         button=(730, 641, 998, 675),
     ),
 )
+SYNTHESIZE_INSUFFICIENT = ButtonWrapper(
+    name='SYNTHESIZE_INSUFFICIENT',
+    share=Button(
+        file='./assets/share/item/synthesize/SYNTHESIZE_INSUFFICIENT.png',
+        area=(510, 564, 1220, 594),
+        search=(490, 544, 1240, 614),
+        color=(177, 102, 95),
+        button=(510, 564, 1220, 594),
+    ),
+)
 SYNTHESIZE_INVENTORY = ButtonWrapper(
     name='SYNTHESIZE_INVENTORY',
     share=Button(

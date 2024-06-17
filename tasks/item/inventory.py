@@ -94,6 +94,12 @@ class InventoryManager:
         if count == 1:
             return mids
         elif count == 2:
+            # Only one row, [173.5 175. ]
+            mid_diff_mean = np.mean(mid_diff_range)
+            diff = max(mids) - min(mids)
+            if diff < mid_diff_mean * 0.3:
+                return np.mean(mids).reshape((1,))
+            # Double rows
             return mids
         # print(mids)
         encourage = self.COINCIDENT_POINT_ENCOURAGE_DISTANCE ** 2
@@ -179,6 +185,8 @@ class InventoryManager:
         area = self.inventory.area
         x_list = np.unique(np.sort(points[:, 0]))
         y_list = np.unique(np.sort(points[:, 1]))
+        # print(x_list)
+        # print(y_list)
         x_list = self.mid_cleanse(
             x_list,
             mid_diff_range=(self.GRID_DELTA[0] - 3, self.GRID_DELTA[0] + 3),
@@ -189,6 +197,8 @@ class InventoryManager:
             mid_diff_range=(self.GRID_DELTA[1] - 3, self.GRID_DELTA[1] + 3),
             edge_range=(area[1], area[3])
         )
+        # print(x_list)
+        # print(y_list)
 
         def is_near_existing(p):
             diff = np.linalg.norm(points - p, axis=1)

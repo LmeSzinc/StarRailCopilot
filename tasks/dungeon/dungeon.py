@@ -1,3 +1,4 @@
+from module.base.decorator import set_cached_property
 from module.base.utils import area_offset
 from module.logger import logger
 from tasks.battle_pass.keywords import KEYWORDS_BATTLE_PASS_QUEST
@@ -191,6 +192,7 @@ class Dungeon(DungeonStamina, DungeonEvent, Combat):
     def run(self):
         self.config.update_battle_pass_quests()
         self.config.update_daily_quests()
+        self.check_synthesize()
         self.called_daily_support = False
         self.achieved_daily_quest = False
         self.achieved_weekly_quest = False
@@ -309,6 +311,7 @@ class Dungeon(DungeonStamina, DungeonEvent, Combat):
     def check_synthesize(self):
         logger.info('Check synthesize')
         synthesize = Synthesize(config=self.config, device=self.device, task=self.config.task.command)
+        set_cached_property(synthesize, 'planner', self.planner)
         if synthesize.synthesize_needed():
             synthesize.synthesize_planner()
 

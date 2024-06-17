@@ -7,6 +7,7 @@ from tasks.base.page import page_item
 from tasks.item.assets.assets_item_data import OCR_DATA
 from tasks.item.keywords import KEYWORDS_ITEM_TAB
 from tasks.item.ui import ItemUI
+from tasks.planner.model import PlannerMixin
 
 
 class DataDigit(Digit):
@@ -16,7 +17,7 @@ class DataDigit(Digit):
         return super().after_process(result)
 
 
-class DataUpdate(ItemUI):
+class DataUpdate(ItemUI, PlannerMixin):
     def _get_data(self):
         """
         Page:
@@ -53,3 +54,9 @@ class DataUpdate(ItemUI):
             self.config.stored.Credit.value = credit
             self.config.stored.StallerJade.value = jade
             self.config.task_delay(server_update=True)
+            # Sync to planner
+            require = self.config.cross_get('Dungeon.Planner.Item_Credit.total', default=0)
+            if require:
+                self.config.cross_set('Dungeon.Planner.Item_Credit.value', credit)
+                self.config.cross_set('Dungeon.Planner.Item_Credit.time', self.config.stored.Credit.time)
+                self.planner_write()

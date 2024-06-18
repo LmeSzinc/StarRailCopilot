@@ -17,7 +17,7 @@ from tasks.item.slider import Slider
 from tasks.item.ui import ItemUI
 from tasks.planner.keywords import ITEM_CLASSES, ItemCalyx, ItemTrace
 from tasks.planner.keywords.classes import ItemBase
-from tasks.planner.model import ObtainedAmmount
+from tasks.planner.model import ObtainedAmmount, StoredPlannerProxy
 from tasks.planner.scan import OcrItemName
 
 RARITY_COLOR = {
@@ -489,6 +489,40 @@ class Synthesize(CombatObtain, ItemUI):
         logger.info('No items need to synthesize')
         return False
 
+    def synthesize_planner_row_select(self, row: StoredPlannerProxy):
+        """
+        Select an item in synthesize inventory and update obtained amount to planner
+
+        Args:
+            row:
+
+        Returns:
+            bool: True if success
+        """
+        for _ in range(3):
+            logger.hr('Synthesize planner row', level=1)
+            self.synthesize_tab_set(KEYWORDS_ITEM_TAB.UpgradeMaterials, reset=True)
+            self.synthesize_inventory_select(row.item)
+
+            # Update obtain amount
+            obtained = self.synthesize_obtain_get()
+            self.planner.load_obtained_amount(obtained)
+            if not row.need_synthesize():
+                logger.warning('Planner row do not need to synthesize')
+                return False
+
+            # Check current item again
+            current = self.synthesize_get_item()
+            if current.item_group == row.item.item_group:
+                logger.info('Selected at target item')
+                return True
+            else:
+                logger.warning(f'Item changed after getting obtain, expected: {row.item}, current: {current}')
+                continue
+
+        logger.error('synthesize_planner_row_select failed 3 times')
+        return False
+
     def synthesize_planner(self):
         """
         Synthesize items in planner
@@ -504,15 +538,8 @@ class Synthesize(CombatObtain, ItemUI):
             if not row.need_synthesize():
                 continue
 
-            logger.hr('Synthesize planner row', level=1)
-            self.synthesize_tab_set(KEYWORDS_ITEM_TAB.UpgradeMaterials, reset=True)
-            self.synthesize_inventory_select(row.item)
-
-            # Update obtain amount
-            obtained = self.synthesize_obtain_get()
-            self.planner.load_obtained_amount(obtained)
-            if not row.need_synthesize():
-                logger.warning('Planner row do not need to synthesize')
+            success = self.synthesize_planner_row_select(row)
+            if not success:
                 continue
 
             logger.info(f'Synthesize row: {row}')

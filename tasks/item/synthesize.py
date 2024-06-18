@@ -37,7 +37,7 @@ def image_color_count(image, color, threshold=221):
 class WhiteStrip(Ocr):
     def pre_process(self, image):
         mask = color_similarity_2d(image, color=(255, 255, 255))
-        mask = cv2.inRange(mask, 180, 255, dst=mask)
+        mask = cv2.inRange(mask, 160, 255, dst=mask)
 
         mask = np.mean(mask, axis=0)
         point = np.array(cv2.findNonZero(mask))[:, 0, 1]
@@ -50,6 +50,13 @@ class WhiteStrip(Ocr):
 
 class SynthesizeItemName(OcrItemName, WhiteStrip):
     pass
+
+
+class SynthesizeItemAmount(Digit, WhiteStrip):
+    def pre_process(self, image):
+        image = super().pre_process(image)
+        image = cv2.subtract((255, 255, 255, 0), image)
+        return image
 
 
 class SynthesizeInventoryManager(InventoryManager):
@@ -359,7 +366,7 @@ class Synthesize(CombatObtain, ItemUI):
         logger.hr('Synthesize amount set', level=2)
         slider = Slider(main=self, slider=SYNTHESIZE_SLIDER)
         slider.set(value, total)
-        ocr = Digit(SYNTHESIZE_AMOUNT, lang=server.lang)
+        ocr = SynthesizeItemAmount(SYNTHESIZE_AMOUNT, lang=server.lang)
         self.ui_ensure_index(
             value, letter=ocr, next_button=SYNTHESIZE_PLUS, prev_button=SYNTHESIZE_MINUS, interval=(0.1, 0.2))
 

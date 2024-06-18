@@ -49,7 +49,7 @@ class Slider:
         total = area[2] - area[0]
 
         parameters = {
-            'prominence': 15,
+            'prominence': 10,
             'wlen': wlen,
             'width': 2,
             'distance': wlen / 2,
@@ -58,6 +58,7 @@ class Slider:
         peaks, _ = signal.find_peaks(image, **parameters)
         peaks //= wlen
         diff = np.diff(peaks)
+        # print(diff)
 
         # Mask controller
         # Controller has orange border (240, 150, 57) and white center

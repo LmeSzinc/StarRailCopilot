@@ -297,6 +297,8 @@ class StoredPlannerProxy(BaseModelWithFallback):
             return 0.
         if self.item.dungeon is None:
             return 0.
+        if self.item.is_ItemWeekly:
+            return 0.
 
         remain = self.progress_remain
         cost = self.combat_cost

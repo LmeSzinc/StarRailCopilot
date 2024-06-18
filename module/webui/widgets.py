@@ -396,8 +396,8 @@ def put_arg_planner(kwargs: T_Output_Kwargs) -> Output | None:
 
     values = kwargs.pop("value", {})
     try:
-        progress = values["progress"]
-    except KeyError:
+        progress = float(values["progress"])
+    except (KeyError, ValueError):
         # Hide items not needed by the planner
         return None
     eta = values.get("eta", 0)
@@ -413,7 +413,7 @@ def put_arg_planner(kwargs: T_Output_Kwargs) -> Output | None:
     if isinstance(total, dict):
         total = tuple(total.values())
 
-    if eta:
+    if progress < 100:
         row = put_scope(f"arg_stored-stored-value-{name}", [
             put_text(f"{progress:.2f}%{eta}").style("--dashboard-bold--"),
             put_text(f"{value} / {total}").style("--dashboard-time--"),

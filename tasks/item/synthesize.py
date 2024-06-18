@@ -181,7 +181,7 @@ class Synthesize(CombatObtain, ItemUI):
 
         return switched
 
-    def synthesize_rarity_reset(self, inv=None, skip_first_screenshot=True):
+    def synthesize_rarity_reset(self, inv, skip_first_screenshot=True):
         """
         Reset rarity switch, so current item will pin on the first row
 
@@ -322,7 +322,7 @@ class Synthesize(CombatObtain, ItemUI):
                 if next_row is None:
                     if inv.selected.loca[1] >= 3:
                         logger.info('Reached inventory view end, reset view')
-                        self.synthesize_rarity_reset()
+                        self.synthesize_rarity_reset(inv=inv)
                         logger.hr('Synthesize select view', level=2)
                         continue
                     else:

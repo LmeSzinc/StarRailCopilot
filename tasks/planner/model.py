@@ -297,6 +297,8 @@ class StoredPlannerProxy(BaseModelWithFallback):
             return 0.
         if self.item.dungeon is None:
             return 0.
+        if self.item.is_ItemWeekly:
+            return 0.
 
         remain = self.progress_remain
         cost = self.combat_cost
@@ -686,7 +688,9 @@ class PlannerMixin(UI):
         with self.config.multi_set():
             # Set value
             for key, value in data.items():
-                self.config.cross_set(f'Dungeon.Planner.{key}', value)
+                current = self.config.cross_get(f'Dungeon.Planner.{key}', default={})
+                if value != current:
+                    self.config.cross_set(f'Dungeon.Planner.{key}', value)
             # Remove other value
             remove = []
             for key, value in self.config.cross_get('Dungeon.Planner', default={}).items():

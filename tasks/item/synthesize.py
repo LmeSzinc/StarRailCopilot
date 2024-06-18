@@ -17,7 +17,7 @@ from tasks.item.slider import Slider
 from tasks.item.ui import ItemUI
 from tasks.planner.keywords import ITEM_CLASSES, ItemCalyx, ItemTrace
 from tasks.planner.keywords.classes import ItemBase
-from tasks.planner.model import ObtainedAmmount
+from tasks.planner.model import ObtainedAmmount, StoredPlannerProxy
 from tasks.planner.scan import OcrItemName
 
 RARITY_COLOR = {
@@ -37,7 +37,7 @@ def image_color_count(image, color, threshold=221):
 class WhiteStrip(Ocr):
     def pre_process(self, image):
         mask = color_similarity_2d(image, color=(255, 255, 255))
-        mask = cv2.inRange(mask, 180, 255, dst=mask)
+        mask = cv2.inRange(mask, 160, 255, dst=mask)
 
         mask = np.mean(mask, axis=0)
         point = np.array(cv2.findNonZero(mask))[:, 0, 1]
@@ -50,6 +50,13 @@ class WhiteStrip(Ocr):
 
 class SynthesizeItemName(OcrItemName, WhiteStrip):
     pass
+
+
+class SynthesizeItemAmount(Digit, WhiteStrip):
+    def pre_process(self, image):
+        image = super().pre_process(image)
+        image = cv2.subtract((255, 255, 255, 0), image)
+        return image
 
 
 class SynthesizeInventoryManager(InventoryManager):
@@ -174,26 +181,41 @@ class Synthesize(CombatObtain, ItemUI):
 
         return switched
 
-    def synthesize_rarity_reset(self, skip_first_screenshot=True):
+    def synthesize_rarity_reset(self, inv=None, skip_first_screenshot=True):
         """
         Reset rarity switch, so current item will pin on the first row
+
+        Args:
+            inv: InventoryManager object if wait until item selected
+            skip_first_screenshot:
 
         Returns:
             bool: If success
         """
-        logger.hr('synthesize rarity reset')
-        current = self.item_get_rarity_retry(ENTRY_ITEM_FROM)
-        if current == 'blue':
-            r1, r2 = 'green', 'blue'
-        elif current == 'green':
-            r1, r2 = 'blue', 'green'
-        else:
-            logger.error(f'item_synthesize_rarity_reset: Unknown current rarity {current}')
-            return False
+        for _ in range(3):
+            logger.hr('synthesize rarity reset')
+            current = self.item_get_rarity_retry(ENTRY_ITEM_FROM)
+            if current == 'blue':
+                r1, r2 = 'green', 'blue'
+            elif current == 'green':
+                r1, r2 = 'blue', 'green'
+            else:
+                logger.error(f'item_synthesize_rarity_reset: Unknown current rarity {current}')
+                return False
 
-        self.synthesize_rarity_set(r1, skip_first_screenshot=skip_first_screenshot)
-        self.synthesize_rarity_set(r2, skip_first_screenshot=True)
-        return True
+            self.synthesize_rarity_set(r1, skip_first_screenshot=skip_first_screenshot)
+            self.synthesize_rarity_set(r2, skip_first_screenshot=True)
+            if inv is not None:
+                if inv.wait_selected():
+                    return True
+                else:
+                    continue
+            else:
+                logger.info('synthesize_rarity_reset ended without wait_selected()')
+                return True
+
+        logger.error('synthesize_rarity_reset failed 3 times')
+        return False
 
     def synthesize_obtain_get(self) -> list[ObtainedAmmount]:
         """
@@ -301,7 +323,6 @@ class Synthesize(CombatObtain, ItemUI):
                     if inv.selected.loca[1] >= 3:
                         logger.info('Reached inventory view end, reset view')
                         self.synthesize_rarity_reset()
-                        inv.wait_selected()
                         logger.hr('Synthesize select view', level=2)
                         continue
                     else:
@@ -345,7 +366,7 @@ class Synthesize(CombatObtain, ItemUI):
         logger.hr('Synthesize amount set', level=2)
         slider = Slider(main=self, slider=SYNTHESIZE_SLIDER)
         slider.set(value, total)
-        ocr = Digit(SYNTHESIZE_AMOUNT, lang=server.lang)
+        ocr = SynthesizeItemAmount(SYNTHESIZE_AMOUNT, lang=server.lang)
         self.ui_ensure_index(
             value, letter=ocr, next_button=SYNTHESIZE_PLUS, prev_button=SYNTHESIZE_MINUS, interval=(0.1, 0.2))
 
@@ -475,6 +496,40 @@ class Synthesize(CombatObtain, ItemUI):
         logger.info('No items need to synthesize')
         return False
 
+    def synthesize_planner_row_select(self, row: StoredPlannerProxy):
+        """
+        Select an item in synthesize inventory and update obtained amount to planner
+
+        Args:
+            row:
+
+        Returns:
+            bool: True if success
+        """
+        for _ in range(3):
+            logger.hr('Synthesize planner row', level=1)
+            self.synthesize_tab_set(KEYWORDS_ITEM_TAB.UpgradeMaterials, reset=True)
+            self.synthesize_inventory_select(row.item)
+
+            # Update obtain amount
+            obtained = self.synthesize_obtain_get()
+            self.planner.load_obtained_amount(obtained)
+            if not row.need_synthesize():
+                logger.warning('Planner row do not need to synthesize')
+                return False
+
+            # Check current item again
+            current = self.synthesize_get_item()
+            if current.item_group == row.item.item_group:
+                logger.info('Selected at target item')
+                return True
+            else:
+                logger.warning(f'Item changed after getting obtain, expected: {row.item}, current: {current}')
+                continue
+
+        logger.error('synthesize_planner_row_select failed 3 times')
+        return False
+
     def synthesize_planner(self):
         """
         Synthesize items in planner
@@ -490,15 +545,8 @@ class Synthesize(CombatObtain, ItemUI):
             if not row.need_synthesize():
                 continue
 
-            logger.hr('Synthesize planner row', level=1)
-            self.synthesize_tab_set(KEYWORDS_ITEM_TAB.UpgradeMaterials, reset=True)
-            self.synthesize_inventory_select(row.item)
-
-            # Update obtain amount
-            obtained = self.synthesize_obtain_get()
-            self.planner.load_obtained_amount(obtained)
-            if not row.need_synthesize():
-                logger.warning('Planner row do not need to synthesize')
+            success = self.synthesize_planner_row_select(row)
+            if not success:
                 continue
 
             logger.info(f'Synthesize row: {row}')

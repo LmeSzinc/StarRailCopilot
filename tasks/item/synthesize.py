@@ -174,26 +174,41 @@ class Synthesize(CombatObtain, ItemUI):
 
         return switched
 
-    def synthesize_rarity_reset(self, skip_first_screenshot=True):
+    def synthesize_rarity_reset(self, inv=None, skip_first_screenshot=True):
         """
         Reset rarity switch, so current item will pin on the first row
+
+        Args:
+            inv: InventoryManager object if wait until item selected
+            skip_first_screenshot:
 
         Returns:
             bool: If success
         """
-        logger.hr('synthesize rarity reset')
-        current = self.item_get_rarity_retry(ENTRY_ITEM_FROM)
-        if current == 'blue':
-            r1, r2 = 'green', 'blue'
-        elif current == 'green':
-            r1, r2 = 'blue', 'green'
-        else:
-            logger.error(f'item_synthesize_rarity_reset: Unknown current rarity {current}')
-            return False
+        for _ in range(3):
+            logger.hr('synthesize rarity reset')
+            current = self.item_get_rarity_retry(ENTRY_ITEM_FROM)
+            if current == 'blue':
+                r1, r2 = 'green', 'blue'
+            elif current == 'green':
+                r1, r2 = 'blue', 'green'
+            else:
+                logger.error(f'item_synthesize_rarity_reset: Unknown current rarity {current}')
+                return False
 
-        self.synthesize_rarity_set(r1, skip_first_screenshot=skip_first_screenshot)
-        self.synthesize_rarity_set(r2, skip_first_screenshot=True)
-        return True
+            self.synthesize_rarity_set(r1, skip_first_screenshot=skip_first_screenshot)
+            self.synthesize_rarity_set(r2, skip_first_screenshot=True)
+            if inv is not None:
+                if inv.wait_selected():
+                    return True
+                else:
+                    continue
+            else:
+                logger.info('synthesize_rarity_reset ended without wait_selected()')
+                return True
+
+        logger.error('synthesize_rarity_reset failed 3 times')
+        return False
 
     def synthesize_obtain_get(self) -> list[ObtainedAmmount]:
         """
@@ -301,7 +316,6 @@ class Synthesize(CombatObtain, ItemUI):
                     if inv.selected.loca[1] >= 3:
                         logger.info('Reached inventory view end, reset view')
                         self.synthesize_rarity_reset()
-                        inv.wait_selected()
                         logger.hr('Synthesize select view', level=2)
                         continue
                     else:

@@ -173,6 +173,7 @@ class GenerateKeyword:
         name = self.convert_name(name, keyword=base)
         base['name'] = name
         if not name:
+            logger.warning(f'Empty name for {keyword}')
             return None
         # Translations
         for lang in UI_LANGUAGES:

@@ -270,6 +270,7 @@
       "Calyx_Crimson_Abundance_Jarilo_BackwaterPass": "Trace: Abundance (Backwater Pass)",
       "Calyx_Crimson_Abundance_Luofu_FyxestrollGarden": "Trace: Abundance (Fyxestroll Garden)",
       "Calyx_Crimson_Erudition_Jarilo_RivetTown": "Trace: Erudition (Rivet Town)",
+      "Calyx_Crimson_Erudition_Penacony_PenaconyGrandTheater": "Trace: Erudition (Penacony Grand Theater)",
       "Calyx_Crimson_Harmony_Jarilo_RobotSettlement": "Trace: The Harmony (Robot Settlement)",
       "Calyx_Crimson_Harmony_Penacony_TheReverieDreamscape": "Trace: The Harmony (The Reverie (Dreamscape))",
       "Calyx_Crimson_Nihility_Jarilo_GreatMine": "Trace: Nihility (Great Mine)",
@@ -279,7 +280,7 @@
       "Stagnant_Shadow_Duty": "Ascension: Physical (Boothill / Robin)",
       "Stagnant_Shadow_Blaze": "Ascension: Fire (Himeko / Asta / Hook)",
       "Stagnant_Shadow_Scorch": "Ascension: Fire (Guinaifen / Topaz & Numby)",
-      "Stagnant_Shadow_Ire": "Ascension: Fire (Gallagher)",
+      "Stagnant_Shadow_Ire": "Ascension: Fire (Firefly / Gallagher)",
       "Stagnant_Shadow_Rime": "Ascension: Ice (March 7th / Herta / Gepard / Pela)",
       "Stagnant_Shadow_Icicle": "Ascension: Ice (Yanqing / Jingliu / Ruan Mei)",
       "Stagnant_Shadow_Nectar": "Ascension: Ice (Misha)",
@@ -289,7 +290,7 @@
       "Stagnant_Shadow_Celestial": "Ascension: Wind (Blade / Huohuo / Black Swan)",
       "Stagnant_Shadow_Quanta": "Ascension: Quantum (Silver Wolf / Seele / Qingque)",
       "Stagnant_Shadow_Abomination": "Ascension: Quantum (Lynx / Fu Xuan / Xueyi)",
-      "Stagnant_Shadow_Roast": "Ascension: Quantum (Sparkle)",
+      "Stagnant_Shadow_Roast": "Ascension: Quantum (Jade / Sparkle)",
       "Stagnant_Shadow_Mirage": "Ascension: Imaginary (Welt / Luocha / Yukong)",
       "Stagnant_Shadow_Puppetry": "Ascension: Imaginary (Dan Heng • Imbibitor Lunae / Aventurine / Dr. Ratio)",
       "Cavern_of_Corrosion_Path_of_Gelid_Wind": "Relics: Ice Set & Wind Set (Path of Gelid Wind)",
@@ -300,7 +301,8 @@
       "Cavern_of_Corrosion_Path_of_Conflagration": "Relics: Fire Set & Imaginary Set (Path of Conflagration)",
       "Cavern_of_Corrosion_Path_of_Elixir_Seekers": "Relics: HP Set & SPD Set (Path of Elixir Seekers)",
       "Cavern_of_Corrosion_Path_of_Darkness": "Relics: Pursuit Set & Dot Set (Path of Darkness)",
-      "Cavern_of_Corrosion_Path_of_Dreamdive": "Relics: Debuff Set & Break Effect Set (Path of Dreamdive)"
+      "Cavern_of_Corrosion_Path_of_Dreamdive": "Relics: Debuff Set & Break Effect Set (Path of Dreamdive)",
+      "Cavern_of_Corrosion_Path_of_Cavalier": "Relics: Super Break Set & Pursuit Ultimate Set (Path of Cavalier)"
     },
     "NameAtDoubleCalyx": {
       "name": "At Double Calyx Event, choose dungeon",
@@ -323,6 +325,7 @@
       "Calyx_Crimson_Abundance_Jarilo_BackwaterPass": "Trace: Abundance (Backwater Pass)",
       "Calyx_Crimson_Abundance_Luofu_FyxestrollGarden": "Trace: Abundance (Fyxestroll Garden)",
       "Calyx_Crimson_Erudition_Jarilo_RivetTown": "Trace: Erudition (Rivet Town)",
+      "Calyx_Crimson_Erudition_Penacony_PenaconyGrandTheater": "Trace: Erudition (Penacony Grand Theater)",
       "Calyx_Crimson_Harmony_Jarilo_RobotSettlement": "Trace: The Harmony (Robot Settlement)",
       "Calyx_Crimson_Harmony_Penacony_TheReverieDreamscape": "Trace: The Harmony (The Reverie (Dreamscape))",
       "Calyx_Crimson_Nihility_Jarilo_GreatMine": "Trace: Nihility (Great Mine)",
@@ -339,7 +342,8 @@
       "Cavern_of_Corrosion_Path_of_Conflagration": "Relics: Fire Set & Imaginary Set (Path of Conflagration)",
       "Cavern_of_Corrosion_Path_of_Elixir_Seekers": "Relics: HP Set & SPD Set (Path of Elixir Seekers)",
       "Cavern_of_Corrosion_Path_of_Darkness": "Relics: Pursuit Set & Dot Set (Path of Darkness)",
-      "Cavern_of_Corrosion_Path_of_Dreamdive": "Relics: Debuff Set & Break Effect Set (Path of Dreamdive)"
+      "Cavern_of_Corrosion_Path_of_Dreamdive": "Relics: Debuff Set & Break Effect Set (Path of Dreamdive)",
+      "Cavern_of_Corrosion_Path_of_Cavalier": "Relics: Super Break Set & Pursuit Ultimate Set (Path of Cavalier)"
     },
     "Team": {
       "name": "Dungeon Team",
@@ -385,6 +389,7 @@
       "DanHeng": "Dan Heng",
       "DanHengImbibitorLunae": "Dan Heng • Imbibitor Lunae",
       "DrRatio": "Dr. Ratio",
+      "Firefly": "Firefly",
       "FuXuan": "Fu Xuan",
       "Gallagher": "Gallagher",
       "Gepard": "Gepard",
@@ -550,7 +555,7 @@
       "help": ""
     },
     "Item_Raging_Heart": {
-      "name": "Ascension: Fire (Gallagher)",
+      "name": "Ascension: Fire (Firefly / Gallagher)",
       "help": ""
     },
     "Item_Dream_Fridge": {
@@ -558,7 +563,7 @@
       "help": ""
     },
     "Item_Dream_Flamer": {
-      "name": "Ascension: Quantum (Sparkle)",
+      "name": "Ascension: Quantum (Jade / Sparkle)",
       "help": ""
     },
     "Item_Worldbreaker_Blade": {
@@ -589,12 +594,16 @@
       "name": "Trace: Abundance (Backwater Pass)",
       "help": ""
     },
-    "Item_Moon_Madness_Fang": {
+    "Item_Moon_Rage_Fang": {
       "name": "Trace: Destruction (Scalegorge Waterscape)",
       "help": ""
     },
     "Item_Countertemporal_Shot": {
       "name": "Trace: The Hunt (SoulGlad Scorchsand Audition Venue)",
+      "help": ""
+    },
+    "Item_Exquisite_Colored_Draft": {
+      "name": "Trace: Erudition (Penacony Grand Theater)",
       "help": ""
     },
     "Item_Divine_Amber": {
@@ -801,8 +810,8 @@
       "not_set": "Not Set",
       "not_supported": "Not Supported Yet"
     },
-    "Complete_Simulated_Universe_1_times": {
-      "name": "Complete Simulated Universe 1 time(s)",
+    "Complete_Divergent_Universe_or_Simulated_Universe_1_times": {
+      "name": "Complete Divergent Universe or Simulated Universe 1 time(s)",
       "help": "Need to configure and enable the \"Simulated Universe\" task",
       "achievable": "Achievable",
       "not_set": "Not Set",

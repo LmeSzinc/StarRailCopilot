@@ -153,6 +153,8 @@ class GenerateKeyword:
     def iter_rows(self) -> t.Iterable[dict]:
         for keyword in self.iter_keywords():
             keyword = self.format_keywords(keyword)
+            if not keyword:
+                continue
             yield keyword
 
     def format_keywords(self, keyword: dict) -> dict | None:
@@ -170,6 +172,9 @@ class GenerateKeyword:
         _, name = self.find_keyword(text_id, lang='en')
         name = self.convert_name(name, keyword=base)
         base['name'] = name
+        if not name:
+            logger.warning(f'Empty name for {keyword}')
+            return None
         # Translations
         for lang in UI_LANGUAGES:
             value = self.find_keyword(text_id, lang=lang)[1]

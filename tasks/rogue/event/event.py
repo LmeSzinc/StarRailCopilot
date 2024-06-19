@@ -67,8 +67,8 @@ class OcrRogueEventTitle(OcrRogueEvent):
     OCR_REPLACE = {
         'cn': [
             (KEYWORDS_ROGUE_EVENT_TITLE.Rock_Paper_Scissors, '^猜拳.*'),
-            (KEYWORDS_ROGUE_EVENT_TITLE.Ka_ching_IPC_Banking_Part_1, '^咔.*其一.*'),
-            (KEYWORDS_ROGUE_EVENT_TITLE.Ka_ching_IPC_Banking_Part_2, '^咔.*其二.*'),
+            (KEYWORDS_ROGUE_EVENT_TITLE.Ka_ching_IPC_Banking_I, '^咔.*其一.*'),
+            (KEYWORDS_ROGUE_EVENT_TITLE.Ka_ching_IPC_Banking_II, '^咔.*其二.*'),
             (KEYWORDS_ROGUE_EVENT_TITLE.Beast_Horde_Voracious_Catastrophe, '^兽群.*'),
         ],
         'en': [

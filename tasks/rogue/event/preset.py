@@ -14,9 +14,9 @@ STRATEGY_COMMON = {
         KEYWORDS_ROGUE_EVENT_OPTION.Want_lots_of_money
     ],
     KEYWORDS_ROGUE_EVENT_TITLE.Shopping_Channel: [
-        KEYWORDS_ROGUE_EVENT_OPTION.A_lotus_that_can_sing_the_Happy_Birthday_song,
+        KEYWORDS_ROGUE_EVENT_OPTION.A_lotus_that_can_sing_the_Happy_Birthday_song_8cd2,
         KEYWORDS_ROGUE_EVENT_OPTION.A_mechanical_box,
-        KEYWORDS_ROGUE_EVENT_OPTION.A_box_of_expired_doughnuts,
+        KEYWORDS_ROGUE_EVENT_OPTION.A_box_of_expired_doughnuts_6308,
         KEYWORDS_ROGUE_EVENT_OPTION.Leave_this_place
     ],
     KEYWORDS_ROGUE_EVENT_TITLE.Interactive_Arts: [
@@ -52,24 +52,24 @@ STRATEGY_COMMON = {
         KEYWORDS_ROGUE_EVENT_OPTION.Thank_the_Aeon_Qlipoth,
         KEYWORDS_ROGUE_EVENT_OPTION.Leave_1436
     ],
-    KEYWORDS_ROGUE_EVENT_TITLE.Cosmic_Merchant_Part_1: [
+    KEYWORDS_ROGUE_EVENT_TITLE.Cosmic_Merchant_I: [
         KEYWORDS_ROGUE_EVENT_OPTION.Purchase_a_metal_Wish_In_A_Bottle,
-        KEYWORDS_ROGUE_EVENT_OPTION.Leave_4fa0,
+        KEYWORDS_ROGUE_EVENT_OPTION.Leave_2a92,
         KEYWORDS_ROGUE_EVENT_OPTION.Purchase_a_silver_ore_Wish_In_A_Bottle
     ],
-    KEYWORDS_ROGUE_EVENT_TITLE.Cosmic_Con_Job_Part_2: [
+    KEYWORDS_ROGUE_EVENT_TITLE.Cosmic_Con_Job_II: [
         KEYWORDS_ROGUE_EVENT_OPTION.Purchase_a_supernium_Wish_In_A_Bottle,
-        KEYWORDS_ROGUE_EVENT_OPTION.Leave_4fa0,
+        KEYWORDS_ROGUE_EVENT_OPTION.Leave_2a92,
         KEYWORDS_ROGUE_EVENT_OPTION.Purchase_an_amber_Wish_In_A_Bottle
 
     ],
-    KEYWORDS_ROGUE_EVENT_TITLE.Cosmic_Altruist_Part_3: [
+    KEYWORDS_ROGUE_EVENT_TITLE.Cosmic_Altruist_III: [
         KEYWORDS_ROGUE_EVENT_OPTION.Purchase_an_ore_box,
         KEYWORDS_ROGUE_EVENT_OPTION.Purchase_a_diamond_box,
-        KEYWORDS_ROGUE_EVENT_OPTION.Leave_4fa0
+        KEYWORDS_ROGUE_EVENT_OPTION.Leave_2a92
     ],
     KEYWORDS_ROGUE_EVENT_TITLE.Bounty_Hunter: [
-        KEYWORDS_ROGUE_EVENT_OPTION.Walk_away,
+        KEYWORDS_ROGUE_EVENT_OPTION.Walk_away_28e3,
         KEYWORDS_ROGUE_EVENT_OPTION.Give_him_the_fur_you_re_wearing
     ],
     KEYWORDS_ROGUE_EVENT_TITLE.Nomadic_Miners: [
@@ -78,7 +78,7 @@ STRATEGY_COMMON = {
     ],
     KEYWORDS_ROGUE_EVENT_TITLE.Jim_Hulk_and_Jim_Hall: [
         KEYWORDS_ROGUE_EVENT_OPTION.Jim_Hulk_collection,
-        KEYWORDS_ROGUE_EVENT_OPTION.Walk_away
+        KEYWORDS_ROGUE_EVENT_OPTION.Walk_away_28e3
     ],
     KEYWORDS_ROGUE_EVENT_TITLE.The_Cremators: [
         KEYWORDS_ROGUE_EVENT_OPTION.Bear_ten_carats_of_trash,
@@ -96,15 +96,15 @@ STRATEGY_COMMON = {
         KEYWORDS_ROGUE_EVENT_OPTION.Accept_the_flames_of_Self_destruction_and_destroy_the_black_box,
         KEYWORDS_ROGUE_EVENT_OPTION.Refuse_54fd
     ],
-    KEYWORDS_ROGUE_EVENT_TITLE.Saleo_Part_1: [
+    KEYWORDS_ROGUE_EVENT_TITLE.Saleo_I: [
         KEYWORDS_ROGUE_EVENT_OPTION.Pick_Sal,
         KEYWORDS_ROGUE_EVENT_OPTION.Pick_Leo
     ],
-    KEYWORDS_ROGUE_EVENT_TITLE.Sal_Part_2: [
+    KEYWORDS_ROGUE_EVENT_TITLE.Sal_II: [
         KEYWORDS_ROGUE_EVENT_OPTION.Pick_Sal,
         KEYWORDS_ROGUE_EVENT_OPTION.Let_Leo_out
     ],
-    KEYWORDS_ROGUE_EVENT_TITLE.Leo_Part_3: [
+    KEYWORDS_ROGUE_EVENT_TITLE.Leo_III: [
         KEYWORDS_ROGUE_EVENT_OPTION.Let_Sal_out,
         KEYWORDS_ROGUE_EVENT_OPTION.Pick_Leo
     ],

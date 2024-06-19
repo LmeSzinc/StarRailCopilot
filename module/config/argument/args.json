@@ -408,13 +408,19 @@
         "display": "display",
         "stored": "StoredPlanner"
       },
-      "Item_Moon_Madness_Fang": {
+      "Item_Moon_Rage_Fang": {
         "type": "planner",
         "value": {},
         "display": "display",
         "stored": "StoredPlanner"
       },
       "Item_Countertemporal_Shot": {
+        "type": "planner",
+        "value": {},
+        "display": "display",
+        "stored": "StoredPlanner"
+      },
+      "Item_Exquisite_Colored_Draft": {
         "type": "planner",
         "value": {},
         "display": "display",
@@ -552,6 +558,7 @@
           "Calyx_Crimson_Abundance_Jarilo_BackwaterPass",
           "Calyx_Crimson_Abundance_Luofu_FyxestrollGarden",
           "Calyx_Crimson_Erudition_Jarilo_RivetTown",
+          "Calyx_Crimson_Erudition_Penacony_PenaconyGrandTheater",
           "Calyx_Crimson_Harmony_Jarilo_RobotSettlement",
           "Calyx_Crimson_Harmony_Penacony_TheReverieDreamscape",
           "Calyx_Crimson_Nihility_Jarilo_GreatMine",
@@ -582,7 +589,8 @@
           "Cavern_of_Corrosion_Path_of_Conflagration",
           "Cavern_of_Corrosion_Path_of_Elixir_Seekers",
           "Cavern_of_Corrosion_Path_of_Darkness",
-          "Cavern_of_Corrosion_Path_of_Dreamdive"
+          "Cavern_of_Corrosion_Path_of_Dreamdive",
+          "Cavern_of_Corrosion_Path_of_Cavalier"
         ]
       },
       "NameAtDoubleCalyx": {
@@ -607,6 +615,7 @@
           "Calyx_Crimson_Abundance_Jarilo_BackwaterPass",
           "Calyx_Crimson_Abundance_Luofu_FyxestrollGarden",
           "Calyx_Crimson_Erudition_Jarilo_RivetTown",
+          "Calyx_Crimson_Erudition_Penacony_PenaconyGrandTheater",
           "Calyx_Crimson_Harmony_Jarilo_RobotSettlement",
           "Calyx_Crimson_Harmony_Penacony_TheReverieDreamscape",
           "Calyx_Crimson_Nihility_Jarilo_GreatMine",
@@ -625,7 +634,8 @@
           "Cavern_of_Corrosion_Path_of_Conflagration",
           "Cavern_of_Corrosion_Path_of_Elixir_Seekers",
           "Cavern_of_Corrosion_Path_of_Darkness",
-          "Cavern_of_Corrosion_Path_of_Dreamdive"
+          "Cavern_of_Corrosion_Path_of_Dreamdive",
+          "Cavern_of_Corrosion_Path_of_Cavalier"
         ]
       },
       "Team": {
@@ -672,6 +682,7 @@
           "DanHeng",
           "DanHengImbibitorLunae",
           "DrRatio",
+          "Firefly",
           "FuXuan",
           "Gallagher",
           "Gepard",
@@ -988,7 +999,7 @@
           "not_supported"
         ]
       },
-      "Complete_Simulated_Universe_1_times": {
+      "Complete_Divergent_Universe_or_Simulated_Universe_1_times": {
         "type": "state",
         "value": "achievable",
         "option": [
@@ -1589,6 +1600,7 @@
           "DanHeng",
           "DanHengImbibitorLunae",
           "DrRatio",
+          "Firefly",
           "FuXuan",
           "Gallagher",
           "Gepard",

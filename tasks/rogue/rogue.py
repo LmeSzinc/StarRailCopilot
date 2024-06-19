@@ -48,13 +48,13 @@ class Rogue(RouteLoader, RogueEntry):
             # Archived daily quest
             if success:
                 quests = self.config.stored.DailyQuest.load_quests()
-                if KEYWORDS_DAILY_QUEST.Complete_Simulated_Universe_1_times in quests:
-                    logger.info('Achieve daily quest Complete_Simulated_Universe_1_times')
+                if KEYWORDS_DAILY_QUEST.Complete_Divergent_Universe_or_Simulated_Universe_1_times in quests:
+                    logger.info('Achieve daily quest Complete_Divergent_Universe_or_Simulated_Universe_1_times')
                     self.config.task_call('DailyQuest')
                     self.config.task_stop()
                 quests = self.config.stored.BattlePassWeeklyQuest.load_quests()
-                if KEYWORDS_BATTLE_PASS_QUEST.Complete_Simulated_Universe_1_times in quests:
-                    logger.info('Achieve battle pass quest Complete_Simulated_Universe_1_times')
+                if KEYWORDS_BATTLE_PASS_QUEST.Complete_Divergent_Universe_or_Simulated_Universe_1_times in quests:
+                    logger.info('Achieve battle pass quest Complete_Divergent_Universe_or_Simulated_Universe_1_times')
                     self.config.task_call('BattlePass')
                     self.config.task_stop()
             # End

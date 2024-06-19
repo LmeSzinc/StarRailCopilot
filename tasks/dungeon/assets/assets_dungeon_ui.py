@@ -153,6 +153,16 @@ SURVIVAL_INDEX_LOADED = ButtonWrapper(
         button=(451, 286, 476, 302),
     ),
 )
+TAB_SEARCH = ButtonWrapper(
+    name='TAB_SEARCH',
+    share=Button(
+        file='./assets/share/dungeon/ui/TAB_SEARCH.png',
+        area=(139, 84, 599, 144),
+        search=(119, 64, 619, 164),
+        color=(92, 87, 83),
+        button=(139, 84, 599, 144),
+    ),
+)
 TREASURES_LIGHTWARD_CHECK = ButtonWrapper(
     name='TREASURES_LIGHTWARD_CHECK',
     share=Button(

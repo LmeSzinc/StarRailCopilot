@@ -39,15 +39,23 @@ class XPath:
     POPUP_CONFIRM = '//*[@resource-id="com.miHoYo.cloudgames.hkrpg:id/confirmTv"]'
     POPUP_CANCEL = '//*[@resource-id="com.miHoYo.cloudgames.hkrpg:id/cancelTv"]'
     # 畅玩卡的剩余时间
-    REMAIN_SEASON_PASS = '//*[@resource-id="com.miHoYo.cloudgames.hkrpg:id/tvCardStatus"]'
+    REMAIN_SEASON_PASS = '//*[@resource-id="com.miHoYo.cloudgames.hkrpg:id/tvRemindTime"]'
     # 星云币时长：0 分钟
-    REMAIN_PAID = '//*[@resource-id="com.miHoYo.cloudgames.hkrpg:id/tvMiCoinDuration"]'
+    REMAIN_PAID = '//*[@resource-id="com.miHoYo.cloudgames.hkrpg:id/tvCoinCount"]'
     # 免费时长： 600 分钟
-    REMAIN_FREE = '//*[@resource-id="com.miHoYo.cloudgames.hkrpg:id/tvRemainingFreeTime"]'
+    REMAIN_FREE = '//*[@resource-id="com.miHoYo.cloudgames.hkrpg:id/tvFreeTimeCount"]'
     # 主界面的开始游戏按钮
     START_GAME = '//*[@resource-id="com.miHoYo.cloudgames.hkrpg:id/btnLauncher"]'
-    # 排队剩余时间
-    QUEUE_REMAIN = '//*[@resource-id="com.miHoYo.cloudgames.hkrpg:id/tvQueueInfoWaitTimeContent"]'
+    # 请选择排队队列
+    # - 星云币时长快速通道队列 - 普通队列
+    QUEUE_SELECT_TITLE = '//*[@resource-id="com.miHoYo.cloudgames.hkrpg:id/tvSelectQueueTypeTitle"]'
+    QUEUE_SELECT_PRIOR = '//*[@resource-id="com.miHoYo.cloudgames.hkrpg:id/tvOptionPrior"]'
+    QUEUE_SELECT_NORMAL = '//*[@resource-id="com.miHoYo.cloudgames.hkrpg:id/clOptionNormal"]'
+    # 排队中
+    QUEUE_TITLE = '//*[@resource-id="com.miHoYo.cloudgames.hkrpg:id/tvEnqueueDialogTitle"]'
+    # 预计等待时间
+    QUEUE_REMAIN = ('//*[@resource-id="com.miHoYo.cloudgames.hkrpg:id/llEnqueueBody"]'
+                    '//*[@resource-id="com.miHoYo.cloudgames.hkrpg:id/tvSingleValue"]')
 
     """
     游戏界面元素
@@ -186,7 +194,7 @@ class LoginAndroidCloud(ModuleBase):
 
             # Queue daemon
             button = self.xpath(XPath.QUEUE_REMAIN)
-            if self.appear(button):
+            if self.appear(button, interval=20):
                 remain = button.text
                 logger.info(f'Queue remain: {remain}')
                 self.device.stuck_record_clear()
@@ -217,6 +225,8 @@ class LoginAndroidCloud(ModuleBase):
                 if title == '连接中断':
                     self.device.click(self.xpath(XPath.POPUP_CONFIRM))
                     continue
+            if self.appear_then_click(XPath.QUEUE_SELECT_NORMAL):
+                continue
 
         # Disable net state display
         if self._cloud_net_state_appear():

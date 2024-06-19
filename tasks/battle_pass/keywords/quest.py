@@ -3,14 +3,14 @@ from .classes import BattlePassQuest
 # This file was auto-generated, do not modify it manually. To generate:
 # ``` python -m dev_tools.keyword_extract ```
 
-Complete_Simulated_Universe_1_times = BattlePassQuest(
+Complete_Divergent_Universe_or_Simulated_Universe_1_times = BattlePassQuest(
     id=1,
-    name='Complete_Simulated_Universe_1_times',
-    cn='完成1次「模拟宇宙」',
-    cht='完成1次「模擬宇宙」',
-    en='Complete Simulated Universe 1 time(s)',
-    jp='「模擬宇宙」を1回クリアする',
-    es='Completa el Universo Simulado 1 vez',
+    name='Complete_Divergent_Universe_or_Simulated_Universe_1_times',
+    cn='完成1次「差分宇宙」或「模拟宇宙」',
+    cht='完成1次「差分宇宙」或「模擬宇宙」',
+    en='Complete Divergent Universe or Simulated Universe 1 time(s)',
+    jp='「階差宇宙」または「模擬宇宙」を合計1回クリアする',
+    es='Completa el Universo Simulado o el Universo Diferenciado 1 vez',
 )
 Clear_Calyx_1_times = BattlePassQuest(
     id=2,

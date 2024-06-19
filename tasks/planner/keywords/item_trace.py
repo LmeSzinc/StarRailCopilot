@@ -302,12 +302,12 @@ Lupitoxin_Sawteeth = ItemTrace(
     item_group=1211,
     dungeon_id=1018,
 )
-Moon_Madness_Fang = ItemTrace(
+Moon_Rage_Fang = ItemTrace(
     id=24,
-    name='Moon_Madness_Fang',
+    name='Moon_Rage_Fang',
     cn='月狂獠牙',
     cht='月狂獠牙',
-    en='Moon Madness Fang',
+    en='Moon Rage Fang',
     jp='月狂いの凶牙',
     es='Colmillo de la locura lunar',
     rarity='VeryRare',
@@ -354,8 +354,47 @@ Countertemporal_Shot = ItemTrace(
     item_group=1212,
     dungeon_id=1022,
 )
-Scattered_Stardust = ItemTrace(
+Rough_Sketch = ItemTrace(
     id=28,
+    name='Rough_Sketch',
+    cn='凌乱草图',
+    cht='凌亂草圖',
+    en='Rough Sketch',
+    jp='ラフスケッチ',
+    es='Bosquejo',
+    rarity='NotNormal',
+    item_id=110201,
+    item_group=1213,
+    dungeon_id=1023,
+)
+Dynamic_Outlining = ItemTrace(
+    id=29,
+    name='Dynamic_Outlining',
+    cn='动态线稿',
+    cht='動態線稿',
+    en='Dynamic Outlining',
+    jp='躍動感のある線画',
+    es='Esbozo dinámico',
+    rarity='Rare',
+    item_id=110202,
+    item_group=1213,
+    dungeon_id=1023,
+)
+Exquisite_Colored_Draft = ItemTrace(
+    id=30,
+    name='Exquisite_Colored_Draft',
+    cn='精致色稿',
+    cht='精緻色稿',
+    en='Exquisite Colored Draft',
+    jp='見事なカラー原画',
+    es='Borrador con colores bellos',
+    rarity='VeryRare',
+    item_id=110203,
+    item_group=1213,
+    dungeon_id=1023,
+)
+Scattered_Stardust = ItemTrace(
+    id=31,
     name='Scattered_Stardust',
     cn='散逸星砂',
     cht='散逸星砂',
@@ -368,7 +407,7 @@ Scattered_Stardust = ItemTrace(
     dungeon_id=1020,
 )
 Crystal_Meteorites = ItemTrace(
-    id=29,
+    id=32,
     name='Crystal_Meteorites',
     cn='流星棱晶',
     cht='流星稜晶',
@@ -381,7 +420,7 @@ Crystal_Meteorites = ItemTrace(
     dungeon_id=1020,
 )
 Divine_Amber = ItemTrace(
-    id=30,
+    id=33,
     name='Divine_Amber',
     cn='神体琥珀',
     cht='神體琥珀',
@@ -394,7 +433,7 @@ Divine_Amber = ItemTrace(
     dungeon_id=1020,
 )
 Fiery_Spirit = ItemTrace(
-    id=31,
+    id=34,
     name='Fiery_Spirit',
     cn='炽情之灵',
     cht='熾情之靈',
@@ -407,7 +446,7 @@ Fiery_Spirit = ItemTrace(
     dungeon_id=1017,
 )
 Starfire_Essence = ItemTrace(
-    id=32,
+    id=35,
     name='Starfire_Essence',
     cn='星火之精',
     cht='星火之精',
@@ -420,7 +459,7 @@ Starfire_Essence = ItemTrace(
     dungeon_id=1017,
 )
 Heaven_Incinerator = ItemTrace(
-    id=33,
+    id=36,
     name='Heaven_Incinerator',
     cn='焚天之魔',
     cht='焚天之魔',
@@ -433,7 +472,7 @@ Heaven_Incinerator = ItemTrace(
     dungeon_id=1017,
 )
 Firmament_Note = ItemTrace(
-    id=34,
+    id=37,
     name='Firmament_Note',
     cn='云际音符',
     cht='雲際音符',
@@ -446,7 +485,7 @@ Firmament_Note = ItemTrace(
     dungeon_id=1019,
 )
 Celestial_Section = ItemTrace(
-    id=35,
+    id=38,
     name='Celestial_Section',
     cn='空际小节',
     cht='空際小節',
@@ -459,7 +498,7 @@ Celestial_Section = ItemTrace(
     dungeon_id=1019,
 )
 Heavenly_Melody = ItemTrace(
-    id=36,
+    id=39,
     name='Heavenly_Melody',
     cn='天外乐章',
     cht='天外樂章',
@@ -472,7 +511,7 @@ Heavenly_Melody = ItemTrace(
     dungeon_id=1019,
 )
 Alien_Tree_Seed = ItemTrace(
-    id=37,
+    id=40,
     name='Alien_Tree_Seed',
     cn='异木种籽',
     cht='異木種籽',
@@ -485,7 +524,7 @@ Alien_Tree_Seed = ItemTrace(
     dungeon_id=1021,
 )
 Nourishing_Honey = ItemTrace(
-    id=38,
+    id=41,
     name='Nourishing_Honey',
     cn='滋长花蜜',
     cht='滋長花蜜',
@@ -498,7 +537,7 @@ Nourishing_Honey = ItemTrace(
     dungeon_id=1021,
 )
 Myriad_Fruit = ItemTrace(
-    id=39,
+    id=42,
     name='Myriad_Fruit',
     cn='万相果实',
     cht='萬相果實',

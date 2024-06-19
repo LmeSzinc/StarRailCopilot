@@ -344,7 +344,7 @@ class BattlePassUI(UI):
 
         # Convert quest keyword to stored object
         dic_quest_to_stored = {
-            KEYWORDS_BATTLE_PASS_QUEST.Complete_Simulated_Universe_1_times:
+            KEYWORDS_BATTLE_PASS_QUEST.Complete_Divergent_Universe_or_Simulated_Universe_1_times:
                 self.config.stored.BattlePassSimulatedUniverse,
             KEYWORDS_BATTLE_PASS_QUEST.Clear_Calyx_1_times:
                 self.config.stored.BattlePassQuestCalyx,

@@ -97,7 +97,7 @@ class ConfigGenerator:
             options=[dungeon.name for dungeon in DungeonList.instances.values() if dungeon.is_Echo_of_War])
         # Insert characters
         from tasks.character.keywords import CharacterList
-        unsupported_characters = []
+        unsupported_characters = ["Jade"]
         characters = [character.name for character in CharacterList.instances.values()
                       if character.name not in unsupported_characters]
         option_add(keys='DungeonSupport.Character.option', options=characters)
@@ -687,6 +687,9 @@ class ConfigUpdater:
         ('Dungeon.DungeonDaily.CalyxGolden', 'Dungeon.DungeonDaily.CalyxGolden', convert_20_dungeon),
         ('Dungeon.DungeonDaily.CalyxCrimson', 'Dungeon.DungeonDaily.CalyxCrimson', convert_20_dungeon),
         ('Rogue.RogueWorld.SimulatedUniverseElite', 'Rogue.RogueWorld.SimulatedUniverseFarm', convert_rogue_farm),
+        # 2.3
+        ('Dungeon.Planner.Item_Moon_Madness_Fang', 'Dungeon.Planner.Item_Moon_Rage_Fang'),
+        ('Dungeon.Planner.Item_Moon_Madness_Fang.item', 'Dungeon.Planner.Item_Moon_Rage_Fang.item'),
     ]
 
     @cached_property
@@ -801,8 +804,7 @@ class ConfigUpdater:
         set_daily('Destroy_3_destructible_objects', 'achievable')
         set_daily('Complete_Forgotten_Hall_1_time', 'achievable')
         set_daily('Complete_Echo_of_War_1_times', deep_get(data, 'Weekly.Scheduler.Enable'))
-        set_daily('Complete_Simulated_Universe_1_times',
-                  deep_get(data, 'Rogue.Scheduler.Enable'))
+        set_daily('Complete_Divergent_Universe_or_Simulated_Universe_1_times',deep_get(data, 'Rogue.Scheduler.Enable'))
         set_daily('Obtain_victory_in_combat_with_Support_Characters_1_times',
                   dungeon and deep_get(data, 'Dungeon.DungeonSupport.Use') in ['when_daily', 'always_use'])
         set_daily('Use_an_Ultimate_to_deal_the_final_blow_1_time', 'achievable')

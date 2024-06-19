@@ -163,7 +163,7 @@ class InventoryManager:
         image_item = cv2.inRange(image, 221, 255)
 
         # from PIL import Image
-        # Image.fromarray(image_star).show()
+        # Image.fromarray(image_item).show()
 
         def iter_area(im):
             # Iter matched area from given image
@@ -218,8 +218,12 @@ class InventoryManager:
                         yield InventoryItem(main=self.main, loca=(xi, yi), point=(int(x), int(y)))
                 elif y == y_max:
                     # Fill until the last item
+                    x_max = -1
                     for xi, x in enumerate(x_list):
                         if is_near_existing((x, y)):
+                            x_max = xi
+                    for xi, x in enumerate(x_list):
+                        if xi <= x_max:
                             yield InventoryItem(main=self.main, loca=(xi, yi), point=(int(x), int(y)))
                 else:
                     break

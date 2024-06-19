@@ -467,10 +467,10 @@
     "order": 0,
     "color": "#777777"
   },
-  "Item_Moon_Madness_Fang": {
-    "name": "Item_Moon_Madness_Fang",
-    "path": "Dungeon.Planner.Item_Moon_Madness_Fang",
-    "i18n": "Planner.Item_Moon_Madness_Fang.name",
+  "Item_Moon_Rage_Fang": {
+    "name": "Item_Moon_Rage_Fang",
+    "path": "Dungeon.Planner.Item_Moon_Rage_Fang",
+    "i18n": "Planner.Item_Moon_Rage_Fang.name",
     "stored": "StoredPlanner",
     "attrs": {
       "time": "2020-01-01 00:00:00"
@@ -482,6 +482,17 @@
     "name": "Item_Countertemporal_Shot",
     "path": "Dungeon.Planner.Item_Countertemporal_Shot",
     "i18n": "Planner.Item_Countertemporal_Shot.name",
+    "stored": "StoredPlanner",
+    "attrs": {
+      "time": "2020-01-01 00:00:00"
+    },
+    "order": 0,
+    "color": "#777777"
+  },
+  "Item_Exquisite_Colored_Draft": {
+    "name": "Item_Exquisite_Colored_Draft",
+    "path": "Dungeon.Planner.Item_Exquisite_Colored_Draft",
+    "i18n": "Planner.Item_Exquisite_Colored_Draft.name",
     "stored": "StoredPlanner",
     "attrs": {
       "time": "2020-01-01 00:00:00"

@@ -33,12 +33,14 @@ from tasks.map.keywords import KEYWORDS_MAP_WORLD, MapPlane
 
 
 class DungeonTabSwitch(Switch):
+    SEARCH_BUTTON = TAB_SEARCH
+
     def add_state(self, state, check_button, click_button=None):
         # Load search
         if check_button is not None:
-            check_button.load_search(TAB_SEARCH.area)
+            check_button.load_search(self.__class__.SEARCH_BUTTON.area)
         if click_button is not None:
-            click_button.load_search(TAB_SEARCH.area)
+            click_button.load_search(self.__class__.SEARCH_BUTTON.area)
         return super().add_state(state, check_button, click_button)
 
     def click(self, state, main):

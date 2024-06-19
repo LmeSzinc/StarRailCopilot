@@ -688,8 +688,8 @@ class ConfigUpdater:
         ('Dungeon.DungeonDaily.CalyxCrimson', 'Dungeon.DungeonDaily.CalyxCrimson', convert_20_dungeon),
         ('Rogue.RogueWorld.SimulatedUniverseElite', 'Rogue.RogueWorld.SimulatedUniverseFarm', convert_rogue_farm),
         # 2.3
-        ('Dungeon.Planner.Item_Moon_Madness_Fang', 'Dungeon.Planner.Item_Moon_Rage_Fang'),
-        ('Dungeon.Planner.Item_Moon_Madness_Fang.item', 'Dungeon.Planner.Item_Moon_Rage_Fang.item'),
+        ('Dungeon.Planner.Item_Moon_Madness_Fang', 'Dungeon.Planner.Item_Moon_Rage_Fang',
+         convert_Item_Moon_Madness_Fang),
     ]
 
     @cached_property

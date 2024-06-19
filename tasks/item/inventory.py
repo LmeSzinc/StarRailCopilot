@@ -319,6 +319,13 @@ class InventoryManager:
         self.update()
 
     def wait_selected(self, skip_first_screenshot=True):
+        """
+        Args:
+            skip_first_screenshot:
+
+        Returns:
+            bool: If success
+        """
         timeout = Timer(2, count=6).start()
         while 1:
             if skip_first_screenshot:
@@ -328,7 +335,7 @@ class InventoryManager:
 
             self.update()
             if self.selected is not None:
-                break
+                return True
             if timeout.reached():
                 logger.warning('Wait inventory selected timeout')
-                break
+                return False

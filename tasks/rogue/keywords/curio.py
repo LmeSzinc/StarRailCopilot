@@ -480,12 +480,12 @@ Interastral_Big_Lotto = RogueCurio(
     jp='星間ビッグロッタリー',
     es='Gran Lotería Interastral',
 )
-Fissured_Cuckoo_Clock = RogueCurio(
+Fission_Cuckoo_Clock = RogueCurio(
     id=54,
-    name='Fissured_Cuckoo_Clock',
+    name='Fission_Cuckoo_Clock',
     cn='分裂咕咕钟',
     cht='分裂咕咕鐘',
-    en='Fissured Cuckoo Clock',
+    en='Fission Cuckoo Clock',
     jp='分裂鳩時計',
     es='Reloj de cuco agrietado',
 )

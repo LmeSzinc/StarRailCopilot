@@ -270,6 +270,7 @@
       "Calyx_Crimson_Abundance_Jarilo_BackwaterPass": "行迹材料：丰饶（边缘通路）",
       "Calyx_Crimson_Abundance_Luofu_FyxestrollGarden": "行迹材料：丰饶（绥园）",
       "Calyx_Crimson_Erudition_Jarilo_RivetTown": "行迹材料：智识（铆钉镇）",
+      "Calyx_Crimson_Erudition_Penacony_PenaconyGrandTheater": "行迹材料：智识（匹诺康尼大剧院）",
       "Calyx_Crimson_Harmony_Jarilo_RobotSettlement": "行迹材料：同谐（机械聚落）",
       "Calyx_Crimson_Harmony_Penacony_TheReverieDreamscape": "行迹材料：同谐（白日梦酒店-梦境）",
       "Calyx_Crimson_Nihility_Jarilo_GreatMine": "行迹材料：虚无（大矿区）",
@@ -279,7 +280,7 @@
       "Stagnant_Shadow_Duty": "角色晋阶材料：物理（波提欧 / 知更鸟）",
       "Stagnant_Shadow_Blaze": "角色晋阶材料：火（姬子 / 艾丝妲 / 虎克）",
       "Stagnant_Shadow_Scorch": "角色晋阶材料：火（桂乃芬 / 托帕&账账）",
-      "Stagnant_Shadow_Ire": "角色晋阶材料：火（加拉赫）",
+      "Stagnant_Shadow_Ire": "角色晋阶材料：火（流萤 / 加拉赫）",
       "Stagnant_Shadow_Rime": "角色晋阶材料：冰（三月七 / 黑塔 / 杰帕德 / 佩拉）",
       "Stagnant_Shadow_Icicle": "角色晋阶材料：冰（彦卿 / 镜流 / 阮•梅）",
       "Stagnant_Shadow_Nectar": "角色晋阶材料：冰（米沙）",
@@ -289,7 +290,7 @@
       "Stagnant_Shadow_Celestial": "角色晋阶材料：风（刃 / 藿藿 / 黑天鹅）",
       "Stagnant_Shadow_Quanta": "角色晋阶材料：量子（银狼 / 希儿 / 青雀）",
       "Stagnant_Shadow_Abomination": "角色晋阶材料：量子（玲可 / 符玄 / 雪衣）",
-      "Stagnant_Shadow_Roast": "角色晋阶材料：量子（花火）",
+      "Stagnant_Shadow_Roast": "角色晋阶材料：量子（翡翠 / 花火）",
       "Stagnant_Shadow_Mirage": "角色晋阶材料：虚数（瓦尔特 / 罗刹 / 驭空）",
       "Stagnant_Shadow_Puppetry": "角色晋阶材料：虚数（丹恒•饮月 / 砂金 / 真理医生）",
       "Cavern_of_Corrosion_Path_of_Gelid_Wind": "遗器：冰套+风套（霜风之径•侵蚀隧洞）",
@@ -300,7 +301,8 @@
       "Cavern_of_Corrosion_Path_of_Conflagration": "遗器：火套+虚数套（野焰之径•侵蚀隧洞）",
       "Cavern_of_Corrosion_Path_of_Elixir_Seekers": "遗器：生命套+速度套（药使之径•侵蚀隧洞）",
       "Cavern_of_Corrosion_Path_of_Darkness": "遗器：追击套+dot套（幽冥之径•侵蚀隧洞）",
-      "Cavern_of_Corrosion_Path_of_Dreamdive": "遗器：负面套+击破套（梦潜之径•侵蚀隧洞）"
+      "Cavern_of_Corrosion_Path_of_Dreamdive": "遗器：负面套+击破套（梦潜之径•侵蚀隧洞）",
+      "Cavern_of_Corrosion_Path_of_Cavalier": "遗器：超击破套+终追套（勇骑之径•侵蚀隧洞）"
     },
     "NameAtDoubleCalyx": {
       "name": "有双倍花活动时，选择副本",
@@ -323,6 +325,7 @@
       "Calyx_Crimson_Abundance_Jarilo_BackwaterPass": "行迹材料：丰饶（边缘通路）",
       "Calyx_Crimson_Abundance_Luofu_FyxestrollGarden": "行迹材料：丰饶（绥园）",
       "Calyx_Crimson_Erudition_Jarilo_RivetTown": "行迹材料：智识（铆钉镇）",
+      "Calyx_Crimson_Erudition_Penacony_PenaconyGrandTheater": "行迹材料：智识（匹诺康尼大剧院）",
       "Calyx_Crimson_Harmony_Jarilo_RobotSettlement": "行迹材料：同谐（机械聚落）",
       "Calyx_Crimson_Harmony_Penacony_TheReverieDreamscape": "行迹材料：同谐（白日梦酒店-梦境）",
       "Calyx_Crimson_Nihility_Jarilo_GreatMine": "行迹材料：虚无（大矿区）",
@@ -339,7 +342,8 @@
       "Cavern_of_Corrosion_Path_of_Conflagration": "遗器：火套+虚数套（野焰之径•侵蚀隧洞）",
       "Cavern_of_Corrosion_Path_of_Elixir_Seekers": "遗器：生命套+速度套（药使之径•侵蚀隧洞）",
       "Cavern_of_Corrosion_Path_of_Darkness": "遗器：追击套+dot套（幽冥之径•侵蚀隧洞）",
-      "Cavern_of_Corrosion_Path_of_Dreamdive": "遗器：负面套+击破套（梦潜之径•侵蚀隧洞）"
+      "Cavern_of_Corrosion_Path_of_Dreamdive": "遗器：负面套+击破套（梦潜之径•侵蚀隧洞）",
+      "Cavern_of_Corrosion_Path_of_Cavalier": "遗器：超击破套+终追套（勇骑之径•侵蚀隧洞）"
     },
     "Team": {
       "name": "打本队伍",
@@ -385,6 +389,7 @@
       "DanHeng": "丹恒",
       "DanHengImbibitorLunae": "丹恒•饮月",
       "DrRatio": "真理医生",
+      "Firefly": "流萤",
       "FuXuan": "符玄",
       "Gallagher": "加拉赫",
       "Gepard": "杰帕德",
@@ -550,7 +555,7 @@
       "help": ""
     },
     "Item_Raging_Heart": {
-      "name": "角色晋阶材料：火（加拉赫）",
+      "name": "角色晋阶材料：火（流萤 / 加拉赫）",
       "help": ""
     },
     "Item_Dream_Fridge": {
@@ -558,7 +563,7 @@
       "help": ""
     },
     "Item_Dream_Flamer": {
-      "name": "角色晋阶材料：量子（花火）",
+      "name": "角色晋阶材料：量子（翡翠 / 花火）",
       "help": ""
     },
     "Item_Worldbreaker_Blade": {
@@ -589,12 +594,16 @@
       "name": "行迹材料：丰饶（边缘通路）",
       "help": ""
     },
-    "Item_Moon_Madness_Fang": {
+    "Item_Moon_Rage_Fang": {
       "name": "行迹材料：毁灭（鳞渊境）",
       "help": ""
     },
     "Item_Countertemporal_Shot": {
       "name": "行迹材料：巡猎（苏乐达热砂海选会场）",
+      "help": ""
+    },
+    "Item_Exquisite_Colored_Draft": {
+      "name": "行迹材料：智识（匹诺康尼大剧院）",
       "help": ""
     },
     "Item_Divine_Amber": {
@@ -801,8 +810,8 @@
       "not_set": "未设置",
       "not_supported": "暂未支持"
     },
-    "Complete_Simulated_Universe_1_times": {
-      "name": "完成1次「模拟宇宙」",
+    "Complete_Divergent_Universe_or_Simulated_Universe_1_times": {
+      "name": "完成1次「差分宇宙」或「模拟宇宙」",
       "help": "需要设置并启用\"模拟宇宙\"任务",
       "achievable": "可完成",
       "not_set": "未设置",

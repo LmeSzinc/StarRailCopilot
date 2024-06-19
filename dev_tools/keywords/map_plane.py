@@ -58,7 +58,8 @@ class GenerateMapPlane(GenerateKeyword):
     def convert_name(self, text: str, keyword: dict) -> str:
         text = super().convert_name(text, keyword=keyword)
         text = text.replace('_', '')
-
+        if not text:
+            return ""
         from tasks.map.keywords import MapWorld
         world = MapWorld.find_world_id(keyword['world_id'])
         if world is None:

@@ -33,12 +33,14 @@ from tasks.map.keywords import KEYWORDS_MAP_WORLD, MapPlane
 
 
 class DungeonTabSwitch(Switch):
+    SEARCH_BUTTON = TAB_SEARCH
+
     def add_state(self, state, check_button, click_button=None):
         # Load search
         if check_button is not None:
-            check_button.load_search(TAB_SEARCH.area)
+            check_button.load_search(self.__class__.SEARCH_BUTTON.area)
         if click_button is not None:
-            click_button.load_search(TAB_SEARCH.area)
+            click_button.load_search(self.__class__.SEARCH_BUTTON.area)
         return super().add_state(state, check_button, click_button)
 
     def click(self, state, main):
@@ -67,6 +69,11 @@ SWITCH_DUNGEON_TAB.add_state(
     KEYWORDS_DUNGEON_TAB.Survival_Index,
     check_button=SURVIVAL_INDEX_CHECK,
     click_button=SURVIVAL_INDEX_CLICK
+)
+SWITCH_DUNGEON_TAB.add_state(
+    KEYWORDS_DUNGEON_TAB.Simulated_Universe,
+    check_button=SIMULATED_UNIVERSE_CHECK,
+    click_button=SIMULATED_UNIVERSE_CLICK
 )
 SWITCH_DUNGEON_TAB.add_state(
     KEYWORDS_DUNGEON_TAB.Treasures_Lightward,
@@ -296,8 +303,11 @@ class DungeonUI(DungeonState):
             if timeout.reached():
                 logger.warning('Wait survival index loaded timeout')
                 return False
-            if self.appear(SURVIVAL_INDEX_LOADED):
-                logger.info('Survival index loaded')
+            if self.appear(SURVIVAL_INDEX_SU_LOADED):
+                logger.info('Survival index loaded, SURVIVAL_INDEX_SU_LOADED')
+                return True
+            if self.appear(SURVIVAL_INDEX_OE_LOADED):
+                logger.info('Survival index loaded, SURVIVAL_INDEX_OE_LOADED')
                 return True
 
     def _dungeon_wait_treasures_lightward_loaded(self, skip_first_screenshot=True):
@@ -703,7 +713,7 @@ class DungeonUI(DungeonState):
             self._rogue_teleport()
         """
         self.dungeon_tab_goto(KEYWORDS_DUNGEON_TAB.Survival_Index)
-        if self.appear(SURVIVAL_INDEX_LOADED):
+        if self.appear(SURVIVAL_INDEX_SU_LOADED):
             logger.info('Already at nav Simulated_Universe')
         else:
             self._dungeon_nav_goto(KEYWORDS_DUNGEON_NAV.Simulated_Universe)

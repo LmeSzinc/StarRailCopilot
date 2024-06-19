@@ -15,7 +15,7 @@ from tasks.assignment.assets.assets_assignment_ui import *
 from tasks.assignment.keywords import *
 from tasks.base.assets.assets_base_page import ASSIGNMENT_CHECK
 from tasks.base.ui import UI
-from tasks.dungeon.ui import DungeonTabSwitch as Switch
+from tasks.dungeon.ui import DungeonTabSwitch
 
 
 class AssignmentStatus(Enum):
@@ -102,7 +102,11 @@ class AssignmentOcr(Ocr):
         return matched
 
 
-ASSIGNMENT_GROUP_SWITCH = Switch(
+class AssignmentGroupSwitch(DungeonTabSwitch):
+    SEARCH_BUTTON = GROUP_SEARCH
+
+
+ASSIGNMENT_GROUP_SWITCH = AssignmentGroupSwitch(
     'AssignmentGroupSwitch',
     is_selector=True
 )

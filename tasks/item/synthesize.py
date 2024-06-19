@@ -9,6 +9,7 @@ from module.exception import ScriptError
 from module.logger import logger
 from module.ocr.ocr import Digit, Ocr
 from tasks.base.page import page_menu, page_synthesize
+from tasks.combat.assets.assets_combat_obtain import ITEM_CLOSE
 from tasks.combat.obtain import CombatObtain
 from tasks.item.assets.assets_item_synthesize import *
 from tasks.item.inventory import InventoryManager
@@ -177,6 +178,10 @@ class Synthesize(CombatObtain, ItemUI):
             if self.ui_page_appear(page_synthesize, interval=2):
                 self.device.click(SWITCH_RARITY)
                 switched = True
+                continue
+            if self.appear_then_click(ITEM_CLOSE, interval=2):
+                continue
+            if self.handle_reward():
                 continue
 
         return switched

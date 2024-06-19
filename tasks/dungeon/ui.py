@@ -296,8 +296,11 @@ class DungeonUI(DungeonState):
             if timeout.reached():
                 logger.warning('Wait survival index loaded timeout')
                 return False
-            if self.appear(SURVIVAL_INDEX_LOADED):
-                logger.info('Survival index loaded')
+            if self.appear(SURVIVAL_INDEX_SU_LOADED):
+                logger.info('Survival index loaded, SURVIVAL_INDEX_SU_LOADED')
+                return True
+            if self.appear(SURVIVAL_INDEX_OE_LOADED):
+                logger.info('Survival index loaded, SURVIVAL_INDEX_OE_LOADED')
                 return True
 
     def _dungeon_wait_treasures_lightward_loaded(self, skip_first_screenshot=True):
@@ -703,7 +706,7 @@ class DungeonUI(DungeonState):
             self._rogue_teleport()
         """
         self.dungeon_tab_goto(KEYWORDS_DUNGEON_TAB.Survival_Index)
-        if self.appear(SURVIVAL_INDEX_LOADED):
+        if self.appear(SURVIVAL_INDEX_SU_LOADED):
             logger.info('Already at nav Simulated_Universe')
         else:
             self._dungeon_nav_goto(KEYWORDS_DUNGEON_NAV.Simulated_Universe)

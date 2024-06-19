@@ -511,7 +511,8 @@ class Synthesize(CombatObtain, ItemUI):
             row:
 
         Returns:
-            bool: True if success
+            StoredPlannerProxy: Same row with updated data
+                or None if failed
         """
         for _ in range(3):
             logger.hr('Synthesize planner row', level=1)
@@ -523,19 +524,24 @@ class Synthesize(CombatObtain, ItemUI):
             self.planner.load_obtained_amount(obtained)
             if not row.need_synthesize():
                 logger.warning('Planner row do not need to synthesize')
-                return False
+                return None
 
             # Check current item again
             current = self.synthesize_get_item()
             if current.item_group == row.item.item_group:
                 logger.info('Selected at target item')
-                return True
+                try:
+                    new = self.planner.rows[row.item.name]
+                    return new
+                except KeyError:
+                    logger.error(f'synthesize_planner_row_select: row {row} disappeared after updating obtained')
+                    return None
             else:
                 logger.warning(f'Item changed after getting obtain, expected: {row.item}, current: {current}')
                 continue
 
         logger.error('synthesize_planner_row_select failed 3 times')
-        return False
+        return None
 
     def synthesize_planner(self):
         """
@@ -548,12 +554,14 @@ class Synthesize(CombatObtain, ItemUI):
         logger.hr('Synthesize planner', level=1)
         self.ui_ensure(page_synthesize)
 
-        for row in self.planner.rows.values():
+        # Cache things to iter
+        rows = list(self.planner.rows.values())
+        for row in rows:
             if not row.need_synthesize():
                 continue
 
-            success = self.synthesize_planner_row_select(row)
-            if not success:
+            row = self.synthesize_planner_row_select(row)
+            if row is None:
                 continue
 
             logger.info(f'Synthesize row: {row}')

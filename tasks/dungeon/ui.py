@@ -69,6 +69,11 @@ SWITCH_DUNGEON_TAB.add_state(
     click_button=SURVIVAL_INDEX_CLICK
 )
 SWITCH_DUNGEON_TAB.add_state(
+    KEYWORDS_DUNGEON_TAB.Simulated_Universe,
+    check_button=SIMULATED_UNIVERSE_CHECK,
+    click_button=SIMULATED_UNIVERSE_CLICK
+)
+SWITCH_DUNGEON_TAB.add_state(
     KEYWORDS_DUNGEON_TAB.Treasures_Lightward,
     check_button=TREASURES_LIGHTWARD_CHECK,
     click_button=TREASURES_LIGHTWARD_CLICK

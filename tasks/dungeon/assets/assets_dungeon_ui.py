@@ -123,6 +123,26 @@ OPERATION_BRIEFING_CLICK = ButtonWrapper(
         button=(149, 92, 193, 136),
     ),
 )
+SIMULATED_UNIVERSE_CHECK = ButtonWrapper(
+    name='SIMULATED_UNIVERSE_CHECK',
+    share=Button(
+        file='./assets/share/dungeon/ui/SIMULATED_UNIVERSE_CHECK.png',
+        area=(352, 99, 386, 133),
+        search=(332, 79, 406, 153),
+        color=(96, 96, 96),
+        button=(352, 99, 386, 133),
+    ),
+)
+SIMULATED_UNIVERSE_CLICK = ButtonWrapper(
+    name='SIMULATED_UNIVERSE_CLICK',
+    share=Button(
+        file='./assets/share/dungeon/ui/SIMULATED_UNIVERSE_CLICK.png',
+        area=(352, 99, 386, 133),
+        search=(332, 79, 406, 153),
+        color=(122, 120, 120),
+        button=(352, 99, 386, 133),
+    ),
+)
 SURVIVAL_INDEX_CHECK = ButtonWrapper(
     name='SURVIVAL_INDEX_CHECK',
     share=Button(

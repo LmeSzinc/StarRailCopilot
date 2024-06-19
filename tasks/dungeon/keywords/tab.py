@@ -30,8 +30,17 @@ Daily_Training = DungeonTab(
     jp='デイリー訓練',
     es='Entrenamiento diario',
 )
-Treasures_Lightward = DungeonTab(
+Simulated_Universe = DungeonTab(
     id=4,
+    name='Simulated_Universe',
+    cn='模拟宇宙',
+    cht='模擬宇宙',
+    en='Simulated Universe',
+    jp='模擬宇宙',
+    es='Universo Simulado',
+)
+Treasures_Lightward = DungeonTab(
+    id=5,
     name='Treasures_Lightward',
     cn='逐光捡金',
     cht='逐光撿金',
@@ -40,7 +49,7 @@ Treasures_Lightward = DungeonTab(
     es='En busca de fortuna',
 )
 Strategic_Training = DungeonTab(
-    id=5,
+    id=6,
     name='Strategic_Training',
     cn='战术训练',
     cht='戰術訓練',

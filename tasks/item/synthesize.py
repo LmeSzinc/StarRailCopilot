@@ -310,6 +310,7 @@ class Synthesize(CombatObtain, ItemUI):
             inv.select(first)
 
         logger.hr('Synthesize select view', level=2)
+        self.device.click_record_clear()
         switch_row = True
         while 1:
             # End
@@ -329,6 +330,7 @@ class Synthesize(CombatObtain, ItemUI):
                         logger.info('Reached inventory view end, reset view')
                         self.synthesize_rarity_reset(inv=inv)
                         logger.hr('Synthesize select view', level=2)
+                        self.device.click_record_clear()
                         continue
                     else:
                         logger.info('Reached inventory list end, no more rows')

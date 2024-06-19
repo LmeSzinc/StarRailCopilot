@@ -687,6 +687,7 @@ class ConfigUpdater:
         ('Dungeon.DungeonDaily.CalyxGolden', 'Dungeon.DungeonDaily.CalyxGolden', convert_20_dungeon),
         ('Dungeon.DungeonDaily.CalyxCrimson', 'Dungeon.DungeonDaily.CalyxCrimson', convert_20_dungeon),
         ('Dungeon.Planner.Item_Moon_Madness_Fang', 'Dungeon.Planner.Item_Moon_Rage_Fang'),
+        ('DailyQuest.AchievableQuest.Complete_Simulated_Universe_1_times', 'DailyQuest.AchievableQuest.Complete_Divergent_Universe_or_Simulated_Universe_1_times'),
         ('Rogue.RogueWorld.SimulatedUniverseElite', 'Rogue.RogueWorld.SimulatedUniverseFarm', convert_rogue_farm),
     ]
 

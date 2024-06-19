@@ -9,6 +9,7 @@ from module.exception import ScriptError
 from module.logger import logger
 from module.ocr.ocr import Digit, Ocr
 from tasks.base.page import page_menu, page_synthesize
+from tasks.combat.assets.assets_combat_obtain import ITEM_CLOSE
 from tasks.combat.obtain import CombatObtain
 from tasks.item.assets.assets_item_synthesize import *
 from tasks.item.inventory import InventoryManager
@@ -178,6 +179,10 @@ class Synthesize(CombatObtain, ItemUI):
                 self.device.click(SWITCH_RARITY)
                 switched = True
                 continue
+            if self.appear_then_click(ITEM_CLOSE, interval=2):
+                continue
+            if self.handle_reward():
+                continue
 
         return switched
 
@@ -305,6 +310,7 @@ class Synthesize(CombatObtain, ItemUI):
             inv.select(first)
 
         logger.hr('Synthesize select view', level=2)
+        self.device.click_record_clear()
         switch_row = True
         while 1:
             # End
@@ -324,6 +330,7 @@ class Synthesize(CombatObtain, ItemUI):
                         logger.info('Reached inventory view end, reset view')
                         self.synthesize_rarity_reset(inv=inv)
                         logger.hr('Synthesize select view', level=2)
+                        self.device.click_record_clear()
                         continue
                     else:
                         logger.info('Reached inventory list end, no more rows')

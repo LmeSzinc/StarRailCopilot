@@ -137,13 +137,13 @@ class Switch:
             current = self.get(main=main)
             logger.attr(self.name, current)
 
-            # Handle additional popups
-            if self.handle_additional(main=main):
-                continue
-
             # End
             if current == state:
                 return changed
+
+            # Handle additional popups
+            if self.handle_additional(main=main):
+                continue
 
             # Warning
             if current == 'unknown':
@@ -165,3 +165,36 @@ class Switch:
                 changed = True
 
         return changed
+
+    def wait(self, main, skip_first_screenshot=True):
+        """
+        Wait until any state activated
+
+        Args:
+            main (ModuleBase):
+            skip_first_screenshot:
+
+        Returns:
+            bool: If success
+        """
+        timeout = Timer(2, count=6).start()
+        while 1:
+            if skip_first_screenshot:
+                skip_first_screenshot = False
+            else:
+                main.device.screenshot()
+
+            # Detect
+            current = self.get(main=main)
+            logger.attr(self.name, current)
+
+            # End
+            if current != 'unknown':
+                return True
+            if timeout.reached():
+                logger.warning(f'{self.name} wait activated timeout')
+                return False
+
+            # Handle additional popups
+            if self.handle_additional(main=main):
+                continue

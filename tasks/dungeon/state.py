@@ -139,6 +139,8 @@ class DungeonState(UI):
             limit = 30
         else:
             limit = 60
+        if self.config.is_cloud_game:
+            limit = 120
 
         # Double event is not yet finished, do it today as possible
         update = get_server_next_update(self.config.Scheduler_ServerUpdate)

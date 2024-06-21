@@ -438,7 +438,8 @@ class DungeonUI(DungeonState):
                 break
 
         # Check if it's at the first page.
-        if DUNGEON_NAV_LIST.keyword2button(KEYWORDS_DUNGEON_NAV.Simulated_Universe, show_warning=False):
+        if DUNGEON_NAV_LIST.keyword2button(KEYWORDS_DUNGEON_NAV.Simulated_Universe, show_warning=False) \
+                or DUNGEON_NAV_LIST.keyword2button(KEYWORDS_DUNGEON_NAV.Ornament_Extraction, show_warning=False):
             # Going to use a faster method to navigate but can only start from list top
             logger.info('DUNGEON_NAV_LIST at top')
             # Update points if possible

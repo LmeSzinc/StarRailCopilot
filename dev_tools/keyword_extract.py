@@ -554,8 +554,9 @@ class KeywordExtract:
             yield hash_
 
     def generate(self):
-        self.load_keywords(['模拟宇宙', '拟造花萼（金）', '拟造花萼（赤）', '凝滞虚影', '侵蚀隧洞', '历战余响',
-                            '忘却之庭', '虚构叙事'])
+        self.load_keywords(['饰品提取', '差分宇宙', '模拟宇宙',
+                            '拟造花萼（金）', '拟造花萼（赤）', '凝滞虚影', '侵蚀隧洞', '历战余响',
+                            '最近更新', '忘却之庭', '虚构叙事', '末日幻影'])
         self.write_keywords(keyword_class='DungeonNav', output_file='./tasks/dungeon/keywords/nav.py')
         self.load_keywords(['行动摘要', '生存索引', '每日实训', '模拟宇宙', '逐光捡金', '战术训练'])
         self.write_keywords(keyword_class='DungeonTab', output_file='./tasks/dungeon/keywords/tab.py')

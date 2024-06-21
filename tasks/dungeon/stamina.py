@@ -4,6 +4,7 @@ from module.logger import logger
 from module.ocr.ocr import Digit
 from tasks.base.page import page_guide
 from tasks.dungeon.assets.assets_dungeon_stamina import *
+from tasks.dungeon.keywords import KEYWORDS_DUNGEON_TAB
 from tasks.dungeon.ui import DungeonUI
 
 
@@ -138,7 +139,7 @@ class DungeonStamina(DungeonUI):
         """
         logger.hr('Immersifier store', level=2)
         logger.info(f'Max store: {max_store}')
-        self.dungeon_goto_rogue()
+        self.dungeon_tab_goto(KEYWORDS_DUNGEON_TAB.Survival_Index)
         self.dungeon_update_stamina()
         before = self.config.stored.Immersifier.value
 

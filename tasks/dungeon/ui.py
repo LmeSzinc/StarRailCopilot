@@ -17,6 +17,7 @@ from tasks.base.page import page_guide
 from tasks.combat.assets.assets_combat_interact import DUNGEON_COMBAT_INTERACT, DUNGEON_COMBAT_INTERACT_TEXT
 from tasks.combat.assets.assets_combat_prepare import COMBAT_PREPARE
 from tasks.dungeon.assets.assets_dungeon_ui import *
+from tasks.dungeon.assets.assets_dungeon_ui_rogue import *
 from tasks.dungeon.keywords import (
     DungeonList,
     DungeonNav,
@@ -337,6 +338,17 @@ class DungeonUI(DungeonState):
                 logger.info('Treasures lightward loaded (event locked)')
                 return True
 
+    def _dungeon_list_button_has_content(self):
+        # Check if having any content
+        # List background: 254, guild border: 225
+        r, g, b = cv2.split(self.image_crop(LIST_LOADED_CHECK, copy=False))
+        minimum = cv2.min(cv2.min(r, g), b)
+        minimum = inrange(minimum, lower=0, upper=180)
+        if minimum.size > 100:
+            return True
+        else:
+            return False
+
     def _dungeon_wait_until_dungeon_list_loaded(self, skip_first_screenshot=True):
         timeout = Timer(1, count=3).start()
         while 1:
@@ -350,14 +362,9 @@ class DungeonUI(DungeonState):
                 logger.warning('Wait until dungeon list loaded timeout')
                 return False
 
-            # Check if having any content
-            # List background: 254, guild border: 225
-            r, g, b = cv2.split(self.image_crop(LIST_LOADED_CHECK, copy=False))
-            minimum = cv2.min(cv2.min(r, g), b)
-            minimum = inrange(minimum, lower=0, upper=180)
-            if minimum.size > 100:
+            if self._dungeon_list_button_has_content():
                 logger.info('Dungeon list loaded')
-                break
+                return True
 
     def _dungeon_wait_until_echo_or_war_stabled(self, skip_first_screenshot=True):
         """
@@ -431,12 +438,13 @@ class DungeonUI(DungeonState):
                 break
 
         # Check if it's at the first page.
-        if button := DUNGEON_NAV_LIST.keyword2button(KEYWORDS_DUNGEON_NAV.Simulated_Universe, show_warning=False):
+        if DUNGEON_NAV_LIST.keyword2button(KEYWORDS_DUNGEON_NAV.Simulated_Universe, show_warning=False):
             # Going to use a faster method to navigate but can only start from list top
             logger.info('DUNGEON_NAV_LIST at top')
             # Update points if possible
-            if DUNGEON_NAV_LIST.is_row_selected(button, main=self):
-                self.dungeon_update_simuni()
+            # 2.3, No longer weekly points after Divergent Universe unlocked
+            # if DUNGEON_NAV_LIST.is_row_selected(button, main=self):
+            #     self.dungeon_update_simuni()
         # Treasures lightward is always at top
         elif DUNGEON_NAV_LIST.keyword2button(KEYWORDS_DUNGEON_NAV.Forgotten_Hall, show_warning=False) \
                 or DUNGEON_NAV_LIST.keyword2button(KEYWORDS_DUNGEON_NAV.Pure_Fiction, show_warning=False):
@@ -450,6 +458,8 @@ class DungeonUI(DungeonState):
         # Check the first page
         if nav in [
             KEYWORDS_DUNGEON_NAV.Simulated_Universe,
+            KEYWORDS_DUNGEON_NAV.Divergent_Universe,
+            KEYWORDS_DUNGEON_NAV.Ornament_Extraction,
             KEYWORDS_DUNGEON_NAV.Calyx_Golden,
             KEYWORDS_DUNGEON_NAV.Calyx_Crimson,
             KEYWORDS_DUNGEON_NAV.Stagnant_Shadow,
@@ -697,26 +707,6 @@ class DungeonUI(DungeonState):
         # Unknown
         logger.attr('DungeonInteract', None)
         return None
-
-    def dungeon_goto_rogue(self):
-        """
-        Goto Simulated Universe page but not pressing the TELEPORT button
-
-        Pages:
-            in: Any
-            out: page_guide, Survival_Index, Simulated_Universe
-
-        Examples:
-            self = DungeonUI('src')
-            self.device.screenshot()
-            self.dungeon_goto_rogue()
-            self._rogue_teleport()
-        """
-        self.dungeon_tab_goto(KEYWORDS_DUNGEON_TAB.Survival_Index)
-        if self.appear(SURVIVAL_INDEX_SU_LOADED):
-            logger.info('Already at nav Simulated_Universe')
-        else:
-            self._dungeon_nav_goto(KEYWORDS_DUNGEON_NAV.Simulated_Universe)
 
     def dungeon_goto(self, dungeon: DungeonList):
         """

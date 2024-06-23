@@ -293,7 +293,7 @@ class StoredPlannerProxy(BaseModelWithFallback):
         """
         Estimate remaining days to farm
         """
-        if not self.need_farm():
+        if not self.can_daily_farm():
             return 0.
         if self.item.dungeon is None:
             return 0.
@@ -304,12 +304,11 @@ class StoredPlannerProxy(BaseModelWithFallback):
         cost = self.combat_cost
         drop = self.drop_equivalent_green
 
-        if self.item.is_ItemWeekly:
-            weeks = math.ceil(remain / drop / 3)
-            return weeks * 7
-        else:
-            stamina = math.ceil(remain / drop) * cost
-            return round(stamina / 240, 1)
+        # if self.item.is_ItemWeekly:
+        #     weeks = math.ceil(remain / drop / 3)
+        #     return weeks * 7
+        stamina = math.ceil(remain / drop) * cost
+        return round(stamina / 240, 1)
 
     def update(self, time=False):
         for attr in SET_ROW_EXCLUDE:
@@ -534,6 +533,7 @@ class PlannerProgressParser:
             name = f'Item_{row.item.name}'
             dic = row.model_dump(exclude=SET_ROW_EXCLUDE)
             dic['item'] = row.item.name
+            dic['time'] = str(row.time)
             data[name] = dic
         return data
 

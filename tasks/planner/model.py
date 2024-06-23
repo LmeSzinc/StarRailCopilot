@@ -206,7 +206,7 @@ class StoredPlannerProxy(BaseModelWithFallback):
             # purple, blue, green = 1, 2, 2.5
             return 17.5
         if self.item.is_ItemAscension:
-            return 3
+            return 5
         if self.item.is_ItemTrace:
             # purple, blue, green = 0.155, 1, 1.25
             return 5.645

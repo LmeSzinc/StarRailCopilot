@@ -49,6 +49,13 @@ class GenerateMapPlane(GenerateKeyword):
                 world_id=-2,
                 plane_id=index + 1,
             )
+        domains = ['晖长石号', '开拓之尾号', '塔塔洛夫号', '飞翔时针号']
+        for index, domain in enumerate(domains):
+            yield dict(
+                text_id=to_id(domain),
+                world_id=3,
+                plane_id=index + 1,
+            )
 
         keywords = sorted(self.iter_planes(), key=lambda x: (x['world_id'], x['sort_id']))
         for keyword in keywords:

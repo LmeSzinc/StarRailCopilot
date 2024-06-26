@@ -30,6 +30,7 @@ DICT_SORTED_RANGES = {
         Qingque,
         # Slow bullet
         Robin,
+        TrailblazerHarmony,
     ],
     # Archer, but her parabolic trajectory has 0% accuracy on moving targets
     'ArcherSecondary': [

@@ -877,6 +877,8 @@ class ConfigUpdater:
         Yields:
             str: Arg path that should be hidden
         """
+        if deep_get(data, 'Dungeon.Dungeon.UseFuel') == False:
+            yield 'Dungeon.Dungeon.UseFuelUntilRemainCount'
         if deep_get(data, 'Rogue.RogueBlessing.PresetBlessingFilter') != 'custom':
             yield 'Rogue.RogueBlessing.CustomBlessingFilter'
         if deep_get(data, 'Rogue.RogueBlessing.PresetResonanceFilter') != 'custom':

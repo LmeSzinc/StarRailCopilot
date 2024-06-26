@@ -110,6 +110,9 @@ Dungeon:
   Team:
     value: 1
     option: [ 1, 2, 3, 4, 5, 6, 7, 8, 9 ]
+  ExtractReservedTrailblazePower: false
+  UseFuel: false
+  UseFuelUntilRemainCount: 0
 DungeonSupport:
   Use:
     value: when_daily

@@ -652,6 +652,18 @@
           8,
           9
         ]
+      },
+      "ExtractReservedTrailblazePower": {
+        "type": "checkbox",
+        "value": false
+      },
+      "UseFuel": {
+        "type": "checkbox",
+        "value": false
+      },
+      "UseFuelUntilRemainCount": {
+        "type": "input",
+        "value": 0
       }
     },
     "DungeonSupport": {

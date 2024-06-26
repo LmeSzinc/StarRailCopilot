@@ -357,6 +357,18 @@
       "7": "7",
       "8": "8",
       "9": "9"
+    },
+    "ExtractReservedTrailblazePower": {
+      "name": "取出后备开拓力",
+      "help": ""
+    },
+    "UseFuel": {
+      "name": "使用燃料",
+      "help": ""
+    },
+    "UseFuelUntilRemainCount": {
+      "name": "使用燃料补充开拓力，直到剩余 X 燃料",
+      "help": ""
     }
   },
   "DungeonSupport": {

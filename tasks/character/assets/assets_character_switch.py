@@ -63,6 +63,26 @@ TrailblazerDestructionMale = ButtonWrapper(
         button=(1169, 156, 1187, 174),
     ),
 )
+TrailblazerHarmonyFemale = ButtonWrapper(
+    name='TrailblazerHarmonyFemale',
+    share=Button(
+        file='./assets/share/character/switch/TrailblazerHarmonyFemale.png',
+        area=(1174, 242, 1192, 260),
+        search=(1154, 222, 1212, 280),
+        color=(197, 165, 158),
+        button=(1174, 242, 1192, 260),
+    ),
+)
+TrailblazerHarmonyMale = ButtonWrapper(
+    name='TrailblazerHarmonyMale',
+    share=Button(
+        file='./assets/share/character/switch/TrailblazerHarmonyMale.png',
+        area=(1175, 321, 1193, 339),
+        search=(1155, 301, 1213, 359),
+        color=(181, 152, 147),
+        button=(1175, 321, 1193, 339),
+    ),
+)
 TrailblazerPreservationFemale = ButtonWrapper(
     name='TrailblazerPreservationFemale',
     share=Button(

@@ -202,6 +202,9 @@ class RogueEntry(RouteBase, RogueRewardHandler, RoguePathHandler, DungeonRogueUI
             if self.handle_ui_close(LEVEL_CONFIRM, interval=2):
                 interval.clear()
                 continue
+            if self.handle_ui_close(ROGUE_LAUNCH, interval=2):
+                interval.clear()
+                continue
 
             if self.is_page_rogue_main() \
                     and self.image_color_count(OCR_WORLD, color=(255, 255, 255), threshold=221, count=50):

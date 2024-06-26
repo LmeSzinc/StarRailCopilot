@@ -234,8 +234,8 @@ class Updater(DeployConfig, GitManager, PipManager):
                 self.event.clear()
                 ProcessManager.restart_processes(instances, self.event)
                 return
-            time.sleep(0.25)
-            if time.time() - start_time > 60 * 10:
+            time.sleep(5)
+            if time.time() - start_time > 60 * 20:
                 logger.warning("Waiting alas shutdown timeout, force kill")
                 for alas in _instances:
                     alas.stop()

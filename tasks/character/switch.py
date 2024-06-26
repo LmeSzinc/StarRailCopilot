@@ -22,6 +22,7 @@ class OcrCharacterName(OcrWhiteLetterOnComplexBackground):
         result = result.replace('蛆', '妲')
         # Dan Heng o.ImbibitorLunae
         result = re.sub(r'[0Oo\-. ]{1,3}Imbi', 'Imbi', result)
+        result = result.replace('舟恒', '丹恒')
 
         result = re.sub(r'院.?梅', '阮•梅', result)
 
@@ -97,6 +98,10 @@ class CharacterSwitch(UI):
                 TrailblazerPreservationMale,
                 TrailblazerPreservationFemale,
 
+            ],
+            KEYWORDS_CHARACTER_LIST.TrailblazerHarmony: [
+                TrailblazerHarmonyMale,
+                TrailblazerHarmonyFemale,
             ],
             KEYWORDS_CHARACTER_LIST.Huohuo: [Huohuo],
             KEYWORDS_CHARACTER_LIST.FuXuan: [FuXuan],

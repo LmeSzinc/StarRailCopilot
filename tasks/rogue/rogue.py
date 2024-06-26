@@ -1,4 +1,4 @@
-from module.exception import ScriptError
+from module.exception import RequestHumanTakeover
 from module.logger import logger
 from tasks.battle_pass.keywords import KEYWORDS_BATTLE_PASS_QUEST
 from tasks.daily.keywords import KEYWORDS_DAILY_QUEST
@@ -21,7 +21,7 @@ class Rogue(RouteLoader, RogueEntry):
         except RogueTeamNotPrepared:
             logger.error(f'Please prepare your team in {self.config.RogueWorld_World} '
                          f'and start rogue task at team preparation page')
-            raise ScriptError
+            raise RequestHumanTakeover
         except RogueReachedWeeklyPointLimit:
             logger.hr('Reached rogue weekly point limit')
             return False

@@ -5,6 +5,7 @@ from tasks.combat.assets.assets_combat_finish import COMBAT_AGAIN, COMBAT_EXIT
 from tasks.combat.assets.assets_combat_interact import DUNGEON_COMBAT_INTERACT
 from tasks.combat.assets.assets_combat_prepare import COMBAT_PREPARE
 from tasks.combat.assets.assets_combat_team import COMBAT_TEAM_PREPARE, COMBAT_TEAM_SUPPORT
+from tasks.combat.fuel import Fuel
 from tasks.combat.interact import CombatInteract
 from tasks.combat.obtain import CombatObtain
 from tasks.combat.prepare import CombatPrepare
@@ -17,7 +18,7 @@ from tasks.map.control.joystick import MapControlJoystick
 
 
 class Combat(CombatInteract, CombatPrepare, CombatState, CombatTeam, CombatSupport, CombatSkill, CombatObtain,
-             MapControlJoystick):
+             MapControlJoystick, Fuel):
     dungeon: DungeonList | None = None
     is_doing_planner: bool = False
 
@@ -238,11 +239,11 @@ class Combat(CombatInteract, CombatPrepare, CombatState, CombatTeam, CombatSuppo
     def _try_get_more_trablaize_power(self, current, cost):
         if self.config.Dungeon_ExtractReservedTrailblazePower:
             logger.info('Extract reserved trailblaze power to get more trailblaze power')
-            self.combat_extract_reserved_trailblaze_power()
+            self.extract_reserved_trailblaze_power()
             current = self.combat_get_trailblaze_power()
         if self.config.Dungeon_UseFuel:
             logger.info('Use fuel to get more trailblaze power')
-            self.combat_use_fuel()
+            self.use_fuel()
             current = self.combat_get_trailblaze_power()
         return current >= cost
 

@@ -110,16 +110,6 @@ OCR_WAVE_COUNT = ButtonWrapper(
         button=(911, 555, 1151, 581),
     ),
 )
-RESERVED_TRAILBLAZE_POWER = ButtonWrapper(
-    name='RESERVED_TRAILBLAZE_POWER',
-    share=Button(
-        file='./assets/share/combat/prepare/RESERVED_TRAILBLAZE_POWER.png',
-        area=(480, 276, 576, 388),
-        search=(474, 271, 811, 396),
-        color=(111, 115, 148),
-        button=(480, 276, 576, 388),
-    ),
-)
 RESERVED_TRAILBLAZE_POWER_ENTRANCE = ButtonWrapper(
     name='RESERVED_TRAILBLAZE_POWER_ENTRANCE',
     share=Button(

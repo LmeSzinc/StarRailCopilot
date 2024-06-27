@@ -53,7 +53,10 @@ class Combat(CombatInteract, CombatPrepare, CombatState, CombatTeam, CombatSuppo
 
         # Check limits
         if self.config.stored.TrailblazePower.value < self.combat_wave_cost:
-            logger.info('Trailblaze power exhausted, cannot continue combat')
+            if self.config.Dungeon_ExtractReservedTrailblazePower or self.config.Dungeon_UseFuel:
+                return self._try_get_more_trablaize_power(self.config.stored.TrailblazePower, self.combat_wave_cost)
+            else:
+                logger.info('Trailblaze power exhausted, cannot continue combat')
             return False
         if self.combat_waves <= 0:
             logger.info('Combat wave limited, cannot continue combat')
@@ -214,6 +217,8 @@ class Combat(CombatInteract, CombatPrepare, CombatState, CombatTeam, CombatSuppo
             if current >= self.combat_wave_cost * self.combat_waves:
                 logger.info(f'Current has {current}, combat costs {self.combat_wave_cost}, can run again')
                 return True
+            elif self.config.Dungeon_ExtractReservedTrailblazePower or self.config.Dungeon_UseFuel:
+                return self._try_get_more_trablaize_power(current, self.combat_wave_cost * self.combat_waves)
             else:
                 logger.info(f'Current has {current}, combat costs {self.combat_wave_cost}, can not run again')
                 return False
@@ -224,9 +229,22 @@ class Combat(CombatInteract, CombatPrepare, CombatState, CombatTeam, CombatSuppo
             if current >= self.combat_wave_cost:
                 logger.info(f'Current has {current}, combat costs {self.combat_wave_cost}, can run again')
                 return True
+            elif self.config.Dungeon_ExtractReservedTrailblazePower or self.config.Dungeon_UseFuel:
+                return self._try_get_more_trablaize_power(current, self.combat_wave_cost * self.combat_waves)
             else:
                 logger.info(f'Current has {current}, combat costs {self.combat_wave_cost}, can not run again')
                 return False
+
+    def _try_get_more_trablaize_power(self, current, cost):
+        if self.config.Dungeon_ExtractReservedTrailblazePower:
+            logger.info('Extract reserved trailblaze power to get more trailblaze power')
+            self.combat_extract_reserved_trailblaze_power()
+            current = self.combat_get_trailblaze_power()
+        if self.config.Dungeon_UseFuel:
+            logger.info('Use fuel to get more trailblaze power')
+            self.combat_use_fuel()
+            current = self.combat_get_trailblaze_power()
+        return current >= cost
 
     def _combat_should_reenter(self):
         """

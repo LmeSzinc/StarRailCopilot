@@ -20,6 +20,66 @@ COMBAT_PREPARE = ButtonWrapper(
         button=(956, 640, 1225, 676),
     ),
 )
+EXTRACT_RESERVED_TRAILBLAZE_POWER = ButtonWrapper(
+    name='EXTRACT_RESERVED_TRAILBLAZE_POWER',
+    share=Button(
+        file='./assets/share/combat/prepare/EXTRACT_RESERVED_TRAILBLAZE_POWER.png',
+        area=(909, 506, 929, 526),
+        search=(889, 486, 949, 546),
+        color=(91, 91, 91),
+        button=(909, 506, 929, 526),
+    ),
+)
+FUEL = ButtonWrapper(
+    name='FUEL',
+    share=Button(
+        file='./assets/share/combat/prepare/FUEL.png',
+        area=(592, 276, 688, 388),
+        search=(572, 256, 708, 408),
+        color=(113, 90, 123),
+        button=(592, 276, 688, 388),
+    ),
+)
+FUEL_ENTRANCE = ButtonWrapper(
+    name='FUEL_ENTRANCE',
+    share=Button(
+        file='./assets/share/combat/prepare/FUEL_ENTRANCE.png',
+        area=(1035, 26, 1056, 48),
+        search=(1015, 6, 1076, 68),
+        color=(188, 180, 226),
+        button=(1035, 26, 1056, 48),
+    ),
+)
+FUEL_SELECTED = ButtonWrapper(
+    name='FUEL_SELECTED',
+    share=Button(
+        file='./assets/share/combat/prepare/FUEL_SELECTED.png',
+        area=(587, 271, 692, 395),
+        search=(474, 271, 811, 396),
+        color=(130, 111, 137),
+        button=(587, 271, 692, 395),
+    ),
+)
+OCR_FUEL = ButtonWrapper(
+    name='OCR_FUEL',
+    share=Button(
+        file='./assets/share/combat/prepare/OCR_FUEL.png',
+        area=(605, 369, 678, 386),
+        search=(585, 349, 698, 406),
+        color=(66, 66, 66),
+        button=(605, 369, 678, 386),
+    ),
+)
+OCR_RESERVED_TRAILBLAZE_POWER = ButtonWrapper(
+    name='OCR_RESERVED_TRAILBLAZE_POWER',
+    share=Button(
+        file='./assets/share/combat/prepare/OCR_RESERVED_TRAILBLAZE_POWER.png',
+        area=(883, 29, 992, 44),
+        search=(863, 9, 1012, 64),
+        color=(51, 65, 65),
+        button=(883, 29, 992, 44),
+    ),
+)
 OCR_TRAILBLAZE_POWER = ButtonWrapper(
     name='OCR_TRAILBLAZE_POWER',
     share=Button(
@@ -48,6 +108,26 @@ OCR_WAVE_COUNT = ButtonWrapper(
         search=(891, 535, 1171, 601),
         color=(32, 34, 37),
         button=(911, 555, 1151, 581),
+    ),
+)
+RESERVED_TRAILBLAZE_POWER = ButtonWrapper(
+    name='RESERVED_TRAILBLAZE_POWER',
+    share=Button(
+        file='./assets/share/combat/prepare/RESERVED_TRAILBLAZE_POWER.png',
+        area=(480, 276, 576, 388),
+        search=(474, 271, 811, 396),
+        color=(111, 115, 148),
+        button=(480, 276, 576, 388),
+    ),
+)
+RESERVED_TRAILBLAZE_POWER_ENTRANCE = ButtonWrapper(
+    name='RESERVED_TRAILBLAZE_POWER_ENTRANCE',
+    share=Button(
+        file='./assets/share/combat/prepare/RESERVED_TRAILBLAZE_POWER_ENTRANCE.png',
+        area=(895, 26, 916, 48),
+        search=(875, 6, 936, 68),
+        color=(154, 213, 214),
+        button=(895, 26, 916, 48),
     ),
 )
 WAVE_MINUS = ButtonWrapper(

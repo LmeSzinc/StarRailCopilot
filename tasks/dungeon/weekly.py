@@ -8,6 +8,23 @@ from tasks.dungeon.keywords import DungeonList, KEYWORDS_DUNGEON_NAV, KEYWORDS_D
 from tasks.dungeon.ui import DUNGEON_LIST
 
 
+class OcrWeeklyLimit(DigitCounter):
+    def format_result(self, result) -> tuple[int, int, int]:
+        current, remain, total = super().format_result(result)
+        # [OCR_WEEKLY_LIMIT format] ３3/3 -> (33, -30, 3)
+        if current == 11:
+            current = 1
+            remain = total - current
+        if current == 22:
+            current = 2
+            remain = total - current
+        if current == 33:
+            current = 3
+            remain = total - current
+
+        return current, remain, total
+
+
 class WeeklyDungeon(Dungeon):
     def require_compulsory_support(self) -> bool:
         return False
@@ -31,7 +48,7 @@ class WeeklyDungeon(Dungeon):
         Pages:
             in: page_guide, Survival_Index, KEYWORDS_DUNGEON_NAV.Echo_of_War
         """
-        ocr = DigitCounter(OCR_WEEKLY_LIMIT)
+        ocr = OcrWeeklyLimit(OCR_WEEKLY_LIMIT)
         current, _, _ = ocr.ocr_single_line(self.device.image)
         total = self.config.stored.EchoOfWar.FIXED_TOTAL
         if current <= total:

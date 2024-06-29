@@ -355,7 +355,7 @@ class DigitCounter(Ocr):
         Do OCR on a counter, such as `14/15`, and returns 14, 1, 15
 
         Returns:
-            int:
+            int, int, int: current, remain, total
         """
         result = super().after_process(result)
         logger.attr(name=self.name, text=str(result))

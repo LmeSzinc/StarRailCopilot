@@ -16,8 +16,12 @@ class XPath:
     """
     登录界面元素
     """
-    # 帐号登录界面的进入游戏按钮，有这按钮说明帐号没登录
+    # 帐号登录界面的进入游戏按钮
     ACCOUNT_LOGIN = '//*[@text="进入游戏"]'
+    # 帐号登录界面，有这些按钮说明帐号没登录
+    ACCOUNT_PASSWORD_LOGIN = '//*[@text="账号密码"]'
+    ACCOUNT_REGISTER = '//*[@text="立即注册"]'
+    ACCOUNT_FORGET_PASSWORD = '//*[@text="忘记密码"]'
     # 登录后的弹窗，获得免费时长
     GET_REWARD = '//*[@text="点击空白区域关闭"]'
     # 用户协议和隐私政策更新提示
@@ -107,7 +111,11 @@ class LoginAndroidCloud(ModuleBase):
             if self.appear(XPath.START_GAME):
                 logger.info('Login to cloud main page')
                 break
-            if self.appear(XPath.ACCOUNT_LOGIN):
+            if (
+                    self.appear(XPath.ACCOUNT_REGISTER)
+                    or self.appear(XPath.ACCOUNT_PASSWORD_LOGIN)
+                    or self.appear(XPath.ACCOUNT_FORGET_PASSWORD)
+            ):
                 logger.critical('Account not login, you must have login once before running')
                 raise RequestHumanTakeover
             if update_checker.started() and update_checker.reached():
@@ -118,6 +126,8 @@ class LoginAndroidCloud(ModuleBase):
 
             # Click
             if self.appear_then_click(XPath.GET_REWARD):
+                continue
+            if self.appear_then_click(XPath.ACCOUNT_LOGIN):
                 continue
             if self.appear_then_click(XPath.POPUP_CONFIRM):
                 update_checker.start()
@@ -395,11 +405,14 @@ class LoginAndroidCloud(ModuleBase):
         if self.appear(XPath.START_GAME):
             logger.info('Cloud game is in main page')
             return True
-        elif self.appear(XPath.FLOAT_DELAY):
+        if self.appear(XPath.FLOAT_DELAY):
             logger.info('Cloud game is in game with float window expanded')
             return True
-        elif self.appear(XPath.POPUP_CONFIRM):
+        if self.appear(XPath.POPUP_CONFIRM):
             logger.info('Cloud game have a popup')
+            return True
+        if self.appear(XPath.ACCOUNT_LOGIN):
+            logger.info('Cloud game is at account login')
             return True
 
         logger.info('Not in cloud page')

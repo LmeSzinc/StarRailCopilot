@@ -76,6 +76,14 @@ class Dungeon(DungeonStamina, DungeonEvent, Combat):
                 wave_limit = relic
             if relic == 0:
                 return 0
+        if dungeon.is_Ornament_Extraction and self.running_double and \
+                self.config.stored.DungeonDouble.rogue > 0:
+            rogue = self.get_double_event_remain_at_combat()
+            if rogue is not None and rogue < self.config.stored.DungeonDouble.rogue:
+                self.config.stored.DungeonDouble.rogue = rogue
+                wave_limit = rogue
+            if rogue == 0:
+                return 0
         # Combat
         self.dungeon = dungeon
         count = self.combat(team=team, wave_limit=wave_limit, support_character=support_character)

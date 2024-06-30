@@ -43,6 +43,16 @@ COMBAT_SUPPORT_LIST_SCROLL = ButtonWrapper(
         button=(472, 162, 476, 598),
     ),
 )
+FIRST_CHARACTER = ButtonWrapper(
+    name='FIRST_CHARACTER',
+    share=Button(
+        file='./assets/share/combat/support/FIRST_CHARACTER.png',
+        area=(136, 140, 386, 204),
+        search=(116, 120, 406, 224),
+        color=(255, 255, 255),
+        button=(136, 140, 386, 204),
+    ),
+)
 SUPPORT_SELECTED = ButtonWrapper(
     name='SUPPORT_SELECTED',
     share=[

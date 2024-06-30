@@ -732,7 +732,8 @@ class DungeonUI(DungeonState):
         if dungeon.is_Calyx_Crimson \
                 or dungeon.is_Stagnant_Shadow \
                 or dungeon.is_Cavern_of_Corrosion \
-                or dungeon.is_Echo_of_War:
+                or dungeon.is_Echo_of_War \
+                or dungeon.is_Ornament_Extraction:
             self._dungeon_nav_goto(dungeon.dungeon_nav)
             self._dungeon_wait_until_dungeon_list_loaded()
             self._dungeon_insight(dungeon)

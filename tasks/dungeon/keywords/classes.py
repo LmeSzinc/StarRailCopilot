@@ -118,6 +118,11 @@ class DungeonList(Keyword):
         return 'Simulated_Universe' in self.name
 
     @cached_property
+    def is_Ornament_Extraction(self):
+        # Farm Ornament_Extraction from Ornament_Extraction_xxx
+        return 'Divergent_Universe' in self.name
+
+    @cached_property
     def is_Forgotten_Hall(self):
         for word in [
             'Forgotten_Hall',
@@ -151,6 +156,8 @@ class DungeonList(Keyword):
         import tasks.dungeon.keywords.nav as KEYWORDS_DUNGEON_NAV
         if self.is_Simulated_Universe:
             return KEYWORDS_DUNGEON_NAV.Simulated_Universe
+        if self.is_Ornament_Extraction:
+            return KEYWORDS_DUNGEON_NAV.Ornament_Extraction
         if self.is_Calyx_Golden:
             return KEYWORDS_DUNGEON_NAV.Calyx_Golden
         if self.is_Calyx_Crimson:

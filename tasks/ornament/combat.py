@@ -1,12 +1,14 @@
 from module.base.decorator import run_once
 from module.exception import RequestHumanTakeover
 from module.logger import logger
+from tasks.base.assets.assets_base_page import MAP_EXIT
 from tasks.base.assets.assets_base_popup import POPUP_CANCEL
 from tasks.combat.assets.assets_combat_prepare import COMBAT_PREPARE
 from tasks.combat.assets.assets_combat_support import COMBAT_SUPPORT_LIST
 from tasks.combat.combat import Combat
 from tasks.dungeon.event import DungeonEvent
 from tasks.ornament.assets.assets_ornament_combat import *
+from tasks.ornament.assets.assets_ornament_ui import *
 
 
 class OrnamentCombat(DungeonEvent, Combat):
@@ -18,6 +20,36 @@ class OrnamentCombat(DungeonEvent, Combat):
     def get_double_event_remain_at_combat(self, button=OCR_DOUBLE_EVENT_REMAIN_AT_OE):
         # Different position to OCR
         return super().get_double_event_remain_at_combat(button)
+
+    def oe_leave(self, skip_first_screenshot=True):
+        self.interval_clear([COMBAT_PREPARE, MAP_EXIT])
+        logger.hr('OE leave')
+        while 1:
+            if skip_first_screenshot:
+                skip_first_screenshot = False
+            else:
+                self.device.screenshot()
+
+            # End
+            exit_ = self.is_in_map_exit()
+            if not exit_ and self.is_in_main():
+                logger.info('OE left')
+                break
+
+            # Click
+            if self.handle_ui_back(DU_OE_SELECT_CHECK, interval=2):
+                continue
+            if self.handle_ui_back(DU_MODE_CHECK, interval=2):
+                continue
+            if self.handle_ui_back(DU_MAIN_CHECK, interval=2):
+                continue
+            if self.handle_ui_back(COMBAT_PREPARE, interval=2):
+                continue
+            if exit_ and self.is_in_map_exit(interval=3):
+                self.device.click(MAP_EXIT)
+                continue
+            if self.handle_popup_confirm():
+                continue
 
     def support_set(self, support_character_name: str = "FirstCharacter"):
         """

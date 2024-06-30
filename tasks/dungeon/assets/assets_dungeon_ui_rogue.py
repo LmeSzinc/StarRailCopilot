@@ -38,7 +38,7 @@ SURVIVAL_INDEX_OE_LOADED = ButtonWrapper(
     share=Button(
         file='./assets/share/dungeon/ui_rogue/SURVIVAL_INDEX_OE_LOADED.png',
         area=(473, 207, 498, 232),
-        search=(453, 187, 518, 252),
+        search=(468, 193, 503, 283),
         color=(185, 135, 74),
         button=(473, 207, 498, 232),
     ),

@@ -143,6 +143,12 @@ class Dungeon(DungeonStamina, DungeonEvent, Combat):
                     if self.config.stored.BattlePassQuestEchoOfWar.is_full():
                         logger.info('Achieved weekly quest Complete_Echo_of_War_1_times')
                         self.achieved_weekly_quest = True
+            # Ornament_Extraction
+            if dungeon.is_Ornament_Extraction:
+                if KEYWORDS_BATTLE_PASS_QUEST.Complete_Divergent_Universe_or_Simulated_Universe_1_times in self.weekly_quests:
+                    logger.info('Achieved weekly quest Complete_Divergent_Universe_or_Simulated_Universe_1_times')
+                    # No need to add since it's 0/1
+                    self.achieved_weekly_quest = True
             # Support quest
             if support_character is not None:
                 self.called_daily_support = True

@@ -26,3 +26,15 @@ KEYWORDS_MAP_PLANE.Luofu_ArtisanshipCommission.page = 'bottom'
 KEYWORDS_MAP_PLANE.Luofu_FyxestrollGarden.page = 'bottom'
 KEYWORDS_MAP_PLANE.Luofu_AlchemyCommission.page = 'bottom'
 KEYWORDS_MAP_PLANE.Luofu_ScalegorgeWaterscape.page = 'bottom'
+# Penacony
+KEYWORDS_MAP_PLANE.Penacony_TheReverieReality.floors = ['F1', 'F2', 'F3']
+KEYWORDS_MAP_PLANE.Penacony_GoldenHour.floors = ['F1', 'F2', 'F3']
+KEYWORDS_MAP_PLANE.Penacony_TheReverieDreamscape.floors = ['F1', 'F2', 'F3']
+KEYWORDS_MAP_PLANE.Penacony_DewlightPavilion.floors = ['F1', 'F2']
+KEYWORDS_MAP_PLANE.Penacony_ClockStudiosThemePark.floors = ['F1', 'F2']
+KEYWORDS_MAP_PLANE.Penacony_DreamfluxReef.floors = ['F1', 'F2']
+KEYWORDS_MAP_PLANE.Penacony_DewlightPavilion.page = 'bottom'
+KEYWORDS_MAP_PLANE.Penacony_ClockStudiosThemePark.page = 'bottom'
+KEYWORDS_MAP_PLANE.Penacony_DreamfluxReef.page = 'bottom'
+KEYWORDS_MAP_PLANE.Penacony_SoulGladScorchsandAuditionVenue.page = 'bottom'
+KEYWORDS_MAP_PLANE.Penacony_PenaconyGrandTheater.page = 'bottom'

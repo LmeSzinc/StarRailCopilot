@@ -41,25 +41,9 @@ class OcrPlannerResult(OcrWhiteLetterOnComplexBackground, OcrItemName):
     min_box = (16, 20)
 
     def __init__(self):
-        # Planner currently CN only
-        super().__init__(OCR_RESULT, lang='cn')
+        super().__init__(OCR_RESULT)
         self.limited_area = OCR_RESULT.area
         self.limit_y = 720
-
-    def _match_result(
-            self,
-            result: str,
-            keyword_classes,
-            lang: str = 'cn',
-            ignore_punctuation=True,
-            ignore_digit=True):
-        return super()._match_result(
-            result,
-            keyword_classes,
-            lang,
-            ignore_punctuation,
-            ignore_digit,
-        )
 
     def filter_detected(self, result: BoxedResult) -> bool:
         if not area_in_area(result.box, self.limited_area, threshold=0):

@@ -264,6 +264,24 @@
       "DebugMode": false
     }
   },
+  "Ornament": {
+    "Scheduler": {
+      "Enable": false,
+      "NextRun": "2020-01-01 00:00:00",
+      "Command": "Ornament",
+      "ServerUpdate": "04:00"
+    },
+    "Ornament": {
+      "Dungeon": "Divergent_Universe_Eternal_Comedy",
+      "UseImmersifier": true,
+      "DoubleEvent": true,
+      "UseStamina": false
+    },
+    "DungeonSupport": {
+      "Use": "when_daily",
+      "Character": "FirstCharacter"
+    }
+  },
   "Daemon": {
     "Daemon": {
       "Enable": true,

@@ -58,6 +58,10 @@
       "name": "Simulated Universe",
       "help": ""
     },
+    "Ornament": {
+      "name": "Ornament",
+      "help": "The followings must be satisfied:\n1. Manually clear Divergent Universe once this week and have a save file.\n2. Enter the dungeon once on current device to have dungeon team saved."
+    },
     "Daemon": {
       "name": "Dialogue Clicker",
       "help": ""
@@ -1121,11 +1125,11 @@
       "occurrence": "Prefer Occurrence"
     },
     "UseImmersifier": {
-      "name": "Claim Planers Using Immersifiers",
+      "name": "Claim Planars Using Immersifiers",
       "help": ""
     },
     "DoubleEvent": {
-      "name": "Participate in Double Planer Event",
+      "name": "Participate in Double Planar Event",
       "help": ""
     },
     "WeeklyFarming": {
@@ -1133,11 +1137,11 @@
       "help": ""
     },
     "UseStamina": {
-      "name": "Farm Planers Using Trailblase Power",
-      "help": "Task \"Dungeon\" will no longer run, and all trailblaze power will be used first to claim immersion rewards, except for double events."
+      "name": "Farm Planars Using Trailblaze Power",
+      "help": "Prioritize trailblaze power to farm planar ornaments, only taking priority over character planner"
     },
     "SimulatedUniverseFarm": {
-      "name": "Progress of elite boss farmed",
+      "name": "Elites/bosses Farmed",
       "help": ""
     }
   },
@@ -1192,6 +1196,38 @@
     "DebugMode": {
       "name": "Dev Mode",
       "help": "No stop conditions, no error handling, stop when encountering an error. Please report errors according to the doc: https://github.com/LmeSzinc/StarRailCopilot/wiki/RogueMap_cn"
+    }
+  },
+  "Ornament": {
+    "_info": {
+      "name": "Ornament Extraction Settings",
+      "help": ""
+    },
+    "Dungeon": {
+      "name": "Dungeon Name",
+      "help": "",
+      "Divergent_Universe_Eternal_Comedy": "Running Wolves & Kalpagni Lantern (Eternal Comedy)",
+      "Divergent_Universe_To_Sweet_Dreams": "Sigonia & Izumo Gensei (To Sweet Dreams)",
+      "Divergent_Universe_Pouring_Blades": "Firmament & Penacony (Pouring Blades)",
+      "Divergent_Universe_Fruit_of_Evil": "Rutilant Arena & Broken Keel (Fruit of Evil)",
+      "Divergent_Universe_Permafrost": "Belobog & Salsotto (Permafrost)",
+      "Divergent_Universe_Gentle_Words": "Commercial Enterprise & Differentiator (Gentle Words)",
+      "Divergent_Universe_Smelted_Heart": "Banditry & Vonwacq (Smelted Heart)",
+      "Divergent_Universe_Untoppled_Walls": "Space Station & Ageless (Untoppled Walls)"
+    },
+    "UseImmersifier": {
+      "name": "Claim Planars Using Immersifiers",
+      "help": "",
+      "True": "Enabled"
+    },
+    "DoubleEvent": {
+      "name": "Participate in Double Planar Event",
+      "help": "",
+      "True": "Enabled"
+    },
+    "UseStamina": {
+      "name": "Farm Planars Using Trailblaze Power",
+      "help": "Prioritize trailblaze power to farm planar ornaments, taking priority over character planner and simulated universe"
     }
   },
   "Daemon": {

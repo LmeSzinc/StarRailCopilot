@@ -58,6 +58,10 @@
       "name": "Universo Simulado",
       "help": ""
     },
+    "Ornament": {
+      "name": "Ornamentos",
+      "help": "Se deben cumplir los siguientes requisitos:\n1. Borre manualmente Universo Diferenciado una vez esta semana y tenga un archivo guardado.\n2. Ingrese a la mazmorra una vez en el dispositivo actual para guardar el equipo de la mazmorra."
+    },
     "Daemon": {
       "name": "Clic de diálogo",
       "help": ""
@@ -1121,11 +1125,11 @@
       "occurrence": "Prefiero Evento"
     },
     "UseImmersifier": {
-      "name": "Reclamar de planers mediante inmersor",
+      "name": "Reclamar de planars mediante inmersor",
       "help": ""
     },
     "DoubleEvent": {
-      "name": "Participa en doble planer evento",
+      "name": "Participa en doble planar evento",
       "help": ""
     },
     "WeeklyFarming": {
@@ -1133,8 +1137,8 @@
       "help": ""
     },
     "UseStamina": {
-      "name": "Reclamar de planers mediante poder trazacaminos",
-      "help": "La tarea de mazmorra ya no se ejecutará y todo el poder trazacaminos se usará primero para reclamar recompensas de inmersión, excepto para eventos dobles"
+      "name": "Reclamar de planars mediante poder trazacaminos",
+      "help": "Prioriza el poder trazacaminos para cultivar planar ornaments, teniendo prioridad solo sobre el planificador de personajes."
     },
     "SimulatedUniverseFarm": {
       "name": "Progreso de élites derrotadas",
@@ -1192,6 +1196,38 @@
     "DebugMode": {
       "name": "Modo de desarrollo",
       "help": "Sin condiciones de parada, sin manejo de errores, deténgase cuando encuentre un error. Informe el error de acuerdo con el documento: https://github.com/LmeSzinc/StarRailCopilot/wiki/RogueMap_cn"
+    }
+  },
+  "Ornament": {
+    "_info": {
+      "name": "Ajustes de ornamentos extracción",
+      "help": ""
+    },
+    "Dungeon": {
+      "name": "Nombre de la Mazmorra",
+      "help": "",
+      "Divergent_Universe_Eternal_Comedy": " (Comedia eterna)",
+      "Divergent_Universe_To_Sweet_Dreams": " (Hasta los dulces sueños)",
+      "Divergent_Universe_Pouring_Blades": " (Lluvia de espadas)",
+      "Divergent_Universe_Fruit_of_Evil": " (Fruta del desastre)",
+      "Divergent_Universe_Permafrost": " (Permafrost)",
+      "Divergent_Universe_Gentle_Words": " (Palabras amables)",
+      "Divergent_Universe_Smelted_Heart": " (Corazón de fundición)",
+      "Divergent_Universe_Untoppled_Walls": " (Muros inquebrantables)"
+    },
+    "UseImmersifier": {
+      "name": "Reclamar de planars mediante inmersor",
+      "help": "",
+      "True": "Activado"
+    },
+    "DoubleEvent": {
+      "name": "Participa en doble planar evento",
+      "help": "",
+      "True": "Activado"
+    },
+    "UseStamina": {
+      "name": "Reclamar de planars mediante poder trazacaminos",
+      "help": "Prioriza el poder trazacaminos para cultivar planar ornamentos, teniendo prioridad sobre el planificador de personajes y el universo simulado."
     }
   },
   "Daemon": {

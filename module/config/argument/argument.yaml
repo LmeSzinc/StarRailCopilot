@@ -285,6 +285,23 @@ RogueBlessing:
 RogueDebug:
   DebugMode: false
 
+Ornament:
+  Dungeon:
+    value: Divergent_Universe_Eternal_Comedy
+    # OrnamentExtraction will be injected in config updater
+    option: [ ]
+  UseImmersifier:
+    type: state
+    value: true
+    option: [ true, ]
+    option_bold: [ true, ]
+  DoubleEvent:
+    type: state
+    value: true
+    option: [ true, ]
+    option_bold: [ true, ]
+  UseStamina: false
+
 # ==================== Tool ====================
 
 Daemon:

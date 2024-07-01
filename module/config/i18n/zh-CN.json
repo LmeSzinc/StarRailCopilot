@@ -58,6 +58,10 @@
       "name": "模拟宇宙",
       "help": ""
     },
+    "Ornament": {
+      "name": "饰品提取",
+      "help": "运行 \"饰品提取\" 任务需要：\n1. 每周事先手动通关差分宇宙一次并保存存档\n2. 在当前设备进入过副本一次，有保存的编队"
+    },
     "Daemon": {
       "name": "剧情连点器",
       "help": ""
@@ -1125,7 +1129,7 @@
       "help": ""
     },
     "DoubleEvent": {
-      "name": "参与双倍内圈仪器活动",
+      "name": "参与双倍内圈遗器活动",
       "help": ""
     },
     "WeeklyFarming": {
@@ -1134,7 +1138,7 @@
     },
     "UseStamina": {
       "name": "使用开拓力刷内圈遗器",
-      "help": "每日副本任务将不再打本，所有开拓力将优先被用于领取浸器奖励，双倍活动时除外"
+      "help": "优先将体力用于刷内圈遗器，仅优先于养成规划"
     },
     "SimulatedUniverseFarm": {
       "name": "刷精英怪进度",
@@ -1192,6 +1196,38 @@
     "DebugMode": {
       "name": "开发模式",
       "help": "无停止条件，无异常处理，遇错误即停止，请按文档上报异常：https://github.com/LmeSzinc/StarRailCopilot/wiki/RogueMap_cn"
+    }
+  },
+  "Ornament": {
+    "_info": {
+      "name": "饰品提取设置",
+      "help": ""
+    },
+    "Dungeon": {
+      "name": "副本名称",
+      "help": "",
+      "Divergent_Universe_Eternal_Comedy": "奔狼+火宫（永恒笑剧）",
+      "Divergent_Universe_To_Sweet_Dreams": "茨冈尼亚+出云神国（伴你入眠）",
+      "Divergent_Universe_Pouring_Blades": "苍穹+匹诺康尼（天剑如雨）",
+      "Divergent_Universe_Fruit_of_Evil": "繁星+龙骨（孽果盘生）",
+      "Divergent_Universe_Permafrost": "贝洛伯格+萨尔索图（百年冻土）",
+      "Divergent_Universe_Gentle_Words": "商业公司+差分（温柔话语）",
+      "Divergent_Universe_Smelted_Heart": "盗贼+翁瓦克（浴火钢心）",
+      "Divergent_Universe_Untoppled_Walls": "太空+仙舟（坚城不倒）"
+    },
+    "UseImmersifier": {
+      "name": "使用沉浸器领取遗器",
+      "help": "",
+      "True": "已启用"
+    },
+    "DoubleEvent": {
+      "name": "参与双倍内圈仪器活动",
+      "help": "",
+      "True": "已启用"
+    },
+    "UseStamina": {
+      "name": "使用开拓力刷内圈遗器",
+      "help": "优先将体力用于刷内圈遗器，优先于模拟宇宙和养成规划"
     }
   },
   "Daemon": {

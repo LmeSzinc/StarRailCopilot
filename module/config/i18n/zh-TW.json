@@ -58,6 +58,10 @@
       "name": "模擬宇宙",
       "help": ""
     },
+    "Ornament": {
+      "name": "飾品提取",
+      "help": "運行 \"飾品提取\" 任務需要：\n1. 每週事先手動通關差分宇宙一次並保存檔案\n2. 在當前設備進入過副本一次，有保存的編隊"
+    },
     "Daemon": {
       "name": "劇情連點器",
       "help": ""
@@ -1125,7 +1129,7 @@
       "help": ""
     },
     "DoubleEvent": {
-      "name": "參與雙倍內圈儀器活動",
+      "name": "參與雙倍內圈遺器活動",
       "help": ""
     },
     "WeeklyFarming": {
@@ -1133,8 +1137,8 @@
       "help": ""
     },
     "UseStamina": {
-      "name": "用開拓力農遺器",
-      "help": "每日副本任務將不再打本，所有開拓力將優先被用於領取浸器獎勵，雙倍活動時除外"
+      "name": "用開拓力農內圈遺器",
+      "help": "優先將體力用於農內圈遺器，僅優先於養成規劃"
     },
     "SimulatedUniverseFarm": {
       "name": "農精英怪進度",
@@ -1192,6 +1196,38 @@
     "DebugMode": {
       "name": "開發模式",
       "help": "無停止條件，無異常處理，遇錯誤即停止，請依檔案回報異常：https://github.com/LmeSzinc/StarRailCopilot/wiki/RogueMap_cn"
+    }
+  },
+  "Ornament": {
+    "_info": {
+      "name": "飾品提取設定",
+      "help": ""
+    },
+    "Dungeon": {
+      "name": "副本名稱",
+      "help": "",
+      "Divergent_Universe_Eternal_Comedy": "奔狼+火宮（永恆笑劇）",
+      "Divergent_Universe_To_Sweet_Dreams": "茨岡尼亞+出雲神國（伴你入眠）",
+      "Divergent_Universe_Pouring_Blades": "天空+匹諾康尼（天劍如雨）",
+      "Divergent_Universe_Fruit_of_Evil": "繁星+龍骨（孽果盤生）",
+      "Divergent_Universe_Permafrost": "貝洛伯格+薩爾索圖（百年凍土）",
+      "Divergent_Universe_Gentle_Words": "商業公司+差分（溫柔話語）",
+      "Divergent_Universe_Smelted_Heart": "盜賊+翁瓦克（浴火鋼心）",
+      "Divergent_Universe_Untoppled_Walls": "太空+仙舟（堅城不倒）"
+    },
+    "UseImmersifier": {
+      "name": "使用沉浸器領取遺器",
+      "help": "",
+      "True": "已啟用"
+    },
+    "DoubleEvent": {
+      "name": "參與雙倍內圈儀器活動",
+      "help": "",
+      "True": "已啟用"
+    },
+    "UseStamina": {
+      "name": "參與雙倍內圈遺器活動",
+      "help": "優先將體力用於農內圈遺器，優先於模擬宇宙和養成規劃"
     }
   },
   "Daemon": {

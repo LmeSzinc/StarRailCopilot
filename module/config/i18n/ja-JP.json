@@ -58,6 +58,10 @@
       "name": "Task.Rogue.name",
       "help": "Task.Rogue.help"
     },
+    "Ornament": {
+      "name": "Task.Ornament.name",
+      "help": "Task.Ornament.help"
+    },
     "Daemon": {
       "name": "Task.Daemon.name",
       "help": "Task.Daemon.help"
@@ -1192,6 +1196,38 @@
     "DebugMode": {
       "name": "RogueDebug.DebugMode.name",
       "help": "RogueDebug.DebugMode.help"
+    }
+  },
+  "Ornament": {
+    "_info": {
+      "name": "Ornament._info.name",
+      "help": "Ornament._info.help"
+    },
+    "Dungeon": {
+      "name": "Ornament.Dungeon.name",
+      "help": "Ornament.Dungeon.help",
+      "Divergent_Universe_Eternal_Comedy": "（永遠の喜劇）",
+      "Divergent_Universe_To_Sweet_Dreams": "（寄り添い眠る）",
+      "Divergent_Universe_Pouring_Blades": "（剣の雨）",
+      "Divergent_Universe_Fruit_of_Evil": "（渦巻く罪）",
+      "Divergent_Universe_Permafrost": "（永久凍土）",
+      "Divergent_Universe_Gentle_Words": "（優しい言葉）",
+      "Divergent_Universe_Smelted_Heart": "（鋼の意志）",
+      "Divergent_Universe_Untoppled_Walls": "（不動の砦）"
+    },
+    "UseImmersifier": {
+      "name": "Ornament.UseImmersifier.name",
+      "help": "Ornament.UseImmersifier.help",
+      "True": "True"
+    },
+    "DoubleEvent": {
+      "name": "Ornament.DoubleEvent.name",
+      "help": "Ornament.DoubleEvent.help",
+      "True": "True"
+    },
+    "UseStamina": {
+      "name": "Ornament.UseStamina.name",
+      "help": "Ornament.UseStamina.help"
     }
   },
   "Daemon": {

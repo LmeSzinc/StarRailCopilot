@@ -95,6 +95,9 @@ class ConfigGenerator:
         option_add(
             keys='Weekly.Name.option',
             options=[dungeon.name for dungeon in DungeonList.instances.values() if dungeon.is_Echo_of_War])
+        # OrnamentExtraction
+        ornament = [dungeon.name for dungeon in DungeonList.instances.values() if dungeon.is_Ornament_Extraction]
+        option_add(keys='Ornament.Dungeon.option', options=ornament)
         # Insert characters
         from tasks.character.keywords import CharacterList
         unsupported_characters = ["Jade"]
@@ -415,12 +418,8 @@ class ConfigGenerator:
         from tasks.dungeon.keywords import DungeonList, DungeonDetailed
         for dungeon in DungeonList.instances.values():
             dungeon: DungeonList = dungeon
-            if not dungeon.plane:
-                continue
             dungeon_name = dungeon.__getattribute__(ingame_lang)
             dungeon_name = re.sub('[「」]', '', dungeon_name)
-            plane = dungeon.plane.__getattribute__(ingame_lang)
-            plane = re.sub('[「」]', '', plane)
             if dungeon.is_Calyx_Golden_Memories:
                 deep_set(new, keys=['Dungeon', 'Name', dungeon.name],
                          value=i18n_memories[ingame_lang].format(dungeon=dungeon_name))
@@ -431,6 +430,8 @@ class ConfigGenerator:
                 deep_set(new, keys=['Dungeon', 'Name', dungeon.name],
                          value=i18n_treasure[ingame_lang].format(dungeon=dungeon_name))
             if dungeon.is_Calyx_Crimson:
+                plane = dungeon.plane.__getattribute__(ingame_lang)
+                plane = re.sub('[「」]', '', plane)
                 path = dungeon.Calyx_Crimson_Path.__getattribute__(ingame_lang)
                 deep_set(new, keys=['Dungeon', 'Name', dungeon.name],
                          value=i18n_crimson[ingame_lang].format(path=path, plane=plane))
@@ -439,6 +440,18 @@ class ConfigGenerator:
                 suffix = i18n_relic[ingame_lang].format(dungeon=dungeon_name).replace('Cavern of Corrosion: ', '')
                 if not value.endswith(suffix):
                     deep_set(new, keys=['Dungeon', 'Name', dungeon.name], value=f'{value}{suffix}')
+            if dungeon.is_Ornament_Extraction:
+                value = deep_get(new, keys=['Ornament', 'Dungeon', dungeon.name], default='')
+                suffix = i18n_relic[ingame_lang].format(dungeon=dungeon_name)
+                suffix = re.sub(
+                    r'(•差分宇宙'
+                    r'|Divergent Universe: '
+                    r'|階差宇宙・'
+                    r'|: Universo Diferenciado'
+                    r'|Universo Diferenciado: '
+                    r')', '', suffix)
+                if not value.endswith(suffix):
+                    deep_set(new, keys=['Ornament', 'Dungeon', dungeon.name], value=f'{value}{suffix}')
 
         # Stagnant shadows with character names
         for dungeon in DungeonDetailed.instances.values():

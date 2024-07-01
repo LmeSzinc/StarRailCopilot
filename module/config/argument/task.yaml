@@ -61,6 +61,10 @@ Weekly:
       - RogueWorld
       - RogueBlessing
       - RogueDebug
+    Ornament:
+      - Scheduler
+      - Ornament
+      - DungeonSupport
 
 # ==================== Tool ====================
 

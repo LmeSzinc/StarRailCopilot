@@ -202,6 +202,12 @@ class GeneratedConfig:
     # Group `RogueDebug`
     RogueDebug_DebugMode = False
 
+    # Group `Ornament`
+    Ornament_Dungeon = 'Divergent_Universe_Eternal_Comedy'  # Divergent_Universe_Eternal_Comedy, Divergent_Universe_To_Sweet_Dreams, Divergent_Universe_Pouring_Blades, Divergent_Universe_Fruit_of_Evil, Divergent_Universe_Permafrost, Divergent_Universe_Gentle_Words, Divergent_Universe_Smelted_Heart, Divergent_Universe_Untoppled_Walls
+    Ornament_UseImmersifier = True  # True
+    Ornament_DoubleEvent = True  # True
+    Ornament_UseStamina = False
+
     # Group `Daemon`
     Daemon_Enable = True  # True
     Daemon_AimClicker = 'do_not_click'  # item_enemy, item, enemy, do_not_click

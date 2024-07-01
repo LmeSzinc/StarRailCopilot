@@ -7,11 +7,13 @@ from tasks.combat.assets.assets_combat_prepare import COMBAT_PREPARE
 from tasks.combat.assets.assets_combat_support import COMBAT_SUPPORT_LIST
 from tasks.combat.combat import Combat
 from tasks.dungeon.event import DungeonEvent
+from tasks.map.route.loader import RouteLoader
+from tasks.map.route.route.daily import OrnamentExtraction__route
 from tasks.ornament.assets.assets_ornament_combat import *
 from tasks.ornament.assets.assets_ornament_ui import *
 
 
-class OrnamentCombat(DungeonEvent, Combat):
+class OrnamentCombat(DungeonEvent, Combat, RouteLoader):
     def combat_enter_from_map(self, skip_first_screenshot=True):
         # Don't enter from map, UI too deep inside
         # Enter from survival index instead
@@ -149,8 +151,8 @@ class OrnamentCombat(DungeonEvent, Combat):
 
             # End
             if self.is_in_main():
-                logger.info('Combat entered')
-                return True
+                logger.info('Combat map entered')
+                break
             # Relics full
             # Clicking between COMBAT_PREPARE and COMBAT_TEAM_PREPARE
             if trial > 5:
@@ -172,3 +174,6 @@ class OrnamentCombat(DungeonEvent, Combat):
                 continue
             if self.handle_popup_confirm():
                 continue
+
+        self.route_run(OrnamentExtraction__route)
+        return True

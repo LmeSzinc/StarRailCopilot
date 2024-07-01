@@ -23,6 +23,23 @@ class OrnamentCombat(DungeonEvent, Combat, RouteLoader):
         # Different position to OCR
         return super().get_double_event_remain_at_combat(button)
 
+    def _dungeon_wait_until_dungeon_list_loaded(self, skip_first_screenshot=True):
+        # Check save file before entering
+        result = super()._dungeon_wait_until_dungeon_list_loaded(skip_first_screenshot)
+
+        if self.image_color_count(
+                DIVERGENT_UNIVERSE_SAVE_UNAVAILABLE,
+                color=(195, 89, 79), threshold=221, count=1000,
+        ):
+            logger.error(
+                'Divergent Universe save unavailable, '
+                'please clear Divergent Universe once before running Ornament Extraction'
+            )
+            self.config.task_delay(server_update=True)
+            self.config.task_stop()
+
+        return result
+
     def oe_leave(self, skip_first_screenshot=True):
         self.interval_clear([COMBAT_PREPARE, MAP_EXIT])
         logger.hr('OE leave')

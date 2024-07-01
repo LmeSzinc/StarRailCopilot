@@ -75,7 +75,7 @@ tqdm==4.65.0              # via -r requirements-in.txt
 typing-extensions==4.8.0  # via pydantic, pydantic-core
 ua-parser==0.16.1         # via user-agents
 uiautomator2==2.16.17     # via -r requirements-in.txt
-uiautomator2cache==0.3.0.1  # via -r requirements-in.txt
+uiautomator2cache==0.3.1  # via -r requirements-in.txt
 urllib3==2.0.2            # via requests
 user-agents==2.2.0        # via pywebio
 uvicorn[standard]==0.17.6  # via -r requirements-in.txt

@@ -7,7 +7,7 @@ opencv-python==4.7.0.72
 # Device connection
 adbutils==1.2.9
 uiautomator2==2.16.17
-uiautomator2cache==0.3.0.1
+uiautomator2cache==0.3.1
 wrapt>=1.14.0
 lz4
 av==10.0.0

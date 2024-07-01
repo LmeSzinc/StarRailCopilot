@@ -311,6 +311,13 @@ class DungeonUI(DungeonState):
                 logger.info('Survival index loaded, SURVIVAL_INDEX_OE_LOADED')
                 return True
 
+    def _dungeon_survival_index_top_appear(self):
+        if self.appear(SURVIVAL_INDEX_SU_LOADED):
+            return True
+        if self.appear(SURVIVAL_INDEX_OE_LOADED):
+            return True
+        return False
+
     def _dungeon_wait_treasures_lightward_loaded(self, skip_first_screenshot=True):
         """
         Returns:

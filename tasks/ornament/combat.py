@@ -5,15 +5,15 @@ from tasks.base.assets.assets_base_page import MAP_EXIT
 from tasks.base.assets.assets_base_popup import POPUP_CANCEL
 from tasks.combat.assets.assets_combat_prepare import COMBAT_PREPARE
 from tasks.combat.assets.assets_combat_support import COMBAT_SUPPORT_LIST
-from tasks.combat.combat import Combat
-from tasks.dungeon.event import DungeonEvent
+from tasks.dungeon.dungeon import Dungeon
+from tasks.dungeon.state import DungeonState
 from tasks.map.route.loader import RouteLoader
 from tasks.map.route.route.daily import OrnamentExtraction__route
 from tasks.ornament.assets.assets_ornament_combat import *
 from tasks.ornament.assets.assets_ornament_ui import *
 
 
-class OrnamentCombat(DungeonEvent, Combat, RouteLoader):
+class OrnamentCombat(Dungeon, RouteLoader, DungeonState):
     def combat_enter_from_map(self, skip_first_screenshot=True):
         # Don't enter from map, UI too deep inside
         # Enter from survival index instead
@@ -22,23 +22,6 @@ class OrnamentCombat(DungeonEvent, Combat, RouteLoader):
     def get_double_event_remain_at_combat(self, button=OCR_DOUBLE_EVENT_REMAIN_AT_OE):
         # Different position to OCR
         return super().get_double_event_remain_at_combat(button)
-
-    def _dungeon_wait_until_dungeon_list_loaded(self, skip_first_screenshot=True):
-        # Check save file before entering
-        result = super()._dungeon_wait_until_dungeon_list_loaded(skip_first_screenshot)
-
-        if self.image_color_count(
-                DIVERGENT_UNIVERSE_SAVE_UNAVAILABLE,
-                color=(195, 89, 79), threshold=221, count=1000,
-        ):
-            logger.error(
-                'Divergent Universe save unavailable, '
-                'please clear Divergent Universe once before running Ornament Extraction'
-            )
-            self.config.task_delay(server_update=True)
-            self.config.task_stop()
-
-        return result
 
     def oe_leave(self, skip_first_screenshot=True):
         self.interval_clear([COMBAT_PREPARE, MAP_EXIT])
@@ -121,6 +104,32 @@ class OrnamentCombat(DungeonEvent, Combat, RouteLoader):
                 self.interval_reset(COMBAT_SUPPORT_LIST)
                 continue
 
+    def combat_get_trailblaze_power(self, expect_reduce=False, skip_first_screenshot=True) -> int:
+        """
+        Args:
+            expect_reduce: Current value is supposed to be lower than the previous.
+            skip_first_screenshot:
+
+        Returns:
+            int: Equivalent stamina
+
+        Pages:
+            in: COMBAT_PREPARE or COMBAT_REPEAT
+        """
+        before = self.config.stored.TrailblazePower.value + self.config.stored.Immersifier.value * 40
+
+        after = before
+        for _ in range(3):
+            self.dungeon_update_stamina()
+            after = self.config.stored.TrailblazePower.value + self.config.stored.Immersifier.value * 40
+            if expect_reduce:
+                if before > after:
+                    break
+            else:
+                break
+
+        return after
+
     def is_team_prepared(self) -> bool:
         """
         Pages:
@@ -169,7 +178,11 @@ class OrnamentCombat(DungeonEvent, Combat, RouteLoader):
             # End
             if self.is_in_main():
                 logger.info('Combat map entered')
+                self.device.screenshot_interval_set()
                 break
+            if self.is_combat_executing():
+                self.device.screenshot_interval_set()
+                return True
             # Relics full
             # Clicking between COMBAT_PREPARE and COMBAT_TEAM_PREPARE
             if trial > 5:
@@ -187,6 +200,7 @@ class OrnamentCombat(DungeonEvent, Combat, RouteLoader):
             if support_set and self.appear(COMBAT_PREPARE, interval=5):
                 # Long loading after COMBAT_PREPARE
                 self.device.click(COMBAT_PREPARE)
+                self.device.screenshot_interval_set('combat')
                 trial += 1
                 continue
             if self.handle_popup_confirm():

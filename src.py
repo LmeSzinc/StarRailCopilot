@@ -58,6 +58,10 @@ class StarRailCopilot(AzurLaneAutoScript):
         from tasks.rogue.rogue import Rogue
         Rogue(config=self.config, device=self.device).run()
 
+    def ornament(self):
+        from tasks.ornament.ornament import Ornament
+        Ornament(config=self.config, device=self.device).run()
+
     def benchmark(self):
         from module.daemon.benchmark import run_benchmark
         run_benchmark(config=self.config)

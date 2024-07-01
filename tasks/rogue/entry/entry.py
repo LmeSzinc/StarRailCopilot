@@ -353,6 +353,8 @@ class RogueEntry(RouteBase, RogueRewardHandler, RoguePathHandler, DungeonRogueUI
                     f'RogueWorld_DoubleEvent={self.config.RogueWorld_DoubleEvent}, '
                     f'RogueWorld_WeeklyFarming={self.config.RogueWorld_WeeklyFarming}, '
                     f'RogueDebug_DebugMode={self.config.RogueDebug_DebugMode}')
+        ornament = self.config.is_task_enabled('Ornament')
+        logger.info(f'Ornament: {ornament}')
         # This shouldn't happen
         if self.config.RogueWorld_UseStamina and not self.config.RogueWorld_UseImmersifier:
             logger.error('Invalid rogue reward settings')
@@ -376,6 +378,9 @@ class RogueEntry(RouteBase, RogueRewardHandler, RoguePathHandler, DungeonRogueUI
             if self.config.RogueWorld_UseImmersifier and self.config.stored.Immersifier.value > 0:
                 logger.info(
                     'Reached weekly point limit but still have immersifiers left, continue to use them')
+                if ornament:
+                    logger.info('Ornament enabled, skip farming rogue')
+                    raise RogueReachedWeeklyPointLimit
             elif self.config.RogueWorld_WeeklyFarming and not self.config.stored.SimulatedUniverseFarm.is_full():
                 logger.info(
                     'Reached weekly point limit but still continue to farm materials')

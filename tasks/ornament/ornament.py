@@ -56,6 +56,14 @@ class Ornament(OrnamentCombat):
 
         return result
 
+    def delay_dungeon_task(self, dungeon: DungeonList):
+        with self.config.multi_set():
+            super().delay_dungeon_task(dungeon)
+            if not self.config.Ornament_UseStamina and self.config.stored.DungeonDouble.rogue <= 0:
+                if self.config.stored.Immersifier.value <= 0:
+                    logger.info('Immersifier exhausted')
+                    self.config.task_delay(server_update=True)
+
     def run(self):
         self.config.update_battle_pass_quests()
         self.config.update_daily_quests()
@@ -79,6 +87,7 @@ class Ornament(OrnamentCombat):
 
         # Run
         dungeon = DungeonList.find(self.config.Ornament_Dungeon)
+        self.support_once = False
         self.combat_wave_cost = 40
         self.dungeon = dungeon
         if self.config.Ornament_UseStamina:
@@ -91,9 +100,8 @@ class Ornament(OrnamentCombat):
             self.running_double = True
             self.dungeon_run(dungeon, wave_limit=self.config.stored.DungeonDouble.rogue)
             self.running_double = False
-
-            self.config.task_delay(server_update=True)
+            self.dungeon_stamina_delay(dungeon)
         else:
             # Use immersifier only, wave limited in _dungeon_wait_until_dungeon_list_loaded
             self.dungeon_run(dungeon, wave_limit=0)
-            self.config.task_delay(server_update=True)
+            self.dungeon_stamina_delay(dungeon)

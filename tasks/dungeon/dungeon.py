@@ -203,7 +203,7 @@ class Dungeon(DungeonStamina, DungeonEvent, Combat):
 
         elif require and not self.support_once:
             # Run with support all the way
-            return self._dungeon_run(dungeon=dungeon, team=team, wave_limit=1,
+            return self._dungeon_run(dungeon=dungeon, team=team, wave_limit=0,
                               support_character=self.config.DungeonSupport_Character)
 
         else:
@@ -281,7 +281,7 @@ class Dungeon(DungeonStamina, DungeonEvent, Combat):
 
         # Dungeon to clear all trailblaze power
         do_rogue = False
-        if self.config.is_task_enabled('Rogue'):
+        if self.config.is_task_enabled('Rogue') and not self.config.is_task_enabled('Ornament'):
             if self.config.cross_get('Rogue.RogueWorld.UseStamina'):
                 logger.info('Going to use stamina in rogue')
                 do_rogue = True

@@ -19,6 +19,10 @@ class OrnamentCombat(Dungeon, RouteLoader, DungeonState):
         # Enter from survival index instead
         pass
 
+    def _combat_should_reenter(self):
+        # Never re-enter, can only enter from Survival_Index
+        return False
+
     def get_double_event_remain_at_combat(self, button=OCR_DOUBLE_EVENT_REMAIN_AT_OE):
         # Different position to OCR
         return super().get_double_event_remain_at_combat(button)
@@ -100,9 +104,15 @@ class OrnamentCombat(Dungeon, RouteLoader, DungeonState):
                     else:
                         self._search_support(support_character_name)  # Search support
                     selected_support = True
-                self.device.click(OCR_DOUBLE_EVENT_REMAIN_AT_OE)
+                self.device.click(SUPPORT_ADD)
                 self.interval_reset(COMBAT_SUPPORT_LIST)
                 continue
+
+    def get_equivalent_stamina(self):
+        value = self.config.stored.Immersifier.value * 40
+        if self.config.Ornament_UseStamina:
+            value += self.config.stored.TrailblazePower.value
+        return value
 
     def combat_get_trailblaze_power(self, expect_reduce=False, skip_first_screenshot=True) -> int:
         """
@@ -116,12 +126,12 @@ class OrnamentCombat(Dungeon, RouteLoader, DungeonState):
         Pages:
             in: COMBAT_PREPARE or COMBAT_REPEAT
         """
-        before = self.config.stored.TrailblazePower.value + self.config.stored.Immersifier.value * 40
+        before = self.get_equivalent_stamina()
 
         after = before
         for _ in range(3):
             self.dungeon_update_stamina()
-            after = self.config.stored.TrailblazePower.value + self.config.stored.Immersifier.value * 40
+            after = self.get_equivalent_stamina()
             if expect_reduce:
                 if before > after:
                     break
@@ -129,6 +139,11 @@ class OrnamentCombat(Dungeon, RouteLoader, DungeonState):
                 break
 
         return after
+
+    def is_trailblaze_power_exhausted(self):
+        flag = self.get_equivalent_stamina() < self.combat_wave_cost
+        logger.attr('TrailblazePowerExhausted', flag)
+        return flag
 
     def is_team_prepared(self) -> bool:
         """

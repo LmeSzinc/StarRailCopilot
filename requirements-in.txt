@@ -33,7 +33,7 @@ uvicorn[standard]==0.17.6
 aiofiles
 
 # Game resources
-srcmap==1.3.6
+srcmap==2.3.20240701
 
 # For dev
 # pip-tools

@@ -1064,7 +1064,7 @@
   "PlannerScan": {
     "_info": {
       "name": "Scan Character Planner Results",
-      "help": "Tools need to stop the scheduler and then run independently\nBefore use, set planner goal in the in-game planner, calculate the results, and start scanning from the result page. Detailed usage see: https://github.com/LmeSzinc/StarRailCopilot/wiki/Planner_cn"
+      "help": "Tools need to stop the scheduler and then run independently\nBefore use, set planner goal in the in-game planner, calculate the results, and start scanning from the result page. Detailed usage see: https://github.com/LmeSzinc/StarRailCopilot/wiki/Planner_en"
     },
     "ResultAdd": {
       "name": "Accumulate multiple scan results",

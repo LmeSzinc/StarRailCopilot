@@ -6,13 +6,15 @@ Star Rail Instant Tea, a bot for Honkai: Star Rail, based on the next generation
 
 ![gui](https://raw.githubusercontent.com/wiki/LmeSzinc/StarRailCopilot/README.assets/gui_en.png)
 
+![setting](https://raw.githubusercontent.com/wiki/LmeSzinc/StarRailCopilot/README.assets/setting_en.png)
+
 ## Features
 
-- **Dungeons**: [Character Planner](https://github.com/LmeSzinc/StarRailCopilot/wiki/Planner_cn), Dungeons, dungeons at double event, echo of war.
+- **Dungeons**: [Character Planner](https://github.com/LmeSzinc/StarRailCopilot/wiki/Planner_en), Dungeons, dungeons at double event, echo of war.
 - **Rewards**: Complete daily quests, do assignment, claim nameless horner rewards.
 - **Simulated Universe**: Farm SU, farm planers using trailbalze power.
 - **AFK Auto Farming**: Automatically launch emulators and games, do dungeons and quests at background, keep track of resources through dashboard.
-- **Cloud Gaming**: [CN only] Support Cloud HSR.
+- **Cloud Gaming**: [CN only] [Run SRC on cloud HSR](https://github.com/LmeSzinc/StarRailCopilot/wiki/Cloud_cn)
 
 ## Install [![](https://img.shields.io/github/downloads/LmeSzinc/StarRailCopilot/total?color=4e4c97)](https://github.com/LmeSzinc/StarRailCopilot/releases)
 
@@ -30,7 +32,7 @@ Discord https://discord.gg/aJkt3mKDEr
 
 - Development Docs (menu is on sidebar): [Alas wiki](https://github.com/LmeSzinc/AzurLaneAutoScript/wiki/1.-Start) (in Chinese). However, there is ton of code newly written, it is recommended to read the source code and historical commits.
 
-- Development Road Map: [#10](https://github.com/LmeSzinc/StarRailCopilot/issues/10). Pull Requests are welcomed, just pick the part you interested to work on.
+- Development Road Map: See pinned issues. Pull Requests are welcomed, just pick the part you interested to work on.
 
 > **How to add multi-language or multi-server support?** Need assets updates, see ["Adding a Button" in development docs](https://github.com/LmeSzinc/AzurLaneAutoScript/wiki/4.1.-Detection-objects#%E6%B7%BB%E5%8A%A0%E4%B8%80%E4%B8%AA-button).
 

@@ -7,7 +7,7 @@ Star Rail auto script | 星铁速溶茶，崩坏：星穹铁道脚本，基于�
 
 ![gui](https://raw.githubusercontent.com/wiki/LmeSzinc/StarRailCopilot/README.assets/gui_cn.png)
 
-
+![setting](https://raw.githubusercontent.com/wiki/LmeSzinc/StarRailCopilot/README.assets/setting_cn.png)
 
 ## 功能
 
@@ -15,7 +15,7 @@ Star Rail auto script | 星铁速溶茶，崩坏：星穹铁道脚本，基于�
 - **收获**：完成每日任务，收派委托，收取无名勋礼奖励。
 - **模拟宇宙**：刷模拟宇宙，使用开拓力刷内圈遗器。
 - **后台托管**：自动启动模拟器和游戏，后台托管清体力和每日，通过仪表盘了解资源情况。
-- **云游戏**：（仅国服）支持云崩坏星穹铁道。
+- **云游戏**：（仅国服）[在云崩坏星穹铁道上运行SRC](https://github.com/LmeSzinc/StarRailCopilot/wiki/Cloud_cn)
 
 ## 安装 [![](https://img.shields.io/github/downloads/LmeSzinc/StarRailCopilot/total?color=4e4c97)](https://github.com/LmeSzinc/StarRailCopilot/releases)
 
@@ -31,7 +31,7 @@ Discord https://discord.gg/aJkt3mKDEr QQ群 752620927
 
 - [小地图识别原理](https://github.com/LmeSzinc/StarRailCopilot/wiki/MinimapTracking)
 - 开发文档（目录在侧边栏）：[Alas wiki](https://github.com/LmeSzinc/AzurLaneAutoScript/wiki/1.-Start)，但很多内容是新写的，建议阅读源码和历史提交。
-- 开发路线图：[#10](https://github.com/LmeSzinc/StarRailCopilot/issues/10) ，欢迎提交 PR，挑选你感兴趣的部分进行开发即可。
+- 开发路线图：见置顶 issue，欢迎提交 PR，挑选你感兴趣的部分进行开发即可。
 
 > **如何添加多语言/多服务器支持？** 需要适配 assets，参考 [开发文档 “添加一个 Button” 一节](https://github.com/LmeSzinc/AzurLaneAutoScript/wiki/4.1.-Detection-objects#%E6%B7%BB%E5%8A%A0%E4%B8%80%E4%B8%AA-button)。
 

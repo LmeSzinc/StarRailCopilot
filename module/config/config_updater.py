@@ -95,23 +95,15 @@ class ConfigGenerator:
         option_add(
             keys='Weekly.Name.option',
             options=[dungeon.name for dungeon in DungeonList.instances.values() if dungeon.is_Echo_of_War])
+        # OrnamentExtraction
+        ornament = [dungeon.name for dungeon in DungeonList.instances.values() if dungeon.is_Ornament_Extraction]
+        option_add(keys='Ornament.Dungeon.option', options=ornament)
         # Insert characters
         from tasks.character.keywords import CharacterList
         unsupported_characters = ["Jade"]
         characters = [character.name for character in CharacterList.instances.values()
                       if character.name not in unsupported_characters]
         option_add(keys='DungeonSupport.Character.option', options=characters)
-        # Insert daily quests
-        from tasks.daily.keywords import DailyQuest
-        for quest in DailyQuest.instances.values():
-            quest: DailyQuest
-            deep_set(raw, keys=['AchievableQuest', quest.name], value={
-                'type': 'state',
-                'value': 'achievable',
-                'option': ['achievable', 'not_set', 'not_supported'],
-                'option_bold': ['achievable'],
-                'option_light': ['not_supported'],
-            })
         # Insert assignments
         from tasks.assignment.keywords import AssignmentEntry
         assignments = [entry.name for entry in AssignmentEntry.instances.values()]
@@ -415,12 +407,8 @@ class ConfigGenerator:
         from tasks.dungeon.keywords import DungeonList, DungeonDetailed
         for dungeon in DungeonList.instances.values():
             dungeon: DungeonList = dungeon
-            if not dungeon.plane:
-                continue
             dungeon_name = dungeon.__getattribute__(ingame_lang)
             dungeon_name = re.sub('[「」]', '', dungeon_name)
-            plane = dungeon.plane.__getattribute__(ingame_lang)
-            plane = re.sub('[「」]', '', plane)
             if dungeon.is_Calyx_Golden_Memories:
                 deep_set(new, keys=['Dungeon', 'Name', dungeon.name],
                          value=i18n_memories[ingame_lang].format(dungeon=dungeon_name))
@@ -431,6 +419,8 @@ class ConfigGenerator:
                 deep_set(new, keys=['Dungeon', 'Name', dungeon.name],
                          value=i18n_treasure[ingame_lang].format(dungeon=dungeon_name))
             if dungeon.is_Calyx_Crimson:
+                plane = dungeon.plane.__getattribute__(ingame_lang)
+                plane = re.sub('[「」]', '', plane)
                 path = dungeon.Calyx_Crimson_Path.__getattribute__(ingame_lang)
                 deep_set(new, keys=['Dungeon', 'Name', dungeon.name],
                          value=i18n_crimson[ingame_lang].format(path=path, plane=plane))
@@ -439,6 +429,18 @@ class ConfigGenerator:
                 suffix = i18n_relic[ingame_lang].format(dungeon=dungeon_name).replace('Cavern of Corrosion: ', '')
                 if not value.endswith(suffix):
                     deep_set(new, keys=['Dungeon', 'Name', dungeon.name], value=f'{value}{suffix}')
+            if dungeon.is_Ornament_Extraction:
+                value = deep_get(new, keys=['Ornament', 'Dungeon', dungeon.name], default='')
+                suffix = i18n_relic[ingame_lang].format(dungeon=dungeon_name)
+                suffix = re.sub(
+                    r'(•差分宇宙'
+                    r'|Divergent Universe: '
+                    r'|階差宇宙・'
+                    r'|: Universo Diferenciado'
+                    r'|Universo Diferenciado: '
+                    r')', '', suffix)
+                if not value.endswith(suffix):
+                    deep_set(new, keys=['Ornament', 'Dungeon', dungeon.name], value=f'{value}{suffix}')
 
         # Stagnant shadows with character names
         for dungeon in DungeonDetailed.instances.values():
@@ -465,18 +467,6 @@ class ConfigGenerator:
                 if "Trailblazer" in value:
                     continue
                 deep_set(new, keys=['DungeonSupport', 'Character', character.name], value=value)
-
-        # Daily quests
-        from tasks.daily.keywords import DailyQuest
-        for quest in DailyQuest.instances.values():
-            value = quest.__getattribute__(ingame_lang)
-            deep_set(new, keys=['AchievableQuest', quest.name, 'name'], value=value)
-            # deep_set(new, keys=['DailyQuest', quest.name, 'help'], value='')
-            copy_from = 'Complete_1_Daily_Mission'
-            if quest.name != copy_from:
-                for option in deep_get(self.args, keys=['DailyQuest', 'AchievableQuest', copy_from, 'option']):
-                    value = deep_get(new, keys=['AchievableQuest', copy_from, option])
-                    deep_set(new, keys=['AchievableQuest', quest.name, option], value=value)
 
         # Assignments
         from tasks.assignment.keywords import AssignmentEntryDetailed
@@ -778,45 +768,6 @@ class ConfigUpdater:
 
     @staticmethod
     def update_state(data):
-        def set_daily(quest, value):
-            if value is True:
-                value = 'achievable'
-            if value is False:
-                value = 'not_set'
-            deep_set(data, keys=['DailyQuest', 'AchievableQuest', quest], value=value)
-
-        set_daily('Complete_1_Daily_Mission', 'not_supported')
-        # Dungeon
-        dungeon = deep_get(data, keys='Dungeon.Scheduler.Enable')
-        set_daily('Clear_Calyx_Golden_1_times', 'not_set')
-        set_daily('Clear_Calyx_Crimson_1_times', 'not_set')
-        set_daily('Clear_Stagnant_Shadow_1_times', 'not_set')
-        set_daily('Clear_Cavern_of_Corrosion_1_times', 'not_set')
-        # Combat requirements
-        set_daily('In_a_single_battle_inflict_3_Weakness_Break_of_different_Types', 'achievable')
-        set_daily('Inflict_Weakness_Break_5_times', 'achievable')
-        set_daily('Defeat_a_total_of_20_enemies', 'achievable')
-        set_daily('Enter_combat_by_attacking_enemie_Weakness_and_win_3_times', 'achievable')
-        set_daily('Use_Technique_2_times', 'achievable')
-        # Other game systems
-        set_daily('Dispatch_1_assignments', deep_get(data, 'Assignment.Scheduler.Enable'))
-        set_daily('Take_photos_1_times', 'achievable')
-        set_daily('Destroy_3_destructible_objects', 'achievable')
-        set_daily('Complete_Forgotten_Hall_1_time', 'achievable')
-        set_daily('Complete_Echo_of_War_1_times', deep_get(data, 'Weekly.Scheduler.Enable'))
-        set_daily('Complete_Divergent_Universe_or_Simulated_Universe_1_times',deep_get(data, 'Rogue.Scheduler.Enable'))
-        set_daily('Obtain_victory_in_combat_with_Support_Characters_1_times',
-                  dungeon and deep_get(data, 'Dungeon.DungeonSupport.Use') in ['when_daily', 'always_use'])
-        set_daily('Use_an_Ultimate_to_deal_the_final_blow_1_time', 'achievable')
-        # Build
-        set_daily('Level_up_any_character_1_times', 'not_supported')
-        set_daily('Level_up_any_Light_Cone_1_times', 'not_supported')
-        set_daily('Level_up_any_Relic_1_times', 'not_supported')
-        # Items
-        set_daily('Salvage_any_Relic', 'achievable')
-        set_daily('Use_the_Omni_Synthesizer_1_times', 'achievable')
-        set_daily('Use_Consumables_1_time', 'achievable')
-
         # Limit setting combinations
         if deep_get(data, keys='Rogue.RogueWorld.UseImmersifier') is False:
             deep_set(data, keys='Rogue.RogueWorld.UseStamina', value=False)

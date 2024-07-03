@@ -311,6 +311,13 @@ class DungeonUI(DungeonState):
                 logger.info('Survival index loaded, SURVIVAL_INDEX_OE_LOADED')
                 return True
 
+    def _dungeon_survival_index_top_appear(self):
+        if self.appear(SURVIVAL_INDEX_SU_LOADED):
+            return True
+        if self.appear(SURVIVAL_INDEX_OE_LOADED):
+            return True
+        return False
+
     def _dungeon_wait_treasures_lightward_loaded(self, skip_first_screenshot=True):
         """
         Returns:
@@ -732,7 +739,8 @@ class DungeonUI(DungeonState):
         if dungeon.is_Calyx_Crimson \
                 or dungeon.is_Stagnant_Shadow \
                 or dungeon.is_Cavern_of_Corrosion \
-                or dungeon.is_Echo_of_War:
+                or dungeon.is_Echo_of_War \
+                or dungeon.is_Ornament_Extraction:
             self._dungeon_nav_goto(dungeon.dungeon_nav)
             self._dungeon_wait_until_dungeon_list_loaded()
             self._dungeon_insight(dungeon)

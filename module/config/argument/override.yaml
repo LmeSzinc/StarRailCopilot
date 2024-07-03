@@ -68,3 +68,7 @@ Weekly:
   DungeonSupport:
     Use:
       option: [ always_use, do_not_use ]
+Ornament:
+  DungeonSupport:
+    Use:
+      option: [ when_daily, always_use ]

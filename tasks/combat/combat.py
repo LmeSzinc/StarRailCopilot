@@ -160,6 +160,7 @@ class Combat(CombatInteract, CombatPrepare, CombatState, CombatTeam, CombatSuppo
         skip_first_screenshot = True
         is_executing = True
         self.combat_state_reset()
+        self.device.screenshot_interval_set('combat')
         while 1:
             if skip_first_screenshot:
                 skip_first_screenshot = False
@@ -191,6 +192,8 @@ class Combat(CombatInteract, CombatPrepare, CombatState, CombatTeam, CombatSuppo
             # Battle pass popup appears just after combat finished and before blessings
             if self.handle_battle_pass_notification():
                 continue
+
+        self.device.screenshot_interval_set()
 
     def _combat_can_again(self) -> bool:
         """
@@ -399,10 +402,10 @@ class Combat(CombatInteract, CombatPrepare, CombatState, CombatTeam, CombatSuppo
             finish = self.combat_finish()
             if self._combat_should_reenter():
                 continue
-            # Reset combat_wave_cost, so handle_combat_interact() won't activate before handle_combat_prepare()
-            self.combat_wave_cost = 10
             if finish:
                 break
+            # Reset combat_wave_cost, so handle_combat_interact() won't activate before handle_combat_prepare()
+            self.combat_wave_cost = 10
 
         logger.attr('combat_wave_done', self.combat_wave_done)
         return self.combat_wave_done

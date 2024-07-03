@@ -5,13 +5,15 @@ Star Rail Copilot, un bot para Honkai: Star Rail, basado en la siguiente generac
 
 ![gui](https://raw.githubusercontent.com/wiki/LmeSzinc/StarRailCopilot/README.assets/gui_es.png)
 
+![setting](https://raw.githubusercontent.com/wiki/LmeSzinc/StarRailCopilot/README.assets/setting_es.png)
+
 ## Características
 
-- **Mazmorras**: [Planificador de personajes](https://github.com/LmeSzinc/StarRailCopilot/wiki/Planner_cn), Mazmorras, y mazmorras en eventos de doble recompensa (materiales de XP de personaje, de conos de luz, rastros, ascensión, artefactos...), ecos de la guerra.
+- **Mazmorras**: [Planificador de personajes](https://github.com/LmeSzinc/StarRailCopilot/wiki/Planner_en), Mazmorras, y mazmorras en eventos de doble recompensa (materiales de XP de personaje, de conos de luz, rastros, ascensión, artefactos...), ecos de la guerra.
 - **Recompensas diarias**: Se completan las misiones de actividad diarias, la misión diaria, las misiones de Honor Anónimo...
 - **Universo Simulado**: Farm SU hasta alcanzar el límite de puntos semanal, farm planars usando poder trazacaminos.
 - **Farmeo automático AFK**: El bot lo hace todo de manera automática, abre los emuladores, completa las misiones y realiza las tareas diarias, realice un seguimiento de los recursos a través del panel.
-- **Juegos en la nube**: [solo CN] Compatible con Cloud HSR.
+- **Juegos en la nube**: [solo CN] [Ejecute SRC en HSR en la nube](https://github.com/LmeSzinc/StarRailCopilot/wiki/Cloud_cn)
 
 ## Instalación [![](https://img.shields.io/github/downloads/LmeSzinc/StarRailCopilot/total?color=4e4c97)](https://github.com/LmeSzinc/StarRailCopilot/releases)
 Dirígete a la [Guía de Instalación](https://github.com/LmeSzinc/StarRailCopilot/wiki/Installation_en) para consultar cómo hacer la instalación automática, el manual de uso, etc.
@@ -25,7 +27,7 @@ Discord: https://discord.gg/aJkt3mKDEr
 
 - [Seguimiento del Minimapa](https://github.com/LmeSzinc/StarRailCopilot/wiki/MinimapTracking)
 - Documentación para desarrolladores (el menú está en la barra lateral): [Wiki de ALAS](https://github.com/LmeSzinc/AzurLaneAutoScript/wiki/1.-Start) (en Chino). Sin embargo, hay un montón de código nuevo, por lo que es recomendado leer el código fuente y el historial de commits.
-- Roadmap del desarrollo: [#10](https://github.com/LmeSzinc/StarRailCopilot/issues/10). Los pull requests son bienvenidos. Simplemente, elige la parte en la que estás interesado trabajar.
+- Roadmap del desarrollo: Ver issues fijados. Los pull requests son bienvenidos. Simplemente, elige la parte en la que estás interesado trabajar.
 
 > **¿Cómo añadir nuevos idiomas o servidores?** Si necesitas actualizar los recursos del bot, échale un vistazo a ["Añadiendo un Botón" en la documentación para desarrolladores](https://github.com/LmeSzinc/AzurLaneAutoScript/wiki/4.1.-Detection-objects#%E6%B7%BB%E5%8A%A0%E4%B8%80%E4%B8%AA-button).
 

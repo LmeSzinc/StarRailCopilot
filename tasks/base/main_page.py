@@ -55,6 +55,8 @@ class OcrPlaneName(OcrWhiteLetterOnComplexBackground):
         if '星港' in result:
             result = '迴星港'
         result = result.replace('太司', '太卜司')
+        # IRadiantFeldspar
+        result = re.sub('[Ii1|]\s*Radiant', 'Radiant', result)
 
         result = result.replace(' ', '')
 

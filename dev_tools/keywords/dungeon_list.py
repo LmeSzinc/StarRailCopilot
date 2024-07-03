@@ -91,6 +91,8 @@ class GenerateDungeonList(GenerateKeyword):
 
     def iter_rows(self) -> t.Iterable[dict]:
         dungeons = list(super().iter_rows())
+
+        # Sort by path
         calyx = []
         order = [
             'Calyx_Golden',
@@ -108,9 +110,20 @@ class GenerateDungeonList(GenerateKeyword):
             dungeons = [d for d in dungeons if not condition(d)]
         dungeons = calyx + dungeons
 
+        # Reverse Divergent_Universe
+        start = 0
+        end = 0
+        for index, dungeon in enumerate(dungeons):
+            if dungeon['name'].startswith('Divergent_Universe'):
+                if start == 0:
+                    start = index
+                end = index + 1
+        if start > 0 and end > 0:
+            dungeons = dungeons[:start] + dungeons[start:end][::-1] + dungeons[end:]
+
+        # Re-sort ID
         self.keyword_index = 0
         for row in dungeons:
-            # Re-sort ID
             self.keyword_index += 1
             row['id'] = self.keyword_index
             yield row

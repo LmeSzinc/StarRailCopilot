@@ -13,7 +13,6 @@ Alas:
       - EmulatorInfo
       - Error
       - Optimization
-      - CloudStorage
     Restart:
       - Scheduler
 
@@ -31,7 +30,6 @@ Daily:
       - DungeonStorage
     DailyQuest:
       - Scheduler
-      - AchievableQuest
       - DailyStorage
     BattlePass:
       - Scheduler
@@ -42,6 +40,7 @@ Daily:
     DataUpdate:
       - Scheduler
       - ItemStorage
+      - CloudStorage
     Freebies:
       - Scheduler
       - SupportReward
@@ -61,6 +60,10 @@ Weekly:
       - RogueWorld
       - RogueBlessing
       - RogueDebug
+    Ornament:
+      - Scheduler
+      - Ornament
+      - DungeonSupport
 
 # ==================== Tool ====================
 

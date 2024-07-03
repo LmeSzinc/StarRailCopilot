@@ -40,11 +40,6 @@ class GeneratedConfig:
     Optimization_CombatScreenshotInterval = 1.0
     Optimization_WhenTaskQueueEmpty = 'goto_main'  # stay_there, goto_main, close_game
 
-    # Group `CloudStorage`
-    CloudStorage_CloudRemainSeasonPass = {}
-    CloudStorage_CloudRemainPaid = {}
-    CloudStorage_CloudRemainFree = {}
-
     # Group `Dungeon`
     Dungeon_Name = 'Calyx_Golden_Treasures_Jarilo_VI'  # Calyx_Golden_Memories_Jarilo_VI, Calyx_Golden_Memories_The_Xianzhou_Luofu, Calyx_Golden_Memories_Penacony, Calyx_Golden_Aether_Jarilo_VI, Calyx_Golden_Aether_The_Xianzhou_Luofu, Calyx_Golden_Aether_Penacony, Calyx_Golden_Treasures_Jarilo_VI, Calyx_Golden_Treasures_The_Xianzhou_Luofu, Calyx_Golden_Treasures_Penacony, Calyx_Crimson_Destruction_Herta_StorageZone, Calyx_Crimson_Destruction_Luofu_ScalegorgeWaterscape, Calyx_Crimson_Preservation_Herta_SupplyZone, Calyx_Crimson_Preservation_Penacony_ClockStudiosThemePark, Calyx_Crimson_The_Hunt_Jarilo_OutlyingSnowPlains, Calyx_Crimson_The_Hunt_Penacony_SoulGladScorchsandAuditionVenue, Calyx_Crimson_Abundance_Jarilo_BackwaterPass, Calyx_Crimson_Abundance_Luofu_FyxestrollGarden, Calyx_Crimson_Erudition_Jarilo_RivetTown, Calyx_Crimson_Erudition_Penacony_PenaconyGrandTheater, Calyx_Crimson_Harmony_Jarilo_RobotSettlement, Calyx_Crimson_Harmony_Penacony_TheReverieDreamscape, Calyx_Crimson_Nihility_Jarilo_GreatMine, Calyx_Crimson_Nihility_Luofu_AlchemyCommission, Stagnant_Shadow_Spike, Stagnant_Shadow_Perdition, Stagnant_Shadow_Duty, Stagnant_Shadow_Blaze, Stagnant_Shadow_Scorch, Stagnant_Shadow_Ire, Stagnant_Shadow_Rime, Stagnant_Shadow_Icicle, Stagnant_Shadow_Nectar, Stagnant_Shadow_Fulmination, Stagnant_Shadow_Doom, Stagnant_Shadow_Gust, Stagnant_Shadow_Celestial, Stagnant_Shadow_Quanta, Stagnant_Shadow_Abomination, Stagnant_Shadow_Roast, Stagnant_Shadow_Mirage, Stagnant_Shadow_Puppetry, Cavern_of_Corrosion_Path_of_Gelid_Wind, Cavern_of_Corrosion_Path_of_Jabbing_Punch, Cavern_of_Corrosion_Path_of_Drifting, Cavern_of_Corrosion_Path_of_Providence, Cavern_of_Corrosion_Path_of_Holy_Hymn, Cavern_of_Corrosion_Path_of_Conflagration, Cavern_of_Corrosion_Path_of_Elixir_Seekers, Cavern_of_Corrosion_Path_of_Darkness, Cavern_of_Corrosion_Path_of_Dreamdive, Cavern_of_Corrosion_Path_of_Cavalier
     Dungeon_NameAtDoubleCalyx = 'Calyx_Golden_Treasures_Jarilo_VI'  # Calyx_Golden_Memories_Jarilo_VI, Calyx_Golden_Memories_The_Xianzhou_Luofu, Calyx_Golden_Memories_Penacony, Calyx_Golden_Aether_Jarilo_VI, Calyx_Golden_Aether_The_Xianzhou_Luofu, Calyx_Golden_Aether_Penacony, Calyx_Golden_Treasures_Jarilo_VI, Calyx_Golden_Treasures_The_Xianzhou_Luofu, Calyx_Golden_Treasures_Penacony, Calyx_Crimson_Destruction_Herta_StorageZone, Calyx_Crimson_Destruction_Luofu_ScalegorgeWaterscape, Calyx_Crimson_Preservation_Herta_SupplyZone, Calyx_Crimson_Preservation_Penacony_ClockStudiosThemePark, Calyx_Crimson_The_Hunt_Jarilo_OutlyingSnowPlains, Calyx_Crimson_The_Hunt_Penacony_SoulGladScorchsandAuditionVenue, Calyx_Crimson_Abundance_Jarilo_BackwaterPass, Calyx_Crimson_Abundance_Luofu_FyxestrollGarden, Calyx_Crimson_Erudition_Jarilo_RivetTown, Calyx_Crimson_Erudition_Penacony_PenaconyGrandTheater, Calyx_Crimson_Harmony_Jarilo_RobotSettlement, Calyx_Crimson_Harmony_Penacony_TheReverieDreamscape, Calyx_Crimson_Nihility_Jarilo_GreatMine, Calyx_Crimson_Nihility_Luofu_AlchemyCommission
@@ -123,34 +118,6 @@ class GeneratedConfig:
     Weekly_Name = 'Echo_of_War_Divine_Seed'  # Echo_of_War_Destruction_Beginning, Echo_of_War_End_of_the_Eternal_Freeze, Echo_of_War_Divine_Seed, Echo_of_War_Borehole_Planet_Old_Crater, Echo_of_War_Salutations_of_Ashen_Dreams
     Weekly_Team = 1  # 1, 2, 3, 4, 5, 6, 7, 8, 9
 
-    # Group `AchievableQuest`
-    AchievableQuest_Complete_1_Daily_Mission = 'achievable'  # achievable, not_set, not_supported
-    AchievableQuest_Clear_Calyx_Golden_1_times = 'achievable'  # achievable, not_set, not_supported
-    AchievableQuest_Clear_Stagnant_Shadow_1_times = 'achievable'  # achievable, not_set, not_supported
-    AchievableQuest_Clear_Cavern_of_Corrosion_1_times = 'achievable'  # achievable, not_set, not_supported
-    AchievableQuest_In_a_single_battle_inflict_3_Weakness_Break_of_different_Types = 'achievable'  # achievable, not_set, not_supported
-    AchievableQuest_Inflict_Weakness_Break_5_times = 'achievable'  # achievable, not_set, not_supported
-    AchievableQuest_Defeat_a_total_of_20_enemies = 'achievable'  # achievable, not_set, not_supported
-    AchievableQuest_Complete_Forgotten_Hall_1_time = 'achievable'  # achievable, not_set, not_supported
-    AchievableQuest_Complete_Echo_of_War_1_times = 'achievable'  # achievable, not_set, not_supported
-    AchievableQuest_Use_an_Ultimate_to_deal_the_final_blow_1_time = 'achievable'  # achievable, not_set, not_supported
-    AchievableQuest_Salvage_any_Relic = 'achievable'  # achievable, not_set, not_supported
-    AchievableQuest_Use_Consumables_1_time = 'achievable'  # achievable, not_set, not_supported
-    AchievableQuest_Log_in_to_the_game = 'achievable'  # achievable, not_set, not_supported
-    AchievableQuest_Dispatch_1_assignments = 'achievable'  # achievable, not_set, not_supported
-    AchievableQuest_Complete_Divergent_Universe_or_Simulated_Universe_1_times = 'achievable'  # achievable, not_set, not_supported
-    AchievableQuest_Clear_Calyx_Crimson_1_times = 'achievable'  # achievable, not_set, not_supported
-    AchievableQuest_Enter_combat_by_attacking_enemie_Weakness_and_win_3_times = 'achievable'  # achievable, not_set, not_supported
-    AchievableQuest_Use_Technique_2_times = 'achievable'  # achievable, not_set, not_supported
-    AchievableQuest_Destroy_3_destructible_objects = 'achievable'  # achievable, not_set, not_supported
-    AchievableQuest_Obtain_victory_in_combat_with_Support_Characters_1_times = 'achievable'  # achievable, not_set, not_supported
-    AchievableQuest_Level_up_any_character_1_times = 'achievable'  # achievable, not_set, not_supported
-    AchievableQuest_Level_up_any_Light_Cone_1_times = 'achievable'  # achievable, not_set, not_supported
-    AchievableQuest_Use_the_Omni_Synthesizer_1_times = 'achievable'  # achievable, not_set, not_supported
-    AchievableQuest_Take_photos_1_times = 'achievable'  # achievable, not_set, not_supported
-    AchievableQuest_Consume_120_Trailblaze_Power = 'achievable'  # achievable, not_set, not_supported
-    AchievableQuest_Level_up_any_Relic_1_times = 'achievable'  # achievable, not_set, not_supported
-
     # Group `DailyStorage`
     DailyStorage_DailyActivity = {}
     DailyStorage_DailyQuest = {}
@@ -179,6 +146,11 @@ class GeneratedConfig:
     ItemStorage_Credit = {}
     ItemStorage_StallerJade = {}
 
+    # Group `CloudStorage`
+    CloudStorage_CloudRemainSeasonPass = {}
+    CloudStorage_CloudRemainPaid = {}
+    CloudStorage_CloudRemainFree = {}
+
     # Group `RogueWorld`
     RogueWorld_World = 'Simulated_Universe_World_7'  # Simulated_Universe_World_3, Simulated_Universe_World_4, Simulated_Universe_World_5, Simulated_Universe_World_6, Simulated_Universe_World_7, Simulated_Universe_World_8
     RogueWorld_Path = 'The_Hunt'  # Preservation, Remembrance, Nihility, Abundance, The_Hunt, Destruction, Elation, Propagation, Erudition
@@ -201,6 +173,12 @@ class GeneratedConfig:
 
     # Group `RogueDebug`
     RogueDebug_DebugMode = False
+
+    # Group `Ornament`
+    Ornament_Dungeon = 'Divergent_Universe_Eternal_Comedy'  # Divergent_Universe_Eternal_Comedy, Divergent_Universe_To_Sweet_Dreams, Divergent_Universe_Pouring_Blades, Divergent_Universe_Fruit_of_Evil, Divergent_Universe_Permafrost, Divergent_Universe_Gentle_Words, Divergent_Universe_Smelted_Heart, Divergent_Universe_Untoppled_Walls
+    Ornament_UseImmersifier = True  # True
+    Ornament_DoubleEvent = True  # True
+    Ornament_UseStamina = False
 
     # Group `Daemon`
     Daemon_Enable = True  # True

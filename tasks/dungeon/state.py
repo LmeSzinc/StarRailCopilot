@@ -131,7 +131,7 @@ class DungeonState(UI):
         """
         Delay tasks that use stamina
         """
-        if dungeon.is_Simulated_Universe:
+        if dungeon.is_Simulated_Universe or dungeon.is_Ornament_Extraction:
             limit = 80
         elif dungeon.is_Cavern_of_Corrosion:
             limit = 80
@@ -182,7 +182,7 @@ class DungeonState(UI):
             logger.info(f'Approaching next monday, delay to {next_monday} instead')
             future = next_monday
 
-        tasks = ['Dungeon', 'Weekly']
+        tasks = ['Dungeon', 'Weekly', 'Ornament']
         with self.config.multi_set():
             for task in tasks:
                 next_run = self.config.cross_get(keys=f'{task}.Scheduler.NextRun', default=DEFAULT_TIME)

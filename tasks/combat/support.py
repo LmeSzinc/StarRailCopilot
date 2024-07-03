@@ -8,8 +8,7 @@ from module.logger import logger
 from module.ui.scroll import AdaptiveScroll
 from tasks.base.assets.assets_base_popup import POPUP_CANCEL
 from tasks.base.ui import UI
-from tasks.combat.assets.assets_combat_support import COMBAT_SUPPORT_ADD, COMBAT_SUPPORT_LIST, \
-    COMBAT_SUPPORT_LIST_GRID, COMBAT_SUPPORT_LIST_SCROLL, SUPPORT_SELECTED
+from tasks.combat.assets.assets_combat_support import *
 from tasks.combat.assets.assets_combat_team import COMBAT_TEAM_DISMISSSUPPORT, COMBAT_TEAM_SUPPORT
 
 
@@ -257,6 +256,27 @@ class CombatSupport(UI):
 
             if interval.reached():
                 self.device.click(character)
+                interval.reset()
+                continue
+
+    def _select_first(self):
+        logger.hr("Combat support select")
+        logger.info(f'Select: first')
+        skip_first_screenshot = False
+        interval = Timer(2)
+        while 1:
+            if skip_first_screenshot:
+                skip_first_screenshot = False
+            else:
+                self.device.screenshot()
+
+            # End
+            if SUPPORT_SELECTED.match_template(self.device.image, similarity=0.75):
+                logger.info('Character support selected')
+                return True
+
+            if interval.reached():
+                self.device.click(FIRST_CHARACTER)
                 interval.reset()
                 continue
 

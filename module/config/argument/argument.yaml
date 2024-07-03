@@ -86,13 +86,6 @@ Optimization:
   WhenTaskQueueEmpty:
     value: goto_main
     option: [ stay_there, goto_main, close_game ]
-CloudStorage:
-  CloudRemainSeasonPass:
-    stored: StoredInt
-  CloudRemainPaid:
-    stored: StoredInt
-  CloudRemainFree:
-    stored: StoredInt
 
 # ==================== Daily ====================
 
@@ -152,43 +145,46 @@ Weekly:
     value: 1
     option: [ 1, 2, 3, 4, 5, 6, 7, 8, 9 ]
 
-AchievableQuest:
-# Quests will be injected in config updater
-#  Complete_1_Daily_Mission:
-#    type: state
-#    value: achievable
-#    option: [ achievable, not_set, not_supported ]
-#    option_bold: [ achievable, ]
 DailyStorage:
   DailyActivity:
     stored: StoredDailyActivity
     order: 2
     color: "#ffcf70"
+    display: display
   DailyQuest:
     stored: StoredDaily
+    display: display
 
 BattlePassStorage:
   BattlePassLevel:
     stored: StoredBattlePassLevel
     order: 5
     color: "#cbe45b"
+    display: display
   BattlePassWeeklyQuest:
     stored: StoredBattlePassWeeklyQuest
   # Quests progress
   BattlePassSimulatedUniverse:
     stored: StoredBattlePassSimulatedUniverse
+    display: display
   BattlePassQuestCalyx:
     stored: StoredBattlePassQuestCalyx
+    display: display
   BattlePassQuestEchoOfWar:
     stored: StoredBattlePassQuestEchoOfWar
+    display: display
   BattlePassQuestCredits:
     stored: StoredBattlePassQuestCredits
+    display: display
   BattlePassQuestSynthesizeConsumables:
     stored: StoredBattlePassQuestSynthesizeConsumables
+    display: display
   BattlePassQuestCavernOfCorrosion:
     stored: StoredBattlePassQuestCavernOfCorrosion
+    display: display
   BattlePassQuestTrailblazePower:
     stored: StoredBattlePassQuestTrailblazePower
+    display: display
 
 Assignment:
   # Options in Name_x will be injected in config updater
@@ -218,10 +214,23 @@ ItemStorage:
     stored: StoredInt
     order: 7
     color: "#ab7cf2"
+    display: display
   StallerJade:
     stored: StoredInt
     order: 8
     color: "#fc8f8b"
+    display: display
+
+CloudStorage:
+  CloudRemainSeasonPass:
+    stored: StoredInt
+    display: display
+  CloudRemainPaid:
+    stored: StoredInt
+    display: display
+  CloudRemainFree:
+    stored: StoredInt
+    display: display
 
 # ==================== Rogue ====================
 
@@ -284,6 +293,23 @@ RogueBlessing:
 
 RogueDebug:
   DebugMode: false
+
+Ornament:
+  Dungeon:
+    value: Divergent_Universe_Eternal_Comedy
+    # OrnamentExtraction will be injected in config updater
+    option: [ ]
+  UseImmersifier:
+    type: state
+    value: true
+    option: [ true, ]
+    option_bold: [ true, ]
+  DoubleEvent:
+    type: state
+    value: true
+    option: [ true, ]
+    option_bold: [ true, ]
+  UseStamina: false
 
 # ==================== Tool ====================
 

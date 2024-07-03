@@ -67,7 +67,7 @@ scipy==1.10.1             # via -r requirements-in.txt
 shapely==2.0.1            # via pponnxcr
 six==1.16.0               # via pynput, uiautomator2
 sniffio==1.3.0            # via anyio
-srcmap==1.3.6             # via -r requirements-in.txt
+srcmap==2.3.20240701      # via -r requirements-in.txt
 starlette==0.14.2         # via -r requirements-in.txt
 sympy==1.12               # via onnxruntime
 tornado==6.3.1            # via pywebio
@@ -75,7 +75,7 @@ tqdm==4.65.0              # via -r requirements-in.txt
 typing-extensions==4.8.0  # via pydantic, pydantic-core
 ua-parser==0.16.1         # via user-agents
 uiautomator2==2.16.17     # via -r requirements-in.txt
-uiautomator2cache==0.3.0.1  # via -r requirements-in.txt
+uiautomator2cache==0.3.1  # via -r requirements-in.txt
 urllib3==2.0.2            # via requests
 user-agents==2.2.0        # via pywebio
 uvicorn[standard]==0.17.6  # via -r requirements-in.txt

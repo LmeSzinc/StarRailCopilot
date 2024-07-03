@@ -366,8 +366,10 @@ def put_arg_stored(kwargs: T_Output_Kwargs) -> Output:
             put_text(value).style("--dashboard-value--")
         ])]
     else:
-        # Empty
-        rows = []
+        # No Data
+        rows = [put_scope(f"dashboard-value-{name}", [
+            put_text(t("Gui.Dashboard.NoData")).style("--dashboard-value--")
+        ])]
     # Add other key-value in stored
     if values:
         rows += [
@@ -378,6 +380,11 @@ def put_arg_stored(kwargs: T_Output_Kwargs) -> Output:
     if time_:
         rows.append(
             put_text(time_).style("--dashboard-time--")
+        )
+    else:
+        # Blank row
+        rows.append(
+            put_text(" ").style("--dashboard-time--")
         )
 
     return put_scope(

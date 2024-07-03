@@ -38,3 +38,10 @@ HimekoTrial__exit = RouteModel(
     floor='F1',
     position=(519.9, 361.5),
 )
+OrnamentExtraction__route = RouteModel(
+    name='OrnamentExtraction__route',
+    route='route.daily.OrnamentExtraction:route',
+    plane='Penacony_TheReverieReality',
+    floor='F1',
+    position=(245.3, 233.3),
+)

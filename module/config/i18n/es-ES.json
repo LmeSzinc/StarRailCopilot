@@ -58,6 +58,10 @@
       "name": "Universo Simulado",
       "help": ""
     },
+    "Ornament": {
+      "name": "Ornamentos",
+      "help": "Se deben cumplir los siguientes requisitos:\n1. Borre manualmente Universo Diferenciado una vez esta semana y tenga un archivo guardado.\n2. Ingrese a la mazmorra una vez en el dispositivo actual para guardar el equipo de la mazmorra."
+    },
     "Daemon": {
       "name": "Clic de diálogo",
       "help": ""
@@ -224,24 +228,6 @@
       "stay_there": "Quedarse en el sitio",
       "goto_main": "Ir al lugar principal",
       "close_game": "Cerrar el juego"
-    }
-  },
-  "CloudStorage": {
-    "_info": {
-      "name": "CloudStorage._info.name",
-      "help": "CloudStorage._info.help"
-    },
-    "CloudRemainSeasonPass": {
-      "name": "CloudStorage.CloudRemainSeasonPass.name",
-      "help": "CloudStorage.CloudRemainSeasonPass.help"
-    },
-    "CloudRemainPaid": {
-      "name": "CloudStorage.CloudRemainPaid.name",
-      "help": "CloudStorage.CloudRemainPaid.help"
-    },
-    "CloudRemainFree": {
-      "name": "CloudStorage.CloudRemainFree.name",
-      "help": "CloudStorage.CloudRemainFree.help"
     }
   },
   "Dungeon": {
@@ -431,8 +417,8 @@
   },
   "DungeonStorage": {
     "_info": {
-      "name": "DungeonStorage._info.name",
-      "help": "DungeonStorage._info.help"
+      "name": "Mazmorra",
+      "help": ""
     },
     "TrailblazePower": {
       "name": "Poder",
@@ -707,198 +693,10 @@
       "9": "9"
     }
   },
-  "AchievableQuest": {
-    "_info": {
-      "name": "Misiones completables",
-      "help": "Cuando el estado de una tarea sea \"No configurado\", deberás de configurar SRC para que pueda realizarla.\nNota: Por favor, ten más tareas en estado \"Completable\", sino SRC podría no llegar a los 500 pts. de actividad"
-    },
-    "Complete_1_Daily_Mission": {
-      "name": "Completa 1 misión diaria",
-      "help": "",
-      "achievable": "Completable",
-      "not_set": "No configurado",
-      "not_supported": "No soportado aún"
-    },
-    "Clear_Calyx_Golden_1_times": {
-      "name": "Completa Cáliz (oro) 1 vez",
-      "help": "Necesitas configurar y activar la tarea \"Mazmorra\"",
-      "achievable": "Completable",
-      "not_set": "No configurado",
-      "not_supported": "No soportado aún"
-    },
-    "Clear_Stagnant_Shadow_1_times": {
-      "name": "Completa Sombra paralizada 1 veces",
-      "help": "Necesitas configurar y activar la tarea \"Mazmorra\"",
-      "achievable": "Completable",
-      "not_set": "No configurado",
-      "not_supported": "No soportado aún"
-    },
-    "Clear_Cavern_of_Corrosion_1_times": {
-      "name": "Completa Caverna de la corrosión 1 veces",
-      "help": "Necesitas configurar y activar la tarea \"Mazmorra\"",
-      "achievable": "Completable",
-      "not_set": "No configurado",
-      "not_supported": "No soportado aún"
-    },
-    "In_a_single_battle_inflict_3_Weakness_Break_of_different_Types": {
-      "name": "En una sola batalla, inflige 3 tipos de Ruptura de Debilidad",
-      "help": "Completable por defecto, se hará el desafío de Himeko",
-      "achievable": "Completable",
-      "not_set": "No configurado",
-      "not_supported": "No soportado aún"
-    },
-    "Inflict_Weakness_Break_5_times": {
-      "name": "Inflige Ruptura de Debilidad 5 veces",
-      "help": "Completable por defecto, se hará el desafío de Himeko",
-      "achievable": "Completable",
-      "not_set": "No configurado",
-      "not_supported": "No soportado aún"
-    },
-    "Defeat_a_total_of_20_enemies": {
-      "name": "Derrota a 20 enemigos",
-      "help": "Completable por defecto, se hará el desafío de Himeko",
-      "achievable": "Completable",
-      "not_set": "No configurado",
-      "not_supported": "No soportado aún"
-    },
-    "Complete_Forgotten_Hall_1_time": {
-      "name": "Completa el Salón olvidado 1 vez",
-      "help": "Completable por defecto, se seleccionarán los primeros 4 personajes y se hará el primer nivel. Por favor, asegúrate de que estos pueden hacerlo.",
-      "achievable": "Completable",
-      "not_set": "No configurado",
-      "not_supported": "No soportado aún"
-    },
-    "Complete_Echo_of_War_1_times": {
-      "name": "Completa Ecos de la guerra 1 vez",
-      "help": "Necesitas configurar y activar la tarea \"Ecos de la guerra\"",
-      "achievable": "Completable",
-      "not_set": "No configurado",
-      "not_supported": "No soportado aún"
-    },
-    "Use_an_Ultimate_to_deal_the_final_blow_1_time": {
-      "name": "Asesta el golpe final con una habilidad definitiva 1 vez",
-      "help": "Completable por defecto, se hará el desafío de Himeko",
-      "achievable": "Completable",
-      "not_set": "No configurado",
-      "not_supported": "No soportado aún"
-    },
-    "Salvage_any_Relic": {
-      "name": "Destruye 1 artefacto",
-      "help": "Completable por defecto. Se destruirá la última ordenado ascendentemente por rareza.",
-      "achievable": "Completable",
-      "not_set": "No configurado",
-      "not_supported": "No soportado aún"
-    },
-    "Use_Consumables_1_time": {
-      "name": "Usa 1 consumible",
-      "help": "Completable por defecto. Se sintetizará uno si no tienes ninguno.",
-      "achievable": "Completable",
-      "not_set": "No configurado",
-      "not_supported": "No soportado aún"
-    },
-    "Log_in_to_the_game": {
-      "name": "Inicia sesión en el juego",
-      "help": "",
-      "achievable": "Completable",
-      "not_set": "No configurado",
-      "not_supported": "No soportado aún"
-    },
-    "Dispatch_1_assignments": {
-      "name": "Asigna 1 encargo",
-      "help": "Necesitas configurar y activar la tarea de \"Encargos\"",
-      "achievable": "Completable",
-      "not_set": "No configurado",
-      "not_supported": "No soportado aún"
-    },
-    "Complete_Divergent_Universe_or_Simulated_Universe_1_times": {
-      "name": "Completa el Universo Simulado o el Universo Diferenciado 1 vez",
-      "help": "Necesitas configurar y activar la tarea \"Universo Simulado\"",
-      "achievable": "Completable",
-      "not_set": "No configurado",
-      "not_supported": "No soportado aún"
-    },
-    "Clear_Calyx_Crimson_1_times": {
-      "name": "Completa Cáliz (carmesí) 1 vez",
-      "help": "Necesitas configurar y activar la tarea \"Mazmorra\"",
-      "achievable": "Completable",
-      "not_set": "No configurado",
-      "not_supported": "No soportado aún"
-    },
-    "Enter_combat_by_attacking_enemie_Weakness_and_win_3_times": {
-      "name": "Entra en combate atacando la debilidad del enemigo y gana 3 veces",
-      "help": "Completable por defecto, se hará el desafío de Himeko",
-      "achievable": "Completable",
-      "not_set": "No configurado",
-      "not_supported": "No soportado aún"
-    },
-    "Use_Technique_2_times": {
-      "name": "Usa técnicas 2 veces",
-      "help": "Alcanzable por defecto, irá al abismo y usará la técnica 2 veces.",
-      "achievable": "Completable",
-      "not_set": "No configurado",
-      "not_supported": "No soportado aún"
-    },
-    "Destroy_3_destructible_objects": {
-      "name": "Destruye 3 objetos destruibles",
-      "help": "Completable por defecto, se hará el desafío de Himeko",
-      "achievable": "Completable",
-      "not_set": "No configurado",
-      "not_supported": "No soportado aún"
-    },
-    "Obtain_victory_in_combat_with_Support_Characters_1_times": {
-      "name": "Gana 1 batalla(s) utilizando personajes de apoyo",
-      "help": "Necesitas configurar la tarea de \"Mazmorra\", así como configurar a los héroes de apoyo.",
-      "achievable": "Completable",
-      "not_set": "No configurado",
-      "not_supported": "No soportado aún"
-    },
-    "Level_up_any_character_1_times": {
-      "name": "Mejora el nivel de cualquier personaje 1 vez",
-      "help": "",
-      "achievable": "Completable",
-      "not_set": "No configurado",
-      "not_supported": "No soportado aún"
-    },
-    "Level_up_any_Light_Cone_1_times": {
-      "name": "Mejora cualquier cono de luz 1 vez",
-      "help": "",
-      "achievable": "Completable",
-      "not_set": "No configurado",
-      "not_supported": "No soportado aún"
-    },
-    "Use_the_Omni_Synthesizer_1_times": {
-      "name": "Utiliza la máquina sintetizadora multiusos 1 veces",
-      "help": "Achievable by default, will synthesize low-rarity material",
-      "achievable": "Completable",
-      "not_set": "No configurado",
-      "not_supported": "No soportado aún"
-    },
-    "Take_photos_1_times": {
-      "name": "Haz 1 foto(s)",
-      "help": "Completable por defecto.",
-      "achievable": "Completable",
-      "not_set": "No configurado",
-      "not_supported": "No soportado aún"
-    },
-    "Consume_120_Trailblaze_Power": {
-      "name": "Consume 120 pts. de Poder trazacaminos",
-      "help": "",
-      "achievable": "Completable",
-      "not_set": "No configurado",
-      "not_supported": "No soportado aún"
-    },
-    "Level_up_any_Relic_1_times": {
-      "name": "Mejora cualquier artefacto 1 vez",
-      "help": "",
-      "achievable": "Completable",
-      "not_set": "No configurado",
-      "not_supported": "No soportado aún"
-    }
-  },
   "DailyStorage": {
     "_info": {
-      "name": "DailyStorage._info.name",
-      "help": "DailyStorage._info.help"
+      "name": "Misión Diaria",
+      "help": ""
     },
     "DailyActivity": {
       "name": "Actividad",
@@ -911,8 +709,8 @@
   },
   "BattlePassStorage": {
     "_info": {
-      "name": "BattlePassStorage._info.name",
-      "help": "BattlePassStorage._info.help"
+      "name": "Misión de Honor",
+      "help": ""
     },
     "BattlePassLevel": {
       "name": "Honor",
@@ -1067,7 +865,7 @@
   },
   "ItemStorage": {
     "_info": {
-      "name": "",
+      "name": "Panel",
       "help": ""
     },
     "Credit": {
@@ -1076,6 +874,24 @@
     },
     "StallerJade": {
       "name": "Jade",
+      "help": ""
+    }
+  },
+  "CloudStorage": {
+    "_info": {
+      "name": "Nube de HSR",
+      "help": ""
+    },
+    "CloudRemainSeasonPass": {
+      "name": "Pase de Temporada Permanece X día(s)",
+      "help": ""
+    },
+    "CloudRemainPaid": {
+      "name": "Tiempo restante pagado X minuto(s)",
+      "help": ""
+    },
+    "CloudRemainFree": {
+      "name": "Tiempo libre restante X minuto(s)",
       "help": ""
     }
   },
@@ -1121,11 +937,11 @@
       "occurrence": "Prefiero Evento"
     },
     "UseImmersifier": {
-      "name": "Reclamar de planers mediante inmersor",
+      "name": "Reclamar de planars mediante inmersor",
       "help": ""
     },
     "DoubleEvent": {
-      "name": "Participa en doble planer evento",
+      "name": "Participa en doble planar evento",
       "help": ""
     },
     "WeeklyFarming": {
@@ -1133,8 +949,8 @@
       "help": ""
     },
     "UseStamina": {
-      "name": "Reclamar de planers mediante poder trazacaminos",
-      "help": "La tarea de mazmorra ya no se ejecutará y todo el poder trazacaminos se usará primero para reclamar recompensas de inmersión, excepto para eventos dobles"
+      "name": "Reclamar de planars mediante poder trazacaminos",
+      "help": "Prioriza el poder trazacaminos para cultivar planar ornaments, teniendo prioridad solo sobre el planificador de personajes."
     },
     "SimulatedUniverseFarm": {
       "name": "Progreso de élites derrotadas",
@@ -1194,6 +1010,38 @@
       "help": "Sin condiciones de parada, sin manejo de errores, deténgase cuando encuentre un error. Informe el error de acuerdo con el documento: https://github.com/LmeSzinc/StarRailCopilot/wiki/RogueMap_cn"
     }
   },
+  "Ornament": {
+    "_info": {
+      "name": "Ajustes de ornamentos extracción",
+      "help": ""
+    },
+    "Dungeon": {
+      "name": "Nombre de la Mazmorra",
+      "help": "",
+      "Divergent_Universe_Eternal_Comedy": " (Comedia eterna)",
+      "Divergent_Universe_To_Sweet_Dreams": " (Hasta los dulces sueños)",
+      "Divergent_Universe_Pouring_Blades": " (Lluvia de espadas)",
+      "Divergent_Universe_Fruit_of_Evil": " (Fruta del desastre)",
+      "Divergent_Universe_Permafrost": " (Permafrost)",
+      "Divergent_Universe_Gentle_Words": " (Palabras amables)",
+      "Divergent_Universe_Smelted_Heart": " (Corazón de fundición)",
+      "Divergent_Universe_Untoppled_Walls": " (Muros inquebrantables)"
+    },
+    "UseImmersifier": {
+      "name": "Reclamar de planars mediante inmersor",
+      "help": "",
+      "True": "Activado"
+    },
+    "DoubleEvent": {
+      "name": "Participa en doble planar evento",
+      "help": "",
+      "True": "Activado"
+    },
+    "UseStamina": {
+      "name": "Reclamar de planars mediante poder trazacaminos",
+      "help": "Prioriza el poder trazacaminos para cultivar planar ornamentos, teniendo prioridad sobre el planificador de personajes y el universo simulado."
+    }
+  },
   "Daemon": {
     "_info": {
       "name": "Clic de diálogo",
@@ -1216,7 +1064,7 @@
   "PlannerScan": {
     "_info": {
       "name": "Escanear resultados del planificador de caracteres",
-      "help": "Las herramientas deben detener el programador y luego ejecutarse de forma independiente\nAntes de usarlo, establezca el objetivo del planificador en el planificador del juego, calcule los resultados y comience a escanear desde la página de resultados. Para uso detallado, consulte: https://github .com/LmeSzinc/StarRailCopilot/wiki/Planner_cn"
+      "help": "Las herramientas deben detener el programador y luego ejecutarse de forma independiente\nAntes de usarlo, establezca el objetivo del planificador en el planificador del juego, calcule los resultados y comience a escanear desde la página de resultados. Para uso detallado, consulte: https://github .com/LmeSzinc/StarRailCopilot/wiki/Planner_en"
     },
     "ResultAdd": {
       "name": "Acumular múltiples resultados de escaneo",

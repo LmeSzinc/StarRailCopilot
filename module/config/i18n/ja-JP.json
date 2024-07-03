@@ -58,6 +58,10 @@
       "name": "Task.Rogue.name",
       "help": "Task.Rogue.help"
     },
+    "Ornament": {
+      "name": "Task.Ornament.name",
+      "help": "Task.Ornament.help"
+    },
     "Daemon": {
       "name": "Task.Daemon.name",
       "help": "Task.Daemon.help"
@@ -224,24 +228,6 @@
       "stay_there": "stay_there",
       "goto_main": "goto_main",
       "close_game": "close_game"
-    }
-  },
-  "CloudStorage": {
-    "_info": {
-      "name": "CloudStorage._info.name",
-      "help": "CloudStorage._info.help"
-    },
-    "CloudRemainSeasonPass": {
-      "name": "CloudStorage.CloudRemainSeasonPass.name",
-      "help": "CloudStorage.CloudRemainSeasonPass.help"
-    },
-    "CloudRemainPaid": {
-      "name": "CloudStorage.CloudRemainPaid.name",
-      "help": "CloudStorage.CloudRemainPaid.help"
-    },
-    "CloudRemainFree": {
-      "name": "CloudStorage.CloudRemainFree.name",
-      "help": "CloudStorage.CloudRemainFree.help"
     }
   },
   "Dungeon": {
@@ -707,194 +693,6 @@
       "9": "9"
     }
   },
-  "AchievableQuest": {
-    "_info": {
-      "name": "AchievableQuest._info.name",
-      "help": "AchievableQuest._info.help"
-    },
-    "Complete_1_Daily_Mission": {
-      "name": "デイリークエストを1回クリアする",
-      "help": "AchievableQuest.Complete_1_Daily_Mission.help",
-      "achievable": "achievable",
-      "not_set": "not_set",
-      "not_supported": "not_supported"
-    },
-    "Clear_Calyx_Golden_1_times": {
-      "name": "「疑似花萼（金）」を1回クリアする",
-      "help": "AchievableQuest.Clear_Calyx_Golden_1_times.help",
-      "achievable": "achievable",
-      "not_set": "not_set",
-      "not_supported": "not_supported"
-    },
-    "Clear_Stagnant_Shadow_1_times": {
-      "name": "「凝結虚影」を1回クリアする",
-      "help": "AchievableQuest.Clear_Stagnant_Shadow_1_times.help",
-      "achievable": "achievable",
-      "not_set": "not_set",
-      "not_supported": "not_supported"
-    },
-    "Clear_Cavern_of_Corrosion_1_times": {
-      "name": "「侵蝕トンネル」を1回クリアする",
-      "help": "AchievableQuest.Clear_Cavern_of_Corrosion_1_times.help",
-      "achievable": "achievable",
-      "not_set": "not_set",
-      "not_supported": "not_supported"
-    },
-    "In_a_single_battle_inflict_3_Weakness_Break_of_different_Types": {
-      "name": "一度の戦闘で、異なる3種の属性の弱点撃破を発動する",
-      "help": "AchievableQuest.In_a_single_battle_inflict_3_Weakness_Break_of_different_Types.help",
-      "achievable": "achievable",
-      "not_set": "not_set",
-      "not_supported": "not_supported"
-    },
-    "Inflict_Weakness_Break_5_times": {
-      "name": "累計で弱点撃破効果を5回発動させる",
-      "help": "AchievableQuest.Inflict_Weakness_Break_5_times.help",
-      "achievable": "achievable",
-      "not_set": "not_set",
-      "not_supported": "not_supported"
-    },
-    "Defeat_a_total_of_20_enemies": {
-      "name": "敵を累計で20体倒す",
-      "help": "AchievableQuest.Defeat_a_total_of_20_enemies.help",
-      "achievable": "achievable",
-      "not_set": "not_set",
-      "not_supported": "not_supported"
-    },
-    "Complete_Forgotten_Hall_1_time": {
-      "name": "「忘却の庭」を1回クリアする",
-      "help": "AchievableQuest.Complete_Forgotten_Hall_1_time.help",
-      "achievable": "achievable",
-      "not_set": "not_set",
-      "not_supported": "not_supported"
-    },
-    "Complete_Echo_of_War_1_times": {
-      "name": "「歴戦余韻」を1回クリアする",
-      "help": "AchievableQuest.Complete_Echo_of_War_1_times.help",
-      "achievable": "achievable",
-      "not_set": "not_set",
-      "not_supported": "not_supported"
-    },
-    "Use_an_Ultimate_to_deal_the_final_blow_1_time": {
-      "name": "必殺技で最後の一撃を1回与える",
-      "help": "AchievableQuest.Use_an_Ultimate_to_deal_the_final_blow_1_time.help",
-      "achievable": "achievable",
-      "not_set": "not_set",
-      "not_supported": "not_supported"
-    },
-    "Salvage_any_Relic": {
-      "name": "任意の遺物1つを分解する",
-      "help": "AchievableQuest.Salvage_any_Relic.help",
-      "achievable": "achievable",
-      "not_set": "not_set",
-      "not_supported": "not_supported"
-    },
-    "Use_Consumables_1_time": {
-      "name": "消耗品を1個使う",
-      "help": "AchievableQuest.Use_Consumables_1_time.help",
-      "achievable": "achievable",
-      "not_set": "not_set",
-      "not_supported": "not_supported"
-    },
-    "Log_in_to_the_game": {
-      "name": "ゲームにログインする",
-      "help": "AchievableQuest.Log_in_to_the_game.help",
-      "achievable": "achievable",
-      "not_set": "not_set",
-      "not_supported": "not_supported"
-    },
-    "Dispatch_1_assignments": {
-      "name": "依頼に1回派遣する",
-      "help": "AchievableQuest.Dispatch_1_assignments.help",
-      "achievable": "achievable",
-      "not_set": "not_set",
-      "not_supported": "not_supported"
-    },
-    "Complete_Divergent_Universe_or_Simulated_Universe_1_times": {
-      "name": "「階差宇宙」または「模擬宇宙」を合計1回クリアする",
-      "help": "AchievableQuest.Complete_Divergent_Universe_or_Simulated_Universe_1_times.help",
-      "achievable": "achievable",
-      "not_set": "not_set",
-      "not_supported": "not_supported"
-    },
-    "Clear_Calyx_Crimson_1_times": {
-      "name": "「疑似花萼（赤）」を1回クリアする",
-      "help": "AchievableQuest.Clear_Calyx_Crimson_1_times.help",
-      "achievable": "achievable",
-      "not_set": "not_set",
-      "not_supported": "not_supported"
-    },
-    "Enter_combat_by_attacking_enemie_Weakness_and_win_3_times": {
-      "name": "弱点を攻撃して戦闘に入り、3回勝利する",
-      "help": "AchievableQuest.Enter_combat_by_attacking_enemie_Weakness_and_win_3_times.help",
-      "achievable": "achievable",
-      "not_set": "not_set",
-      "not_supported": "not_supported"
-    },
-    "Use_Technique_2_times": {
-      "name": "累計で秘技を2回発動する",
-      "help": "AchievableQuest.Use_Technique_2_times.help",
-      "achievable": "achievable",
-      "not_set": "not_set",
-      "not_supported": "not_supported"
-    },
-    "Destroy_3_destructible_objects": {
-      "name": "破壊できるオブジェクトを累計で3個破壊する",
-      "help": "AchievableQuest.Destroy_3_destructible_objects.help",
-      "achievable": "achievable",
-      "not_set": "not_set",
-      "not_supported": "not_supported"
-    },
-    "Obtain_victory_in_combat_with_Support_Characters_1_times": {
-      "name": "サポートキャラを使い、戦闘に1回勝利する",
-      "help": "AchievableQuest.Obtain_victory_in_combat_with_Support_Characters_1_times.help",
-      "achievable": "achievable",
-      "not_set": "not_set",
-      "not_supported": "not_supported"
-    },
-    "Level_up_any_character_1_times": {
-      "name": "任意のキャラを1回レベルアップする",
-      "help": "AchievableQuest.Level_up_any_character_1_times.help",
-      "achievable": "achievable",
-      "not_set": "not_set",
-      "not_supported": "not_supported"
-    },
-    "Level_up_any_Light_Cone_1_times": {
-      "name": "任意の光円錐を1回レベルアップする",
-      "help": "AchievableQuest.Level_up_any_Light_Cone_1_times.help",
-      "achievable": "achievable",
-      "not_set": "not_set",
-      "not_supported": "not_supported"
-    },
-    "Use_the_Omni_Synthesizer_1_times": {
-      "name": "「万能合成マシン」を1回使用する",
-      "help": "AchievableQuest.Use_the_Omni_Synthesizer_1_times.help",
-      "achievable": "achievable",
-      "not_set": "not_set",
-      "not_supported": "not_supported"
-    },
-    "Take_photos_1_times": {
-      "name": "1回撮影する",
-      "help": "AchievableQuest.Take_photos_1_times.help",
-      "achievable": "achievable",
-      "not_set": "not_set",
-      "not_supported": "not_supported"
-    },
-    "Consume_120_Trailblaze_Power": {
-      "name": "累計で開拓力×120を消費する",
-      "help": "AchievableQuest.Consume_120_Trailblaze_Power.help",
-      "achievable": "achievable",
-      "not_set": "not_set",
-      "not_supported": "not_supported"
-    },
-    "Level_up_any_Relic_1_times": {
-      "name": "任意の遺物を1回レベルアップする",
-      "help": "AchievableQuest.Level_up_any_Relic_1_times.help",
-      "achievable": "achievable",
-      "not_set": "not_set",
-      "not_supported": "not_supported"
-    }
-  },
   "DailyStorage": {
     "_info": {
       "name": "DailyStorage._info.name",
@@ -1079,6 +877,24 @@
       "help": "ItemStorage.StallerJade.help"
     }
   },
+  "CloudStorage": {
+    "_info": {
+      "name": "CloudStorage._info.name",
+      "help": "CloudStorage._info.help"
+    },
+    "CloudRemainSeasonPass": {
+      "name": "CloudStorage.CloudRemainSeasonPass.name",
+      "help": "CloudStorage.CloudRemainSeasonPass.help"
+    },
+    "CloudRemainPaid": {
+      "name": "CloudStorage.CloudRemainPaid.name",
+      "help": "CloudStorage.CloudRemainPaid.help"
+    },
+    "CloudRemainFree": {
+      "name": "CloudStorage.CloudRemainFree.name",
+      "help": "CloudStorage.CloudRemainFree.help"
+    }
+  },
   "RogueWorld": {
     "_info": {
       "name": "RogueWorld._info.name",
@@ -1192,6 +1008,38 @@
     "DebugMode": {
       "name": "RogueDebug.DebugMode.name",
       "help": "RogueDebug.DebugMode.help"
+    }
+  },
+  "Ornament": {
+    "_info": {
+      "name": "Ornament._info.name",
+      "help": "Ornament._info.help"
+    },
+    "Dungeon": {
+      "name": "Ornament.Dungeon.name",
+      "help": "Ornament.Dungeon.help",
+      "Divergent_Universe_Eternal_Comedy": "（永遠の喜劇）",
+      "Divergent_Universe_To_Sweet_Dreams": "（寄り添い眠る）",
+      "Divergent_Universe_Pouring_Blades": "（剣の雨）",
+      "Divergent_Universe_Fruit_of_Evil": "（渦巻く罪）",
+      "Divergent_Universe_Permafrost": "（永久凍土）",
+      "Divergent_Universe_Gentle_Words": "（優しい言葉）",
+      "Divergent_Universe_Smelted_Heart": "（鋼の意志）",
+      "Divergent_Universe_Untoppled_Walls": "（不動の砦）"
+    },
+    "UseImmersifier": {
+      "name": "Ornament.UseImmersifier.name",
+      "help": "Ornament.UseImmersifier.help",
+      "True": "True"
+    },
+    "DoubleEvent": {
+      "name": "Ornament.DoubleEvent.name",
+      "help": "Ornament.DoubleEvent.help",
+      "True": "True"
+    },
+    "UseStamina": {
+      "name": "Ornament.UseStamina.name",
+      "help": "Ornament.UseStamina.help"
     }
   },
   "Daemon": {

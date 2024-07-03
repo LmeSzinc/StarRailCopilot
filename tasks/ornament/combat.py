@@ -168,6 +168,7 @@ class OrnamentCombat(Dungeon, RouteLoader, DungeonState):
             in: COMBAT_PREPARE
             out: is_in_main
         """
+        self.combat_wave_cost = 40
 
         @run_once
         def check_team_prepare():

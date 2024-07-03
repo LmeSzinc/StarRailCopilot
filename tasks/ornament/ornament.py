@@ -84,6 +84,7 @@ class Ornament(OrnamentCombat):
                 self.config.task_stop()
 
         # Run
+        logger.attr('Ornament_UseStamina', self.config.Ornament_UseStamina)
         dungeon = DungeonList.find(self.config.Ornament_Dungeon)
         self.support_once = False
         self.combat_wave_cost = 40

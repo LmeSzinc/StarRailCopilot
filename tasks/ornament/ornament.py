@@ -44,25 +44,23 @@ class Ornament(OrnamentCombat):
         # Check stamina
         logger.info('Check stamina')
         stamina = self.combat_get_trailblaze_power()
-        if stamina < self.combat_wave_cost:
-            logger.info('Current trailblaze power is not enough for a run')
-            self.delay_dungeon_task(self.dungeon)
-            self.config.task_stop()
-        if not self.config.Ornament_UseStamina and self.config.stored.DungeonDouble.rogue <= 0:
+        if self.config.Ornament_UseStamina:
+            if stamina < self.combat_wave_cost:
+                logger.info('Current trailblaze power is not enough for a run')
+                self.delay_dungeon_task(self.dungeon)
+                self.config.task_stop()
+        elif self.config.stored.DungeonDouble.rogue > 0:
+            if stamina < self.combat_wave_cost:
+                logger.info('Doing double rogue, current trailblaze power is not enough for a run')
+                self.delay_dungeon_task(self.dungeon)
+                self.config.task_stop()
+        else:
             if self.config.stored.Immersifier.value <= 0:
                 logger.info('Current immersifier is not enough for a run')
-                self.delay_dungeon_task(self.dungeon)
+                self.config.task_delay(server_update=True)
                 self.config.task_stop()
 
         return result
-
-    def delay_dungeon_task(self, dungeon: DungeonList):
-        with self.config.multi_set():
-            super().delay_dungeon_task(dungeon)
-            if not self.config.Ornament_UseStamina and self.config.stored.DungeonDouble.rogue <= 0:
-                if self.config.stored.Immersifier.value <= 0:
-                    logger.info('Immersifier exhausted')
-                    self.config.task_delay(server_update=True)
 
     def run(self):
         self.config.update_battle_pass_quests()

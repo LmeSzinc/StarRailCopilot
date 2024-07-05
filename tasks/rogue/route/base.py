@@ -261,6 +261,7 @@ class RouteBase(RouteBase_, RogueExit, RogueEvent, RogueReward):
                 or page_rogue if rogue cleared
         """
         logger.info('Wait next domain')
+        self.device.screenshot_interval_set('combat')
         while 1:
             if skip_first_screenshot:
                 skip_first_screenshot = False
@@ -270,10 +271,12 @@ class RouteBase(RouteBase_, RogueExit, RogueEvent, RogueReward):
             # End
             if self.is_in_main():
                 logger.info('Entered another domain')
+                self.device.screenshot_interval_set()
                 self.wait_until_minimap_stabled()
                 break
             if self.is_page_rogue_main():
                 logger.info('Rogue cleared')
+                self.device.screenshot_interval_set()
                 break
 
             if self.match_template_color(ROGUE_REPORT, interval=2):

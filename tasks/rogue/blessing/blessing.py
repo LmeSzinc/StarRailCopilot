@@ -90,6 +90,7 @@ class RogueBuffOcr(Ocr):
                 "阅下": "阈下",
                 '未日': '末日',
                 '尚末': '尚未',
+                '进裂晶格': '迸裂晶格',
             }
         elif self.lang == 'en':
             replace_pattern_dict = {

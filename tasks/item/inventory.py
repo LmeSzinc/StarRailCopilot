@@ -303,6 +303,7 @@ class InventoryManager:
             loca = item
 
         interval = Timer(2, count=6)
+        clicked = False
         while 1:
             if skip_first_screenshot:
                 skip_first_screenshot = False
@@ -319,13 +320,14 @@ class InventoryManager:
                 continue
 
             # End
-            if item.is_selected:
+            if clicked and item.is_selected:
                 logger.info('Inventory item selected')
                 break
             # Click
             if interval.reached():
                 self.main.device.click(item)
                 interval.reset()
+                clicked = True
                 continue
 
     def wait_selected(self, skip_first_screenshot=True):

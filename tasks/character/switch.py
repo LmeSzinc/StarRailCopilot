@@ -280,6 +280,10 @@ class CharacterSwitch(UI):
         logger.hr('Character switch to ranged')
         if update:
             self.character_update()
+        if self.character_current is None:
+            # Cannot switch, keep None to retry at next call
+            self.character_is_ranged = None
+            return None
 
         character = self._get_ranged_character()
         if character is True:

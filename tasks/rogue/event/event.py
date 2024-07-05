@@ -96,6 +96,8 @@ class OcrRogueEventOption(OcrRogueEvent):
             (KEYWORDS_ROGUE_EVENT_OPTION.Choose_number_two_It_snores_like_Andatur_Zazzalo, '.*二号.*安达.*'),
             (KEYWORDS_ROGUE_EVENT_OPTION.Choose_number_three_Its_teeth_are_rusted, '.*三号.*牙齿.*'),
             (KEYWORDS_ROGUE_EVENT_OPTION.Believe_in_THEM_with_pure_devotion, '虔诚信仰'),
+            (KEYWORDS_ROGUE_EVENT_OPTION.A_box_of_expired_doughnuts_6308, '^盒过期甜甜圈'),
+            (KEYWORDS_ROGUE_EVENT_OPTION.A_box_of_expired_doughnuts_cc8c, '^盒过期甜甜圈'),
         ],
         'en': [
             (KEYWORDS_ROGUE_EVENT_OPTION.Deposit_2_Cosmic_Fragments, 'Deposit \d+.*'),

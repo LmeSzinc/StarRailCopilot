@@ -16,7 +16,7 @@ class SecondaryMaatouchBuilder(maatouch.MaatouchBuilder):
         """
         Click on secondary contact to avoid interruption of real-person contact
         """
-        super().__init__(device, contact=1, handle_orientation=handle_orientation)
+        super().__init__(device, contact=2, handle_orientation=handle_orientation)
 
 
 maatouch.MaatouchBuilder = SecondaryMaatouchBuilder

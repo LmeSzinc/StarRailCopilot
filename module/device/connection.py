@@ -3,7 +3,6 @@ import logging
 import re
 import socket
 import subprocess
-import sys
 import time
 from functools import wraps
 
@@ -12,10 +11,10 @@ from adbutils import AdbClient, AdbDevice, AdbTimeout, ForwardItem, ReverseItem
 from adbutils.errors import AdbError
 
 import module.config.server as server_
-import platform
 from module.base.decorator import Config, cached_property, del_cached_property, run_once
 from module.base.utils import SelectedGrids, ensure_time
 from module.device.connection_attr import ConnectionAttr
+from module.device.env import IS_LINUX, IS_MACINTOSH, IS_WINDOWS
 from module.device.method.utils import (
     PackageNotInstalled, RETRY_TRIES, get_serial_pair, handle_adb_error,
     possible_reasons, random_port, recv_all, remove_shell_warning, retry_sleep)
@@ -337,7 +336,7 @@ class Connection(ConnectionAttr):
                 logger.error(e)
                 logger.error(f'Unknown host name: {socket.gethostname()}')
                 host = '127.0.0.1'
-            if platform.system() == 'Linux' and host == '127.0.1.1':
+            if IS_LINUX and host == '127.0.1.1':
                 host = '127.0.0.1'
             logger.info(f'Connecting to local emulator, using host {host}')
             port = random_port(self.config.FORWARD_PORT_RANGE)
@@ -841,7 +840,7 @@ class Connection(ConnectionAttr):
             # brute_force_connect
             if self.config.Emulator_Serial == 'auto' and available.count == 0:
                 logger.warning(f'No available device found')
-                if sys.platform == 'win32':
+                if IS_WINDOWS:
                     brute_force_connect()
                     continue
                 else:
@@ -903,7 +902,10 @@ class Connection(ConnectionAttr):
                     self.serial = emu_serial
 
         # Redirect MuMu12 from 127.0.0.1:7555 to 127.0.0.1:16xxx
-        if self.serial == '127.0.0.1:7555':
+        if (
+                (IS_WINDOWS and self.serial == '127.0.0.1:7555')
+                or (IS_MACINTOSH and self.serial == '127.0.0.1:5555')
+        ):
             for _ in range(2):
                 mumu12 = available.select(may_mumu12_family=True)
                 if mumu12.count == 1:
@@ -920,7 +922,8 @@ class Connection(ConnectionAttr):
                         # is_mumu_over_version_356 and nemud_app_keep_alive was cached
                         # Acceptable since it's the same device
                         logger.warning(f'Device {self.serial} is MuMu12 but corresponding port not found')
-                        brute_force_connect()
+                        if IS_WINDOWS:
+                            brute_force_connect()
                         devices = self.list_device()
                         # Show available devices
                         available = devices.select(status='device')

@@ -23,6 +23,7 @@ DETAIL_TITLE.load_search(RESULT_CHECK.search)
 
 class OcrItemName(Ocr):
     def after_process(self, result):
+        result = result.replace('方相果实', '万相果实')
         result = result.replace('念火之心', '忿火之心')
         result = re.sub('^火之心', '忿火之心', result)
         result = re.sub('工造机$', '工造机杼', result)

@@ -104,10 +104,7 @@
       "Name": "Calyx_Golden_Treasures_Jarilo_VI",
       "NameAtDoubleCalyx": "Calyx_Golden_Treasures_Jarilo_VI",
       "NameAtDoubleRelic": "Cavern_of_Corrosion_Path_of_Providence",
-      "Team": 1,
-      "ExtractReservedTrailblazePower": false,
-      "UseFuel": false,
-      "UseFuelUntilRemainCount": 0
+      "Team": 1
     },
     "DungeonSupport": {
       "Use": "when_daily",
@@ -119,6 +116,11 @@
       "DungeonDouble": {},
       "EchoOfWar": {},
       "SimulatedUniverse": {}
+    },
+    "TrailblazePower": {
+      "ExtractReservedTrailblazePower": false,
+      "UseFuel": false,
+      "UseFuelUntilRemainCount": 0
     }
   },
   "DailyQuest": {

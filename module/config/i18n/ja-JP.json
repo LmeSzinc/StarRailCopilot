@@ -357,18 +357,24 @@
       "7": "7",
       "8": "8",
       "9": "9"
+    }
+  },
+  "TrailblazePower": {
+    "_info": {
+      "name": "TrailblazePower._info.name",
+      "help": "TrailblazePower._info.help"
     },
     "ExtractReservedTrailblazePower": {
-      "name": "Dungeon.ExtractReservedTrailblazePower.name",
-      "help": "Dungeon.ExtractReservedTrailblazePower.help"
+      "name": "TrailblazePower.ExtractReservedTrailblazePower.name",
+      "help": "TrailblazePower.ExtractReservedTrailblazePower.help"
     },
     "UseFuel": {
-      "name": "Dungeon.UseFuel.name",
-      "help": "Dungeon.UseFuel.help"
+      "name": "TrailblazePower.UseFuel.name",
+      "help": "TrailblazePower.UseFuel.help"
     },
     "UseFuelUntilRemainCount": {
-      "name": "Dungeon.UseFuelUntilRemainCount.name",
-      "help": "Dungeon.UseFuelUntilRemainCount.help"
+      "name": "TrailblazePower.UseFuelUntilRemainCount.name",
+      "help": "TrailblazePower.UseFuelUntilRemainCount.help"
     }
   },
   "DungeonSupport": {

@@ -29,6 +29,7 @@ Daily:
       - Dungeon
       - DungeonSupport
       - DungeonStorage
+      - TrailblazePower
     DailyQuest:
       - Scheduler
       - AchievableQuest

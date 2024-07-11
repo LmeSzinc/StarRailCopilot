@@ -110,6 +110,7 @@ Dungeon:
   Team:
     value: 1
     option: [ 1, 2, 3, 4, 5, 6, 7, 8, 9 ]
+TrailblazePower:
   ExtractReservedTrailblazePower: false
   UseFuel: false
   UseFuelUntilRemainCount: 0

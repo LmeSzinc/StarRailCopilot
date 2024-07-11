@@ -357,6 +357,12 @@
       "7": "7",
       "8": "8",
       "9": "9"
+    }
+  },
+  "TrailblazePower": {
+    "_info": {
+      "name": "开拓力设置",
+      "help": ""
     },
     "ExtractReservedTrailblazePower": {
       "name": "取出后备开拓力",

@@ -213,7 +213,8 @@ class Synthesize(CombatObtain, ItemUI):
             if inv is not None:
                 if inv.wait_selected():
                     return True
-                else:
+                # Game bug that selection may have lost after setting rarity
+                elif inv.wait_selected(select_first=True):
                     continue
             else:
                 logger.info('synthesize_rarity_reset ended without wait_selected()')

@@ -61,7 +61,9 @@ class UI(MainPage):
         def cloud_login():
             if self.config.is_cloud_game:
                 from tasks.login.login import Login
-                Login(config=self.config, device=self.device).cloud_login()
+                login = Login(config=self.config, device=self.device)
+                self.device.dump_hierarchy()
+                login.cloud_try_enter_game()
 
         timeout = Timer(10, count=20).start()
         while 1:

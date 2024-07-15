@@ -345,6 +345,24 @@
       "9": "9"
     }
   },
+  "TrailblazePower": {
+    "_info": {
+      "name": "TrailblazePower._info.name",
+      "help": "TrailblazePower._info.help"
+    },
+    "ExtractReservedTrailblazePower": {
+      "name": "TrailblazePower.ExtractReservedTrailblazePower.name",
+      "help": "TrailblazePower.ExtractReservedTrailblazePower.help"
+    },
+    "UseFuel": {
+      "name": "TrailblazePower.UseFuel.name",
+      "help": "TrailblazePower.UseFuel.help"
+    },
+    "UseFuelUntilRemainCount": {
+      "name": "TrailblazePower.UseFuelUntilRemainCount.name",
+      "help": "TrailblazePower.UseFuelUntilRemainCount.help"
+    }
+  },
   "DungeonSupport": {
     "_info": {
       "name": "支援設定",

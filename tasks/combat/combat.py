@@ -5,6 +5,7 @@ from tasks.combat.assets.assets_combat_finish import COMBAT_AGAIN, COMBAT_EXIT
 from tasks.combat.assets.assets_combat_interact import DUNGEON_COMBAT_INTERACT
 from tasks.combat.assets.assets_combat_prepare import COMBAT_PREPARE
 from tasks.combat.assets.assets_combat_team import COMBAT_TEAM_PREPARE, COMBAT_TEAM_SUPPORT
+from tasks.combat.fuel import Fuel
 from tasks.combat.interact import CombatInteract
 from tasks.combat.obtain import CombatObtain
 from tasks.combat.prepare import CombatPrepare
@@ -17,7 +18,7 @@ from tasks.map.control.joystick import MapControlJoystick
 
 
 class Combat(CombatInteract, CombatPrepare, CombatState, CombatTeam, CombatSupport, CombatSkill, CombatObtain,
-             MapControlJoystick):
+             MapControlJoystick, Fuel):
     dungeon: DungeonList | None = None
     is_doing_planner: bool = False
 
@@ -53,8 +54,7 @@ class Combat(CombatInteract, CombatPrepare, CombatState, CombatTeam, CombatSuppo
 
         # Check limits
         if self.config.stored.TrailblazePower.value < self.combat_wave_cost:
-            logger.info('Trailblaze power exhausted, cannot continue combat')
-            return False
+            return self._try_get_more_trablaize_power(self.config.stored.TrailblazePower.value, self.combat_wave_cost)
         if self.combat_waves <= 0:
             logger.info('Combat wave limited, cannot continue combat')
             return False
@@ -221,8 +221,7 @@ class Combat(CombatInteract, CombatPrepare, CombatState, CombatTeam, CombatSuppo
                 logger.info(f'Current has {current}, combat costs {self.combat_wave_cost}, can run again')
                 return True
             else:
-                logger.info(f'Current has {current}, combat costs {self.combat_wave_cost}, can not run again')
-                return False
+                return self._try_get_more_trablaize_power(current, self.combat_wave_cost * self.combat_waves)
         elif self.combat_wave_cost <= 0:
             logger.info(f'Free combat, combat costs {self.combat_wave_cost}, can not run again')
             return False
@@ -231,8 +230,23 @@ class Combat(CombatInteract, CombatPrepare, CombatState, CombatTeam, CombatSuppo
                 logger.info(f'Current has {current}, combat costs {self.combat_wave_cost}, can run again')
                 return True
             else:
-                logger.info(f'Current has {current}, combat costs {self.combat_wave_cost}, can not run again')
-                return False
+                return self._try_get_more_trablaize_power(current, self.combat_wave_cost * self.combat_waves)
+
+    def _try_get_more_trablaize_power(self, current, cost):
+        if self.config.TrailblazePower_ExtractReservedTrailblazePower:
+            logger.info('Extract reserved trailblaze power to get more trailblaze power')
+            self.extract_reserved_trailblaze_power(current)
+            current = self.combat_get_trailblaze_power()
+        if self.config.TrailblazePower_UseFuel:
+            logger.info('Use fuel to get more trailblaze power')
+            self.use_fuel(current)
+            current = self.combat_get_trailblaze_power()
+
+        if current >= cost:
+            return True
+        else:
+            logger.info(f'Current has {current}, combat costs {self.combat_wave_cost}, can not run again')
+            return False
 
     def _combat_should_reenter(self):
         """

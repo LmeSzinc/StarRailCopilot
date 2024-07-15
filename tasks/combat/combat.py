@@ -133,6 +133,9 @@ class Combat(CombatInteract, CombatPrepare, CombatState, CombatTeam, CombatSuppo
                     return False
                 if not self.handle_combat_prepare():
                     return False
+                if self.is_doing_planner and self.combat_wave_cost == 0:
+                    logger.info('Free combat gets nothing cannot meet planner needs')
+                    return False
                 self.device.click(COMBAT_PREPARE)
                 self.interval_reset(COMBAT_PREPARE)
                 trial += 1

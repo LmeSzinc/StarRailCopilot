@@ -90,18 +90,23 @@ class Login(UI, LoginAndroidCloud):
 
     def app_start(self):
         logger.hr('App start')
+        self.device.app_start()
+
         if self.config.is_cloud_game:
-            self.cloud_ensure_ingame()
+            self.device.dump_hierarchy()
+            self.cloud_enter_game()
         else:
-            self.device.app_start()
             self.handle_app_login()
 
     def app_restart(self):
         logger.hr('App restart')
         self.device.app_stop()
+        self.device.app_start()
+
         if self.config.is_cloud_game:
-            self.cloud_ensure_ingame()
+            self.device.dump_hierarchy()
+            self.cloud_enter_game()
         else:
-            self.device.app_start()
             self.handle_app_login()
+
         self.config.task_delay(server_update=True)

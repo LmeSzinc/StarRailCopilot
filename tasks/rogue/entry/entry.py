@@ -375,19 +375,19 @@ class RogueEntry(RouteBase, RogueRewardHandler, RoguePathHandler, DungeonRogueUI
             # Expired, do rogue
             pass
         elif self.config.stored.SimulatedUniverse.is_full():
-            if self.config.RogueWorld_UseImmersifier and self.config.stored.Immersifier.value > 0:
-                logger.info(
-                    'Reached weekly point limit but still have immersifiers left, continue to use them')
-                if ornament:
-                    logger.info('Ornament enabled, skip farming rogue')
-                    raise RogueReachedWeeklyPointLimit
-            elif self.config.RogueWorld_WeeklyFarming and not self.config.stored.SimulatedUniverseFarm.is_full():
+            if self.config.RogueWorld_WeeklyFarming and not self.config.stored.SimulatedUniverseFarm.is_full():
                 logger.info(
                     'Reached weekly point limit but still continue to farm materials')
                 logger.attr(
                     "Farming Counter", self.config.stored.SimulatedUniverseFarm.to_counter())
                 if self.config.is_cloud_game and not self.config.stored.CloudRemainSeasonPass.value:
                     logger.warning('Running WeeklyFarming on cloud game without season pass may cause fee, skip')
+                    raise RogueReachedWeeklyPointLimit
+            elif self.config.RogueWorld_UseImmersifier and self.config.stored.Immersifier.value > 0:
+                logger.info(
+                    'Reached weekly point limit but still have immersifiers left, continue to use them')
+                if ornament:
+                    logger.info('Ornament enabled, skip farming rogue')
                     raise RogueReachedWeeklyPointLimit
             else:
                 raise RogueReachedWeeklyPointLimit

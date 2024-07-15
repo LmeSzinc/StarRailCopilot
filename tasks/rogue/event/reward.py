@@ -112,6 +112,9 @@ class RogueReward(RogueUI, CombatInteract, DungeonState):
         if not use_trailblaze_power and not use_immersifier:
             logger.info('Cannot claim domain reward, as all disabled')
             return False
+        if self.config.is_task_enabled('Ornament'):
+            logger.info(f'Cannot claim domain reward, saving immersifiers for ornament')
+            return False
         if use_immersifier:
             if self.config.stored.Immersifier.value > 0:
                 logger.info(f'Can claim domain reward, got immersifiers')

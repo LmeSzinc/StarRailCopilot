@@ -738,6 +738,20 @@
         "order": 6,
         "color": "#8fb5fe"
       }
+    },
+    "TrailblazePower": {
+      "ExtractReservedTrailblazePower": {
+        "type": "checkbox",
+        "value": false
+      },
+      "UseFuel": {
+        "type": "checkbox",
+        "value": false
+      },
+      "UseFuelUntilRemainCount": {
+        "type": "input",
+        "value": 0
+      }
     }
   },
   "DailyQuest": {

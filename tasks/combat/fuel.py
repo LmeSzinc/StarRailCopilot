@@ -1,4 +1,5 @@
 import module.config.server as server
+from module.base.timer import Timer
 
 from module.base.utils import crop, area_offset
 from module.logger import logger
@@ -122,9 +123,10 @@ class Fuel(UI):
             skip_first_screenshot=True
         )
 
-    def set_fuel_count(self, count, total):
+    def set_fuel_count(self, count):
         slider = Slider(main=self, slider=FUEL_SLIDER)
-        slider.set(count, total)
+        # Can only use 5 fuel at one time
+        slider.set(count, 5)
         self.ui_ensure_index(
             count, letter=Digit(OCR_FUEL_COUNT, lang=server.lang),
             next_button=FUEL_PLUS, prev_button=FUEL_MINUS,
@@ -139,20 +141,29 @@ class Fuel(UI):
             return
 
         logger.info("Use Fuel")
+
+        timeout = Timer(1, count=3)
+        has_fuel = False
         while 1:
             if skip_first_screenshot:
                 skip_first_screenshot = False
             else:
                 self.device.screenshot()
 
-            if self.appear(POPUP_CONFIRM) and not (self.appear(FUEL_SELECTED) and self.appear(FUEL)):
-                logger.info("No fuel found")
-                return
             if self.appear(FUEL_SELECTED):
+                logger.info('Fuel selected')
                 break
+            if self.appear(POPUP_CONFIRM):
+                timeout.start()
+                if self.appear(FUEL_SELECTED) or self.appear(FUEL):
+                    has_fuel = True
+                if not has_fuel and timeout.reached():
+                    logger.info("No fuel found")
+                    return
             if self.appear_then_click(FUEL):
+                has_fuel = True
                 continue
-            if self.appear_then_click(FUEL_ENTRANCE):
+            if not self.appear(POPUP_CONFIRM) and self.appear_then_click(FUEL_ENTRANCE):
                 continue
 
         offset = FUEL_SELECTED.button_offset
@@ -178,6 +189,8 @@ class Fuel(UI):
                 break
             if self.appear(FUEL) and self.handle_popup_confirm():
                 continue
+            if self.appear(FUEL_SELECTED) and self.handle_popup_confirm():
+                continue
 
-        self.set_fuel_count(use, count)
+        self.set_fuel_count(use)
         self._fuel_confirm()

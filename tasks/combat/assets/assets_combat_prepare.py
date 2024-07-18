@@ -34,10 +34,10 @@ FUEL = ButtonWrapper(
     name='FUEL',
     share=Button(
         file='./assets/share/combat/prepare/FUEL.png',
-        area=(592, 276, 688, 388),
-        search=(572, 256, 708, 408),
-        color=(113, 90, 123),
-        button=(592, 276, 688, 388),
+        area=(592, 276, 688, 366),
+        search=(474, 271, 811, 396),
+        color=(123, 96, 134),
+        button=(592, 276, 688, 366),
     ),
 )
 FUEL_ENTRANCE = ButtonWrapper(
@@ -74,10 +74,10 @@ FUEL_SELECTED = ButtonWrapper(
     name='FUEL_SELECTED',
     share=Button(
         file='./assets/share/combat/prepare/FUEL_SELECTED.png',
-        area=(587, 271, 692, 395),
+        area=(587, 271, 692, 368),
         search=(474, 271, 811, 396),
-        color=(130, 111, 137),
-        button=(587, 271, 692, 395),
+        color=(136, 112, 144),
+        button=(587, 271, 692, 368),
     ),
 )
 FUEL_SLIDER = ButtonWrapper(

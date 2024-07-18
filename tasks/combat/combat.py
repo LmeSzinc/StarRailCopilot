@@ -235,12 +235,14 @@ class Combat(CombatInteract, CombatPrepare, CombatState, CombatTeam, CombatSuppo
     def _try_get_more_trablaize_power(self, current, cost):
         if self.config.TrailblazePower_ExtractReservedTrailblazePower:
             logger.info('Extract reserved trailblaze power to get more trailblaze power')
-            self.extract_reserved_trailblaze_power(current)
-            current = self.combat_get_trailblaze_power()
+            if self.extract_reserved_trailblaze_power(current):
+                self.combat_get_trailblaze_power()
+                self.get_interval_timer(COMBAT_EXIT).wait()
         if self.config.TrailblazePower_UseFuel:
             logger.info('Use fuel to get more trailblaze power')
-            self.use_fuel(current)
-            current = self.combat_get_trailblaze_power()
+            if self.use_fuel(current):
+                self.combat_get_trailblaze_power()
+            self.get_interval_timer(COMBAT_AGAIN).wait()
 
         if current >= cost:
             return True

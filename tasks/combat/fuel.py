@@ -1,15 +1,14 @@
 import module.config.server as server
 from module.base.timer import Timer
-
-from module.base.utils import crop, area_offset
+from module.base.utils import area_offset, crop
 from module.logger import logger
 from module.ocr.ocr import Digit
-from tasks.base.assets.assets_base_popup import GET_REWARD, POPUP_CONFIRM, POPUP_CANCEL
+from tasks.base.assets.assets_base_popup import GET_REWARD, POPUP_CANCEL, POPUP_CONFIRM
 from tasks.base.ui import UI
-from tasks.item.slider import Slider
-from tasks.combat.assets.assets_combat_finish import COMBAT_AGAIN
-from tasks.combat.assets.assets_combat_prepare import COMBAT_PREPARE
+from tasks.combat.assets.assets_combat_finish import COMBAT_AGAIN, COMBAT_EXIT
 from tasks.combat.assets.assets_combat_fuel import *
+from tasks.combat.assets.assets_combat_prepare import COMBAT_PREPARE
+from tasks.item.slider import Slider
 
 
 class Fuel(UI):
@@ -21,7 +20,15 @@ class Fuel(UI):
         1. COMBAT_PREPARE
         2. COMBAT_AGAIN
         """
-        return self.appear(COMBAT_PREPARE) or self.appear(COMBAT_AGAIN)
+        if self.appear(COMBAT_AGAIN):
+            if self.image_color_count(COMBAT_AGAIN, color=(227, 227, 228), threshold=221, count=50):
+                logger.info(f'Use fuel finished at COMBAT_AGAIN')
+                return True
+        if self.appear(COMBAT_PREPARE):
+            if self.image_color_count(COMBAT_PREPARE.button, color=(230, 230, 230), threshold=240, count=400):
+                logger.info(f'Use fuel finished at COMBAT_AGAIN')
+                return True
+        return False
 
     def _fuel_confirm(self, skip_first_screenshot=True):
         """
@@ -44,6 +51,8 @@ class Fuel(UI):
             if self.handle_reward():
                 continue
 
+        self._fuel_wait_leave()
+
     def _fuel_cancel(self, skip_first_screenshot=True):
         """
         Pages:
@@ -65,18 +74,29 @@ class Fuel(UI):
             if self.handle_reward():
                 continue
 
+        self._fuel_wait_leave()
+
+    def _fuel_wait_leave(self):
+        # Blur disappears before popup
+        # so there's a short period of time that COMBAT_AGAIN is unclickable
+        # This is equivalent to poor sleep
+        timer = self.get_interval_timer(COMBAT_AGAIN, interval=5, renew=True)
+        timer.set_current(4.4)
+        timer = self.get_interval_timer(COMBAT_EXIT, interval=5, renew=True)
+        timer.set_current(4.4)
+
     def extract_reserved_trailblaze_power(self, current, skip_first_screenshot=True):
         """
         Extract reserved trailblaze power from previous combat.
 
         Returns:
-            int: Reserved trailblaze power
+            bool: If extracted
         """
         logger.info('Extract reserved trailblaze power')
         reserved = Digit(OCR_RESERVED_TRAILBLAZE_POWER).ocr_single_line(self.device.image)
         if reserved <= 0:
             logger.info('No reserved trailblaze power')
-            return
+            return False
 
         self.interval_clear([POPUP_CONFIRM, POPUP_CANCEL, GET_REWARD])
         while 1:
@@ -96,6 +116,7 @@ class Fuel(UI):
         logger.info(f'Having {reserved} reserved, going to use {count}')
         self.set_reserved_trailblaze_power(count, total=reserved)
         self._fuel_confirm()
+        return True
 
     def set_reserved_trailblaze_power(self, count, total):
         slider = Slider(main=self, slider=RESERVED_SLIDER)
@@ -117,11 +138,19 @@ class Fuel(UI):
         )
 
     def use_fuel(self, current, skip_first_screenshot=True):
+        """
+        Args:
+            current:
+            skip_first_screenshot:
+
+        Returns:
+            bool: If used
+        """
         limit = self.config.stored.TrailblazePower.FIXED_TOTAL
         use = (limit - current) // self.fuel_trailblaze_power
         if use == 0:
             logger.info(f"Current trailblaze power is near {limit}, no need to use fuel")
-            return
+            return False
 
         logger.info("Use Fuel")
 
@@ -142,7 +171,7 @@ class Fuel(UI):
                     has_fuel = True
                 if not has_fuel and timeout.reached():
                     logger.info("No fuel found")
-                    return
+                    return False
             if self.appear_then_click(FUEL):
                 has_fuel = True
                 continue
@@ -177,3 +206,4 @@ class Fuel(UI):
 
         self.set_fuel_count(use)
         self._fuel_confirm()
+        return True

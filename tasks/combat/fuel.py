@@ -8,25 +8,8 @@ from tasks.base.assets.assets_base_popup import GET_REWARD, POPUP_CONFIRM, POPUP
 from tasks.base.ui import UI
 from tasks.item.slider import Slider
 from tasks.combat.assets.assets_combat_finish import COMBAT_AGAIN
-from tasks.combat.assets.assets_combat_prepare import (
-    COMBAT_PREPARE,
-    EXTRACT_RESERVED_TRAILBLAZE_POWER,
-    FUEL,
-    FUEL_MINUS,
-    FUEL_PLUS,
-    FUEL_SELECTED,
-    OCR_FUEL,
-    OCR_FUEL_COUNT,
-    OCR_RESERVED_TRAILBLAZE_POWER,
-    OCR_EXTRACT_RESERVED_TRAILBLAZE_POWER_COUNT,
-    RESERVED_TRAILBLAZE_POWER_ENTRANCE,
-    RESERVED_MINUS,
-    RESERVED_PLUS,
-    RESERVED_SLIDER,
-    FUEL_ENTRANCE,
-    USING_FUEL,
-    FUEL_SLIDER
-)
+from tasks.combat.assets.assets_combat_prepare import COMBAT_PREPARE
+from tasks.combat.assets.assets_combat_fuel import *
 
 
 class Fuel(UI):

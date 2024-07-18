@@ -183,6 +183,9 @@ BattlePassStorage:
   BattlePassQuestSynthesizeConsumables:
     stored: StoredBattlePassQuestSynthesizeConsumables
     display: display
+  BattlePassQuestStagnantShadow:
+    stored: StoredBattlePassQuestStagnantShadow
+    display: display
   BattlePassQuestCavernOfCorrosion:
     stored: StoredBattlePassQuestCavernOfCorrosion
     display: display

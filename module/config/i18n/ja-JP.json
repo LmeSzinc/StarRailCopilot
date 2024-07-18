@@ -758,6 +758,10 @@
       "name": "BattlePassStorage.BattlePassQuestSynthesizeConsumables.name",
       "help": "BattlePassStorage.BattlePassQuestSynthesizeConsumables.help"
     },
+    "BattlePassQuestStagnantShadow": {
+      "name": "BattlePassStorage.BattlePassQuestStagnantShadow.name",
+      "help": "BattlePassStorage.BattlePassQuestStagnantShadow.help"
+    },
     "BattlePassQuestCavernOfCorrosion": {
       "name": "BattlePassStorage.BattlePassQuestCavernOfCorrosion.name",
       "help": "BattlePassStorage.BattlePassQuestCavernOfCorrosion.help"

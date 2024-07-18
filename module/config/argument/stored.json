@@ -806,6 +806,19 @@
     "order": 0,
     "color": "#777777"
   },
+  "BattlePassQuestStagnantShadow": {
+    "name": "BattlePassQuestStagnantShadow",
+    "path": "BattlePass.BattlePassStorage.BattlePassQuestStagnantShadow",
+    "i18n": "BattlePassStorage.BattlePassQuestStagnantShadow.name",
+    "stored": "StoredBattlePassQuestStagnantShadow",
+    "attrs": {
+      "time": "2020-01-01 00:00:00",
+      "total": 3,
+      "value": 0
+    },
+    "order": 0,
+    "color": "#777777"
+  },
   "BattlePassQuestCavernOfCorrosion": {
     "name": "BattlePassQuestCavernOfCorrosion",
     "path": "BattlePass.BattlePassStorage.BattlePassQuestCavernOfCorrosion",

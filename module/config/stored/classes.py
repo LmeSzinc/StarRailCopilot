@@ -411,9 +411,8 @@ class StoredBattlePassQuestSynthesizeConsumables(StoredCounter):
     FIXED_TOTAL = 10
 
 
-# Not exists on client side
-# class StoredBattlePassQuestStagnantShadow(StoredCounter):
-#     FIXED_TOTAL = 8
+class StoredBattlePassQuestStagnantShadow(StoredCounter):
+    FIXED_TOTAL = 3
 
 
 class StoredBattlePassQuestCavernOfCorrosion(StoredCounter):

@@ -135,6 +135,7 @@ class GeneratedConfig:
     BattlePassStorage_BattlePassQuestEchoOfWar = {}
     BattlePassStorage_BattlePassQuestCredits = {}
     BattlePassStorage_BattlePassQuestSynthesizeConsumables = {}
+    BattlePassStorage_BattlePassQuestStagnantShadow = {}
     BattlePassStorage_BattlePassQuestCavernOfCorrosion = {}
     BattlePassStorage_BattlePassQuestTrailblazePower = {}
 

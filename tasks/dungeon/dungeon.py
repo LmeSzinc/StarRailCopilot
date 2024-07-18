@@ -121,6 +121,12 @@ class Dungeon(DungeonStamina, DungeonEvent, Combat):
                 if KEYWORDS_DAILY_QUEST.Clear_Stagnant_Shadow_1_times in self.daily_quests:
                     logger.info('Achieve daily quest Clear_Stagnant_Shadow_1_times')
                     self.achieved_daily_quest = True
+                if KEYWORDS_BATTLE_PASS_QUEST.Clear_Stagnant_Shadow_1_times in self.weekly_quests:
+                    logger.info('Done weekly quest Clear_Stagnant_Shadow_1_times once')
+                    self.config.stored.BattlePassQuestStagnantShadow.add()
+                    if self.config.stored.BattlePassQuestStagnantShadow.is_full():
+                        logger.info('Achieved weekly quest Clear_Stagnant_Shadow_1_times')
+                        self.achieved_weekly_quest = True
             # Cavern_of_Corrosion
             if dungeon.is_Cavern_of_Corrosion:
                 if KEYWORDS_DAILY_QUEST.Clear_Cavern_of_Corrosion_1_times in self.daily_quests:

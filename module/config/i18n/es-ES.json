@@ -758,6 +758,10 @@
       "name": "Sintetiza consumibles 10 veces",
       "help": ""
     },
+    "BattlePassQuestStagnantShadow": {
+      "name": "Completa Sombra paralizada 3 veces",
+      "help": ""
+    },
     "BattlePassQuestCavernOfCorrosion": {
       "name": "Completa Caverna de la corrosión 8 veces",
       "help": ""

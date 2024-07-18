@@ -758,6 +758,10 @@
       "name": "Synthesize Consumables 10 time(s)",
       "help": ""
     },
+    "BattlePassQuestStagnantShadow": {
+      "name": "Clear Stagnant Shadow 3 time(s)",
+      "help": ""
+    },
     "BattlePassQuestCavernOfCorrosion": {
       "name": "Clear Cavern of Corrosion 8 time(s)",
       "help": ""

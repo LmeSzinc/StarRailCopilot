@@ -145,6 +145,7 @@
       "BattlePassQuestEchoOfWar": {},
       "BattlePassQuestCredits": {},
       "BattlePassQuestSynthesizeConsumables": {},
+      "BattlePassQuestStagnantShadow": {},
       "BattlePassQuestCavernOfCorrosion": {},
       "BattlePassQuestTrailblazePower": {}
     }
@@ -257,6 +258,11 @@
     "DungeonSupport": {
       "Use": "when_daily",
       "Character": "FirstCharacter"
+    },
+    "TrailblazePower": {
+      "ExtractReservedTrailblazePower": false,
+      "UseFuel": false,
+      "FuelReserve": 5
     }
   },
   "Daemon": {

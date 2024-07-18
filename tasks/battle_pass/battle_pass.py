@@ -354,6 +354,8 @@ class BattlePassUI(UI):
                 self.config.stored.BattlePassQuestCredits,
             KEYWORDS_BATTLE_PASS_QUEST.Synthesize_Consumables_1_times:
                 self.config.stored.BattlePassQuestSynthesizeConsumables,
+            KEYWORDS_BATTLE_PASS_QUEST.Clear_Stagnant_Shadow_1_times:
+                self.config.stored.BattlePassQuestStagnantShadow,
             KEYWORDS_BATTLE_PASS_QUEST.Clear_Cavern_of_Corrosion_1_times:
                 self.config.stored.BattlePassQuestCavernOfCorrosion,
             KEYWORDS_BATTLE_PASS_QUEST.Consume_a_total_of_1_Trailblaze_Power_1400_Trailblazer_Power_max:

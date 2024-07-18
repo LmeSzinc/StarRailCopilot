@@ -872,6 +872,12 @@
         "display": "display",
         "stored": "StoredBattlePassQuestSynthesizeConsumables"
       },
+      "BattlePassQuestStagnantShadow": {
+        "type": "stored",
+        "value": {},
+        "display": "display",
+        "stored": "StoredBattlePassQuestStagnantShadow"
+      },
       "BattlePassQuestCavernOfCorrosion": {
         "type": "stored",
         "value": {},
@@ -1545,6 +1551,20 @@
           "Yanqing",
           "Yukong"
         ]
+      }
+    },
+    "TrailblazePower": {
+      "ExtractReservedTrailblazePower": {
+        "type": "checkbox",
+        "value": false
+      },
+      "UseFuel": {
+        "type": "checkbox",
+        "value": false
+      },
+      "FuelReserve": {
+        "type": "input",
+        "value": 5
       }
     }
   },

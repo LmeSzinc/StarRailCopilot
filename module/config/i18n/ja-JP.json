@@ -358,9 +358,9 @@
       "name": "TrailblazePower.UseFuel.name",
       "help": "TrailblazePower.UseFuel.help"
     },
-    "UseFuelUntilRemainCount": {
-      "name": "TrailblazePower.UseFuelUntilRemainCount.name",
-      "help": "TrailblazePower.UseFuelUntilRemainCount.help"
+    "FuelReserve": {
+      "name": "TrailblazePower.FuelReserve.name",
+      "help": "TrailblazePower.FuelReserve.help"
     }
   },
   "DungeonSupport": {

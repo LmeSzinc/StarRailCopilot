@@ -748,9 +748,9 @@
         "type": "checkbox",
         "value": false
       },
-      "UseFuelUntilRemainCount": {
+      "FuelReserve": {
         "type": "input",
-        "value": 0
+        "value": 5
       }
     }
   },

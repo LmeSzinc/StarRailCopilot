@@ -1,10 +1,9 @@
-
 import module.config.server as server
 
 from module.base.utils import crop, area_offset
 from module.logger import logger
 from module.ocr.ocr import Digit
-from tasks.base.assets.assets_base_popup import POPUP_CONFIRM, POPUP_CANCEL
+from tasks.base.assets.assets_base_popup import GET_REWARD, POPUP_CONFIRM, POPUP_CANCEL
 from tasks.base.ui import UI
 from tasks.item.slider import Slider
 from tasks.combat.assets.assets_combat_finish import COMBAT_AGAIN
@@ -31,7 +30,6 @@ from tasks.combat.assets.assets_combat_prepare import (
 
 class Fuel(UI):
     fuel_trailblaze_power = 60
-    trailblaze_max_limit = 240
 
     def _use_fuel_finish(self):
         """
@@ -40,7 +38,49 @@ class Fuel(UI):
         2. COMBAT_AGAIN
         """
         return self.appear(COMBAT_PREPARE) or self.appear(COMBAT_AGAIN)
-        
+
+    def _fuel_confirm(self, skip_first_screenshot=True):
+        """
+        Pages:
+            in: fuel popup
+            out: _use_fuel_finish
+        """
+        logger.info('Fuel confirm')
+        self.interval_clear([POPUP_CONFIRM, POPUP_CANCEL, GET_REWARD])
+        while 1:
+            if skip_first_screenshot:
+                skip_first_screenshot = False
+            else:
+                self.device.screenshot()
+
+            if self._use_fuel_finish():
+                break
+            if self.handle_popup_confirm():
+                continue
+            if self.handle_reward():
+                continue
+
+    def _fuel_cancel(self, skip_first_screenshot=True):
+        """
+        Pages:
+            in: fuel popup
+            out: _use_fuel_finish
+        """
+        logger.info('Fuel cancel')
+        self.interval_clear([POPUP_CONFIRM, POPUP_CANCEL, GET_REWARD])
+        while 1:
+            if skip_first_screenshot:
+                skip_first_screenshot = False
+            else:
+                self.device.screenshot()
+
+            if self._use_fuel_finish():
+                break
+            if self.handle_popup_cancel():
+                continue
+            if self.handle_reward():
+                continue
+
     def extract_reserved_trailblaze_power(self, current, skip_first_screenshot=True):
         """
         Extract reserved trailblaze power from previous combat.
@@ -50,16 +90,17 @@ class Fuel(UI):
         """
         logger.info('Extract reserved trailblaze power')
         reserved = Digit(OCR_RESERVED_TRAILBLAZE_POWER).ocr_single_line(self.device.image)
-        if reserved == 0:
+        if reserved <= 0:
             logger.info('No reserved trailblaze power')
             return
 
+        self.interval_clear([POPUP_CONFIRM, POPUP_CANCEL, GET_REWARD])
         while 1:
             if skip_first_screenshot:
                 skip_first_screenshot = False
             else:
                 self.device.screenshot()
-            
+
             if self.appear(POPUP_CONFIRM):
                 break
             if self.appear_then_click(EXTRACT_RESERVED_TRAILBLAZE_POWER):
@@ -67,23 +108,10 @@ class Fuel(UI):
             if self.appear_then_click(RESERVED_TRAILBLAZE_POWER_ENTRANCE):
                 continue
 
-        count = min(reserved, self.trailblaze_max_limit - current)
+        count = min(reserved, self.config.stored.TrailblazePower.FIXED_TOTAL - current)
+        logger.info(f'Having {reserved} reserved, going to use {count}')
         self.set_reserved_trailblaze_power(count, total=reserved)
-
-        skip_first_screenshot = True
-
-        while 1:
-            if skip_first_screenshot:
-                skip_first_screenshot = False
-            else:
-                self.device.screenshot()
-
-            if self._use_fuel_finish():
-                break
-            if self.appear_then_click(POPUP_CONFIRM):
-                continue
-            if self.handle_reward():
-                continue
+        self._fuel_confirm()
 
     def set_reserved_trailblaze_power(self, count, total):
         slider = Slider(main=self, slider=RESERVED_SLIDER)
@@ -104,9 +132,10 @@ class Fuel(UI):
         )
 
     def use_fuel(self, current, skip_first_screenshot=True):
-        need = (self.trailblaze_max_limit - current) // self.fuel_trailblaze_power
-        if need == 0:
-            logger.info(f"Current trailblaze power is near {self.trailblaze_max_limit}, no need to use fuel")
+        limit = self.config.stored.TrailblazePower.FIXED_TOTAL
+        use = (limit - current) // self.fuel_trailblaze_power
+        if use == 0:
+            logger.info(f"Current trailblaze power is near {limit}, no need to use fuel")
             return
 
         logger.info("Use Fuel")
@@ -118,7 +147,7 @@ class Fuel(UI):
 
             if self.appear(POPUP_CONFIRM) and not (self.appear(FUEL_SELECTED) and self.appear(FUEL)):
                 logger.info("No fuel found")
-                return 
+                return
             if self.appear(FUEL_SELECTED):
                 break
             if self.appear_then_click(FUEL):
@@ -127,20 +156,18 @@ class Fuel(UI):
                 continue
 
         offset = FUEL_SELECTED.button_offset
-        count = Digit(OCR_FUEL).ocr_single_line(crop(self.device.image, area_offset(OCR_FUEL.area, offset)),
-                                                direct_ocr=True)
+        image = crop(self.device.image, area_offset(OCR_FUEL.area, offset), copy=False)
+        count = Digit(OCR_FUEL).ocr_single_line(image, direct_ocr=True)
 
-        available_count = count - self.config.TrailblazePower_UseFuelUntilRemainCount
-        need = min(need, available_count)
-        if need <= 0:
-            logger.info("Fuel remain is under the threshold, stop using fuel")
-            while 1:
-                self.device.screenshot()
-                if self.appear_then_click(POPUP_CANCEL):
-                    return
+        reserve = self.config.TrailblazePower_FuelReserve
+        available_count = max(count - reserve, 0)
+        use = min(use, available_count)
+        logger.info(f'Having {count} fuel, reserve {reserve} fuel, going to use {use} fuel')
+        if use <= 0:
+            logger.info("Fuel remain is under the reserve threshold, stop using fuel")
+            self._fuel_cancel()
 
         skip_first_screenshot = True
-
         while 1:
             if skip_first_screenshot:
                 skip_first_screenshot = False
@@ -149,22 +176,8 @@ class Fuel(UI):
 
             if self.appear(USING_FUEL):
                 break
-            if self.appear(FUEL) and self.appear_then_click(POPUP_CONFIRM):
+            if self.appear(FUEL) and self.handle_popup_confirm():
                 continue
-        
-        self.set_fuel_count(need, count)
 
-        skip_first_screenshot = True
-
-        while 1:
-            if skip_first_screenshot:
-                skip_first_screenshot = False
-            else:
-                self.device.screenshot()
-
-            if self._use_fuel_finish():
-                break
-            if self.appear_then_click(POPUP_CONFIRM):
-                continue
-            if self.handle_reward():
-                continue
+        self.set_fuel_count(use, count)
+        self._fuel_confirm()

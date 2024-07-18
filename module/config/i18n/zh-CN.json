@@ -358,8 +358,8 @@
       "name": "使用燃料",
       "help": ""
     },
-    "UseFuelUntilRemainCount": {
-      "name": "使用燃料补充开拓力，直到剩余 X 燃料",
+    "FuelReserve": {
+      "name": "保留 X 燃料",
       "help": ""
     }
   },

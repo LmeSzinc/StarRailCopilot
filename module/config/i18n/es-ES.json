@@ -347,20 +347,20 @@
   },
   "TrailblazePower": {
     "_info": {
-      "name": "TrailblazePower._info.name",
-      "help": "TrailblazePower._info.help"
+      "name": "Ajustes de Poder Trazacaminos",
+      "help": ""
     },
     "ExtractReservedTrailblazePower": {
-      "name": "TrailblazePower.ExtractReservedTrailblazePower.name",
-      "help": "TrailblazePower.ExtractReservedTrailblazePower.help"
+      "name": "Extraer reserva de poder de trazacaminos",
+      "help": ""
     },
     "UseFuel": {
-      "name": "TrailblazePower.UseFuel.name",
-      "help": "TrailblazePower.UseFuel.help"
+      "name": "Usar combustible",
+      "help": ""
     },
-    "UseFuelUntilRemainCount": {
-      "name": "TrailblazePower.UseFuelUntilRemainCount.name",
-      "help": "TrailblazePower.UseFuelUntilRemainCount.help"
+    "FuelReserve": {
+      "name": "Reserva X Combustible",
+      "help": ""
     }
   },
   "DungeonSupport": {

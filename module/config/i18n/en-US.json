@@ -358,8 +358,8 @@
       "name": "Use Fuel",
       "help": ""
     },
-    "UseFuelUntilRemainCount": {
-      "name": "Supplement exploration power with fuel until X fuel remains",
+    "FuelReserve": {
+      "name": "Reserve X Fuel",
       "help": ""
     }
   },

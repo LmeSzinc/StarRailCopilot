@@ -347,20 +347,20 @@
   },
   "TrailblazePower": {
     "_info": {
-      "name": "TrailblazePower._info.name",
-      "help": "TrailblazePower._info.help"
+      "name": "開拓力設定",
+      "help": ""
     },
     "ExtractReservedTrailblazePower": {
-      "name": "TrailblazePower.ExtractReservedTrailblazePower.name",
-      "help": "TrailblazePower.ExtractReservedTrailblazePower.help"
+      "name": "取出後備開拓力",
+      "help": ""
     },
     "UseFuel": {
-      "name": "TrailblazePower.UseFuel.name",
-      "help": "TrailblazePower.UseFuel.help"
+      "name": "使用燃料",
+      "help": ""
     },
-    "UseFuelUntilRemainCount": {
-      "name": "TrailblazePower.UseFuelUntilRemainCount.name",
-      "help": "TrailblazePower.UseFuelUntilRemainCount.help"
+    "FuelReserve": {
+      "name": "保留 X 燃料",
+      "help": ""
     }
   },
   "DungeonSupport": {

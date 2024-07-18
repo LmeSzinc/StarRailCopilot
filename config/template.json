@@ -115,7 +115,7 @@
     "TrailblazePower": {
       "ExtractReservedTrailblazePower": false,
       "UseFuel": false,
-      "UseFuelUntilRemainCount": 0
+      "FuelReserve": 5
     }
   },
   "DailyQuest": {

@@ -106,7 +106,7 @@ Dungeon:
 TrailblazePower:
   ExtractReservedTrailblazePower: false
   UseFuel: false
-  UseFuelUntilRemainCount: 0
+  FuelReserve: 5
 DungeonSupport:
   Use:
     value: when_daily

@@ -49,7 +49,7 @@ class GeneratedConfig:
     # Group `TrailblazePower`
     TrailblazePower_ExtractReservedTrailblazePower = False
     TrailblazePower_UseFuel = False
-    TrailblazePower_UseFuelUntilRemainCount = 0
+    TrailblazePower_FuelReserve = 5
 
     # Group `DungeonSupport`
     DungeonSupport_Use = 'when_daily'  # always_use, when_daily, do_not_use

@@ -24,6 +24,8 @@ class TrailblazePowerOcr(DigitCounter):
         result = re.sub(r'[买米装：（）]', '', result)
         # 61240 -> 6/240
         result = re.sub(r'1240$', '/240', result)
+        # 0*0/24 -> 0/240
+        result = re.sub(r'24$', '240', result)
         return result
 
 

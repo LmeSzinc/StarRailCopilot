@@ -78,6 +78,7 @@ class Ornament(OrnamentCombat):
         if self.config.stored.DungeonDouble.calyx or self.config.stored.DungeonDouble.relic:
             logger.info('During double calyx or relic event, delay Ornament')
             future = self.config.cross_get('Dungeon.Scheduler.NextRun', default=DEFAULT_TIME)
+            future = max(now(), future)
             future = future + timedelta(minutes=1)
             with self.config.multi_set():
                 self.config.task_delay(target=future)

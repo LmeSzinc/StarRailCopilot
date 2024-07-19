@@ -180,6 +180,15 @@ class LoginAndroidCloud(ModuleBase):
             self.config.stored.CloudRemainPaid.value = paid
             self.config.stored.CloudRemainFree.value = free
 
+    def _is_cloud_ingame(self):
+        button = self.xpath(XPath.FLOAT_WINDOW)
+        if self.appear(button):
+            # Confirm float window size
+            width, height = button.size
+            if (width < 120 and height < 120) and (width / height < 0.6 or height / width < 0.6):
+                return True
+        return False
+
     def _cloud_enter(self, skip_first=False):
         """
         Pages:
@@ -194,13 +203,9 @@ class LoginAndroidCloud(ModuleBase):
                 self.device.dump_hierarchy()
 
             # End
-            button = self.xpath(XPath.FLOAT_WINDOW)
-            if self.appear(button):
-                # Confirm float window size
-                width, height = button.size
-                if (width < 120 and height < 120) and (width / height < 0.6 or height / width < 0.6):
-                    logger.info('Cloud game entered')
-                    break
+            if self._is_cloud_ingame():
+                logger.info('Cloud game entered')
+                break
 
             # Queue daemon
             button = self.xpath(XPath.QUEUE_REMAIN)
@@ -366,7 +371,7 @@ class LoginAndroidCloud(ModuleBase):
             self._cloud_get_remain()
             self._cloud_enter()
             return True
-        elif self.appear(XPath.FLOAT_WINDOW):
+        elif self.is_in_cloud_page():
             logger.info('Cloud game is in game')
             return True
         elif self.appear(XPath.FLOAT_DELAY):

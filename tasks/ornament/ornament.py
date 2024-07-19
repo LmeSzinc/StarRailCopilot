@@ -63,6 +63,7 @@ class Ornament(OrnamentCombat):
         return result
 
     def run(self):
+        self.sync_config_traiblaze_power('Dungeon')
         self.config.update_battle_pass_quests()
         self.config.update_daily_quests()
         # self.check_synthesize()

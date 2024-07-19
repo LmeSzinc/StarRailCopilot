@@ -261,6 +261,7 @@ class Dungeon(DungeonStamina, DungeonEvent, Combat):
                 self.config.stored.DungeonDouble.rogue = rogue
 
     def run(self):
+        self.sync_config_traiblaze_power('Ornament')
         self.config.update_battle_pass_quests()
         self.config.update_daily_quests()
         self.check_synthesize()
@@ -442,3 +443,19 @@ class Dungeon(DungeonStamina, DungeonEvent, Combat):
         if KEYWORDS_DAILY_QUEST.Consume_120_Trailblaze_Power in self.daily_quests:
             logger.info(f'Done Consume_120_Trailblaze_Power stamina {stamina_used}')
             self.achieved_daily_quest = True
+
+    def sync_config_traiblaze_power(self, set_task):
+        # Sync Dungeon.TrailblazePower and Ornament.TrailblazePower
+        with self.config.multi_set():
+            value = self.config.TrailblazePower_ExtractReservedTrailblazePower
+            keys = [set_task, 'TrailblazePower', 'ExtractReservedTrailblazePower']
+            if self.config.cross_get(keys) != value:
+                self.config.cross_set(keys, value)
+            value = self.config.TrailblazePower_UseFuel
+            keys = [set_task, 'TrailblazePower', 'UseFuel']
+            if self.config.cross_get(keys) != value:
+                self.config.cross_set(keys, value)
+            value = self.config.TrailblazePower_FuelReserve
+            keys = [set_task, 'TrailblazePower', 'FuelReserve']
+            if self.config.cross_get(keys) != value:
+                self.config.cross_set(keys, value)

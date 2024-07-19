@@ -189,6 +189,7 @@ class Fuel(UI):
         if use <= 0:
             logger.info("Fuel remain is under the reserve threshold, stop using fuel")
             self._fuel_cancel()
+            return False
 
         skip_first_screenshot = True
         while 1:

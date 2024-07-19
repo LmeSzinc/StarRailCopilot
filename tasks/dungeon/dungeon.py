@@ -448,14 +448,14 @@ class Dungeon(DungeonStamina, DungeonEvent, Combat):
         # Sync Dungeon.TrailblazePower and Ornament.TrailblazePower
         with self.config.multi_set():
             value = self.config.TrailblazePower_ExtractReservedTrailblazePower
-            keys = [set_task, 'TrailblazePower', 'ExtractReservedTrailblazePower']
+            keys = f'{set_task}.TrailblazePower.ExtractReservedTrailblazePower'
             if self.config.cross_get(keys) != value:
                 self.config.cross_set(keys, value)
             value = self.config.TrailblazePower_UseFuel
-            keys = [set_task, 'TrailblazePower', 'UseFuel']
+            keys = f'{set_task}.TrailblazePower.UseFuel'
             if self.config.cross_get(keys) != value:
                 self.config.cross_set(keys, value)
             value = self.config.TrailblazePower_FuelReserve
-            keys = [set_task, 'TrailblazePower', 'FuelReserve']
+            keys = f'{set_task}.TrailblazePower.FuelReserve'
             if self.config.cross_get(keys) != value:
                 self.config.cross_set(keys, value)

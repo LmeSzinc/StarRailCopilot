@@ -52,6 +52,7 @@ class Fuel(UI):
                 continue
 
         self._fuel_wait_leave()
+        self.interval_reset([POPUP_CONFIRM, POPUP_CANCEL], interval=2)
 
     def _fuel_cancel(self, skip_first_screenshot=True):
         """
@@ -75,6 +76,7 @@ class Fuel(UI):
                 continue
 
         self._fuel_wait_leave()
+        self.interval_reset([POPUP_CONFIRM, POPUP_CANCEL], interval=2)
 
     def _fuel_wait_leave(self):
         # Blur disappears before popup
@@ -189,6 +191,7 @@ class Fuel(UI):
         if use <= 0:
             logger.info("Fuel remain is under the reserve threshold, stop using fuel")
             self._fuel_cancel()
+            return False
 
         skip_first_screenshot = True
         while 1:

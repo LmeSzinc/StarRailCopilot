@@ -345,6 +345,24 @@
       "9": "9"
     }
   },
+  "TrailblazePower": {
+    "_info": {
+      "name": "Ajustes de Poder Trazacaminos",
+      "help": ""
+    },
+    "ExtractReservedTrailblazePower": {
+      "name": "Extraer reserva de poder de trazacaminos",
+      "help": ""
+    },
+    "UseFuel": {
+      "name": "Usar combustible",
+      "help": ""
+    },
+    "FuelReserve": {
+      "name": "Reserva X Combustible",
+      "help": ""
+    }
+  },
   "DungeonSupport": {
     "_info": {
       "name": "Ajustes de Apoyo",
@@ -738,6 +756,10 @@
     },
     "BattlePassQuestSynthesizeConsumables": {
       "name": "Sintetiza consumibles 10 veces",
+      "help": ""
+    },
+    "BattlePassQuestStagnantShadow": {
+      "name": "Completa Sombra paralizada 3 veces",
       "help": ""
     },
     "BattlePassQuestCavernOfCorrosion": {

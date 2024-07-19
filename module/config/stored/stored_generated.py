@@ -6,6 +6,7 @@ from module.config.stored.classes import (
     StoredBattlePassQuestCavernOfCorrosion,
     StoredBattlePassQuestCredits,
     StoredBattlePassQuestEchoOfWar,
+    StoredBattlePassQuestStagnantShadow,
     StoredBattlePassQuestSynthesizeConsumables,
     StoredBattlePassQuestTrailblazePower,
     StoredBattlePassSimulatedUniverse,
@@ -97,6 +98,7 @@ class StoredGenerated:
     BattlePassQuestEchoOfWar = StoredBattlePassQuestEchoOfWar("BattlePass.BattlePassStorage.BattlePassQuestEchoOfWar")
     BattlePassQuestCredits = StoredBattlePassQuestCredits("BattlePass.BattlePassStorage.BattlePassQuestCredits")
     BattlePassQuestSynthesizeConsumables = StoredBattlePassQuestSynthesizeConsumables("BattlePass.BattlePassStorage.BattlePassQuestSynthesizeConsumables")
+    BattlePassQuestStagnantShadow = StoredBattlePassQuestStagnantShadow("BattlePass.BattlePassStorage.BattlePassQuestStagnantShadow")
     BattlePassQuestCavernOfCorrosion = StoredBattlePassQuestCavernOfCorrosion("BattlePass.BattlePassStorage.BattlePassQuestCavernOfCorrosion")
     BattlePassQuestTrailblazePower = StoredBattlePassQuestTrailblazePower("BattlePass.BattlePassStorage.BattlePassQuestTrailblazePower")
     Assignment = StoredAssignment("Assignment.Assignment.Assignment")

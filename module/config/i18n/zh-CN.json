@@ -345,6 +345,24 @@
       "9": "9"
     }
   },
+  "TrailblazePower": {
+    "_info": {
+      "name": "开拓力设置",
+      "help": ""
+    },
+    "ExtractReservedTrailblazePower": {
+      "name": "取出后备开拓力",
+      "help": ""
+    },
+    "UseFuel": {
+      "name": "使用燃料",
+      "help": ""
+    },
+    "FuelReserve": {
+      "name": "保留 X 燃料",
+      "help": ""
+    }
+  },
   "DungeonSupport": {
     "_info": {
       "name": "支援设置",
@@ -738,6 +756,10 @@
     },
     "BattlePassQuestSynthesizeConsumables": {
       "name": "累计合成消耗品10次",
+      "help": ""
+    },
+    "BattlePassQuestStagnantShadow": {
+      "name": "完成3次「凝滞虚影」",
       "help": ""
     },
     "BattlePassQuestCavernOfCorrosion": {

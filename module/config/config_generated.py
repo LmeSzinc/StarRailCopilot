@@ -46,6 +46,11 @@ class GeneratedConfig:
     Dungeon_NameAtDoubleRelic = 'Cavern_of_Corrosion_Path_of_Providence'  # Cavern_of_Corrosion_Path_of_Gelid_Wind, Cavern_of_Corrosion_Path_of_Jabbing_Punch, Cavern_of_Corrosion_Path_of_Drifting, Cavern_of_Corrosion_Path_of_Providence, Cavern_of_Corrosion_Path_of_Holy_Hymn, Cavern_of_Corrosion_Path_of_Conflagration, Cavern_of_Corrosion_Path_of_Elixir_Seekers, Cavern_of_Corrosion_Path_of_Darkness, Cavern_of_Corrosion_Path_of_Dreamdive, Cavern_of_Corrosion_Path_of_Cavalier
     Dungeon_Team = 1  # 1, 2, 3, 4, 5, 6, 7, 8, 9
 
+    # Group `TrailblazePower`
+    TrailblazePower_ExtractReservedTrailblazePower = False
+    TrailblazePower_UseFuel = False
+    TrailblazePower_FuelReserve = 5
+
     # Group `DungeonSupport`
     DungeonSupport_Use = 'when_daily'  # always_use, when_daily, do_not_use
     DungeonSupport_Character = 'FirstCharacter'  # FirstCharacter, Acheron, Argenti, Arlan, Asta, Aventurine, Bailu, BlackSwan, Blade, Boothill, Bronya, Clara, DanHeng, DanHengImbibitorLunae, DrRatio, Firefly, FuXuan, Gallagher, Gepard, Guinaifen, Hanya, Herta, Himeko, Hook, Huohuo, JingYuan, Jingliu, Kafka, Luka, Luocha, Lynx, March7th, Misha, Natasha, Pela, Qingque, Robin, RuanMei, Sampo, Seele, Serval, SilverWolf, Sparkle, Sushang, Tingyun, TopazNumby, TrailblazerDestruction, TrailblazerHarmony, TrailblazerPreservation, Welt, Xueyi, Yanqing, Yukong
@@ -130,6 +135,7 @@ class GeneratedConfig:
     BattlePassStorage_BattlePassQuestEchoOfWar = {}
     BattlePassStorage_BattlePassQuestCredits = {}
     BattlePassStorage_BattlePassQuestSynthesizeConsumables = {}
+    BattlePassStorage_BattlePassQuestStagnantShadow = {}
     BattlePassStorage_BattlePassQuestCavernOfCorrosion = {}
     BattlePassStorage_BattlePassQuestTrailblazePower = {}
 

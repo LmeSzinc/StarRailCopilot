@@ -715,7 +715,9 @@
       "quest4": "",
       "quest5": "",
       "quest6": "",
-      "total": 6,
+      "quest7": "",
+      "quest8": "",
+      "total": 8,
       "value": 0
     },
     "order": 0,
@@ -801,6 +803,19 @@
     "attrs": {
       "time": "2020-01-01 00:00:00",
       "total": 10,
+      "value": 0
+    },
+    "order": 0,
+    "color": "#777777"
+  },
+  "BattlePassQuestStagnantShadow": {
+    "name": "BattlePassQuestStagnantShadow",
+    "path": "BattlePass.BattlePassStorage.BattlePassQuestStagnantShadow",
+    "i18n": "BattlePassStorage.BattlePassQuestStagnantShadow.name",
+    "stored": "StoredBattlePassQuestStagnantShadow",
+    "attrs": {
+      "time": "2020-01-01 00:00:00",
+      "total": 3,
       "value": 0
     },
     "order": 0,

@@ -28,6 +28,7 @@ Daily:
       - Dungeon
       - DungeonSupport
       - DungeonStorage
+      - TrailblazePower
     DailyQuest:
       - Scheduler
       - DailyStorage
@@ -64,6 +65,7 @@ Weekly:
       - Scheduler
       - Ornament
       - DungeonSupport
+      - TrailblazePower
 
 # ==================== Tool ====================
 

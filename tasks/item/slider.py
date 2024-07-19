@@ -93,6 +93,16 @@ class Slider:
             logger.warning('Detected slider too short')
             # self.main.device.image_save()
 
+    def is_slider_arrive(self, detect):
+        """
+        Args:
+            detect: Area to detect
+
+        Returns:
+            bool: If slider arrive detect area
+        """
+        return self.main.image_color_count(detect, color=(255, 255, 255), threshold=235, count=50)
+
     def set(self, value: int, total: int, skip_first_screenshot=True):
         """
         Args:
@@ -158,7 +168,7 @@ class Slider:
             if trial > 3:
                 logger.warning('Slider.set failed after 3 trial')
                 return False
-            if self.main.image_color_count(detect, color=(255, 255, 255), threshold=221, count=50):
+            if self.is_slider_arrive(detect):
                 logger.info('Slider set done')
                 return True
 

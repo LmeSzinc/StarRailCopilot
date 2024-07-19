@@ -345,6 +345,24 @@
       "9": "9"
     }
   },
+  "TrailblazePower": {
+    "_info": {
+      "name": "TrailblazePower Settings",
+      "help": ""
+    },
+    "ExtractReservedTrailblazePower": {
+      "name": "Extract reserve exploration power",
+      "help": ""
+    },
+    "UseFuel": {
+      "name": "Use Fuel",
+      "help": ""
+    },
+    "FuelReserve": {
+      "name": "Reserve X Fuel",
+      "help": ""
+    }
+  },
   "DungeonSupport": {
     "_info": {
       "name": "Support Settings",
@@ -738,6 +756,10 @@
     },
     "BattlePassQuestSynthesizeConsumables": {
       "name": "Synthesize Consumables 10 time(s)",
+      "help": ""
+    },
+    "BattlePassQuestStagnantShadow": {
+      "name": "Clear Stagnant Shadow 3 time(s)",
       "help": ""
     },
     "BattlePassQuestCavernOfCorrosion": {

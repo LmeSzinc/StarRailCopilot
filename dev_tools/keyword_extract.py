@@ -599,7 +599,7 @@ class KeywordExtract:
         self.generate_rogue_events()
         self.load_keywords(list(self.iter_without_duplication(
             read_file(os.path.join(TextMap.DATA_FOLDER, 'ExcelOutput', 'RelicSetConfig.json')), 'SetName.Hash')))
-        self.write_keywords(keyword_class='ItemConfig', output_file='./tasks/relics/keywords/relics.py')
+        self.write_keywords(keyword_class='RelicSet', output_file='./tasks/relics/keywords/relics.py')
 
 
 if __name__ == '__main__':

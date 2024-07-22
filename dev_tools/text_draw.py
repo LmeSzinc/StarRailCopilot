@@ -6,12 +6,14 @@ from PIL import ImageFont, ImageDraw, Image
 from module.config.utils import read_file
 from module.logger import logger
 from module.base.utils import get_bbox_reversed,crop
-
+import inspect
+from tasks.relics.keywords import relics as relics_module
 
 class TextImageGenerator:
-    def __init__(self, font_path="./dev_tools/zh-cn.ttf", font_size=20):
+    def __init__(self, keyword ,font_path="./dev_tools/zh-cn.ttf", font_size=20):
         self.font_en = ImageFont.truetype(font_path, font_size)
         self.font_cn = ImageFont.truetype(font_path, font_size)
+        self.keyword=keyword
 
     @staticmethod
     def split_string_at_last_space(input_string):
@@ -39,21 +41,17 @@ class TextImageGenerator:
             image_pil.save(image_path)
             logger.info(f'{name} generated')
 
-    def relics_name_image_generator(self, content_file='./tasks/relics/keywords/relics.py', output_path_cn='./assets/cn/relics/name/', output_path_en='./assets/en/relics/name/'):
-        with open(content_file, 'r', encoding='utf-8') as file:
-            content = file.read()
-        cn_pattern = re.compile(r"cn='([^']*)'")
-        en_pattern = re.compile(r"en='([^']*)'")
+    def relics_name_image_generator(self, output_path ,file_module):
+        content = inspect.getsource(file_module)
+        text_patten= re.compile(r'' + self.keyword + r"='([^']*)'")
         name_pattern = re.compile(r"name='([^']*)'")
-        cn_values = cn_pattern.findall(content)
-        en_values = en_pattern.findall(content)
+        text_values = text_patten.findall(content)
         name_values = name_pattern.findall(content)
-        self.text_image_generator(cn_values, name_values, font=self.font_cn, output_path=output_path_cn)
-        self.text_image_generator(en_values, name_values, font=self.font_en, output_path=output_path_en)
+        self.text_image_generator(text_values, name_values, font=self.font_cn, output_path=output_path)
 
 if __name__ == '__main__':
-    generator = TextImageGenerator()
-    generator.relics_name_image_generator()
+    TextImageGenerator("cn").relics_name_image_generator(output_path="./assets/cn/relics/name/",file_module=relics_module)
+    TextImageGenerator("en").relics_name_image_generator(output_path="./assets/en/relics/name/",file_module=relics_module)
 
 
 

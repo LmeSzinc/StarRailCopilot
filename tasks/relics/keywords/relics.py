@@ -1,9 +1,9 @@
-from .classes import ItemConfig
+from .classes import RelicSet
 
 # This file was auto-generated, do not modify it manually. To generate:
 # ``` python -m dev_tools.keyword_extract ```
 
-Passerby_of_Wandering_Cloud = ItemConfig(
+Passerby_of_Wandering_Cloud = RelicSet(
     id=1,
     name='Passerby_of_Wandering_Cloud',
     cn='云无留迹的过客',
@@ -12,7 +12,7 @@ Passerby_of_Wandering_Cloud = ItemConfig(
     jp='流雲無痕の過客',
     es='Transeúnte de la nube pasajera',
 )
-Musketeer_of_Wild_Wheat = ItemConfig(
+Musketeer_of_Wild_Wheat = RelicSet(
     id=2,
     name='Musketeer_of_Wild_Wheat',
     cn='野穗伴行的快枪手',
@@ -21,7 +21,7 @@ Musketeer_of_Wild_Wheat = ItemConfig(
     jp='草の穂ガンマン',
     es='Pistolera de la espiga silvestre',
 )
-Knight_of_Purity_Palace = ItemConfig(
+Knight_of_Purity_Palace = RelicSet(
     id=3,
     name='Knight_of_Purity_Palace',
     cn='净庭教宗的圣骑士',
@@ -30,7 +30,7 @@ Knight_of_Purity_Palace = ItemConfig(
     jp='純庭教会の聖騎士',
     es='Paladina de la Iglesia de la Corte Inmaculada',
 )
-Hunter_of_Glacial_Forest = ItemConfig(
+Hunter_of_Glacial_Forest = RelicSet(
     id=4,
     name='Hunter_of_Glacial_Forest',
     cn='密林卧雪的猎人',
@@ -39,7 +39,7 @@ Hunter_of_Glacial_Forest = ItemConfig(
     jp='雪の密林の狩人',
     es='Cazador del bosque glacial',
 )
-Champion_of_Streetwise_Boxing = ItemConfig(
+Champion_of_Streetwise_Boxing = RelicSet(
     id=5,
     name='Champion_of_Streetwise_Boxing',
     cn='街头出身的拳王',
@@ -48,7 +48,7 @@ Champion_of_Streetwise_Boxing = ItemConfig(
     jp='成り上がりチャンピオン',
     es='Campeona de boxeo callejero',
 )
-Guard_of_Wuthering_Snow = ItemConfig(
+Guard_of_Wuthering_Snow = RelicSet(
     id=6,
     name='Guard_of_Wuthering_Snow',
     cn='戍卫风雪的铁卫',
@@ -57,7 +57,7 @@ Guard_of_Wuthering_Snow = ItemConfig(
     jp='吹雪と対峙する兵士',
     es='Guardia de la nieve borrascosa',
 )
-Firesmith_of_Lava_Forging = ItemConfig(
+Firesmith_of_Lava_Forging = RelicSet(
     id=7,
     name='Firesmith_of_Lava_Forging',
     cn='熔岩锻铸的火匠',
@@ -66,7 +66,7 @@ Firesmith_of_Lava_Forging = ItemConfig(
     jp='溶岩で鍛造する火匠',
     es='Forjador de lava',
 )
-Genius_of_Brilliant_Stars = ItemConfig(
+Genius_of_Brilliant_Stars = RelicSet(
     id=8,
     name='Genius_of_Brilliant_Stars',
     cn='繁星璀璨的天才',
@@ -75,7 +75,7 @@ Genius_of_Brilliant_Stars = ItemConfig(
     jp='星の如く輝く天才',
     es='Genio de las estrellas relucientes',
 )
-Band_of_Sizzling_Thunder = ItemConfig(
+Band_of_Sizzling_Thunder = RelicSet(
     id=9,
     name='Band_of_Sizzling_Thunder',
     cn='激奏雷电的乐队',
@@ -84,7 +84,7 @@ Band_of_Sizzling_Thunder = ItemConfig(
     jp='雷鳴轟くバンド',
     es='Banda del trueno crepitante',
 )
-Eagle_of_Twilight_Line = ItemConfig(
+Eagle_of_Twilight_Line = RelicSet(
     id=10,
     name='Eagle_of_Twilight_Line',
     cn='晨昏交界的翔鹰',
@@ -93,7 +93,7 @@ Eagle_of_Twilight_Line = ItemConfig(
     jp='昼夜の狭間を翔ける鷹',
     es='Águila del crepúsculo',
 )
-Thief_of_Shooting_Meteor = ItemConfig(
+Thief_of_Shooting_Meteor = RelicSet(
     id=11,
     name='Thief_of_Shooting_Meteor',
     cn='流星追迹的怪盗',
@@ -102,7 +102,7 @@ Thief_of_Shooting_Meteor = ItemConfig(
     jp='流星の跡を追う怪盗',
     es='Ladrón del rastro meteórico',
 )
-Wastelander_of_Banditry_Desert = ItemConfig(
+Wastelander_of_Banditry_Desert = RelicSet(
     id=12,
     name='Wastelander_of_Banditry_Desert',
     cn='盗匪荒漠的废土客',
@@ -111,7 +111,7 @@ Wastelander_of_Banditry_Desert = ItemConfig(
     jp='荒地で盗みを働く廃土客',
     es='Habitante del yermo de los bandidos',
 )
-Longevous_Disciple = ItemConfig(
+Longevous_Disciple = RelicSet(
     id=13,
     name='Longevous_Disciple',
     cn='宝命长存的莳者',
@@ -120,7 +120,7 @@ Longevous_Disciple = ItemConfig(
     jp='宝命長存の蒔者',
     es='Discípula longeva',
 )
-Messenger_Traversing_Hackerspace = ItemConfig(
+Messenger_Traversing_Hackerspace = RelicSet(
     id=14,
     name='Messenger_Traversing_Hackerspace',
     cn='骇域漫游的信使',
@@ -129,7 +129,7 @@ Messenger_Traversing_Hackerspace = ItemConfig(
     jp='仮想空間を漫遊するメッセンジャー',
     es='Mensajero del espacio hackeado',
 )
-The_Ashblazing_Grand_Duke = ItemConfig(
+The_Ashblazing_Grand_Duke = RelicSet(
     id=15,
     name='The_Ashblazing_Grand_Duke',
     cn='毁烬焚骨的大公',
@@ -138,7 +138,7 @@ The_Ashblazing_Grand_Duke = ItemConfig(
     jp='灰燼を燃やし尽くす大公',
     es='Gran duque incinerador',
 )
-Prisoner_in_Deep_Confinement = ItemConfig(
+Prisoner_in_Deep_Confinement = RelicSet(
     id=16,
     name='Prisoner_in_Deep_Confinement',
     cn='幽锁深牢的系囚',
@@ -147,7 +147,7 @@ Prisoner_in_Deep_Confinement = ItemConfig(
     jp='深い牢獄の囚人',
     es='Prisionero aislado',
 )
-Pioneer_Diver_of_Dead_Waters = ItemConfig(
+Pioneer_Diver_of_Dead_Waters = RelicSet(
     id=17,
     name='Pioneer_Diver_of_Dead_Waters',
     cn='死水深潜的先驱',
@@ -156,7 +156,7 @@ Pioneer_Diver_of_Dead_Waters = ItemConfig(
     jp='死水に潜る先駆者',
     es='Buceadora pionera del agua muerta',
 )
-Watchmaker_Master_of_Dream_Machinations = ItemConfig(
+Watchmaker_Master_of_Dream_Machinations = RelicSet(
     id=18,
     name='Watchmaker_Master_of_Dream_Machinations',
     cn='机心戏梦的钟表匠',
@@ -165,7 +165,7 @@ Watchmaker_Master_of_Dream_Machinations = ItemConfig(
     jp='夢を弄ぶ時計屋',
     es='Relojero de maquinaciones oníricas',
 )
-Iron_Cavalry_Against_the_Scourge = ItemConfig(
+Iron_Cavalry_Against_the_Scourge = RelicSet(
     id=19,
     name='Iron_Cavalry_Against_the_Scourge',
     cn='荡除蠹灾的铁骑',
@@ -174,7 +174,7 @@ Iron_Cavalry_Against_the_Scourge = ItemConfig(
     jp='蝗害を一掃せし鉄騎',
     es='Caballería de hierro plaguicida',
 )
-The_Wind_Soaring_Valorous = ItemConfig(
+The_Wind_Soaring_Valorous = RelicSet(
     id=20,
     name='The_Wind_Soaring_Valorous',
     cn='风举云飞的勇烈',
@@ -183,7 +183,7 @@ The_Wind_Soaring_Valorous = ItemConfig(
     jp='風雲を薙ぎ払う勇烈',
     es='Intrépida cabalgavientos',
 )
-Space_Sealing_Station = ItemConfig(
+Space_Sealing_Station = RelicSet(
     id=21,
     name='Space_Sealing_Station',
     cn='太空封印站',
@@ -192,7 +192,7 @@ Space_Sealing_Station = ItemConfig(
     jp='宇宙封印ステーション',
     es='Estación sellaespacios',
 )
-Fleet_of_the_Ageless = ItemConfig(
+Fleet_of_the_Ageless = RelicSet(
     id=22,
     name='Fleet_of_the_Ageless',
     cn='不老者的仙舟',
@@ -201,7 +201,7 @@ Fleet_of_the_Ageless = ItemConfig(
     jp='老いぬ者の仙舟',
     es='Flota de los eternos',
 )
-Pan_Cosmic_Commercial_Enterprise = ItemConfig(
+Pan_Cosmic_Commercial_Enterprise = RelicSet(
     id=23,
     name='Pan_Cosmic_Commercial_Enterprise',
     cn='泛银河商业公司',
@@ -210,7 +210,7 @@ Pan_Cosmic_Commercial_Enterprise = ItemConfig(
     jp='汎銀河商事会社',
     es='Entidad comercial pangaláctica',
 )
-Belobog_of_the_Architects = ItemConfig(
+Belobog_of_the_Architects = RelicSet(
     id=24,
     name='Belobog_of_the_Architects',
     cn='筑城者的贝洛伯格',
@@ -219,7 +219,7 @@ Belobog_of_the_Architects = ItemConfig(
     jp='建創者のベロブルグ',
     es='La Belobog de los Arquitectos',
 )
-Celestial_Differentiator = ItemConfig(
+Celestial_Differentiator = RelicSet(
     id=25,
     name='Celestial_Differentiator',
     cn='星体差分机',
@@ -228,7 +228,7 @@ Celestial_Differentiator = ItemConfig(
     jp='天体階差機関',
     es='Diferenciador celestial',
 )
-Inert_Salsotto = ItemConfig(
+Inert_Salsotto = RelicSet(
     id=26,
     name='Inert_Salsotto',
     cn='停转的萨尔索图',
@@ -237,7 +237,7 @@ Inert_Salsotto = ItemConfig(
     jp='自転が止まったサルソット',
     es='Salsotto inerte',
 )
-Talia_Kingdom_of_Banditry = ItemConfig(
+Talia_Kingdom_of_Banditry = RelicSet(
     id=27,
     name='Talia_Kingdom_of_Banditry',
     cn='盗贼公国塔利亚',
@@ -246,7 +246,7 @@ Talia_Kingdom_of_Banditry = ItemConfig(
     jp='盗賊公国タリア',
     es='Talia, paraíso de los forajidos',
 )
-Sprightly_Vonwacq = ItemConfig(
+Sprightly_Vonwacq = RelicSet(
     id=28,
     name='Sprightly_Vonwacq',
     cn='生命的翁瓦克',
@@ -255,7 +255,7 @@ Sprightly_Vonwacq = ItemConfig(
     jp='生命のウェンワーク',
     es='Vonwacq el vivaz',
 )
-Rutilant_Arena = ItemConfig(
+Rutilant_Arena = RelicSet(
     id=29,
     name='Rutilant_Arena',
     cn='繁星竞技场',
@@ -264,7 +264,7 @@ Rutilant_Arena = ItemConfig(
     jp='星々の競技場',
     es='Arena rutilante',
 )
-Broken_Keel = ItemConfig(
+Broken_Keel = RelicSet(
     id=30,
     name='Broken_Keel',
     cn='折断的龙骨',
@@ -273,7 +273,7 @@ Broken_Keel = ItemConfig(
     jp='折れた竜骨',
     es='Quilla rota',
 )
-Firmament_Frontline_Glamoth = ItemConfig(
+Firmament_Frontline_Glamoth = RelicSet(
     id=31,
     name='Firmament_Frontline_Glamoth',
     cn='苍穹战线格拉默',
@@ -282,7 +282,7 @@ Firmament_Frontline_Glamoth = ItemConfig(
     jp='蒼穹戦線グラモス',
     es='Glamoth, frente del firmamento',
 )
-Penacony_Land_of_the_Dreams = ItemConfig(
+Penacony_Land_of_the_Dreams = RelicSet(
     id=32,
     name='Penacony_Land_of_the_Dreams',
     cn='梦想之地匹诺康尼',
@@ -291,7 +291,7 @@ Penacony_Land_of_the_Dreams = ItemConfig(
     jp='夢の地ピノコニー',
     es='Colonipenal, la tierra de los sueños',
 )
-Sigonia_the_Unclaimed_Desolation = ItemConfig(
+Sigonia_the_Unclaimed_Desolation = RelicSet(
     id=33,
     name='Sigonia_the_Unclaimed_Desolation',
     cn='无主荒星茨冈尼亚',
@@ -300,7 +300,7 @@ Sigonia_the_Unclaimed_Desolation = ItemConfig(
     jp='荒涼の惑星ツガンニヤ',
     es='Sigonia, desolación sin dueño',
 )
-Izumo_Gensei_and_Takama_Divine_Realm = ItemConfig(
+Izumo_Gensei_and_Takama_Divine_Realm = RelicSet(
     id=34,
     name='Izumo_Gensei_and_Takama_Divine_Realm',
     cn='出云显世与高天神国',
@@ -309,7 +309,7 @@ Izumo_Gensei_and_Takama_Divine_Realm = ItemConfig(
     jp='顕世の出雲と高天の神国',
     es='Izumo gensei y reino divino de Takama',
 )
-Duran_Dynasty_of_Running_Wolves = ItemConfig(
+Duran_Dynasty_of_Running_Wolves = RelicSet(
     id=35,
     name='Duran_Dynasty_of_Running_Wolves',
     cn='奔狼的都蓝王朝',
@@ -318,7 +318,7 @@ Duran_Dynasty_of_Running_Wolves = ItemConfig(
     jp='奔狼の都藍王朝',
     es='Duran, dinastía de lobos raudos',
 )
-Forge_of_the_Kalpagni_Lantern = ItemConfig(
+Forge_of_the_Kalpagni_Lantern = RelicSet(
     id=36,
     name='Forge_of_the_Kalpagni_Lantern',
     cn='劫火莲灯铸炼宫',

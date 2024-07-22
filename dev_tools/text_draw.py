@@ -41,7 +41,14 @@ class TextImageGenerator:
             image_pil.save(image_path)
             logger.info(f'{name} generated')
 
+    def delete_files(self,folder_path):
+        with os.scandir(folder_path) as entries:
+            for entry in entries:
+                if entry.is_file():
+                    os.remove(entry.path)
+
     def relics_name_image_generator(self, output_path ,file_module):
+        self.delete_files(output_path)
         content = inspect.getsource(file_module)
         text_patten= re.compile(r'' + self.keyword + r"='([^']*)'")
         name_pattern = re.compile(r"name='([^']*)'")

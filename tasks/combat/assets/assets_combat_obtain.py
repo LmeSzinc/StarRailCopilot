@@ -27,10 +27,10 @@ ITEM_NAME = ButtonWrapper(
     name='ITEM_NAME',
     share=Button(
         file='./assets/share/combat/obtain/ITEM_NAME.png',
-        area=(495, 187, 855, 217),
-        search=(475, 167, 875, 237),
-        color=(182, 183, 185),
-        button=(495, 187, 855, 217),
+        area=(495, 187, 1007, 217),
+        search=(475, 167, 1027, 237),
+        color=(176, 175, 178),
+        button=(495, 187, 1007, 217),
     ),
 )
 MAY_OBTAIN = ButtonWrapper(

@@ -94,6 +94,9 @@ class PlatformWindows(PlatformBase, EmulatorManager):
             if instance.MuMuPlayer12_id is None:
                 logger.warning(f'Cannot get MuMu instance index from name {instance.name}')
             self.execute(f'"{exe}" -v {instance.MuMuPlayer12_id}')
+        elif instance == Emulator.LDPlayerFamily:
+            # ldconsole.exe launch --index 0
+            self.execute(f'"{Emulator.single_to_console(exe)}" launch --index {instance.LDPlayer_id}')
         elif instance == Emulator.NoxPlayerFamily:
             # Nox.exe -clone:Nox_1
             self.execute(f'"{exe}" -clone:{instance.name}')
@@ -141,11 +144,20 @@ class PlatformWindows(PlatformBase, EmulatorManager):
                 rf')'
             )
         elif instance == Emulator.MuMuPlayer12:
-            # MuMu 12 has 2 processes:
-            # E:\ProgramFiles\Netease\MuMuPlayer-12.0\shell\MuMuPlayer.exe -v 0
-            # "C:\Program Files\MuMuVMMVbox\Hypervisor\MuMuVMMHeadless.exe" --comment MuMuPlayer-12.0-0 --startvm xxx
+            # MuMuManager.exe api -v 1 shutdown_player
             if instance.MuMuPlayer12_id is None:
                 logger.warning(f'Cannot get MuMu instance index from name {instance.name}')
+            self.execute(f'"{Emulator.single_to_console(exe)}" api -v {instance.MuMuPlayer12_id} shutdown_player')
+        elif instance == Emulator.LDPlayerFamily:
+            # ldconsole.exe quit --index 0
+            self.execute(f'"{Emulator.single_to_console(exe)}" quit --index {instance.LDPlayer_id}')
+        elif instance == Emulator.NoxPlayerFamily:
+            # Nox.exe -clone:Nox_1 -quit
+            self.execute(f'"{exe}" -clone:{instance.name} -quit')
+        elif instance == Emulator.BlueStacks5:
+            # BlueStack has 2 processes
+            # C:\Program Files\BlueStacks_nxt_cn\HD-Player.exe --instance Pie64
+            # C:\Program Files\BlueStacks_nxt_cn\BstkSVC.exe -Embedding
             self.kill_process_by_regex(
                 rf'('
                 rf'MuMuVMMHeadless.exe.*--comment {instance.name}'

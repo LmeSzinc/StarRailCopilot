@@ -156,6 +156,30 @@ class Emulator(EmulatorBase):
             yield exe
 
     @staticmethod
+    def single_to_console(exe: str):
+        """
+        Convert a string that might be a single instance executable to its console.
+
+        Args:
+            exe (str): Path to emulator executable
+
+        Returns:
+            str: Path to emulator console
+        """
+        if 'MuMuPlayer.exe' in exe:
+            return exe.replace('MuMuPlayer.exe', 'MuMuManager.exe')
+        elif 'LDPlayer.exe' in exe:
+            return exe.replace('LDPlayer.exe', 'ldconsole.exe')
+        elif 'dnplayer.exe' in exe:
+            return exe.replace('dnplayer.exe', 'ldconsole.exe')
+        elif 'Bluestacks.exe' in exe:
+            return exe.replace('Bluestacks.exe', 'bsconsole.exe')
+        elif 'MEmu.exe' in exe:
+            return exe.replace('MEmu.exe', 'memuc.exe')
+        else:
+            return exe
+
+    @staticmethod
     def vbox_file_to_serial(file: str) -> str:
         """
         Args:

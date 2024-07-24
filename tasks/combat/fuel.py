@@ -147,6 +147,10 @@ class Fuel(UI):
 
         Returns:
             bool: If used
+
+        Pages:
+            in: COMBAT_AGAIN
+            out: COMBAT_AGAIN
         """
         limit = self.config.stored.TrailblazePower.FIXED_TOTAL
         use = (limit - current) // self.fuel_trailblaze_power
@@ -173,6 +177,7 @@ class Fuel(UI):
                     has_fuel = True
                 if not has_fuel and timeout.reached():
                     logger.info("No fuel found")
+                    self._fuel_cancel()
                     return False
             if self.appear_then_click(FUEL):
                 has_fuel = True

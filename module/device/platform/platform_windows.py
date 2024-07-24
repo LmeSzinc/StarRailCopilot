@@ -82,7 +82,7 @@ class PlatformWindows(PlatformBase, EmulatorManager):
         """
         Start a emulator without error handling
         """
-        exe = instance.emulator.path
+        exe: str = instance.emulator.path
         if instance == Emulator.MuMuPlayer:
             # NemuPlayer.exe
             self.execute(exe)
@@ -104,8 +104,11 @@ class PlatformWindows(PlatformBase, EmulatorManager):
             # HD-Player.exe --instance Pie64
             self.execute(f'"{exe}" --instance {instance.name}')
         elif instance == Emulator.BlueStacks4:
-            # BlueStacks\Client\Bluestacks.exe -vmname Android_1
+            # Bluestacks.exe -vmname Android_1
             self.execute(f'"{exe}" -vmname {instance.name}')
+        elif instance == Emulator.MEmuPlayer:
+            # MEmu.exe MEmu_0
+            self.execute(f'"{exe}" {instance.name}')
         else:
             raise EmulatorUnknown(f'Cannot start an unknown emulator instance: {instance}')
 
@@ -113,8 +116,7 @@ class PlatformWindows(PlatformBase, EmulatorManager):
         """
         Stop a emulator without error handling
         """
-        logger.hr('Emulator stop', level=2)
-        exe = instance.emulator.path
+        exe: str = instance.emulator.path
         if instance == Emulator.MuMuPlayer:
             # MuMu6 does not have multi instance, kill one means kill all
             # Has 4 processes
@@ -160,19 +162,19 @@ class PlatformWindows(PlatformBase, EmulatorManager):
             # C:\Program Files\BlueStacks_nxt_cn\BstkSVC.exe -Embedding
             self.kill_process_by_regex(
                 rf'('
-                rf'MuMuVMMHeadless.exe.*--comment {instance.name}'
-                rf'|MuMuPlayer.exe.*-v {instance.MuMuPlayer12_id}'
+                rf'HD-Player.exe.*"--instance" "{instance.name}"'
                 rf')'
             )
-            # There is also a shared service, no need to kill it
-            # "C:\Program Files\MuMuVMMVbox\Hypervisor\MuMuVMMSVC.exe" --Embedding
-        elif instance == Emulator.NoxPlayerFamily:
-            # Nox.exe -clone:Nox_1 -quit
-            self.execute(f'"{exe}" -clone:{instance.name} -quit')
+        elif instance == Emulator.BlueStacks4:
+            # E:\Program Files (x86)\BluestacksCN\bsconsole.exe quit --name Android
+            self.execute(f'"{Emulator.single_to_console(exe)}" quit --name {instance.name}')
+        elif instance == Emulator.MEmuPlayer:
+            # F:\Program Files\Microvirt\MEmu\memuc.exe stop -n MEmu_0
+            self.execute(f'"{Emulator.single_to_console(exe)}" stop -n {instance.name}')
         else:
             raise EmulatorUnknown(f'Cannot stop an unknown emulator instance: {instance}')
 
-    def _emulator_function_wrapper(self, func):
+    def _emulator_function_wrapper(self, func: callable):
         """
         Args:
             func (callable): _emulator_start or _emulator_stop
@@ -324,7 +326,20 @@ class PlatformWindows(PlatformBase, EmulatorManager):
 
     def emulator_stop(self):
         logger.hr('Emulator stop', level=1)
-        return self._emulator_function_wrapper(self._emulator_stop)
+        for _ in range(3):
+            # Stop
+            if self._emulator_function_wrapper(self._emulator_stop):
+                # Success
+                return True
+            else:
+                # Failed to stop, start and stop again
+                if self._emulator_function_wrapper(self._emulator_start):
+                    continue
+                else:
+                    return False
+
+        logger.error('Failed to stop emulator 3 times, stopped')
+        return False
 
 
 if __name__ == '__main__':

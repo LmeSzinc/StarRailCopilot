@@ -267,7 +267,7 @@
       "Stagnant_Shadow_Blaze": "Ascension: Fire (Himeko / Asta / Hook)",
       "Stagnant_Shadow_Scorch": "Ascension: Fire (Guinaifen / Topaz & Numby)",
       "Stagnant_Shadow_Ire": "Ascension: Fire (Firefly / Gallagher / Jiaoqiu)",
-      "Stagnant_Shadow_Rime": "Ascension: Ice (March 7th / Herta / Gepard / Pela / March 7th)",
+      "Stagnant_Shadow_Rime": "Ascension: Ice (March 7th / Herta / Gepard / Pela)",
       "Stagnant_Shadow_Icicle": "Ascension: Ice (Yanqing / Jingliu / Ruan Mei)",
       "Stagnant_Shadow_Nectar": "Ascension: Ice (Misha)",
       "Stagnant_Shadow_Fulmination": "Ascension: Lightning (Arlan / Serval / Tingyun / Bailu)",
@@ -510,7 +510,7 @@
       "help": ""
     },
     "Item_Horn_of_Snow": {
-      "name": "Ascension: Ice (March 7th / Herta / Gepard / Pela / March 7th)",
+      "name": "Ascension: Ice (March 7th / Herta / Gepard / Pela)",
       "help": ""
     },
     "Item_Lightning_Crown_of_the_Past_Shadow": {

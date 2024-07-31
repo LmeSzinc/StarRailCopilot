@@ -267,7 +267,7 @@
       "Stagnant_Shadow_Blaze": "角色晉階材料：火（姬子 / 艾絲妲 / 虎克）",
       "Stagnant_Shadow_Scorch": "角色晉階材料：火（桂乃芬 / 托帕&帳帳）",
       "Stagnant_Shadow_Ire": "角色晉階材料：火（流螢 / 加拉赫 / 椒丘）",
-      "Stagnant_Shadow_Rime": "角色晉階材料：冰（三月七 / 黑塔 / 傑帕德 / 佩拉 / 三月七）",
+      "Stagnant_Shadow_Rime": "角色晉階材料：冰（三月七 / 黑塔 / 傑帕德 / 佩拉）",
       "Stagnant_Shadow_Icicle": "角色晉階材料：冰（彥卿 / 鏡流 / 阮•梅）",
       "Stagnant_Shadow_Nectar": "角色晉階材料：冰（米沙）",
       "Stagnant_Shadow_Fulmination": "角色晉階材料：雷（阿蘭 / 希露瓦 / 停雲 / 白露）",
@@ -510,7 +510,7 @@
       "help": ""
     },
     "Item_Horn_of_Snow": {
-      "name": "角色晉階材料：冰（三月七 / 黑塔 / 傑帕德 / 佩拉 / 三月七）",
+      "name": "角色晉階材料：冰（三月七 / 黑塔 / 傑帕德 / 佩拉）",
       "help": ""
     },
     "Item_Lightning_Crown_of_the_Past_Shadow": {

@@ -51,11 +51,11 @@ Stagnant_Shadow_Spike = DungeonDetailed(
 Stagnant_Shadow_Rime = DungeonDetailed(
     id=6,
     name='Stagnant_Shadow_Rime',
-    cn='角色晋阶材料：冰（三月七 / 黑塔 / 杰帕德 / 佩拉 / 三月七）',
-    cht='角色晉階材料：冰（三月七 / 黑塔 / 傑帕德 / 佩拉 / 三月七）',
-    en='Ascension: Ice (March 7th / Herta / Gepard / Pela / March 7th)',
-    jp='キャラクター昇格素材：氷（三月なのか / ヘルタ / ジェパード / ペラ / 三月なのか）',
-    es='Ascension: Hielo (Siete de Marzo / Herta / Gepard / Pela / Siete de Marzo)',
+    cn='角色晋阶材料：冰（三月七 / 黑塔 / 杰帕德 / 佩拉）',
+    cht='角色晉階材料：冰（三月七 / 黑塔 / 傑帕德 / 佩拉）',
+    en='Ascension: Ice (March 7th / Herta / Gepard / Pela)',
+    jp='キャラクター昇格素材：氷（三月なのか / ヘルタ / ジェパード / ペラ）',
+    es='Ascension: Hielo (Siete de Marzo / Herta / Gepard / Pela)',
 )
 Stagnant_Shadow_Mirage = DungeonDetailed(
     id=7,

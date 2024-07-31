@@ -291,10 +291,12 @@ class KeywordExtract:
                 gen.ObjectAttr(key='id', value=index + 1)
                 gen.ObjectAttr(key='name', value=name)
                 for lang in UI_LANGUAGES:
-                    character_names = ' / '.join([
+                    character_names = [
                         replace_templates(self.find_keyword(c[0], lang)[1])
                         for c in characters
-                    ])
+                    ]
+                    character_names = list(dict.fromkeys(character_names))
+                    character_names = ' / '.join(character_names)
                     damage_type = self.find_keyword(characters[0][1], lang)[1]
                     if lang in {'en', 'es'}:
                         value = f'{prefix_dict[lang]}{damage_type} ({character_names})'

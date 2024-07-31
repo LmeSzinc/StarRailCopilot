@@ -267,7 +267,7 @@
       "Stagnant_Shadow_Blaze": "キャラクター昇格素材：炎（姫子 / アスター / フック）",
       "Stagnant_Shadow_Scorch": "キャラクター昇格素材：炎（桂乃芬 / トパーズ&カブ）",
       "Stagnant_Shadow_Ire": "キャラクター昇格素材：炎（ホタル / ギャラガー / 椒丘）",
-      "Stagnant_Shadow_Rime": "キャラクター昇格素材：氷（三月なのか / ヘルタ / ジェパード / ペラ / 三月なのか）",
+      "Stagnant_Shadow_Rime": "キャラクター昇格素材：氷（三月なのか / ヘルタ / ジェパード / ペラ）",
       "Stagnant_Shadow_Icicle": "キャラクター昇格素材：氷（彦卿 / 鏡流 / ルアン・メェイ）",
       "Stagnant_Shadow_Nectar": "キャラクター昇格素材：氷（ミーシャ）",
       "Stagnant_Shadow_Fulmination": "キャラクター昇格素材：雷（アーラン / セーバル / 停雲 / 白露）",
@@ -510,7 +510,7 @@
       "help": ""
     },
     "Item_Horn_of_Snow": {
-      "name": "キャラクター昇格素材：氷（三月なのか / ヘルタ / ジェパード / ペラ / 三月なのか）",
+      "name": "キャラクター昇格素材：氷（三月なのか / ヘルタ / ジェパード / ペラ）",
       "help": ""
     },
     "Item_Lightning_Crown_of_the_Past_Shadow": {

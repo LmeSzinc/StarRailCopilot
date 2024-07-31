@@ -72,7 +72,7 @@ class XPath:
     悬浮窗及侧边栏元素
     """
     # 悬浮窗
-    FLOAT_WINDOW = '//*[@package="com.miHoYo.cloudgames.hkrpg" and @class="android.widget.ImageView"]'
+    FLOAT_WINDOW = '//*[@package="com.miHoYo.cloudgames.hkrpg" and @class="android.widget.LinearLayout"]'
     # 退出按钮，返回登录页面
     FLOAT_EXIT = '//*[@resource-id="com.miHoYo.cloudgames.hkrpg:id/iv_exit"]'
     # 弹出侧边栏的 节点信息

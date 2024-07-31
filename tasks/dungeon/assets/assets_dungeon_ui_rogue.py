@@ -17,10 +17,10 @@ DIVERGENT_UNIVERSE_SAVE_UNAVAILABLE = ButtonWrapper(
     name='DIVERGENT_UNIVERSE_SAVE_UNAVAILABLE',
     share=Button(
         file='./assets/share/dungeon/ui_rogue/DIVERGENT_UNIVERSE_SAVE_UNAVAILABLE.png',
-        area=(437, 316, 1169, 378),
-        search=(417, 296, 1189, 398),
-        color=(197, 105, 95),
-        button=(437, 316, 1169, 378),
+        area=(592, 174, 636, 331),
+        search=(572, 154, 656, 351),
+        color=(140, 82, 83),
+        button=(592, 174, 636, 331),
     ),
 )
 LAST_TELEPORT = ButtonWrapper(
@@ -47,10 +47,10 @@ SURVIVAL_INDEX_OE_LOADED = ButtonWrapper(
     name='SURVIVAL_INDEX_OE_LOADED',
     share=Button(
         file='./assets/share/dungeon/ui_rogue/SURVIVAL_INDEX_OE_LOADED.png',
-        area=(473, 207, 498, 232),
-        search=(468, 193, 503, 283),
-        color=(185, 135, 74),
-        button=(473, 207, 498, 232),
+        area=(455, 208, 485, 338),
+        search=(460, 238, 480, 268),
+        color=(130, 116, 91),
+        button=(455, 208, 485, 338),
     ),
 )
 SURVIVAL_INDEX_SU_LOADED = ButtonWrapper(

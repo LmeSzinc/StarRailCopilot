@@ -164,7 +164,7 @@ Calyx_Crimson_The_Hunt_Penacony_SoulGladScorchsandAuditionVenue = DungeonList(
     cht='巡獵之蕾•擬造花萼（赤）',
     en='Calyx (Crimson): Bud of The Hunt',
     jp='疑似花萼（赤）・巡狩の蕾',
-    es='Cáliz (carmesí): Flor de la Cacería',
+    es='Flor de la Cacería',
     dungeon_id=1022,
     plane_id=2033101,
 )
@@ -208,7 +208,7 @@ Calyx_Crimson_Erudition_Penacony_PenaconyGrandTheater = DungeonList(
     cht='智識之蕾•擬造花萼（赤）',
     en='Calyx (Crimson): Bud of Erudition',
     jp='疑似花萼（赤）・知恵の蕾',
-    es='Cáliz (carmesí): Flor de la Erudición',
+    es='Flor de la Erudición',
     dungeon_id=1023,
     plane_id=2033201,
 )
@@ -450,7 +450,7 @@ Stagnant_Shadow_Duty = DungeonList(
     cht='職司之形•凝滯虛影',
     en='Stagnant Shadow: Shape of Duty',
     jp='凝結虚影・職掌の形',
-    es='Sombra paralizada: Forma del deber',
+    es='Forma del deber',
     dungeon_id=1118,
     plane_id=2032101,
 )
@@ -560,7 +560,7 @@ Cavern_of_Corrosion_Path_of_Cavalier = DungeonList(
     cht='勇騎之徑•侵蝕隧洞',
     en='Cavern of Corrosion: Path of Cavalier',
     jp='侵蝕トンネル・勇騎の路',
-    es='Caverna de la corrosión: Senda del caballero',
+    es='Senda del caballero',
     dungeon_id=1210,
     plane_id=2033201,
 )
@@ -615,7 +615,7 @@ Echo_of_War_Salutations_of_Ashen_Dreams = DungeonList(
     cht='塵夢的讚禮•歷戰餘響',
     en='Echo of War: Salutations of Ashen Dreams',
     jp='歴戦余韻・現世の夢の礼賛',
-    es='Ecos de la guerra: Tributo del sueño ceniciento',
+    es='Tributo del sueño ceniciento',
     dungeon_id=1305,
     plane_id=2033201,
 )
@@ -714,7 +714,7 @@ Divergent_Universe_Eternal_Comedy = DungeonList(
     cht='永恆笑劇•差分宇宙',
     en='Divergent Universe: Eternal Comedy',
     jp='階差宇宙・永遠の喜劇',
-    es='Universo Diferenciado: Comedia eterna',
+    es='Comedia eterna',
     dungeon_id=300,
     plane_id=0,
 )
@@ -725,7 +725,7 @@ Divergent_Universe_To_Sweet_Dreams = DungeonList(
     cht='伴你入眠•差分宇宙',
     en='Divergent Universe: To Sweet Dreams',
     jp='階差宇宙・寄り添い眠る',
-    es='Hasta los dulces sueños: Universo Diferenciado',
+    es='Hasta los dulces sueños',
     dungeon_id=290,
     plane_id=0,
 )
@@ -736,7 +736,7 @@ Divergent_Universe_Pouring_Blades = DungeonList(
     cht='天劍如雨•差分宇宙',
     en='Divergent Universe: Pouring Blades',
     jp='階差宇宙・剣の雨',
-    es='Lluvia de espadas: Universo Diferenciado',
+    es='Lluvia de espadas',
     dungeon_id=280,
     plane_id=0,
 )
@@ -747,7 +747,7 @@ Divergent_Universe_Fruit_of_Evil = DungeonList(
     cht='孽果盤生•差分宇宙',
     en='Divergent Universe: Fruit of Evil',
     jp='階差宇宙・渦巻く罪',
-    es='Fruta del desastre: Universo Diferenciado',
+    es='Fruta del desastre',
     dungeon_id=270,
     plane_id=0,
 )
@@ -758,7 +758,7 @@ Divergent_Universe_Permafrost = DungeonList(
     cht='百年凍土•差分宇宙',
     en='Divergent Universe: Permafrost',
     jp='階差宇宙・永久凍土',
-    es='Permafrost: Universo Diferenciado',
+    es='Permafrost',
     dungeon_id=260,
     plane_id=0,
 )
@@ -769,7 +769,7 @@ Divergent_Universe_Gentle_Words = DungeonList(
     cht='溫柔話語•差分宇宙',
     en='Divergent Universe: Gentle Words',
     jp='階差宇宙・優しい言葉',
-    es='Palabras amables: Universo Diferenciado',
+    es='Palabras amables',
     dungeon_id=250,
     plane_id=0,
 )
@@ -780,7 +780,7 @@ Divergent_Universe_Smelted_Heart = DungeonList(
     cht='浴火鋼心•差分宇宙',
     en='Divergent Universe: Smelted Heart',
     jp='階差宇宙・鋼の意志',
-    es='Corazón de fundición: Universo Diferenciado',
+    es='Corazón de fundición',
     dungeon_id=240,
     plane_id=0,
 )
@@ -791,7 +791,7 @@ Divergent_Universe_Untoppled_Walls = DungeonList(
     cht='堅城不倒•差分宇宙',
     en='Divergent Universe: Untoppled Walls',
     jp='階差宇宙・不動の砦',
-    es='Muros inquebrantables: Universo Diferenciado',
+    es='Muros inquebrantables',
     dungeon_id=230,
     plane_id=0,
 )

@@ -13,7 +13,6 @@ CHARACTER_HEIGHT = {
     'Tingyun': 'Maid',
     'Sushang': 'Maid',
     'Seele': 'Maid',
-    'March7th': 'Maid',
     'Jingliu': 'Maid',
     'Bronya': 'Maid',
     'Asta': 'Maid',

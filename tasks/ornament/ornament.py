@@ -20,7 +20,7 @@ class Ornament(OrnamentCombat):
         # Check save file before entering
         if self.image_color_count(
                 DIVERGENT_UNIVERSE_SAVE_UNAVAILABLE,
-                color=(195, 89, 79), threshold=221, count=1000,
+                color=(140, 19, 26), threshold=221, count=1000,
         ):
             logger.error(
                 'Divergent Universe save unavailable, '

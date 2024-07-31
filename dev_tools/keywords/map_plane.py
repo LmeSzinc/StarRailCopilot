@@ -13,8 +13,8 @@ class GenerateMapPlane(GenerateKeyword):
         return self.read_file('./ExcelOutput/AreaMapConfig.json')
 
     def iter_planes(self) -> t.Iterable[dict]:
-        for plane_id, data in self.data.items():
-            plane_id = int(plane_id)
+        for data in self.data:
+            plane_id = int(deep_get(data, 'ID', 0))
             world_id = int(str(plane_id)[-5])
             sort_id = int(deep_get(data, 'MenuSortID', 0))
             text_id = deep_get(data, 'Name.Hash')

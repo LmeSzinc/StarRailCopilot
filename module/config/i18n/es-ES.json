@@ -263,11 +263,11 @@
       "Calyx_Crimson_Nihility_Luofu_AlchemyCommission": "Rastros: Nihilidad (Comisión de Alquimia)",
       "Stagnant_Shadow_Spike": "Ascension: Físico (Natasha / Clara / Luka / Sushang)",
       "Stagnant_Shadow_Perdition": "Ascension: Físico (Hanya / Argenti)",
-      "Stagnant_Shadow_Duty": "Ascension: Físico (Boothill / Robin)",
+      "Stagnant_Shadow_Duty": "Ascension: Físico (Boothill / Robin / Yunli)",
       "Stagnant_Shadow_Blaze": "Ascension: Fuego (Himeko / Asta / Hook)",
       "Stagnant_Shadow_Scorch": "Ascension: Fuego (Guinaifen / Topaz y Conti)",
-      "Stagnant_Shadow_Ire": "Ascension: Fuego (Luciérnaga / Gallagher)",
-      "Stagnant_Shadow_Rime": "Ascension: Hielo (Siete de Marzo / Herta / Gepard / Pela)",
+      "Stagnant_Shadow_Ire": "Ascension: Fuego (Luciérnaga / Gallagher / Jiaoqiu)",
+      "Stagnant_Shadow_Rime": "Ascension: Hielo (Siete de Marzo / Herta / Gepard / Pela / Siete de Marzo)",
       "Stagnant_Shadow_Icicle": "Ascension: Hielo (Yanqing / Jingliu / Ruan Mei)",
       "Stagnant_Shadow_Nectar": "Ascension: Hielo (Misha)",
       "Stagnant_Shadow_Fulmination": "Ascension: Rayo (Arlan / Serval / Tingyun / Bailu)",
@@ -288,7 +288,7 @@
       "Cavern_of_Corrosion_Path_of_Elixir_Seekers": "Artefactos: HP y SPD (Senda de los elixires)",
       "Cavern_of_Corrosion_Path_of_Darkness": "Artefactos: Persecución y Dot (Senda de la oscuridad)",
       "Cavern_of_Corrosion_Path_of_Dreamdive": "Artefactos: Debuff y Efecto de Ruptura (Senda de los sueños)",
-      "Cavern_of_Corrosion_Path_of_Cavalier": "Artefactos: Ultrarruptura y Adicional de Definitiva (Caverna de la corrosión: Senda del caballero)"
+      "Cavern_of_Corrosion_Path_of_Cavalier": "Artefactos: Ultrarruptura y Adicional de Definitiva (Caverna de la corrosión: Senda del caballero) (Senda del caballero)"
     },
     "NameAtDoubleCalyx": {
       "name": "En los eventos de x2 de Cáliz",
@@ -329,7 +329,7 @@
       "Cavern_of_Corrosion_Path_of_Elixir_Seekers": "Artefactos: HP y SPD (Senda de los elixires)",
       "Cavern_of_Corrosion_Path_of_Darkness": "Artefactos: Persecución y Dot (Senda de la oscuridad)",
       "Cavern_of_Corrosion_Path_of_Dreamdive": "Artefactos: Debuff y Efecto de Ruptura (Senda de los sueños)",
-      "Cavern_of_Corrosion_Path_of_Cavalier": "Artefactos: Ultrarruptura y Adicional de Definitiva (Caverna de la corrosión: Senda del caballero)"
+      "Cavern_of_Corrosion_Path_of_Cavalier": "Artefactos: Ultrarruptura y Adicional de Definitiva (Caverna de la corrosión: Senda del caballero) (Senda del caballero)"
     },
     "Team": {
       "name": "Equipo de mazmorra",
@@ -409,7 +409,8 @@
       "Luka": "Luka",
       "Luocha": "Luocha",
       "Lynx": "Lynx",
-      "March7th": "Siete de Marzo",
+      "March7thPreservation": "Siete de Marzo: Conservación",
+      "March7thTheHunt": "Siete de Marzo: Cacería",
       "Misha": "Misha",
       "Natasha": "Natasha",
       "Pela": "Pela",
@@ -430,7 +431,8 @@
       "Welt": "Welt",
       "Xueyi": "Xueyi",
       "Yanqing": "Yanqing",
-      "Yukong": "Yukong"
+      "Yukong": "Yukong",
+      "Yunli": "Yunli"
     }
   },
   "DungeonStorage": {
@@ -507,7 +509,7 @@
       "help": ""
     },
     "Item_Horn_of_Snow": {
-      "name": "Ascension: Hielo (Siete de Marzo / Herta / Gepard / Pela)",
+      "name": "Ascension: Hielo (Siete de Marzo / Herta / Gepard / Pela / Siete de Marzo)",
       "help": ""
     },
     "Item_Lightning_Crown_of_the_Past_Shadow": {
@@ -555,11 +557,11 @@
       "help": ""
     },
     "Item_IPC_Work_Permit": {
-      "name": "Ascension: Físico (Boothill / Robin)",
+      "name": "Ascension: Físico (Boothill / Robin / Yunli)",
       "help": ""
     },
     "Item_Raging_Heart": {
-      "name": "Ascension: Fuego (Luciérnaga / Gallagher)",
+      "name": "Ascension: Fuego (Luciérnaga / Gallagher / Jiaoqiu)",
       "help": ""
     },
     "Item_Dream_Fridge": {
@@ -647,7 +649,7 @@
       "help": ""
     },
     "Item_Lost_Echo_of_the_Shared_Wish": {
-      "name": "Ecos de la guerra: Tributo del sueño ceniciento (Colonipenal)",
+      "name": "Tributo del sueño ceniciento (Colonipenal)",
       "help": ""
     },
     "Item_Squirming_Core": {
@@ -695,7 +697,7 @@
       "Echo_of_War_End_of_the_Eternal_Freeze": "El fin del Hielo Eterno (Jarilo-VI)",
       "Echo_of_War_Divine_Seed": "Semilla divina (El Luofu de Xianzhou)",
       "Echo_of_War_Borehole_Planet_Old_Crater": "Cráter del planeta devorado (Estación Espacial Herta)",
-      "Echo_of_War_Salutations_of_Ashen_Dreams": "Ecos de la guerra: Tributo del sueño ceniciento (Colonipenal)"
+      "Echo_of_War_Salutations_of_Ashen_Dreams": "Tributo del sueño ceniciento (Colonipenal)"
     },
     "Team": {
       "name": "Equipo de mazmorra",

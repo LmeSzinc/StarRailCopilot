@@ -159,6 +159,16 @@ class LoginAndroidCloud(ModuleBase):
             season_pass = int(res.group(1))
         else:
             season_pass = 0
+        # 42 天
+        # 5 小时
+        if '天' in text:
+            pass
+        elif '小时' in text:
+            season_pass = round(season_pass / 24, 2)
+        elif '分钟' in text:
+            season_pass = round(season_pass / 24 / 60, 3)
+        else:
+            logger.error(f'Unexpected season pass text: {text}')
 
         text = self.xpath(XPath.REMAIN_PAID).text
         logger.info(f'Remain paid: {text}')

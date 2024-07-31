@@ -30,25 +30,26 @@ def get_assignment_entry_data():
     """
     expedition_namehash_to_id = {
         deep_get(expedition, 'Name.Hash'): deep_get(expedition, 'ExpeditionID')
-        for expedition in GenerateKeyword.read_file('./ExcelOutput/ExpeditionData.json').values()
+        for expedition in GenerateKeyword.read_file('./ExcelOutput/ExpeditionData.json')
     }
     rev = {v: k for k, v in expedition_namehash_to_id.items()}
     rev = resort(rev)
     expedition_namehash_to_id = {v: k for k, v in rev.items()}
     expedition_id_to_reward_id = {
-        deep_get(expedition, '4.2.ExpeditionID'): deep_get(expedition, '4.2.RewardID')
-        for expedition in GenerateKeyword.read_file('./ExcelOutput/ExpeditionReward.json').values()
+        deep_get(expedition, 'ExpeditionID'): deep_get(expedition, 'RewardID')
+        for expedition in GenerateKeyword.read_file('./ExcelOutput/ExpeditionReward.json')
+        if deep_get(expedition, 'Duration') == 4 and deep_get(expedition, 'AvatarNum') == 2
     }
     reward_id_to_item_ids = {
         deep_get(reward, 'RewardID'): [
             v for k, v in reward.items()
             if k.startswith('ItemID')
         ]
-        for reward in GenerateKeyword.read_file('./ExcelOutput/RewardData.json').values()
+        for reward in GenerateKeyword.read_file('./ExcelOutput/RewardData.json')
     }
     item_id_to_namehash = {
         deep_get(item, 'ID'): deep_get(item, 'ItemName.Hash')
-        for item in GenerateKeyword.read_file('./ExcelOutput/ItemConfig.json').values()
+        for item in GenerateKeyword.read_file('./ExcelOutput/ItemConfig.json')
     }
     item_name_remap = {
         '旅情见闻': '角色经验材料',
@@ -81,7 +82,7 @@ class GenerateAssignmentGroup(GenerateKeyword):
     output_file = './tasks/assignment/keywords/group.py'
 
     def iter_keywords(self) -> Iterable[dict]:
-        for group in self.read_file('./ExcelOutput/ExpeditionGroup.json').values():
+        for group in self.read_file('./ExcelOutput/ExpeditionGroup.json'):
             yield dict(text_id=deep_get(group, 'Name.Hash'))
 
 
@@ -133,7 +134,7 @@ class GenerateAssignmentEventEntry(GenerateKeyword):
     output_file = './tasks/assignment/keywords/event_entry.py'
 
     def iter_keywords(self) -> Iterable[dict]:
-        for expedition in self.read_file('./ExcelOutput/ActivityExpedition.json').values():
+        for expedition in self.read_file('./ExcelOutput/ActivityExpedition.json'):
             yield dict(text_id=deep_get(expedition, 'Name.Hash'))
 
 

@@ -124,6 +124,10 @@ class KeywordExtract:
 
         """
         quest_data = read_file(os.path.join(TextMap.DATA_FOLDER, 'ExcelOutput', 'QuestData.json'))
+        quest_data = {
+            str(deep_get(data, 'QuestID')): data
+            for data in quest_data
+        }
         quests_hash = [quest_data[str(quest_id)]["QuestTitle"]["Hash"] for quest_id in quests]
         quest_keywords = list(dict.fromkeys([self.text_map[lang].find(quest_hash)[1] for quest_hash in quests_hash]))
         self.load_keywords(quest_keywords, lang)
@@ -138,39 +142,43 @@ class KeywordExtract:
         gen.CommentAutoGenerage('dev_tools.keyword_extract')
 
         old_quest = [
-            "Go_on_assignment_1_time", # -> Dispatch_1_assignments
-            "Complete_Simulated_Universe_1_times", # same
-            "Complete_1_stage_in_Simulated_Universe_Any_world", # -> Complete_Divergent_Universe_or_Simulated_Universe_1_times
-            "Complete_Calyx_Crimson_1_time", # -> Clear_Calyx_Crimson_1_times
-            "Enter_combat_by_attacking_enemy_Weakness_and_win_3_times", # -> Enter_combat_by_attacking_enemie_Weakness_and_win_1_times
-            "Use_Technique_2_times", # -> Use_Technique_1_times
-            "Destroy_3_destructible_objects", # -> Destroy_1_destructible_objects
-            "Obtain_victory_in_combat_with_Support_Characters_1_time", # -> Obtain_victory_in_combat_with_Support_Characters_1_times
-            "Level_up_any_character_1_time", # -> Level_up_any_character_1_times
-            "Level_up_any_Light_Cone_1_time", # -> Level_up_any_Light_Cone_1_times
-            "Synthesize_Consumable_1_time", # -> Use_the_Omni_Synthesizer_1_times
-            "Synthesize_material_1_time", # -> Use_the_Omni_Synthesizer_1_times
-            "Take_1_photo", # -> Take_photos_1_times
-            "Level_up_any_Relic_1_time", # -> Level_up_any_Relic_1_times
+            "Go_on_assignment_1_time",  # -> Dispatch_1_assignments
+            "Complete_Simulated_Universe_1_times",  # same
+            "Complete_1_stage_in_Simulated_Universe_Any_world",
+            # -> Complete_Divergent_Universe_or_Simulated_Universe_1_times
+            "Complete_Calyx_Crimson_1_time",  # -> Clear_Calyx_Crimson_1_times
+            "Enter_combat_by_attacking_enemy_Weakness_and_win_3_times",
+            # -> Enter_combat_by_attacking_enemie_Weakness_and_win_1_times
+            "Use_Technique_2_times",  # -> Use_Technique_1_times
+            "Destroy_3_destructible_objects",  # -> Destroy_1_destructible_objects
+            "Obtain_victory_in_combat_with_Support_Characters_1_time",
+            # -> Obtain_victory_in_combat_with_Support_Characters_1_times
+            "Level_up_any_character_1_time",  # -> Level_up_any_character_1_times
+            "Level_up_any_Light_Cone_1_time",  # -> Level_up_any_Light_Cone_1_times
+            "Synthesize_Consumable_1_time",  # -> Use_the_Omni_Synthesizer_1_times
+            "Synthesize_material_1_time",  # -> Use_the_Omni_Synthesizer_1_times
+            "Take_1_photo",  # -> Take_photos_1_times
+            "Level_up_any_Relic_1_time",  # -> Level_up_any_Relic_1_times
         ]
 
         correct_times = {
-        #    "Dispatch_1_assignments":  1,
-        #    "Complete_Divergent_Universe_or_Simulated_Universe_1_times": 1,
-        #    "Clear_Calyx_Crimson_1_times": 1,
+            #    "Dispatch_1_assignments":  1,
+            #    "Complete_Divergent_Universe_or_Simulated_Universe_1_times": 1,
+            #    "Clear_Calyx_Crimson_1_times": 1,
             "Enter_combat_by_attacking_enemie_Weakness_and_win_1_times": 3,
             "Use_Technique_1_times": 2,
             "Destroy_1_destructible_objects": 3,
-        #    "Obtain_victory_in_combat_with_Support_Characters_1_times": 1,
-        #    "Level_up_any_character_1_times": 1,
-        #    "Level_up_any_Light_Cone_1_times": 1,
-        #    "Use_the_Omni_Synthesizer_1_times": 1,
-        #    "Take_photos_1_times": 1,
-        #    "Level_up_any_Relic_1_times": 1,
+            #    "Obtain_victory_in_combat_with_Support_Characters_1_times": 1,
+            #    "Level_up_any_character_1_times": 1,
+            #    "Level_up_any_Light_Cone_1_times": 1,
+            #    "Use_the_Omni_Synthesizer_1_times": 1,
+            #    "Take_photos_1_times": 1,
+            #    "Level_up_any_Relic_1_times": 1,
             "Consume_1_Trailblaze_Power": 120
 
         }
-        def replace_templates_quest(text: str, correct_time = 1) -> str:
+
+        def replace_templates_quest(text: str, correct_time=1) -> str:
             text = replace_templates(text)
             text = text.replace('1', f'{correct_time}')
             return text
@@ -187,7 +195,8 @@ class KeywordExtract:
                 gen.ObjectAttr(key='id', value=index + last_id + 1)
                 gen.ObjectAttr(key='name', value=name)
                 for lang in UI_LANGUAGES:
-                    gen.ObjectAttr(key=lang, value=replace_templates_quest(self.find_keyword(keyword, lang=lang)[1], correct_times.setdefault(old_name, 1)))
+                    gen.ObjectAttr(key=lang, value=replace_templates_quest(self.find_keyword(keyword, lang=lang)[1],
+                                                                           correct_times.setdefault(old_name, 1)))
                 gen.last_id = index + last_id + 1
 
         output_file = './tasks/daily/keywords/daily_quest.py'
@@ -198,14 +207,14 @@ class KeywordExtract:
 
     def generate_daily_quests(self):
         daily_quest = read_file(os.path.join(TextMap.DATA_FOLDER, 'ExcelOutput', 'DailyQuest.json'))
-        self.load_quests(daily_quest.keys())
+        self.load_quests([str(deep_get(data, 'DailyID')) for data in daily_quest])
         self.write_daily_quest_keywords()
 
     def load_character_name_keywords(self, lang='en'):
         file_name = 'ItemConfigAvatarPlayerIcon.json'
         path = os.path.join(TextMap.DATA_FOLDER, 'ExcelOutput', file_name)
         character_data = read_file(path)
-        characters_hash = [character_data[key]["ItemName"]["Hash"] for key in character_data]
+        characters_hash = [data["ItemName"]["Hash"] for data in character_data]
 
         text_map = self.text_map[lang]
         keywords_id = sorted(
@@ -216,36 +225,45 @@ class KeywordExtract:
     def generate_shadow_with_characters(self):
         # Damage type -> damage hash
         damage_info = dict()
-        for type_name, data in read_file(os.path.join(
-            TextMap.DATA_FOLDER, 'ExcelOutput',
-            'DamageType.json'
-        )).items():
+        for data in read_file(os.path.join(
+                TextMap.DATA_FOLDER, 'ExcelOutput',
+                'DamageType.json'
+        )):
+            type_name = deep_get(data, 'ID', 0)
             damage_info[type_name] = deep_get(data, 'DamageTypeName.Hash')
         # Character id -> character hash & damage type
         character_info = dict()
         for data in read_file(os.path.join(
-            TextMap.DATA_FOLDER, 'ExcelOutput',
-            'AvatarConfig.json'
-        )).values():
+                TextMap.DATA_FOLDER, 'ExcelOutput',
+                'AvatarConfig.json'
+        )):
             name_hash = deep_get(data, 'AvatarName.Hash')
             damage_type = deep_get(data, 'DamageType')
             character_info[data['AvatarID']] = (
                 name_hash, damage_info[damage_type])
         # Item id -> character id
         promotion_info = defaultdict(list)
-        for data in read_file(os.path.join(
-            TextMap.DATA_FOLDER, 'ExcelOutput',
-            'AvatarPromotionConfig.json'
-        )).values():
+
+        def merge_same(data: list[dict], keyword) -> list:
+            mp = defaultdict(dict)
+            for d in data:
+                length = len(mp[d[keyword]])
+                mp[d[keyword]][str(length)] = d
+            return mp.values()
+
+        for data in merge_same(read_file(os.path.join(
+                TextMap.DATA_FOLDER, 'ExcelOutput',
+                'AvatarPromotionConfig.json'
+        )), keyword='AvatarID'):
             character_id = deep_get(data, '0.AvatarID')
             item_id = deep_get(data, '2.PromotionCostList')[-1]['ItemID']
             promotion_info[item_id].append(character_info[character_id])
         # Shadow hash -> item id
         shadow_info = dict()
-        for data in read_file(os.path.join(
-            TextMap.DATA_FOLDER, 'ExcelOutput',
-            'MappingInfo.json'
-        )).values():
+        for data in merge_same(read_file(os.path.join(
+                TextMap.DATA_FOLDER, 'ExcelOutput',
+                'MappingInfo.json'
+        )), keyword='ID'):
             farm_type = deep_get(data, '0.FarmType')
             if farm_type != 'ELEMENT':
                 continue
@@ -351,7 +369,7 @@ class KeywordExtract:
 
     def generate_battle_pass_quests(self):
         battle_pass_quests = read_file(os.path.join(TextMap.DATA_FOLDER, 'ExcelOutput', 'BattlePassConfig.json'))
-        latest_quests = list(battle_pass_quests.values())[-1]
+        latest_quests = list(battle_pass_quests)[-1]
         week_quest_list = deep_get(latest_quests, "WeekQuestList")
         week_order1 = deep_get(latest_quests, "WeekOrder1")
         week_chain_quest_list = deep_get(latest_quests, "WeekChainQuestList")
@@ -362,31 +380,39 @@ class KeywordExtract:
     def generate_rogue_buff(self):
         # paths
         aeons = read_file(os.path.join(TextMap.DATA_FOLDER, 'ExcelOutput', 'RogueAeonDisplay.json'))
-        aeons_hash = [deep_get(aeon, 'RogueAeonPathName2.Hash') for aeon in aeons.values()]
+        aeons_hash = [deep_get(aeon, 'RogueAeonPathName2.Hash') for aeon in aeons]
         self.keywords_id = aeons_hash
         self.write_keywords(keyword_class='RoguePath', output_file='./tasks/rogue/keywords/path.py')
 
         # blessings
         blessings_info = read_file(os.path.join(TextMap.DATA_FOLDER, 'ExcelOutput', 'RogueBuff.json'))
         blessings_name_map = read_file(os.path.join(TextMap.DATA_FOLDER, 'ExcelOutput', 'RogueMazeBuff.json'))
-        blessings_id = [deep_get(blessing, '1.MazeBuffID') for blessing in blessings_info.values()
-                        if not deep_get(blessing, '1.AeonID')][1:]
-        resonances_id = [deep_get(blessing, '1.MazeBuffID') for blessing in blessings_info.values()
-                         if deep_get(blessing, '1.AeonID')]
+        blessings_name_map = {
+            deep_get(data, 'ID'): data
+            for data in blessings_name_map
+        }
+        blessings_id = [deep_get(blessing, 'MazeBuffID') for blessing in blessings_info
+                        if not deep_get(blessing, 'AeonID')][1:]
+        resonances_id = [deep_get(blessing, 'MazeBuffID') for blessing in blessings_info
+                         if deep_get(blessing, 'AeonID')]
+        blessings_info = {
+            str(deep_get(data, 'MazeBuffID')): data
+            for data in blessings_info if deep_get(data, 'MazeBuffLevel') == 1
+        }
 
         # ignore endless buffs
         endless_buffs = read_file(os.path.join(TextMap.DATA_FOLDER, 'ExcelOutput', 'RogueEndlessMegaBuffDesc.json'))
-        endless_buff_ids = [int(id_) for id_ in endless_buffs]
+        endless_buff_ids = [int(deep_get(data, 'MazeBuffID')) for data in endless_buffs]
         blessings_id = [id_ for id_ in blessings_id if id_ not in endless_buff_ids]
 
         def get_blessing_infos(id_list, with_enhancement: bool):
-            blessings_hash = [deep_get(blessings_name_map, f"{blessing_id}.1.BuffName.Hash")
+            blessings_hash = [deep_get(blessings_name_map, f"{blessing_id}.BuffName.Hash")
                               for blessing_id in id_list]
-            blessings_path_id = {blessing_hash: int(deep_get(blessings_info, f'{blessing_id}.1.RogueBuffType')) - 119
+            blessings_path_id = {blessing_hash: int(deep_get(blessings_info, f'{blessing_id}.RogueBuffType')) - 119
                                  # 119 is the magic number make type match with path in keyword above
                                  for blessing_hash, blessing_id in zip(blessings_hash, id_list)}
-            blessings_category = {blessing_hash: deep_get(blessings_info, f'{blessing_id}.1.RogueBuffCategory')
-                                    for blessing_hash, blessing_id in zip(blessings_hash, id_list)}
+            blessings_category = {blessing_hash: deep_get(blessings_info, f'{blessing_id}.RogueBuffCategory')
+                                  for blessing_hash, blessing_id in zip(blessings_hash, id_list)}
             category_map = {
                 "Common": 1,
                 "Rare": 2,
@@ -418,8 +444,8 @@ class KeywordExtract:
             'RogueTalkNameConfig.json'
         )
         event_title_ids = {
-            id_: deep_get(data, 'Name.Hash')
-            for id_, data in read_file(event_title_file).items()
+            str(deep_get(data, 'TalkNameID')): deep_get(data, 'Name.Hash')
+            for data in read_file(event_title_file)
         }
         event_title_texts = defaultdict(list)
         for title_id, title_hash in event_title_ids.items():
@@ -432,8 +458,8 @@ class KeywordExtract:
             'RogueDialogueOptionDisplay.json'
         )
         option_ids = {
-            id_: deep_get(data, 'OptionTitle.Hash')
-            for id_, data in read_file(option_file).items()
+            str(deep_get(data, 'OptionDisplayID')): deep_get(data, 'OptionTitle.Hash')
+            for data in read_file(option_file)
         }
         # Key: event name hash, value: list of option id/hash
         options_grouped = dict()
@@ -503,7 +529,9 @@ class KeywordExtract:
                 if option_dup_count[option_var] > 1:
                     option_var = f'{option_var}_{option_md5[:md5_prefix_len]}'
                 return option_var
+
             return wrapper
+
         option_gen = None
         option_hash_to_keyword_id = dict()  # option hash -> option keyword id
         for i, (option_md5, option_hash) in enumerate(option_md5s.items(), start=1):
@@ -543,9 +571,9 @@ class KeywordExtract:
             logger.critical(
                 f'Importing preset strategies fails, probably due to changes in {output_file}')
 
-    def iter_without_duplication(self, file: dict, keys):
+    def iter_without_duplication(self, file: list, keys):
         visited = set()
-        for data in file.values():
+        for data in file:
             hash_ = deep_get(data, keys=keys)
             _, name = self.find_keyword(hash_, lang='cn')
             if name in visited:

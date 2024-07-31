@@ -263,11 +263,11 @@
       "Calyx_Crimson_Nihility_Luofu_AlchemyCommission": "Trace: Nihility (Alchemy Commission)",
       "Stagnant_Shadow_Spike": "Ascension: Physical (Natasha / Clara / Luka / Sushang)",
       "Stagnant_Shadow_Perdition": "Ascension: Physical (Hanya / Argenti)",
-      "Stagnant_Shadow_Duty": "Ascension: Physical (Boothill / Robin)",
+      "Stagnant_Shadow_Duty": "Ascension: Physical (Boothill / Robin / Yunli)",
       "Stagnant_Shadow_Blaze": "Ascension: Fire (Himeko / Asta / Hook)",
       "Stagnant_Shadow_Scorch": "Ascension: Fire (Guinaifen / Topaz & Numby)",
-      "Stagnant_Shadow_Ire": "Ascension: Fire (Firefly / Gallagher)",
-      "Stagnant_Shadow_Rime": "Ascension: Ice (March 7th / Herta / Gepard / Pela)",
+      "Stagnant_Shadow_Ire": "Ascension: Fire (Firefly / Gallagher / Jiaoqiu)",
+      "Stagnant_Shadow_Rime": "Ascension: Ice (March 7th / Herta / Gepard / Pela / March 7th)",
       "Stagnant_Shadow_Icicle": "Ascension: Ice (Yanqing / Jingliu / Ruan Mei)",
       "Stagnant_Shadow_Nectar": "Ascension: Ice (Misha)",
       "Stagnant_Shadow_Fulmination": "Ascension: Lightning (Arlan / Serval / Tingyun / Bailu)",
@@ -410,7 +410,8 @@
       "Luka": "Luka",
       "Luocha": "Luocha",
       "Lynx": "Lynx",
-      "March7th": "March 7th",
+      "March7thPreservation": "March 7th: Preservation",
+      "March7thTheHunt": "March 7th: The Hunt",
       "Misha": "Misha",
       "Natasha": "Natasha",
       "Pela": "Pela",
@@ -431,7 +432,8 @@
       "Welt": "Welt",
       "Xueyi": "Xueyi",
       "Yanqing": "Yanqing",
-      "Yukong": "Yukong"
+      "Yukong": "Yukong",
+      "Yunli": "Yunli"
     }
   },
   "DungeonStorage": {
@@ -508,7 +510,7 @@
       "help": ""
     },
     "Item_Horn_of_Snow": {
-      "name": "Ascension: Ice (March 7th / Herta / Gepard / Pela)",
+      "name": "Ascension: Ice (March 7th / Herta / Gepard / Pela / March 7th)",
       "help": ""
     },
     "Item_Lightning_Crown_of_the_Past_Shadow": {
@@ -556,11 +558,11 @@
       "help": ""
     },
     "Item_IPC_Work_Permit": {
-      "name": "Ascension: Physical (Boothill / Robin)",
+      "name": "Ascension: Physical (Boothill / Robin / Yunli)",
       "help": ""
     },
     "Item_Raging_Heart": {
-      "name": "Ascension: Fire (Firefly / Gallagher)",
+      "name": "Ascension: Fire (Firefly / Gallagher / Jiaoqiu)",
       "help": ""
     },
     "Item_Dream_Fridge": {

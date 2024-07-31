@@ -210,3 +210,39 @@ Fountain_of_Youth = RogueBonus(
     jp='不老の泉',
     es='Fuente de la juventud',
 )
+Reimbursement_Form = RogueBonus(
+    id=24,
+    name='Reimbursement_Form',
+    cn='报销单',
+    cht='報銷單',
+    en='Reimbursement Form',
+    jp='清算書',
+    es='Formulario de reembolso',
+)
+Sea_of_Forgetfulness = RogueBonus(
+    id=25,
+    name='Sea_of_Forgetfulness',
+    cn='遗忘海',
+    cht='遺忘海',
+    en='Sea of Forgetfulness',
+    jp='忘却の海',
+    es='Mar del olvido',
+)
+Phenomenal_Field = RogueBonus(
+    id=26,
+    name='Phenomenal_Field',
+    cn='现象场',
+    cht='現象場',
+    en='Phenomenal Field',
+    jp='現象の場',
+    es='Campo fenomenal',
+)
+Lying_Cap = RogueBonus(
+    id=27,
+    name='Lying_Cap',
+    cn='说谎帽',
+    cht='說謊帽',
+    en='Lying Cap',
+    jp='ペテンハット',
+    es='Sombrero mentiroso',
+)

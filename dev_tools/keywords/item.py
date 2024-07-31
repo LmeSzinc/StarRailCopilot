@@ -10,7 +10,7 @@ class GenerateItemBase(GenerateKeyword):
     blacklist = []
 
     def iter_items(self) -> t.Iterable[dict]:
-        for data in SHARE_DATA.ItemConfig.values():
+        for data in SHARE_DATA.ItemConfig:
             item_id = data.get('ID', 0)
             text_id = deep_get(data, keys='ItemName.Hash')
             subtype = data.get('ItemSubType', 0)
@@ -50,21 +50,20 @@ class GenerateItemBase(GenerateKeyword):
                     data
         """
         dic = {}
-        for level_data in SHARE_DATA.MappingInfo.values():
+        for dungeon_data in SHARE_DATA.MappingInfo:
             # Use the highest level
             # And must contain:
             #       "Type": "FARM_ENTRANCE",
             #       "FarmType": "COCOON",
-            for dungeon_data in level_data.values():
-                if dungeon_data.get('Type') != 'FARM_ENTRANCE':
+            if dungeon_data.get('Type') != 'FARM_ENTRANCE':
+                continue
+            # parse
+            dungeon_id = dungeon_data.get('ID', 0)
+            for item_data in dungeon_data.get('DisplayItemList', []):
+                item_id = item_data.get('ItemID', 0)
+                if item_id < 100:
                     continue
-                # parse
-                dungeon_id = dungeon_data.get('ID', 0)
-                for item_data in dungeon_data.get('DisplayItemList', []):
-                    item_id = item_data.get('ItemID', 0)
-                    if item_id < 100:
-                        continue
-                    dic.setdefault(item_id, dungeon_id)
+                dic.setdefault(item_id, dungeon_id)
 
         # Credict
         dic.setdefault(2, 1003)

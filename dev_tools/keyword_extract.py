@@ -202,7 +202,7 @@ class KeywordExtract:
 
     def generate_daily_quests(self):
         daily_quest = read_file(os.path.join(TextMap.DATA_FOLDER, 'ExcelOutput', 'DailyQuest.json'))
-        self.load_quests([deep_get(data, 'DailyID') for data in daily_quest])
+        self.load_quests([str(deep_get(data, 'DailyID')) for data in daily_quest])
         self.write_daily_quest_keywords()
 
     def load_character_name_keywords(self, lang='en'):

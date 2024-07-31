@@ -142,39 +142,43 @@ class KeywordExtract:
         gen.CommentAutoGenerage('dev_tools.keyword_extract')
 
         old_quest = [
-            "Go_on_assignment_1_time", # -> Dispatch_1_assignments
-            "Complete_Simulated_Universe_1_times", # same
-            "Complete_1_stage_in_Simulated_Universe_Any_world", # -> Complete_Divergent_Universe_or_Simulated_Universe_1_times
-            "Complete_Calyx_Crimson_1_time", # -> Clear_Calyx_Crimson_1_times
-            "Enter_combat_by_attacking_enemy_Weakness_and_win_3_times", # -> Enter_combat_by_attacking_enemie_Weakness_and_win_1_times
-            "Use_Technique_2_times", # -> Use_Technique_1_times
-            "Destroy_3_destructible_objects", # -> Destroy_1_destructible_objects
-            "Obtain_victory_in_combat_with_Support_Characters_1_time", # -> Obtain_victory_in_combat_with_Support_Characters_1_times
-            "Level_up_any_character_1_time", # -> Level_up_any_character_1_times
-            "Level_up_any_Light_Cone_1_time", # -> Level_up_any_Light_Cone_1_times
-            "Synthesize_Consumable_1_time", # -> Use_the_Omni_Synthesizer_1_times
-            "Synthesize_material_1_time", # -> Use_the_Omni_Synthesizer_1_times
-            "Take_1_photo", # -> Take_photos_1_times
-            "Level_up_any_Relic_1_time", # -> Level_up_any_Relic_1_times
+            "Go_on_assignment_1_time",  # -> Dispatch_1_assignments
+            "Complete_Simulated_Universe_1_times",  # same
+            "Complete_1_stage_in_Simulated_Universe_Any_world",
+            # -> Complete_Divergent_Universe_or_Simulated_Universe_1_times
+            "Complete_Calyx_Crimson_1_time",  # -> Clear_Calyx_Crimson_1_times
+            "Enter_combat_by_attacking_enemy_Weakness_and_win_3_times",
+            # -> Enter_combat_by_attacking_enemie_Weakness_and_win_1_times
+            "Use_Technique_2_times",  # -> Use_Technique_1_times
+            "Destroy_3_destructible_objects",  # -> Destroy_1_destructible_objects
+            "Obtain_victory_in_combat_with_Support_Characters_1_time",
+            # -> Obtain_victory_in_combat_with_Support_Characters_1_times
+            "Level_up_any_character_1_time",  # -> Level_up_any_character_1_times
+            "Level_up_any_Light_Cone_1_time",  # -> Level_up_any_Light_Cone_1_times
+            "Synthesize_Consumable_1_time",  # -> Use_the_Omni_Synthesizer_1_times
+            "Synthesize_material_1_time",  # -> Use_the_Omni_Synthesizer_1_times
+            "Take_1_photo",  # -> Take_photos_1_times
+            "Level_up_any_Relic_1_time",  # -> Level_up_any_Relic_1_times
         ]
 
         correct_times = {
-        #    "Dispatch_1_assignments":  1,
-        #    "Complete_Divergent_Universe_or_Simulated_Universe_1_times": 1,
-        #    "Clear_Calyx_Crimson_1_times": 1,
+            #    "Dispatch_1_assignments":  1,
+            #    "Complete_Divergent_Universe_or_Simulated_Universe_1_times": 1,
+            #    "Clear_Calyx_Crimson_1_times": 1,
             "Enter_combat_by_attacking_enemie_Weakness_and_win_1_times": 3,
             "Use_Technique_1_times": 2,
             "Destroy_1_destructible_objects": 3,
-        #    "Obtain_victory_in_combat_with_Support_Characters_1_times": 1,
-        #    "Level_up_any_character_1_times": 1,
-        #    "Level_up_any_Light_Cone_1_times": 1,
-        #    "Use_the_Omni_Synthesizer_1_times": 1,
-        #    "Take_photos_1_times": 1,
-        #    "Level_up_any_Relic_1_times": 1,
+            #    "Obtain_victory_in_combat_with_Support_Characters_1_times": 1,
+            #    "Level_up_any_character_1_times": 1,
+            #    "Level_up_any_Light_Cone_1_times": 1,
+            #    "Use_the_Omni_Synthesizer_1_times": 1,
+            #    "Take_photos_1_times": 1,
+            #    "Level_up_any_Relic_1_times": 1,
             "Consume_1_Trailblaze_Power": 120
 
         }
-        def replace_templates_quest(text: str, correct_time = 1) -> str:
+
+        def replace_templates_quest(text: str, correct_time=1) -> str:
             text = replace_templates(text)
             text = text.replace('1', f'{correct_time}')
             return text
@@ -191,7 +195,8 @@ class KeywordExtract:
                 gen.ObjectAttr(key='id', value=index + last_id + 1)
                 gen.ObjectAttr(key='name', value=name)
                 for lang in UI_LANGUAGES:
-                    gen.ObjectAttr(key=lang, value=replace_templates_quest(self.find_keyword(keyword, lang=lang)[1], correct_times.setdefault(old_name, 1)))
+                    gen.ObjectAttr(key=lang, value=replace_templates_quest(self.find_keyword(keyword, lang=lang)[1],
+                                                                           correct_times.setdefault(old_name, 1)))
                 gen.last_id = index + last_id + 1
 
         output_file = './tasks/daily/keywords/daily_quest.py'
@@ -221,16 +226,16 @@ class KeywordExtract:
         # Damage type -> damage hash
         damage_info = dict()
         for data in read_file(os.path.join(
-            TextMap.DATA_FOLDER, 'ExcelOutput',
-            'DamageType.json'
+                TextMap.DATA_FOLDER, 'ExcelOutput',
+                'DamageType.json'
         )):
             type_name = deep_get(data, 'ID', 0)
             damage_info[type_name] = deep_get(data, 'DamageTypeName.Hash')
         # Character id -> character hash & damage type
         character_info = dict()
         for data in read_file(os.path.join(
-            TextMap.DATA_FOLDER, 'ExcelOutput',
-            'AvatarConfig.json'
+                TextMap.DATA_FOLDER, 'ExcelOutput',
+                'AvatarConfig.json'
         )):
             name_hash = deep_get(data, 'AvatarName.Hash')
             damage_type = deep_get(data, 'DamageType')
@@ -238,27 +243,27 @@ class KeywordExtract:
                 name_hash, damage_info[damage_type])
         # Item id -> character id
         promotion_info = defaultdict(list)
-        
-        def merge_same(data: list[dict],keyword) -> list:
+
+        def merge_same(data: list[dict], keyword) -> list:
             mp = defaultdict(dict)
             for d in data:
                 length = len(mp[d[keyword]])
                 mp[d[keyword]][str(length)] = d
             return mp.values()
-        
+
         for data in merge_same(read_file(os.path.join(
-            TextMap.DATA_FOLDER, 'ExcelOutput',
-            'AvatarPromotionConfig.json'
-        )),keyword='AvatarID'):
+                TextMap.DATA_FOLDER, 'ExcelOutput',
+                'AvatarPromotionConfig.json'
+        )), keyword='AvatarID'):
             character_id = deep_get(data, '0.AvatarID')
             item_id = deep_get(data, '2.PromotionCostList')[-1]['ItemID']
             promotion_info[item_id].append(character_info[character_id])
         # Shadow hash -> item id
         shadow_info = dict()
         for data in merge_same(read_file(os.path.join(
-            TextMap.DATA_FOLDER, 'ExcelOutput',
-            'MappingInfo.json'
-        )),keyword='ID'):
+                TextMap.DATA_FOLDER, 'ExcelOutput',
+                'MappingInfo.json'
+        )), keyword='ID'):
             farm_type = deep_get(data, '0.FarmType')
             if farm_type != 'ELEMENT':
                 continue
@@ -397,7 +402,7 @@ class KeywordExtract:
 
         # ignore endless buffs
         endless_buffs = read_file(os.path.join(TextMap.DATA_FOLDER, 'ExcelOutput', 'RogueEndlessMegaBuffDesc.json'))
-        endless_buff_ids = [int(deep_get(data,'MazeBuffID')) for data in endless_buffs]
+        endless_buff_ids = [int(deep_get(data, 'MazeBuffID')) for data in endless_buffs]
         blessings_id = [id_ for id_ in blessings_id if id_ not in endless_buff_ids]
 
         def get_blessing_infos(id_list, with_enhancement: bool):
@@ -407,7 +412,7 @@ class KeywordExtract:
                                  # 119 is the magic number make type match with path in keyword above
                                  for blessing_hash, blessing_id in zip(blessings_hash, id_list)}
             blessings_category = {blessing_hash: deep_get(blessings_info, f'{blessing_id}.RogueBuffCategory')
-                                    for blessing_hash, blessing_id in zip(blessings_hash, id_list)}
+                                  for blessing_hash, blessing_id in zip(blessings_hash, id_list)}
             category_map = {
                 "Common": 1,
                 "Rare": 2,
@@ -524,7 +529,9 @@ class KeywordExtract:
                 if option_dup_count[option_var] > 1:
                     option_var = f'{option_var}_{option_md5[:md5_prefix_len]}'
                 return option_var
+
             return wrapper
+
         option_gen = None
         option_hash_to_keyword_id = dict()  # option hash -> option keyword id
         for i, (option_md5, option_hash) in enumerate(option_md5s.items(), start=1):

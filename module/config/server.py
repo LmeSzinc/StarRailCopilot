@@ -20,6 +20,13 @@ VALID_CLOUD_SERVER = {
 }
 VALID_CLOUD_PACKAGE = set(list(VALID_CLOUD_SERVER.values()))
 
+DICT_PACKAGE_TO_ACTIVITY = {
+    'com.miHoYo.hkrpg': 'com.mihoyo.combosdk.ComboSDKActivity',
+    'com.miHoYo.hkrpg.bilibili': 'com.mihoyo.combosdk.ComboSDKActivity',
+    'com.HoYoverse.hkrpgoversea': 'com.mihoyo.combosdk.ComboSDKActivity',
+    'com.miHoYo.cloudgames.hkrpg': 'com.mihoyo.cloudgame.ui.SplashActivity',
+}
+
 
 def set_lang(lang_: str):
     """

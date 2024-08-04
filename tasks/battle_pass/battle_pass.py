@@ -23,6 +23,14 @@ from tasks.item.assets.assets_item_ui import SWITCH_CLICK
 
 
 class BattlePassTab(Switch):
+    def add_state(self, state, check_button, click_button=None):
+        if click_button is not None:
+            # Limit click_button.button
+            left = SWITCH_CLICK.area[0]
+            for button in click_button.buttons:
+                button._button = (left, button._button[1], button._button[2], button._button[3])
+        return super().add_state(state, check_button, click_button)
+
     def handle_additional(self, main: UI):
         if main.handle_reward():
             return True
@@ -43,14 +51,6 @@ SWITCH_BATTLE_PASS_TAB.add_state(
 
 
 class BattlePassMissionTab(Switch):
-    def add_state(self, state, check_button, click_button=None):
-        if click_button is not None:
-            # Limit click_button.button
-            left = SWITCH_CLICK.area[0]
-            for button in click_button.buttons:
-                button._button = (left, button._button[1], button._button[2], button._button[3])
-        return super().add_state(state, check_button, click_button)
-
     def get(self, main):
         """
         Args:

@@ -167,6 +167,8 @@ class LoginAndroidCloud(ModuleBase):
             season_pass = round(season_pass / 24, 2)
         elif '分钟' in text:
             season_pass = round(season_pass / 24 / 60, 3)
+        elif text == '':
+            season_pass = 0
         else:
             logger.error(f'Unexpected season pass text: {text}')
 

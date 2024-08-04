@@ -131,7 +131,8 @@ class CombatPrepare(UI):
                     logger.warning(f'Combat wave costs {cost} but has multiple waves, '
                                    f'probably wave amount is preset')
                     self.combat_set_wave(1)
-                    skip_first_screenshot = True
+                    # Don't skip_first_screenshot, combat_set_wave may not have screenshot updated
+                    # skip_first_screenshot = True
                     timeout.reset()
                     continue
                 else:

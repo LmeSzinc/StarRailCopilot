@@ -4,8 +4,8 @@ from module.base.timer import Timer
 from module.exception import GameNotRunningError, GamePageUnknownError
 from module.logger import logger
 from module.ocr.ocr import Ocr
-from tasks.base.assets.assets_base_main_page import ROGUE_LEAVE_FOR_NOW
-from tasks.base.assets.assets_base_page import CLOSE, MAIN_GOTO_CHARACTER, MAP_EXIT
+from tasks.base.assets.assets_base_main_page import ROGUE_LEAVE_FOR_NOW, ROGUE_LEAVE_FOR_NOW_OE
+from tasks.base.assets.assets_base_page import CLOSE, MAIN_GOTO_CHARACTER, MAP_EXIT, MAP_EXIT_OE
 from tasks.base.main_page import MainPage
 from tasks.base.page import Page, page_gacha, page_main
 from tasks.combat.assets.assets_combat_finish import COMBAT_EXIT
@@ -344,7 +344,6 @@ class UI(MainPage):
 
         return appear
 
-
     def is_in_map_exit(self, interval=0):
         self.device.stuck_record_add(MAP_EXIT)
 
@@ -354,6 +353,9 @@ class UI(MainPage):
         appear = False
         if MAP_EXIT.match_template_luma(self.device.image):
             if self.image_color_count(MAP_EXIT, color=(235, 235, 235), threshold=221, count=50):
+                appear = True
+        if MAP_EXIT_OE.match_template_luma(self.device.image):
+            if self.image_color_count(MAP_EXIT_OE, color=(235, 235, 235), threshold=221, count=50):
                 appear = True
 
         if appear and interval:
@@ -480,5 +482,8 @@ class UI(MainPage):
             if self.handle_ui_close(page_gacha.check_button, interval=2):
                 continue
             if self.appear_then_click(ROGUE_LEAVE_FOR_NOW, interval=2):
+                clicked = True
+                continue
+            if self.appear_then_click(ROGUE_LEAVE_FOR_NOW_OE, interval=2):
                 clicked = True
                 continue

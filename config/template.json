@@ -107,6 +107,7 @@
     },
     "DungeonStorage": {
       "TrailblazePower": {},
+      "Reserved": {},
       "Immersifier": {},
       "DungeonDouble": {},
       "EchoOfWar": {},

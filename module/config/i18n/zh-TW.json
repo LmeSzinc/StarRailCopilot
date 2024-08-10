@@ -445,6 +445,10 @@
       "name": "開拓力",
       "help": ""
     },
+    "Reserved": {
+      "name": "后备開拓力",
+      "help": ""
+    },
     "Immersifier": {
       "name": "沉浸器",
       "help": ""

@@ -578,6 +578,7 @@ class DungeonUI(DungeonState):
         DUNGEON_LIST.use_plane = bool(dungeon.is_Calyx_Crimson)
         # Insight dungeon
         DUNGEON_LIST.insight_row(dungeon, main=self)
+        self.device.click_record_clear()
         # Check if dungeon unlocked
         for entrance in DUNGEON_LIST.navigates:
             entrance: OcrResultButton = entrance
@@ -596,6 +597,7 @@ class DungeonUI(DungeonState):
                 DUNGEON_LIST.drag_vector = (0.2, 0.4)
             DUNGEON_LIST.limit_entrance = True
             DUNGEON_LIST.insight_row(dungeon, main=self)
+            self.device.click_record_clear()
             DUNGEON_LIST.drag_vector = DraggableList.drag_vector
             DUNGEON_LIST.limit_entrance = False
             DUNGEON_LIST.load_rows(main=self)

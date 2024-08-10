@@ -54,7 +54,7 @@ class RogueReward(RogueUI, CombatInteract, DungeonState):
                 confirm.reset()
                 continue
             if self.appear(REWARD_CLOSE, interval=2):
-                self.dungeon_update_stamina()
+                self.update_stamina_status()
                 if not init:
                     initial_stamina = self.config.stored.TrailblazePower.value
                     initial_immersifier = self.config.stored.Immersifier.value

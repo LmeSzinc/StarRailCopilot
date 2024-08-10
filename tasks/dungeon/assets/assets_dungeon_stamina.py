@@ -41,16 +41,6 @@ AMOUNT_PLUS = ButtonWrapper(
         ),
     ],
 )
-ENTER_IMMERSIFIER = ButtonWrapper(
-    name='ENTER_IMMERSIFIER',
-    share=Button(
-        file='./assets/share/dungeon/stamina/ENTER_IMMERSIFIER.png',
-        area=(1047, 26, 1066, 49),
-        search=(1027, 6, 1086, 69),
-        color=(138, 127, 117),
-        button=(1049, 26, 1151, 48),
-    ),
-)
 IMMERSIFIER_CHECK = ButtonWrapper(
     name='IMMERSIFIER_CHECK',
     share=Button(

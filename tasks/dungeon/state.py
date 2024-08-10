@@ -1,14 +1,13 @@
 from datetime import timedelta
 
 from module.base.base import ModuleBase
-from module.base.timer import Timer
 from module.base.utils import crop
 from module.config.stored.classes import now
 from module.config.utils import DEFAULT_TIME, get_server_next_monday_update, get_server_next_update
 from module.logger import logger
 from module.ocr.ocr import DigitCounter
-from tasks.base.ui import UI
-from tasks.dungeon.assets.assets_dungeon_state import OCR_SIMUNI_POINT, OCR_SIMUNI_POINT_OFFSET, OCR_STAMINA
+from tasks.combat.stamina_status import StaminaStatus
+from tasks.dungeon.assets.assets_dungeon_state import OCR_SIMUNI_POINT, OCR_SIMUNI_POINT_OFFSET
 from tasks.dungeon.keywords import DungeonList
 
 
@@ -19,7 +18,7 @@ class OcrSimUniPoint(DigitCounter):
         return result
 
 
-class DungeonState(UI):
+class DungeonState(StaminaStatus):
     def dungeon_get_simuni_point(self, image=None) -> int:
         """
         Page:
@@ -48,67 +47,6 @@ class DungeonState(UI):
             logger.warning(f'Invalid SimulatedUniverse points: {value}/{total}')
             return 0
 
-    def dungeon_update_stamina(self, image=None, skip_first_screenshot=True):
-        """
-        Returns:
-            bool: If success
-
-        Pages:
-            in: page_guild, Survival_Index, Simulated_Universe
-                or page_rogue, LEVEL_CONFIRM
-                or rogue, REWARD_CLOSE
-        """
-        ocr = DigitCounter(OCR_STAMINA)
-        timeout = Timer(1, count=2).start()
-        if image is None:
-            image = self.device.image
-            use_cached_image = False
-        else:
-            skip_first_screenshot = True
-            use_cached_image = True
-
-        while 1:
-            if skip_first_screenshot:
-                skip_first_screenshot = False
-            else:
-                self.device.screenshot()
-                image = self.device.image
-
-            stamina = (0, 0, 0)
-            immersifier = (0, 0, 0)
-
-            if timeout.reached():
-                logger.warning('dungeon_update_stamina() timeout')
-                return False
-
-            for row in ocr.detect_and_ocr(image):
-                if row.ocr_text.isdigit():
-                    continue
-                if row.ocr_text == '+':
-                    continue
-                if not ocr.is_format_matched(row.ocr_text):
-                    continue
-                data = ocr.format_result(row.ocr_text)
-                if data[2] == self.config.stored.TrailblazePower.FIXED_TOTAL:
-                    stamina = data
-                if data[2] == self.config.stored.Immersifier.FIXED_TOTAL:
-                    immersifier = data
-
-            if stamina[2] > 0 and immersifier[2] > 0:
-                break
-            if use_cached_image:
-                logger.info('dungeon_update_stamina() ended')
-                return
-
-        stamina = stamina[0]
-        immersifier = immersifier[0]
-        logger.attr('TrailblazePower', stamina)
-        logger.attr('Imersifier', immersifier)
-        with self.config.multi_set():
-            self.config.stored.TrailblazePower.value = stamina
-            self.config.stored.Immersifier.value = immersifier
-        return True
-
     def dungeon_update_simuni(self):
         """
         Update rogue weekly points, stamina, immersifier
@@ -122,8 +60,8 @@ class DungeonState(UI):
         def func(image):
             logger.info('Update thread start')
             with self.config.multi_set():
-                self.dungeon_get_simuni_point(image)
-                self.dungeon_update_stamina(image)
+                # self.dungeon_get_simuni_point(image)
+                self.update_stamina_status(image)
 
         ModuleBase.worker.submit(func, self.device.image)
 

@@ -271,6 +271,7 @@ class Connection(ConnectionAttr):
         return self.adb_shell(['getprop', name]).strip()
 
     @cached_property
+    @retry
     def cpu_abi(self) -> str:
         """
         Returns:
@@ -282,6 +283,7 @@ class Connection(ConnectionAttr):
         return abi
 
     @cached_property
+    @retry
     def sdk_ver(self) -> int:
         """
         Android SDK/API levels, see https://apilevels.com/
@@ -295,6 +297,7 @@ class Connection(ConnectionAttr):
         return 0
 
     @cached_property
+    @retry
     def is_avd(self):
         if get_serial_pair(self.serial)[0] is None:
             return False
@@ -305,12 +308,28 @@ class Connection(ConnectionAttr):
         return False
 
     @cached_property
+    @retry
     def nemud_app_keep_alive(self) -> str:
         res = self.adb_getprop('nemud.app_keep_alive')
         logger.attr('nemud.app_keep_alive', res)
         return res
 
+    @cached_property
     @retry
+    def nemud_player_version(self) -> str:
+        # [nemud.player_product_version]: [3.8.27.2950]
+        res = self.adb_getprop('nemud.player_version')
+        logger.attr('nemud.player_version', res)
+        return res
+
+    @cached_property
+    @retry
+    def nemud_player_engine(self) -> str:
+        # NEMUX or MACPRO
+        res = self.adb_getprop('nemud.player_engine')
+        logger.attr('nemud.player_engine', res)
+        return res
+
     def check_mumu_app_keep_alive(self):
         if not self.is_mumu_family:
             return False
@@ -340,12 +359,13 @@ class Connection(ConnectionAttr):
         """
         if not self.is_mumu_family:
             return False
+        # >= 4.0 has no info in getprop
+        if self.nemud_player_version == '':
+            return True
         if self.nemud_app_keep_alive != '':
             return True
         if IS_MACINTOSH:
-            res = self.adb_getprop('nemud.player_engine')
-            logger.attr('nemud.player_engine', res)
-            if 'MACPRO' in res:
+            if 'MACPRO' in self.nemud_player_engine:
                 return True
         return False
 

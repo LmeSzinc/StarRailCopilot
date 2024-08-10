@@ -163,6 +163,8 @@ class Combat(CombatInteract, CombatPrepare, CombatState, CombatTeam, CombatSuppo
         skip_first_screenshot = True
         is_executing = True
         self.combat_state_reset()
+        self.device.stuck_record_clear()
+        self.device.click_record_clear()
         self.device.screenshot_interval_set('combat')
         while 1:
             if skip_first_screenshot:
@@ -196,6 +198,8 @@ class Combat(CombatInteract, CombatPrepare, CombatState, CombatTeam, CombatSuppo
             if self.handle_battle_pass_notification():
                 continue
 
+        self.device.stuck_record_clear()
+        self.device.click_record_clear()
         self.device.screenshot_interval_set()
 
     def _combat_can_again(self) -> bool:

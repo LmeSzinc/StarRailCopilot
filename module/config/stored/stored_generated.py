@@ -22,6 +22,7 @@ from module.config.stored.classes import (
     StoredInt,
     StoredPlanner,
     StoredPlannerOverall,
+    StoredResersed,
     StoredSimulatedUniverse,
     StoredSimulatedUniverseElite,
     StoredTrailblazePower,
@@ -85,6 +86,7 @@ class StoredGenerated:
     Item_Dream_Making_Engine = StoredPlanner("Dungeon.Planner.Item_Dream_Making_Engine")
     Item_Shards_of_Desires = StoredPlanner("Dungeon.Planner.Item_Shards_of_Desires")
     TrailblazePower = StoredTrailblazePower("Dungeon.DungeonStorage.TrailblazePower")
+    Reserved = StoredResersed("Dungeon.DungeonStorage.Reserved")
     Immersifier = StoredImmersifier("Dungeon.DungeonStorage.Immersifier")
     DungeonDouble = StoredDungeonDouble("Dungeon.DungeonStorage.DungeonDouble")
     EchoOfWar = StoredEchoOfWar("Dungeon.DungeonStorage.EchoOfWar")

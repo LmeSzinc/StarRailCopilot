@@ -54,7 +54,7 @@ class Combat(CombatInteract, CombatPrepare, CombatState, CombatTeam, CombatSuppo
 
         # Check limits
         if self.config.stored.TrailblazePower.value < self.combat_wave_cost:
-            return self._try_get_more_trablaize_power(self.config.stored.TrailblazePower.value, self.combat_wave_cost)
+            return self._try_get_more_trablaize_power(self.combat_wave_cost)
         if self.combat_waves <= 0:
             logger.info('Combat wave limited, cannot continue combat')
             return False
@@ -163,6 +163,8 @@ class Combat(CombatInteract, CombatPrepare, CombatState, CombatTeam, CombatSuppo
         skip_first_screenshot = True
         is_executing = True
         self.combat_state_reset()
+        self.device.stuck_record_clear()
+        self.device.click_record_clear()
         self.device.screenshot_interval_set('combat')
         while 1:
             if skip_first_screenshot:
@@ -196,6 +198,8 @@ class Combat(CombatInteract, CombatPrepare, CombatState, CombatTeam, CombatSuppo
             if self.handle_battle_pass_notification():
                 continue
 
+        self.device.stuck_record_clear()
+        self.device.click_record_clear()
         self.device.screenshot_interval_set()
 
     def _combat_can_again(self) -> bool:
@@ -221,7 +225,7 @@ class Combat(CombatInteract, CombatPrepare, CombatState, CombatTeam, CombatSuppo
                 logger.info(f'Current has {current}, combat costs {self.combat_wave_cost}, can run again')
                 return True
             else:
-                return self._try_get_more_trablaize_power(current, self.combat_wave_cost * self.combat_waves)
+                return self._try_get_more_trablaize_power(self.combat_wave_cost * self.combat_waves)
         elif self.combat_wave_cost <= 0:
             logger.info(f'Free combat, combat costs {self.combat_wave_cost}, can not run again')
             return False
@@ -230,20 +234,15 @@ class Combat(CombatInteract, CombatPrepare, CombatState, CombatTeam, CombatSuppo
                 logger.info(f'Current has {current}, combat costs {self.combat_wave_cost}, can run again')
                 return True
             else:
-                return self._try_get_more_trablaize_power(current, self.combat_wave_cost * self.combat_waves)
+                return self._try_get_more_trablaize_power(self.combat_wave_cost * self.combat_waves)
 
-    def _try_get_more_trablaize_power(self, current, cost):
-        if self.config.TrailblazePower_ExtractReservedTrailblazePower:
-            logger.info('Extract reserved trailblaze power to get more trailblaze power')
-            if self.extract_reserved_trailblaze_power(current):
-                self.combat_get_trailblaze_power()
-                self.get_interval_timer(COMBAT_EXIT).wait()
-        if self.config.TrailblazePower_UseFuel:
-            logger.info('Use fuel to get more trailblaze power')
-            if self.use_fuel(current):
-                self.combat_get_trailblaze_power()
-            self.get_interval_timer(COMBAT_AGAIN).wait()
-
+    def _try_get_more_trablaize_power(self, cost):
+        self.extract_stamina(
+            update=False,
+            use_reserved=self.config.TrailblazePower_ExtractReservedTrailblazePower,
+            use_fuel=self.config.TrailblazePower_UseFuel
+        )
+        current = self.config.stored.TrailblazePower.value
         if current >= cost:
             return True
         else:

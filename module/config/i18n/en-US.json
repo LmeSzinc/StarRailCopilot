@@ -445,6 +445,10 @@
       "name": "Power",
       "help": ""
     },
+    "Reserved": {
+      "name": "Reserved Trailblaze Power",
+      "help": ""
+    },
     "Immersifier": {
       "name": "Immersifier",
       "help": ""

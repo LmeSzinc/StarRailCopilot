@@ -206,6 +206,10 @@ class StoredTrailblazePower(StoredCounter):
         return value
 
 
+class StoredResersed(StoredCounter):
+    FIXED_TOTAL = 2400
+
+
 class StoredImmersifier(StoredCounter):
     FIXED_TOTAL = 8
 

@@ -4,14 +4,16 @@ from module.base.utils import area_offset, crop
 from module.logger import logger
 from module.ocr.ocr import Digit
 from tasks.base.assets.assets_base_popup import GET_REWARD, POPUP_CANCEL, POPUP_CONFIRM
-from tasks.base.ui import UI
 from tasks.combat.assets.assets_combat_finish import COMBAT_AGAIN, COMBAT_EXIT
-from tasks.combat.assets.assets_combat_fuel import *
 from tasks.combat.assets.assets_combat_prepare import COMBAT_PREPARE
+from tasks.combat.assets.assets_combat_stamina_fuel import *
+from tasks.combat.assets.assets_combat_stamina_reserved import *
+from tasks.combat.assets.assets_combat_stamina_status import *
+from tasks.combat.stamina_status import StaminaStatus
 from tasks.item.slider import Slider
 
 
-class Fuel(UI):
+class Fuel(StaminaStatus):
     fuel_trailblaze_power = 60
 
     def _use_fuel_finish(self):
@@ -26,7 +28,7 @@ class Fuel(UI):
                 return True
         if self.appear(COMBAT_PREPARE):
             if self.image_color_count(COMBAT_PREPARE.button, color=(230, 230, 230), threshold=240, count=400):
-                logger.info(f'Use fuel finished at COMBAT_AGAIN')
+                logger.info(f'Use fuel finished at COMBAT_PREPARE')
                 return True
         return False
 
@@ -87,7 +89,7 @@ class Fuel(UI):
         timer = self.get_interval_timer(COMBAT_EXIT, interval=5, renew=True)
         timer.set_current(4.4)
 
-    def extract_reserved_trailblaze_power(self, current, skip_first_screenshot=True):
+    def extract_reserved_trailblaze_power(self, skip_first_screenshot=True):
         """
         Extract reserved trailblaze power from previous combat.
 
@@ -95,11 +97,8 @@ class Fuel(UI):
             bool: If extracted
         """
         logger.info('Extract reserved trailblaze power')
-        reserved = Digit(OCR_RESERVED_TRAILBLAZE_POWER).ocr_single_line(self.device.image)
-        if reserved <= 0:
-            logger.info('No reserved trailblaze power')
-            return False
 
+        RESERVED_ICON.load_search(ICON_SEARCH.area)
         self.interval_clear([POPUP_CONFIRM, POPUP_CANCEL, GET_REWARD])
         while 1:
             if skip_first_screenshot:
@@ -111,12 +110,14 @@ class Fuel(UI):
                 break
             if self.appear_then_click(EXTRACT_RESERVED_TRAILBLAZE_POWER):
                 continue
-            if self.appear_then_click(RESERVED_TRAILBLAZE_POWER_ENTRANCE):
+            if self.appear_then_click(RESERVED_ICON):
                 continue
 
-        count = min(reserved, self.config.stored.TrailblazePower.FIXED_TOTAL - current)
-        logger.info(f'Having {reserved} reserved, going to use {count}')
-        self.set_reserved_trailblaze_power(count, total=reserved)
+        # No need, amount will be set by game client
+        # count = min(reserved, self.config.stored.TrailblazePower.FIXED_TOTAL - current)
+        # logger.info(f'Having {reserved} reserved, going to use {count}')
+        # self.set_reserved_trailblaze_power(count, total=reserved)
+
         self._fuel_confirm()
         return True
 
@@ -160,6 +161,7 @@ class Fuel(UI):
 
         logger.info("Use Fuel")
 
+        STAMINA_ICON.load_search(ICON_SEARCH.area)
         timeout = Timer(1, count=3)
         has_fuel = False
         while 1:
@@ -182,7 +184,7 @@ class Fuel(UI):
             if self.appear_then_click(FUEL):
                 has_fuel = True
                 continue
-            if not self.appear(POPUP_CONFIRM) and self.appear_then_click(FUEL_ENTRANCE):
+            if not self.appear(POPUP_CONFIRM) and self.appear_then_click(STAMINA_ICON):
                 continue
 
         offset = FUEL_SELECTED.button_offset
@@ -215,3 +217,39 @@ class Fuel(UI):
         self.set_fuel_count(use)
         self._fuel_confirm()
         return True
+
+    def extract_stamina(self, update=True, use_reserved=True, use_fuel=False):
+        """
+        Args:
+            update:
+            use_reserved:
+            use_fuel:
+
+        Returns:
+            bool: If used
+        """
+        if not use_reserved and not use_fuel:
+            return False
+
+        logger.hr('Extract stamina', level=2)
+        logger.info(f'Extract stamina, reserved={use_reserved}, fuel={use_fuel}')
+        if update:
+            self.update_stamina_status()
+        used = False
+
+        if use_reserved:
+            if self.config.stored.Reserved.value <= 0:
+                logger.info('No reserved stamina')
+            else:
+                self.extract_reserved_trailblaze_power()
+                used = True
+                self.update_stamina_status()
+                self.get_interval_timer(COMBAT_AGAIN).wait()
+
+        if use_fuel:
+            self.use_fuel(current=self.config.stored.TrailblazePower.value)
+            used = True
+            self.update_stamina_status()
+            self.get_interval_timer(COMBAT_AGAIN).wait()
+
+        return used

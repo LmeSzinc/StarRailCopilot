@@ -445,6 +445,10 @@
       "name": "DungeonStorage.TrailblazePower.name",
       "help": "DungeonStorage.TrailblazePower.help"
     },
+    "Reserved": {
+      "name": "DungeonStorage.Reserved.name",
+      "help": "DungeonStorage.Reserved.help"
+    },
     "Immersifier": {
       "name": "DungeonStorage.Immersifier.name",
       "help": "DungeonStorage.Immersifier.help"

@@ -445,6 +445,10 @@
       "name": "Poder",
       "help": ""
     },
+    "Reserved": {
+      "name": "Trailblaze Poder Reservada",
+      "help": ""
+    },
     "Immersifier": {
       "name": "Inmersor",
       "help": ""

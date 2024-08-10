@@ -203,6 +203,7 @@ class CombatSupport(UI):
                 scroll.set_bottom(main=self)
                 scroll.drag_threshold = backup
                 scroll.set_top(main=self)
+        self.device.click_record_clear()
 
         logger.info("Searching support")
         skip_first_screenshot = True
@@ -216,9 +217,11 @@ class CombatSupport(UI):
             if character:
                 logger.info("Support found")
                 if self._select_support(character):
+                    self.device.click_record_clear()
                     return True
                 else:
                     logger.warning("Support not selected")
+                    self.device.click_record_clear()
                     return False
 
             if not scroll.at_bottom(main=self):
@@ -226,6 +229,7 @@ class CombatSupport(UI):
                 continue
             else:
                 logger.info("Support not found")
+                self.device.click_record_clear()
                 return False
 
     def _select_support(self, character: SupportCharacter):

@@ -130,7 +130,7 @@ class OrnamentCombat(Dungeon, RouteLoader, DungeonState):
 
         after = before
         for _ in range(3):
-            self.dungeon_update_stamina()
+            self.update_stamina_status()
             after = self.get_equivalent_stamina()
             if expect_reduce:
                 if before > after:

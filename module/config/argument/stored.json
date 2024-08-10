@@ -662,6 +662,19 @@
     "order": 0,
     "color": "#777777"
   },
+  "Reserved": {
+    "name": "Reserved",
+    "path": "Dungeon.DungeonStorage.Reserved",
+    "i18n": "DungeonStorage.Reserved.name",
+    "stored": "StoredResersed",
+    "attrs": {
+      "time": "2020-01-01 00:00:00",
+      "total": 8,
+      "value": 0
+    },
+    "order": 0,
+    "color": "#777777"
+  },
   "Immersifier": {
     "name": "Immersifier",
     "path": "Dungeon.DungeonStorage.Immersifier",

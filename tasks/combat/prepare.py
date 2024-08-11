@@ -64,13 +64,13 @@ class CombatPrepare(StaminaStatus):
                 self.device.screenshot()
 
             data = self.update_stamina_status(image=self.device.image)
+            if timeout.reached():
+                break
             if data.stamina is None:
                 continue
             # Confirm if it is > 240, sometimes just OCR errors
             # if current > 240 and timeout.reached():
             #     break
-            if expect_reduce and timeout.reached():
-                break
             if expect_reduce and data.stamina >= before:
                 continue
             if data.stamina <= 240:

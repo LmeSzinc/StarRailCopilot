@@ -3,12 +3,12 @@ import argparse
 from module.base.button import ClickButton
 from module.base.timer import Timer
 from module.base.utils import color_similar, get_color
-from tasks.base.ui import UI
+from tasks.base.daemon import Daemon
 
 TAKE_PHOTO = ClickButton((1101, 332, 1162, 387), name='TAKE_PHOTO')
 
 
-class TrashBin(UI):
+class TrashBin(Daemon):
     def is_camera_active(self):
         color = get_color(self.device.image, (568, 358, 588, 362))
         if color_similar(color, (23, 254, 180), threshold=20):
@@ -25,18 +25,19 @@ class TrashBin(UI):
                 return True
         return False
 
+    photo_interval = Timer(1)
+
+    def handle_blessing(self):
+        if self.photo_interval.reached():
+            if self.is_in_camera() and self.is_camera_active():
+                self.device.click(TAKE_PHOTO)
+                self.photo_interval.reset()
+
     def run(self):
         self.device.disable_stuck_detection()
         self.device.screenshot_interval_set(0.05)
         _ = self.device.maatouch_builder
-        interval = Timer(1)
-        while 1:
-            self.device.screenshot()
-
-            if interval.reached():
-                if self.is_in_camera() and self.is_camera_active():
-                    self.device.click(TAKE_PHOTO)
-                    interval.reset()
+        super().run()
 
 
 if __name__ == '__main__':

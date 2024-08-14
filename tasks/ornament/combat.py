@@ -110,7 +110,7 @@ class OrnamentCombat(Dungeon, RouteLoader, DungeonState):
 
     def get_equivalent_stamina(self):
         value = self.config.stored.Immersifier.value * 40
-        if self.config.Ornament_UseStamina:
+        if self.config.Ornament_UseStamina or self.config.stored.DungeonDouble.rogue > 0:
             value += self.config.stored.TrailblazePower.value
         return value
 

@@ -155,7 +155,7 @@ class StaminaStatus(UI):
                 if status.reserved is not None:
                     self.config.stored.Reserved.value = status.reserved
                 if status.immersifier is not None:
-                    self.config.stored.Immersifier.value = status.reserved
+                    self.config.stored.Immersifier.value = status.immersifier
 
             if use_cached_image or valid:
                 return status

@@ -763,6 +763,159 @@
       }
     }
   },
+  "Ornament": {
+    "Scheduler": {
+      "Enable": {
+        "type": "checkbox",
+        "value": false,
+        "option": [
+          true,
+          false
+        ]
+      },
+      "NextRun": {
+        "type": "datetime",
+        "value": "2020-01-01 00:00:00",
+        "validate": "datetime"
+      },
+      "Command": {
+        "type": "input",
+        "value": "Ornament",
+        "display": "hide"
+      },
+      "ServerUpdate": {
+        "type": "input",
+        "value": "04:00",
+        "display": "hide"
+      }
+    },
+    "Ornament": {
+      "Dungeon": {
+        "type": "select",
+        "value": "Divergent_Universe_Eternal_Comedy",
+        "option": [
+          "Divergent_Universe_Eternal_Comedy",
+          "Divergent_Universe_To_Sweet_Dreams",
+          "Divergent_Universe_Pouring_Blades",
+          "Divergent_Universe_Fruit_of_Evil",
+          "Divergent_Universe_Permafrost",
+          "Divergent_Universe_Gentle_Words",
+          "Divergent_Universe_Smelted_Heart",
+          "Divergent_Universe_Untoppled_Walls"
+        ]
+      },
+      "UseImmersifier": {
+        "type": "state",
+        "value": true,
+        "option": [
+          true
+        ],
+        "option_bold": [
+          true
+        ]
+      },
+      "DoubleEvent": {
+        "type": "state",
+        "value": true,
+        "option": [
+          true
+        ],
+        "option_bold": [
+          true
+        ]
+      },
+      "UseStamina": {
+        "type": "checkbox",
+        "value": false
+      }
+    },
+    "DungeonSupport": {
+      "Use": {
+        "type": "select",
+        "value": "when_daily",
+        "option": [
+          "when_daily",
+          "always_use"
+        ]
+      },
+      "Character": {
+        "type": "select",
+        "value": "FirstCharacter",
+        "option": [
+          "FirstCharacter",
+          "Acheron",
+          "Argenti",
+          "Arlan",
+          "Asta",
+          "Aventurine",
+          "Bailu",
+          "BlackSwan",
+          "Blade",
+          "Boothill",
+          "Bronya",
+          "Clara",
+          "DanHeng",
+          "DanHengImbibitorLunae",
+          "DrRatio",
+          "Firefly",
+          "FuXuan",
+          "Gallagher",
+          "Gepard",
+          "Guinaifen",
+          "Hanya",
+          "Herta",
+          "Himeko",
+          "Hook",
+          "Huohuo",
+          "Jade",
+          "JingYuan",
+          "Jingliu",
+          "Kafka",
+          "Luka",
+          "Luocha",
+          "Lynx",
+          "March7thPreservation",
+          "March7thTheHunt",
+          "Misha",
+          "Natasha",
+          "Pela",
+          "Qingque",
+          "Robin",
+          "RuanMei",
+          "Sampo",
+          "Seele",
+          "Serval",
+          "SilverWolf",
+          "Sparkle",
+          "Sushang",
+          "Tingyun",
+          "TopazNumby",
+          "TrailblazerDestruction",
+          "TrailblazerHarmony",
+          "TrailblazerPreservation",
+          "Welt",
+          "Xueyi",
+          "Yanqing",
+          "Yukong",
+          "Yunli"
+        ]
+      }
+    },
+    "TrailblazePower": {
+      "ExtractReservedTrailblazePower": {
+        "type": "checkbox",
+        "value": false
+      },
+      "UseFuel": {
+        "type": "checkbox",
+        "value": false
+      },
+      "FuelReserve": {
+        "type": "input",
+        "value": 5
+      }
+    }
+  },
   "DailyQuest": {
     "Scheduler": {
       "Enable": {
@@ -1311,13 +1464,12 @@
     "RogueWorld": {
       "World": {
         "type": "select",
-        "value": "Simulated_Universe_World_7",
+        "value": "Simulated_Universe_World_8",
         "option": [
           "Simulated_Universe_World_3",
           "Simulated_Universe_World_4",
           "Simulated_Universe_World_5",
           "Simulated_Universe_World_6",
-          "Simulated_Universe_World_7",
           "Simulated_Universe_World_8"
         ]
       },
@@ -1427,159 +1579,6 @@
       "DebugMode": {
         "type": "checkbox",
         "value": false
-      }
-    }
-  },
-  "Ornament": {
-    "Scheduler": {
-      "Enable": {
-        "type": "checkbox",
-        "value": false,
-        "option": [
-          true,
-          false
-        ]
-      },
-      "NextRun": {
-        "type": "datetime",
-        "value": "2020-01-01 00:00:00",
-        "validate": "datetime"
-      },
-      "Command": {
-        "type": "input",
-        "value": "Ornament",
-        "display": "hide"
-      },
-      "ServerUpdate": {
-        "type": "input",
-        "value": "04:00",
-        "display": "hide"
-      }
-    },
-    "Ornament": {
-      "Dungeon": {
-        "type": "select",
-        "value": "Divergent_Universe_Eternal_Comedy",
-        "option": [
-          "Divergent_Universe_Eternal_Comedy",
-          "Divergent_Universe_To_Sweet_Dreams",
-          "Divergent_Universe_Pouring_Blades",
-          "Divergent_Universe_Fruit_of_Evil",
-          "Divergent_Universe_Permafrost",
-          "Divergent_Universe_Gentle_Words",
-          "Divergent_Universe_Smelted_Heart",
-          "Divergent_Universe_Untoppled_Walls"
-        ]
-      },
-      "UseImmersifier": {
-        "type": "state",
-        "value": true,
-        "option": [
-          true
-        ],
-        "option_bold": [
-          true
-        ]
-      },
-      "DoubleEvent": {
-        "type": "state",
-        "value": true,
-        "option": [
-          true
-        ],
-        "option_bold": [
-          true
-        ]
-      },
-      "UseStamina": {
-        "type": "checkbox",
-        "value": false
-      }
-    },
-    "DungeonSupport": {
-      "Use": {
-        "type": "select",
-        "value": "when_daily",
-        "option": [
-          "when_daily",
-          "always_use"
-        ]
-      },
-      "Character": {
-        "type": "select",
-        "value": "FirstCharacter",
-        "option": [
-          "FirstCharacter",
-          "Acheron",
-          "Argenti",
-          "Arlan",
-          "Asta",
-          "Aventurine",
-          "Bailu",
-          "BlackSwan",
-          "Blade",
-          "Boothill",
-          "Bronya",
-          "Clara",
-          "DanHeng",
-          "DanHengImbibitorLunae",
-          "DrRatio",
-          "Firefly",
-          "FuXuan",
-          "Gallagher",
-          "Gepard",
-          "Guinaifen",
-          "Hanya",
-          "Herta",
-          "Himeko",
-          "Hook",
-          "Huohuo",
-          "Jade",
-          "JingYuan",
-          "Jingliu",
-          "Kafka",
-          "Luka",
-          "Luocha",
-          "Lynx",
-          "March7thPreservation",
-          "March7thTheHunt",
-          "Misha",
-          "Natasha",
-          "Pela",
-          "Qingque",
-          "Robin",
-          "RuanMei",
-          "Sampo",
-          "Seele",
-          "Serval",
-          "SilverWolf",
-          "Sparkle",
-          "Sushang",
-          "Tingyun",
-          "TopazNumby",
-          "TrailblazerDestruction",
-          "TrailblazerHarmony",
-          "TrailblazerPreservation",
-          "Welt",
-          "Xueyi",
-          "Yanqing",
-          "Yukong",
-          "Yunli"
-        ]
-      }
-    },
-    "TrailblazePower": {
-      "ExtractReservedTrailblazePower": {
-        "type": "checkbox",
-        "value": false
-      },
-      "UseFuel": {
-        "type": "checkbox",
-        "value": false
-      },
-      "FuelReserve": {
-        "type": "input",
-        "value": 5
       }
     }
   },

@@ -30,6 +30,10 @@
       "name": "每日副本",
       "help": ""
     },
+    "Ornament": {
+      "name": "飾品提取",
+      "help": "運行 \"飾品提取\" 任務需要：\n1. 每週事先手動通關差分宇宙一次並保存檔案\n2. 在當前設備進入過副本一次，有保存的編隊"
+    },
     "DailyQuest": {
       "name": "每日任務",
       "help": ""
@@ -57,10 +61,6 @@
     "Rogue": {
       "name": "模擬宇宙",
       "help": ""
-    },
-    "Ornament": {
-      "name": "飾品提取",
-      "help": "運行 \"飾品提取\" 任務需要：\n1. 每週事先手動通關差分宇宙一次並保存檔案\n2. 在當前設備進入過副本一次，有保存的編隊"
     },
     "Daemon": {
       "name": "劇情連點器",
@@ -936,7 +936,6 @@
       "Simulated_Universe_World_4": "第四世界•模擬宇宙",
       "Simulated_Universe_World_5": "第五世界•模擬宇宙",
       "Simulated_Universe_World_6": "第六世界•模擬宇宙",
-      "Simulated_Universe_World_7": "第七世界•模擬宇宙",
       "Simulated_Universe_World_8": "第八世界•模擬宇宙"
     },
     "Path": {

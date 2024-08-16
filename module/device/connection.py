@@ -357,6 +357,15 @@ class Connection(ConnectionAttr):
             return False
 
     @cached_property
+    def is_mumu_over_version_400(self) -> bool:
+        if not self.is_mumu_family:
+            return False
+        # >= 4.0 has no info in getprop
+        if self.nemud_player_version == '':
+            return True
+        return False
+
+    @cached_property
     def is_mumu_over_version_356(self) -> bool:
         """
         Returns:
@@ -366,8 +375,7 @@ class Connection(ConnectionAttr):
         """
         if not self.is_mumu_family:
             return False
-        # >= 4.0 has no info in getprop
-        if self.nemud_player_version == '':
+        if self.is_mumu_over_version_400:
             return True
         if self.nemud_app_keep_alive != '':
             return True

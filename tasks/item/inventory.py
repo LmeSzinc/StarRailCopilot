@@ -52,6 +52,8 @@ class InventoryItem:
         image = color_similarity_2d(image, (255, 255, 255))
         param = {
             'height': 160,
+            # [ 10 110 114]
+            'distance': 10,
         }
         hori = cv2.reduce(image, 1, cv2.REDUCE_AVG).flatten()
         peaks, _ = signal.find_peaks(hori, **param)

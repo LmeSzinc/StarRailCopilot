@@ -220,6 +220,9 @@ class Combat(CombatInteract, CombatPrepare, CombatState, CombatTeam, CombatSuppo
         if self.obtain_frequent_check:
             logger.info('Exit combat to check obtained items')
             return False
+        if self.combat_waves <= 0:
+            logger.warning(f'combat_waves {self.combat_waves} <= 0 in _combat_can_again, revise to 1')
+            self.combat_waves = 1
         # Wave limit
         if self.combat_wave_limit:
             if self.combat_wave_done + self.combat_waves > self.combat_wave_limit:

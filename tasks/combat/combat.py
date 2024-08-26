@@ -31,8 +31,15 @@ class Combat(CombatInteract, CombatPrepare, CombatState, CombatTeam, CombatSuppo
             in: COMBAT_PREPARE
         """
         self.combat_waves = 1
-        current = self.combat_get_trailblaze_power()
         cost = self.combat_get_wave_cost()
+        if self.config.stored.TrailblazePower.value < self.combat_wave_cost:
+            if self._try_get_more_trablaize_power(self.combat_wave_cost):
+                current = self.config.stored.TrailblazePower.value
+            else:
+                return False
+        else:
+            current = self.combat_get_trailblaze_power()
+
         if cost == 10:
             # Calyx
             self.combat_waves = min(current // self.combat_wave_cost, 6)
@@ -54,7 +61,7 @@ class Combat(CombatInteract, CombatPrepare, CombatState, CombatTeam, CombatSuppo
 
         # Check limits
         if self.config.stored.TrailblazePower.value < self.combat_wave_cost:
-            return self._try_get_more_trablaize_power(self.combat_wave_cost)
+            return False
         if self.combat_waves <= 0:
             logger.info('Combat wave limited, cannot continue combat')
             return False
@@ -213,6 +220,9 @@ class Combat(CombatInteract, CombatPrepare, CombatState, CombatTeam, CombatSuppo
         if self.obtain_frequent_check:
             logger.info('Exit combat to check obtained items')
             return False
+        if self.combat_waves <= 0:
+            logger.warning(f'combat_waves {self.combat_waves} <= 0 in _combat_can_again, revise to 1')
+            self.combat_waves = 1
         # Wave limit
         if self.combat_wave_limit:
             if self.combat_wave_done + self.combat_waves > self.combat_wave_limit:

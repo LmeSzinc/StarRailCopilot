@@ -100,7 +100,7 @@ class ConfigGenerator:
         option_add(keys='Ornament.Dungeon.option', options=ornament)
         # Insert characters
         from tasks.character.keywords import CharacterList
-        unsupported_characters = ["Jiaoqiu"]
+        unsupported_characters = []
         characters = [character.name for character in CharacterList.instances.values()
                       if character.name not in unsupported_characters]
         option_add(keys='DungeonSupport.Character.option', options=characters)

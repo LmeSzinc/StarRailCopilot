@@ -14,7 +14,7 @@ from tasks.planner.scan import OcrItemName
 
 class OcrItemAmount(Digit):
     def format_result(self, result):
-        res = re.split(r'[:：;；]', result)
+        res = re.split(r'[:：;；]', result, maxsplit=1)
         result = res[-1]
         return super().format_result(result)
 

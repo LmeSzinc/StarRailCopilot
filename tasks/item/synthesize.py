@@ -61,6 +61,8 @@ class SynthesizeItemAmount(Digit, WhiteStrip):
 
 
 class SynthesizeInventoryManager(InventoryManager):
+    GRID_DELTA = (110, 130)
+
     @cached_property
     def dic_item_index(self):
         """

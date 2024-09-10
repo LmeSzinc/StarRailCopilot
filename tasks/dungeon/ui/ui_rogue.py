@@ -3,9 +3,11 @@ from module.base.utils import random_rectangle_vector
 from module.logger import logger
 from tasks.base.page import page_guide
 from tasks.dungeon.assets.assets_dungeon_ui import *
+from tasks.dungeon.assets.assets_dungeon_ui_list import OCR_DUNGEON_LIST
 from tasks.dungeon.assets.assets_dungeon_ui_rogue import *
 from tasks.dungeon.keywords import KEYWORDS_DUNGEON_NAV, KEYWORDS_DUNGEON_TAB
-from tasks.dungeon.ui import DungeonUI, SWITCH_DUNGEON_TAB
+from tasks.dungeon.ui.nav import SWITCH_DUNGEON_TAB
+from tasks.dungeon.ui.ui import DungeonUI
 from tasks.forgotten_hall.assets.assets_forgotten_hall_ui import TELEPORT
 
 
@@ -41,7 +43,7 @@ class DungeonRogueUI(DungeonUI):
                 logger.info(f'Tab goto {state}, wait until loaded')
                 self._dungeon_wait_until_rogue_loaded()
             # Switch nav
-            self._dungeon_nav_goto(KEYWORDS_DUNGEON_NAV.Simulated_Universe)
+            self.dungeon_nav_goto(KEYWORDS_DUNGEON_NAV.Simulated_Universe)
             # No idea how to wait list loaded
             # List is not able to swipe without fully loaded
             self.wait_until_stable(LIST_LOADED_CHECK)
@@ -59,7 +61,7 @@ class DungeonRogueUI(DungeonUI):
             if self.appear(SURVIVAL_INDEX_SU_LOADED):
                 logger.info('Already at nav Simulated_Universe')
             else:
-                self._dungeon_nav_goto(KEYWORDS_DUNGEON_NAV.Simulated_Universe)
+                self.dungeon_nav_goto(KEYWORDS_DUNGEON_NAV.Simulated_Universe)
 
     def _dungeon_wait_until_rogue_loaded(self, skip_first_screenshot=True):
         """

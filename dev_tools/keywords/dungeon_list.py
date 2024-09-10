@@ -122,16 +122,27 @@ class GenerateDungeonList(GenerateKeyword):
                 dungeon['name'] = 'Divergent_Universe_' + dungeon['name']
             if 100 < dungeon['dungeon_id'] < 200:
                 dungeon['name'] = 'Simulated_Universe_' + dungeon['name']
-        # Reverse Divergent_Universe
-        start = 0
-        end = 0
-        for index, dungeon in enumerate(dungeons):
-            if dungeon['name'].startswith('Divergent_Universe'):
-                if start == 0:
-                    start = index
-                end = index + 1
-        if start > 0 and end > 0:
-            dungeons = dungeons[:start] + dungeons[start:end][::-1] + dungeons[end:]
+
+        # Reverse dungeon list, latest at top
+        def reverse_on_name(d, prefix):
+            start = 0
+            end = 0
+            for index, dungeon in enumerate(d):
+                if dungeon['name'].startswith(prefix):
+                    if start == 0:
+                        start = index
+                    end = index + 1
+            if start > 0 and end > 0:
+                d = d[:start] + d[start:end][::-1] + d[end:]
+            return d
+
+        dungeons = reverse_on_name(dungeons, 'Divergent_Universe')
+        dungeons = reverse_on_name(dungeons, 'Cavern_of_Corrosion')
+        dungeons = reverse_on_name(dungeons, 'Echo_of_War')
+
+        # Reverse Calyx_Golden, sort by world
+        # Poor sort
+        dungeons[0:3], dungeons[6:9] = dungeons[6:9], dungeons[0:3]
 
         # Re-sort ID
         self.keyword_index = 0

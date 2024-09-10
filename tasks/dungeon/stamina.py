@@ -6,7 +6,7 @@ from tasks.base.page import page_guide
 from tasks.combat.assets.assets_combat_stamina_status import ICON_SEARCH, IMMERSIFIER_ICON
 from tasks.dungeon.assets.assets_dungeon_stamina import *
 from tasks.dungeon.keywords import KEYWORDS_DUNGEON_TAB
-from tasks.dungeon.ui import DungeonUI
+from tasks.dungeon.ui.ui import DungeonUI
 
 
 class DungeonStamina(DungeonUI):

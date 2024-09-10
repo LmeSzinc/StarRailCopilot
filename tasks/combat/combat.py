@@ -324,6 +324,9 @@ class Combat(CombatInteract, CombatPrepare, CombatState, CombatTeam, CombatSuppo
             if self.is_in_main():
                 logger.info('Combat finishes at page_main')
                 return True
+            if self.appear(COMBAT_PREPARE):
+                logger.info('Combat finishes at COMBAT_PREPARE')
+                return True
             if self.is_combat_executing():
                 logger.info('Combat finishes at another combat')
                 return False
@@ -427,6 +430,7 @@ class Combat(CombatInteract, CombatPrepare, CombatState, CombatTeam, CombatSuppo
             if self._combat_should_reenter():
                 continue
             if finish:
+                self.combat_exit()
                 break
             # Reset combat_wave_cost, so handle_combat_interact() won't activate before handle_combat_prepare()
             self.combat_wave_cost = 10

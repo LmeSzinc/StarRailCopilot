@@ -213,7 +213,7 @@ class Dungeon(DungeonStamina, DungeonEvent, Combat):
         elif require and not self.support_once:
             # Run with support all the way
             return self._dungeon_run(dungeon=dungeon, team=team, wave_limit=0,
-                              support_character=self.config.DungeonSupport_Character)
+                                     support_character=self.config.DungeonSupport_Character)
 
         else:
             # Normal run
@@ -250,10 +250,10 @@ class Dungeon(DungeonStamina, DungeonEvent, Combat):
             if self.has_double_rogue_event():
                 rogue = self.get_double_rogue_remain()
             if self.has_double_calyx_event():
-                self._dungeon_nav_goto(KEYWORDS_DUNGEON_NAV.Calyx_Golden)
+                self.dungeon_nav_goto(KEYWORDS_DUNGEON_NAV.Calyx_Golden)
                 calyx = self.get_double_event_remain()
             if self.has_double_relic_event():
-                self._dungeon_nav_goto(KEYWORDS_DUNGEON_NAV.Cavern_of_Corrosion)
+                self.dungeon_nav_goto(KEYWORDS_DUNGEON_NAV.Cavern_of_Corrosion)
                 relic = self.get_double_rogue_remain()
             with self.config.multi_set():
                 self.config.stored.DungeonDouble.calyx = calyx

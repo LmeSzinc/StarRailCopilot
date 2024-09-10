@@ -224,8 +224,34 @@ Dream_Fridge = ItemAscension(
     item_group=1100,
     dungeon_id=1115,
 )
-Dream_Flamer = ItemAscension(
+Nail_of_the_Beast_Coffin = ItemAscension(
     id=18,
+    name='Nail_of_the_Beast_Coffin',
+    cn='兽棺之钉',
+    cht='獸棺之釘',
+    en='Nail of the Beast Coffin',
+    jp='獣棺の釘',
+    es='Clavo del ataúd bestial',
+    rarity='VeryRare',
+    item_id=110424,
+    item_group=1100,
+    dungeon_id=1120,
+)
+A_Glass_of_the_Besotted_Era = ItemAscension(
+    id=19,
+    name='A_Glass_of_the_Besotted_Era',
+    cn='一杯酩酊的时代',
+    cht='一杯酩酊的時代',
+    en='A Glass of the Besotted Era',
+    jp='酩酊する時代の一杯',
+    es='Copa de la era embriagada',
+    rarity='VeryRare',
+    item_id=110425,
+    item_group=1100,
+    dungeon_id=1121,
+)
+Dream_Flamer = ItemAscension(
+    id=20,
     name='Dream_Flamer',
     cn='炙梦喷枪',
     cht='炙夢噴槍',

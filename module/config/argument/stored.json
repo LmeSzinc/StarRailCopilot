@@ -343,6 +343,28 @@
     "order": 0,
     "color": "#777777"
   },
+  "Item_Nail_of_the_Beast_Coffin": {
+    "name": "Item_Nail_of_the_Beast_Coffin",
+    "path": "Dungeon.Planner.Item_Nail_of_the_Beast_Coffin",
+    "i18n": "Planner.Item_Nail_of_the_Beast_Coffin.name",
+    "stored": "StoredPlanner",
+    "attrs": {
+      "time": "2020-01-01 00:00:00"
+    },
+    "order": 0,
+    "color": "#777777"
+  },
+  "Item_A_Glass_of_the_Besotted_Era": {
+    "name": "Item_A_Glass_of_the_Besotted_Era",
+    "path": "Dungeon.Planner.Item_A_Glass_of_the_Besotted_Era",
+    "i18n": "Planner.Item_A_Glass_of_the_Besotted_Era.name",
+    "stored": "StoredPlanner",
+    "attrs": {
+      "time": "2020-01-01 00:00:00"
+    },
+    "order": 0,
+    "color": "#777777"
+  },
   "Item_Dream_Flamer": {
     "name": "Item_Dream_Flamer",
     "path": "Dungeon.Planner.Item_Dream_Flamer",
@@ -567,6 +589,17 @@
     "name": "Item_Lost_Echo_of_the_Shared_Wish",
     "path": "Dungeon.Planner.Item_Lost_Echo_of_the_Shared_Wish",
     "i18n": "Planner.Item_Lost_Echo_of_the_Shared_Wish.name",
+    "stored": "StoredPlanner",
+    "attrs": {
+      "time": "2020-01-01 00:00:00"
+    },
+    "order": 0,
+    "color": "#777777"
+  },
+  "Item_Auspice_Sliver": {
+    "name": "Item_Auspice_Sliver",
+    "path": "Dungeon.Planner.Item_Auspice_Sliver",
+    "i18n": "Planner.Item_Auspice_Sliver.name",
     "stored": "StoredPlanner",
     "attrs": {
       "time": "2020-01-01 00:00:00"

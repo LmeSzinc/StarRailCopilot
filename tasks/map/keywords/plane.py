@@ -465,8 +465,19 @@ Luofu_TheShacklingPrison = MapPlane(
     world_id=2,
     plane_id=2024101,
 )
-Penacony_TheReverieReality = MapPlane(
+Luofu_Skysplitter = MapPlane(
     id=43,
+    name='Luofu_Skysplitter',
+    cn='竞锋舰',
+    cht='競鋒艦',
+    en='Skysplitter',
+    jp='競鋒艦',
+    es='Bifurcacielos',
+    world_id=2,
+    plane_id=2024201,
+)
+Penacony_TheReverieReality = MapPlane(
+    id=44,
     name='Penacony_TheReverieReality',
     cn='「白日梦」酒店-现实',
     cht='「白日夢」飯店-現實',
@@ -477,7 +488,7 @@ Penacony_TheReverieReality = MapPlane(
     plane_id=1030501,
 )
 Penacony_GoldenHour = MapPlane(
-    id=44,
+    id=45,
     name='Penacony_GoldenHour',
     cn='黄金的时刻',
     cht='黃金的時刻',
@@ -488,7 +499,7 @@ Penacony_GoldenHour = MapPlane(
     plane_id=1030101,
 )
 Penacony_DreamEdge = MapPlane(
-    id=45,
+    id=46,
     name='Penacony_DreamEdge',
     cn='筑梦边境',
     cht='築夢邊境',
@@ -499,7 +510,7 @@ Penacony_DreamEdge = MapPlane(
     plane_id=2031301,
 )
 Penacony_AChildDream = MapPlane(
-    id=46,
+    id=47,
     name='Penacony_AChildDream',
     cn='稚子的梦',
     cht='稚子的夢',
@@ -510,7 +521,7 @@ Penacony_AChildDream = MapPlane(
     plane_id=2031201,
 )
 Penacony_TheReverieDreamscape = MapPlane(
-    id=47,
+    id=48,
     name='Penacony_TheReverieDreamscape',
     cn='「白日梦」酒店-梦境',
     cht='「白日夢」飯店-夢境',
@@ -521,7 +532,7 @@ Penacony_TheReverieDreamscape = MapPlane(
     plane_id=2031101,
 )
 Penacony_DewlightPavilion = MapPlane(
-    id=48,
+    id=49,
     name='Penacony_DewlightPavilion',
     cn='朝露公馆',
     cht='朝露公館',
@@ -532,7 +543,7 @@ Penacony_DewlightPavilion = MapPlane(
     plane_id=2032201,
 )
 Penacony_ClockStudiosThemePark = MapPlane(
-    id=49,
+    id=50,
     name='Penacony_ClockStudiosThemePark',
     cn='克劳克影视乐园',
     cht='克勞克影視樂園',
@@ -543,7 +554,7 @@ Penacony_ClockStudiosThemePark = MapPlane(
     plane_id=2032101,
 )
 Penacony_DreamfluxReef = MapPlane(
-    id=50,
+    id=51,
     name='Penacony_DreamfluxReef',
     cn='流梦礁',
     cht='流夢礁',
@@ -554,7 +565,7 @@ Penacony_DreamfluxReef = MapPlane(
     plane_id=1030401,
 )
 Penacony_SoulGladScorchsandAuditionVenue = MapPlane(
-    id=51,
+    id=52,
     name='Penacony_SoulGladScorchsandAuditionVenue',
     cn='苏乐达热砂海选会场',
     cht='蘇樂達熱砂海選會場',
@@ -565,7 +576,7 @@ Penacony_SoulGladScorchsandAuditionVenue = MapPlane(
     plane_id=2033101,
 )
 Penacony_PenaconyGrandTheater = MapPlane(
-    id=52,
+    id=53,
     name='Penacony_PenaconyGrandTheater',
     cn='匹诺康尼大剧院',
     cht='匹諾康尼大劇院',

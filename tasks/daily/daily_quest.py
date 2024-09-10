@@ -21,7 +21,7 @@ from tasks.daily.synthesize import SynthesizeMaterialUI
 from tasks.daily.use_technique import UseTechniqueUI
 from tasks.dungeon.assets.assets_dungeon_ui import DAILY_TRAINING_CHECK
 from tasks.dungeon.keywords import KEYWORDS_DUNGEON_TAB
-from tasks.dungeon.ui import DungeonUI
+from tasks.dungeon.ui.ui import DungeonUI
 from tasks.item.consumable_usage import ConsumableUsageUI
 from tasks.item.relics import RelicsUI
 from tasks.map.route.loader import RouteLoader

@@ -238,15 +238,15 @@
     "Name": {
       "name": "副本名稱",
       "help": "默認打本設定",
-      "Calyx_Golden_Memories_Jarilo_VI": "材料：角色經驗（回憶之蕾•雅利洛-Ⅵ）",
-      "Calyx_Golden_Memories_The_Xianzhou_Luofu": "材料：角色經驗（回憶之蕾•仙舟羅浮）",
-      "Calyx_Golden_Memories_Penacony": "材料：角色經驗（回憶之蕾•匹諾康尼）",
-      "Calyx_Golden_Aether_Jarilo_VI": "材料：武器經驗（乙太之蕾•雅利洛-Ⅵ）",
-      "Calyx_Golden_Aether_The_Xianzhou_Luofu": "材料：武器經驗（乙太之蕾•仙舟羅浮）",
-      "Calyx_Golden_Aether_Penacony": "材料：武器經驗（乙太之蕾•匹諾康尼）",
-      "Calyx_Golden_Treasures_Jarilo_VI": "材料：信用點（藏珍之蕾•雅利洛-Ⅵ）",
-      "Calyx_Golden_Treasures_The_Xianzhou_Luofu": "材料：信用點（藏珍之蕾•仙舟羅浮）",
-      "Calyx_Golden_Treasures_Penacony": "材料：信用點（藏珍之蕾•匹諾康尼）",
+      "Calyx_Golden_Memories_Jarilo_VI": "材料：角色經驗（回憶之蕾）",
+      "Calyx_Golden_Memories_The_Xianzhou_Luofu": "材料：角色經驗（回憶之蕾）",
+      "Calyx_Golden_Memories_Penacony": "材料：角色經驗（回憶之蕾）",
+      "Calyx_Golden_Aether_Jarilo_VI": "材料：武器經驗（乙太之蕾）",
+      "Calyx_Golden_Aether_The_Xianzhou_Luofu": "材料：武器經驗（乙太之蕾）",
+      "Calyx_Golden_Aether_Penacony": "材料：武器經驗（乙太之蕾）",
+      "Calyx_Golden_Treasures_Jarilo_VI": "材料：信用點（藏珍之蕾）",
+      "Calyx_Golden_Treasures_The_Xianzhou_Luofu": "材料：信用點（藏珍之蕾）",
+      "Calyx_Golden_Treasures_Penacony": "材料：信用點（藏珍之蕾）",
       "Calyx_Crimson_Destruction_Herta_StorageZone": "行跡材料：毀滅（收容艙段）",
       "Calyx_Crimson_Destruction_Luofu_ScalegorgeWaterscape": "行跡材料：毀滅（鱗淵境）",
       "Calyx_Crimson_Preservation_Herta_SupplyZone": "行跡材料：存護（支援艙段）",
@@ -266,42 +266,44 @@
       "Stagnant_Shadow_Duty": "角色晉階材料：物理（波提歐 / 知更鳥 / 雲璃）",
       "Stagnant_Shadow_Blaze": "角色晉階材料：火（姬子 / 艾絲妲 / 虎克）",
       "Stagnant_Shadow_Scorch": "角色晉階材料：火（桂乃芬 / 托帕&帳帳）",
-      "Stagnant_Shadow_Ire": "角色晉階材料：火（流螢 / 加拉赫 / 椒丘）",
+      "Stagnant_Shadow_Ire": "角色晉階材料：火（流螢 / 加拉赫 / 椒丘 / 靈砂）",
       "Stagnant_Shadow_Rime": "角色晉階材料：冰（三月七 / 黑塔 / 傑帕德 / 佩拉）",
       "Stagnant_Shadow_Icicle": "角色晉階材料：冰（彥卿 / 鏡流 / 阮•梅）",
       "Stagnant_Shadow_Nectar": "角色晉階材料：冰（米沙）",
       "Stagnant_Shadow_Fulmination": "角色晉階材料：雷（阿蘭 / 希露瓦 / 停雲 / 白露）",
       "Stagnant_Shadow_Doom": "角色晉階材料：雷（卡芙卡 / 景元 / 黃泉）",
+      "Stagnant_Shadow_Mechwolf": "角色晉階材料：雷（貊澤）",
       "Stagnant_Shadow_Gust": "角色晉階材料：風（丹恆 / 布洛妮婭 / 桑博）",
       "Stagnant_Shadow_Celestial": "角色晉階材料：風（刃 / 藿藿 / 黑天鵝）",
+      "Stagnant_Shadow_Gloam": "角色晉階材料：風（飛霄）",
       "Stagnant_Shadow_Quanta": "角色晉階材料：量子（銀狼 / 希兒 / 青雀）",
       "Stagnant_Shadow_Abomination": "角色晉階材料：量子（玲可 / 符玄 / 雪衣）",
       "Stagnant_Shadow_Roast": "角色晉階材料：量子（翡翠 / 花火）",
       "Stagnant_Shadow_Mirage": "角色晉階材料：虛數（瓦爾特 / 羅剎 / 馭空）",
       "Stagnant_Shadow_Puppetry": "角色晉階材料：虛數（丹恆•飲月 / 砂金 / 真理醫生）",
-      "Cavern_of_Corrosion_Path_of_Gelid_Wind": "遺器：冰套+風套（霜風之徑•侵蝕隧洞）",
-      "Cavern_of_Corrosion_Path_of_Jabbing_Punch": "遺器：物理套+擊破套（迅拳之徑•侵蝕隧洞）",
-      "Cavern_of_Corrosion_Path_of_Drifting": "遺器：治療套+快槍手（漂泊之徑•侵蝕隧洞）",
-      "Cavern_of_Corrosion_Path_of_Providence": "遺器：鐵衛套+量子套（睿治之徑•侵蝕隧洞）",
-      "Cavern_of_Corrosion_Path_of_Holy_Hymn": "遺器：防禦套+雷套（聖頌之徑•侵蝕隧洞）",
-      "Cavern_of_Corrosion_Path_of_Conflagration": "遺器：火套+虛數套（野焰之徑•侵蝕隧洞）",
-      "Cavern_of_Corrosion_Path_of_Elixir_Seekers": "遺器：生命套+速度套（藥使之徑•侵蝕隧洞）",
-      "Cavern_of_Corrosion_Path_of_Darkness": "遺器：追擊套+dot套（幽冥之徑•侵蝕隧洞）",
-      "Cavern_of_Corrosion_Path_of_Dreamdive": "遺器：負面套+擊破套（夢潛之徑•侵蝕隧洞）",
-      "Cavern_of_Corrosion_Path_of_Cavalier": "遺器：超擊破套+終追套（勇騎之徑•侵蝕隧洞）"
+      "Cavern_of_Corrosion_Path_of_Gelid_Wind": "遺器：冰套+風套（霜風之徑）",
+      "Cavern_of_Corrosion_Path_of_Jabbing_Punch": "遺器：物理套+擊破套（迅拳之徑）",
+      "Cavern_of_Corrosion_Path_of_Drifting": "遺器：治療套+快槍手（漂泊之徑）",
+      "Cavern_of_Corrosion_Path_of_Providence": "遺器：鐵衛套+量子套（睿治之徑）",
+      "Cavern_of_Corrosion_Path_of_Holy_Hymn": "遺器：防禦套+雷套（聖頌之徑）",
+      "Cavern_of_Corrosion_Path_of_Conflagration": "遺器：火套+虛數套（野焰之徑）",
+      "Cavern_of_Corrosion_Path_of_Elixir_Seekers": "遺器：生命套+速度套（藥使之徑）",
+      "Cavern_of_Corrosion_Path_of_Darkness": "遺器：追擊套+dot套（幽冥之徑）",
+      "Cavern_of_Corrosion_Path_of_Dreamdive": "遺器：負面套+擊破套（（夢潛之徑）",
+      "Cavern_of_Corrosion_Path_of_Cavalier": "遺器：超擊破套+終追套（勇騎之徑）"
     },
     "NameAtDoubleCalyx": {
       "name": "有雙倍花活動時，選擇副本",
       "help": "次數耗儘後回退到默認打本設定",
-      "Calyx_Golden_Memories_Jarilo_VI": "材料：角色經驗（回憶之蕾•雅利洛-Ⅵ）",
-      "Calyx_Golden_Memories_The_Xianzhou_Luofu": "材料：角色經驗（回憶之蕾•仙舟羅浮）",
-      "Calyx_Golden_Memories_Penacony": "材料：角色經驗（回憶之蕾•匹諾康尼）",
-      "Calyx_Golden_Aether_Jarilo_VI": "材料：武器經驗（乙太之蕾•雅利洛-Ⅵ）",
-      "Calyx_Golden_Aether_The_Xianzhou_Luofu": "材料：武器經驗（乙太之蕾•仙舟羅浮）",
-      "Calyx_Golden_Aether_Penacony": "材料：武器經驗（乙太之蕾•匹諾康尼）",
-      "Calyx_Golden_Treasures_Jarilo_VI": "材料：信用點（藏珍之蕾•雅利洛-Ⅵ）",
-      "Calyx_Golden_Treasures_The_Xianzhou_Luofu": "材料：信用點（藏珍之蕾•仙舟羅浮）",
-      "Calyx_Golden_Treasures_Penacony": "材料：信用點（藏珍之蕾•匹諾康尼）",
+      "Calyx_Golden_Memories_Jarilo_VI": "材料：角色經驗（回憶之蕾）",
+      "Calyx_Golden_Memories_The_Xianzhou_Luofu": "材料：角色經驗（回憶之蕾）",
+      "Calyx_Golden_Memories_Penacony": "材料：角色經驗（回憶之蕾）",
+      "Calyx_Golden_Aether_Jarilo_VI": "材料：武器經驗（乙太之蕾）",
+      "Calyx_Golden_Aether_The_Xianzhou_Luofu": "材料：武器經驗（乙太之蕾）",
+      "Calyx_Golden_Aether_Penacony": "材料：武器經驗（乙太之蕾）",
+      "Calyx_Golden_Treasures_Jarilo_VI": "材料：信用點（藏珍之蕾）",
+      "Calyx_Golden_Treasures_The_Xianzhou_Luofu": "材料：信用點（藏珍之蕾）",
+      "Calyx_Golden_Treasures_Penacony": "材料：信用點（藏珍之蕾）",
       "Calyx_Crimson_Destruction_Herta_StorageZone": "行跡材料：毀滅（收容艙段）",
       "Calyx_Crimson_Destruction_Luofu_ScalegorgeWaterscape": "行跡材料：毀滅（鱗淵境）",
       "Calyx_Crimson_Preservation_Herta_SupplyZone": "行跡材料：存護（支援艙段）",
@@ -320,16 +322,16 @@
     "NameAtDoubleRelic": {
       "name": "有遺器活動時，選擇副本",
       "help": "次數耗儘後回退到默認打本設定",
-      "Cavern_of_Corrosion_Path_of_Gelid_Wind": "遺器：冰套+風套（霜風之徑•侵蝕隧洞）",
-      "Cavern_of_Corrosion_Path_of_Jabbing_Punch": "遺器：物理套+擊破套（迅拳之徑•侵蝕隧洞）",
-      "Cavern_of_Corrosion_Path_of_Drifting": "遺器：治療套+快槍手（漂泊之徑•侵蝕隧洞）",
-      "Cavern_of_Corrosion_Path_of_Providence": "遺器：鐵衛套+量子套（睿治之徑•侵蝕隧洞）",
-      "Cavern_of_Corrosion_Path_of_Holy_Hymn": "遺器：防禦套+雷套（聖頌之徑•侵蝕隧洞）",
-      "Cavern_of_Corrosion_Path_of_Conflagration": "遺器：火套+虛數套（野焰之徑•侵蝕隧洞）",
-      "Cavern_of_Corrosion_Path_of_Elixir_Seekers": "遺器：生命套+速度套（藥使之徑•侵蝕隧洞）",
-      "Cavern_of_Corrosion_Path_of_Darkness": "遺器：追擊套+dot套（幽冥之徑•侵蝕隧洞）",
-      "Cavern_of_Corrosion_Path_of_Dreamdive": "遺器：負面套+擊破套（夢潛之徑•侵蝕隧洞）",
-      "Cavern_of_Corrosion_Path_of_Cavalier": "遺器：超擊破套+終追套（勇騎之徑•侵蝕隧洞）"
+      "Cavern_of_Corrosion_Path_of_Gelid_Wind": "遺器：冰套+風套（霜風之徑）",
+      "Cavern_of_Corrosion_Path_of_Jabbing_Punch": "遺器：物理套+擊破套（迅拳之徑）",
+      "Cavern_of_Corrosion_Path_of_Drifting": "遺器：治療套+快槍手（漂泊之徑）",
+      "Cavern_of_Corrosion_Path_of_Providence": "遺器：鐵衛套+量子套（睿治之徑）",
+      "Cavern_of_Corrosion_Path_of_Holy_Hymn": "遺器：防禦套+雷套（聖頌之徑）",
+      "Cavern_of_Corrosion_Path_of_Conflagration": "遺器：火套+虛數套（野焰之徑）",
+      "Cavern_of_Corrosion_Path_of_Elixir_Seekers": "遺器：生命套+速度套（藥使之徑）",
+      "Cavern_of_Corrosion_Path_of_Darkness": "遺器：追擊套+dot套（幽冥之徑）",
+      "Cavern_of_Corrosion_Path_of_Dreamdive": "遺器：負面套+擊破套（（夢潛之徑）",
+      "Cavern_of_Corrosion_Path_of_Cavalier": "遺器：超擊破套+終追套（勇騎之徑）"
     },
     "Team": {
       "name": "打本隊伍",
@@ -393,6 +395,7 @@
       "DanHeng": "丹恆",
       "DanHengImbibitorLunae": "丹恆•飲月",
       "DrRatio": "真理醫生",
+      "Feixiao": "飛霄",
       "Firefly": "流螢",
       "FuXuan": "符玄",
       "Gallagher": "加拉赫",
@@ -414,6 +417,7 @@
       "March7thPreservation": "三月七•存護",
       "March7thTheHunt": "三月七•巡獵",
       "Misha": "米沙",
+      "Moze": "貊澤",
       "Natasha": "娜塔莎",
       "Pela": "佩拉",
       "Qingque": "青雀",
@@ -567,11 +571,19 @@
       "help": ""
     },
     "Item_Raging_Heart": {
-      "name": "角色晉階材料：火（流螢 / 加拉赫 / 椒丘）",
+      "name": "角色晉階材料：火（流螢 / 加拉赫 / 椒丘 / 靈砂）",
       "help": ""
     },
     "Item_Dream_Fridge": {
       "name": "角色晉階材料：冰（米沙）",
+      "help": ""
+    },
+    "Item_Nail_of_the_Beast_Coffin": {
+      "name": "角色晉階材料：雷（貊澤）",
+      "help": ""
+    },
+    "Item_A_Glass_of_the_Besotted_Era": {
+      "name": "角色晉階材料：風（飛霄）",
       "help": ""
     },
     "Item_Dream_Flamer": {
@@ -658,6 +670,10 @@
       "name": "塵夢的讚禮•歷戰餘響 (匹諾康尼)",
       "help": ""
     },
+    "Item_Auspice_Sliver": {
+      "name": "心獸的戰場•歷戰餘響 (仙舟「羅浮」)",
+      "help": ""
+    },
     "Item_Squirming_Core": {
       "name": "蠢動原核",
       "help": ""
@@ -703,7 +719,8 @@
       "Echo_of_War_End_of_the_Eternal_Freeze": "寒潮的落幕•歷戰餘響 (雅利洛-Ⅵ)",
       "Echo_of_War_Divine_Seed": "不死的神實•歷戰餘響 (仙舟「羅浮」)",
       "Echo_of_War_Borehole_Planet_Old_Crater": "蛀星的舊靨•歷戰餘響 (太空站「黑塔」)",
-      "Echo_of_War_Salutations_of_Ashen_Dreams": "塵夢的讚禮•歷戰餘響 (匹諾康尼)"
+      "Echo_of_War_Salutations_of_Ashen_Dreams": "塵夢的讚禮•歷戰餘響 (匹諾康尼)",
+      "Echo_of_War_Inner_Beast_Battlefield": "心獸的戰場•歷戰餘響 (仙舟「羅浮」)"
     },
     "Team": {
       "name": "打本隊伍",
@@ -933,11 +950,11 @@
     "World": {
       "name": "模拟宇宙关卡",
       "help": "",
-      "Simulated_Universe_World_3": "第三世界•模擬宇宙",
-      "Simulated_Universe_World_4": "第四世界•模擬宇宙",
-      "Simulated_Universe_World_5": "第五世界•模擬宇宙",
-      "Simulated_Universe_World_6": "第六世界•模擬宇宙",
-      "Simulated_Universe_World_8": "第八世界•模擬宇宙"
+      "Simulated_Universe_World_3": "第三世界",
+      "Simulated_Universe_World_4": "第四世界",
+      "Simulated_Universe_World_5": "第五世界",
+      "Simulated_Universe_World_6": "第六世界",
+      "Simulated_Universe_World_8": "第八世界"
     },
     "Path": {
       "name": "命途",
@@ -1047,6 +1064,7 @@
     "Dungeon": {
       "name": "副本名稱",
       "help": "",
+      "Divergent_Universe_Famished_Worker": "Divergent_Universe_Famished_Worker（蠹役飢腸）",
       "Divergent_Universe_Eternal_Comedy": "奔狼+火宮（永恆笑劇）",
       "Divergent_Universe_To_Sweet_Dreams": "茨岡尼亞+出雲神國（伴你入眠）",
       "Divergent_Universe_Pouring_Blades": "天空+匹諾康尼（天劍如雨）",

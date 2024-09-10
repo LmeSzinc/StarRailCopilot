@@ -238,15 +238,15 @@
     "Name": {
       "name": "Dungeon Name",
       "help": "Default dungeon setting",
-      "Calyx_Golden_Memories_Jarilo_VI": "Material: Character EXP (Bud of Memories (Jarilo-Ⅵ))",
-      "Calyx_Golden_Memories_The_Xianzhou_Luofu": "Material: Character EXP (Bud of Memories (The Xianzhou Luofu))",
-      "Calyx_Golden_Memories_Penacony": "Material: Character EXP (Bud of Memories (Penacony))",
-      "Calyx_Golden_Aether_Jarilo_VI": "Material: Light Cone EXP (Bud of Aether (Jarilo-Ⅵ))",
-      "Calyx_Golden_Aether_The_Xianzhou_Luofu": "Material: Light Cone EXP (Bud of Aether (The Xianzhou Luofu))",
-      "Calyx_Golden_Aether_Penacony": "Material: Light Cone EXP (Bud of Aether (Penacony))",
-      "Calyx_Golden_Treasures_Jarilo_VI": "Material: Credit (Bud of Treasures (Jarilo-Ⅵ))",
-      "Calyx_Golden_Treasures_The_Xianzhou_Luofu": "Material: Credit (Bud of Treasures (The Xianzhou Luofu))",
-      "Calyx_Golden_Treasures_Penacony": "Material: Credit (Bud of Treasures (Penacony))",
+      "Calyx_Golden_Memories_Jarilo_VI": "Material: Character EXP (Bud of Memories)",
+      "Calyx_Golden_Memories_The_Xianzhou_Luofu": "Material: Character EXP (Bud of Memories)",
+      "Calyx_Golden_Memories_Penacony": "Material: Character EXP (Bud of Memories)",
+      "Calyx_Golden_Aether_Jarilo_VI": "Material: Light Cone EXP (Bud of Aether)",
+      "Calyx_Golden_Aether_The_Xianzhou_Luofu": "Material: Light Cone EXP (Bud of Aether)",
+      "Calyx_Golden_Aether_Penacony": "Material: Light Cone EXP (Bud of Aether)",
+      "Calyx_Golden_Treasures_Jarilo_VI": "Material: Credit (Bud of Treasures)",
+      "Calyx_Golden_Treasures_The_Xianzhou_Luofu": "Material: Credit (Bud of Treasures)",
+      "Calyx_Golden_Treasures_Penacony": "Material: Credit (Bud of Treasures)",
       "Calyx_Crimson_Destruction_Herta_StorageZone": "Trace: Destruction (Storage Zone)",
       "Calyx_Crimson_Destruction_Luofu_ScalegorgeWaterscape": "Trace: Destruction (Scalegorge Waterscape)",
       "Calyx_Crimson_Preservation_Herta_SupplyZone": "Trace: Preservation (Supply Zone)",
@@ -266,14 +266,16 @@
       "Stagnant_Shadow_Duty": "Ascension: Physical (Boothill / Robin / Yunli)",
       "Stagnant_Shadow_Blaze": "Ascension: Fire (Himeko / Asta / Hook)",
       "Stagnant_Shadow_Scorch": "Ascension: Fire (Guinaifen / Topaz & Numby)",
-      "Stagnant_Shadow_Ire": "Ascension: Fire (Firefly / Gallagher / Jiaoqiu)",
+      "Stagnant_Shadow_Ire": "Ascension: Fire (Firefly / Gallagher / Jiaoqiu / Lingsha)",
       "Stagnant_Shadow_Rime": "Ascension: Ice (March 7th / Herta / Gepard / Pela)",
       "Stagnant_Shadow_Icicle": "Ascension: Ice (Yanqing / Jingliu / Ruan Mei)",
       "Stagnant_Shadow_Nectar": "Ascension: Ice (Misha)",
       "Stagnant_Shadow_Fulmination": "Ascension: Lightning (Arlan / Serval / Tingyun / Bailu)",
       "Stagnant_Shadow_Doom": "Ascension: Lightning (Kafka / Jing Yuan / Acheron)",
+      "Stagnant_Shadow_Mechwolf": "Ascension: Lightning (Moze)",
       "Stagnant_Shadow_Gust": "Ascension: Wind (Dan Heng / Bronya / Sampo)",
       "Stagnant_Shadow_Celestial": "Ascension: Wind (Blade / Huohuo / Black Swan)",
+      "Stagnant_Shadow_Gloam": "Ascension: Wind (Feixiao)",
       "Stagnant_Shadow_Quanta": "Ascension: Quantum (Silver Wolf / Seele / Qingque)",
       "Stagnant_Shadow_Abomination": "Ascension: Quantum (Lynx / Fu Xuan / Xueyi)",
       "Stagnant_Shadow_Roast": "Ascension: Quantum (Jade / Sparkle)",
@@ -293,15 +295,15 @@
     "NameAtDoubleCalyx": {
       "name": "At Double Calyx Event, choose dungeon",
       "help": "Return to the default dungeon settings after double times exhausted",
-      "Calyx_Golden_Memories_Jarilo_VI": "Material: Character EXP (Bud of Memories (Jarilo-Ⅵ))",
-      "Calyx_Golden_Memories_The_Xianzhou_Luofu": "Material: Character EXP (Bud of Memories (The Xianzhou Luofu))",
-      "Calyx_Golden_Memories_Penacony": "Material: Character EXP (Bud of Memories (Penacony))",
-      "Calyx_Golden_Aether_Jarilo_VI": "Material: Light Cone EXP (Bud of Aether (Jarilo-Ⅵ))",
-      "Calyx_Golden_Aether_The_Xianzhou_Luofu": "Material: Light Cone EXP (Bud of Aether (The Xianzhou Luofu))",
-      "Calyx_Golden_Aether_Penacony": "Material: Light Cone EXP (Bud of Aether (Penacony))",
-      "Calyx_Golden_Treasures_Jarilo_VI": "Material: Credit (Bud of Treasures (Jarilo-Ⅵ))",
-      "Calyx_Golden_Treasures_The_Xianzhou_Luofu": "Material: Credit (Bud of Treasures (The Xianzhou Luofu))",
-      "Calyx_Golden_Treasures_Penacony": "Material: Credit (Bud of Treasures (Penacony))",
+      "Calyx_Golden_Memories_Jarilo_VI": "Material: Character EXP (Bud of Memories)",
+      "Calyx_Golden_Memories_The_Xianzhou_Luofu": "Material: Character EXP (Bud of Memories)",
+      "Calyx_Golden_Memories_Penacony": "Material: Character EXP (Bud of Memories)",
+      "Calyx_Golden_Aether_Jarilo_VI": "Material: Light Cone EXP (Bud of Aether)",
+      "Calyx_Golden_Aether_The_Xianzhou_Luofu": "Material: Light Cone EXP (Bud of Aether)",
+      "Calyx_Golden_Aether_Penacony": "Material: Light Cone EXP (Bud of Aether)",
+      "Calyx_Golden_Treasures_Jarilo_VI": "Material: Credit (Bud of Treasures)",
+      "Calyx_Golden_Treasures_The_Xianzhou_Luofu": "Material: Credit (Bud of Treasures)",
+      "Calyx_Golden_Treasures_Penacony": "Material: Credit (Bud of Treasures)",
       "Calyx_Crimson_Destruction_Herta_StorageZone": "Trace: Destruction (Storage Zone)",
       "Calyx_Crimson_Destruction_Luofu_ScalegorgeWaterscape": "Trace: Destruction (Scalegorge Waterscape)",
       "Calyx_Crimson_Preservation_Herta_SupplyZone": "Trace: Preservation (Supply Zone)",
@@ -393,6 +395,7 @@
       "DanHeng": "Dan Heng",
       "DanHengImbibitorLunae": "Dan Heng • Imbibitor Lunae",
       "DrRatio": "Dr. Ratio",
+      "Feixiao": "Feixiao",
       "Firefly": "Firefly",
       "FuXuan": "Fu Xuan",
       "Gallagher": "Gallagher",
@@ -414,6 +417,7 @@
       "March7thPreservation": "March 7th: Preservation",
       "March7thTheHunt": "March 7th: The Hunt",
       "Misha": "Misha",
+      "Moze": "Moze",
       "Natasha": "Natasha",
       "Pela": "Pela",
       "Qingque": "Qingque",
@@ -567,11 +571,19 @@
       "help": ""
     },
     "Item_Raging_Heart": {
-      "name": "Ascension: Fire (Firefly / Gallagher / Jiaoqiu)",
+      "name": "Ascension: Fire (Firefly / Gallagher / Jiaoqiu / Lingsha)",
       "help": ""
     },
     "Item_Dream_Fridge": {
       "name": "Ascension: Ice (Misha)",
+      "help": ""
+    },
+    "Item_Nail_of_the_Beast_Coffin": {
+      "name": "Ascension: Lightning (Moze)",
+      "help": ""
+    },
+    "Item_A_Glass_of_the_Besotted_Era": {
+      "name": "Ascension: Wind (Feixiao)",
       "help": ""
     },
     "Item_Dream_Flamer": {
@@ -658,6 +670,10 @@
       "name": "Salutations of Ashen Dreams (Penacony)",
       "help": ""
     },
+    "Item_Auspice_Sliver": {
+      "name": "Inner Beast's Battlefield (The Xianzhou Luofu)",
+      "help": ""
+    },
     "Item_Squirming_Core": {
       "name": "Squirming Core",
       "help": ""
@@ -703,7 +719,8 @@
       "Echo_of_War_End_of_the_Eternal_Freeze": "End of the Eternal Freeze (Jarilo-VI)",
       "Echo_of_War_Divine_Seed": "Divine Seed (The Xianzhou Luofu)",
       "Echo_of_War_Borehole_Planet_Old_Crater": "Borehole Planet's Old Crater (Herta Space Station)",
-      "Echo_of_War_Salutations_of_Ashen_Dreams": "Salutations of Ashen Dreams (Penacony)"
+      "Echo_of_War_Salutations_of_Ashen_Dreams": "Salutations of Ashen Dreams (Penacony)",
+      "Echo_of_War_Inner_Beast_Battlefield": "Inner Beast's Battlefield (The Xianzhou Luofu)"
     },
     "Team": {
       "name": "Dungeon Team",
@@ -933,11 +950,11 @@
     "World": {
       "name": "World",
       "help": "",
-      "Simulated_Universe_World_3": "Simulated Universe: World 3",
-      "Simulated_Universe_World_4": "Simulated Universe: World 4",
-      "Simulated_Universe_World_5": "Simulated Universe: World 5",
-      "Simulated_Universe_World_6": "Simulated Universe: World 6",
-      "Simulated_Universe_World_8": "Simulated Universe: World 8"
+      "Simulated_Universe_World_3": "World 3",
+      "Simulated_Universe_World_4": "World 4",
+      "Simulated_Universe_World_5": "World 5",
+      "Simulated_Universe_World_6": "World 6",
+      "Simulated_Universe_World_8": "World 8"
     },
     "Path": {
       "name": "Path",
@@ -1047,6 +1064,7 @@
     "Dungeon": {
       "name": "Dungeon Name",
       "help": "",
+      "Divergent_Universe_Famished_Worker": "Divergent_Universe_Famished_Worker (Famished Worker)",
       "Divergent_Universe_Eternal_Comedy": "Running Wolves & Kalpagni Lantern (Eternal Comedy)",
       "Divergent_Universe_To_Sweet_Dreams": "Sigonia & Izumo Gensei (To Sweet Dreams)",
       "Divergent_Universe_Pouring_Blades": "Firmament & Penacony (Pouring Blades)",

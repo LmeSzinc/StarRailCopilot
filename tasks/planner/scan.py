@@ -37,6 +37,8 @@ class OcrItemName(Ocr):
         # Error words on blank background
         result = re.sub('^[國東]', '', result)
         result = re.sub('時$', '', result)
+        # 一杯酩酊的时代
+        result = re.sub('一杯[酪酩酊酐]*的', '一杯酩酊的', result)
         return result
 
 

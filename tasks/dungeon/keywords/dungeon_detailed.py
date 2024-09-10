@@ -150,11 +150,11 @@ Stagnant_Shadow_Roast = DungeonDetailed(
 Stagnant_Shadow_Ire = DungeonDetailed(
     id=17,
     name='Stagnant_Shadow_Ire',
-    cn='角色晋阶材料：火（流萤 / 加拉赫 / 椒丘）',
-    cht='角色晉階材料：火（流螢 / 加拉赫 / 椒丘）',
-    en='Ascension: Fire (Firefly / Gallagher / Jiaoqiu)',
-    jp='キャラクター昇格素材：炎（ホタル / ギャラガー / 椒丘）',
-    es='Ascension: Fuego (Luciérnaga / Gallagher / Jiaoqiu)',
+    cn='角色晋阶材料：火（流萤 / 加拉赫 / 椒丘 / 灵砂）',
+    cht='角色晉階材料：火（流螢 / 加拉赫 / 椒丘 / 靈砂）',
+    en='Ascension: Fire (Firefly / Gallagher / Jiaoqiu / Lingsha)',
+    jp='キャラクター昇格素材：炎（ホタル / ギャラガー / 椒丘 / 霊砂）',
+    es='Ascension: Fuego (Luciérnaga / Gallagher / Jiaoqiu / Lingsha)',
 )
 Stagnant_Shadow_Duty = DungeonDetailed(
     id=18,
@@ -164,4 +164,22 @@ Stagnant_Shadow_Duty = DungeonDetailed(
     en='Ascension: Physical (Boothill / Robin / Yunli)',
     jp='キャラクター昇格素材：物理（ブートヒル / ロビン / 雲璃）',
     es='Ascension: Físico (Boothill / Robin / Yunli)',
+)
+Stagnant_Shadow_Mechwolf = DungeonDetailed(
+    id=19,
+    name='Stagnant_Shadow_Mechwolf',
+    cn='角色晋阶材料：雷（貊泽）',
+    cht='角色晉階材料：雷（貊澤）',
+    en='Ascension: Lightning (Moze)',
+    jp='キャラクター昇格素材：雷（モゼ）',
+    es='Ascension: Rayo (Moze)',
+)
+Stagnant_Shadow_Gloam = DungeonDetailed(
+    id=20,
+    name='Stagnant_Shadow_Gloam',
+    cn='角色晋阶材料：风（飞霄）',
+    cht='角色晉階材料：風（飛霄）',
+    en='Ascension: Wind (Feixiao)',
+    jp='キャラクター昇格素材：風（飛霄）',
+    es='Ascension: Viento (Feixiao)',
 )

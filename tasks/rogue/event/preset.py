@@ -123,8 +123,8 @@ STRATEGY_COMMON = {
         KEYWORDS_ROGUE_EVENT_OPTION.Leave_3c49
     ],
     KEYWORDS_ROGUE_EVENT_TITLE.Robot_Sales_Terminal: [
-        KEYWORDS_ROGUE_EVENT_OPTION.Purchase_a_1_3_star_Blessing,
-        KEYWORDS_ROGUE_EVENT_OPTION.Purchase_a_1_2_star_Blessing,
+        KEYWORDS_ROGUE_EVENT_OPTION.Purchase_1_Blessing_of_1_to_3_star_rarity,
+        KEYWORDS_ROGUE_EVENT_OPTION.Purchase_1_Blessing_of_1_to_3_star_rarity,
         KEYWORDS_ROGUE_EVENT_OPTION.Leave_3c49
     ],
     KEYWORDS_ROGUE_EVENT_TITLE.History_Fictionologists: [

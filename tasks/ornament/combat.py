@@ -6,7 +6,7 @@ from tasks.base.assets.assets_base_popup import POPUP_CANCEL
 from tasks.combat.assets.assets_combat_prepare import COMBAT_PREPARE
 from tasks.combat.assets.assets_combat_support import COMBAT_SUPPORT_LIST
 from tasks.dungeon.dungeon import Dungeon
-from tasks.dungeon.state import DungeonState
+from tasks.dungeon.ui.state import DungeonState
 from tasks.map.route.loader import RouteLoader
 from tasks.map.route.route.daily import OrnamentExtraction__route
 from tasks.ornament.assets.assets_ornament_combat import *

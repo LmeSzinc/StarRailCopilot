@@ -81,3 +81,16 @@ Lost_Echo_of_the_Shared_Wish = ItemWeekly(
     item_group=1310,
     dungeon_id=1305,
 )
+Auspice_Sliver = ItemWeekly(
+    id=7,
+    name='Auspice_Sliver',
+    cn='吉光片羽',
+    cht='吉光片羽',
+    en='Auspice Sliver',
+    jp='吉光の羽',
+    es='Pluma auspiciosa',
+    rarity='VeryRare',
+    item_id=110506,
+    item_group=1310,
+    dungeon_id=1306,
+)

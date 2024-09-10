@@ -4,9 +4,10 @@ import cv2
 from pponnxcr.predict_system import BoxedResult
 
 from module.base.base import ModuleBase
+from module.base.button import ClickButton
 from module.base.decorator import run_once
 from module.base.timer import Timer
-from module.base.utils import area_center, area_offset, crop, image_size
+from module.base.utils import area_center, area_limit, area_offset, crop, image_size
 from module.logger import logger
 from module.ocr.ocr import Ocr, OcrResultButton
 from module.ocr.utils import split_and_pair_button_attr, split_and_pair_buttons
@@ -37,7 +38,8 @@ class OcrDungeonName(Ocr):
         result = re.sub(r'-[VⅤ][IⅠ]', '-Ⅵ', result)
 
         # 苏乐达™热砂海选会场
-        result = re.sub(r'(苏乐达|蘇樂達|SoulGlad|スラーダ|FelizAlma)[rtT]*M', r'\1', result)
+        result = re.sub(r'(苏乐达|蘇樂達|SoulGlad|スラーダ|FelizAlma)[rtT]*M*', r'\1', result)
+        result = re.sub(r'["\']', '', result)
 
         result = super().after_process(result)
 
@@ -64,10 +66,15 @@ class OcrDungeonList(OcrDungeonName):
     # Keep __init__ parameter unused
     def __init__(self, button: ButtonWrapper = None, lang=None, name=None):
         super().__init__(button=button, lang=lang, name='OcrDungeonList')
+        # target_dungeon: Dungeon attribute to use map planes to predict dungeons only.
+        self.target_dungeon = None
+        # limit_entrance: True to ensure the teleport button is insight
         self.limit_entrance = False
 
     def detect_and_ocr(self, image, direct_ocr=False) -> list[BoxedResult]:
         if self.button != OCR_DUNGEON_NAME:
+            if self.limit_entrance:
+                self.button = ClickButton((*self.button.area[:3], self.button.area[3] - 70))
             return super().detect_and_ocr(image, direct_ocr=direct_ocr)
 
         # Concat OCR_DUNGEON_NAME and OCR_DUNGEON_TELEPORT
@@ -99,37 +106,38 @@ class OcrDungeonList(OcrDungeonName):
 
         return results
 
-
-class OcrDungeonListUsingPlane(OcrDungeonList):
     def _match_result(self, *args, **kwargs):
         """
         Convert MapPlane object to their corresponding DungeonList object
         """
-        plane = super()._match_result(*args, **kwargs)
-        if plane is not None:
-            for dungeon in DungeonList.instances.values():
-                if dungeon.is_Calyx_Golden and dungeon.plane == plane:
-                    return dungeon
-        return plane
+        matched = super()._match_result(*args, **kwargs)
+        if self.target_dungeon is not None and matched is not None:
+            if self.target_dungeon.is_Calyx_Golden:
+                # convert MapPlane and ignore DungeonList
+                if isinstance(matched, DungeonList):
+                    return
+                for dungeon in DungeonList.instances.values():
+                    if dungeon.is_Calyx_Golden and dungeon.plane == matched:
+                        return dungeon
+            if self.target_dungeon.is_Calyx_Crimson:
+                if isinstance(matched, DungeonList):
+                    return
+                for dungeon in DungeonList.instances.values():
+                    if dungeon.is_Calyx_Crimson and dungeon.plane == matched:
+                        return dungeon
+            else:
+                if isinstance(matched, MapPlane):
+                    return
 
-
-class OcrDungeonListLimitEntrance(OcrDungeonList):
-    def __init__(self, *args, **kwargs):
-        super().__init__(*args, **kwargs)
-        self.limit_entrance = True
-
-
-class OcrDungeonListUsingPlaneLimitEntrance(OcrDungeonListUsingPlane, OcrDungeonListLimitEntrance):
-    pass
+        return matched
 
 
 class DraggableDungeonList(DraggableList):
     teleports: list[OcrResultButton] = []
     navigates: list[OcrResultButton] = []
 
-    # use_plane: True to use map planes to predict dungeons only.
-    #     Can only be True in Calyx Crimson
-    use_plane = False
+    # target_dungeon: Dungeon attribute to use map planes to predict dungeons only.
+    target_dungeon = None
     # limit_entrance: True to ensure the teleport button is insight
     limit_entrance = False
 
@@ -139,19 +147,16 @@ class DraggableDungeonList(DraggableList):
             main:
             allow_early_access: True to allow dungeons that are in temporarily early access during events
         """
-        relative_area = (0, 0, 1280, 120)
-        if self.use_plane:
-            self.keyword_class = [MapPlane, DungeonEntrance]
-            if self.limit_entrance:
-                self.ocr_class = OcrDungeonListUsingPlaneLimitEntrance
-            else:
-                self.ocr_class = OcrDungeonListUsingPlane
-        else:
-            self.keyword_class = [DungeonList, DungeonEntrance]
-            if self.limit_entrance:
-                self.ocr_class = OcrDungeonListLimitEntrance
-            else:
-                self.ocr_class = OcrDungeonList
+        relative_area = (0, -40, 1280, 120)
+
+        def create_ocr_class(*args, **kwargs):
+            # Passing to OcrDungeonList
+            obj = OcrDungeonList(*args, **kwargs)
+            obj.target_dungeon = self.target_dungeon
+            obj.limit_entrance = self.limit_entrance
+            return obj
+
+        self.ocr_class = create_ocr_class
         super().load_rows(main=main)
 
         # Check early access dungeons
@@ -238,7 +243,7 @@ class DungeonUIList(UI):
         else:
             DUNGEON_LIST.search_button = OCR_DUNGEON_NAME
         # Predict dungeon by plane name in calyxes where dungeons share the same names
-        DUNGEON_LIST.use_plane = bool(dungeon.is_Calyx)
+        DUNGEON_LIST.target_dungeon = dungeon
         DUNGEON_LIST.check_row_order = True
 
         # Insight dungeon
@@ -281,7 +286,7 @@ class DungeonUIList(UI):
         logger.hr('Dungeon insight (sort)', level=2)
         logger.info(f'Dungeon insight: {dungeon}')
         DUNGEON_LIST.search_button = OCR_DUNGEON_NAME
-        DUNGEON_LIST.use_plane = bool(dungeon.is_Calyx_Golden)
+        DUNGEON_LIST.target_dungeon = dungeon
         DUNGEON_LIST.check_row_order = False
 
         for _ in range(3):
@@ -342,7 +347,7 @@ class DungeonUIList(UI):
             out: COMBAT_PREPARE, FORGOTTEN_HALL_CHECK
         """
         logger.hr('Dungeon enter', level=2)
-        DUNGEON_LIST.use_plane = bool(dungeon.is_Calyx_Crimson)
+        DUNGEON_LIST.target_dungeon = dungeon
         skip_first_load = skip_first_screenshot
 
         @run_once
@@ -374,6 +379,8 @@ class DungeonUIList(UI):
                     DUNGEON_LIST.load_rows(main=self)
                 entrance = DUNGEON_LIST.keyword2button(dungeon)
                 if entrance is not None:
+                    # Avoid clicking the soring button
+                    entrance.button = area_limit(entrance.button, OCR_DUNGEON_TELEPORT.area)
                     self.device.click(entrance)
                     screenshot_interval_set()
                     self.interval_reset(page_guide.check_button)
@@ -383,3 +390,9 @@ class DungeonUIList(UI):
                     continue
 
         self.device.screenshot_interval_set()
+
+
+if __name__ == '__main__':
+    self = DungeonUIList('src')
+    self.device.screenshot()
+    self.dungeon_insight(KEYWORDS_DUNGEON_LIST.Echo_of_War_Divine_Seed)

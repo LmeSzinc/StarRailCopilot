@@ -238,15 +238,15 @@
     "Name": {
       "name": "Nombre de la Mazmorra",
       "help": "Ajustes predeterminados de las mazmorras",
-      "Calyx_Golden_Memories_Jarilo_VI": "Material: EXP de personaje (Flor de los recuerdos (Jarilo-Ⅵ))",
-      "Calyx_Golden_Memories_The_Xianzhou_Luofu": "Material: EXP de personaje (Flor de los recuerdos (El Luofu de Xianzhou))",
-      "Calyx_Golden_Memories_Penacony": "Material: EXP de personaje (Flor de los recuerdos (Colonipenal))",
-      "Calyx_Golden_Aether_Jarilo_VI": "Material: EXP de conos de luz (Flor de éter (Jarilo-Ⅵ))",
-      "Calyx_Golden_Aether_The_Xianzhou_Luofu": "Material: EXP de conos de luz (Flor de éter (El Luofu de Xianzhou))",
-      "Calyx_Golden_Aether_Penacony": "Material: EXP de conos de luz (Flor de éter (Colonipenal))",
-      "Calyx_Golden_Treasures_Jarilo_VI": "Material: Créditos (Flor de tesoros (Jarilo-Ⅵ))",
-      "Calyx_Golden_Treasures_The_Xianzhou_Luofu": "Material: Créditos (Flor de tesoros (El Luofu de Xianzhou))",
-      "Calyx_Golden_Treasures_Penacony": "Material: Créditos (Flor de tesoros (Colonipenal))",
+      "Calyx_Golden_Memories_Jarilo_VI": "Material: EXP de personaje (Flor de los recuerdos)",
+      "Calyx_Golden_Memories_The_Xianzhou_Luofu": "Material: EXP de personaje (Flor de los recuerdos)",
+      "Calyx_Golden_Memories_Penacony": "Material: EXP de personaje (Flor de los recuerdos)",
+      "Calyx_Golden_Aether_Jarilo_VI": "Material: EXP de conos de luz (Flor de éter)",
+      "Calyx_Golden_Aether_The_Xianzhou_Luofu": "Material: EXP de conos de luz (Flor de éter)",
+      "Calyx_Golden_Aether_Penacony": "Material: EXP de conos de luz (Flor de éter)",
+      "Calyx_Golden_Treasures_Jarilo_VI": "Material: Créditos (Flor de tesoros)",
+      "Calyx_Golden_Treasures_The_Xianzhou_Luofu": "Material: Créditos (Flor de tesoros)",
+      "Calyx_Golden_Treasures_Penacony": "Material: Créditos (Flor de tesoros)",
       "Calyx_Crimson_Destruction_Herta_StorageZone": "Rastros: Destrucción (Zona de almacenamiento)",
       "Calyx_Crimson_Destruction_Luofu_ScalegorgeWaterscape": "Rastros: Destrucción (Desfiladero de Escamas)",
       "Calyx_Crimson_Preservation_Herta_SupplyZone": "Rastros: Conservación (Zona de suministros)",
@@ -266,14 +266,16 @@
       "Stagnant_Shadow_Duty": "Ascension: Físico (Boothill / Robin / Yunli)",
       "Stagnant_Shadow_Blaze": "Ascension: Fuego (Himeko / Asta / Hook)",
       "Stagnant_Shadow_Scorch": "Ascension: Fuego (Guinaifen / Topaz y Conti)",
-      "Stagnant_Shadow_Ire": "Ascension: Fuego (Luciérnaga / Gallagher / Jiaoqiu)",
+      "Stagnant_Shadow_Ire": "Ascension: Fuego (Luciérnaga / Gallagher / Jiaoqiu / Lingsha)",
       "Stagnant_Shadow_Rime": "Ascension: Hielo (Siete de Marzo / Herta / Gepard / Pela)",
       "Stagnant_Shadow_Icicle": "Ascension: Hielo (Yanqing / Jingliu / Ruan Mei)",
       "Stagnant_Shadow_Nectar": "Ascension: Hielo (Misha)",
       "Stagnant_Shadow_Fulmination": "Ascension: Rayo (Arlan / Serval / Tingyun / Bailu)",
       "Stagnant_Shadow_Doom": "Ascension: Rayo (Kafka / Jing Yuan / Acheron)",
+      "Stagnant_Shadow_Mechwolf": "Ascension: Rayo (Moze)",
       "Stagnant_Shadow_Gust": "Ascension: Viento (Dan Heng / Bronya / Sampo)",
       "Stagnant_Shadow_Celestial": "Ascension: Viento (Blade / Huohuo / Cisne Negro)",
+      "Stagnant_Shadow_Gloam": "Ascension: Viento (Feixiao)",
       "Stagnant_Shadow_Quanta": "Ascension: Cuántico (Silver Wolf / Seele / Qingque)",
       "Stagnant_Shadow_Abomination": "Ascension: Cuántico (Lynx / Fu Xuan / Xueyi)",
       "Stagnant_Shadow_Roast": "Ascension: Cuántico (Jade / Sparkle)",
@@ -293,15 +295,15 @@
     "NameAtDoubleCalyx": {
       "name": "En los eventos de x2 de Cáliz",
       "help": "Se volverán a los ajustes predeterminados una vez se acaben los intentos del evento",
-      "Calyx_Golden_Memories_Jarilo_VI": "Material: EXP de personaje (Flor de los recuerdos (Jarilo-Ⅵ))",
-      "Calyx_Golden_Memories_The_Xianzhou_Luofu": "Material: EXP de personaje (Flor de los recuerdos (El Luofu de Xianzhou))",
-      "Calyx_Golden_Memories_Penacony": "Material: EXP de personaje (Flor de los recuerdos (Colonipenal))",
-      "Calyx_Golden_Aether_Jarilo_VI": "Material: EXP de conos de luz (Flor de éter (Jarilo-Ⅵ))",
-      "Calyx_Golden_Aether_The_Xianzhou_Luofu": "Material: EXP de conos de luz (Flor de éter (El Luofu de Xianzhou))",
-      "Calyx_Golden_Aether_Penacony": "Material: EXP de conos de luz (Flor de éter (Colonipenal))",
-      "Calyx_Golden_Treasures_Jarilo_VI": "Material: Créditos (Flor de tesoros (Jarilo-Ⅵ))",
-      "Calyx_Golden_Treasures_The_Xianzhou_Luofu": "Material: Créditos (Flor de tesoros (El Luofu de Xianzhou))",
-      "Calyx_Golden_Treasures_Penacony": "Material: Créditos (Flor de tesoros (Colonipenal))",
+      "Calyx_Golden_Memories_Jarilo_VI": "Material: EXP de personaje (Flor de los recuerdos)",
+      "Calyx_Golden_Memories_The_Xianzhou_Luofu": "Material: EXP de personaje (Flor de los recuerdos)",
+      "Calyx_Golden_Memories_Penacony": "Material: EXP de personaje (Flor de los recuerdos)",
+      "Calyx_Golden_Aether_Jarilo_VI": "Material: EXP de conos de luz (Flor de éter)",
+      "Calyx_Golden_Aether_The_Xianzhou_Luofu": "Material: EXP de conos de luz (Flor de éter)",
+      "Calyx_Golden_Aether_Penacony": "Material: EXP de conos de luz (Flor de éter)",
+      "Calyx_Golden_Treasures_Jarilo_VI": "Material: Créditos (Flor de tesoros)",
+      "Calyx_Golden_Treasures_The_Xianzhou_Luofu": "Material: Créditos (Flor de tesoros)",
+      "Calyx_Golden_Treasures_Penacony": "Material: Créditos (Flor de tesoros)",
       "Calyx_Crimson_Destruction_Herta_StorageZone": "Rastros: Destrucción (Zona de almacenamiento)",
       "Calyx_Crimson_Destruction_Luofu_ScalegorgeWaterscape": "Rastros: Destrucción (Desfiladero de Escamas)",
       "Calyx_Crimson_Preservation_Herta_SupplyZone": "Rastros: Conservación (Zona de suministros)",
@@ -393,6 +395,7 @@
       "DanHeng": "Dan Heng",
       "DanHengImbibitorLunae": "Dan Heng - Imbibitor Lunae",
       "DrRatio": "Dr. Ratio",
+      "Feixiao": "Feixiao",
       "Firefly": "Luciérnaga",
       "FuXuan": "Fu Xuan",
       "Gallagher": "Gallagher",
@@ -408,12 +411,14 @@
       "JingYuan": "Jing Yuan",
       "Jingliu": "Jingliu",
       "Kafka": "Kafka",
+      "Lingsha": "Lingsha",
       "Luka": "Luka",
       "Luocha": "Luocha",
       "Lynx": "Lynx",
       "March7thPreservation": "Siete de Marzo: Conservación",
       "March7thTheHunt": "Siete de Marzo: Cacería",
       "Misha": "Misha",
+      "Moze": "Moze",
       "Natasha": "Natasha",
       "Pela": "Pela",
       "Qingque": "Qingque",
@@ -567,11 +572,19 @@
       "help": ""
     },
     "Item_Raging_Heart": {
-      "name": "Ascension: Fuego (Luciérnaga / Gallagher / Jiaoqiu)",
+      "name": "Ascension: Fuego (Luciérnaga / Gallagher / Jiaoqiu / Lingsha)",
       "help": ""
     },
     "Item_Dream_Fridge": {
       "name": "Ascension: Hielo (Misha)",
+      "help": ""
+    },
+    "Item_Nail_of_the_Beast_Coffin": {
+      "name": "Ascension: Rayo (Moze)",
+      "help": ""
+    },
+    "Item_A_Glass_of_the_Besotted_Era": {
+      "name": "Ascension: Viento (Feixiao)",
       "help": ""
     },
     "Item_Dream_Flamer": {
@@ -658,6 +671,10 @@
       "name": "Tributo del sueño ceniciento (Colonipenal)",
       "help": ""
     },
+    "Item_Auspice_Sliver": {
+      "name": "Campo de batalla de la bestia interior (El Luofu de Xianzhou)",
+      "help": ""
+    },
     "Item_Squirming_Core": {
       "name": "Núcleo serpenteante",
       "help": ""
@@ -703,7 +720,8 @@
       "Echo_of_War_End_of_the_Eternal_Freeze": "El fin del Hielo Eterno (Jarilo-VI)",
       "Echo_of_War_Divine_Seed": "Semilla divina (El Luofu de Xianzhou)",
       "Echo_of_War_Borehole_Planet_Old_Crater": "Cráter del planeta devorado (Estación Espacial Herta)",
-      "Echo_of_War_Salutations_of_Ashen_Dreams": "Tributo del sueño ceniciento (Colonipenal)"
+      "Echo_of_War_Salutations_of_Ashen_Dreams": "Tributo del sueño ceniciento (Colonipenal)",
+      "Echo_of_War_Inner_Beast_Battlefield": "Campo de batalla de la bestia interior (El Luofu de Xianzhou)"
     },
     "Team": {
       "name": "Equipo de mazmorra",
@@ -1047,6 +1065,7 @@
     "Dungeon": {
       "name": "Nombre de la Mazmorra",
       "help": "",
+      "Divergent_Universe_Famished_Worker": "Divergent_Universe_Famished_Worker (Obrero famélico)",
       "Divergent_Universe_Eternal_Comedy": " (Comedia eterna)",
       "Divergent_Universe_To_Sweet_Dreams": " (Hasta los dulces sueños)",
       "Divergent_Universe_Pouring_Blades": " (Lluvia de espadas)",

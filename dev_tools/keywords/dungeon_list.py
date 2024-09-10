@@ -73,6 +73,12 @@ class GenerateDungeonList(GenerateKeyword):
         # Add plane suffix
         from tasks.map.keywords import MapPlane
 
+        if text.startswith('Calyx_Golden'):
+            plane = MapPlane.find_plane_id(keyword['plane_id'])
+            if plane is not None:
+                text = f'{text}_{plane.world.name}'
+            else:
+                text = f'{text}_unknown_world'
         if text.startswith('Calyx_Crimson'):
             plane = MapPlane.find_plane_id(keyword['plane_id'])
             if plane is not None:
@@ -110,6 +116,12 @@ class GenerateDungeonList(GenerateKeyword):
             dungeons = [d for d in dungeons if not condition(d)]
         dungeons = calyx + dungeons
 
+        # 2024.09.10, v2.5, add genre prefix
+        for dungeon in dungeons:
+            if 230 <= dungeon['dungeon_id'] < 1000:
+                dungeon['name'] = 'Divergent_Universe_' + dungeon['name']
+            if 100 < dungeon['dungeon_id'] < 200:
+                dungeon['name'] = 'Simulated_Universe_' + dungeon['name']
         # Reverse Divergent_Universe
         start = 0
         end = 0

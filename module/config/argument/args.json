@@ -340,6 +340,18 @@
         "display": "display",
         "stored": "StoredPlanner"
       },
+      "Item_Nail_of_the_Beast_Coffin": {
+        "type": "planner",
+        "value": {},
+        "display": "display",
+        "stored": "StoredPlanner"
+      },
+      "Item_A_Glass_of_the_Besotted_Era": {
+        "type": "planner",
+        "value": {},
+        "display": "display",
+        "stored": "StoredPlanner"
+      },
       "Item_Dream_Flamer": {
         "type": "planner",
         "value": {},
@@ -466,6 +478,12 @@
         "display": "display",
         "stored": "StoredPlanner"
       },
+      "Item_Auspice_Sliver": {
+        "type": "planner",
+        "value": {},
+        "display": "display",
+        "stored": "StoredPlanner"
+      },
       "Item_Squirming_Core": {
         "type": "planner",
         "value": {},
@@ -554,8 +572,10 @@
           "Stagnant_Shadow_Nectar",
           "Stagnant_Shadow_Fulmination",
           "Stagnant_Shadow_Doom",
+          "Stagnant_Shadow_Mechwolf",
           "Stagnant_Shadow_Gust",
           "Stagnant_Shadow_Celestial",
+          "Stagnant_Shadow_Gloam",
           "Stagnant_Shadow_Quanta",
           "Stagnant_Shadow_Abomination",
           "Stagnant_Shadow_Roast",
@@ -662,6 +682,7 @@
           "DanHeng",
           "DanHengImbibitorLunae",
           "DrRatio",
+          "Feixiao",
           "Firefly",
           "FuXuan",
           "Gallagher",
@@ -677,12 +698,14 @@
           "JingYuan",
           "Jingliu",
           "Kafka",
+          "Lingsha",
           "Luka",
           "Luocha",
           "Lynx",
           "March7thPreservation",
           "March7thTheHunt",
           "Misha",
+          "Moze",
           "Natasha",
           "Pela",
           "Qingque",
@@ -795,6 +818,7 @@
         "type": "select",
         "value": "Divergent_Universe_Eternal_Comedy",
         "option": [
+          "Divergent_Universe_Famished_Worker",
           "Divergent_Universe_Eternal_Comedy",
           "Divergent_Universe_To_Sweet_Dreams",
           "Divergent_Universe_Pouring_Blades",
@@ -858,6 +882,7 @@
           "DanHeng",
           "DanHengImbibitorLunae",
           "DrRatio",
+          "Feixiao",
           "Firefly",
           "FuXuan",
           "Gallagher",
@@ -873,12 +898,14 @@
           "JingYuan",
           "Jingliu",
           "Kafka",
+          "Lingsha",
           "Luka",
           "Luocha",
           "Lynx",
           "March7thPreservation",
           "March7thTheHunt",
           "Misha",
+          "Moze",
           "Natasha",
           "Pela",
           "Qingque",
@@ -1345,7 +1372,8 @@
           "Echo_of_War_End_of_the_Eternal_Freeze",
           "Echo_of_War_Divine_Seed",
           "Echo_of_War_Borehole_Planet_Old_Crater",
-          "Echo_of_War_Salutations_of_Ashen_Dreams"
+          "Echo_of_War_Salutations_of_Ashen_Dreams",
+          "Echo_of_War_Inner_Beast_Battlefield"
         ]
       },
       "Team": {
@@ -1392,6 +1420,7 @@
           "DanHeng",
           "DanHengImbibitorLunae",
           "DrRatio",
+          "Feixiao",
           "Firefly",
           "FuXuan",
           "Gallagher",
@@ -1407,12 +1436,14 @@
           "JingYuan",
           "Jingliu",
           "Kafka",
+          "Lingsha",
           "Luka",
           "Luocha",
           "Lynx",
           "March7thPreservation",
           "March7thTheHunt",
           "Misha",
+          "Moze",
           "Natasha",
           "Pela",
           "Qingque",

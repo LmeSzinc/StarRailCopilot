@@ -1383,3 +1383,173 @@ Ruan_Mei_III = RogueEventTitle(
     es='Ruan Mei III',
     option_ids=[392, 393, 394],
 )
+Special_Discount = RogueEventTitle(
+    id=139,
+    name='Special_Discount',
+    cn='特别优惠',
+    cht='特別優惠',
+    en='Special Discount',
+    jp='特別割引',
+    es='Descuento especial',
+    option_ids=[395, 396, 397, 398, 399, 400, 401, 402, 403, 404],
+)
+Metal_Life = RogueEventTitle(
+    id=140,
+    name='Metal_Life',
+    cn='金属生活',
+    cht='金屬生活',
+    en='Metal Life',
+    jp='金属生活',
+    es='Vida metálica',
+    option_ids=[405, 406, 407, 408, 409, 410, 411],
+)
+A_Dash_of_Color = RogueEventTitle(
+    id=141,
+    name='A_Dash_of_Color',
+    cn='一抹色彩',
+    cht='一抹色彩',
+    en='A Dash of Color',
+    jp='一抹の色彩',
+    es='Una pizca de color',
+    option_ids=[412, 413, 414],
+)
+Creation_Unit = RogueEventTitle(
+    id=142,
+    name='Creation_Unit',
+    cn='造物单元',
+    cht='造物單元',
+    en='Creation Unit',
+    jp='造物ユニット',
+    es='Unidad de creación',
+    option_ids=[415],
+)
+Time_Bank_I = RogueEventTitle(
+    id=143,
+    name='Time_Bank_I',
+    cn='时间银行（其一）',
+    cht='時間銀行（其一）',
+    en='Time Bank (I)',
+    jp='タイムバンク（その1）',
+    es='Banco del tiempo (I)',
+    option_ids=[416, 417, 418, 419, 420, 421, 422, 423, 424, 425, 426, 427],
+)
+Time_Bank_II = RogueEventTitle(
+    id=144,
+    name='Time_Bank_II',
+    cn='时间银行（其二）',
+    cht='時間銀行（其二）',
+    en='Time Bank (II)',
+    jp='タイムバンク（その2）',
+    es='Banco del tiempo (II)',
+    option_ids=[426, 427],
+)
+Red_Temptation = RogueEventTitle(
+    id=145,
+    name='Red_Temptation',
+    cn='红色诱惑',
+    cht='紅色誘惑',
+    en='Red Temptation',
+    jp='赤い誘惑',
+    es='Tentación roja',
+    option_ids=[428, 429, 430, 431, 432],
+)
+Selection_Difficulties_I = RogueEventTitle(
+    id=146,
+    name='Selection_Difficulties_I',
+    cn='选择困难（其一）',
+    cht='選擇困難（其一）',
+    en='Selection Difficulties (I)',
+    jp='選択困難（その1）',
+    es='Dificultad de elección (I)',
+    option_ids=[433, 434, 435, 436, 437],
+)
+Selection_Difficulties_II = RogueEventTitle(
+    id=147,
+    name='Selection_Difficulties_II',
+    cn='选择困难（其二）',
+    cht='選擇困難（其二）',
+    en='Selection Difficulties (II)',
+    jp='選択困難（その2）',
+    es='Dificultad de elección (II)',
+    option_ids=[434, 435, 436, 437],
+)
+Semantic_Mismatch = RogueEventTitle(
+    id=148,
+    name='Semantic_Mismatch',
+    cn='语义不符',
+    cht='語義不符',
+    en='Semantic Mismatch',
+    jp='本義の不一致',
+    es='Inconsistencia semántica',
+    option_ids=[438, 439, 440],
+)
+Pineapple_Bread = RogueEventTitle(
+    id=149,
+    name='Pineapple_Bread',
+    cn='菠萝面包',
+    cht='鳳梨麵包',
+    en='Pineapple Bread',
+    jp='パイナップルパン',
+    es='Pan de piña',
+    option_ids=[441, 442, 443],
+)
+Trash_Symphony = RogueEventTitle(
+    id=150,
+    name='Trash_Symphony',
+    cn='垃圾交响曲',
+    cht='垃圾交響曲',
+    en='Trash Symphony',
+    jp='トラッシュシンフォニー',
+    es='Sinfonía de la basura',
+    option_ids=[444, 445],
+)
+Lava = RogueEventTitle(
+    id=151,
+    name='Lava',
+    cn='熔岩',
+    cht='熔岩',
+    en='Lava',
+    jp='溶岩',
+    es='Lava',
+    option_ids=[446, 447, 448],
+)
+Apes_Such_As_You = RogueEventTitle(
+    id=152,
+    name='Apes_Such_As_You',
+    cn='像你这样的苍猿',
+    cht='像你這樣的蒼猿',
+    en='Apes Such As You',
+    jp='あなたのような蒼猿は',
+    es='Simios como tú',
+    option_ids=[449],
+)
+Fishing_Ceremony = RogueEventTitle(
+    id=153,
+    name='Fishing_Ceremony',
+    cn='垂钓仪式',
+    cht='垂釣儀式',
+    en='Fishing Ceremony',
+    jp='釣りの儀式',
+    es='Ceremonia de pesca',
+    option_ids=[450, 451, 452, 453, 454, 455, 456, 457, 458, 459],
+)
+Flea_Market = RogueEventTitle(
+    id=154,
+    name='Flea_Market',
+    cn='跳蚤市场',
+    cht='跳蚤市場',
+    en='Flea Market',
+    jp='蚤の市',
+    es='Mercadillo',
+    option_ids=[460, 461, 462, 463, 464, 465, 466, 467, 468, 469, 470, 471, 472],
+)
+Collab_Product = RogueEventTitle(
+    id=155,
+    name='Collab_Product',
+    cn='联名产品',
+    cht='聯名產品',
+    en='Collab Product',
+    jp='コラボ商品',
+    es='Producto de colaboración',
+    option_ids=[5, 473, 474],
+)

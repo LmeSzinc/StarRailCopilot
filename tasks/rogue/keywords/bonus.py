@@ -75,32 +75,32 @@ Equilibrium_Universe = RogueBonus(
     jp='均衡な宇宙',
     es='Universo equilibrado',
 )
-Path_of_Preservation = RogueBonus(
+Mechanic = RogueBonus(
     id=9,
-    name='Path_of_Preservation',
-    cn='存护之路',
-    cht='存護之路',
-    en='Path of Preservation',
-    jp='存護の道',
-    es='Camino de la Conservación',
+    name='Mechanic',
+    cn='机修工',
+    cht='機修工',
+    en='Mechanic',
+    jp='機械修理工',
+    es='Mecánic',
 )
-Path_of_Remembrance = RogueBonus(
+Surveyor = RogueBonus(
     id=10,
-    name='Path_of_Remembrance',
-    cn='记忆之路',
-    cht='記憶之路',
-    en='Path of Remembrance',
-    jp='記憶の道',
-    es='Camino de la Reminiscencia',
+    name='Surveyor',
+    cn='测绘师',
+    cht='測繪師',
+    en='Surveyor',
+    jp='測量士',
+    es='Topógraf',
 )
-Path_of_Nihility = RogueBonus(
+Adventurer = RogueBonus(
     id=11,
-    name='Path_of_Nihility',
-    cn='虚无之路',
-    cht='虛無之路',
-    en='Path of Nihility',
-    jp='虚無の道',
-    es='Camino de la Nihilidad',
+    name='Adventurer',
+    cn='冒险家',
+    cht='冒險家',
+    en='Adventurer',
+    jp='冒険家',
+    es='Aventurero',
 )
 Path_of_Abundance = RogueBonus(
     id=12,
@@ -245,4 +245,40 @@ Lying_Cap = RogueBonus(
     en='Lying Cap',
     jp='ペテンハット',
     es='Sombrero mentiroso',
+)
+Case_Folder = RogueBonus(
+    id=28,
+    name='Case_Folder',
+    cn='案件簿',
+    cht='案件簿',
+    en='Case Folder',
+    jp='事件簿',
+    es='Expediente de casos',
+)
+Bloodguilt_Tome = RogueBonus(
+    id=29,
+    name='Bloodguilt_Tome',
+    cn='血罪书',
+    cht='血罪書',
+    en='Bloodguilt Tome',
+    jp='血罪書',
+    es='Tomo de la culpa sangrienta',
+)
+Shuttle_Boat = RogueBonus(
+    id=30,
+    name='Shuttle_Boat',
+    cn='梭子船',
+    cht='渡船',
+    en='Shuttle Boat',
+    jp='杼船',
+    es='Nave lanzadera',
+)
+Consciousness_Cluster = RogueBonus(
+    id=31,
+    name='Consciousness_Cluster',
+    cn='意识群',
+    cht='意識群',
+    en='Consciousness Cluster',
+    jp='意識群',
+    es='Grupo de conciencia',
 )

@@ -129,8 +129,17 @@ DrRatio = CharacterList(
     jp='Dr.レイシオ',
     es='Dr. Ratio',
 )
-Firefly = CharacterList(
+Feixiao = CharacterList(
     id=15,
+    name='Feixiao',
+    cn='飞霄',
+    cht='飛霄',
+    en='Feixiao',
+    jp='飛霄',
+    es='Feixiao',
+)
+Firefly = CharacterList(
+    id=16,
     name='Firefly',
     cn='流萤',
     cht='流螢',
@@ -139,7 +148,7 @@ Firefly = CharacterList(
     es='Luciérnaga',
 )
 FuXuan = CharacterList(
-    id=16,
+    id=17,
     name='FuXuan',
     cn='符玄',
     cht='符玄',
@@ -148,7 +157,7 @@ FuXuan = CharacterList(
     es='Fu Xuan',
 )
 Gallagher = CharacterList(
-    id=17,
+    id=18,
     name='Gallagher',
     cn='加拉赫',
     cht='加拉赫',
@@ -157,7 +166,7 @@ Gallagher = CharacterList(
     es='Gallagher',
 )
 Gepard = CharacterList(
-    id=18,
+    id=19,
     name='Gepard',
     cn='杰帕德',
     cht='傑帕德',
@@ -166,7 +175,7 @@ Gepard = CharacterList(
     es='Gepard',
 )
 Guinaifen = CharacterList(
-    id=19,
+    id=20,
     name='Guinaifen',
     cn='桂乃芬',
     cht='桂乃芬',
@@ -175,7 +184,7 @@ Guinaifen = CharacterList(
     es='Guinaifen',
 )
 Hanya = CharacterList(
-    id=20,
+    id=21,
     name='Hanya',
     cn='寒鸦',
     cht='寒鴉',
@@ -184,7 +193,7 @@ Hanya = CharacterList(
     es='Hanya',
 )
 Herta = CharacterList(
-    id=21,
+    id=22,
     name='Herta',
     cn='黑塔',
     cht='黑塔',
@@ -193,7 +202,7 @@ Herta = CharacterList(
     es='Herta',
 )
 Himeko = CharacterList(
-    id=22,
+    id=23,
     name='Himeko',
     cn='姬子',
     cht='姬子',
@@ -202,7 +211,7 @@ Himeko = CharacterList(
     es='Himeko',
 )
 Hook = CharacterList(
-    id=23,
+    id=24,
     name='Hook',
     cn='虎克',
     cht='虎克',
@@ -211,7 +220,7 @@ Hook = CharacterList(
     es='Hook',
 )
 Huohuo = CharacterList(
-    id=24,
+    id=25,
     name='Huohuo',
     cn='藿藿',
     cht='藿藿',
@@ -220,7 +229,7 @@ Huohuo = CharacterList(
     es='Huohuo',
 )
 Jade = CharacterList(
-    id=25,
+    id=26,
     name='Jade',
     cn='翡翠',
     cht='翡翠',
@@ -229,7 +238,7 @@ Jade = CharacterList(
     es='Jade',
 )
 Jiaoqiu = CharacterList(
-    id=26,
+    id=27,
     name='Jiaoqiu',
     cn='椒丘',
     cht='椒丘',
@@ -238,7 +247,7 @@ Jiaoqiu = CharacterList(
     es='Jiaoqiu',
 )
 JingYuan = CharacterList(
-    id=27,
+    id=28,
     name='JingYuan',
     cn='景元',
     cht='景元',
@@ -247,7 +256,7 @@ JingYuan = CharacterList(
     es='Jing Yuan',
 )
 Jingliu = CharacterList(
-    id=28,
+    id=29,
     name='Jingliu',
     cn='镜流',
     cht='鏡流',
@@ -256,7 +265,7 @@ Jingliu = CharacterList(
     es='Jingliu',
 )
 Kafka = CharacterList(
-    id=29,
+    id=30,
     name='Kafka',
     cn='卡芙卡',
     cht='卡芙卡',
@@ -264,8 +273,17 @@ Kafka = CharacterList(
     jp='カフカ',
     es='Kafka',
 )
+Lingsha = CharacterList(
+    id=31,
+    name='Lingsha',
+    cn='灵砂',
+    cht='靈砂',
+    en='Lingsha',
+    jp='霊砂',
+    es='Lingsha',
+)
 Luka = CharacterList(
-    id=30,
+    id=32,
     name='Luka',
     cn='卢卡',
     cht='盧卡',
@@ -274,7 +292,7 @@ Luka = CharacterList(
     es='Luka',
 )
 Luocha = CharacterList(
-    id=31,
+    id=33,
     name='Luocha',
     cn='罗刹',
     cht='羅剎',
@@ -283,7 +301,7 @@ Luocha = CharacterList(
     es='Luocha',
 )
 Lynx = CharacterList(
-    id=32,
+    id=34,
     name='Lynx',
     cn='玲可',
     cht='玲可',
@@ -292,7 +310,7 @@ Lynx = CharacterList(
     es='Lynx',
 )
 March7thPreservation = CharacterList(
-    id=33,
+    id=35,
     name='March7thPreservation',
     cn='三月七•存护',
     cht='三月七•存護',
@@ -301,7 +319,7 @@ March7thPreservation = CharacterList(
     es='Siete de Marzo: Conservación',
 )
 March7thTheHunt = CharacterList(
-    id=34,
+    id=36,
     name='March7thTheHunt',
     cn='三月七•巡猎',
     cht='三月七•巡獵',
@@ -310,7 +328,7 @@ March7thTheHunt = CharacterList(
     es='Siete de Marzo: Cacería',
 )
 Misha = CharacterList(
-    id=35,
+    id=37,
     name='Misha',
     cn='米沙',
     cht='米沙',
@@ -318,8 +336,17 @@ Misha = CharacterList(
     jp='ミーシャ',
     es='Misha',
 )
+Moze = CharacterList(
+    id=38,
+    name='Moze',
+    cn='貊泽',
+    cht='貊澤',
+    en='Moze',
+    jp='モゼ',
+    es='Moze',
+)
 Natasha = CharacterList(
-    id=36,
+    id=39,
     name='Natasha',
     cn='娜塔莎',
     cht='娜塔莎',
@@ -328,7 +355,7 @@ Natasha = CharacterList(
     es='Natasha',
 )
 Pela = CharacterList(
-    id=37,
+    id=40,
     name='Pela',
     cn='佩拉',
     cht='佩拉',
@@ -337,7 +364,7 @@ Pela = CharacterList(
     es='Pela',
 )
 Qingque = CharacterList(
-    id=38,
+    id=41,
     name='Qingque',
     cn='青雀',
     cht='青雀',
@@ -346,7 +373,7 @@ Qingque = CharacterList(
     es='Qingque',
 )
 Robin = CharacterList(
-    id=39,
+    id=42,
     name='Robin',
     cn='知更鸟',
     cht='知更鳥',
@@ -355,7 +382,7 @@ Robin = CharacterList(
     es='Robin',
 )
 RuanMei = CharacterList(
-    id=40,
+    id=43,
     name='RuanMei',
     cn='阮•梅',
     cht='阮•梅',
@@ -364,7 +391,7 @@ RuanMei = CharacterList(
     es='Ruan Mei',
 )
 Sampo = CharacterList(
-    id=41,
+    id=44,
     name='Sampo',
     cn='桑博',
     cht='桑博',
@@ -373,7 +400,7 @@ Sampo = CharacterList(
     es='Sampo',
 )
 Seele = CharacterList(
-    id=42,
+    id=45,
     name='Seele',
     cn='希儿',
     cht='希兒',
@@ -382,7 +409,7 @@ Seele = CharacterList(
     es='Seele',
 )
 Serval = CharacterList(
-    id=43,
+    id=46,
     name='Serval',
     cn='希露瓦',
     cht='希露瓦',
@@ -391,7 +418,7 @@ Serval = CharacterList(
     es='Serval',
 )
 SilverWolf = CharacterList(
-    id=44,
+    id=47,
     name='SilverWolf',
     cn='银狼',
     cht='銀狼',
@@ -400,7 +427,7 @@ SilverWolf = CharacterList(
     es='Silver Wolf',
 )
 Sparkle = CharacterList(
-    id=45,
+    id=48,
     name='Sparkle',
     cn='花火',
     cht='花火',
@@ -409,7 +436,7 @@ Sparkle = CharacterList(
     es='Sparkle',
 )
 Sushang = CharacterList(
-    id=46,
+    id=49,
     name='Sushang',
     cn='素裳',
     cht='素裳',
@@ -418,7 +445,7 @@ Sushang = CharacterList(
     es='Sushang',
 )
 Tingyun = CharacterList(
-    id=47,
+    id=50,
     name='Tingyun',
     cn='停云',
     cht='停雲',
@@ -427,7 +454,7 @@ Tingyun = CharacterList(
     es='Tingyun',
 )
 TopazNumby = CharacterList(
-    id=48,
+    id=51,
     name='TopazNumby',
     cn='托帕&账账',
     cht='托帕&帳帳',
@@ -436,7 +463,7 @@ TopazNumby = CharacterList(
     es='Topaz y Conti',
 )
 TrailblazerDestruction = CharacterList(
-    id=49,
+    id=52,
     name='TrailblazerDestruction',
     cn='Trailblazer•毁灭',
     cht='Trailblazer•毀滅',
@@ -445,7 +472,7 @@ TrailblazerDestruction = CharacterList(
     es='Trailblazer: Destrucción',
 )
 TrailblazerHarmony = CharacterList(
-    id=50,
+    id=53,
     name='TrailblazerHarmony',
     cn='Trailblazer•同谐',
     cht='Trailblazer•同諧',
@@ -454,7 +481,7 @@ TrailblazerHarmony = CharacterList(
     es='Trailblazer: Armonía',
 )
 TrailblazerPreservation = CharacterList(
-    id=51,
+    id=54,
     name='TrailblazerPreservation',
     cn='Trailblazer•存护',
     cht='Trailblazer•存護',
@@ -463,7 +490,7 @@ TrailblazerPreservation = CharacterList(
     es='Trailblazer: Conservación',
 )
 Welt = CharacterList(
-    id=52,
+    id=55,
     name='Welt',
     cn='瓦尔特',
     cht='瓦爾特',
@@ -472,7 +499,7 @@ Welt = CharacterList(
     es='Welt',
 )
 Xueyi = CharacterList(
-    id=53,
+    id=56,
     name='Xueyi',
     cn='雪衣',
     cht='雪衣',
@@ -481,7 +508,7 @@ Xueyi = CharacterList(
     es='Xueyi',
 )
 Yanqing = CharacterList(
-    id=54,
+    id=57,
     name='Yanqing',
     cn='彦卿',
     cht='彥卿',
@@ -490,7 +517,7 @@ Yanqing = CharacterList(
     es='Yanqing',
 )
 Yukong = CharacterList(
-    id=55,
+    id=58,
     name='Yukong',
     cn='驭空',
     cht='馭空',
@@ -499,7 +526,7 @@ Yukong = CharacterList(
     es='Yukong',
 )
 Yunli = CharacterList(
-    id=56,
+    id=59,
     name='Yunli',
     cn='云璃',
     cht='雲璃',

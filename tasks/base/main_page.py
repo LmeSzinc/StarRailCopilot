@@ -21,6 +21,8 @@ class OcrPlaneName(OcrWhiteLetterOnComplexBackground):
         result = re.sub(r'Y/?$', '', result)
         # Stargazer Navatia -> Stargazer Navalia
         result = result.replace('avatia', 'avalia')
+        # 苏乐达™热砂海选会场
+        result = re.sub(r'(苏乐达|蘇樂達|SoulGlad|スラーダ|FelizAlma)[rtT]*M*', r'\1', result)
         # DomainiRespite
         result = result.replace('omaini', 'omain')
         # Domain=Combat

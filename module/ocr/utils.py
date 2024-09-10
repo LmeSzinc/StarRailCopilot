@@ -2,7 +2,23 @@ import itertools
 
 from pponnxcr.predict_system import BoxedResult
 
-from module.base.utils import area_in_area, area_offset
+from module.base.utils import area_center, area_in_area, area_offset
+
+
+def area_distance(area1, area2):
+    """
+    Get the distance of 2 area center
+
+    Args:
+        area1: (upper_left_x, upper_left_y, bottom_right_x, bottom_right_y)
+        area2: (upper_left_x, upper_left_y, bottom_right_x, bottom_right_y)
+
+    Returns:
+        float:
+    """
+    x1, y1 = area_center(area1)
+    x2, y2 = area_center(area2)
+    return ((x1 - x2) ** 2 + (y1 - y2) ** 2) ** 0.5
 
 
 def area_cross_area(area1, area2, thres_x=20, thres_y=20):
@@ -83,9 +99,10 @@ def pair_buttons(group1, group2, relative_area):
     """
     for button1 in group1:
         area = area_offset(relative_area, offset=button1.area[:2])
-        for button2 in group2:
-            if area_in_area(button2.area, area, threshold=0):
-                yield button1, button2
+        combine = [(area_distance(area, b.area), b) for b in group2 if area_in_area(b.area, area, threshold=0)]
+        combine = sorted(combine, key=lambda x: x[0])
+        for _, button2 in combine[:1]:
+            yield button1, button2
 
 
 def split_and_pair_buttons(buttons, split_func, relative_area):

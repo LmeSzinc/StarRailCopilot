@@ -23,6 +23,9 @@ class OcrPlaneName(OcrWhiteLetterOnComplexBackground):
         result = result.replace('avatia', 'avalia')
         # 苏乐达™热砂海选会场
         result = re.sub(r'(苏乐达|蘇樂達|SoulGlad|スラーダ|FelizAlma)[rtT]*M*', r'\1', result)
+        # 幽囚狱
+        result = result.replace('幽因狱', '幽囚狱')
+        result = result.replace('幽因獄', '幽囚獄')
         # DomainiRespite
         result = result.replace('omaini', 'omain')
         # Domain=Combat

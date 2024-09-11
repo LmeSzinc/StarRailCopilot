@@ -42,6 +42,15 @@ class Screenshot(Adb, WSA, DroidCast, AScreenCap, Scrcpy, NemuIpc):
             'nemu_ipc': self.screenshot_nemu_ipc,
         }
 
+    @cached_property
+    def screenshot_method_override(self) -> str:
+        # SRC only, use nemu_ipc if available
+        available = self.nemu_ipc_available()
+        logger.attr('nemu_ipc_available', available)
+        if available:
+            return 'nemu_ipc'
+        return ''
+
     def screenshot(self):
         """
         Returns:
@@ -51,10 +60,12 @@ class Screenshot(Adb, WSA, DroidCast, AScreenCap, Scrcpy, NemuIpc):
         self._screenshot_interval.reset()
 
         for _ in range(2):
-            method = self.screenshot_methods.get(
-                self.config.Emulator_ScreenshotMethod,
-                self.screenshot_adb
-            )
+            if self.screenshot_method_override:
+                method = self.screenshot_method_override
+            else:
+                method = self.config.Emulator_ScreenshotMethod
+            method = self.screenshot_methods.get(method, self.screenshot_adb)
+
             self.image = method()
 
             # if self.config.Emulator_ScreenshotDedithering:

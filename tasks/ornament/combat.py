@@ -126,12 +126,16 @@ class OrnamentCombat(Dungeon, RouteLoader, DungeonState):
         Pages:
             in: COMBAT_PREPARE or COMBAT_REPEAT
         """
+        logger.info(f'Ornament_UseStamina={self.config.Ornament_UseStamina}, '
+                    f'DungeonDouble.rogue={self.config.stored.DungeonDouble.rogue}')
         before = self.get_equivalent_stamina()
+        logger.info(f'equivalent_stamina: {before}')
 
         after = before
         for _ in range(3):
             self.update_stamina_status()
             after = self.get_equivalent_stamina()
+            logger.info(f'equivalent_stamina: {after}')
             if expect_reduce:
                 if before > after:
                     break
@@ -139,6 +143,13 @@ class OrnamentCombat(Dungeon, RouteLoader, DungeonState):
                 break
 
         return after
+
+    def _try_get_more_trablaize_power(self, cost):
+        if self.config.Ornament_UseStamina or self.config.stored.DungeonDouble.rogue > 0:
+            return super()._try_get_more_trablaize_power(cost)
+        else:
+            logger.info('Skip _try_get_more_trablaize_power')
+            return False
 
     def is_trailblaze_power_exhausted(self):
         flag = self.get_equivalent_stamina() < self.combat_wave_cost

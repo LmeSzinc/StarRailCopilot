@@ -93,12 +93,6 @@ class Device(Screenshot, Control, AppControl):
         if IS_WINDOWS and self.config.EmulatorInfo_Emulator == 'auto':
             _ = self.emulator_instance
 
-        # SRC only, use nemu_ipc if available
-        available = self.nemu_ipc_available()
-        logger.attr('nemu_ipc_available', available)
-        if available:
-            self.config.override(Emulator_ScreenshotMethod='nemu_ipc')
-
         self.screenshot_interval_set()
         self.method_check()
 

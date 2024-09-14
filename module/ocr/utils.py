@@ -51,6 +51,47 @@ def _merge_boxed_result(left: BoxedResult, right: BoxedResult) -> BoxedResult:
     return left
 
 
+def merge_result_button(
+        results: list[BoxedResult],
+        left_func: callable,
+        right_func: callable,
+        text_func: callable
+) -> list[BoxedResult]:
+    """
+    Args:
+        results:
+        left_func: Function that inputs ocr_text (str) and outputs bool
+            True means mark as left text
+        right_func:
+        text_func: Function that inputs left_text (str) right_text (str) and outputs text (str)
+    """
+    left = None
+    right = None
+    for result in results:
+        if left_func(result.ocr_text):
+            left = result
+        elif right_func(result.ocr_text):
+            right = result
+
+    text = text_func(
+        left.ocr_text if left is not None else '',
+        right.ocr_text if right is not None else ''
+    )
+    if left is not None:
+        if right is not None:
+            results.remove(right)
+            left.box = _merge_area(left.box, right.box)
+            left.ocr_text = text
+        else:
+            left.ocr_text = text
+    else:
+        if right is not None:
+            right.ocr_text = text
+        else:
+            pass
+    return results
+
+
 def merge_buttons(buttons: list[BoxedResult], thres_x=20, thres_y=20) -> list[BoxedResult]:
     """
     Args:

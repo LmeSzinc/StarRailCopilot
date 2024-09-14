@@ -3,6 +3,17 @@ from module.base.button import Button, ButtonWrapper
 # This file was auto-generated, do not modify it manually. To generate:
 # ``` python -m dev_tools.button_extract ```
 
+ACCOUNT_CONFIRM = ButtonWrapper(
+    name='ACCOUNT_CONFIRM',
+    cn=Button(
+        file='./assets/cn/login/ACCOUNT_CONFIRM.png',
+        area=(583, 424, 696, 450),
+        search=(563, 404, 716, 470),
+        color=(172, 145, 92),
+        button=(583, 424, 696, 450),
+    ),
+    en=None,
+)
 LOGIN_CONFIRM = ButtonWrapper(
     name='LOGIN_CONFIRM',
     share=[

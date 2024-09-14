@@ -1,4 +1,5 @@
 import re
+from copy import copy
 
 import cv2
 from pponnxcr.predict_system import BoxedResult
@@ -10,7 +11,7 @@ from module.base.timer import Timer
 from module.base.utils import area_center, area_limit, area_offset, crop, image_size
 from module.logger import logger
 from module.ocr.ocr import Ocr, OcrResultButton
-from module.ocr.utils import split_and_pair_button_attr, split_and_pair_buttons
+from module.ocr.utils import merge_result_button, split_and_pair_button_attr, split_and_pair_buttons
 from module.ui.draggable_list import DraggableList
 from module.ui.switch import Switch
 from tasks.base.page import page_guide
@@ -40,6 +41,7 @@ class OcrDungeonName(Ocr):
         # 苏乐达™热砂海选会场
         result = re.sub(r'(苏乐达|蘇樂達|SoulGlad|スラーダ|FelizAlma)[rtT]*M*', r'\1', result)
         result = re.sub(r'["\']', '', result)
+        result = re.sub('Aud[it]+on', 'Audition', result)
 
         result = super().after_process(result)
 
@@ -106,6 +108,17 @@ class OcrDungeonList(OcrDungeonName):
             else:
                 result.box = area_offset(result.box, offset=OCR_DUNGEON_NAME.area[:2])
 
+        before = copy(results)
+        # Calyx_Crimson_The_Hunt_Penacony_SoulGladScorchsandAuditionVenue
+        merge_result_button(
+            results,
+            left_func=lambda x: 'Audition' in x,
+            right_func=lambda x: 'Venue' in x,
+            text_func=lambda l, r: f'SoulGladScorchsandAuditionVenue'
+        )
+        if results != before:
+            logger.attr(name=self.name,
+                        text=str([result.ocr_text for result in results]))
         return results
 
     def _match_result(self, *args, **kwargs):

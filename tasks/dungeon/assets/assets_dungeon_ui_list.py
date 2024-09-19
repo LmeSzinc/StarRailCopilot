@@ -27,10 +27,10 @@ OCR_DUNGEON_LIST = ButtonWrapper(
     name='OCR_DUNGEON_LIST',
     share=Button(
         file='./assets/share/dungeon/ui_list/OCR_DUNGEON_LIST.png',
-        area=(581, 176, 1165, 661),
-        search=(561, 156, 1185, 681),
-        color=(212, 214, 220),
-        button=(440, 176, 588, 656),
+        area=(585, 172, 1145, 624),
+        search=(565, 152, 1165, 644),
+        color=(212, 204, 214),
+        button=(449, 172, 579, 624),
     ),
 )
 OCR_DUNGEON_NAME = ButtonWrapper(

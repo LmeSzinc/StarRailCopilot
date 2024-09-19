@@ -370,11 +370,11 @@ class ConfigGenerator:
         dailies = deep_get(self.argument, keys='Dungeon.Name.option')
         # Dungeon names
         i18n_memories = {
-            'cn': '材料：角色经验（{dungeon}）',
-            'cht': '材料：角色經驗（{dungeon}）',
-            'jp': '素材：役割経験（{dungeon}）：',
-            'en': 'Material: Character EXP ({dungeon})',
-            'es': 'Material: EXP de personaje ({dungeon})',
+            'cn': '材料：角色经验（{dungeon} {world}）',
+            'cht': '材料：角色經驗（{dungeon} {world}）',
+            'jp': '素材：役割経験（{dungeon} {world}）：',
+            'en': 'Material: Character EXP ({dungeon}, {world})',
+            'es': 'Material: EXP de personaje ({dungeon}, {world})',
         }
         i18n_aether = {
             'cn': '材料：武器经验（{dungeon}）',
@@ -409,15 +409,19 @@ class ConfigGenerator:
             dungeon: DungeonList = dungeon
             dungeon_name = dungeon.__getattribute__(ingame_lang)
             dungeon_name = re.sub('[「」]', '', dungeon_name)
+            if dungeon.world:
+                world_name = re.sub('[「」]', '', dungeon.world.__getattribute__(ingame_lang))
+            else:
+                world_name = ''
             if dungeon.is_Calyx_Golden_Memories:
                 deep_set(new, keys=['Dungeon', 'Name', dungeon.name],
-                         value=i18n_memories[ingame_lang].format(dungeon=dungeon_name))
+                         value=i18n_memories[ingame_lang].format(dungeon=dungeon_name, world=world_name))
             if dungeon.is_Calyx_Golden_Aether:
                 deep_set(new, keys=['Dungeon', 'Name', dungeon.name],
-                         value=i18n_aether[ingame_lang].format(dungeon=dungeon_name))
+                         value=i18n_aether[ingame_lang].format(dungeon=dungeon_name, world=world_name))
             if dungeon.is_Calyx_Golden_Treasures:
                 deep_set(new, keys=['Dungeon', 'Name', dungeon.name],
-                         value=i18n_treasure[ingame_lang].format(dungeon=dungeon_name))
+                         value=i18n_treasure[ingame_lang].format(dungeon=dungeon_name, world=world_name))
             if dungeon.is_Calyx_Crimson:
                 plane = dungeon.plane.__getattribute__(ingame_lang)
                 plane = re.sub('[「」]', '', plane)

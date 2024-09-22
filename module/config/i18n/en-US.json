@@ -30,6 +30,10 @@
       "name": "Dungeon",
       "help": ""
     },
+    "Ornament": {
+      "name": "Ornament",
+      "help": "The followings must be satisfied:\n1. Manually clear Divergent Universe once this week and have a save file.\n2. Enter the dungeon once on current device to have dungeon team saved."
+    },
     "DailyQuest": {
       "name": "Daily Quest",
       "help": ""
@@ -57,10 +61,6 @@
     "Rogue": {
       "name": "Simulated Universe",
       "help": ""
-    },
-    "Ornament": {
-      "name": "Ornament",
-      "help": "The followings must be satisfied:\n1. Manually clear Divergent Universe once this week and have a save file.\n2. Enter the dungeon once on current device to have dungeon team saved."
     },
     "Daemon": {
       "name": "Dialogue Clicker",
@@ -238,15 +238,15 @@
     "Name": {
       "name": "Dungeon Name",
       "help": "Default dungeon setting",
-      "Calyx_Golden_Memories_Jarilo_VI": "Material: Character EXP (Bud of Memories (Jarilo-Ⅵ))",
-      "Calyx_Golden_Memories_The_Xianzhou_Luofu": "Material: Character EXP (Bud of Memories (The Xianzhou Luofu))",
-      "Calyx_Golden_Memories_Penacony": "Material: Character EXP (Bud of Memories (Penacony))",
-      "Calyx_Golden_Aether_Jarilo_VI": "Material: Light Cone EXP (Bud of Aether (Jarilo-Ⅵ))",
-      "Calyx_Golden_Aether_The_Xianzhou_Luofu": "Material: Light Cone EXP (Bud of Aether (The Xianzhou Luofu))",
-      "Calyx_Golden_Aether_Penacony": "Material: Light Cone EXP (Bud of Aether (Penacony))",
-      "Calyx_Golden_Treasures_Jarilo_VI": "Material: Credit (Bud of Treasures (Jarilo-Ⅵ))",
-      "Calyx_Golden_Treasures_The_Xianzhou_Luofu": "Material: Credit (Bud of Treasures (The Xianzhou Luofu))",
-      "Calyx_Golden_Treasures_Penacony": "Material: Credit (Bud of Treasures (Penacony))",
+      "Calyx_Golden_Memories_Penacony": "Material: Character EXP (Bud of Memories, Penacony)",
+      "Calyx_Golden_Memories_The_Xianzhou_Luofu": "Material: Character EXP (Bud of Memories, The Xianzhou Luofu)",
+      "Calyx_Golden_Memories_Jarilo_VI": "Material: Character EXP (Bud of Memories, Jarilo-VI)",
+      "Calyx_Golden_Aether_Penacony": "Material: Light Cone EXP (Bud of Aether)",
+      "Calyx_Golden_Aether_The_Xianzhou_Luofu": "Material: Light Cone EXP (Bud of Aether)",
+      "Calyx_Golden_Aether_Jarilo_VI": "Material: Light Cone EXP (Bud of Aether)",
+      "Calyx_Golden_Treasures_Penacony": "Material: Credit (Bud of Treasures)",
+      "Calyx_Golden_Treasures_The_Xianzhou_Luofu": "Material: Credit (Bud of Treasures)",
+      "Calyx_Golden_Treasures_Jarilo_VI": "Material: Credit (Bud of Treasures)",
       "Calyx_Crimson_Destruction_Herta_StorageZone": "Trace: Destruction (Storage Zone)",
       "Calyx_Crimson_Destruction_Luofu_ScalegorgeWaterscape": "Trace: Destruction (Scalegorge Waterscape)",
       "Calyx_Crimson_Preservation_Herta_SupplyZone": "Trace: Preservation (Supply Zone)",
@@ -263,45 +263,47 @@
       "Calyx_Crimson_Nihility_Luofu_AlchemyCommission": "Trace: Nihility (Alchemy Commission)",
       "Stagnant_Shadow_Spike": "Ascension: Physical (Natasha / Clara / Luka / Sushang)",
       "Stagnant_Shadow_Perdition": "Ascension: Physical (Hanya / Argenti)",
-      "Stagnant_Shadow_Duty": "Ascension: Physical (Boothill / Robin)",
+      "Stagnant_Shadow_Duty": "Ascension: Physical (Boothill / Robin / Yunli)",
       "Stagnant_Shadow_Blaze": "Ascension: Fire (Himeko / Asta / Hook)",
       "Stagnant_Shadow_Scorch": "Ascension: Fire (Guinaifen / Topaz & Numby)",
-      "Stagnant_Shadow_Ire": "Ascension: Fire (Firefly / Gallagher)",
+      "Stagnant_Shadow_Ire": "Ascension: Fire (Firefly / Gallagher / Jiaoqiu / Lingsha)",
       "Stagnant_Shadow_Rime": "Ascension: Ice (March 7th / Herta / Gepard / Pela)",
       "Stagnant_Shadow_Icicle": "Ascension: Ice (Yanqing / Jingliu / Ruan Mei)",
       "Stagnant_Shadow_Nectar": "Ascension: Ice (Misha)",
       "Stagnant_Shadow_Fulmination": "Ascension: Lightning (Arlan / Serval / Tingyun / Bailu)",
       "Stagnant_Shadow_Doom": "Ascension: Lightning (Kafka / Jing Yuan / Acheron)",
+      "Stagnant_Shadow_Mechwolf": "Ascension: Lightning (Moze)",
       "Stagnant_Shadow_Gust": "Ascension: Wind (Dan Heng / Bronya / Sampo)",
       "Stagnant_Shadow_Celestial": "Ascension: Wind (Blade / Huohuo / Black Swan)",
+      "Stagnant_Shadow_Gloam": "Ascension: Wind (Feixiao)",
       "Stagnant_Shadow_Quanta": "Ascension: Quantum (Silver Wolf / Seele / Qingque)",
       "Stagnant_Shadow_Abomination": "Ascension: Quantum (Lynx / Fu Xuan / Xueyi)",
       "Stagnant_Shadow_Roast": "Ascension: Quantum (Jade / Sparkle)",
       "Stagnant_Shadow_Mirage": "Ascension: Imaginary (Welt / Luocha / Yukong)",
       "Stagnant_Shadow_Puppetry": "Ascension: Imaginary (Dan Heng • Imbibitor Lunae / Aventurine / Dr. Ratio)",
-      "Cavern_of_Corrosion_Path_of_Gelid_Wind": "Relics: Ice Set & Wind Set (Path of Gelid Wind)",
-      "Cavern_of_Corrosion_Path_of_Jabbing_Punch": "Relics: Physical Set & Break Effect Set (Path of Jabbing Punch)",
-      "Cavern_of_Corrosion_Path_of_Drifting": "Relics: Healing Set & Musketeer Set (Path of Drifting)",
-      "Cavern_of_Corrosion_Path_of_Providence": "Relics: Guard Set & Quantum Set (Path of Providence)",
-      "Cavern_of_Corrosion_Path_of_Holy_Hymn": "Relics: DEF Set & Lighting Set (Path of Holy Hymn)",
-      "Cavern_of_Corrosion_Path_of_Conflagration": "Relics: Fire Set & Imaginary Set (Path of Conflagration)",
-      "Cavern_of_Corrosion_Path_of_Elixir_Seekers": "Relics: HP Set & SPD Set (Path of Elixir Seekers)",
-      "Cavern_of_Corrosion_Path_of_Darkness": "Relics: Pursuit Set & Dot Set (Path of Darkness)",
+      "Cavern_of_Corrosion_Path_of_Cavalier": "Relics: Super Break Set & Pursuit Ultimate Set (Path of Cavalier)",
       "Cavern_of_Corrosion_Path_of_Dreamdive": "Relics: Debuff Set & Break Effect Set (Path of Dreamdive)",
-      "Cavern_of_Corrosion_Path_of_Cavalier": "Relics: Super Break Set & Pursuit Ultimate Set (Path of Cavalier)"
+      "Cavern_of_Corrosion_Path_of_Darkness": "Relics: Pursuit Set & Dot Set (Path of Darkness)",
+      "Cavern_of_Corrosion_Path_of_Elixir_Seekers": "Relics: HP Set & SPD Set (Path of Elixir Seekers)",
+      "Cavern_of_Corrosion_Path_of_Conflagration": "Relics: Fire Set & Imaginary Set (Path of Conflagration)",
+      "Cavern_of_Corrosion_Path_of_Holy_Hymn": "Relics: DEF Set & Lighting Set (Path of Holy Hymn)",
+      "Cavern_of_Corrosion_Path_of_Providence": "Relics: Guard Set & Quantum Set (Path of Providence)",
+      "Cavern_of_Corrosion_Path_of_Drifting": "Relics: Healing Set & Musketeer Set (Path of Drifting)",
+      "Cavern_of_Corrosion_Path_of_Jabbing_Punch": "Relics: Physical Set & Break Effect Set (Path of Jabbing Punch)",
+      "Cavern_of_Corrosion_Path_of_Gelid_Wind": "Relics: Ice Set & Wind Set (Path of Gelid Wind)"
     },
     "NameAtDoubleCalyx": {
       "name": "At Double Calyx Event, choose dungeon",
       "help": "Return to the default dungeon settings after double times exhausted",
-      "Calyx_Golden_Memories_Jarilo_VI": "Material: Character EXP (Bud of Memories (Jarilo-Ⅵ))",
-      "Calyx_Golden_Memories_The_Xianzhou_Luofu": "Material: Character EXP (Bud of Memories (The Xianzhou Luofu))",
-      "Calyx_Golden_Memories_Penacony": "Material: Character EXP (Bud of Memories (Penacony))",
-      "Calyx_Golden_Aether_Jarilo_VI": "Material: Light Cone EXP (Bud of Aether (Jarilo-Ⅵ))",
-      "Calyx_Golden_Aether_The_Xianzhou_Luofu": "Material: Light Cone EXP (Bud of Aether (The Xianzhou Luofu))",
-      "Calyx_Golden_Aether_Penacony": "Material: Light Cone EXP (Bud of Aether (Penacony))",
-      "Calyx_Golden_Treasures_Jarilo_VI": "Material: Credit (Bud of Treasures (Jarilo-Ⅵ))",
-      "Calyx_Golden_Treasures_The_Xianzhou_Luofu": "Material: Credit (Bud of Treasures (The Xianzhou Luofu))",
-      "Calyx_Golden_Treasures_Penacony": "Material: Credit (Bud of Treasures (Penacony))",
+      "Calyx_Golden_Memories_Penacony": "Material: Character EXP (Bud of Memories, Penacony)",
+      "Calyx_Golden_Memories_The_Xianzhou_Luofu": "Material: Character EXP (Bud of Memories, The Xianzhou Luofu)",
+      "Calyx_Golden_Memories_Jarilo_VI": "Material: Character EXP (Bud of Memories, Jarilo-VI)",
+      "Calyx_Golden_Aether_Penacony": "Material: Light Cone EXP (Bud of Aether)",
+      "Calyx_Golden_Aether_The_Xianzhou_Luofu": "Material: Light Cone EXP (Bud of Aether)",
+      "Calyx_Golden_Aether_Jarilo_VI": "Material: Light Cone EXP (Bud of Aether)",
+      "Calyx_Golden_Treasures_Penacony": "Material: Credit (Bud of Treasures)",
+      "Calyx_Golden_Treasures_The_Xianzhou_Luofu": "Material: Credit (Bud of Treasures)",
+      "Calyx_Golden_Treasures_Jarilo_VI": "Material: Credit (Bud of Treasures)",
       "Calyx_Crimson_Destruction_Herta_StorageZone": "Trace: Destruction (Storage Zone)",
       "Calyx_Crimson_Destruction_Luofu_ScalegorgeWaterscape": "Trace: Destruction (Scalegorge Waterscape)",
       "Calyx_Crimson_Preservation_Herta_SupplyZone": "Trace: Preservation (Supply Zone)",
@@ -320,16 +322,16 @@
     "NameAtDoubleRelic": {
       "name": "At Double Relic Event, choose dungeon",
       "help": "Return to the default dungeon settings after double times exhausted",
-      "Cavern_of_Corrosion_Path_of_Gelid_Wind": "Relics: Ice Set & Wind Set (Path of Gelid Wind)",
-      "Cavern_of_Corrosion_Path_of_Jabbing_Punch": "Relics: Physical Set & Break Effect Set (Path of Jabbing Punch)",
-      "Cavern_of_Corrosion_Path_of_Drifting": "Relics: Healing Set & Musketeer Set (Path of Drifting)",
-      "Cavern_of_Corrosion_Path_of_Providence": "Relics: Guard Set & Quantum Set (Path of Providence)",
-      "Cavern_of_Corrosion_Path_of_Holy_Hymn": "Relics: DEF Set & Lighting Set (Path of Holy Hymn)",
-      "Cavern_of_Corrosion_Path_of_Conflagration": "Relics: Fire Set & Imaginary Set (Path of Conflagration)",
-      "Cavern_of_Corrosion_Path_of_Elixir_Seekers": "Relics: HP Set & SPD Set (Path of Elixir Seekers)",
-      "Cavern_of_Corrosion_Path_of_Darkness": "Relics: Pursuit Set & Dot Set (Path of Darkness)",
+      "Cavern_of_Corrosion_Path_of_Cavalier": "Relics: Super Break Set & Pursuit Ultimate Set (Path of Cavalier)",
       "Cavern_of_Corrosion_Path_of_Dreamdive": "Relics: Debuff Set & Break Effect Set (Path of Dreamdive)",
-      "Cavern_of_Corrosion_Path_of_Cavalier": "Relics: Super Break Set & Pursuit Ultimate Set (Path of Cavalier)"
+      "Cavern_of_Corrosion_Path_of_Darkness": "Relics: Pursuit Set & Dot Set (Path of Darkness)",
+      "Cavern_of_Corrosion_Path_of_Elixir_Seekers": "Relics: HP Set & SPD Set (Path of Elixir Seekers)",
+      "Cavern_of_Corrosion_Path_of_Conflagration": "Relics: Fire Set & Imaginary Set (Path of Conflagration)",
+      "Cavern_of_Corrosion_Path_of_Holy_Hymn": "Relics: DEF Set & Lighting Set (Path of Holy Hymn)",
+      "Cavern_of_Corrosion_Path_of_Providence": "Relics: Guard Set & Quantum Set (Path of Providence)",
+      "Cavern_of_Corrosion_Path_of_Drifting": "Relics: Healing Set & Musketeer Set (Path of Drifting)",
+      "Cavern_of_Corrosion_Path_of_Jabbing_Punch": "Relics: Physical Set & Break Effect Set (Path of Jabbing Punch)",
+      "Cavern_of_Corrosion_Path_of_Gelid_Wind": "Relics: Ice Set & Wind Set (Path of Gelid Wind)"
     },
     "Team": {
       "name": "Dungeon Team",
@@ -358,8 +360,8 @@
       "name": "Use Fuel",
       "help": ""
     },
-    "UseFuelUntilRemainCount": {
-      "name": "Supplement exploration power with fuel until X fuel remains",
+    "FuelReserve": {
+      "name": "Reserve X Fuel",
       "help": ""
     }
   },
@@ -393,6 +395,7 @@
       "DanHeng": "Dan Heng",
       "DanHengImbibitorLunae": "Dan Heng • Imbibitor Lunae",
       "DrRatio": "Dr. Ratio",
+      "Feixiao": "Feixiao",
       "Firefly": "Firefly",
       "FuXuan": "Fu Xuan",
       "Gallagher": "Gallagher",
@@ -403,14 +406,18 @@
       "Himeko": "Himeko",
       "Hook": "Hook",
       "Huohuo": "Huohuo",
+      "Jade": "Jade",
+      "Jiaoqiu": "Jiaoqiu",
       "JingYuan": "Jing Yuan",
       "Jingliu": "Jingliu",
       "Kafka": "Kafka",
       "Luka": "Luka",
       "Luocha": "Luocha",
       "Lynx": "Lynx",
-      "March7th": "March 7th",
+      "March7thPreservation": "March 7th: Preservation",
+      "March7thTheHunt": "March 7th: The Hunt",
       "Misha": "Misha",
+      "Moze": "Moze",
       "Natasha": "Natasha",
       "Pela": "Pela",
       "Qingque": "Qingque",
@@ -430,7 +437,8 @@
       "Welt": "Welt",
       "Xueyi": "Xueyi",
       "Yanqing": "Yanqing",
-      "Yukong": "Yukong"
+      "Yukong": "Yukong",
+      "Yunli": "Yunli"
     }
   },
   "DungeonStorage": {
@@ -440,6 +448,10 @@
     },
     "TrailblazePower": {
       "name": "Power",
+      "help": ""
+    },
+    "Reserved": {
+      "name": "Reserved Trailblaze Power",
       "help": ""
     },
     "Immersifier": {
@@ -555,15 +567,23 @@
       "help": ""
     },
     "Item_IPC_Work_Permit": {
-      "name": "Ascension: Physical (Boothill / Robin)",
+      "name": "Ascension: Physical (Boothill / Robin / Yunli)",
       "help": ""
     },
     "Item_Raging_Heart": {
-      "name": "Ascension: Fire (Firefly / Gallagher)",
+      "name": "Ascension: Fire (Firefly / Gallagher / Jiaoqiu / Lingsha)",
       "help": ""
     },
     "Item_Dream_Fridge": {
       "name": "Ascension: Ice (Misha)",
+      "help": ""
+    },
+    "Item_Nail_of_the_Beast_Coffin": {
+      "name": "Ascension: Lightning (Moze)",
+      "help": ""
+    },
+    "Item_A_Glass_of_the_Besotted_Era": {
+      "name": "Ascension: Wind (Feixiao)",
       "help": ""
     },
     "Item_Dream_Flamer": {
@@ -650,6 +670,10 @@
       "name": "Salutations of Ashen Dreams (Penacony)",
       "help": ""
     },
+    "Item_Auspice_Sliver": {
+      "name": "Inner Beast's Battlefield (The Xianzhou Luofu)",
+      "help": ""
+    },
     "Item_Squirming_Core": {
       "name": "Squirming Core",
       "help": ""
@@ -691,11 +715,12 @@
     "Name": {
       "name": "Dungeon Name",
       "help": "",
-      "Echo_of_War_Destruction_Beginning": "Destruction's Beginning (Herta Space Station)",
-      "Echo_of_War_End_of_the_Eternal_Freeze": "End of the Eternal Freeze (Jarilo-VI)",
-      "Echo_of_War_Divine_Seed": "Divine Seed (The Xianzhou Luofu)",
+      "Echo_of_War_Inner_Beast_Battlefield": "Inner Beast's Battlefield (The Xianzhou Luofu)",
+      "Echo_of_War_Salutations_of_Ashen_Dreams": "Salutations of Ashen Dreams (Penacony)",
       "Echo_of_War_Borehole_Planet_Old_Crater": "Borehole Planet's Old Crater (Herta Space Station)",
-      "Echo_of_War_Salutations_of_Ashen_Dreams": "Salutations of Ashen Dreams (Penacony)"
+      "Echo_of_War_Divine_Seed": "Divine Seed (The Xianzhou Luofu)",
+      "Echo_of_War_End_of_the_Eternal_Freeze": "End of the Eternal Freeze (Jarilo-VI)",
+      "Echo_of_War_Destruction_Beginning": "Destruction's Beginning (Herta Space Station)"
     },
     "Team": {
       "name": "Dungeon Team",
@@ -756,6 +781,10 @@
     },
     "BattlePassQuestSynthesizeConsumables": {
       "name": "Synthesize Consumables 10 time(s)",
+      "help": ""
+    },
+    "BattlePassQuestStagnantShadow": {
+      "name": "Clear Stagnant Shadow 3 time(s)",
       "help": ""
     },
     "BattlePassQuestCavernOfCorrosion": {
@@ -921,12 +950,11 @@
     "World": {
       "name": "World",
       "help": "",
-      "Simulated_Universe_World_3": "Simulated Universe: World 3",
-      "Simulated_Universe_World_4": "Simulated Universe: World 4",
-      "Simulated_Universe_World_5": "Simulated Universe: World 5",
-      "Simulated_Universe_World_6": "Simulated Universe: World 6",
-      "Simulated_Universe_World_7": "Simulated Universe: World 7",
-      "Simulated_Universe_World_8": "Simulated Universe: World 8"
+      "Simulated_Universe_World_3": "World 3",
+      "Simulated_Universe_World_4": "World 4",
+      "Simulated_Universe_World_5": "World 5",
+      "Simulated_Universe_World_6": "World 6",
+      "Simulated_Universe_World_8": "World 8"
     },
     "Path": {
       "name": "Path",
@@ -1036,6 +1064,7 @@
     "Dungeon": {
       "name": "Dungeon Name",
       "help": "",
+      "Divergent_Universe_Famished_Worker": "Divergent_Universe_Famished_Worker (Famished Worker)",
       "Divergent_Universe_Eternal_Comedy": "Running Wolves & Kalpagni Lantern (Eternal Comedy)",
       "Divergent_Universe_To_Sweet_Dreams": "Sigonia & Izumo Gensei (To Sweet Dreams)",
       "Divergent_Universe_Pouring_Blades": "Firmament & Penacony (Pouring Blades)",

@@ -1,33 +1,20 @@
-import re
-
 import module.config.server as server
 from module.base.timer import Timer
 from module.base.utils import color_similar, get_color
 from module.logger import logger
-from module.ocr.ocr import Digit, DigitCounter
-from tasks.base.ui import UI
+from module.ocr.ocr import Digit
 from tasks.combat.assets.assets_combat_prepare import (
-    OCR_TRAILBLAZE_POWER,
     OCR_WAVE_COST,
     OCR_WAVE_COUNT,
     WAVE_MINUS,
-    WAVE_PLUS, WAVE_SLIDER
+    WAVE_PLUS,
+    WAVE_SLIDER
 )
+from tasks.combat.stamina_status import StaminaStatus
 from tasks.item.slider import Slider
 
 
-class TrailblazePowerOcr(DigitCounter):
-    def after_process(self, result):
-        result = super().after_process(result)
-        # The trailblaze power icon is recognized as 买
-        # OCR_TRAILBLAZE_POWER includes the icon because the length varies by value
-        result = re.sub(r'[买米装：（）]', '', result)
-        # 61240 -> 6/240
-        result = re.sub(r'1240$', '/240', result)
-        return result
-
-
-class CombatPrepare(UI):
+class CombatPrepare(StaminaStatus):
     # Current combat waves,
     combat_waves = 1
     # Limit combat runs, 0 means no limit.
@@ -76,20 +63,20 @@ class CombatPrepare(UI):
             else:
                 self.device.screenshot()
 
-            current, _, total = TrailblazePowerOcr(OCR_TRAILBLAZE_POWER).ocr_single_line(self.device.image)
-            # Empty result
-            if total == 0:
+            data = self.update_stamina_status(image=self.device.image)
+            if timeout.reached():
+                break
+            if data.stamina is None:
                 continue
             # Confirm if it is > 240, sometimes just OCR errors
-            if current > 240 and timeout.reached():
-                break
-            if expect_reduce and current >= before:
+            # if current > 240 and timeout.reached():
+            #     break
+            if expect_reduce and data.stamina >= before:
                 continue
-            if current <= 240:
+            if data.stamina <= 240:
                 break
 
-        self.config.stored.TrailblazePower.value = current
-        return current
+        return data.stamina
 
     def combat_get_wave_cost(self, skip_first_screenshot=True):
         """
@@ -129,7 +116,8 @@ class CombatPrepare(UI):
                     logger.warning(f'Combat wave costs {cost} but has multiple waves, '
                                    f'probably wave amount is preset')
                     self.combat_set_wave(1)
-                    skip_first_screenshot = True
+                    # Don't skip_first_screenshot, combat_set_wave may not have screenshot updated
+                    # skip_first_screenshot = True
                     timeout.reset()
                     continue
                 else:

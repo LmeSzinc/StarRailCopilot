@@ -1,10 +1,12 @@
 from tasks.map.control.waypoint import Waypoint
 from tasks.map.keywords.plane import Luofu_ArtisanshipCommission
+from tasks.map.route.base import locked_rotation
 from tasks.rogue.route.base import RouteBase
 
 
 class Route(RouteBase):
 
+    @locked_rotation(90)
     def Luofu_ArtisanshipCommission_F1_X385Y494(self):
         """
         | Waypoint | Position                  | Direction | Rotation |
@@ -24,6 +26,7 @@ class Route(RouteBase):
         self.domain_single_exit(exit_)
         # ===== End of generated waypoints =====
 
+    @locked_rotation(90)
     def Luofu_ArtisanshipCommission_F1_X391Y493(self):
         """
         | Waypoint | Position                  | Direction | Rotation |

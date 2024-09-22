@@ -72,7 +72,7 @@ class XPath:
     悬浮窗及侧边栏元素
     """
     # 悬浮窗
-    FLOAT_WINDOW = '//*[@package="com.miHoYo.cloudgames.hkrpg" and @class="android.widget.ImageView"]'
+    FLOAT_WINDOW = '//*[@package="com.miHoYo.cloudgames.hkrpg" and @class="android.widget.LinearLayout"]'
     # 退出按钮，返回登录页面
     FLOAT_EXIT = '//*[@resource-id="com.miHoYo.cloudgames.hkrpg:id/iv_exit"]'
     # 弹出侧边栏的 节点信息
@@ -159,6 +159,18 @@ class LoginAndroidCloud(ModuleBase):
             season_pass = int(res.group(1))
         else:
             season_pass = 0
+        # 42 天
+        # 5 小时
+        if '天' in text:
+            pass
+        elif '小时' in text:
+            season_pass = round(season_pass / 24, 2)
+        elif '分钟' in text:
+            season_pass = round(season_pass / 24 / 60, 3)
+        elif text == '':
+            season_pass = 0
+        else:
+            logger.error(f'Unexpected season pass text: {text}')
 
         text = self.xpath(XPath.REMAIN_PAID).text
         logger.info(f'Remain paid: {text}')
@@ -180,6 +192,15 @@ class LoginAndroidCloud(ModuleBase):
             self.config.stored.CloudRemainPaid.value = paid
             self.config.stored.CloudRemainFree.value = free
 
+    def _is_cloud_ingame(self):
+        button = self.xpath(XPath.FLOAT_WINDOW)
+        if self.appear(button):
+            # Confirm float window size
+            width, height = button.size
+            if (width < 120 and height < 120) and (width / height < 0.6 or height / width < 0.6):
+                return True
+        return False
+
     def _cloud_enter(self, skip_first=False):
         """
         Pages:
@@ -194,13 +215,9 @@ class LoginAndroidCloud(ModuleBase):
                 self.device.dump_hierarchy()
 
             # End
-            button = self.xpath(XPath.FLOAT_WINDOW)
-            if self.appear(button):
-                # Confirm float window size
-                width, height = button.size
-                if (width < 120 and height < 120) and (width / height < 0.6 or height / width < 0.6):
-                    logger.info('Cloud game entered')
-                    break
+            if self._is_cloud_ingame():
+                logger.info('Cloud game entered')
+                break
 
             # Queue daemon
             button = self.xpath(XPath.QUEUE_REMAIN)
@@ -366,7 +383,7 @@ class LoginAndroidCloud(ModuleBase):
             self._cloud_get_remain()
             self._cloud_enter()
             return True
-        elif self.appear(XPath.FLOAT_WINDOW):
+        elif self.is_in_cloud_page():
             logger.info('Cloud game is in game')
             return True
         elif self.appear(XPath.FLOAT_DELAY):

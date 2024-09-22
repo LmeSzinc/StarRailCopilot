@@ -3,7 +3,7 @@ from module.exception import GameNotRunningError
 from module.logger import logger
 from tasks.base.page import page_main
 from tasks.base.ui import UI
-from tasks.login.assets.assets_login import LOGIN_CONFIRM, LOGIN_LOADING, USER_AGREEMENT_ACCEPT
+from tasks.login.assets.assets_login import *
 from tasks.login.cloud import LoginAndroidCloud
 
 
@@ -61,6 +61,8 @@ class Login(UI, LoginAndroidCloud):
                 login_success = True
                 continue
             if self.appear_then_click(USER_AGREEMENT_ACCEPT):
+                continue
+            if self.appear_then_click(ACCOUNT_CONFIRM):
                 continue
             # Additional
             if self.handle_popup_single():

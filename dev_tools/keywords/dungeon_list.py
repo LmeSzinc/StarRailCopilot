@@ -41,7 +41,7 @@ class GenerateDungeonList(GenerateKeyword):
 
     def iter_dungeon(self):
         temp_save = ""
-        for data in self.data.values():
+        for data in self.data:
             dungeon_id = data.get('ID', 0)
             text_id = deep_get(data, keys='Name.Hash')
             plane_id = deep_get(data, 'MapEntranceID', 0)
@@ -73,6 +73,12 @@ class GenerateDungeonList(GenerateKeyword):
         # Add plane suffix
         from tasks.map.keywords import MapPlane
 
+        if text.startswith('Calyx_Golden'):
+            plane = MapPlane.find_plane_id(keyword['plane_id'])
+            if plane is not None:
+                text = f'{text}_{plane.world.name}'
+            else:
+                text = f'{text}_unknown_world'
         if text.startswith('Calyx_Crimson'):
             plane = MapPlane.find_plane_id(keyword['plane_id'])
             if plane is not None:
@@ -110,16 +116,33 @@ class GenerateDungeonList(GenerateKeyword):
             dungeons = [d for d in dungeons if not condition(d)]
         dungeons = calyx + dungeons
 
-        # Reverse Divergent_Universe
-        start = 0
-        end = 0
-        for index, dungeon in enumerate(dungeons):
-            if dungeon['name'].startswith('Divergent_Universe'):
-                if start == 0:
-                    start = index
-                end = index + 1
-        if start > 0 and end > 0:
-            dungeons = dungeons[:start] + dungeons[start:end][::-1] + dungeons[end:]
+        # 2024.09.10, v2.5, add genre prefix
+        for dungeon in dungeons:
+            if 230 <= dungeon['dungeon_id'] < 1000:
+                dungeon['name'] = 'Divergent_Universe_' + dungeon['name']
+            if 100 < dungeon['dungeon_id'] < 200:
+                dungeon['name'] = 'Simulated_Universe_' + dungeon['name']
+
+        # Reverse dungeon list, latest at top
+        def reverse_on_name(d, prefix):
+            start = 0
+            end = 0
+            for index, dungeon in enumerate(d):
+                if dungeon['name'].startswith(prefix):
+                    if start == 0:
+                        start = index
+                    end = index + 1
+            if start > 0 and end > 0:
+                d = d[:start] + d[start:end][::-1] + d[end:]
+            return d
+
+        dungeons = reverse_on_name(dungeons, 'Divergent_Universe')
+        dungeons = reverse_on_name(dungeons, 'Cavern_of_Corrosion')
+        dungeons = reverse_on_name(dungeons, 'Echo_of_War')
+
+        # Reverse Calyx_Golden, sort by world
+        # Poor sort
+        dungeons[0:3], dungeons[6:9] = dungeons[6:9], dungeons[0:3]
 
         # Re-sort ID
         self.keyword_index = 0

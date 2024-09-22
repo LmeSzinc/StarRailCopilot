@@ -20,7 +20,7 @@ class Ornament(OrnamentCombat):
         # Check save file before entering
         if self.image_color_count(
                 DIVERGENT_UNIVERSE_SAVE_UNAVAILABLE,
-                color=(195, 89, 79), threshold=221, count=1000,
+                color=(140, 19, 26), threshold=221, count=1000,
         ):
             logger.error(
                 'Divergent Universe save unavailable, '
@@ -63,6 +63,7 @@ class Ornament(OrnamentCombat):
         return result
 
     def run(self):
+        self.sync_config_traiblaze_power('Dungeon')
         self.config.update_battle_pass_quests()
         self.config.update_daily_quests()
         # self.check_synthesize()
@@ -78,6 +79,7 @@ class Ornament(OrnamentCombat):
         if self.config.stored.DungeonDouble.calyx or self.config.stored.DungeonDouble.relic:
             logger.info('During double calyx or relic event, delay Ornament')
             future = self.config.cross_get('Dungeon.Scheduler.NextRun', default=DEFAULT_TIME)
+            future = max(now(), future)
             future = future + timedelta(minutes=1)
             with self.config.multi_set():
                 self.config.task_delay(target=future)

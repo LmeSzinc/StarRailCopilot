@@ -3,9 +3,10 @@ from module.base.timer import Timer
 from module.logger import logger
 from module.ocr.ocr import Digit
 from tasks.base.page import page_guide
+from tasks.combat.assets.assets_combat_stamina_status import ICON_SEARCH, IMMERSIFIER_ICON
 from tasks.dungeon.assets.assets_dungeon_stamina import *
 from tasks.dungeon.keywords import KEYWORDS_DUNGEON_TAB
-from tasks.dungeon.ui import DungeonUI
+from tasks.dungeon.ui.ui import DungeonUI
 
 
 class DungeonStamina(DungeonUI):
@@ -16,6 +17,7 @@ class DungeonStamina(DungeonUI):
             out: IMMERSIFIER_CHECK
         """
         logger.info('Enter immersifier')
+        IMMERSIFIER_ICON.load_search(ICON_SEARCH.area)
         while 1:
             if skip_first_screenshot:
                 skip_first_screenshot = False
@@ -24,7 +26,7 @@ class DungeonStamina(DungeonUI):
 
             if self.appear(IMMERSIFIER_CHECK):
                 break
-            if self.appear_then_click(ENTER_IMMERSIFIER, interval=2):
+            if self.appear_then_click(IMMERSIFIER_ICON, interval=2):
                 continue
 
     def _immersifier_exit(self, skip_first_screenshot=True):
@@ -140,7 +142,7 @@ class DungeonStamina(DungeonUI):
         logger.hr('Immersifier store', level=2)
         logger.info(f'Max store: {max_store}')
         self.dungeon_tab_goto(KEYWORDS_DUNGEON_TAB.Survival_Index)
-        self.dungeon_update_stamina()
+        self.update_stamina_status()
         before = self.config.stored.Immersifier.value
 
         if self.config.stored.Immersifier.is_full():
@@ -159,7 +161,7 @@ class DungeonStamina(DungeonUI):
         self._immersifier_enter()
         self._item_amount_set(amount, ocr_button=OCR_IMMERSIFIER_AMOUNT)
         self._item_confirm()
-        self.dungeon_update_stamina()
+        self.update_stamina_status()
         diff = self.config.stored.Immersifier.value - before
         logger.info(f'Stored {diff} immersifiers')
         return diff

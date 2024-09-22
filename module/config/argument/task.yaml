@@ -29,6 +29,11 @@ Daily:
       - DungeonSupport
       - DungeonStorage
       - TrailblazePower
+    Ornament:
+      - Scheduler
+      - Ornament
+      - DungeonSupport
+      - TrailblazePower
     DailyQuest:
       - Scheduler
       - DailyStorage
@@ -61,10 +66,6 @@ Weekly:
       - RogueWorld
       - RogueBlessing
       - RogueDebug
-    Ornament:
-      - Scheduler
-      - Ornament
-      - DungeonSupport
 
 # ==================== Tool ====================
 

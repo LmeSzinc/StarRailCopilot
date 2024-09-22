@@ -30,6 +30,10 @@
       "name": "Mazmorra",
       "help": ""
     },
+    "Ornament": {
+      "name": "Ornamentos",
+      "help": "Se deben cumplir los siguientes requisitos:\n1. Borre manualmente Universo Diferenciado una vez esta semana y tenga un archivo guardado.\n2. Ingrese a la mazmorra una vez en el dispositivo actual para guardar el equipo de la mazmorra."
+    },
     "DailyQuest": {
       "name": "Misión diaria",
       "help": ""
@@ -57,10 +61,6 @@
     "Rogue": {
       "name": "Universo Simulado",
       "help": ""
-    },
-    "Ornament": {
-      "name": "Ornamentos",
-      "help": "Se deben cumplir los siguientes requisitos:\n1. Borre manualmente Universo Diferenciado una vez esta semana y tenga un archivo guardado.\n2. Ingrese a la mazmorra una vez en el dispositivo actual para guardar el equipo de la mazmorra."
     },
     "Daemon": {
       "name": "Clic de diálogo",
@@ -238,15 +238,15 @@
     "Name": {
       "name": "Nombre de la Mazmorra",
       "help": "Ajustes predeterminados de las mazmorras",
-      "Calyx_Golden_Memories_Jarilo_VI": "Material: EXP de personaje (Flor de los recuerdos (Jarilo-Ⅵ))",
-      "Calyx_Golden_Memories_The_Xianzhou_Luofu": "Material: EXP de personaje (Flor de los recuerdos (El Luofu de Xianzhou))",
-      "Calyx_Golden_Memories_Penacony": "Material: EXP de personaje (Flor de los recuerdos (Colonipenal))",
-      "Calyx_Golden_Aether_Jarilo_VI": "Material: EXP de conos de luz (Flor de éter (Jarilo-Ⅵ))",
-      "Calyx_Golden_Aether_The_Xianzhou_Luofu": "Material: EXP de conos de luz (Flor de éter (El Luofu de Xianzhou))",
-      "Calyx_Golden_Aether_Penacony": "Material: EXP de conos de luz (Flor de éter (Colonipenal))",
-      "Calyx_Golden_Treasures_Jarilo_VI": "Material: Créditos (Flor de tesoros (Jarilo-Ⅵ))",
-      "Calyx_Golden_Treasures_The_Xianzhou_Luofu": "Material: Créditos (Flor de tesoros (El Luofu de Xianzhou))",
-      "Calyx_Golden_Treasures_Penacony": "Material: Créditos (Flor de tesoros (Colonipenal))",
+      "Calyx_Golden_Memories_Penacony": "Material: EXP de personaje (Flor de los recuerdos, Colonipenal)",
+      "Calyx_Golden_Memories_The_Xianzhou_Luofu": "Material: EXP de personaje (Flor de los recuerdos, El Luofu de Xianzhou)",
+      "Calyx_Golden_Memories_Jarilo_VI": "Material: EXP de personaje (Flor de los recuerdos, Jarilo-VI)",
+      "Calyx_Golden_Aether_Penacony": "Material: EXP de conos de luz (Flor de éter)",
+      "Calyx_Golden_Aether_The_Xianzhou_Luofu": "Material: EXP de conos de luz (Flor de éter)",
+      "Calyx_Golden_Aether_Jarilo_VI": "Material: EXP de conos de luz (Flor de éter)",
+      "Calyx_Golden_Treasures_Penacony": "Material: Créditos (Flor de tesoros)",
+      "Calyx_Golden_Treasures_The_Xianzhou_Luofu": "Material: Créditos (Flor de tesoros)",
+      "Calyx_Golden_Treasures_Jarilo_VI": "Material: Créditos (Flor de tesoros)",
       "Calyx_Crimson_Destruction_Herta_StorageZone": "Rastros: Destrucción (Zona de almacenamiento)",
       "Calyx_Crimson_Destruction_Luofu_ScalegorgeWaterscape": "Rastros: Destrucción (Desfiladero de Escamas)",
       "Calyx_Crimson_Preservation_Herta_SupplyZone": "Rastros: Conservación (Zona de suministros)",
@@ -263,45 +263,47 @@
       "Calyx_Crimson_Nihility_Luofu_AlchemyCommission": "Rastros: Nihilidad (Comisión de Alquimia)",
       "Stagnant_Shadow_Spike": "Ascension: Físico (Natasha / Clara / Luka / Sushang)",
       "Stagnant_Shadow_Perdition": "Ascension: Físico (Hanya / Argenti)",
-      "Stagnant_Shadow_Duty": "Ascension: Físico (Boothill / Robin)",
+      "Stagnant_Shadow_Duty": "Ascension: Físico (Boothill / Robin / Yunli)",
       "Stagnant_Shadow_Blaze": "Ascension: Fuego (Himeko / Asta / Hook)",
       "Stagnant_Shadow_Scorch": "Ascension: Fuego (Guinaifen / Topaz y Conti)",
-      "Stagnant_Shadow_Ire": "Ascension: Fuego (Luciérnaga / Gallagher)",
+      "Stagnant_Shadow_Ire": "Ascension: Fuego (Luciérnaga / Gallagher / Jiaoqiu / Lingsha)",
       "Stagnant_Shadow_Rime": "Ascension: Hielo (Siete de Marzo / Herta / Gepard / Pela)",
       "Stagnant_Shadow_Icicle": "Ascension: Hielo (Yanqing / Jingliu / Ruan Mei)",
       "Stagnant_Shadow_Nectar": "Ascension: Hielo (Misha)",
       "Stagnant_Shadow_Fulmination": "Ascension: Rayo (Arlan / Serval / Tingyun / Bailu)",
       "Stagnant_Shadow_Doom": "Ascension: Rayo (Kafka / Jing Yuan / Acheron)",
+      "Stagnant_Shadow_Mechwolf": "Ascension: Rayo (Moze)",
       "Stagnant_Shadow_Gust": "Ascension: Viento (Dan Heng / Bronya / Sampo)",
       "Stagnant_Shadow_Celestial": "Ascension: Viento (Blade / Huohuo / Cisne Negro)",
+      "Stagnant_Shadow_Gloam": "Ascension: Viento (Feixiao)",
       "Stagnant_Shadow_Quanta": "Ascension: Cuántico (Silver Wolf / Seele / Qingque)",
       "Stagnant_Shadow_Abomination": "Ascension: Cuántico (Lynx / Fu Xuan / Xueyi)",
       "Stagnant_Shadow_Roast": "Ascension: Cuántico (Jade / Sparkle)",
       "Stagnant_Shadow_Mirage": "Ascension: Imaginario (Welt / Luocha / Yukong)",
       "Stagnant_Shadow_Puppetry": "Ascension: Imaginario (Dan Heng - Imbibitor Lunae / Aventurino / Dr. Ratio)",
-      "Cavern_of_Corrosion_Path_of_Gelid_Wind": "Artefactos: Hielo y Viento (Senda del viento gélido)",
-      "Cavern_of_Corrosion_Path_of_Jabbing_Punch": "Artefactos: Físico y Efecto de Ruptura (Senda de los puños rápidos)",
-      "Cavern_of_Corrosion_Path_of_Drifting": "Artefactos: Curación y Pistolera de la espiga silvestre (Senda de la deriva)",
-      "Cavern_of_Corrosion_Path_of_Providence": "Artefactos: Guardia de la nieve y Cuántico (Senda de al providencia) (Senda de la providencia)",
-      "Cavern_of_Corrosion_Path_of_Holy_Hymn": "Artefactos: Defensa y Trueno (Senda del himno sagrado)",
-      "Cavern_of_Corrosion_Path_of_Conflagration": "Artefactos: Fuego e Imaginario (Senda de la conflagración)",
-      "Cavern_of_Corrosion_Path_of_Elixir_Seekers": "Artefactos: HP y SPD (Senda de los elixires)",
-      "Cavern_of_Corrosion_Path_of_Darkness": "Artefactos: Persecución y Dot (Senda de la oscuridad)",
+      "Cavern_of_Corrosion_Path_of_Cavalier": "Artefactos: Ultrarruptura y Adicional de Definitiva (Caverna de la corrosión: Senda del caballero) (Senda del caballero)",
       "Cavern_of_Corrosion_Path_of_Dreamdive": "Artefactos: Debuff y Efecto de Ruptura (Senda de los sueños)",
-      "Cavern_of_Corrosion_Path_of_Cavalier": "Artefactos: Ultrarruptura y Adicional de Definitiva (Caverna de la corrosión: Senda del caballero)"
+      "Cavern_of_Corrosion_Path_of_Darkness": "Artefactos: Persecución y Dot (Senda de la oscuridad)",
+      "Cavern_of_Corrosion_Path_of_Elixir_Seekers": "Artefactos: HP y SPD (Senda de los elixires)",
+      "Cavern_of_Corrosion_Path_of_Conflagration": "Artefactos: Fuego e Imaginario (Senda de la conflagración)",
+      "Cavern_of_Corrosion_Path_of_Holy_Hymn": "Artefactos: Defensa y Trueno (Senda del himno sagrado)",
+      "Cavern_of_Corrosion_Path_of_Providence": "Artefactos: Guardia de la nieve y Cuántico (Senda de al providencia) (Senda de la providencia)",
+      "Cavern_of_Corrosion_Path_of_Drifting": "Artefactos: Curación y Pistolera de la espiga silvestre (Senda de la deriva)",
+      "Cavern_of_Corrosion_Path_of_Jabbing_Punch": "Artefactos: Físico y Efecto de Ruptura (Senda de los puños rápidos)",
+      "Cavern_of_Corrosion_Path_of_Gelid_Wind": "Artefactos: Hielo y Viento (Senda del viento gélido)"
     },
     "NameAtDoubleCalyx": {
       "name": "En los eventos de x2 de Cáliz",
       "help": "Se volverán a los ajustes predeterminados una vez se acaben los intentos del evento",
-      "Calyx_Golden_Memories_Jarilo_VI": "Material: EXP de personaje (Flor de los recuerdos (Jarilo-Ⅵ))",
-      "Calyx_Golden_Memories_The_Xianzhou_Luofu": "Material: EXP de personaje (Flor de los recuerdos (El Luofu de Xianzhou))",
-      "Calyx_Golden_Memories_Penacony": "Material: EXP de personaje (Flor de los recuerdos (Colonipenal))",
-      "Calyx_Golden_Aether_Jarilo_VI": "Material: EXP de conos de luz (Flor de éter (Jarilo-Ⅵ))",
-      "Calyx_Golden_Aether_The_Xianzhou_Luofu": "Material: EXP de conos de luz (Flor de éter (El Luofu de Xianzhou))",
-      "Calyx_Golden_Aether_Penacony": "Material: EXP de conos de luz (Flor de éter (Colonipenal))",
-      "Calyx_Golden_Treasures_Jarilo_VI": "Material: Créditos (Flor de tesoros (Jarilo-Ⅵ))",
-      "Calyx_Golden_Treasures_The_Xianzhou_Luofu": "Material: Créditos (Flor de tesoros (El Luofu de Xianzhou))",
-      "Calyx_Golden_Treasures_Penacony": "Material: Créditos (Flor de tesoros (Colonipenal))",
+      "Calyx_Golden_Memories_Penacony": "Material: EXP de personaje (Flor de los recuerdos, Colonipenal)",
+      "Calyx_Golden_Memories_The_Xianzhou_Luofu": "Material: EXP de personaje (Flor de los recuerdos, El Luofu de Xianzhou)",
+      "Calyx_Golden_Memories_Jarilo_VI": "Material: EXP de personaje (Flor de los recuerdos, Jarilo-VI)",
+      "Calyx_Golden_Aether_Penacony": "Material: EXP de conos de luz (Flor de éter)",
+      "Calyx_Golden_Aether_The_Xianzhou_Luofu": "Material: EXP de conos de luz (Flor de éter)",
+      "Calyx_Golden_Aether_Jarilo_VI": "Material: EXP de conos de luz (Flor de éter)",
+      "Calyx_Golden_Treasures_Penacony": "Material: Créditos (Flor de tesoros)",
+      "Calyx_Golden_Treasures_The_Xianzhou_Luofu": "Material: Créditos (Flor de tesoros)",
+      "Calyx_Golden_Treasures_Jarilo_VI": "Material: Créditos (Flor de tesoros)",
       "Calyx_Crimson_Destruction_Herta_StorageZone": "Rastros: Destrucción (Zona de almacenamiento)",
       "Calyx_Crimson_Destruction_Luofu_ScalegorgeWaterscape": "Rastros: Destrucción (Desfiladero de Escamas)",
       "Calyx_Crimson_Preservation_Herta_SupplyZone": "Rastros: Conservación (Zona de suministros)",
@@ -320,16 +322,16 @@
     "NameAtDoubleRelic": {
       "name": "En los eventos de x2 de Caverna de la corrosión",
       "help": "Se volverán a los ajustes predeterminados una vez se acaben los intentos del evento",
-      "Cavern_of_Corrosion_Path_of_Gelid_Wind": "Artefactos: Hielo y Viento (Senda del viento gélido)",
-      "Cavern_of_Corrosion_Path_of_Jabbing_Punch": "Artefactos: Físico y Efecto de Ruptura (Senda de los puños rápidos)",
-      "Cavern_of_Corrosion_Path_of_Drifting": "Artefactos: Curación y Pistolera de la espiga silvestre (Senda de la deriva)",
-      "Cavern_of_Corrosion_Path_of_Providence": "Artefactos: Guardia de la nieve y Cuántico (Senda de al providencia) (Senda de la providencia)",
-      "Cavern_of_Corrosion_Path_of_Holy_Hymn": "Artefactos: Defensa y Trueno (Senda del himno sagrado)",
-      "Cavern_of_Corrosion_Path_of_Conflagration": "Artefactos: Fuego e Imaginario (Senda de la conflagración)",
-      "Cavern_of_Corrosion_Path_of_Elixir_Seekers": "Artefactos: HP y SPD (Senda de los elixires)",
-      "Cavern_of_Corrosion_Path_of_Darkness": "Artefactos: Persecución y Dot (Senda de la oscuridad)",
+      "Cavern_of_Corrosion_Path_of_Cavalier": "Artefactos: Ultrarruptura y Adicional de Definitiva (Caverna de la corrosión: Senda del caballero) (Senda del caballero)",
       "Cavern_of_Corrosion_Path_of_Dreamdive": "Artefactos: Debuff y Efecto de Ruptura (Senda de los sueños)",
-      "Cavern_of_Corrosion_Path_of_Cavalier": "Artefactos: Ultrarruptura y Adicional de Definitiva (Caverna de la corrosión: Senda del caballero)"
+      "Cavern_of_Corrosion_Path_of_Darkness": "Artefactos: Persecución y Dot (Senda de la oscuridad)",
+      "Cavern_of_Corrosion_Path_of_Elixir_Seekers": "Artefactos: HP y SPD (Senda de los elixires)",
+      "Cavern_of_Corrosion_Path_of_Conflagration": "Artefactos: Fuego e Imaginario (Senda de la conflagración)",
+      "Cavern_of_Corrosion_Path_of_Holy_Hymn": "Artefactos: Defensa y Trueno (Senda del himno sagrado)",
+      "Cavern_of_Corrosion_Path_of_Providence": "Artefactos: Guardia de la nieve y Cuántico (Senda de al providencia) (Senda de la providencia)",
+      "Cavern_of_Corrosion_Path_of_Drifting": "Artefactos: Curación y Pistolera de la espiga silvestre (Senda de la deriva)",
+      "Cavern_of_Corrosion_Path_of_Jabbing_Punch": "Artefactos: Físico y Efecto de Ruptura (Senda de los puños rápidos)",
+      "Cavern_of_Corrosion_Path_of_Gelid_Wind": "Artefactos: Hielo y Viento (Senda del viento gélido)"
     },
     "Team": {
       "name": "Equipo de mazmorra",
@@ -347,20 +349,20 @@
   },
   "TrailblazePower": {
     "_info": {
-      "name": "TrailblazePower._info.name",
-      "help": "TrailblazePower._info.help"
+      "name": "Ajustes de Poder Trazacaminos",
+      "help": ""
     },
     "ExtractReservedTrailblazePower": {
-      "name": "TrailblazePower.ExtractReservedTrailblazePower.name",
-      "help": "TrailblazePower.ExtractReservedTrailblazePower.help"
+      "name": "Extraer reserva de poder de trazacaminos",
+      "help": ""
     },
     "UseFuel": {
-      "name": "TrailblazePower.UseFuel.name",
-      "help": "TrailblazePower.UseFuel.help"
+      "name": "Usar combustible",
+      "help": ""
     },
-    "UseFuelUntilRemainCount": {
-      "name": "TrailblazePower.UseFuelUntilRemainCount.name",
-      "help": "TrailblazePower.UseFuelUntilRemainCount.help"
+    "FuelReserve": {
+      "name": "Reserva X Combustible",
+      "help": ""
     }
   },
   "DungeonSupport": {
@@ -393,6 +395,7 @@
       "DanHeng": "Dan Heng",
       "DanHengImbibitorLunae": "Dan Heng - Imbibitor Lunae",
       "DrRatio": "Dr. Ratio",
+      "Feixiao": "Feixiao",
       "Firefly": "Luciérnaga",
       "FuXuan": "Fu Xuan",
       "Gallagher": "Gallagher",
@@ -403,14 +406,18 @@
       "Himeko": "Himeko",
       "Hook": "Hook",
       "Huohuo": "Huohuo",
+      "Jade": "Jade",
+      "Jiaoqiu": "Jiaoqiu",
       "JingYuan": "Jing Yuan",
       "Jingliu": "Jingliu",
       "Kafka": "Kafka",
       "Luka": "Luka",
       "Luocha": "Luocha",
       "Lynx": "Lynx",
-      "March7th": "Siete de Marzo",
+      "March7thPreservation": "Siete de Marzo: Conservación",
+      "March7thTheHunt": "Siete de Marzo: Cacería",
       "Misha": "Misha",
+      "Moze": "Moze",
       "Natasha": "Natasha",
       "Pela": "Pela",
       "Qingque": "Qingque",
@@ -430,7 +437,8 @@
       "Welt": "Welt",
       "Xueyi": "Xueyi",
       "Yanqing": "Yanqing",
-      "Yukong": "Yukong"
+      "Yukong": "Yukong",
+      "Yunli": "Yunli"
     }
   },
   "DungeonStorage": {
@@ -440,6 +448,10 @@
     },
     "TrailblazePower": {
       "name": "Poder",
+      "help": ""
+    },
+    "Reserved": {
+      "name": "Trailblaze Poder Reservada",
       "help": ""
     },
     "Immersifier": {
@@ -555,15 +567,23 @@
       "help": ""
     },
     "Item_IPC_Work_Permit": {
-      "name": "Ascension: Físico (Boothill / Robin)",
+      "name": "Ascension: Físico (Boothill / Robin / Yunli)",
       "help": ""
     },
     "Item_Raging_Heart": {
-      "name": "Ascension: Fuego (Luciérnaga / Gallagher)",
+      "name": "Ascension: Fuego (Luciérnaga / Gallagher / Jiaoqiu / Lingsha)",
       "help": ""
     },
     "Item_Dream_Fridge": {
       "name": "Ascension: Hielo (Misha)",
+      "help": ""
+    },
+    "Item_Nail_of_the_Beast_Coffin": {
+      "name": "Ascension: Rayo (Moze)",
+      "help": ""
+    },
+    "Item_A_Glass_of_the_Besotted_Era": {
+      "name": "Ascension: Viento (Feixiao)",
       "help": ""
     },
     "Item_Dream_Flamer": {
@@ -647,7 +667,11 @@
       "help": ""
     },
     "Item_Lost_Echo_of_the_Shared_Wish": {
-      "name": "Ecos de la guerra: Tributo del sueño ceniciento (Colonipenal)",
+      "name": "Tributo del sueño ceniciento (Colonipenal)",
+      "help": ""
+    },
+    "Item_Auspice_Sliver": {
+      "name": "Campo de batalla de la bestia interior (El Luofu de Xianzhou)",
       "help": ""
     },
     "Item_Squirming_Core": {
@@ -691,11 +715,12 @@
     "Name": {
       "name": "Nombre de la Mazmorra",
       "help": "",
-      "Echo_of_War_Destruction_Beginning": "El principio de la Destrucción (Estación Espacial Herta)",
-      "Echo_of_War_End_of_the_Eternal_Freeze": "El fin del Hielo Eterno (Jarilo-VI)",
-      "Echo_of_War_Divine_Seed": "Semilla divina (El Luofu de Xianzhou)",
+      "Echo_of_War_Inner_Beast_Battlefield": "Campo de batalla de la bestia interior (El Luofu de Xianzhou)",
+      "Echo_of_War_Salutations_of_Ashen_Dreams": "Tributo del sueño ceniciento (Colonipenal)",
       "Echo_of_War_Borehole_Planet_Old_Crater": "Cráter del planeta devorado (Estación Espacial Herta)",
-      "Echo_of_War_Salutations_of_Ashen_Dreams": "Ecos de la guerra: Tributo del sueño ceniciento (Colonipenal)"
+      "Echo_of_War_Divine_Seed": "Semilla divina (El Luofu de Xianzhou)",
+      "Echo_of_War_End_of_the_Eternal_Freeze": "El fin del Hielo Eterno (Jarilo-VI)",
+      "Echo_of_War_Destruction_Beginning": "El principio de la Destrucción (Estación Espacial Herta)"
     },
     "Team": {
       "name": "Equipo de mazmorra",
@@ -756,6 +781,10 @@
     },
     "BattlePassQuestSynthesizeConsumables": {
       "name": "Sintetiza consumibles 10 veces",
+      "help": ""
+    },
+    "BattlePassQuestStagnantShadow": {
+      "name": "Completa Sombra paralizada 3 veces",
       "help": ""
     },
     "BattlePassQuestCavernOfCorrosion": {
@@ -925,7 +954,6 @@
       "Simulated_Universe_World_4": "Mundo 4",
       "Simulated_Universe_World_5": "Mundo 5",
       "Simulated_Universe_World_6": "Mundo 6",
-      "Simulated_Universe_World_7": "Mundo 7",
       "Simulated_Universe_World_8": "Mundo 8"
     },
     "Path": {
@@ -1036,6 +1064,7 @@
     "Dungeon": {
       "name": "Nombre de la Mazmorra",
       "help": "",
+      "Divergent_Universe_Famished_Worker": "Divergent_Universe_Famished_Worker (Obrero famélico)",
       "Divergent_Universe_Eternal_Comedy": " (Comedia eterna)",
       "Divergent_Universe_To_Sweet_Dreams": " (Hasta los dulces sueños)",
       "Divergent_Universe_Pouring_Blades": " (Lluvia de espadas)",

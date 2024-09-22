@@ -1,5 +1,8 @@
+from datetime import timedelta
+
 from module.base.decorator import set_cached_property
 from module.base.utils import area_offset
+from module.config.stored.classes import now
 from module.logger import logger
 from tasks.battle_pass.keywords import KEYWORDS_BATTLE_PASS_QUEST
 from tasks.combat.combat import Combat
@@ -121,6 +124,12 @@ class Dungeon(DungeonStamina, DungeonEvent, Combat):
                 if KEYWORDS_DAILY_QUEST.Clear_Stagnant_Shadow_1_times in self.daily_quests:
                     logger.info('Achieve daily quest Clear_Stagnant_Shadow_1_times')
                     self.achieved_daily_quest = True
+                if KEYWORDS_BATTLE_PASS_QUEST.Clear_Stagnant_Shadow_1_times in self.weekly_quests:
+                    logger.info('Done weekly quest Clear_Stagnant_Shadow_1_times once')
+                    self.config.stored.BattlePassQuestStagnantShadow.add()
+                    if self.config.stored.BattlePassQuestStagnantShadow.is_full():
+                        logger.info('Achieved weekly quest Clear_Stagnant_Shadow_1_times')
+                        self.achieved_weekly_quest = True
             # Cavern_of_Corrosion
             if dungeon.is_Cavern_of_Corrosion:
                 if KEYWORDS_DAILY_QUEST.Clear_Cavern_of_Corrosion_1_times in self.daily_quests:
@@ -204,7 +213,7 @@ class Dungeon(DungeonStamina, DungeonEvent, Combat):
         elif require and not self.support_once:
             # Run with support all the way
             return self._dungeon_run(dungeon=dungeon, team=team, wave_limit=0,
-                              support_character=self.config.DungeonSupport_Character)
+                                     support_character=self.config.DungeonSupport_Character)
 
         else:
             # Normal run
@@ -222,6 +231,10 @@ class Dungeon(DungeonStamina, DungeonEvent, Combat):
                 or self.config.stored.DungeonDouble.calyx > 0
                 or self.config.stored.DungeonDouble.relic > 0
                 or self.config.stored.DungeonDouble.rogue > 0):
+            update = self.config.stored.DungeonDouble.time
+            if update <= now() <= update + timedelta(seconds=5):
+                logger.info('Dungeon double just updated, skip')
+                return
             logger.info('Get dungeon double remains')
             # UI switches
             switched = self.dungeon_tab_goto(KEYWORDS_DUNGEON_TAB.Survival_Index)
@@ -237,10 +250,10 @@ class Dungeon(DungeonStamina, DungeonEvent, Combat):
             if self.has_double_rogue_event():
                 rogue = self.get_double_rogue_remain()
             if self.has_double_calyx_event():
-                self._dungeon_nav_goto(KEYWORDS_DUNGEON_NAV.Calyx_Golden)
+                self.dungeon_nav_goto(KEYWORDS_DUNGEON_NAV.Calyx_Golden)
                 calyx = self.get_double_event_remain()
             if self.has_double_relic_event():
-                self._dungeon_nav_goto(KEYWORDS_DUNGEON_NAV.Cavern_of_Corrosion)
+                self.dungeon_nav_goto(KEYWORDS_DUNGEON_NAV.Cavern_of_Corrosion)
                 relic = self.get_double_rogue_remain()
             with self.config.multi_set():
                 self.config.stored.DungeonDouble.calyx = calyx
@@ -248,6 +261,7 @@ class Dungeon(DungeonStamina, DungeonEvent, Combat):
                 self.config.stored.DungeonDouble.rogue = rogue
 
     def run(self):
+        self.sync_config_traiblaze_power('Ornament')
         self.config.update_battle_pass_quests()
         self.config.update_daily_quests()
         self.check_synthesize()
@@ -429,3 +443,19 @@ class Dungeon(DungeonStamina, DungeonEvent, Combat):
         if KEYWORDS_DAILY_QUEST.Consume_120_Trailblaze_Power in self.daily_quests:
             logger.info(f'Done Consume_120_Trailblaze_Power stamina {stamina_used}')
             self.achieved_daily_quest = True
+
+    def sync_config_traiblaze_power(self, set_task):
+        # Sync Dungeon.TrailblazePower and Ornament.TrailblazePower
+        with self.config.multi_set():
+            value = self.config.TrailblazePower_ExtractReservedTrailblazePower
+            keys = f'{set_task}.TrailblazePower.ExtractReservedTrailblazePower'
+            if self.config.cross_get(keys) != value:
+                self.config.cross_set(keys, value)
+            value = self.config.TrailblazePower_UseFuel
+            keys = f'{set_task}.TrailblazePower.UseFuel'
+            if self.config.cross_get(keys) != value:
+                self.config.cross_set(keys, value)
+            value = self.config.TrailblazePower_FuelReserve
+            keys = f'{set_task}.TrailblazePower.FuelReserve'
+            if self.config.cross_get(keys) != value:
+                self.config.cross_set(keys, value)

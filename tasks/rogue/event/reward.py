@@ -4,7 +4,7 @@ from module.base.timer import Timer
 from module.logger import logger
 from tasks.base.assets.assets_base_popup import GET_REWARD
 from tasks.combat.interact import CombatInteract
-from tasks.dungeon.state import DungeonState
+from tasks.dungeon.ui.state import DungeonState
 from tasks.rogue.assets.assets_rogue_reward import REWARD_CLOSE, USE_IMMERSIFIER, USE_STAMINA
 from tasks.rogue.blessing.ui import RogueUI
 
@@ -54,7 +54,7 @@ class RogueReward(RogueUI, CombatInteract, DungeonState):
                 confirm.reset()
                 continue
             if self.appear(REWARD_CLOSE, interval=2):
-                self.dungeon_update_stamina()
+                self.update_stamina_status()
                 if not init:
                     initial_stamina = self.config.stored.TrailblazePower.value
                     initial_immersifier = self.config.stored.Immersifier.value

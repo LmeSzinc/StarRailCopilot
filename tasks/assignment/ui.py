@@ -15,7 +15,7 @@ from tasks.assignment.assets.assets_assignment_ui import *
 from tasks.assignment.keywords import *
 from tasks.base.assets.assets_base_page import ASSIGNMENT_CHECK
 from tasks.base.ui import UI
-from tasks.dungeon.ui import DungeonTabSwitch
+from tasks.dungeon.ui.nav import DungeonTabSwitch
 
 
 class AssignmentStatus(Enum):

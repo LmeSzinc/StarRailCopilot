@@ -6,7 +6,7 @@ from tasks.base.assets.assets_base_popup import POPUP_CANCEL
 from tasks.combat.assets.assets_combat_prepare import COMBAT_PREPARE
 from tasks.combat.assets.assets_combat_support import COMBAT_SUPPORT_LIST
 from tasks.dungeon.dungeon import Dungeon
-from tasks.dungeon.state import DungeonState
+from tasks.dungeon.ui.state import DungeonState
 from tasks.map.route.loader import RouteLoader
 from tasks.map.route.route.daily import OrnamentExtraction__route
 from tasks.ornament.assets.assets_ornament_combat import *
@@ -110,7 +110,7 @@ class OrnamentCombat(Dungeon, RouteLoader, DungeonState):
 
     def get_equivalent_stamina(self):
         value = self.config.stored.Immersifier.value * 40
-        if self.config.Ornament_UseStamina:
+        if self.config.Ornament_UseStamina or self.config.stored.DungeonDouble.rogue > 0:
             value += self.config.stored.TrailblazePower.value
         return value
 
@@ -126,12 +126,16 @@ class OrnamentCombat(Dungeon, RouteLoader, DungeonState):
         Pages:
             in: COMBAT_PREPARE or COMBAT_REPEAT
         """
+        logger.info(f'Ornament_UseStamina={self.config.Ornament_UseStamina}, '
+                    f'DungeonDouble.rogue={self.config.stored.DungeonDouble.rogue}')
         before = self.get_equivalent_stamina()
+        logger.info(f'equivalent_stamina: {before}')
 
         after = before
         for _ in range(3):
-            self.dungeon_update_stamina()
+            self.update_stamina_status()
             after = self.get_equivalent_stamina()
+            logger.info(f'equivalent_stamina: {after}')
             if expect_reduce:
                 if before > after:
                     break
@@ -139,6 +143,13 @@ class OrnamentCombat(Dungeon, RouteLoader, DungeonState):
                 break
 
         return after
+
+    def _try_get_more_trablaize_power(self, cost):
+        if self.config.Ornament_UseStamina or self.config.stored.DungeonDouble.rogue > 0:
+            return super()._try_get_more_trablaize_power(cost)
+        else:
+            logger.info('Skip _try_get_more_trablaize_power')
+            return False
 
     def is_trailblaze_power_exhausted(self):
         flag = self.get_equivalent_stamina() < self.combat_wave_cost

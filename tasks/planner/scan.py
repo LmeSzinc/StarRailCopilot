@@ -25,6 +25,7 @@ class OcrItemName(Ocr):
     def after_process(self, result):
         result = result.replace('方相果实', '万相果实')
         result = result.replace('念火之心', '忿火之心')
+        result = result.replace('楚天之魔', '焚天之魔')
         result = re.sub('^火之心', '忿火之心', result)
         result = re.sub('工造机$', '工造机杼', result)
         result = re.sub('工造迥?轮', '工造迴轮', result)
@@ -36,6 +37,10 @@ class OcrItemName(Ocr):
         # Error words on blank background
         result = re.sub('^[國東]', '', result)
         result = re.sub('時$', '', result)
+        # 一杯酩酊的时代
+        result = re.sub('一杯[酪酩酊酐]*的', '一杯酩酊的', result)
+        # 蠢动原核
+        result = re.sub('[鑫蠹]动', '蠢动', result)
         return result
 
 

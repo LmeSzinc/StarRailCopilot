@@ -14,8 +14,8 @@ from tasks.base.assets.assets_base_page import MAP_EXIT
 from tasks.base.page import page_guide, page_item, page_main, page_rogue
 from tasks.dungeon.keywords import DungeonList
 from tasks.dungeon.keywords.dungeon import Simulated_Universe_World_1
-from tasks.dungeon.state import OcrSimUniPoint
-from tasks.dungeon.ui_rogue import DungeonRogueUI
+from tasks.dungeon.ui.state import OcrSimUniPoint
+from tasks.dungeon.ui.ui_rogue import DungeonRogueUI
 from tasks.forgotten_hall.assets.assets_forgotten_hall_ui import TELEPORT
 from tasks.rogue.assets.assets_rogue_entry import (
     LEVEL_CONFIRM,
@@ -261,7 +261,7 @@ class RogueEntry(RouteBase, RogueRewardHandler, RoguePathHandler, DungeonRogueUI
                 if not self.image_color_count(LEVEL_CONFIRM, color=(223, 223, 225), threshold=240, count=50):
                     self.interval_clear(LEVEL_CONFIRM)
                     continue
-                self.dungeon_update_stamina()
+                self.update_stamina_status()
                 self.check_stop_condition()
                 self.device.click(LEVEL_CONFIRM)
                 continue

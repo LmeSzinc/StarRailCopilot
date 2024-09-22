@@ -21,7 +21,7 @@ from tasks.daily.synthesize import SynthesizeMaterialUI
 from tasks.daily.use_technique import UseTechniqueUI
 from tasks.dungeon.assets.assets_dungeon_ui import DAILY_TRAINING_CHECK
 from tasks.dungeon.keywords import KEYWORDS_DUNGEON_TAB
-from tasks.dungeon.ui import DungeonUI
+from tasks.dungeon.ui.ui import DungeonUI
 from tasks.item.consumable_usage import ConsumableUsageUI
 from tasks.item.relics import RelicsUI
 from tasks.map.route.loader import RouteLoader
@@ -350,8 +350,8 @@ class DailyQuestUI(DungeonUI, RouteLoader):
             else:
                 logger.info('Daily support cannot achieved, dungeon task is scheduled tomorrow')
         if KEYWORDS_DAILY_QUEST.Consume_120_Trailblaze_Power in quests:
-            # 12h10min in advance, waiting for stamina
-            if dungeon < reset - timedelta(hours=12, minutes=10):
+            # 6h in advance, waiting for stamina
+            if dungeon < reset - timedelta(hours=6, minutes=0):
                 logger.info('Stamina consume can be achieved in the future')
                 future += 200
             else:

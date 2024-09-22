@@ -6,6 +6,7 @@ from module.config.stored.classes import (
     StoredBattlePassQuestCavernOfCorrosion,
     StoredBattlePassQuestCredits,
     StoredBattlePassQuestEchoOfWar,
+    StoredBattlePassQuestStagnantShadow,
     StoredBattlePassQuestSynthesizeConsumables,
     StoredBattlePassQuestTrailblazePower,
     StoredBattlePassSimulatedUniverse,
@@ -21,6 +22,7 @@ from module.config.stored.classes import (
     StoredInt,
     StoredPlanner,
     StoredPlannerOverall,
+    StoredResersed,
     StoredSimulatedUniverse,
     StoredSimulatedUniverseElite,
     StoredTrailblazePower,
@@ -54,6 +56,8 @@ class StoredGenerated:
     Item_IPC_Work_Permit = StoredPlanner("Dungeon.Planner.Item_IPC_Work_Permit")
     Item_Raging_Heart = StoredPlanner("Dungeon.Planner.Item_Raging_Heart")
     Item_Dream_Fridge = StoredPlanner("Dungeon.Planner.Item_Dream_Fridge")
+    Item_Nail_of_the_Beast_Coffin = StoredPlanner("Dungeon.Planner.Item_Nail_of_the_Beast_Coffin")
+    Item_A_Glass_of_the_Besotted_Era = StoredPlanner("Dungeon.Planner.Item_A_Glass_of_the_Besotted_Era")
     Item_Dream_Flamer = StoredPlanner("Dungeon.Planner.Item_Dream_Flamer")
     Item_Worldbreaker_Blade = StoredPlanner("Dungeon.Planner.Item_Worldbreaker_Blade")
     Item_Arrow_of_the_Starchaser = StoredPlanner("Dungeon.Planner.Item_Arrow_of_the_Starchaser")
@@ -75,6 +79,7 @@ class StoredGenerated:
     Item_Regret_of_Infinite_Ochema = StoredPlanner("Dungeon.Planner.Item_Regret_of_Infinite_Ochema")
     Item_Past_Evils_of_the_Borehole_Planet_Disaster = StoredPlanner("Dungeon.Planner.Item_Past_Evils_of_the_Borehole_Planet_Disaster")
     Item_Lost_Echo_of_the_Shared_Wish = StoredPlanner("Dungeon.Planner.Item_Lost_Echo_of_the_Shared_Wish")
+    Item_Auspice_Sliver = StoredPlanner("Dungeon.Planner.Item_Auspice_Sliver")
     Item_Squirming_Core = StoredPlanner("Dungeon.Planner.Item_Squirming_Core")
     Item_Conqueror_Will = StoredPlanner("Dungeon.Planner.Item_Conqueror_Will")
     Item_Silvermane_Medal = StoredPlanner("Dungeon.Planner.Item_Silvermane_Medal")
@@ -84,6 +89,7 @@ class StoredGenerated:
     Item_Dream_Making_Engine = StoredPlanner("Dungeon.Planner.Item_Dream_Making_Engine")
     Item_Shards_of_Desires = StoredPlanner("Dungeon.Planner.Item_Shards_of_Desires")
     TrailblazePower = StoredTrailblazePower("Dungeon.DungeonStorage.TrailblazePower")
+    Reserved = StoredResersed("Dungeon.DungeonStorage.Reserved")
     Immersifier = StoredImmersifier("Dungeon.DungeonStorage.Immersifier")
     DungeonDouble = StoredDungeonDouble("Dungeon.DungeonStorage.DungeonDouble")
     EchoOfWar = StoredEchoOfWar("Dungeon.DungeonStorage.EchoOfWar")
@@ -97,6 +103,7 @@ class StoredGenerated:
     BattlePassQuestEchoOfWar = StoredBattlePassQuestEchoOfWar("BattlePass.BattlePassStorage.BattlePassQuestEchoOfWar")
     BattlePassQuestCredits = StoredBattlePassQuestCredits("BattlePass.BattlePassStorage.BattlePassQuestCredits")
     BattlePassQuestSynthesizeConsumables = StoredBattlePassQuestSynthesizeConsumables("BattlePass.BattlePassStorage.BattlePassQuestSynthesizeConsumables")
+    BattlePassQuestStagnantShadow = StoredBattlePassQuestStagnantShadow("BattlePass.BattlePassStorage.BattlePassQuestStagnantShadow")
     BattlePassQuestCavernOfCorrosion = StoredBattlePassQuestCavernOfCorrosion("BattlePass.BattlePassStorage.BattlePassQuestCavernOfCorrosion")
     BattlePassQuestTrailblazePower = StoredBattlePassQuestTrailblazePower("BattlePass.BattlePassStorage.BattlePassQuestTrailblazePower")
     Assignment = StoredAssignment("Assignment.Assignment.Assignment")

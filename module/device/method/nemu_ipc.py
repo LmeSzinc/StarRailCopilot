@@ -1,5 +1,6 @@
 import asyncio
 import ctypes
+import json
 import os
 import sys
 from functools import partial, wraps
@@ -10,6 +11,7 @@ import numpy as np
 from module.base.decorator import cached_property, del_cached_property, has_cached_property
 from module.base.timer import Timer
 from module.base.utils import ensure_time
+from module.config.utils import deep_get
 from module.device.method.minitouch import insert_swipe, random_rectangle_point
 from module.device.method.utils import RETRY_TRIES, retry_sleep
 from module.device.platform import Platform
@@ -273,10 +275,24 @@ class NemuIpcImpl:
 
     def __exit__(self, exc_type, exc_val, exc_tb):
         self.disconnect()
+        if has_cached_property(self, '_ev'):
+            self._ev.close()
+            del_cached_property(self, '_ev')
+        if has_cached_property(self, '_pool'):
+            self._pool.shutdown(wait=False)
+            del_cached_property(self, '_pool')
 
     @cached_property
     def _ev(self):
         return asyncio.new_event_loop()
+
+    @cached_property
+    def _pool(self):
+        from concurrent.futures import ThreadPoolExecutor
+        return ThreadPoolExecutor(
+            max_workers=1,
+            thread_name_prefix='NemuIpc',
+        )
 
     async def ev_run_async(self, func, *args, timeout=0.15, **kwargs):
         """
@@ -292,7 +308,7 @@ class NemuIpcImpl:
         func_wrapped = partial(func, *args, **kwargs)
         # Increased timeout for slow PCs
         # Default screenshot interval is 0.2s, so a 0.15s timeout would have a fast retry without extra time costs
-        result = await asyncio.wait_for(self._ev.run_in_executor(None, func_wrapped), timeout=timeout)
+        result = await asyncio.wait_for(self._ev.run_in_executor(self._pool, func_wrapped), timeout=timeout)
         return result
 
     def ev_run_sync(self, func, *args, **kwargs):
@@ -419,26 +435,28 @@ class NemuIpcImpl:
         if ret > 0:
             raise NemuIpcError('nemu_input_event_touch_up failed')
 
+    @staticmethod
+    def serial_to_id(serial: str):
+        """
+        Predict instance ID from serial
+        E.g.
+            "127.0.0.1:16384" -> 0
+            "127.0.0.1:16416" -> 1
+            Port from 16414 to 16418 -> 1
 
-def serial_to_id(serial: str):
-    """
-    Predict instance ID from serial
-    E.g.
-        "127.0.0.1:16384" -> 0
-        "127.0.0.1:16416" -> 1
-
-    Returns:
-        int: instance_id, or None if failed to predict
-    """
-    try:
-        port = int(serial.split(':')[1])
-    except (IndexError, ValueError):
-        return None
-    index, offset = divmod(port - 16384, 32)
-    if 0 <= index < 32 and offset in [0, 1, 2]:
-        return index
-    else:
-        return None
+        Returns:
+            int: instance_id, or None if failed to predict
+        """
+        try:
+            port = int(serial.split(':')[1])
+        except (IndexError, ValueError):
+            return None
+        index, offset = divmod(port - 16384 + 16, 32)
+        offset -= 16
+        if 0 <= index < 32 and offset in [-2, -1, 0, 1, 2]:
+            return index
+        else:
+            return None
 
 
 class NemuIpc(Platform):
@@ -451,8 +469,11 @@ class NemuIpc(Platform):
         """
         # Try existing settings first
         if self.config.EmulatorInfo_path:
+            if 'MuMuPlayerGlobal' in self.config.EmulatorInfo_path:
+                logger.info(f'nemu_ipc is not available on MuMuPlayerGlobal, {self.config.EmulatorInfo_path}')
+                raise RequestHumanTakeover
             folder = os.path.abspath(os.path.join(self.config.EmulatorInfo_path, '../../'))
-            index = serial_to_id(self.serial)
+            index = NemuIpcImpl.serial_to_id(self.serial)
             if index is not None:
                 try:
                     return NemuIpcImpl(
@@ -470,6 +491,9 @@ class NemuIpc(Platform):
         if self.emulator_instance is None:
             logger.error('Unable to use NemuIpc because emulator instance not found')
             raise RequestHumanTakeover
+        if 'MuMuPlayerGlobal' in self.emulator_instance.path:
+            logger.info(f'nemu_ipc is not available on MuMuPlayerGlobal, {self.emulator_instance.path}')
+            raise RequestHumanTakeover
         try:
             return NemuIpcImpl(
                 nemu_folder=self.emulator_instance.emulator.abspath('../'),
@@ -484,6 +508,9 @@ class NemuIpc(Platform):
     def nemu_ipc_available(self) -> bool:
         if not self.is_mumu_family:
             return False
+        # >= 4.0 has no info in getprop
+        if self.nemud_player_version == '':
+            return True
         if self.nemud_app_keep_alive == '':
             return False
         try:
@@ -491,6 +518,58 @@ class NemuIpc(Platform):
         except RequestHumanTakeover:
             return False
         return True
+
+    @staticmethod
+    def check_mumu_app_keep_alive_400(file):
+        """
+        Check app_keep_alive from emulator config if version >= 4.0
+
+        Args:
+            file: E:/ProgramFiles/MuMuPlayer-12.0/vms/MuMuPlayer-12.0-1/config/customer_config.json
+
+        Returns:
+            bool: If success to read file
+        """
+        # with E:\ProgramFiles\MuMuPlayer-12.0\shell\MuMuPlayer.exe
+        # config is E:\ProgramFiles\MuMuPlayer-12.0\vms\MuMuPlayer-12.0-1\config\customer_config.json
+        try:
+            with open(file, mode='r', encoding='utf-8') as f:
+                s = f.read()
+                data = json.loads(s)
+        except FileNotFoundError:
+            logger.warning(f'Failed to check check_mumu_app_keep_alive, file {file} not exists')
+            return False
+        value = deep_get(data, keys='customer.app_keptlive', default=None)
+        logger.attr('customer.app_keptlive', value)
+        if str(value).lower() == 'true':
+            # https://mumu.163.com/help/20230802/35047_1102450.html
+            logger.critical('请在MuMu模拟器设置内关闭 "后台挂机时保活运行"')
+            raise RequestHumanTakeover
+        return True
+
+    def check_mumu_app_keep_alive(self):
+        if not self.is_mumu_over_version_400:
+            return super().check_mumu_app_keep_alive()
+
+        # Try existing settings first
+        if self.config.EmulatorInfo_path:
+            index = NemuIpcImpl.serial_to_id(self.serial)
+            if index is not None:
+                file = os.path.abspath(os.path.join(
+                    self.config.EmulatorInfo_path, f'../../vms/MuMuPlayer-12.0-{index}/configs/customer_config.json'))
+                if self.check_mumu_app_keep_alive_400(file):
+                    return True
+
+        # Search emulator instance
+        if self.emulator_instance is None:
+            logger.warning('Failed to check check_mumu_app_keep_alive as emulator_instance is None')
+            return False
+        name = self.emulator_instance.name
+        file = self.emulator_instance.emulator.abspath(f'../vms/{name}/configs/customer_config.json')
+        if self.check_mumu_app_keep_alive_400(file):
+            return True
+
+        return False
 
     def nemu_ipc_release(self):
         if has_cached_property(self, 'nemu_ipc'):

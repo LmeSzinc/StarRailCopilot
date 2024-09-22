@@ -340,6 +340,18 @@
         "display": "display",
         "stored": "StoredPlanner"
       },
+      "Item_Nail_of_the_Beast_Coffin": {
+        "type": "planner",
+        "value": {},
+        "display": "display",
+        "stored": "StoredPlanner"
+      },
+      "Item_A_Glass_of_the_Besotted_Era": {
+        "type": "planner",
+        "value": {},
+        "display": "display",
+        "stored": "StoredPlanner"
+      },
       "Item_Dream_Flamer": {
         "type": "planner",
         "value": {},
@@ -466,6 +478,12 @@
         "display": "display",
         "stored": "StoredPlanner"
       },
+      "Item_Auspice_Sliver": {
+        "type": "planner",
+        "value": {},
+        "display": "display",
+        "stored": "StoredPlanner"
+      },
       "Item_Squirming_Core": {
         "type": "planner",
         "value": {},
@@ -520,15 +538,15 @@
         "type": "select",
         "value": "Calyx_Golden_Treasures_Jarilo_VI",
         "option": [
-          "Calyx_Golden_Memories_Jarilo_VI",
-          "Calyx_Golden_Memories_The_Xianzhou_Luofu",
           "Calyx_Golden_Memories_Penacony",
-          "Calyx_Golden_Aether_Jarilo_VI",
-          "Calyx_Golden_Aether_The_Xianzhou_Luofu",
+          "Calyx_Golden_Memories_The_Xianzhou_Luofu",
+          "Calyx_Golden_Memories_Jarilo_VI",
           "Calyx_Golden_Aether_Penacony",
-          "Calyx_Golden_Treasures_Jarilo_VI",
-          "Calyx_Golden_Treasures_The_Xianzhou_Luofu",
+          "Calyx_Golden_Aether_The_Xianzhou_Luofu",
+          "Calyx_Golden_Aether_Jarilo_VI",
           "Calyx_Golden_Treasures_Penacony",
+          "Calyx_Golden_Treasures_The_Xianzhou_Luofu",
+          "Calyx_Golden_Treasures_Jarilo_VI",
           "Calyx_Crimson_Destruction_Herta_StorageZone",
           "Calyx_Crimson_Destruction_Luofu_ScalegorgeWaterscape",
           "Calyx_Crimson_Preservation_Herta_SupplyZone",
@@ -554,38 +572,40 @@
           "Stagnant_Shadow_Nectar",
           "Stagnant_Shadow_Fulmination",
           "Stagnant_Shadow_Doom",
+          "Stagnant_Shadow_Mechwolf",
           "Stagnant_Shadow_Gust",
           "Stagnant_Shadow_Celestial",
+          "Stagnant_Shadow_Gloam",
           "Stagnant_Shadow_Quanta",
           "Stagnant_Shadow_Abomination",
           "Stagnant_Shadow_Roast",
           "Stagnant_Shadow_Mirage",
           "Stagnant_Shadow_Puppetry",
-          "Cavern_of_Corrosion_Path_of_Gelid_Wind",
-          "Cavern_of_Corrosion_Path_of_Jabbing_Punch",
-          "Cavern_of_Corrosion_Path_of_Drifting",
-          "Cavern_of_Corrosion_Path_of_Providence",
-          "Cavern_of_Corrosion_Path_of_Holy_Hymn",
-          "Cavern_of_Corrosion_Path_of_Conflagration",
-          "Cavern_of_Corrosion_Path_of_Elixir_Seekers",
-          "Cavern_of_Corrosion_Path_of_Darkness",
+          "Cavern_of_Corrosion_Path_of_Cavalier",
           "Cavern_of_Corrosion_Path_of_Dreamdive",
-          "Cavern_of_Corrosion_Path_of_Cavalier"
+          "Cavern_of_Corrosion_Path_of_Darkness",
+          "Cavern_of_Corrosion_Path_of_Elixir_Seekers",
+          "Cavern_of_Corrosion_Path_of_Conflagration",
+          "Cavern_of_Corrosion_Path_of_Holy_Hymn",
+          "Cavern_of_Corrosion_Path_of_Providence",
+          "Cavern_of_Corrosion_Path_of_Drifting",
+          "Cavern_of_Corrosion_Path_of_Jabbing_Punch",
+          "Cavern_of_Corrosion_Path_of_Gelid_Wind"
         ]
       },
       "NameAtDoubleCalyx": {
         "type": "select",
         "value": "Calyx_Golden_Treasures_Jarilo_VI",
         "option": [
-          "Calyx_Golden_Memories_Jarilo_VI",
-          "Calyx_Golden_Memories_The_Xianzhou_Luofu",
           "Calyx_Golden_Memories_Penacony",
-          "Calyx_Golden_Aether_Jarilo_VI",
-          "Calyx_Golden_Aether_The_Xianzhou_Luofu",
+          "Calyx_Golden_Memories_The_Xianzhou_Luofu",
+          "Calyx_Golden_Memories_Jarilo_VI",
           "Calyx_Golden_Aether_Penacony",
-          "Calyx_Golden_Treasures_Jarilo_VI",
-          "Calyx_Golden_Treasures_The_Xianzhou_Luofu",
+          "Calyx_Golden_Aether_The_Xianzhou_Luofu",
+          "Calyx_Golden_Aether_Jarilo_VI",
           "Calyx_Golden_Treasures_Penacony",
+          "Calyx_Golden_Treasures_The_Xianzhou_Luofu",
+          "Calyx_Golden_Treasures_Jarilo_VI",
           "Calyx_Crimson_Destruction_Herta_StorageZone",
           "Calyx_Crimson_Destruction_Luofu_ScalegorgeWaterscape",
           "Calyx_Crimson_Preservation_Herta_SupplyZone",
@@ -606,16 +626,16 @@
         "type": "select",
         "value": "Cavern_of_Corrosion_Path_of_Providence",
         "option": [
-          "Cavern_of_Corrosion_Path_of_Gelid_Wind",
-          "Cavern_of_Corrosion_Path_of_Jabbing_Punch",
-          "Cavern_of_Corrosion_Path_of_Drifting",
-          "Cavern_of_Corrosion_Path_of_Providence",
-          "Cavern_of_Corrosion_Path_of_Holy_Hymn",
-          "Cavern_of_Corrosion_Path_of_Conflagration",
-          "Cavern_of_Corrosion_Path_of_Elixir_Seekers",
-          "Cavern_of_Corrosion_Path_of_Darkness",
+          "Cavern_of_Corrosion_Path_of_Cavalier",
           "Cavern_of_Corrosion_Path_of_Dreamdive",
-          "Cavern_of_Corrosion_Path_of_Cavalier"
+          "Cavern_of_Corrosion_Path_of_Darkness",
+          "Cavern_of_Corrosion_Path_of_Elixir_Seekers",
+          "Cavern_of_Corrosion_Path_of_Conflagration",
+          "Cavern_of_Corrosion_Path_of_Holy_Hymn",
+          "Cavern_of_Corrosion_Path_of_Providence",
+          "Cavern_of_Corrosion_Path_of_Drifting",
+          "Cavern_of_Corrosion_Path_of_Jabbing_Punch",
+          "Cavern_of_Corrosion_Path_of_Gelid_Wind"
         ]
       },
       "Team": {
@@ -662,6 +682,7 @@
           "DanHeng",
           "DanHengImbibitorLunae",
           "DrRatio",
+          "Feixiao",
           "Firefly",
           "FuXuan",
           "Gallagher",
@@ -672,14 +693,18 @@
           "Himeko",
           "Hook",
           "Huohuo",
+          "Jade",
+          "Jiaoqiu",
           "JingYuan",
           "Jingliu",
           "Kafka",
           "Luka",
           "Luocha",
           "Lynx",
-          "March7th",
+          "March7thPreservation",
+          "March7thTheHunt",
           "Misha",
+          "Moze",
           "Natasha",
           "Pela",
           "Qingque",
@@ -699,7 +724,8 @@
           "Welt",
           "Xueyi",
           "Yanqing",
-          "Yukong"
+          "Yukong",
+          "Yunli"
         ]
       }
     },
@@ -711,6 +737,12 @@
         "stored": "StoredTrailblazePower",
         "order": 1,
         "color": "#eb8efe"
+      },
+      "Reserved": {
+        "type": "stored",
+        "value": {},
+        "display": "hide",
+        "stored": "StoredResersed"
       },
       "Immersifier": {
         "type": "stored",
@@ -748,9 +780,166 @@
         "type": "checkbox",
         "value": false
       },
-      "UseFuelUntilRemainCount": {
+      "FuelReserve": {
         "type": "input",
-        "value": 0
+        "value": 5
+      }
+    }
+  },
+  "Ornament": {
+    "Scheduler": {
+      "Enable": {
+        "type": "checkbox",
+        "value": false,
+        "option": [
+          true,
+          false
+        ]
+      },
+      "NextRun": {
+        "type": "datetime",
+        "value": "2020-01-01 00:00:00",
+        "validate": "datetime"
+      },
+      "Command": {
+        "type": "input",
+        "value": "Ornament",
+        "display": "hide"
+      },
+      "ServerUpdate": {
+        "type": "input",
+        "value": "04:00",
+        "display": "hide"
+      }
+    },
+    "Ornament": {
+      "Dungeon": {
+        "type": "select",
+        "value": "Divergent_Universe_Eternal_Comedy",
+        "option": [
+          "Divergent_Universe_Famished_Worker",
+          "Divergent_Universe_Eternal_Comedy",
+          "Divergent_Universe_To_Sweet_Dreams",
+          "Divergent_Universe_Pouring_Blades",
+          "Divergent_Universe_Fruit_of_Evil",
+          "Divergent_Universe_Permafrost",
+          "Divergent_Universe_Gentle_Words",
+          "Divergent_Universe_Smelted_Heart",
+          "Divergent_Universe_Untoppled_Walls"
+        ]
+      },
+      "UseImmersifier": {
+        "type": "state",
+        "value": true,
+        "option": [
+          true
+        ],
+        "option_bold": [
+          true
+        ]
+      },
+      "DoubleEvent": {
+        "type": "state",
+        "value": true,
+        "option": [
+          true
+        ],
+        "option_bold": [
+          true
+        ]
+      },
+      "UseStamina": {
+        "type": "checkbox",
+        "value": false
+      }
+    },
+    "DungeonSupport": {
+      "Use": {
+        "type": "select",
+        "value": "when_daily",
+        "option": [
+          "when_daily",
+          "always_use"
+        ]
+      },
+      "Character": {
+        "type": "select",
+        "value": "FirstCharacter",
+        "option": [
+          "FirstCharacter",
+          "Acheron",
+          "Argenti",
+          "Arlan",
+          "Asta",
+          "Aventurine",
+          "Bailu",
+          "BlackSwan",
+          "Blade",
+          "Boothill",
+          "Bronya",
+          "Clara",
+          "DanHeng",
+          "DanHengImbibitorLunae",
+          "DrRatio",
+          "Feixiao",
+          "Firefly",
+          "FuXuan",
+          "Gallagher",
+          "Gepard",
+          "Guinaifen",
+          "Hanya",
+          "Herta",
+          "Himeko",
+          "Hook",
+          "Huohuo",
+          "Jade",
+          "Jiaoqiu",
+          "JingYuan",
+          "Jingliu",
+          "Kafka",
+          "Luka",
+          "Luocha",
+          "Lynx",
+          "March7thPreservation",
+          "March7thTheHunt",
+          "Misha",
+          "Moze",
+          "Natasha",
+          "Pela",
+          "Qingque",
+          "Robin",
+          "RuanMei",
+          "Sampo",
+          "Seele",
+          "Serval",
+          "SilverWolf",
+          "Sparkle",
+          "Sushang",
+          "Tingyun",
+          "TopazNumby",
+          "TrailblazerDestruction",
+          "TrailblazerHarmony",
+          "TrailblazerPreservation",
+          "Welt",
+          "Xueyi",
+          "Yanqing",
+          "Yukong",
+          "Yunli"
+        ]
+      }
+    },
+    "TrailblazePower": {
+      "ExtractReservedTrailblazePower": {
+        "type": "checkbox",
+        "value": false
+      },
+      "UseFuel": {
+        "type": "checkbox",
+        "value": false
+      },
+      "FuelReserve": {
+        "type": "input",
+        "value": 5
       }
     }
   },
@@ -871,6 +1060,12 @@
         "value": {},
         "display": "display",
         "stored": "StoredBattlePassQuestSynthesizeConsumables"
+      },
+      "BattlePassQuestStagnantShadow": {
+        "type": "stored",
+        "value": {},
+        "display": "display",
+        "stored": "StoredBattlePassQuestStagnantShadow"
       },
       "BattlePassQuestCavernOfCorrosion": {
         "type": "stored",
@@ -1171,11 +1366,12 @@
         "value": "Echo_of_War_Divine_Seed",
         "options": [],
         "option": [
-          "Echo_of_War_Destruction_Beginning",
-          "Echo_of_War_End_of_the_Eternal_Freeze",
-          "Echo_of_War_Divine_Seed",
+          "Echo_of_War_Inner_Beast_Battlefield",
+          "Echo_of_War_Salutations_of_Ashen_Dreams",
           "Echo_of_War_Borehole_Planet_Old_Crater",
-          "Echo_of_War_Salutations_of_Ashen_Dreams"
+          "Echo_of_War_Divine_Seed",
+          "Echo_of_War_End_of_the_Eternal_Freeze",
+          "Echo_of_War_Destruction_Beginning"
         ]
       },
       "Team": {
@@ -1222,6 +1418,7 @@
           "DanHeng",
           "DanHengImbibitorLunae",
           "DrRatio",
+          "Feixiao",
           "Firefly",
           "FuXuan",
           "Gallagher",
@@ -1232,14 +1429,18 @@
           "Himeko",
           "Hook",
           "Huohuo",
+          "Jade",
+          "Jiaoqiu",
           "JingYuan",
           "Jingliu",
           "Kafka",
           "Luka",
           "Luocha",
           "Lynx",
-          "March7th",
+          "March7thPreservation",
+          "March7thTheHunt",
           "Misha",
+          "Moze",
           "Natasha",
           "Pela",
           "Qingque",
@@ -1259,7 +1460,8 @@
           "Welt",
           "Xueyi",
           "Yanqing",
-          "Yukong"
+          "Yukong",
+          "Yunli"
         ]
       }
     }
@@ -1293,13 +1495,12 @@
     "RogueWorld": {
       "World": {
         "type": "select",
-        "value": "Simulated_Universe_World_7",
+        "value": "Simulated_Universe_World_8",
         "option": [
           "Simulated_Universe_World_3",
           "Simulated_Universe_World_4",
           "Simulated_Universe_World_5",
           "Simulated_Universe_World_6",
-          "Simulated_Universe_World_7",
           "Simulated_Universe_World_8"
         ]
       },
@@ -1409,142 +1610,6 @@
       "DebugMode": {
         "type": "checkbox",
         "value": false
-      }
-    }
-  },
-  "Ornament": {
-    "Scheduler": {
-      "Enable": {
-        "type": "checkbox",
-        "value": false,
-        "option": [
-          true,
-          false
-        ]
-      },
-      "NextRun": {
-        "type": "datetime",
-        "value": "2020-01-01 00:00:00",
-        "validate": "datetime"
-      },
-      "Command": {
-        "type": "input",
-        "value": "Ornament",
-        "display": "hide"
-      },
-      "ServerUpdate": {
-        "type": "input",
-        "value": "04:00",
-        "display": "hide"
-      }
-    },
-    "Ornament": {
-      "Dungeon": {
-        "type": "select",
-        "value": "Divergent_Universe_Eternal_Comedy",
-        "option": [
-          "Divergent_Universe_Eternal_Comedy",
-          "Divergent_Universe_To_Sweet_Dreams",
-          "Divergent_Universe_Pouring_Blades",
-          "Divergent_Universe_Fruit_of_Evil",
-          "Divergent_Universe_Permafrost",
-          "Divergent_Universe_Gentle_Words",
-          "Divergent_Universe_Smelted_Heart",
-          "Divergent_Universe_Untoppled_Walls"
-        ]
-      },
-      "UseImmersifier": {
-        "type": "state",
-        "value": true,
-        "option": [
-          true
-        ],
-        "option_bold": [
-          true
-        ]
-      },
-      "DoubleEvent": {
-        "type": "state",
-        "value": true,
-        "option": [
-          true
-        ],
-        "option_bold": [
-          true
-        ]
-      },
-      "UseStamina": {
-        "type": "checkbox",
-        "value": false
-      }
-    },
-    "DungeonSupport": {
-      "Use": {
-        "type": "select",
-        "value": "when_daily",
-        "option": [
-          "when_daily",
-          "always_use"
-        ]
-      },
-      "Character": {
-        "type": "select",
-        "value": "FirstCharacter",
-        "option": [
-          "FirstCharacter",
-          "Acheron",
-          "Argenti",
-          "Arlan",
-          "Asta",
-          "Aventurine",
-          "Bailu",
-          "BlackSwan",
-          "Blade",
-          "Boothill",
-          "Bronya",
-          "Clara",
-          "DanHeng",
-          "DanHengImbibitorLunae",
-          "DrRatio",
-          "Firefly",
-          "FuXuan",
-          "Gallagher",
-          "Gepard",
-          "Guinaifen",
-          "Hanya",
-          "Herta",
-          "Himeko",
-          "Hook",
-          "Huohuo",
-          "JingYuan",
-          "Jingliu",
-          "Kafka",
-          "Luka",
-          "Luocha",
-          "Lynx",
-          "March7th",
-          "Misha",
-          "Natasha",
-          "Pela",
-          "Qingque",
-          "Robin",
-          "RuanMei",
-          "Sampo",
-          "Seele",
-          "Serval",
-          "SilverWolf",
-          "Sparkle",
-          "Sushang",
-          "Tingyun",
-          "TopazNumby",
-          "TrailblazerDestruction",
-          "TrailblazerHarmony",
-          "TrailblazerPreservation",
-          "Welt",
-          "Xueyi",
-          "Yanqing",
-          "Yukong"
-        ]
       }
     }
   },

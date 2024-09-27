@@ -111,7 +111,9 @@ class AssetsImage:
 
     def parse(self):
         image = load_image(self.file)
-
+        if self.module=='relics/name':
+            self.valid = False
+            return None
         size = image_size(image)
         if size != AzurLaneConfig.ASSETS_RESOLUTION:
             logger.warning(f'{self.file} has wrong resolution: {size}')

@@ -10,16 +10,37 @@ class DetectText:
 
     @classmethod
     def detect_text_areas(cls, image_path):
+        imagea = cv2.imread(image_path)
+        hsv = cv2.cvtColor(imagea, cv2.COLOR_BGR2HSV)
+
+        # 定义白色的 HSV 范围，并生成白色掩膜
+        lower_white = np.array([0, 0, 200])
+        upper_white = np.array([180, 30, 255])
+        white_mask = cv2.inRange(hsv, lower_white, upper_white)
+
+        # 定义橙色的 HSV 范围，并生成橙色掩膜
+        lower_orange = np.array([10, 100, 100])
+        upper_orange = np.array([25, 255, 255])
+        orange_mask = cv2.inRange(hsv, lower_orange, upper_orange)
+
+        # 将两个掩膜进行结合
+        combined_mask = cv2.bitwise_or(white_mask, orange_mask)
+        result = cv2.bitwise_not(combined_mask)
+        # cv2.imshow("result", result)
+
+
         image = cv2.imread(image_path, cv2.IMREAD_GRAYSCALE)
-        blurred = cv2.GaussianBlur(image, (9, 9), 0)
-        subtracted = cv2.subtract(image, blurred)
+        # blurred = cv2.GaussianBlur(image, (9, 9), 0)
+        # subtracted = cv2.subtract(image, blurred)
+        #
+        # _, binary = cv2.threshold(
+        #     subtracted, 0, 255, cv2.THRESH_BINARY + cv2.THRESH_OTSU
+        # )
 
-        _, binary = cv2.threshold(
-            subtracted, 0, 255, cv2.THRESH_BINARY + cv2.THRESH_OTSU
-        )
 
+        result_inv=cv2.bitwise_not(result)
         kernel = np.ones((9, 9), np.uint8)
-        closed = cv2.morphologyEx(binary, cv2.MORPH_CLOSE, kernel)
+        closed = cv2.morphologyEx(result_inv, cv2.MORPH_CLOSE, kernel)
 
         dilated = cv2.dilate(closed, kernel, iterations=2)
 
@@ -36,8 +57,7 @@ class DetectText:
                 text_areas.append((x, y, w, h))
                 cv2.rectangle(output_image, (x, y), (x + w, y + h), (0, 255, 0), 2)
                 if cv2.pointPolygonTest(contour, point, measureDist=False) >= 0:
-                    roi = image[y:y + h, x:x + w]
-                    _, binary_roi = cv2.threshold(roi, 150, 255, cv2.THRESH_BINARY_INV)
+                    roi = result[y:y + h, x:x + w]
                     # cv2.imshow("binary_roi", binary_roi)
 
                     # 模板匹配
@@ -51,8 +71,8 @@ class DetectText:
                                 continue
                             # cv2.imshow("template", template)
                             # cv2.imshow("roi", roi)
-                            res = cv2.matchTemplate(binary_roi, template, cv2.TM_CCOEFF_NORMED)
-                            threshold = 0.8  # 你可以根据需要调整这个阈值
+                            res = cv2.matchTemplate(roi, template, cv2.TM_CCOEFF_NORMED)
+                            threshold = 0.75  # 你可以根据需要调整这个阈值
                             loc = np.where(res >= threshold)
                             if loc[0].size > 0:
                                 # 如果找到至少一个匹配项，取最大值的索引

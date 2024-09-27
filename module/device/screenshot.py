@@ -51,6 +51,10 @@ class Screenshot(Adb, WSA, DroidCast, AScreenCap, Scrcpy, NemuIpc, LDOpenGL):
         logger.attr('nemu_ipc_available', available)
         if available:
             return 'nemu_ipc'
+        available = self.ldopengl_available()
+        logger.attr('ldopengl_available', available)
+        if available:
+            return 'ldopengl'
         return ''
 
     def screenshot(self):

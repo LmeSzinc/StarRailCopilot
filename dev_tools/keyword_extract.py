@@ -583,6 +583,61 @@ class KeywordExtract:
             visited.add(name)
             yield hash_
 
+    def generate_relics(self):
+        relicSetConfigs = read_file(os.path.join(TextMap.DATA_FOLDER, 'ExcelOutput', 'RelicSetConfig.json'))
+        relic_id = [deep_get(data, 'SetID') for data in relicSetConfigs]
+        relicSetConfigs = {
+            str(data["SetID"]): data
+            for data in relicSetConfigs
+        }
+        ItemComefroms = read_file(os.path.join(TextMap.DATA_FOLDER, 'ExcelOutput', 'ItemComefrom.json'))
+        ItemComefroms = {
+            str(deep_get(data, 'ID')): data
+            for data in ItemComefroms
+        }
+        GotoConfigs = read_file(os.path.join(TextMap.DATA_FOLDER, 'ExcelOutput', 'GotoConfig.json'))
+        GotoConfigs = {
+            str(deep_get(data, 'ID')): data
+            for data in GotoConfigs
+        }
+
+        def get_relics_infos(id_list):
+            _relics_hash = [deep_get(relicSetConfigs, f"{relics_id}.SetName.Hash")
+                              for relics_id in id_list]
+            _DisplayItemID = [deep_get(relicSetConfigs, f"{relics_id}.DisplayItemID")
+                              for relics_id in id_list]
+            _GotoID = [deep_get(ItemComefroms, f"{DisplayItemID}.GotoID")
+                              for DisplayItemID in _DisplayItemID]
+            _dungeon_id = [deep_get(GotoConfigs, f"{GotoID}.ParamIntList")[0]
+                              for GotoID in _GotoID]
+            _plane_id = [deep_get(GotoConfigs, f"{GotoID}.ParamIntList")[1]
+                              for GotoID in _GotoID]
+
+            combined_info_plane_id = {}
+            combined_info_dungeon_id = {}
+            for i in range(len(_relics_hash)):
+                relic_hash = _relics_hash[i]
+                dungeon_id = _dungeon_id[i]
+                plane_id = _plane_id[i]
+
+                info_plane_id = {
+                    relic_hash: plane_id
+                }
+                info_dungeon_id = {
+                    relic_hash: dungeon_id
+                }
+
+                combined_info_plane_id.update(info_plane_id)
+                combined_info_dungeon_id.update(info_dungeon_id)
+
+            return _relics_hash,{'plane_id':combined_info_plane_id,'dungeon_id':combined_info_dungeon_id}
+
+        self.load_keywords(list(self.iter_without_duplication(
+            read_file(os.path.join(TextMap.DATA_FOLDER, 'ExcelOutput', 'RelicSetConfig.json')), 'SetName.Hash')))
+        hash_list, extra_attrs = get_relics_infos(relic_id)
+        self.keywords_id = hash_list
+        self.write_keywords(keyword_class='RelicSet', output_file='./tasks/relics/keywords/relics.py',extra_attrs=extra_attrs)
+
     def generate(self):
         self.load_keywords(['饰品提取', '差分宇宙', '模拟宇宙',
                             '拟造花萼（金）', '拟造花萼（赤）', '凝滞虚影', '侵蚀隧洞', '历战余响',
@@ -627,9 +682,7 @@ class KeywordExtract:
             read_file(os.path.join(TextMap.DATA_FOLDER, 'ExcelOutput', 'RogueBonus.json')), 'BonusTitle.Hash')))
         self.write_keywords(keyword_class='RogueBonus', output_file='./tasks/rogue/keywords/bonus.py')
         self.generate_rogue_events()
-        self.load_keywords(list(self.iter_without_duplication(
-            read_file(os.path.join(TextMap.DATA_FOLDER, 'ExcelOutput', 'RelicSetConfig.json')), 'SetName.Hash')))
-        self.write_keywords(keyword_class='RelicSet', output_file='./tasks/relics/keywords/relics.py')
+        self.generate_relics()
 
 
 if __name__ == '__main__':

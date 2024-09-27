@@ -11,8 +11,7 @@ from tasks.relics.keywords import relics as relics_module
 
 class TextImageGenerator:
     def __init__(self, keyword ,font_path="./dev_tools/zh-cn.ttf", font_size=20):
-        self.font_en = ImageFont.truetype(font_path, font_size)
-        self.font_cn = ImageFont.truetype(font_path, font_size)
+        self.font = ImageFont.truetype(font_path, font_size)
         self.keyword=keyword
 
     @staticmethod
@@ -46,6 +45,7 @@ class TextImageGenerator:
             for entry in entries:
                 if entry.is_file():
                     os.remove(entry.path)
+                    logger.info(f'{entry.name} is cleaned')
 
     def relics_name_image_generator(self, output_path ,file_module):
         self.delete_files(output_path)
@@ -54,7 +54,7 @@ class TextImageGenerator:
         name_pattern = re.compile(r"name='([^']*)'")
         text_values = text_patten.findall(content)
         name_values = name_pattern.findall(content)
-        self.text_image_generator(text_values, name_values, font=self.font_cn, output_path=output_path)
+        self.text_image_generator(text_values, name_values, font=self.font, output_path=output_path)
 
 if __name__ == '__main__':
     TextImageGenerator("cn").relics_name_image_generator(output_path="./assets/cn/relics/name/",file_module=relics_module)

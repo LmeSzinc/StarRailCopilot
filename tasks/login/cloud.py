@@ -411,7 +411,10 @@ class LoginAndroidCloud(ModuleBase):
             logger.info('Cloud game have a popup')
             return True
         if self.appear(XPath.ACCOUNT_LOGIN):
-            logger.info('Cloud game is at account login')
+            logger.info('Cloud game is at ACCOUNT_LOGIN')
+            return True
+        if self.appear(XPath.GET_REWARD):
+            logger.info('Cloud game is at GET_REWARD')
             return True
 
         logger.info('Not in cloud page')

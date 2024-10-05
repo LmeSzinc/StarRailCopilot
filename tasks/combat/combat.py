@@ -409,6 +409,7 @@ class Combat(CombatInteract, CombatPrepare, CombatState, CombatTeam, CombatSuppo
             in: COMBAT_PREPARE
                 or page_main with DUNGEON_COMBAT_INTERACT
             out: page_main
+                or COMBAT_PREPARE if it is an early access dungeon
         """
         if not skip_first_screenshot:
             self.device.screenshot()
@@ -430,7 +431,6 @@ class Combat(CombatInteract, CombatPrepare, CombatState, CombatTeam, CombatSuppo
             if self._combat_should_reenter():
                 continue
             if finish:
-                self.combat_exit()
                 break
             # Reset combat_wave_cost, so handle_combat_interact() won't activate before handle_combat_prepare()
             self.combat_wave_cost = 10

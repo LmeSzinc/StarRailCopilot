@@ -49,7 +49,7 @@ class OcrDungeonName(Ocr):
             result = result.replace('翼', '巽')  # 巽风之形
             result = result.replace('皖A0', '50').replace('皖', '')
             # 燔灼之形•凝滞虚影
-            result = result.replace('熠', '燔')
+            result = re.sub('[熠蟠]灼', '燔灼', result)
             result = re.sub('^灼之形', '燔灼之形', result)
             # 偃偶之形•凝滞虚影
             result = re.sub('^偶之形', '偃偶之形', result)
@@ -150,6 +150,7 @@ class OcrDungeonList(OcrDungeonName):
 class DraggableDungeonList(DraggableList):
     teleports: list[OcrResultButton] = []
     navigates: list[OcrResultButton] = []
+    early_access: list[OcrResultButton] = []
 
     # target_dungeon: Dungeon attribute to use map planes to predict dungeons only.
     target_dungeon = None
@@ -204,12 +205,17 @@ class DraggableDungeonList(DraggableList):
         # Replace dungeon.button with teleport
         self.teleports = list(split_and_pair_button_attr(
             self.cur_buttons,
-            split_func=lambda x: x != KEYWORDS_DUNGEON_ENTRANCE.Teleport and x != KEYWORDS_DUNGEON_ENTRANCE.Enter,
+            split_func=lambda x: x != KEYWORDS_DUNGEON_ENTRANCE.Teleport,
             relative_area=relative_area
         ))
         self.navigates = list(split_and_pair_button_attr(
             self.cur_buttons,
             split_func=lambda x: x != KEYWORDS_DUNGEON_ENTRANCE.Navigate,
+            relative_area=relative_area
+        ))
+        self.early_access = list(split_and_pair_button_attr(
+            self.cur_buttons,
+            split_func=lambda x: x != KEYWORDS_DUNGEON_ENTRANCE.Enter,
             relative_area=relative_area
         ))
 
@@ -220,6 +226,10 @@ DUNGEON_LIST = DraggableDungeonList(
 
 
 class DungeonUIList(UI):
+    # Whether current dungeon is an early access
+    # Value set in dungeon_insight()
+    dungeon_is_early_access = False
+
     def _dungeon_list_reset(self):
         """
         Reset list to top
@@ -260,6 +270,7 @@ class DungeonUIList(UI):
         # Predict dungeon by plane name in calyxes where dungeons share the same names
         DUNGEON_LIST.target_dungeon = dungeon
         DUNGEON_LIST.check_row_order = True
+        self.dungeon_is_early_access = False
 
         # Insight dungeon
         DUNGEON_LIST.insight_row(dungeon, main=self)
@@ -303,6 +314,7 @@ class DungeonUIList(UI):
         DUNGEON_LIST.search_button = OCR_DUNGEON_NAME
         DUNGEON_LIST.target_dungeon = dungeon
         DUNGEON_LIST.check_row_order = False
+        self.dungeon_is_early_access = False
 
         for _ in range(3):
             visited = set()
@@ -315,6 +327,11 @@ class DungeonUIList(UI):
                 for entrance in DUNGEON_LIST.teleports:
                     if entrance.matched_keyword == dungeon:
                         logger.info(f'Found dungeon {dungeon}')
+                        return True
+                for entrance in DUNGEON_LIST.early_access:
+                    if entrance.matched_keyword == dungeon:
+                        logger.info(f'Found early access dungeon {dungeon}')
+                        self.dungeon_is_early_access = True
                         return True
                 for entrance in DUNGEON_LIST.navigates:
                     if entrance.matched_keyword == dungeon:

@@ -14,13 +14,23 @@ from tasks.item.synthesize import Synthesize
 
 
 class Dungeon(DungeonStamina, DungeonEvent, Combat):
+    # Value cleared in Dungeon.run()
+    daily_quests = []
+    weekly_quests = []
+    # Value cleared in Dungeon.run()
+    # Value set in _dungeon_run()
     called_daily_support = False
     achieved_daily_quest = False
     achieved_weekly_quest = False
+    # Whether is running a double dungeon
+    # Value set in Dungeon.run()
     running_double = False
+    # True to use support once and run rest without support
+    # False to use support til the end
+    # In most cases to be true to use support less often but False is Ornament.
+    # because a game bug that support characters override your 4th character and empty the 4th slot when you dismiss
+    # the support. To avoid that, use support til the end in Ornament combats.
     support_once = True
-    daily_quests = []
-    weekly_quests = []
 
     def _dungeon_run(self, dungeon: DungeonList, team: int = None, wave_limit: int = 0, support_character: str = None,
                      skip_ui_switch: bool = False):
@@ -194,12 +204,12 @@ class Dungeon(DungeonStamina, DungeonEvent, Combat):
             in: Any
             out: page_main
         """
+        self.dungeon_is_early_access = False
         require = self.require_compulsory_support()
         if require and self.support_once:
             logger.info('Run once with support')
             count = self._dungeon_run(dungeon=dungeon, team=team, wave_limit=1,
                                       support_character=self.config.DungeonSupport_Character)
-
             logger.info('Run the rest waves without compulsory support')
             if wave_limit >= 2 or wave_limit == 0:
                 # Already at page_name with DUNGEON_COMBAT_INTERACT
@@ -207,18 +217,26 @@ class Dungeon(DungeonStamina, DungeonEvent, Combat):
                     wave_limit -= 1
                 count += self._dungeon_run(dungeon=dungeon, team=team, wave_limit=wave_limit,
                                            support_character=support_character, skip_ui_switch=True)
-
+            # Early access dungeon ends at COMBAT_PREPARE
+            if self.dungeon_is_early_access:
+                self.combat_exit()
             return count
 
         elif require and not self.support_once:
             # Run with support all the way
-            return self._dungeon_run(dungeon=dungeon, team=team, wave_limit=0,
-                                     support_character=self.config.DungeonSupport_Character)
+            count = self._dungeon_run(dungeon=dungeon, team=team, wave_limit=0,
+                                      support_character=self.config.DungeonSupport_Character)
+            if self.dungeon_is_early_access:
+                self.combat_exit()
+            return count
 
         else:
             # Normal run
-            return self._dungeon_run(dungeon=dungeon, team=team, wave_limit=wave_limit,
-                                     support_character=support_character)
+            count = self._dungeon_run(dungeon=dungeon, team=team, wave_limit=wave_limit,
+                                      support_character=support_character)
+            if self.dungeon_is_early_access:
+                self.combat_exit()
+            return count
 
     def update_double_event_record(self):
         """

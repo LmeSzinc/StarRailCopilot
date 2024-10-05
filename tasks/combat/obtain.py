@@ -180,6 +180,30 @@ class CombatObtain(PlannerMixin):
             value=amount,
         )
 
+    def obtain_parse(self, skip_first_screenshot=True) -> ObtainedAmmount | None:
+        """
+        Parse obtain item with retry
+
+        Pages:
+            in: ITEM_CLOSE
+        """
+        timeout = Timer(1, count=3).start()
+        while 1:
+            if skip_first_screenshot:
+                skip_first_screenshot = False
+            else:
+                self.device.screenshot()
+
+            if timeout.reached():
+                logger.error('obtain_parse timeout')
+                return None
+
+            obtain = self._obtain_parse()
+            if obtain is not None:
+                return obtain
+            else:
+                self.screenshot_tracking_add()
+
     def obtain_get(self, dungeon=None, skip_first_screenshot=True) -> list[ObtainedAmmount]:
         """
         Args:
@@ -227,7 +251,7 @@ class CombatObtain(PlannerMixin):
                 break
 
             self._obtain_enter(entry, appear_button=COMBAT_PREPARE)
-            item = self._obtain_parse()
+            item = self.obtain_parse()
             if item is not None:
                 if item.item == KEYWORDS_ITEM_CURRENCY.Trailblaze_EXP:
                     logger.warning('Trailblaze_EXP is in obtain list, OBTAIN_TRAILBLAZE_EXP may need to verify')

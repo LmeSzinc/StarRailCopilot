@@ -66,6 +66,11 @@ SWITCH_ITEM_TAB.add_state(
     check_button=VALUABLES_CHECK,
     click_button=VALUABLES_CLICK
 )
+SWITCH_ITEM_TAB.add_state(
+    KEYWORDS_ITEM_TAB.MaterialExchange,
+    check_button=MATERIAL_EXCHANGE_CHECK,
+    click_button=MATERIAL_EXCHANGE_CLICK
+)
 
 
 class ItemUI(UI):

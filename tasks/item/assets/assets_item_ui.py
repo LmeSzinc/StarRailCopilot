@@ -43,6 +43,26 @@ LIGHT_CONE_CLICK = ButtonWrapper(
         button=(42, 205, 72, 226),
     ),
 )
+MATERIAL_EXCHANGE_CHECK = ButtonWrapper(
+    name='MATERIAL_EXCHANGE_CHECK',
+    share=Button(
+        file='./assets/share/item/ui/MATERIAL_EXCHANGE_CHECK.png',
+        area=(35, 286, 81, 316),
+        search=(15, 266, 101, 336),
+        color=(142, 144, 146),
+        button=(35, 286, 81, 316),
+    ),
+)
+MATERIAL_EXCHANGE_CLICK = ButtonWrapper(
+    name='MATERIAL_EXCHANGE_CLICK',
+    share=Button(
+        file='./assets/share/item/ui/MATERIAL_EXCHANGE_CLICK.png',
+        area=(36, 286, 80, 315),
+        search=(16, 266, 100, 335),
+        color=(152, 156, 168),
+        button=(36, 286, 80, 315),
+    ),
+)
 MISSIONS_CHECK = ButtonWrapper(
     name='MISSIONS_CHECK',
     share=Button(

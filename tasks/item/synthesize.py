@@ -238,20 +238,20 @@ class Synthesize(CombatObtain, ItemUI):
         # Purple
         self.synthesize_rarity_set('blue')
         self._obtain_enter(ENTRY_ITEM_TO, appear_button=page_synthesize.check_button)
-        item = self._obtain_parse()
+        item = self.obtain_parse()
         if item is not None:
             items.append(item)
         self._obtain_close(check_button=obtain_end)
         # Blue
         self._obtain_enter(ENTRY_ITEM_FROM, appear_button=page_synthesize.check_button)
-        item = self._obtain_parse()
+        item = self.obtain_parse()
         if item is not None:
             items.append(item)
         self._obtain_close(check_button=obtain_end)
         # Green
         self.synthesize_rarity_set('green')
         self._obtain_enter(ENTRY_ITEM_FROM, appear_button=page_synthesize.check_button)
-        item = self._obtain_parse()
+        item = self.obtain_parse()
         if item is not None:
             items.append(item)
         self._obtain_close(check_button=obtain_end)

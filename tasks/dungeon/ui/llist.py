@@ -49,7 +49,7 @@ class OcrDungeonName(Ocr):
             result = result.replace('翼', '巽')  # 巽风之形
             result = result.replace('皖A0', '50').replace('皖', '')
             # 燔灼之形•凝滞虚影
-            result = result.replace('熠', '燔')
+            result = re.sub('[熠蟠]灼', '燔灼', result)
             result = re.sub('^灼之形', '燔灼之形', result)
             # 偃偶之形•凝滞虚影
             result = re.sub('^偶之形', '偃偶之形', result)

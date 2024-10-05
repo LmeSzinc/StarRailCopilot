@@ -400,6 +400,10 @@ class MapControl(Combat, AimDetectorMixin):
         Args:
             waypoints: position (x, y), a list of position to go along.
                 or a list of Waypoint objects to go along.
+
+        Returns:
+            list[str]: A list of walk result
+                containing 'item' if cleared an item
         """
         logger.hr('Clear item', level=1)
         waypoints = ensure_waypoints(waypoints)
@@ -410,13 +414,18 @@ class MapControl(Combat, AimDetectorMixin):
 
         return self.goto(*waypoints)
 
-    def clear_enemy(self, *waypoints):
+    def clear_enemy(self, *waypoints, poor_try=False):
         """
         Go along a list of position and enemy at last.
 
         Args:
             waypoints: position (x, y), a list of position to go along.
                 or a list of Waypoint objects to go along.
+            poor_try: True to call combat_poor_try() if didn't clear an enemy
+
+        Returns:
+            list[str]: A list of walk result
+                containing 'enemy' if cleared an enemy
         """
         logger.hr('Clear enemy', level=1)
         waypoints = ensure_waypoints(waypoints)
@@ -425,7 +434,60 @@ class MapControl(Combat, AimDetectorMixin):
         end_point = waypoints[-1]
         end_point.expected_end.append('enemy')
 
-        return self.goto(*waypoints)
+        results = self.goto(*waypoints)
+
+        if poor_try and not results:
+            results += self.combat_poor_try()
+
+        return results
+
+    def combat_poor_try(self, skip_first_screenshot=True):
+        """
+        A fallback retry mechanism in case no enemy found on the way
+        Poorly clicking attack assuming enemy is nearby
+
+        Returns:
+            list[str]: A list of walk result
+                containing 'enemy' if cleared an enemy
+        """
+        trial = 0
+        interval = self.map_A_timer.limit
+        timeout = Timer(interval * 5, count=interval * 10).start()
+        result = []
+
+        while 1:
+            if skip_first_screenshot:
+                skip_first_screenshot = False
+            else:
+                self.device.screenshot()
+
+            # End
+            if timeout.reached():
+                logger.warning('Poor combat try timeout')
+                self.screenshot_tracking_add()
+                break
+            if trial >= 3:
+                logger.warning('Poor combat try exhausted')
+                self.screenshot_tracking_add()
+                break
+
+            # Combat
+            if self.is_combat_executing():
+                logger.info('Walk result add: enemy')
+                result.append('enemy')
+                logger.hr('Combat', level=2)
+                self.combat_execute()
+                break
+
+            # Click
+            if self.is_in_main():
+                if self.handle_map_A():
+                    trial += 1
+                    continue
+            if self.walk_additional():
+                continue
+
+        return result
 
 
 if __name__ == '__main__':

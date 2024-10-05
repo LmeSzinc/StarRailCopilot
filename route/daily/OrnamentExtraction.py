@@ -17,5 +17,6 @@ class Route(RouteBase, Combat):
         boss = Waypoint((245.2, 193.6))
         boss.expected_end = [self.is_combat_executing]
         self.clear_enemy(
-            boss
+            boss,
+            poor_try=True
         )

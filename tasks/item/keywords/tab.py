@@ -66,3 +66,12 @@ Valuables = ItemTab(
     jp='貴重品',
     es='Objetos valiosos',
 )
+MaterialExchange = ItemTab(
+    id=8,
+    name='MaterialExchange',
+    cn='材料置换',
+    cht='素材置換',
+    en='Material Exchange',
+    jp='素材交換',
+    es='Intercambio de materiales',
+)

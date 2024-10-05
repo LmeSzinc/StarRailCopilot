@@ -121,6 +121,7 @@ class AzurLaneAutoScript:
         except ScriptError as e:
             logger.exception(e)
             logger.critical('This is likely to be a mistake of developers, but sometimes just random issues')
+            self.save_error_log()
             handle_notify(
                 self.config.Error_OnePushConfig,
                 title=f"Src <{self.config_name}> crashed",

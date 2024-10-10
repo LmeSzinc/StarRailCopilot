@@ -153,6 +153,7 @@ class CombatSupport(UI):
                 self._cancel_popup()
                 self._select_next_support()
                 self.interval_reset(POPUP_CANCEL)
+                self.interval_clear(COMBAT_SUPPORT_LIST)
                 continue
             if self.appear(COMBAT_SUPPORT_LIST, interval=2):
                 if not selected_support and support_character_name != "FirstCharacter":
@@ -307,40 +308,56 @@ class CombatSupport(UI):
             if self.handle_popup_cancel():
                 continue
 
-    def _select_next_support(self):
+    def _select_next_support(self, skip_first_screenshot=True):
         """
         Pages:
             in: COMBAT_SUPPORT_LIST
             out: COMBAT_SUPPORT_LIST
         """
         logger.hr("Next support select")
-        skip_first_screenshot = True
+        # Wait support arrow
+        # If selected identical character, popup may not disappear that fast
+        timeout = Timer(1, count=3).start()
+        while 1:
+            if skip_first_screenshot:
+                skip_first_screenshot = False
+            else:
+                self.device.screenshot()
+
+            # End
+            next_support = NextSupportCharacter(self.device.image)
+            if next_support:
+                break
+            if timeout.reached():
+                logger.warning('Wait support arrow timeout')
+                break
+
+        # Select next
         scroll = AdaptiveScroll(area=COMBAT_SUPPORT_LIST_SCROLL.area,
                                 name=COMBAT_SUPPORT_LIST_SCROLL.name)
         interval = Timer(1)
         next_support = None
-        if scroll.appear(main=self):
-            while 1:
-                if skip_first_screenshot:
-                    skip_first_screenshot = False
-                else:
-                    self.device.screenshot()
+        while 1:
+            if skip_first_screenshot:
+                skip_first_screenshot = False
+            else:
+                self.device.screenshot()
 
-                # End
-                if next_support is not None and next_support.is_next_support_character_selected(self.device.image):
-                    logger.info('Next support selected')
+            # End
+            if next_support is not None and next_support.is_next_support_character_selected(self.device.image):
+                logger.info('Next support selected')
+                return
+
+            if interval.reached():
+                next_support = NextSupportCharacter(self.device.image)
+                if next_support:
+                    logger.info("Next support found, clicking")
+                    self.device.click(next_support.button)
+                elif not scroll.at_bottom(main=self):
+                    scroll.next_page(main=self, page=0.4)
+                else:
+                    logger.warning("No more support")
                     return
 
-                if interval.reached():
-                    next_support = NextSupportCharacter(self.device.image)
-                    if next_support:
-                        logger.info("Next support found, clicking")
-                        self.device.click(next_support.button)
-                    elif not scroll.at_bottom(main=self):
-                        scroll.next_page(main=self, page=0.4)
-                    else:
-                        logger.warning("No more support")
-                        return
-
-                    interval.reset()
-                    continue
+                interval.reset()
+                continue

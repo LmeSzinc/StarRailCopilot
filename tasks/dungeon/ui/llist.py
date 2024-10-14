@@ -8,7 +8,7 @@ from module.base.base import ModuleBase
 from module.base.button import ClickButton
 from module.base.decorator import run_once
 from module.base.timer import Timer
-from module.base.utils import area_center, area_limit, area_offset, crop, image_size
+from module.base.utils import area_center, area_limit, area_offset, color_similarity_2d, crop, image_size
 from module.logger import logger
 from module.ocr.ocr import Ocr, OcrResultButton
 from module.ocr.utils import merge_result_button, split_and_pair_button_attr, split_and_pair_buttons
@@ -157,6 +157,13 @@ class DraggableDungeonList(DraggableList):
     # limit_entrance: True to ensure the teleport button is insight
     limit_entrance = False
 
+    def wait_bottom_appear(self, main: "DungeonUIList", skip_first_screenshot=True):
+        """
+        Returns:
+            bool: If waited
+        """
+        return main.dungeon_list_wait_list_end(skip_first_screenshot=skip_first_screenshot)
+
     def load_rows(self, main: ModuleBase, allow_early_access=False):
         """
         Args:
@@ -250,6 +257,43 @@ class DungeonUIList(UI):
         LIST_SORTING.set(another, main=self)
         LIST_SORTING.set(current, main=self)
         return True
+
+    def dungeon_list_wait_list_end(self, skip_first_screenshot=True):
+        """
+        When swiping down at list end, wait until list rebound
+
+        Returns:
+            bool: If waited
+        """
+        logger.info('dungeon_list_wait_list_end')
+        timeout = Timer(1, count=3).start()
+        empty = False
+        while 1:
+            if skip_first_screenshot:
+                skip_first_screenshot = False
+            else:
+                self.device.screenshot()
+
+            # End
+            if timeout.reached():
+                logger.warning('Wait dungeon_list_wait_list_end timeout')
+                return True
+            # Check color
+            image = self.image_crop(LIST_END_CHECK, copy=False)
+            mask = color_similarity_2d(image, (255, 255, 255))
+            cv2.inRange(mask, 0, 235, dst=mask)
+            mean = cv2.mean(mask)[0]
+            if mean > 30:
+                if empty:
+                    # rebound, having rows at bottom now
+                    return True
+                else:
+                    # Not at bottom from the very beginning
+                    return False
+            else:
+                # Blank background
+                empty = True
+                continue
 
     def _dungeon_insight_index(self, dungeon: DungeonList):
         """
@@ -350,8 +394,11 @@ class DungeonUIList(UI):
 
                 # Drag down
                 DUNGEON_LIST.drag_page('down', main=self)
-                self.wait_until_stable(DUNGEON_LIST.search_button, timer=Timer(
-                    0, count=0), timeout=Timer(1.5, count=5))
+                self.dungeon_list_wait_list_end(skip_first_screenshot=False)
+                self.wait_until_stable(
+                    DUNGEON_LIST.search_button, timer=Timer(0, count=0),
+                    timeout=Timer(1.5, count=5)
+                )
 
             self._dungeon_list_reset()
 

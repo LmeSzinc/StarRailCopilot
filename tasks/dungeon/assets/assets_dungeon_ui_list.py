@@ -23,6 +23,16 @@ LIST_DESCENDING = ButtonWrapper(
         button=(1125, 643, 1143, 661),
     ),
 )
+LIST_END_CHECK = ButtonWrapper(
+    name='LIST_END_CHECK',
+    share=Button(
+        file='./assets/share/dungeon/ui_list/LIST_END_CHECK.png',
+        area=(465, 587, 556, 622),
+        search=(445, 567, 576, 642),
+        color=(218, 210, 215),
+        button=(465, 587, 556, 622),
+    ),
+)
 OCR_DUNGEON_LIST = ButtonWrapper(
     name='OCR_DUNGEON_LIST',
     share=Button(

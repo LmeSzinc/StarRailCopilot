@@ -143,6 +143,13 @@ class DraggableList:
         if direction == 'right':
             return 'left'
 
+    def wait_bottom_appear(self, main: ModuleBase, skip_first_screenshot=True):
+        """
+        Returns:
+            bool: If waited
+        """
+        return False
+
     def insight_row(self, row: Keyword, main: ModuleBase, skip_first_screenshot=True) -> bool:
         """
         Args:
@@ -180,8 +187,11 @@ class DraggableList:
                 self.drag_page(self.drag_direction, main=main)
 
             # Wait for bottoming out
-            main.wait_until_stable(self.search_button, timer=Timer(
-                0, count=0), timeout=Timer(1.5, count=5))
+            self.wait_bottom_appear(main, skip_first_screenshot=False)
+            main.wait_until_stable(
+                self.search_button, timer=Timer(0, count=0),
+                timeout=Timer(1.5, count=5)
+            )
             skip_first_screenshot = True
             if self.cur_buttons and last_buttons == set(self.cur_buttons):
                 if bottom_check.reached():

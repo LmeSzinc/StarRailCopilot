@@ -109,6 +109,8 @@ class Daemon(RouteBase, DaemonBase, AimDetectorMixin):
                 continue
             if self.appear_then_click(DUNGEON_EXIT, interval=1.5):
                 continue
+            if self.appear_then_click(DUNGEON_NEXT, interval=1.5):
+                continue
             # Tutorial popup
             if self.appear(TUTORIAL_CHECK, interval=0.2):
                 if self.image_color_count(TUTORIAL_CLOSE, color=(255, 255, 255), threshold=180, count=400):

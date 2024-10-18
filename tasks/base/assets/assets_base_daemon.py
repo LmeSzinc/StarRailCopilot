@@ -33,6 +33,16 @@ DUNGEON_EXIT = ButtonWrapper(
         button=(582, 598, 606, 622),
     ),
 )
+DUNGEON_NEXT = ButtonWrapper(
+    name='DUNGEON_NEXT',
+    share=Button(
+        file='./assets/share/base/daemon/DUNGEON_NEXT.png',
+        area=(775, 598, 799, 622),
+        search=(755, 578, 819, 642),
+        color=(104, 97, 88),
+        button=(775, 598, 799, 622),
+    ),
+)
 INTERACT_COLLECT = ButtonWrapper(
     name='INTERACT_COLLECT',
     share=Button(

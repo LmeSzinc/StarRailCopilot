@@ -47,20 +47,20 @@ OCR_DUNGEON_NAME = ButtonWrapper(
     name='OCR_DUNGEON_NAME',
     share=Button(
         file='./assets/share/dungeon/ui_list/OCR_DUNGEON_NAME.png',
-        area=(563, 172, 788, 624),
-        search=(543, 152, 808, 644),
-        color=(245, 243, 245),
-        button=(563, 172, 788, 624),
+        area=(563, 172, 805, 624),
+        search=(543, 152, 825, 644),
+        color=(244, 242, 244),
+        button=(563, 172, 805, 624),
     ),
 )
 OCR_DUNGEON_NAME_ROGUE = ButtonWrapper(
     name='OCR_DUNGEON_NAME_ROGUE',
     share=Button(
         file='./assets/share/dungeon/ui_list/OCR_DUNGEON_NAME_ROGUE.png',
-        area=(563, 292, 788, 624),
-        search=(543, 272, 808, 644),
-        color=(249, 247, 249),
-        button=(563, 292, 788, 624),
+        area=(563, 292, 805, 624),
+        search=(543, 272, 825, 644),
+        color=(246, 244, 246),
+        button=(563, 292, 805, 624),
     ),
 )
 OCR_DUNGEON_TELEPORT = ButtonWrapper(

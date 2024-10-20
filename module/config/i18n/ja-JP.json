@@ -149,6 +149,10 @@
       "minitouch": "minitouch",
       "MaaTouch": "MaaTouch"
     },
+    "CloudPriorQueue": {
+      "name": "Emulator.CloudPriorQueue.name",
+      "help": "Emulator.CloudPriorQueue.help"
+    },
     "AdbRestart": {
       "name": "Emulator.AdbRestart.name",
       "help": "Emulator.AdbRestart.help"

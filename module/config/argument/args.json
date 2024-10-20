@@ -63,6 +63,10 @@
         ],
         "display": "hide"
       },
+      "CloudPriorQueue": {
+        "type": "checkbox",
+        "value": false
+      },
       "AdbRestart": {
         "type": "checkbox",
         "value": false

@@ -149,6 +149,10 @@
       "minitouch": "minitouch",
       "MaaTouch": "MaaTouch"
     },
+    "CloudPriorQueue": {
+      "name": "Use paid coins to queue up quickly in cloud games",
+      "help": ""
+    },
     "AdbRestart": {
       "name": "Try to restart adb when no device found",
       "help": ""

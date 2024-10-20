@@ -45,6 +45,7 @@ Emulator:
   ControlMethod:
     value: MaaTouch
     option: [ minitouch, MaaTouch ]
+  CloudPriorQueue: false
   AdbRestart: false
 EmulatorInfo:
   Emulator:

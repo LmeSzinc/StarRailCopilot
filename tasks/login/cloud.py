@@ -252,8 +252,12 @@ class LoginAndroidCloud(ModuleBase):
                 if title == '连接中断':
                     self.device.click(self.xpath(XPath.POPUP_CONFIRM))
                     continue
-            if self.appear_then_click(XPath.QUEUE_SELECT_NORMAL):
-                continue
+            if self.config.Emulator_CloudPriorQueue:
+                if self.appear_then_click(XPath.QUEUE_SELECT_PRIOR):
+                    continue
+            else:
+                if self.appear_then_click(XPath.QUEUE_SELECT_NORMAL):
+                    continue
 
         # Disable net state display
         if self._cloud_net_state_appear():

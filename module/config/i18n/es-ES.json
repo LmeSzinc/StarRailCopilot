@@ -149,6 +149,10 @@
       "minitouch": "minitouch",
       "MaaTouch": "MaaTouch"
     },
+    "CloudPriorQueue": {
+      "name": "Utilice monedas pagadas para hacer cola rápidamente en los juegos en la nube",
+      "help": ""
+    },
     "AdbRestart": {
       "name": "Intentar reiniciar el ADB cuando no se encuentre ninguno.",
       "help": ""

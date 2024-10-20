@@ -149,6 +149,10 @@
       "minitouch": "minitouch",
       "MaaTouch": "MaaTouch"
     },
+    "CloudPriorQueue": {
+      "name": "在雲端遊戲中使用星雲幣快速排隊",
+      "help": ""
+    },
     "AdbRestart": {
       "name": "在檢測不到設備的時候嘗試重啟adb",
       "help": ""

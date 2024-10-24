@@ -286,6 +286,8 @@
       "Stagnant_Shadow_Roast": "Ascension: Cuántico (Jade / Sparkle)",
       "Stagnant_Shadow_Mirage": "Ascension: Imaginario (Welt / Luocha / Yukong)",
       "Stagnant_Shadow_Puppetry": "Ascension: Imaginario (Dan Heng - Imbibitor Lunae / Aventurino / Dr. Ratio)",
+      "Stagnant_Shadow_Timbre": "Ascension: Imaginario (Rappa)",
+      "Cavern_of_Corrosion_Path_of_Uncertainty": "Cavern_of_Corrosion_Path_of_Uncertainty (Senda de la incertidumbre)",
       "Cavern_of_Corrosion_Path_of_Cavalier": "Artefactos: Ultrarruptura y Adicional de Definitiva (Caverna de la corrosión: Senda del caballero) (Senda del caballero)",
       "Cavern_of_Corrosion_Path_of_Dreamdive": "Artefactos: Debuff y Efecto de Ruptura (Senda de los sueños)",
       "Cavern_of_Corrosion_Path_of_Darkness": "Artefactos: Persecución y Dot (Senda de la oscuridad)",
@@ -327,6 +329,7 @@
     "NameAtDoubleRelic": {
       "name": "En los eventos de x2 de Caverna de la corrosión",
       "help": "Se volverán a los ajustes predeterminados una vez se acaben los intentos del evento",
+      "Cavern_of_Corrosion_Path_of_Uncertainty": "Cavern_of_Corrosion_Path_of_Uncertainty (Senda de la incertidumbre)",
       "Cavern_of_Corrosion_Path_of_Cavalier": "Artefactos: Ultrarruptura y Adicional de Definitiva (Caverna de la corrosión: Senda del caballero) (Senda del caballero)",
       "Cavern_of_Corrosion_Path_of_Dreamdive": "Artefactos: Debuff y Efecto de Ruptura (Senda de los sueños)",
       "Cavern_of_Corrosion_Path_of_Darkness": "Artefactos: Persecución y Dot (Senda de la oscuridad)",
@@ -427,6 +430,7 @@
       "Natasha": "Natasha",
       "Pela": "Pela",
       "Qingque": "Qingque",
+      "Rappa": "Rappa",
       "Robin": "Robin",
       "RuanMei": "Ruan Mei",
       "Sampo": "Sampo",
@@ -594,6 +598,10 @@
     },
     "Item_Dream_Flamer": {
       "name": "Ascension: Cuántico (Jade / Sparkle)",
+      "help": ""
+    },
+    "Item_Chordal_Mirage": {
+      "name": "Ascension: Imaginario (Rappa)",
       "help": ""
     },
     "Item_Worldbreaker_Blade": {

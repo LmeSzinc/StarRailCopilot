@@ -59,6 +59,7 @@ class StoredGenerated:
     Item_Nail_of_the_Beast_Coffin = StoredPlanner("Dungeon.Planner.Item_Nail_of_the_Beast_Coffin")
     Item_A_Glass_of_the_Besotted_Era = StoredPlanner("Dungeon.Planner.Item_A_Glass_of_the_Besotted_Era")
     Item_Dream_Flamer = StoredPlanner("Dungeon.Planner.Item_Dream_Flamer")
+    Item_Chordal_Mirage = StoredPlanner("Dungeon.Planner.Item_Chordal_Mirage")
     Item_Worldbreaker_Blade = StoredPlanner("Dungeon.Planner.Item_Worldbreaker_Blade")
     Item_Arrow_of_the_Starchaser = StoredPlanner("Dungeon.Planner.Item_Arrow_of_the_Starchaser")
     Item_Key_of_Wisdom = StoredPlanner("Dungeon.Planner.Item_Key_of_Wisdom")

@@ -286,6 +286,8 @@
       "Stagnant_Shadow_Roast": "角色晉階材料：量子（翡翠 / 花火）",
       "Stagnant_Shadow_Mirage": "角色晉階材料：虛數（瓦爾特 / 羅剎 / 馭空）",
       "Stagnant_Shadow_Puppetry": "角色晉階材料：虛數（丹恆•飲月 / 砂金 / 真理醫生）",
+      "Stagnant_Shadow_Timbre": "角色晉階材料：虛數（亂破）",
+      "Cavern_of_Corrosion_Path_of_Uncertainty": "Cavern_of_Corrosion_Path_of_Uncertainty（迷識之徑）",
       "Cavern_of_Corrosion_Path_of_Cavalier": "遺器：超擊破套+終追套（勇騎之徑）",
       "Cavern_of_Corrosion_Path_of_Dreamdive": "遺器：負面套+擊破套（（夢潛之徑）",
       "Cavern_of_Corrosion_Path_of_Darkness": "遺器：追擊套+dot套（幽冥之徑）",
@@ -327,6 +329,7 @@
     "NameAtDoubleRelic": {
       "name": "有遺器活動時，選擇副本",
       "help": "次數耗儘後回退到默認打本設定",
+      "Cavern_of_Corrosion_Path_of_Uncertainty": "Cavern_of_Corrosion_Path_of_Uncertainty（迷識之徑）",
       "Cavern_of_Corrosion_Path_of_Cavalier": "遺器：超擊破套+終追套（勇騎之徑）",
       "Cavern_of_Corrosion_Path_of_Dreamdive": "遺器：負面套+擊破套（（夢潛之徑）",
       "Cavern_of_Corrosion_Path_of_Darkness": "遺器：追擊套+dot套（幽冥之徑）",
@@ -427,6 +430,7 @@
       "Natasha": "娜塔莎",
       "Pela": "佩拉",
       "Qingque": "青雀",
+      "Rappa": "亂破",
       "Robin": "知更鳥",
       "RuanMei": "阮•梅",
       "Sampo": "桑博",
@@ -594,6 +598,10 @@
     },
     "Item_Dream_Flamer": {
       "name": "角色晉階材料：量子（翡翠 / 花火）",
+      "help": ""
+    },
+    "Item_Chordal_Mirage": {
+      "name": "角色晉階材料：虛數（亂破）",
       "help": ""
     },
     "Item_Worldbreaker_Blade": {

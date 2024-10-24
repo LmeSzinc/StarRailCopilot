@@ -263,3 +263,16 @@ Dream_Flamer = ItemAscension(
     item_group=1100,
     dungeon_id=1116,
 )
+Chordal_Mirage = ItemAscension(
+    id=21,
+    name='Chordal_Mirage',
+    cn='一曲合弦的幻景',
+    cht='一曲合弦的幻景',
+    en='Chordal Mirage',
+    jp='響き合う幻景',
+    es='Ilusión cadenciosa',
+    rarity='VeryRare',
+    item_id=110427,
+    item_group=1100,
+    dungeon_id=1119,
+)

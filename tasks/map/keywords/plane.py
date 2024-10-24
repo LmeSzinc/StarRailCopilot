@@ -10,7 +10,7 @@ Special_HertaOffice = MapPlane(
     cht='黑塔的辦公室',
     en="Herta's Office",
     jp='ヘルタのオフィス',
-    es='Oficina de Herta',
+    es='oficina de Herta',
     world_id=-1,
     plane_id=1,
 )
@@ -585,4 +585,15 @@ Penacony_PenaconyGrandTheater = MapPlane(
     es='Gran Teatro de Colonipenal',
     world_id=3,
     plane_id=2033201,
+)
+Penacony_PenaconyPaperfoldUniversityCollege = MapPlane(
+    id=55,
+    name='Penacony_PenaconyPaperfoldUniversityCollege',
+    cn='匹诺康尼折纸大学学院',
+    cht='匹諾康尼摺紙大學學院',
+    en='Penacony Paperfold University College',
+    jp='ピノコニー折り紙大学',
+    es='Campus de la Academia de Origami de Colonipenal',
+    world_id=3,
+    plane_id=1030601,
 )

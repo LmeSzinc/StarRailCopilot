@@ -64,7 +64,7 @@ Clear_Cavern_of_Corrosion_1_times = BattlePassQuest(
     cht='完成1次「侵蝕隧洞」',
     en='Clear Cavern of Corrosion 1 time(s)',
     jp='「侵蝕トンネル」を1回クリアする',
-    es='Completa Caverna de la corrosión 1 veces',
+    es='Completa Caverna de la corrosión 1 vez',
 )
 Consume_a_total_of_1_Trailblaze_Power_1400_Trailblazer_Power_max = BattlePassQuest(
     id=8,

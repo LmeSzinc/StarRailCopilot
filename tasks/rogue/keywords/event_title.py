@@ -11,7 +11,7 @@ Ruan_Mei = RogueEventTitle(
     en='Ruan Mei',
     jp='ルアン・メェイ',
     es='Ruan Mei',
-    option_ids=[1, 2, 3],
+    option_ids=[1, 2, 3, 4, 5, 6, 7, 8],
 )
 The_Architects = RogueEventTitle(
     id=2,
@@ -21,7 +21,7 @@ The_Architects = RogueEventTitle(
     en='The Architects',
     jp='建創者',
     es='Arquitectos',
-    option_ids=[4, 5],
+    option_ids=[9, 10],
 )
 Rest_Area = RogueEventTitle(
     id=3,
@@ -31,7 +31,7 @@ Rest_Area = RogueEventTitle(
     en='Rest Area',
     jp='休憩エリア',
     es='Área de descanso',
-    option_ids=[5, 6, 7, 8, 9, 10],
+    option_ids=[5, 6, 7, 8, 10, 11, 12, 13],
 )
 Nomadic_Miners = RogueEventTitle(
     id=4,
@@ -41,7 +41,7 @@ Nomadic_Miners = RogueEventTitle(
     en='Nomadic Miners',
     jp='遊牧の鉱夫',
     es='Mineros nómadas',
-    option_ids=[11, 12, 13, 14],
+    option_ids=[14, 15, 16, 17],
 )
 History_Fictionologists = RogueEventTitle(
     id=5,
@@ -51,7 +51,7 @@ History_Fictionologists = RogueEventTitle(
     en='History Fictionologists',
     jp='虚構歴史学者',
     es='Historiador Espurio',
-    option_ids=[5, 15, 16, 17, 18],
+    option_ids=[10, 18, 19, 20, 21],
 )
 Jim_Hulk_and_Jim_Hall = RogueEventTitle(
     id=6,
@@ -61,7 +61,7 @@ Jim_Hulk_and_Jim_Hall = RogueEventTitle(
     en='Jim Hulk and Jim Hall',
     jp='ジャック・ハックとジャック・ハウル',
     es='Jim Hulk y Jim Hall',
-    option_ids=[19, 20, 21, 22],
+    option_ids=[22, 23, 24, 25, 26],
 )
 Shopping_Channel = RogueEventTitle(
     id=7,
@@ -71,7 +71,7 @@ Shopping_Channel = RogueEventTitle(
     en='Shopping Channel',
     jp='テレビショッピングチャンネル',
     es='Teletienda',
-    option_ids=[23, 24, 25, 26, 27, 28, 29],
+    option_ids=[27, 28, 29, 30, 31, 32, 33, 34],
 )
 The_Cremators = RogueEventTitle(
     id=8,
@@ -81,7 +81,7 @@ The_Cremators = RogueEventTitle(
     en='The Cremators',
     jp='焼却人',
     es='Incineradores',
-    option_ids=[30, 31, 32, 33, 34],
+    option_ids=[35, 36, 37, 38, 39],
 )
 Interactive_Arts = RogueEventTitle(
     id=9,
@@ -91,7 +91,7 @@ Interactive_Arts = RogueEventTitle(
     en='Interactive Arts',
     jp='相互性芸術',
     es='Arte interactivo',
-    option_ids=[35, 36, 37, 38, 39, 40],
+    option_ids=[40, 41, 42, 43, 44, 45],
 )
 Pixel_World = RogueEventTitle(
     id=10,
@@ -101,7 +101,7 @@ Pixel_World = RogueEventTitle(
     en='Pixel World',
     jp='ピクセルワールド',
     es='Mundo de píxeles',
-    option_ids=[41, 42, 43, 44, 45],
+    option_ids=[46, 47, 48, 49, 50],
 )
 Aha_Stuffed_Toy = RogueEventTitle(
     id=11,
@@ -111,7 +111,7 @@ Aha_Stuffed_Toy = RogueEventTitle(
     en='Aha Stuffed Toy',
     jp='アッハ人形',
     es='Muñeco de Aha',
-    option_ids=[46, 47, 48, 49, 50],
+    option_ids=[51, 52, 53, 54, 55],
 )
 I_O_U_Dispenser = RogueEventTitle(
     id=12,
@@ -121,7 +121,7 @@ I_O_U_Dispenser = RogueEventTitle(
     en='I.O.U. Dispenser',
     jp='謝債発行機',
     es='Dispensador de deuda',
-    option_ids=[49, 51, 52, 53, 54, 55, 56, 57, 58, 59, 60],
+    option_ids=[54, 56, 57, 58, 59, 60, 61, 62, 63, 64, 65],
 )
 Statue = RogueEventTitle(
     id=13,
@@ -131,7 +131,7 @@ Statue = RogueEventTitle(
     en='Statue',
     jp='彫像',
     es='Estatua',
-    option_ids=[59, 61, 62, 63, 64],
+    option_ids=[64, 66, 67, 68, 69, 70],
 )
 Insect_Nest = RogueEventTitle(
     id=14,
@@ -141,7 +141,7 @@ Insect_Nest = RogueEventTitle(
     en='Insect Nest',
     jp='蟲の巣',
     es='Nido de insectos',
-    option_ids=[65, 66, 67, 68, 69, 70],
+    option_ids=[71, 72, 73, 74, 75, 76, 77],
 )
 Three_Little_Pigs = RogueEventTitle(
     id=15,
@@ -151,7 +151,7 @@ Three_Little_Pigs = RogueEventTitle(
     en='Three Little Pigs',
     jp='三匹の子豚',
     es='Los tres cerditos',
-    option_ids=[71, 72, 73, 74],
+    option_ids=[78, 79, 80, 81],
 )
 Unending_Darkness = RogueEventTitle(
     id=16,
@@ -161,7 +161,7 @@ Unending_Darkness = RogueEventTitle(
     en='Unending Darkness',
     jp='果て無き暗闇',
     es='Oscuridad infinita',
-    option_ids=[75, 76, 77],
+    option_ids=[82, 83, 84],
 )
 Kindling_of_the_Self_Annihilator = RogueEventTitle(
     id=17,
@@ -171,7 +171,7 @@ Kindling_of_the_Self_Annihilator = RogueEventTitle(
     en='Kindling of the Self-Annihilator',
     jp='自滅者の火種',
     es='Yesca del Autodestructor',
-    option_ids=[78, 79, 80],
+    option_ids=[85, 86, 87],
 )
 Cosmic_Merchant_I = RogueEventTitle(
     id=18,
@@ -181,7 +181,7 @@ Cosmic_Merchant_I = RogueEventTitle(
     en='Cosmic Merchant (I)',
     jp='銀河の商人（その1）',
     es='Comerciante galáctico (I)',
-    option_ids=[81, 82, 83, 84, 85, 86, 87],
+    option_ids=[88, 89, 90, 91, 92, 93, 94],
 )
 Cosmic_Con_Job_II = RogueEventTitle(
     id=19,
@@ -191,7 +191,7 @@ Cosmic_Con_Job_II = RogueEventTitle(
     en='Cosmic Con Job (II)',
     jp='銀河のペテン師（その2）',
     es='Engaño galáctico (II)',
-    option_ids=[81, 82, 83, 84, 85, 86, 87],
+    option_ids=[88, 89, 90, 91, 92, 93, 94],
 )
 Cosmic_Altruist_III = RogueEventTitle(
     id=20,
@@ -201,7 +201,7 @@ Cosmic_Altruist_III = RogueEventTitle(
     en='Cosmic Altruist (III)',
     jp='銀河のお人よし（その3）',
     es='Altruismo galáctico (III)',
-    option_ids=[81, 82, 83, 84, 85, 86, 87],
+    option_ids=[88, 89, 90, 91, 92, 93, 94],
 )
 Societal_Dreamscape = RogueEventTitle(
     id=21,
@@ -211,7 +211,7 @@ Societal_Dreamscape = RogueEventTitle(
     en='Societal Dreamscape',
     jp='社会性の夢',
     es='Sueños de sociedad',
-    option_ids=[88, 89, 90, 91, 92],
+    option_ids=[95, 96, 97, 98, 99],
 )
 Saleo_I = RogueEventTitle(
     id=22,
@@ -221,7 +221,7 @@ Saleo_I = RogueEventTitle(
     en='Saleo (I)',
     jp='サリオ（その1）',
     es='Saleo (I)',
-    option_ids=[93, 94, 95, 96, 97, 98],
+    option_ids=[100, 101, 102, 103, 104, 105],
 )
 Sal_II = RogueEventTitle(
     id=23,
@@ -231,7 +231,7 @@ Sal_II = RogueEventTitle(
     en='Sal (II)',
     jp='サリ（その2）',
     es='Sal (II)',
-    option_ids=[93, 94, 95, 96, 97, 98],
+    option_ids=[100, 101, 102, 103, 104, 105],
 )
 Leo_III = RogueEventTitle(
     id=24,
@@ -241,7 +241,7 @@ Leo_III = RogueEventTitle(
     en='Leo (III)',
     jp='リオ（その3）',
     es='Leo (III)',
-    option_ids=[93, 94, 95, 96, 97, 98],
+    option_ids=[100, 101, 102, 103, 104, 105],
 )
 Bounty_Hunter = RogueEventTitle(
     id=25,
@@ -251,7 +251,7 @@ Bounty_Hunter = RogueEventTitle(
     en='Bounty Hunter',
     jp='賞金稼ぎ',
     es='Cazarrecompensas',
-    option_ids=[99, 100, 101, 102, 103],
+    option_ids=[106, 107, 108, 109, 110],
 )
 Implement_of_Error = RogueEventTitle(
     id=26,
@@ -261,7 +261,7 @@ Implement_of_Error = RogueEventTitle(
     en='Implement of Error',
     jp='エラーアイテム',
     es='Objeto erróneo',
-    option_ids=[5, 104, 105, 106],
+    option_ids=[10, 111, 112, 113],
 )
 We_Are_Cowboys = RogueEventTitle(
     id=27,
@@ -271,7 +271,7 @@ We_Are_Cowboys = RogueEventTitle(
     en='We Are Cowboys',
     jp='僕たちカウボーイ',
     es='Somos vaqueros',
-    option_ids=[107, 108, 109, 110, 111],
+    option_ids=[114, 115, 116, 117, 118],
 )
 Nildis = RogueEventTitle(
     id=28,
@@ -281,7 +281,7 @@ Nildis = RogueEventTitle(
     en='Nildis',
     jp='ニールディスカード',
     es='Nildis',
-    option_ids=[112, 113],
+    option_ids=[119, 120],
 )
 Rock_Paper_Scissors = RogueEventTitle(
     id=29,
@@ -291,7 +291,7 @@ Rock_Paper_Scissors = RogueEventTitle(
     en='Rock, Paper, Scissors',
     jp='じゃんけん',
     es='Piedra, papel o tijera',
-    option_ids=[114, 115, 116, 117, 118],
+    option_ids=[121, 122, 123, 124, 125, 126],
 )
 Tavern = RogueEventTitle(
     id=30,
@@ -301,7 +301,7 @@ Tavern = RogueEventTitle(
     en='Tavern',
     jp='パブ',
     es='Taberna',
-    option_ids=[119, 120, 121, 122, 123, 124],
+    option_ids=[127, 128, 129, 130, 131, 132],
 )
 Periodic_Demon_Lord = RogueEventTitle(
     id=31,
@@ -311,7 +311,7 @@ Periodic_Demon_Lord = RogueEventTitle(
     en='Periodic Demon Lord',
     jp='周期性大魔王',
     es='Rey Demonio Cíclico',
-    option_ids=[125, 126],
+    option_ids=[133, 134, 135],
 )
 Let_Exchange_Gifts = RogueEventTitle(
     id=32,
@@ -321,7 +321,7 @@ Let_Exchange_Gifts = RogueEventTitle(
     en="Let's Exchange Gifts",
     jp='プレゼントを交換しようよ',
     es='¡Intercambiemos regalos!',
-    option_ids=[127, 128, 129, 130, 131, 132],
+    option_ids=[136, 137, 138, 139, 140, 141, 142, 143],
 )
 Make_A_Wish = RogueEventTitle(
     id=33,
@@ -331,7 +331,7 @@ Make_A_Wish = RogueEventTitle(
     en='Make A Wish',
     jp='願い事しようよ',
     es='Pide un deseo',
-    option_ids=[129, 133, 134, 135],
+    option_ids=[138, 144, 145, 146],
 )
 Robot_Sales_Terminal = RogueEventTitle(
     id=34,
@@ -341,7 +341,7 @@ Robot_Sales_Terminal = RogueEventTitle(
     en='Robot Sales Terminal',
     jp='ロボット販売端末',
     es='Terminal de venta de robots',
-    option_ids=[129, 136, 137, 138, 139, 140, 141],
+    option_ids=[138, 147, 148, 149, 150, 151, 152, 153],
 )
 Sand_King_Tayzzyronth_I = RogueEventTitle(
     id=35,
@@ -351,7 +351,7 @@ Sand_King_Tayzzyronth_I = RogueEventTitle(
     en='Sand King: Tayzzyronth (I)',
     jp='「砂の王-タイズルス」・その1',
     es='Rey de la Arena: Tayzzyronth(I)',
-    option_ids=[142, 143],
+    option_ids=[154, 155],
 )
 Sand_King_Tayzzyronth_II = RogueEventTitle(
     id=36,
@@ -361,7 +361,7 @@ Sand_King_Tayzzyronth_II = RogueEventTitle(
     en='Sand King: Tayzzyronth (II)',
     jp='「砂の王-タイズルス」・その2',
     es='Rey de la Arena: Tayzzyronth(II)',
-    option_ids=[144, 145],
+    option_ids=[156, 157],
 )
 Sand_King_Tayzzyronth_III = RogueEventTitle(
     id=37,
@@ -371,7 +371,7 @@ Sand_King_Tayzzyronth_III = RogueEventTitle(
     en='Sand King: Tayzzyronth (III)',
     jp='「砂の王-タイズルス」・その3',
     es='Rey de la Arena: Tayzzyronth(III)',
-    option_ids=[83, 146],
+    option_ids=[90, 158],
 )
 Sand_King_Tayzzyronth_IV = RogueEventTitle(
     id=38,
@@ -381,7 +381,7 @@ Sand_King_Tayzzyronth_IV = RogueEventTitle(
     en='Sand King: Tayzzyronth (IV)',
     jp='「砂の王-タイズルス」・その4',
     es='Rey de la Arena: Tayzzyronth(IV)',
-    option_ids=[83, 147, 148, 149],
+    option_ids=[90, 159, 160, 161],
 )
 Sand_King_Tayzzyronth_V = RogueEventTitle(
     id=39,
@@ -391,7 +391,7 @@ Sand_King_Tayzzyronth_V = RogueEventTitle(
     en='Sand King: Tayzzyronth (V)',
     jp='「砂の王-タイズルス」・その5',
     es='Rey de la Arena: Tayzzyronth(V)',
-    option_ids=[150, 151],
+    option_ids=[162, 163],
 )
 Sand_King_Tayzzyronth_VI = RogueEventTitle(
     id=40,
@@ -401,7 +401,7 @@ Sand_King_Tayzzyronth_VI = RogueEventTitle(
     en='Sand King: Tayzzyronth (VI)',
     jp='「砂の王-タイズルス」・その6',
     es='Rey de la Arena: Tayzzyronth(VI)',
-    option_ids=[83, 152, 153],
+    option_ids=[90, 164, 165],
 )
 Sand_King_Tayzzyronth_VII = RogueEventTitle(
     id=41,
@@ -411,7 +411,7 @@ Sand_King_Tayzzyronth_VII = RogueEventTitle(
     en='Sand King: Tayzzyronth (VII)',
     jp='「砂の王-タイズルス」・その7',
     es='Rey de la Arena: Tayzzyronth(VII)',
-    option_ids=[154, 155],
+    option_ids=[166, 167],
 )
 Sand_King_Tayzzyronth_VIII = RogueEventTitle(
     id=42,
@@ -421,7 +421,7 @@ Sand_King_Tayzzyronth_VIII = RogueEventTitle(
     en='Sand King: Tayzzyronth (VIII)',
     jp='「砂の王-タイズルス」・その8',
     es='Rey de la Arena: Tayzzyronth(VIII)',
-    option_ids=[156, 157],
+    option_ids=[168, 169],
 )
 Sand_King_Tayzzyronth_IX = RogueEventTitle(
     id=43,
@@ -431,7 +431,7 @@ Sand_King_Tayzzyronth_IX = RogueEventTitle(
     en='Sand King: Tayzzyronth (IX)',
     jp='「砂の王-タイズルス」・その9',
     es='Rey de la Arena: Tayzzyronth(IX)',
-    option_ids=[158, 159],
+    option_ids=[170, 171],
 )
 Lepismat_System_Massacre_Saga_I = RogueEventTitle(
     id=44,
@@ -441,7 +441,7 @@ Lepismat_System_Massacre_Saga_I = RogueEventTitle(
     en='Lepismat System: Massacre Saga (I)',
     jp='「蟲星系-虐殺紀」・その1',
     es='Galaxia de Insectiria: saga de la masacre(I)',
-    option_ids=[160, 161],
+    option_ids=[172, 173],
 )
 Lepismat_System_Massacre_Saga_II = RogueEventTitle(
     id=45,
@@ -451,7 +451,7 @@ Lepismat_System_Massacre_Saga_II = RogueEventTitle(
     en='Lepismat System: Massacre Saga (II)',
     jp='「蟲星系-虐殺紀」・その2',
     es='Galaxia de Insectiria: saga de la masacre(II)',
-    option_ids=[162, 163],
+    option_ids=[174, 175],
 )
 Lepismat_System_Massacre_Saga_III = RogueEventTitle(
     id=46,
@@ -461,7 +461,7 @@ Lepismat_System_Massacre_Saga_III = RogueEventTitle(
     en='Lepismat System: Massacre Saga (III)',
     jp='「蟲星系-虐殺紀」・その3',
     es='Galaxia de Insectiria: saga de la masacre(III)',
-    option_ids=[164, 165],
+    option_ids=[176, 177],
 )
 Lepismat_System_Massacre_Saga_IV = RogueEventTitle(
     id=47,
@@ -471,7 +471,7 @@ Lepismat_System_Massacre_Saga_IV = RogueEventTitle(
     en='Lepismat System: Massacre Saga (IV)',
     jp='「蟲星系-虐殺紀」・その4',
     es='Galaxia de Insectiria: saga de la masacre(IV)',
-    option_ids=[166, 167],
+    option_ids=[178, 179],
 )
 Lepismat_System_Massacre_Saga_V = RogueEventTitle(
     id=48,
@@ -481,7 +481,7 @@ Lepismat_System_Massacre_Saga_V = RogueEventTitle(
     en='Lepismat System: Massacre Saga (V)',
     jp='「蟲星系-虐殺紀」・その5',
     es='Galaxia de Insectiria: saga de la masacre(V)',
-    option_ids=[168, 169],
+    option_ids=[180, 181],
 )
 Lepismat_System_Massacre_Saga_VI = RogueEventTitle(
     id=49,
@@ -491,7 +491,7 @@ Lepismat_System_Massacre_Saga_VI = RogueEventTitle(
     en='Lepismat System: Massacre Saga (VI)',
     jp='「蟲星系-虐殺紀」・その6',
     es='Galaxia de Insectiria: saga de la masacre(VI)',
-    option_ids=[170, 171],
+    option_ids=[182, 183],
 )
 Bounty_Hunter_Crimson_Cleansing_Chronicle_I = RogueEventTitle(
     id=50,
@@ -501,7 +501,7 @@ Bounty_Hunter_Crimson_Cleansing_Chronicle_I = RogueEventTitle(
     en='Bounty Hunter: Crimson Cleansing Chronicle (I)',
     jp='「賞金稼ぎ-洗狩紀」・その1',
     es='Cazarrecompensas: crónica de la depuración carmesí(I)',
-    option_ids=[172, 173],
+    option_ids=[184, 185],
 )
 Bounty_Hunter_Crimson_Cleansing_Chronicle_II = RogueEventTitle(
     id=51,
@@ -511,7 +511,7 @@ Bounty_Hunter_Crimson_Cleansing_Chronicle_II = RogueEventTitle(
     en='Bounty Hunter: Crimson Cleansing Chronicle (II)',
     jp='「賞金稼ぎ-洗狩紀」・その2',
     es='Cazarrecompensas: crónica de la depuración carmesí(II)',
-    option_ids=[174],
+    option_ids=[186],
 )
 Bounty_Hunter_Crimson_Cleansing_Chronicle_III = RogueEventTitle(
     id=52,
@@ -521,7 +521,7 @@ Bounty_Hunter_Crimson_Cleansing_Chronicle_III = RogueEventTitle(
     en='Bounty Hunter: Crimson Cleansing Chronicle (III)',
     jp='「賞金稼ぎ-洗狩紀」・その3',
     es='Cazarrecompensas: crónica de la depuración carmesí(III)',
-    option_ids=[175, 176],
+    option_ids=[187, 188],
 )
 Bounty_Hunter_Crimson_Cleansing_Chronicle_IV = RogueEventTitle(
     id=53,
@@ -531,7 +531,7 @@ Bounty_Hunter_Crimson_Cleansing_Chronicle_IV = RogueEventTitle(
     en='Bounty Hunter: Crimson Cleansing Chronicle (IV)',
     jp='「賞金稼ぎ-洗狩紀」・その4',
     es='Cazarrecompensas: crónica de la depuración carmesí(IV)',
-    option_ids=[177, 178],
+    option_ids=[189, 190],
 )
 Bounty_Hunter_Crimson_Cleansing_Chronicle_V = RogueEventTitle(
     id=54,
@@ -541,7 +541,7 @@ Bounty_Hunter_Crimson_Cleansing_Chronicle_V = RogueEventTitle(
     en='Bounty Hunter: Crimson Cleansing Chronicle (V)',
     jp='「賞金稼ぎ-洗狩紀」・その5',
     es='Cazarrecompensas: crónica de la depuración carmesí(V)',
-    option_ids=[179, 180],
+    option_ids=[191, 192],
 )
 Bounty_Hunter_Crimson_Cleansing_Chronicle_VI = RogueEventTitle(
     id=55,
@@ -551,7 +551,7 @@ Bounty_Hunter_Crimson_Cleansing_Chronicle_VI = RogueEventTitle(
     en='Bounty Hunter: Crimson Cleansing Chronicle (VI)',
     jp='「賞金稼ぎ-洗狩紀」・その6',
     es='Cazarrecompensas: crónica de la depuración carmesí(VI)',
-    option_ids=[175],
+    option_ids=[187],
 )
 Tragedy_and_Insects_The_Dwindling_of_Stars_I = RogueEventTitle(
     id=56,
@@ -561,7 +561,7 @@ Tragedy_and_Insects_The_Dwindling_of_Stars_I = RogueEventTitle(
     en='Tragedy and Insects: The Dwindling of Stars (I)',
     jp='「凶と虫-諸星消滅紀」・その1',
     es='Tragedia e insectos: el ocaso de las estrellas(I)',
-    option_ids=[181, 182],
+    option_ids=[193, 194],
 )
 Tragedy_and_Insects_The_Dwindling_of_Stars_II = RogueEventTitle(
     id=57,
@@ -571,7 +571,7 @@ Tragedy_and_Insects_The_Dwindling_of_Stars_II = RogueEventTitle(
     en='Tragedy and Insects: The Dwindling of Stars (II)',
     jp='「凶と虫-諸星消滅紀」・その2',
     es='Tragedia e insectos: el ocaso de las estrellas(II)',
-    option_ids=[183, 184],
+    option_ids=[195, 196],
 )
 Tragedy_and_Insects_The_Dwindling_of_Stars_III = RogueEventTitle(
     id=58,
@@ -581,7 +581,7 @@ Tragedy_and_Insects_The_Dwindling_of_Stars_III = RogueEventTitle(
     en='Tragedy and Insects: The Dwindling of Stars (III)',
     jp='「凶と虫-諸星消滅紀」・その3',
     es='Tragedia e insectos: el ocaso de las estrellas(III)',
-    option_ids=[185, 186],
+    option_ids=[197, 198],
 )
 Tragedy_and_Insects_The_Dwindling_of_Stars_IV = RogueEventTitle(
     id=59,
@@ -591,7 +591,7 @@ Tragedy_and_Insects_The_Dwindling_of_Stars_IV = RogueEventTitle(
     en='Tragedy and Insects: The Dwindling of Stars (IV)',
     jp='「凶と虫-諸星消滅紀」・その4',
     es='Tragedia e insectos: el ocaso de las estrellas(IV)',
-    option_ids=[79, 187],
+    option_ids=[86, 199],
 )
 Tragedy_and_Insects_The_Dwindling_of_Stars_V = RogueEventTitle(
     id=60,
@@ -601,7 +601,7 @@ Tragedy_and_Insects_The_Dwindling_of_Stars_V = RogueEventTitle(
     en='Tragedy and Insects: The Dwindling of Stars (V)',
     jp='「凶と虫-諸星消滅紀」・その5',
     es='Tragedia e insectos: el ocaso de las estrellas(V)',
-    option_ids=[188, 189],
+    option_ids=[200, 201],
 )
 Tragedy_and_Insects_The_Dwindling_of_Stars_VI = RogueEventTitle(
     id=61,
@@ -611,7 +611,7 @@ Tragedy_and_Insects_The_Dwindling_of_Stars_VI = RogueEventTitle(
     en='Tragedy and Insects: The Dwindling of Stars (VI)',
     jp='「凶と虫-諸星消滅紀」・その6',
     es='Tragedia e insectos: el ocaso de las estrellas(VI)',
-    option_ids=[190, 191, 192],
+    option_ids=[202, 203, 204],
 )
 Genius_Society_Regular_Experiments_I = RogueEventTitle(
     id=62,
@@ -621,7 +621,7 @@ Genius_Society_Regular_Experiments_I = RogueEventTitle(
     en='Genius Society: Regular Experiments (I)',
     jp='「天才クラブ-通常実験」・その1',
     es='Círculo de Genios: experimentos cotidianos(I)',
-    option_ids=[193, 194],
+    option_ids=[205, 206],
 )
 Genius_Society_Regular_Experiments_II = RogueEventTitle(
     id=63,
@@ -631,7 +631,7 @@ Genius_Society_Regular_Experiments_II = RogueEventTitle(
     en='Genius Society: Regular Experiments (II)',
     jp='「天才クラブ-通常実験」・その2',
     es='Círculo de Genios: experimentos cotidianos(II)',
-    option_ids=[195, 196],
+    option_ids=[207, 208],
 )
 Genius_Society_Regular_Experiments_III = RogueEventTitle(
     id=64,
@@ -641,7 +641,7 @@ Genius_Society_Regular_Experiments_III = RogueEventTitle(
     en='Genius Society: Regular Experiments (III)',
     jp='「天才クラブ-通常実験」・その3',
     es='Círculo de Genios: experimentos cotidianos(III)',
-    option_ids=[197, 198],
+    option_ids=[209, 210],
 )
 Gondola_Helping_Gods_I = RogueEventTitle(
     id=65,
@@ -651,7 +651,7 @@ Gondola_Helping_Gods_I = RogueEventTitle(
     en='Gondola: Helping Gods! (I)',
     jp='「ゴンドラ-神を助ける！」・その1',
     es='Góndola: ¡ayudando a los dioses!(I)',
-    option_ids=[199, 200],
+    option_ids=[211, 212],
 )
 Gondola_Helping_Gods_II = RogueEventTitle(
     id=66,
@@ -661,7 +661,7 @@ Gondola_Helping_Gods_II = RogueEventTitle(
     en='Gondola: Helping Gods! (II)',
     jp='「ゴンドラ-神を助ける！」・その2',
     es='Góndola: ¡ayudando a los dioses!(II)',
-    option_ids=[79, 201],
+    option_ids=[86, 213],
 )
 Gondola_Helping_Gods_III = RogueEventTitle(
     id=67,
@@ -671,7 +671,7 @@ Gondola_Helping_Gods_III = RogueEventTitle(
     en='Gondola: Helping Gods! (III)',
     jp='「ゴンドラ-神を助ける！」・その3',
     es='Góndola: ¡ayudando a los dioses!(III)',
-    option_ids=[202, 203],
+    option_ids=[214, 215],
 )
 Gondola_Helping_Gods_IV = RogueEventTitle(
     id=68,
@@ -681,7 +681,7 @@ Gondola_Helping_Gods_IV = RogueEventTitle(
     en='Gondola: Helping Gods! (IV)',
     jp='「ゴンドラ-神を助ける！」・その4',
     es='Góndola: ¡ayudando a los dioses!(IV)',
-    option_ids=[204, 205],
+    option_ids=[216, 217],
 )
 Gondola_Helping_Gods_V = RogueEventTitle(
     id=69,
@@ -691,7 +691,7 @@ Gondola_Helping_Gods_V = RogueEventTitle(
     en='Gondola: Helping Gods! (V)',
     jp='「ゴンドラ-神を助ける！」・その5',
     es='Góndola: ¡ayudando a los dioses!(V)',
-    option_ids=[206, 207],
+    option_ids=[218, 219],
 )
 Gondola_Helping_Gods_VI = RogueEventTitle(
     id=70,
@@ -701,7 +701,7 @@ Gondola_Helping_Gods_VI = RogueEventTitle(
     en='Gondola: Helping Gods! (VI)',
     jp='「ゴンドラ-神を助ける！」・その6',
     es='Góndola: ¡ayudando a los dioses!(VI)',
-    option_ids=[208, 209],
+    option_ids=[220, 221],
 )
 Beyond_the_Sky_Choir_Anomaly_Archives_I = RogueEventTitle(
     id=71,
@@ -711,7 +711,7 @@ Beyond_the_Sky_Choir_Anomaly_Archives_I = RogueEventTitle(
     en='Beyond the Sky Choir: Anomaly Archives (I)',
     jp='「天外聖歌隊-異象紀」・その1',
     es='Coro del Firmamento: crónicas sobre anomalías(I)',
-    option_ids=[210, 211],
+    option_ids=[222, 223],
 )
 Beyond_the_Sky_Choir_Anomaly_Archives_II = RogueEventTitle(
     id=72,
@@ -721,7 +721,7 @@ Beyond_the_Sky_Choir_Anomaly_Archives_II = RogueEventTitle(
     en='Beyond the Sky Choir: Anomaly Archives (II)',
     jp='「天外聖歌隊-異象紀」・その2',
     es='Coro del Firmamento: crónicas sobre anomalías(II)',
-    option_ids=[212, 213],
+    option_ids=[224, 225],
 )
 Beyond_the_Sky_Choir_Anomaly_Archives_III = RogueEventTitle(
     id=73,
@@ -731,7 +731,7 @@ Beyond_the_Sky_Choir_Anomaly_Archives_III = RogueEventTitle(
     en='Beyond the Sky Choir: Anomaly Archives (III)',
     jp='「天外聖歌隊-異象紀」・その3',
     es='Coro del Firmamento: crónicas sobre anomalías(III)',
-    option_ids=[214, 215],
+    option_ids=[226, 227],
 )
 The_Architects_Annals_of_Fortification_I = RogueEventTitle(
     id=74,
@@ -741,7 +741,7 @@ The_Architects_Annals_of_Fortification_I = RogueEventTitle(
     en='The Architects: Annals of Fortification (I)',
     jp='「建創者-修築紀」・その1',
     es='Los Arquitectos: anales de la fortificación(I)',
-    option_ids=[216, 217],
+    option_ids=[228, 229],
 )
 The_Architects_Annals_of_Fortification_II = RogueEventTitle(
     id=75,
@@ -751,7 +751,7 @@ The_Architects_Annals_of_Fortification_II = RogueEventTitle(
     en='The Architects: Annals of Fortification (II)',
     jp='「建創者-修築紀」・その2',
     es='Los Arquitectos: anales de la fortificación(II)',
-    option_ids=[218, 219],
+    option_ids=[230, 231],
 )
 The_Architects_Annals_of_Fortification_III = RogueEventTitle(
     id=76,
@@ -761,7 +761,7 @@ The_Architects_Annals_of_Fortification_III = RogueEventTitle(
     en='The Architects: Annals of Fortification (III)',
     jp='「建創者-修築紀」・その3',
     es='Los Arquitectos: anales de la fortificación(III)',
-    option_ids=[220, 221],
+    option_ids=[232, 233],
 )
 Screwllum_Blessing_Store = RogueEventTitle(
     id=77,
@@ -771,7 +771,7 @@ Screwllum_Blessing_Store = RogueEventTitle(
     en="Screwllum's Blessing Store",
     jp='スクリューガムの祝福ショップ',
     es='Tienda de bendiciones de Tornillum',
-    option_ids=[5, 9, 10],
+    option_ids=[5, 6, 7, 8, 10],
 )
 Herta_Store = RogueEventTitle(
     id=78,
@@ -781,7 +781,7 @@ Herta_Store = RogueEventTitle(
     en="Herta's Store",
     jp='ヘルタショップ',
     es='Tienda de Herta',
-    option_ids=[9, 10],
+    option_ids=[5, 6, 7, 8],
 )
 Screwllum_Store = RogueEventTitle(
     id=79,
@@ -791,7 +791,7 @@ Screwllum_Store = RogueEventTitle(
     en="Screwllum's Store",
     jp='スクリューガムショップ',
     es='Tienda de Tornillum',
-    option_ids=[10],
+    option_ids=[6, 7, 8],
 )
 Knights_of_Beauty_to_the_Rescue = RogueEventTitle(
     id=80,
@@ -801,7 +801,7 @@ Knights_of_Beauty_to_the_Rescue = RogueEventTitle(
     en='Knights of Beauty to the Rescue',
     jp='純美の騎士の助け',
     es='Caballeros de la Belleza al rescate',
-    option_ids=[222, 223, 224, 225, 226, 227, 228, 229],
+    option_ids=[234, 235, 236, 237, 238, 239, 240, 241],
 )
 Cosmic_Crescendo = RogueEventTitle(
     id=81,
@@ -811,7 +811,7 @@ Cosmic_Crescendo = RogueEventTitle(
     en='Cosmic Crescendo',
     jp='天外大合唱',
     es='Crescendo cósmico',
-    option_ids=[230, 231, 232, 233],
+    option_ids=[242, 243, 244, 245],
 )
 Genius_Society_55_Yu_Qingtu = RogueEventTitle(
     id=82,
@@ -821,7 +821,7 @@ Genius_Society_55_Yu_Qingtu = RogueEventTitle(
     en='Genius Society #55 Yu Qingtu',
     jp='天才クラブ#55余清塗',
     es='Yu Qingtu, miembro n.º 55 del Círculo de Genios',
-    option_ids=[234, 235, 236, 237, 238, 239, 240, 241, 242, 243, 244],
+    option_ids=[246, 247, 248, 249, 250, 251, 252, 253, 254, 255, 256],
 )
 Beast_Horde_Voracious_Catastrophe = RogueEventTitle(
     id=83,
@@ -831,7 +831,7 @@ Beast_Horde_Voracious_Catastrophe = RogueEventTitle(
     en='Beast Horde: Voracious Catastrophe',
     jp='獣の群れ・貪慾の災厄',
     es='Horda de bestias: catástrofe voraz',
-    option_ids=[245, 246, 247, 248],
+    option_ids=[257, 258, 259, 260],
 )
 The_Curio_Fixer = RogueEventTitle(
     id=84,
@@ -841,7 +841,7 @@ The_Curio_Fixer = RogueEventTitle(
     en='The Curio Fixer',
     jp='奇物修理エキスパート',
     es='Reparador de objetos raros',
-    option_ids=[249, 250, 251, 252, 253, 254],
+    option_ids=[261, 262, 263, 264, 265, 266],
 )
 Showman_Sleight = RogueEventTitle(
     id=85,
@@ -851,7 +851,7 @@ Showman_Sleight = RogueEventTitle(
     en="Showman's Sleight",
     jp='伶人の手品',
     es='El truco del actor',
-    option_ids=[255, 256, 257],
+    option_ids=[267, 268, 269],
 )
 The_Double_Lottery_Experience = RogueEventTitle(
     id=86,
@@ -861,7 +861,7 @@ The_Double_Lottery_Experience = RogueEventTitle(
     en='The Double Lottery Experience',
     jp='ダブルロッタリー体験',
     es='La experiencia de la doble lotería',
-    option_ids=[79, 258, 259, 260],
+    option_ids=[86, 270, 271, 272],
 )
 Ruan_Mei_II = RogueEventTitle(
     id=87,
@@ -871,7 +871,7 @@ Ruan_Mei_II = RogueEventTitle(
     en='Ruan Mei (II)',
     jp='ルアン・メェイ（2）',
     es='Ruan Mei II',
-    option_ids=[1, 3, 261, 262],
+    option_ids=[1, 3, 4, 273, 274],
 )
 The_Perfect_Grand_Challenge = RogueEventTitle(
     id=88,
@@ -881,7 +881,7 @@ The_Perfect_Grand_Challenge = RogueEventTitle(
     en='The *Perfect* Grand Challenge!',
     jp='「完璧」大挑戦！',
     es='¡El gran desafío perfecto!',
-    option_ids=[83, 263, 264, 265, 266],
+    option_ids=[90, 275, 276, 277, 278],
 )
 The_IPC_Promotion_Saga_I = RogueEventTitle(
     id=89,
@@ -891,7 +891,7 @@ The_IPC_Promotion_Saga_I = RogueEventTitle(
     en='The IPC Promotion Saga (I)',
     jp='スターピースカンパニー「昇進記」（1）',
     es='La saga del ascenso de la Corporación I',
-    option_ids=[267, 268, 269, 270, 271, 272, 273, 274, 275, 276, 277, 278, 279, 280, 281, 282, 283, 284],
+    option_ids=[279, 280, 281, 282, 283, 284, 285, 286, 287, 288, 289, 290, 291, 292, 293, 294, 295, 296],
 )
 The_IPC_Promotion_Saga_II = RogueEventTitle(
     id=90,
@@ -901,7 +901,7 @@ The_IPC_Promotion_Saga_II = RogueEventTitle(
     en='The IPC Promotion Saga (II)',
     jp='スターピースカンパニー「昇進記」（2）',
     es='La saga del ascenso de la Corporación II',
-    option_ids=[268, 269, 270, 271, 272, 273, 274, 275, 276, 277, 278, 279, 280, 281, 282, 283, 284],
+    option_ids=[280, 281, 282, 283, 284, 285, 286, 287, 288, 289, 290, 291, 292, 293, 294, 295, 296],
 )
 The_IPC_Promotion_Saga_III = RogueEventTitle(
     id=91,
@@ -911,7 +911,7 @@ The_IPC_Promotion_Saga_III = RogueEventTitle(
     en='The IPC Promotion Saga (III)',
     jp='スターピースカンパニー「昇進記」（3）',
     es='La saga del ascenso de la Corporación III',
-    option_ids=[269, 270, 271, 272, 273, 274, 275, 276, 277, 278, 279, 280, 281, 282, 283, 284],
+    option_ids=[281, 282, 283, 284, 285, 286, 287, 288, 289, 290, 291, 292, 293, 294, 295, 296],
 )
 The_IPC_Promotion_Saga_IV = RogueEventTitle(
     id=92,
@@ -921,7 +921,7 @@ The_IPC_Promotion_Saga_IV = RogueEventTitle(
     en='The IPC Promotion Saga (IV)',
     jp='スターピースカンパニー「昇進記」（4）',
     es='La saga del ascenso de la Corporación IV',
-    option_ids=[270, 271, 272, 273, 274, 275, 276, 277, 278, 279, 280, 281, 282, 283, 284],
+    option_ids=[282, 283, 284, 285, 286, 287, 288, 289, 290, 291, 292, 293, 294, 295, 296],
 )
 Ka_ching_IPC_Banking_I = RogueEventTitle(
     id=93,
@@ -931,7 +931,7 @@ Ka_ching_IPC_Banking_I = RogueEventTitle(
     en='Ka-ching! IPC Banking (I)',
     jp='カチャッ――スターピース銀行！（1）',
     es='El banco de la Corporación I',
-    option_ids=[83, 285, 286, 287, 288, 289],
+    option_ids=[90, 297, 298, 299, 300, 301, 302],
 )
 Ka_ching_IPC_Banking_II = RogueEventTitle(
     id=94,
@@ -941,7 +941,7 @@ Ka_ching_IPC_Banking_II = RogueEventTitle(
     en='Ka-ching! IPC Banking (II)',
     jp='カチャッ――スターピース銀行！（2）',
     es='El banco de la Corporación II',
-    option_ids=[83, 285, 286, 287, 288, 289],
+    option_ids=[90, 297, 298, 299, 300, 301, 302],
 )
 Loneliness_Cosmic_Beauty_Bugs_Simulated_Universe_I = RogueEventTitle(
     id=95,
@@ -951,7 +951,7 @@ Loneliness_Cosmic_Beauty_Bugs_Simulated_Universe_I = RogueEventTitle(
     en='Loneliness, Cosmic Beauty Bugs, Simulated Universe (I)',
     jp='孤独、宇宙の美虫、模擬宇宙（1）',
     es='Soledad, gusanos espaciales y el Universo Simulado I',
-    option_ids=[79, 290, 291, 292, 293, 294, 295, 296, 297],
+    option_ids=[86, 303, 304, 305, 306, 307, 308, 309, 310],
 )
 Loneliness_Cosmic_Beauty_Bugs_Simulated_Universe_II = RogueEventTitle(
     id=96,
@@ -961,7 +961,7 @@ Loneliness_Cosmic_Beauty_Bugs_Simulated_Universe_II = RogueEventTitle(
     en='Loneliness, Cosmic Beauty Bugs, Simulated Universe (II)',
     jp='孤独、宇宙の美虫、模擬宇宙（2）',
     es='Soledad, gusanos espaciales y el Universo Simulado II',
-    option_ids=[79, 290, 291, 292, 293, 294, 295, 296, 297],
+    option_ids=[86, 303, 304, 305, 306, 307, 308, 309, 310],
 )
 Ace_Trash_Digger = RogueEventTitle(
     id=97,
@@ -971,7 +971,7 @@ Ace_Trash_Digger = RogueEventTitle(
     en='Ace Trash Digger',
     jp='ゴミ箱あさりの達人',
     es='Gran rebuscador de la basura',
-    option_ids=[253, 298, 299, 300, 301],
+    option_ids=[265, 311, 312, 313, 314],
 )
 Swarm_Slumbering_Overlord_First_Praetorian = RogueEventTitle(
     id=98,
@@ -981,7 +981,7 @@ Swarm_Slumbering_Overlord_First_Praetorian = RogueEventTitle(
     en='Swarm: Slumbering Overlord (First Praetorian)',
     jp='虫の潮・深眠の領主（一級守備）',
     es='Enjambre: Cacique dormido (primer pretoriano)',
-    option_ids=[253, 302, 303, 304, 305, 306, 307, 308, 309, 310],
+    option_ids=[265, 315, 316, 317, 318, 319, 320, 321, 322, 323],
 )
 Swarm_Slumbering_Overlord_Second_Praetorian = RogueEventTitle(
     id=99,
@@ -991,7 +991,7 @@ Swarm_Slumbering_Overlord_Second_Praetorian = RogueEventTitle(
     en='Swarm: Slumbering Overlord (Second Praetorian)',
     jp='虫の潮・深眠の領主（二級守備）',
     es='Enjambre: Cacique dormido (segundo pretoriano)',
-    option_ids=[253, 302, 303, 304, 305, 306, 307, 308, 309, 310],
+    option_ids=[265, 315, 316, 317, 318, 319, 320, 321, 322, 323],
 )
 Swarm_Slumbering_Overlord_Third_Praetorian = RogueEventTitle(
     id=100,
@@ -1001,7 +1001,7 @@ Swarm_Slumbering_Overlord_Third_Praetorian = RogueEventTitle(
     en='Swarm: Slumbering Overlord (Third Praetorian)',
     jp='虫の潮・深眠の領主（三級守備）',
     es='Enjambre: Cacique dormido (tercer pretoriano)',
-    option_ids=[253, 302, 303, 304, 305, 306, 307, 308, 309, 310],
+    option_ids=[265, 315, 316, 317, 318, 319, 320, 321, 322, 323],
 )
 Propagation_Slumbering_Overlord_First_Praetorian = RogueEventTitle(
     id=101,
@@ -1011,7 +1011,7 @@ Propagation_Slumbering_Overlord_First_Praetorian = RogueEventTitle(
     en='Propagation: Slumbering Overlord (First Praetorian)',
     jp='繁殖・深眠の領主（一級守備）',
     es='Propagación: Cacique dormido (primer pretoriano)',
-    option_ids=[311, 312],
+    option_ids=[324, 325],
 )
 Propagation_Slumbering_Overlord_Second_Praetorian = RogueEventTitle(
     id=102,
@@ -1021,7 +1021,7 @@ Propagation_Slumbering_Overlord_Second_Praetorian = RogueEventTitle(
     en='Propagation: Slumbering Overlord (Second Praetorian)',
     jp='繁殖・深眠の領主（二級守備）',
     es='Propagación: Cacique dormido (segundo pretoriano)',
-    option_ids=[311, 312],
+    option_ids=[324, 325],
 )
 Propagation_Slumbering_Overlord_Third_Praetorian = RogueEventTitle(
     id=103,
@@ -1031,7 +1031,7 @@ Propagation_Slumbering_Overlord_Third_Praetorian = RogueEventTitle(
     en='Propagation: Slumbering Overlord (Third Praetorian)',
     jp='繁殖・深眠の領主（三級守備）',
     es='Propagación: Cacique dormido (tercer pretoriano)',
-    option_ids=[311, 312],
+    option_ids=[324, 325],
 )
 Swarm_Nest_Exploration_First_Praetorian = RogueEventTitle(
     id=104,
@@ -1041,7 +1041,7 @@ Swarm_Nest_Exploration_First_Praetorian = RogueEventTitle(
     en='Swarm: Nest Exploration (First Praetorian)',
     jp='虫の潮・虫の巣探険（一級守備）',
     es='Enjambre: Exploración del nido (primer pretoriano)',
-    option_ids=[313, 314, 315],
+    option_ids=[326, 327, 328],
 )
 Swarm_Nest_Exploration_Second_Praetorian = RogueEventTitle(
     id=105,
@@ -1051,7 +1051,7 @@ Swarm_Nest_Exploration_Second_Praetorian = RogueEventTitle(
     en='Swarm: Nest Exploration (Second Praetorian)',
     jp='虫の潮・虫の巣探険（二級守備）',
     es='Enjambre: Exploración del nido (segundo pretoriano)',
-    option_ids=[313, 314, 315],
+    option_ids=[326, 327, 328],
 )
 Swarm_Nest_Exploration_Third_Praetorian = RogueEventTitle(
     id=106,
@@ -1061,7 +1061,7 @@ Swarm_Nest_Exploration_Third_Praetorian = RogueEventTitle(
     en='Swarm: Nest Exploration (Third Praetorian)',
     jp='虫の潮・虫の巣探険（三級守備）',
     es='Enjambre: Exploración del nido (tercer pretoriano)',
-    option_ids=[313, 314, 315],
+    option_ids=[326, 327, 328],
 )
 Propagation_Nest_Exploration_First_Praetorian = RogueEventTitle(
     id=107,
@@ -1071,7 +1071,7 @@ Propagation_Nest_Exploration_First_Praetorian = RogueEventTitle(
     en='Propagation: Nest Exploration (First Praetorian)',
     jp='繁殖・虫の巣探険（一級守備）',
     es='Propagación: Exploración del nido (primer pretoriano)',
-    option_ids=[316, 317],
+    option_ids=[329, 330],
 )
 Propagation_Nest_Exploration_Second_Praetorian = RogueEventTitle(
     id=108,
@@ -1081,7 +1081,7 @@ Propagation_Nest_Exploration_Second_Praetorian = RogueEventTitle(
     en='Propagation: Nest Exploration (Second Praetorian)',
     jp='繁殖・虫の巣探険（二級守備）',
     es='Propagación: Exploración del nido (segundo pretoriano)',
-    option_ids=[316, 317],
+    option_ids=[329, 330],
 )
 Swarm_Mind_of_the_Domain_First_Praetorian = RogueEventTitle(
     id=109,
@@ -1091,7 +1091,7 @@ Swarm_Mind_of_the_Domain_First_Praetorian = RogueEventTitle(
     en='Swarm: Mind of the Domain (First Praetorian)',
     jp='虫の潮・区域脳（一級守備）',
     es='Enjambre: Mente de zona (primer pretoriano)',
-    option_ids=[318, 319, 320, 321, 322],
+    option_ids=[331, 332, 333, 334, 335],
 )
 Swarm_Mind_of_the_Domain_Second_Praetorian = RogueEventTitle(
     id=110,
@@ -1101,7 +1101,7 @@ Swarm_Mind_of_the_Domain_Second_Praetorian = RogueEventTitle(
     en='Swarm: Mind of the Domain (Second Praetorian)',
     jp='虫の潮・区域脳（二級守備）',
     es='Enjambre: Mente de zona (segundo pretoriano)',
-    option_ids=[319, 320, 321, 322],
+    option_ids=[332, 333, 334, 335],
 )
 Swarm_Mind_of_the_Domain_Third_Praetorian = RogueEventTitle(
     id=111,
@@ -1111,7 +1111,7 @@ Swarm_Mind_of_the_Domain_Third_Praetorian = RogueEventTitle(
     en='Swarm: Mind of the Domain (Third Praetorian)',
     jp='虫の潮・区域脳（三級守備）',
     es='Enjambre: Mente de zona (tercer pretoriano)',
-    option_ids=[320, 321, 322],
+    option_ids=[333, 334, 335],
 )
 Insights_from_the_Universal_Dancer = RogueEventTitle(
     id=112,
@@ -1121,7 +1121,7 @@ Insights_from_the_Universal_Dancer = RogueEventTitle(
     en='Insights from the Universal Dancer',
     jp='宇宙の踊り手の啓示',
     es='Reflexiones de la bailarina universal',
-    option_ids=[323, 324],
+    option_ids=[336, 337],
 )
 Pixel_World_Hidden_Stage = RogueEventTitle(
     id=113,
@@ -1131,7 +1131,7 @@ Pixel_World_Hidden_Stage = RogueEventTitle(
     en='Pixel World: Hidden Stage',
     jp='ピクセルワールド・隠しステージ',
     es='Mundo de píxeles: Mecanismo invisible',
-    option_ids=[325, 326, 327],
+    option_ids=[338, 339, 340, 341, 342],
 )
 Mirror_of_Transcendence = RogueEventTitle(
     id=114,
@@ -1141,7 +1141,7 @@ Mirror_of_Transcendence = RogueEventTitle(
     en='Mirror of Transcendence',
     jp='超越の鏡',
     es='Espejo de la Trascendencia',
-    option_ids=[72, 328, 329, 330, 331, 332],
+    option_ids=[79, 343, 344, 345, 346, 347],
 )
 The_Cuckoo_Clock_Fanatic_I = RogueEventTitle(
     id=115,
@@ -1151,7 +1151,7 @@ The_Cuckoo_Clock_Fanatic_I = RogueEventTitle(
     en='The Cuckoo Clock Fanatic (I)',
     jp='鳩時計の熱狂的ファン（1）',
     es='El fanático del reloj de cuco I',
-    option_ids=[333, 334, 335],
+    option_ids=[348, 349, 350],
 )
 The_Cuckoo_Clock_Fanatic_II = RogueEventTitle(
     id=116,
@@ -1161,7 +1161,7 @@ The_Cuckoo_Clock_Fanatic_II = RogueEventTitle(
     en='The Cuckoo Clock Fanatic (II)',
     jp='鳩時計の熱狂的ファン（2）',
     es='El fanático del reloj de cuco II',
-    option_ids=[334, 335],
+    option_ids=[349, 350],
 )
 The_Cuckoo_Clock_Fanatic_III = RogueEventTitle(
     id=117,
@@ -1171,7 +1171,7 @@ The_Cuckoo_Clock_Fanatic_III = RogueEventTitle(
     en='The Cuckoo Clock Fanatic (III)',
     jp='鳩時計の熱狂的ファン（3）',
     es='El fanático del reloj de cuco III',
-    option_ids=[335],
+    option_ids=[350],
 )
 Mechanical_City_Cogito_Hair_Salon_Screwllita = RogueEventTitle(
     id=118,
@@ -1181,7 +1181,7 @@ Mechanical_City_Cogito_Hair_Salon_Screwllita = RogueEventTitle(
     en='Mechanical City "Cogito Hair Salon" — Screwllita',
     jp='機械城「認識理容所」-マザーマキーナ',
     es='Peluquería cognitiva de Ciudad Mecánica - Mecanillum',
-    option_ids=[336, 337, 338, 339],
+    option_ids=[351, 352, 353, 354],
 )
 Mechanical_City_Cogito_Hair_Salon_Intelligentsia_Guild = RogueEventTitle(
     id=119,
@@ -1191,7 +1191,7 @@ Mechanical_City_Cogito_Hair_Salon_Intelligentsia_Guild = RogueEventTitle(
     en='Mechanical City "Cogito Hair Salon" — Intelligentsia Guild',
     jp='機械城「認識理容所」-博識学会',
     es='Peluquería cognitiva de Ciudad Mecánica - Sociedad del Conocimiento',
-    option_ids=[340, 341, 342, 343],
+    option_ids=[355, 356, 357, 358],
 )
 Mechanical_City_Cogito_Hair_Salon_Genius_Society = RogueEventTitle(
     id=120,
@@ -1201,7 +1201,7 @@ Mechanical_City_Cogito_Hair_Salon_Genius_Society = RogueEventTitle(
     en='Mechanical City "Cogito Hair Salon" — Genius Society',
     jp='機械城「認識理容所」-天才クラブ',
     es='Peluquería cognitiva de Ciudad Mecánica - Círculo de Genios',
-    option_ids=[344, 345, 346, 347],
+    option_ids=[359, 360, 361, 362],
 )
 Curio_Hacker = RogueEventTitle(
     id=121,
@@ -1211,7 +1211,7 @@ Curio_Hacker = RogueEventTitle(
     en='Curio Hacker',
     jp='奇物ハッカー',
     es='Hacker de objetos raros',
-    option_ids=[348, 349, 350],
+    option_ids=[363, 364, 365],
 )
 Sealing_Wax_Manufacture_Machine = RogueEventTitle(
     id=122,
@@ -1221,7 +1221,7 @@ Sealing_Wax_Manufacture_Machine = RogueEventTitle(
     en='Sealing Wax Manufacture Machine',
     jp='封蝋製造機',
     es='Máquina de producción de lacre',
-    option_ids=[351, 352, 353, 354, 355],
+    option_ids=[366, 367, 368, 369, 370],
 )
 Interastral_Peace_Investment_Device = RogueEventTitle(
     id=123,
@@ -1231,7 +1231,7 @@ Interastral_Peace_Investment_Device = RogueEventTitle(
     en='Interastral Peace Investment Device',
     jp='スターピース投資ロボット',
     es='Dispositivo de inversión de la Paz Interastral',
-    option_ids=[356, 357, 358, 359],
+    option_ids=[371, 372, 373, 374],
 )
 Interastral_Peace_Mechanical_Branch_Shopping_Mall_I = RogueEventTitle(
     id=124,
@@ -1241,7 +1241,7 @@ Interastral_Peace_Mechanical_Branch_Shopping_Mall_I = RogueEventTitle(
     en='Interastral Peace Mechanical Branch Shopping Mall (I)',
     jp='スターピースショッピングセンター・機械支部（その1）',
     es='Centro comercial mecánico de la Paz Interastral (I)',
-    option_ids=[354, 360, 361, 362],
+    option_ids=[369, 375, 376, 377, 378],
 )
 Interastral_Peace_Mechanical_Branch_Shopping_Mall_II = RogueEventTitle(
     id=125,
@@ -1251,7 +1251,7 @@ Interastral_Peace_Mechanical_Branch_Shopping_Mall_II = RogueEventTitle(
     en='Interastral Peace Mechanical Branch Shopping Mall (II)',
     jp='スターピースショッピングセンター・機械支部（その2）',
     es='Centro comercial mecánico de la Paz Interastral (II)',
-    option_ids=[354, 363, 364, 365],
+    option_ids=[369, 379, 380, 381],
 )
 Cheat_Code_I = RogueEventTitle(
     id=126,
@@ -1261,7 +1261,7 @@ Cheat_Code_I = RogueEventTitle(
     en='Cheat Code (I)',
     jp='チートコード（その1）',
     es='Código de trampa (I)',
-    option_ids=[366, 367, 368, 369, 370],
+    option_ids=[382, 383, 384, 385, 386],
 )
 Cheat_Code_II = RogueEventTitle(
     id=127,
@@ -1271,7 +1271,7 @@ Cheat_Code_II = RogueEventTitle(
     en='Cheat Code (II)',
     jp='チートコード（その2）',
     es='Código de trampa (II)',
-    option_ids=[367, 368, 369, 370],
+    option_ids=[383, 384, 385, 386],
 )
 Cuckoo_Clock_Fanatic_I = RogueEventTitle(
     id=128,
@@ -1281,7 +1281,7 @@ Cuckoo_Clock_Fanatic_I = RogueEventTitle(
     en='Cuckoo Clock Fanatic (I)',
     jp='鳩時計の熱狂的ファン（その1）',
     es='El fanático del reloj de cuco I',
-    option_ids=[333, 334, 335],
+    option_ids=[348, 349, 350],
 )
 Cuckoo_Clock_Fanatic_II = RogueEventTitle(
     id=129,
@@ -1291,7 +1291,7 @@ Cuckoo_Clock_Fanatic_II = RogueEventTitle(
     en='Cuckoo Clock Fanatic (II)',
     jp='鳩時計の熱狂的ファン（その2）',
     es='El fanático del reloj de cuco II',
-    option_ids=[334, 335],
+    option_ids=[349, 350],
 )
 Cuckoo_Clock_Fanatic_III = RogueEventTitle(
     id=130,
@@ -1301,7 +1301,7 @@ Cuckoo_Clock_Fanatic_III = RogueEventTitle(
     en='Cuckoo Clock Fanatic (III)',
     jp='鳩時計の熱狂的ファン（その3）',
     es='El fanático del reloj de cuco III',
-    option_ids=[335],
+    option_ids=[350],
 )
 Dangerous_Feeding = RogueEventTitle(
     id=131,
@@ -1311,7 +1311,7 @@ Dangerous_Feeding = RogueEventTitle(
     en='Dangerous Feeding',
     jp='危険な給餌',
     es='Alimentación peligrosa',
-    option_ids=[371, 372, 373, 374, 375, 376],
+    option_ids=[387, 388, 389, 390, 391, 392],
 )
 The_Returning_Heliobus = RogueEventTitle(
     id=132,
@@ -1321,7 +1321,7 @@ The_Returning_Heliobus = RogueEventTitle(
     en='The Returning Heliobus',
     jp='帰ってきた歳陽',
     es='El heliobus de regreso',
-    option_ids=[377],
+    option_ids=[393, 394],
 )
 Culinary_Colosseum = RogueEventTitle(
     id=133,
@@ -1331,7 +1331,7 @@ Culinary_Colosseum = RogueEventTitle(
     en='Culinary Colosseum',
     jp='料理王決定戦',
     es='Coliseo culinario',
-    option_ids=[378, 379, 380],
+    option_ids=[395, 396, 397],
 )
 Ternary_War = RogueEventTitle(
     id=134,
@@ -1341,7 +1341,7 @@ Ternary_War = RogueEventTitle(
     en='Ternary War',
     jp='三進法の戦争',
     es='Guerras ternarias',
-    option_ids=[381],
+    option_ids=[398],
 )
 Contest_of_Accord = RogueEventTitle(
     id=135,
@@ -1351,7 +1351,7 @@ Contest_of_Accord = RogueEventTitle(
     en='Contest of Accord',
     jp='協和コンテスト',
     es='Competición armoniosa',
-    option_ids=[382],
+    option_ids=[399],
 )
 Imperial_Legacy = RogueEventTitle(
     id=136,
@@ -1361,7 +1361,7 @@ Imperial_Legacy = RogueEventTitle(
     en='Imperial Legacy',
     jp='帝国の遺産',
     es='Legado imperial',
-    option_ids=[383, 384, 385, 386],
+    option_ids=[400, 401, 402, 403],
 )
 Fortune_Telling = RogueEventTitle(
     id=137,
@@ -1371,7 +1371,7 @@ Fortune_Telling = RogueEventTitle(
     en='Fortune Telling',
     jp='占い',
     es='Adivinación',
-    option_ids=[387, 388, 389, 390, 391],
+    option_ids=[404, 405, 406, 407, 408],
 )
 Ruan_Mei_III = RogueEventTitle(
     id=138,
@@ -1381,7 +1381,7 @@ Ruan_Mei_III = RogueEventTitle(
     en='Ruan Mei (III)',
     jp='ルアン・メェイ（その3）',
     es='Ruan Mei III',
-    option_ids=[392, 393, 394],
+    option_ids=[409, 410, 411],
 )
 Special_Discount = RogueEventTitle(
     id=139,
@@ -1391,7 +1391,7 @@ Special_Discount = RogueEventTitle(
     en='Special Discount',
     jp='特別割引',
     es='Descuento especial',
-    option_ids=[395, 396, 397, 398, 399, 400, 401, 402, 403, 404],
+    option_ids=[412, 413, 414, 415, 416, 417, 418, 419, 420, 421],
 )
 Metal_Life = RogueEventTitle(
     id=140,
@@ -1401,7 +1401,7 @@ Metal_Life = RogueEventTitle(
     en='Metal Life',
     jp='金属生活',
     es='Vida metálica',
-    option_ids=[405, 406, 407, 408, 409, 410, 411],
+    option_ids=[422, 423, 424, 425, 426, 427, 428],
 )
 A_Dash_of_Color = RogueEventTitle(
     id=141,
@@ -1411,7 +1411,7 @@ A_Dash_of_Color = RogueEventTitle(
     en='A Dash of Color',
     jp='一抹の色彩',
     es='Una pizca de color',
-    option_ids=[412, 413, 414],
+    option_ids=[429, 430, 431],
 )
 Creation_Unit = RogueEventTitle(
     id=142,
@@ -1421,7 +1421,7 @@ Creation_Unit = RogueEventTitle(
     en='Creation Unit',
     jp='造物ユニット',
     es='Unidad de creación',
-    option_ids=[415],
+    option_ids=[432],
 )
 Time_Bank_I = RogueEventTitle(
     id=143,
@@ -1431,7 +1431,7 @@ Time_Bank_I = RogueEventTitle(
     en='Time Bank (I)',
     jp='タイムバンク（その1）',
     es='Banco del tiempo (I)',
-    option_ids=[416, 417, 418, 419, 420, 421, 422, 423, 424, 425, 426, 427],
+    option_ids=[433, 434, 435, 436, 437, 438, 439, 440, 441, 442, 443, 444],
 )
 Time_Bank_II = RogueEventTitle(
     id=144,
@@ -1441,7 +1441,7 @@ Time_Bank_II = RogueEventTitle(
     en='Time Bank (II)',
     jp='タイムバンク（その2）',
     es='Banco del tiempo (II)',
-    option_ids=[426, 427],
+    option_ids=[443, 444],
 )
 Red_Temptation = RogueEventTitle(
     id=145,
@@ -1451,7 +1451,7 @@ Red_Temptation = RogueEventTitle(
     en='Red Temptation',
     jp='赤い誘惑',
     es='Tentación roja',
-    option_ids=[428, 429, 430, 431, 432],
+    option_ids=[445, 446, 447, 448, 449],
 )
 Selection_Difficulties_I = RogueEventTitle(
     id=146,
@@ -1461,7 +1461,7 @@ Selection_Difficulties_I = RogueEventTitle(
     en='Selection Difficulties (I)',
     jp='選択困難（その1）',
     es='Dificultad de elección (I)',
-    option_ids=[433, 434, 435, 436, 437],
+    option_ids=[450, 451, 452, 453, 454],
 )
 Selection_Difficulties_II = RogueEventTitle(
     id=147,
@@ -1471,7 +1471,7 @@ Selection_Difficulties_II = RogueEventTitle(
     en='Selection Difficulties (II)',
     jp='選択困難（その2）',
     es='Dificultad de elección (II)',
-    option_ids=[434, 435, 436, 437],
+    option_ids=[451, 452, 453, 454],
 )
 Semantic_Mismatch = RogueEventTitle(
     id=148,
@@ -1481,7 +1481,7 @@ Semantic_Mismatch = RogueEventTitle(
     en='Semantic Mismatch',
     jp='本義の不一致',
     es='Inconsistencia semántica',
-    option_ids=[438, 439, 440],
+    option_ids=[455, 456, 457],
 )
 Pineapple_Bread = RogueEventTitle(
     id=149,
@@ -1491,7 +1491,7 @@ Pineapple_Bread = RogueEventTitle(
     en='Pineapple Bread',
     jp='パイナップルパン',
     es='Pan de piña',
-    option_ids=[441, 442, 443],
+    option_ids=[458, 459, 460],
 )
 Trash_Symphony = RogueEventTitle(
     id=150,
@@ -1501,7 +1501,7 @@ Trash_Symphony = RogueEventTitle(
     en='Trash Symphony',
     jp='トラッシュシンフォニー',
     es='Sinfonía de la basura',
-    option_ids=[444, 445],
+    option_ids=[461, 462],
 )
 Lava = RogueEventTitle(
     id=151,
@@ -1511,7 +1511,7 @@ Lava = RogueEventTitle(
     en='Lava',
     jp='溶岩',
     es='Lava',
-    option_ids=[446, 447, 448],
+    option_ids=[463, 464, 465],
 )
 Apes_Such_As_You = RogueEventTitle(
     id=152,
@@ -1521,7 +1521,7 @@ Apes_Such_As_You = RogueEventTitle(
     en='Apes Such As You',
     jp='あなたのような蒼猿は',
     es='Simios como tú',
-    option_ids=[449],
+    option_ids=[466],
 )
 Fishing_Ceremony = RogueEventTitle(
     id=153,
@@ -1531,7 +1531,7 @@ Fishing_Ceremony = RogueEventTitle(
     en='Fishing Ceremony',
     jp='釣りの儀式',
     es='Ceremonia de pesca',
-    option_ids=[450, 451, 452, 453, 454, 455, 456, 457, 458, 459],
+    option_ids=[467, 468, 469, 470, 471, 472, 473, 474, 475, 476],
 )
 Flea_Market = RogueEventTitle(
     id=154,
@@ -1541,7 +1541,7 @@ Flea_Market = RogueEventTitle(
     en='Flea Market',
     jp='蚤の市',
     es='Mercadillo',
-    option_ids=[460, 461, 462, 463, 464, 465, 466, 467, 468, 469, 470, 471, 472],
+    option_ids=[477, 478, 479, 480, 481, 482, 483, 484, 485, 486, 487, 488, 489],
 )
 Collab_Product = RogueEventTitle(
     id=155,
@@ -1551,5 +1551,65 @@ Collab_Product = RogueEventTitle(
     en='Collab Product',
     jp='コラボ商品',
     es='Producto de colaboración',
-    option_ids=[5, 473, 474],
+    option_ids=[10, 490, 491],
+)
+Fast__Engines = RogueEventTitle(
+    id=156,
+    name='Fast__Engines',
+    cn='速度与引擎',
+    cht='速度與引擎',
+    en='Fast & Engines',
+    jp='スピード＆エンジン',
+    es='Rápido y a motor',
+    option_ids=[492, 493, 494, 495, 496, 497, 498, 499, 500, 501, 502],
+)
+Incubator = RogueEventTitle(
+    id=157,
+    name='Incubator',
+    cn='培养皿',
+    cht='培養皿',
+    en='Incubator',
+    jp='シャーレ',
+    es='Incubadora',
+    option_ids=[503, 504],
+)
+Repairman_I = RogueEventTitle(
+    id=158,
+    name='Repairman_I',
+    cn='修补匠（其一）',
+    cht='修補匠（其一）',
+    en='Repairman (I)',
+    jp='修理職人（その1）',
+    es='Artesano remendón (I)',
+    option_ids=[505, 506, 507, 508, 509, 510],
+)
+Repairman_II = RogueEventTitle(
+    id=159,
+    name='Repairman_II',
+    cn='修补匠（其二）',
+    cht='修補匠（其二）',
+    en='Repairman (II)',
+    jp='修理職人（その2）',
+    es='Artesano remendón (II)',
+    option_ids=[506, 507, 508, 509, 510],
+)
+Ship_of_Fools = RogueEventTitle(
+    id=160,
+    name='Ship_of_Fools',
+    cn='愚人船',
+    cht='愚人船',
+    en='Ship of Fools',
+    jp='阿呆船',
+    es='El barco de los tontos',
+    option_ids=[511, 512, 513, 514, 515, 516],
+)
+Stephen = RogueEventTitle(
+    id=161,
+    name='Stephen',
+    cn='斯蒂芬',
+    cht='史帝芬',
+    en='Stephen',
+    jp='スティーブン',
+    es='Stephen',
+    option_ids=[5, 6, 7, 8, 10],
 )

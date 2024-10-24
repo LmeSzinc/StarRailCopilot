@@ -363,6 +363,12 @@
         "display": "display",
         "stored": "StoredPlanner"
       },
+      "Item_Chordal_Mirage": {
+        "type": "planner",
+        "value": {},
+        "display": "display",
+        "stored": "StoredPlanner"
+      },
       "Item_Worldbreaker_Blade": {
         "type": "planner",
         "value": {},
@@ -586,6 +592,8 @@
           "Stagnant_Shadow_Roast",
           "Stagnant_Shadow_Mirage",
           "Stagnant_Shadow_Puppetry",
+          "Stagnant_Shadow_Timbre",
+          "Cavern_of_Corrosion_Path_of_Uncertainty",
           "Cavern_of_Corrosion_Path_of_Cavalier",
           "Cavern_of_Corrosion_Path_of_Dreamdive",
           "Cavern_of_Corrosion_Path_of_Darkness",
@@ -631,6 +639,7 @@
         "type": "select",
         "value": "Cavern_of_Corrosion_Path_of_Providence",
         "option": [
+          "Cavern_of_Corrosion_Path_of_Uncertainty",
           "Cavern_of_Corrosion_Path_of_Cavalier",
           "Cavern_of_Corrosion_Path_of_Dreamdive",
           "Cavern_of_Corrosion_Path_of_Darkness",
@@ -714,6 +723,7 @@
           "Natasha",
           "Pela",
           "Qingque",
+          "Rappa",
           "Robin",
           "RuanMei",
           "Sampo",
@@ -914,6 +924,7 @@
           "Natasha",
           "Pela",
           "Qingque",
+          "Rappa",
           "Robin",
           "RuanMei",
           "Sampo",
@@ -1452,6 +1463,7 @@
           "Natasha",
           "Pela",
           "Qingque",
+          "Rappa",
           "Robin",
           "RuanMei",
           "Sampo",

@@ -282,3 +282,21 @@ Consciousness_Cluster = RogueBonus(
     jp='意識群',
     es='Grupo de conciencia',
 )
+Oscillating_Stars = RogueBonus(
+    id=32,
+    name='Oscillating_Stars',
+    cn='振荡星',
+    cht='振盪星',
+    en='Oscillating Stars',
+    jp='振動する星',
+    es='Estrellas oscilantes',
+)
+Boundless_Sea = RogueBonus(
+    id=33,
+    name='Boundless_Sea',
+    cn='无涯海',
+    cht='無涯海',
+    en='Boundless Sea',
+    jp='果てなき海',
+    es='Mar infinito',
+)

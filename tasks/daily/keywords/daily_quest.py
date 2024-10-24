@@ -37,7 +37,7 @@ Clear_Cavern_of_Corrosion_1_times = DailyQuest(
     cht='完成1次「侵蝕隧洞」',
     en='Clear Cavern of Corrosion 1 time(s)',
     jp='「侵蝕トンネル」を1回クリアする',
-    es='Completa Caverna de la corrosión 1 veces',
+    es='Completa Caverna de la corrosión 1 vez',
 )
 In_a_single_battle_inflict_3_Weakness_Break_of_different_Types = DailyQuest(
     id=6,
@@ -208,7 +208,7 @@ Use_the_Omni_Synthesizer_1_times = DailyQuest(
     cht='使用1次「萬能合成機」',
     en='Use the Omni-Synthesizer 1 time(s)',
     jp='「万能合成マシン」を1回使用する',
-    es='Utiliza la máquina sintetizadora multiusos 1 veces',
+    es='Utiliza la máquina sintetizadora multiusos 1 vez',
 )
 Take_photos_1_times = DailyQuest(
     id=38,
@@ -226,7 +226,7 @@ Consume_120_Trailblaze_Power = DailyQuest(
     cht='累積消耗120點開拓力',
     en='Consume 120 Trailblaze Power',
     jp='累計で開拓力×120を消費する',
-    es='Consume 120 pts. de Poder trazacaminos',
+    es='Consume 120pts. de Poder trazacaminos',
 )
 Level_up_any_Relic_1_times = DailyQuest(
     id=40,

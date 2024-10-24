@@ -286,6 +286,8 @@
       "Stagnant_Shadow_Roast": "キャラクター昇格素材：量子（ジェイド / 花火）",
       "Stagnant_Shadow_Mirage": "キャラクター昇格素材：虚数（ヴェルト / 羅刹 / 御空）",
       "Stagnant_Shadow_Puppetry": "キャラクター昇格素材：虚数（丹恒・飲月 / アベンチュリン / Dr.レイシオ）",
+      "Stagnant_Shadow_Timbre": "キャラクター昇格素材：虚数（乱破）",
+      "Cavern_of_Corrosion_Path_of_Uncertainty": "Cavern_of_Corrosion_Path_of_Uncertainty（迷識の路）",
       "Cavern_of_Corrosion_Path_of_Cavalier": "侵蝕トンネル・勇騎の路（勇騎の路）",
       "Cavern_of_Corrosion_Path_of_Dreamdive": "侵蝕トンネル・夢潜の路（夢潜の路）",
       "Cavern_of_Corrosion_Path_of_Darkness": "侵蝕トンネル・幽冥の路（幽冥の路）",
@@ -327,6 +329,7 @@
     "NameAtDoubleRelic": {
       "name": "Dungeon.NameAtDoubleRelic.name",
       "help": "Dungeon.NameAtDoubleRelic.help",
+      "Cavern_of_Corrosion_Path_of_Uncertainty": "Cavern_of_Corrosion_Path_of_Uncertainty（迷識の路）",
       "Cavern_of_Corrosion_Path_of_Cavalier": "侵蝕トンネル・勇騎の路（勇騎の路）",
       "Cavern_of_Corrosion_Path_of_Dreamdive": "侵蝕トンネル・夢潜の路（夢潜の路）",
       "Cavern_of_Corrosion_Path_of_Darkness": "侵蝕トンネル・幽冥の路（幽冥の路）",
@@ -427,6 +430,7 @@
       "Natasha": "ナターシャ",
       "Pela": "ペラ",
       "Qingque": "青雀",
+      "Rappa": "乱破",
       "Robin": "ロビン",
       "RuanMei": "ルアン・メェイ",
       "Sampo": "サンポ",
@@ -594,6 +598,10 @@
     },
     "Item_Dream_Flamer": {
       "name": "キャラクター昇格素材：量子（ジェイド / 花火）",
+      "help": ""
+    },
+    "Item_Chordal_Mirage": {
+      "name": "キャラクター昇格素材：虚数（乱破）",
       "help": ""
     },
     "Item_Worldbreaker_Blade": {

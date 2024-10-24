@@ -165,8 +165,17 @@ Stagnant_Shadow_Duty = DungeonDetailed(
     jp='キャラクター昇格素材：物理（ブートヒル / ロビン / 雲璃）',
     es='Ascension: Físico (Boothill / Robin / Yunli)',
 )
-Stagnant_Shadow_Mechwolf = DungeonDetailed(
+Stagnant_Shadow_Timbre = DungeonDetailed(
     id=19,
+    name='Stagnant_Shadow_Timbre',
+    cn='角色晋阶材料：虚数（乱破）',
+    cht='角色晉階材料：虛數（亂破）',
+    en='Ascension: Imaginary (Rappa)',
+    jp='キャラクター昇格素材：虚数（乱破）',
+    es='Ascension: Imaginario (Rappa)',
+)
+Stagnant_Shadow_Mechwolf = DungeonDetailed(
+    id=20,
     name='Stagnant_Shadow_Mechwolf',
     cn='角色晋阶材料：雷（貊泽）',
     cht='角色晉階材料：雷（貊澤）',
@@ -175,7 +184,7 @@ Stagnant_Shadow_Mechwolf = DungeonDetailed(
     es='Ascension: Rayo (Moze)',
 )
 Stagnant_Shadow_Gloam = DungeonDetailed(
-    id=20,
+    id=21,
     name='Stagnant_Shadow_Gloam',
     cn='角色晋阶材料：风（飞霄）',
     cht='角色晉階材料：風（飛霄）',

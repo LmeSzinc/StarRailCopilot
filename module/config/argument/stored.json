@@ -376,6 +376,17 @@
     "order": 0,
     "color": "#777777"
   },
+  "Item_Chordal_Mirage": {
+    "name": "Item_Chordal_Mirage",
+    "path": "Dungeon.Planner.Item_Chordal_Mirage",
+    "i18n": "Planner.Item_Chordal_Mirage.name",
+    "stored": "StoredPlanner",
+    "attrs": {
+      "time": "2020-01-01 00:00:00"
+    },
+    "order": 0,
+    "color": "#777777"
+  },
   "Item_Worldbreaker_Blade": {
     "name": "Item_Worldbreaker_Blade",
     "path": "Dungeon.Planner.Item_Worldbreaker_Blade",

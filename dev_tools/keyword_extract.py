@@ -8,7 +8,6 @@ from hashlib import md5
 from dev_tools.keywords.base import TextMap, UI_LANGUAGES, replace_templates, text_to_variable
 from module.base.code_generator import CodeGenerator
 from module.config.utils import deep_get, read_file
-from module.exception import ScriptError
 from module.logger import logger
 
 
@@ -18,28 +17,10 @@ def blessing_name(name: str) -> str:
     return name
 
 
-def character_name(name: str) -> str:
-    name = text_to_variable(name)
-    name = re.sub('_', '', name)
-    return name
-
-
-def convert_inner_character_to_keyword(name):
-    convert_dict = {
-        'Silwolf': 'SilverWolf',
-        'Klara': 'Clara',
-        'Mar_7th': 'March7th',
-        'PlayerGirl': 'TrailblazerFemale',
-        'PlayerBoy': 'TrailblazerMale',
-        'Ren': 'Blade',
-    }
-    return convert_dict.get(name, name)
-
-
 class KeywordExtract:
     def __init__(self):
         self.text_map: dict[str, TextMap] = {lang: TextMap(lang) for lang in UI_LANGUAGES}
-        self.text_map['cn'] = TextMap('chs')
+        # self.text_map['cn'] = TextMap('chs')
         self.keywords_id: list[int] = []
 
     def find_keyword(self, keyword, lang) -> tuple[int, str]:
@@ -210,18 +191,6 @@ class KeywordExtract:
         self.load_quests([str(deep_get(data, 'DailyID')) for data in daily_quest])
         self.write_daily_quest_keywords()
 
-    def load_character_name_keywords(self, lang='en'):
-        file_name = 'ItemConfigAvatarPlayerIcon.json'
-        path = os.path.join(TextMap.DATA_FOLDER, 'ExcelOutput', file_name)
-        character_data = read_file(path)
-        characters_hash = [data["ItemName"]["Hash"] for data in character_data]
-
-        text_map = self.text_map[lang]
-        keywords_id = sorted(
-            {text_map.find(keyword)[1] for keyword in characters_hash}
-        )
-        self.load_keywords(keywords_id, lang)
-
     def generate_shadow_with_characters(self):
         # Damage type -> damage hash
         damage_info = dict()
@@ -237,6 +206,9 @@ class KeywordExtract:
                 TextMap.DATA_FOLDER, 'ExcelOutput',
                 'AvatarConfig.json'
         )):
+            voice = deep_get(data, 'AvatarVOTag', default='')
+            if voice == 'test':
+                continue
             name_hash = deep_get(data, 'AvatarName.Hash')
             damage_type = deep_get(data, 'DamageType')
             character_info[data['AvatarID']] = (
@@ -257,7 +229,10 @@ class KeywordExtract:
         )), keyword='AvatarID'):
             character_id = deep_get(data, '0.AvatarID')
             item_id = deep_get(data, '2.PromotionCostList')[-1]['ItemID']
-            promotion_info[item_id].append(character_info[character_id])
+            try:
+                promotion_info[item_id].append(character_info[character_id])
+            except KeyError:
+                pass
         # Shadow hash -> item id
         shadow_info = dict()
         for data in merge_same(read_file(os.path.join(
@@ -338,36 +313,10 @@ class KeywordExtract:
         GenerateMapPlane()()
 
     def generate_character_keywords(self):
-        self.load_character_name_keywords()
-        self.write_keywords(keyword_class='CharacterList', output_file='./tasks/character/keywords/character_list.py',
-                            text_convert=character_name)
-        # Generate character height
-        characters = read_file(os.path.join(TextMap.DATA_FOLDER, 'ExcelOutput', 'FreeStyleCharacterConfig.json'))
-        regex = re.compile(r'NPC_Avatar_(?P<height>.*?)_(?P<character>.*?)_00')
-        gen = CodeGenerator()
-        dict_height = {}
-        height_index = ['Kid', 'Girl', 'Boy', 'Maid', 'Miss', 'Lady', 'Lad', 'Male']
-        for key in characters.keys():
-            if res := regex.search(key):
-                character, height = res.group('character'), res.group('height')
-                if height not in height_index:
-                    continue
-                dict_height[character] = height
-        dict_height = {k: v for k, v in sorted(dict_height.items(), key=lambda item: height_index.index(item[1]))}
-        from tasks.character.keywords.classes import CharacterList
-        with gen.Dict('CHARACTER_HEIGHT'):
-            for character, height in dict_height.items():
-                character = convert_inner_character_to_keyword(character)
-                try:
-                    CharacterList.find_name(character)
-                except ScriptError:
-                    print(f'Character height data {character} is not defined')
-                    continue
-                gen.DictItem(key=character, value=height)
-        gen.write('./tasks/character/keywords/height.py')
-
-        self.load_keywords(['物理', '火', '冰', '雷', '风', '量子', '虚数'], lang='cn')
-        self.write_keywords(keyword_class='CombatType', output_file='./tasks/character/keywords/combat_type.py')
+        from dev_tools.keywords.character import GenerateCharacterList, GenerateCharacterHeight, GenerateCombatType
+        GenerateCharacterList()()
+        GenerateCharacterHeight()()
+        GenerateCombatType()()
 
     def generate_battle_pass_quests(self):
         battle_pass_quests = read_file(os.path.join(TextMap.DATA_FOLDER, 'ExcelOutput', 'BattlePassConfig.json'))
@@ -607,7 +556,7 @@ class KeywordExtract:
         self.load_keywords(['本周任务', '本期任务'])
         self.write_keywords(keyword_class='BattlePassMissionTab',
                             output_file='./tasks/battle_pass/keywords/mission_tab.py')
-        self.generate_assignments()
+        # self.generate_assignments()
         self.generate_forgotten_hall_stages()
         self.generate_daily_quests()
         self.generate_battle_pass_quests()
@@ -630,5 +579,5 @@ class KeywordExtract:
 
 
 if __name__ == '__main__':
-    TextMap.DATA_FOLDER = '../StarRailData'
+    TextMap.DATA_FOLDER = '../DanhengServer-Resources'
     KeywordExtract().generate()

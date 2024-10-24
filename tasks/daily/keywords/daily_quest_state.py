@@ -28,7 +28,7 @@ In_Progress = DailyQuestState(
     cht='進行中',
     en='In Progress',
     jp='進行中',
-    es='En curso',
+    es='En progreso',
 )
 Claimed = DailyQuestState(
     id=4,

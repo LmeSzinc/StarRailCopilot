@@ -286,6 +286,8 @@
       "Stagnant_Shadow_Roast": "Ascension: Quantum (Jade / Sparkle)",
       "Stagnant_Shadow_Mirage": "Ascension: Imaginary (Welt / Luocha / Yukong)",
       "Stagnant_Shadow_Puppetry": "Ascension: Imaginary (Dan Heng • Imbibitor Lunae / Aventurine / Dr. Ratio)",
+      "Stagnant_Shadow_Timbre": "Ascension: Imaginary (Rappa)",
+      "Cavern_of_Corrosion_Path_of_Uncertainty": "Cavern_of_Corrosion_Path_of_Uncertainty (Path of Uncertainty)",
       "Cavern_of_Corrosion_Path_of_Cavalier": "Relics: Super Break Set & Pursuit Ultimate Set (Path of Cavalier)",
       "Cavern_of_Corrosion_Path_of_Dreamdive": "Relics: Debuff Set & Break Effect Set (Path of Dreamdive)",
       "Cavern_of_Corrosion_Path_of_Darkness": "Relics: Pursuit Set & Dot Set (Path of Darkness)",
@@ -327,6 +329,7 @@
     "NameAtDoubleRelic": {
       "name": "At Double Relic Event, choose dungeon",
       "help": "Return to the default dungeon settings after double times exhausted",
+      "Cavern_of_Corrosion_Path_of_Uncertainty": "Cavern_of_Corrosion_Path_of_Uncertainty (Path of Uncertainty)",
       "Cavern_of_Corrosion_Path_of_Cavalier": "Relics: Super Break Set & Pursuit Ultimate Set (Path of Cavalier)",
       "Cavern_of_Corrosion_Path_of_Dreamdive": "Relics: Debuff Set & Break Effect Set (Path of Dreamdive)",
       "Cavern_of_Corrosion_Path_of_Darkness": "Relics: Pursuit Set & Dot Set (Path of Darkness)",
@@ -427,6 +430,7 @@
       "Natasha": "Natasha",
       "Pela": "Pela",
       "Qingque": "Qingque",
+      "Rappa": "Rappa",
       "Robin": "Robin",
       "RuanMei": "Ruan Mei",
       "Sampo": "Sampo",
@@ -594,6 +598,10 @@
     },
     "Item_Dream_Flamer": {
       "name": "Ascension: Quantum (Jade / Sparkle)",
+      "help": ""
+    },
+    "Item_Chordal_Mirage": {
+      "name": "Ascension: Imaginary (Rappa)",
       "help": ""
     },
     "Item_Worldbreaker_Blade": {

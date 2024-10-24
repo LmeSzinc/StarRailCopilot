@@ -37,7 +37,7 @@ SWITCH_ITEM_TAB.add_state(
     click_button=UPGRADE_MATERIAL_CLICK
 )
 SWITCH_ITEM_TAB.add_state(
-    KEYWORDS_ITEM_TAB.LightCone,
+    KEYWORDS_ITEM_TAB.LightCones,
     check_button=LIGHT_CONE_CHECK,
     click_button=LIGHT_CONE_CLICK
 )

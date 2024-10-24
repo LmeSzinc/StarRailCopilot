@@ -858,3 +858,516 @@ Wildminder_Machine_Cell = RogueCurio(
     jp='「奇想天外」培養脳',
     es='Maquinaria del pensamiento loco',
 )
+Quantum_Big_Lotto = RogueCurio(
+    id=96,
+    name='Quantum_Big_Lotto',
+    cn='量子大乐透',
+    cht='量子大樂透',
+    en='Quantum Big Lotto',
+    jp='量子ビッグロッタリー',
+    es='Gran Lotería Cuántica',
+)
+Metallic_Gear_Ring = RogueCurio(
+    id=97,
+    name='Metallic_Gear_Ring',
+    cn='铸铁的齿轮指环',
+    cht='鑄鐵的齒輪戒指',
+    en='Metallic Gear Ring',
+    jp='鋳鉄のギア指輪',
+    es='Anillo de engranaje metálico',
+)
+Metallic_Motor_Ring = RogueCurio(
+    id=98,
+    name='Metallic_Motor_Ring',
+    cn='铸铁的机动指环',
+    cht='鑄鐵的機動戒指',
+    en='Metallic Motor Ring',
+    jp='鋳鉄のメカ指輪',
+    es='Anillo mecánico de metal',
+)
+Kill_That_Butterfly = RogueCurio(
+    id=99,
+    name='Kill_That_Butterfly',
+    cn='杀死那只蝴蝶',
+    cht='殺死那隻蝴蝶',
+    en='Kill That Butterfly',
+    jp='蝶殺し',
+    es='Matar a la mariposa',
+)
+Resurrection_of_Language = RogueCurio(
+    id=100,
+    name='Resurrection_of_Language',
+    cn='语言的复活',
+    cht='語言的復活',
+    en='Resurrection of Language',
+    jp='言語の復活',
+    es='Resurrección del lenguaje',
+)
+Rubert_Empire_Mechanical_Lever = RogueCurio(
+    id=101,
+    name='Rubert_Empire_Mechanical_Lever',
+    cn='鲁珀特帝国机械杠杆',
+    cht='魯珀特帝國機械槓桿',
+    en='Rubert Empire Mechanical Lever',
+    jp='ルパート帝国の機械型槓桿',
+    es='Palanca mecánica del imperio de Rupert',
+)
+Rubert_Empire_Mechanical_Piston = RogueCurio(
+    id=102,
+    name='Rubert_Empire_Mechanical_Piston',
+    cn='鲁珀特帝国机械活塞',
+    cht='魯珀特帝國機械活塞',
+    en='Rubert Empire Mechanical Piston',
+    jp='ルパート帝国の機械喞子',
+    es='Pistón mecánico del imperio de Rupert',
+)
+Self_Consciousness_Relaxation = RogueCurio(
+    id=103,
+    name='Self_Consciousness_Relaxation',
+    cn='自我意识的舒张压',
+    cht='自我意識的舒張壓',
+    en='Self-Consciousness Relaxation',
+    jp='自己意識の最低血圧',
+    es='Palpitación de la propia conciencia',
+)
+Shatterbone_Blade = RogueCurio(
+    id=104,
+    name='Shatterbone_Blade',
+    cn='断骨剑',
+    cht='斷骨劍',
+    en='Shatterbone Blade',
+    jp='断骨剣',
+    es='Espada de hueso roto',
+)
+Temporary_Stake = RogueCurio(
+    id=105,
+    name='Temporary_Stake',
+    cn='临时赌资',
+    cht='臨時賭資',
+    en='Temporary Stake',
+    jp='臨時の種銭',
+    es='Apuesta temporal',
+)
+Struggling_Color = RogueCurio(
+    id=106,
+    name='Struggling_Color',
+    cn='挣扎的色彩',
+    cht='掙扎的色彩',
+    en='Struggling Color',
+    jp='葛藤する色彩',
+    es='Color en apuros',
+)
+Celesticomet_Alloy = RogueCurio(
+    id=107,
+    name='Celesticomet_Alloy',
+    cn='天彗合金',
+    cht='天彗合金',
+    en='Celesticomet Alloy',
+    jp='天彗合金',
+    es='Aleación celesticometa',
+)
+Celesticomet_Alloy_Type_I = RogueCurio(
+    id=108,
+    name='Celesticomet_Alloy_Type_I',
+    cn='天彗合金Ⅰ型',
+    cht='天彗合金Ⅰ型',
+    en='Celesticomet Alloy Type-I',
+    jp='天彗合金I型',
+    es='Aleación celesticometa tipo I',
+)
+Punklordian_Regards = RogueCurio(
+    id=109,
+    name='Punklordian_Regards',
+    cn='朋克洛德问候',
+    cht='龐克洛德問候',
+    en='Punklordian Regards',
+    jp='パンクロードの挨拶',
+    es='Saludos de Punklorde',
+)
+Joyous_Incense = RogueCurio(
+    id=110,
+    name='Joyous_Incense',
+    cn='喜乐熏香',
+    cht='喜樂薰香',
+    en='Joyous Incense',
+    jp='喜びの香り',
+    es='Incienso jovial',
+)
+Celesticomet_Alloy_Type_II = RogueCurio(
+    id=111,
+    name='Celesticomet_Alloy_Type_II',
+    cn='天彗合金Ⅱ型',
+    cht='天彗合金Ⅱ型',
+    en='Celesticomet Alloy Type-II',
+    jp='天彗合金II型',
+    es='Aleación celesticometa tipo II',
+)
+Tawot_Cards = RogueCurio(
+    id=112,
+    name='Tawot_Cards',
+    cn='塔奥牌',
+    cht='塔奧牌',
+    en='Tawot Cards',
+    jp='タオットカード',
+    es='Cartas de Tawot',
+)
+Memory_Cycle = RogueCurio(
+    id=113,
+    name='Memory_Cycle',
+    cn='记忆轮',
+    cht='記憶輪',
+    en='Memory Cycle',
+    jp='記憶のルーレット',
+    es='Ciclo de recuerdos',
+)
+Plaguenest = RogueCurio(
+    id=114,
+    name='Plaguenest',
+    cn='瘟疫巢都',
+    cht='瘟疫巢都',
+    en='Plaguenest',
+    jp='疫病の巣',
+    es='Colmena infestada',
+)
+Rubert_Empire_Difference_Machine = RogueCurio(
+    id=115,
+    name='Rubert_Empire_Difference_Machine',
+    cn='鲁珀特帝国差分机',
+    cht='魯珀特帝國差分機',
+    en='Rubert Empire Difference Machine',
+    jp='ルパート帝国の階差機関',
+    es='Diferenciador del imperio de Rupert',
+)
+Reunion_With_Death = RogueCurio(
+    id=116,
+    name='Reunion_With_Death',
+    cn='与死重逢',
+    cht='與死重逢',
+    en='Reunion With Death',
+    jp='死との再会',
+    es='Reunión con la muerte',
+)
+Talot_Doll = RogueCurio(
+    id=117,
+    name='Talot_Doll',
+    cn='塔洛特玩偶',
+    cht='塔洛特玩偶',
+    en='Talot Doll',
+    jp='タロート人形',
+    es='Muñeco talot',
+)
+Celesticomet_Alloy_Type_III = RogueCurio(
+    id=118,
+    name='Celesticomet_Alloy_Type_III',
+    cn='天彗合金Ⅲ型',
+    cht='天彗合金Ⅲ型',
+    en='Celesticomet Alloy Type-III',
+    jp='天彗合金III型',
+    es='Aleación celesticometa tipo III',
+)
+Absolute_Failure_Prescription = RogueCurio(
+    id=119,
+    name='Absolute_Failure_Prescription',
+    cn='绝对失败处方',
+    cht='絕對失敗處方',
+    en='Absolute Failure Prescription',
+    jp='絶対的失敗の処方箋',
+    es='Receta de fracaso absoluto',
+)
+Excess_Nutrition = RogueCurio(
+    id=120,
+    name='Excess_Nutrition',
+    cn='营养过剩',
+    cht='營養過剩',
+    en='Excess Nutrition',
+    jp='栄養過多',
+    es='Nutrición excesiva',
+)
+Dignity_and_Passion = RogueCurio(
+    id=121,
+    name='Dignity_and_Passion',
+    cn='尊严与热忱',
+    cht='尊嚴與熱忱',
+    en='Dignity and Passion',
+    jp='尊厳と熱意',
+    es='Dignidad y pasión',
+)
+Cumulous_Steak = RogueCurio(
+    id=122,
+    name='Cumulous_Steak',
+    cn='云间肉排',
+    cht='雲間肉排',
+    en='Cumulous Steak',
+    jp='雲間ステーキ',
+    es='Filete nubloso',
+)
+Lapispeaker_Flakes = RogueCurio(
+    id=123,
+    name='Lapispeaker_Flakes',
+    cn='石语者结片',
+    cht='石語者結片',
+    en="Lapispeakers' Flakes",
+    jp='ストーンウィスパーの情報片',
+    es='Escamas de parlalíticos',
+)
+Revitalization_310 = RogueCurio(
+    id=124,
+    name='Revitalization_310',
+    cn='醒觉-310',
+    cht='醒覺-310',
+    en='Revitalization-310',
+    jp='アウェイク-310',
+    es='Revitalización-310',
+)
+Dreamdive_Can = RogueCurio(
+    id=125,
+    name='Dreamdive_Can',
+    cn='入梦罐',
+    cht='入夢罐',
+    en='Dreamdive Can',
+    jp='ドリーム缶',
+    es='Lata de inmersión onírica',
+)
+Parallel_Universe_Walkie_Talkie = RogueCurio(
+    id=126,
+    name='Parallel_Universe_Walkie_Talkie',
+    cn='平行宇宙对讲机',
+    cht='平行宇宙對講機',
+    en='Parallel Universe Walkie-Talkie',
+    jp='パラレル宇宙トランシーバー',
+    es='Intercomunicador de universos paralelos',
+)
+Most_Raucous = RogueCurio(
+    id=127,
+    name='Most_Raucous',
+    cn='喧哗上等',
+    cht='喧譁上等',
+    en='Most Raucous',
+    jp='喧嘩上等',
+    es='Bullicio de primera',
+)
+Delicious_Marimo_Candy = RogueCurio(
+    id=128,
+    name='Delicious_Marimo_Candy',
+    cn='美味球藻糖',
+    cht='美味球藻糖',
+    en='Delicious Marimo Candy',
+    jp='おいしいマリモキャンディー',
+    es='Caramelo de marimo delicioso',
+)
+First_Journey = RogueCurio(
+    id=129,
+    name='First_Journey',
+    cn='首次旅程',
+    cht='首次旅程',
+    en='First Journey',
+    jp='初めての旅',
+    es='Primer viaje',
+)
+Divine_Visage = RogueCurio(
+    id=130,
+    name='Divine_Visage',
+    cn='神圣容颜',
+    cht='神聖容顏',
+    en='Divine Visage',
+    jp='神聖な容姿',
+    es='Semblante divino',
+)
+Geniu_Confusion = RogueCurio(
+    id=131,
+    name='Geniu_Confusion',
+    cn='天才的迷茫时间',
+    cht='天才的迷茫時間',
+    en="Genius' Confusion",
+    jp='天才の迷いの時間',
+    es='Confusión de genio',
+)
+Bud_in_the_Wind = RogueCurio(
+    id=132,
+    name='Bud_in_the_Wind',
+    cn='风中花蕾',
+    cht='風中花蕾',
+    en='Bud in the Wind',
+    jp='風の中の花蕾',
+    es='Flor en el viento',
+)
+Road_to_Comets = RogueCurio(
+    id=133,
+    name='Road_to_Comets',
+    cn='通向彗星之路',
+    cht='通向彗星之路',
+    en='Road to Comets',
+    jp='彗星への道',
+    es='Camino hacia los cometas',
+)
+Ten_Light_Year_Foresight = RogueCurio(
+    id=134,
+    name='Ten_Light_Year_Foresight',
+    cn='十光年不晚',
+    cht='十光年不晚',
+    en="Ten Light-Years' Foresight",
+    jp='十光年滞らず',
+    es='Diez años luz sin retraso',
+)
+Silent_Song = RogueCurio(
+    id=135,
+    name='Silent_Song',
+    cn='静谧的歌声',
+    cht='靜謐的歌聲',
+    en='Silent Song',
+    jp='静謐の歌声',
+    es='Canción silenciosa',
+)
+Mock_Crimson_Moon = RogueCurio(
+    id=136,
+    name='Mock_Crimson_Moon',
+    cn='拟赤月',
+    cht='擬赤月',
+    en='Mock Crimson Moon',
+    jp='擬似紅月',
+    es='Luna carmesí emulada',
+)
+Chance_Jailbreak = RogueCurio(
+    id=137,
+    name='Chance_Jailbreak',
+    cn='偶有越狱',
+    cht='偶有越獄',
+    en='Chance Jailbreak',
+    jp='脱獄の機会',
+    es='Fuga fortuita',
+)
+Converse_of_Entropy = RogueCurio(
+    id=138,
+    name='Converse_of_Entropy',
+    cn='熵的逆命题',
+    cht='熵的逆命題',
+    en='Converse of Entropy',
+    jp='エントロピーの逆転',
+    es='Lo opuesto a la entropía',
+)
+End_of_an_Altruist = RogueCurio(
+    id=139,
+    name='End_of_an_Altruist',
+    cn='利他者的末路',
+    cht='利他者的末路',
+    en='End of an Altruist',
+    jp='利他主義者の末路',
+    es='El fin de una altruista',
+)
+Dreams_0110 = RogueCurio(
+    id=140,
+    name='Dreams_0110',
+    cn='有梦-0110',
+    cht='有夢-0110',
+    en='Dreams — 0110',
+    jp='夢-0110',
+    es='Sueños — 0110',
+)
+Punklordian_Balance = RogueCurio(
+    id=141,
+    name='Punklordian_Balance',
+    cn='朋克洛德平衡',
+    cht='龐克洛德平衡',
+    en='Punklordian Balance',
+    jp='パンクロードのバランス',
+    es='Equilibrio punklordiano',
+)
+Ashes_to_Ashes_Dust_to_Dust = RogueCurio(
+    id=142,
+    name='Ashes_to_Ashes_Dust_to_Dust',
+    cn='化作尘泥',
+    cht='化作塵泥',
+    en='Ashes to Ashes, Dust to Dust',
+    jp='塵と化す',
+    es='De la tierra vienes y a la tierra volverás',
+)
+Pineapple = RogueCurio(
+    id=143,
+    name='Pineapple',
+    cn='菠萝',
+    cht='鳳梨',
+    en='Pineapple',
+    jp='パイナップル',
+    es='Piña',
+)
+Written_in_Water = RogueCurio(
+    id=144,
+    name='Written_in_Water',
+    cn='水上书',
+    cht='水上書',
+    en='Written in Water',
+    jp='水上の書',
+    es='Escrito en agua',
+)
+Do_as_the_Locals_Do = RogueCurio(
+    id=145,
+    name='Do_as_the_Locals_Do',
+    cn='入乡随俗',
+    cht='入鄉隨俗',
+    en='Do as the Locals Do',
+    jp='郷に入っては郷に従え',
+    es='Donde fueres, haz lo que vieres',
+)
+Green_Fingers = RogueCurio(
+    id=146,
+    name='Green_Fingers',
+    cn='埋点土',
+    cht='埋點土',
+    en='Green Fingers',
+    jp='土少々',
+    es='Crecer en macetas',
+)
+Unknown_Lost_Property = RogueCurio(
+    id=147,
+    name='Unknown_Lost_Property',
+    cn='无主失物',
+    cht='無主失物',
+    en='Unknown Lost Property',
+    jp='主なき遺失物',
+    es='Objeto perdido desconocido',
+)
+Super_Overlord_Spinning_Top = RogueCurio(
+    id=148,
+    name='Super_Overlord_Spinning_Top',
+    cn='超霸王陀螺',
+    cht='超霸王陀螺',
+    en='Super Overlord Spinning Top',
+    jp='超覇王コマ',
+    es='Peonza "Señor Supremo"',
+)
+By_Any_Means_Necessary = RogueCurio(
+    id=149,
+    name='By_Any_Means_Necessary',
+    cn='虚高一丈',
+    cht='虛高一丈',
+    en='By Any Means Necessary',
+    jp='虚構強化',
+    es='A toda costa',
+)
+Old_Skin = RogueCurio(
+    id=150,
+    name='Old_Skin',
+    cn='旧皮囊',
+    cht='舊皮囊',
+    en='Old Skin',
+    jp='かつての肉体',
+    es='Cambio de piel',
+)
+Ancient_Communications = RogueCurio(
+    id=151,
+    name='Ancient_Communications',
+    cn='古老通讯',
+    cht='古老通訊',
+    en='Ancient Communications',
+    jp='昔の通信手段',
+    es='Comunicación ancestral',
+)
+Tangible_Luck = RogueCurio(
+    id=152,
+    name='Tangible_Luck',
+    cn='有形幸运',
+    cht='有形幸運',
+    en='Tangible Luck',
+    jp='幸運の形',
+    es='Suerte tangible',
+)

@@ -89,7 +89,8 @@ def replace_templates(text: str) -> str:
 
 class GenerateKeyword:
     text_map: dict[str, TextMap] = {lang: TextMap(lang) for lang in UI_LANGUAGES}
-    text_map['cn'] = TextMap('chs')
+
+    # text_map['cn'] = TextMap('chs')
 
     @staticmethod
     def read_file(file: str) -> list:
@@ -101,7 +102,10 @@ class GenerateKeyword:
             list
         """
         file = os.path.join(TextMap.DATA_FOLDER, file)
-        return read_file(file)
+        data = read_file(file)
+        if not data:
+            logger.error(f'Empty data from file {file}')
+        return data
 
     @classmethod
     def find_keyword(cls, keyword, lang) -> tuple[int, str]:
@@ -144,6 +148,13 @@ class GenerateKeyword:
         """
         pass
 
+    def iter_keywords_from_text(self, text_list: list[str], lang: str) -> t.Iterable[dict]:
+        for text in text_list:
+            text_id, _ = self.find_keyword(text, lang)
+            yield {
+                'text_id': text_id
+            }
+
     def convert_name(self, text: str, keyword: dict) -> str:
         return text_to_variable(replace_templates(text))
 
@@ -182,7 +193,7 @@ class GenerateKeyword:
             base[lang] = value
         return base
 
-    def generate(self):
+    def generate_content(self):
         self.gen_import()
         self.gen.CommentAutoGenerage('dev_tools.keyword_extract')
 
@@ -190,6 +201,9 @@ class GenerateKeyword:
             with self.gen.Object(key=keyword['name'], object_class=self.keyword_class):
                 for key, value in keyword.items():
                     self.gen.ObjectAttr(key, value)
+
+    def generate(self):
+        self.generate_content()
 
         if self.output_file:
             print(f'Write {self.output_file}')

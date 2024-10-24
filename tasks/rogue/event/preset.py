@@ -15,8 +15,10 @@ STRATEGY_COMMON = {
     ],
     KEYWORDS_ROGUE_EVENT_TITLE.Shopping_Channel: [
         KEYWORDS_ROGUE_EVENT_OPTION.A_lotus_that_can_sing_the_Happy_Birthday_song_8cd2,
-        KEYWORDS_ROGUE_EVENT_OPTION.A_mechanical_box,
+        KEYWORDS_ROGUE_EVENT_OPTION.A_mechanical_box_5e3c,
+        KEYWORDS_ROGUE_EVENT_OPTION.A_mechanical_box_e7a5,
         KEYWORDS_ROGUE_EVENT_OPTION.A_box_of_expired_doughnuts_6308,
+        KEYWORDS_ROGUE_EVENT_OPTION.A_box_of_expired_doughnuts_cc8c,
         KEYWORDS_ROGUE_EVENT_OPTION.Leave_this_place
     ],
     KEYWORDS_ROGUE_EVENT_TITLE.Interactive_Arts: [
@@ -77,7 +79,8 @@ STRATEGY_COMMON = {
         KEYWORDS_ROGUE_EVENT_OPTION.Qlipoth_Blessing
     ],
     KEYWORDS_ROGUE_EVENT_TITLE.Jim_Hulk_and_Jim_Hall: [
-        KEYWORDS_ROGUE_EVENT_OPTION.Jim_Hulk_collection,
+        KEYWORDS_ROGUE_EVENT_OPTION.Jim_Hulk_collection_4959,
+        KEYWORDS_ROGUE_EVENT_OPTION.Jim_Hulk_collection_d4f1,
         KEYWORDS_ROGUE_EVENT_OPTION.Walk_away_28e3
     ],
     KEYWORDS_ROGUE_EVENT_TITLE.The_Cremators: [
@@ -145,7 +148,8 @@ STRATEGY_COMBAT = {
     ],
     KEYWORDS_ROGUE_EVENT_TITLE.Insect_Nest: [
         KEYWORDS_ROGUE_EVENT_OPTION.Go_deeper_into_the_insect_nest,
-        KEYWORDS_ROGUE_EVENT_OPTION.Wait_for_THEM,
+        KEYWORDS_ROGUE_EVENT_OPTION.Wait_for_THEM_13dc,
+        KEYWORDS_ROGUE_EVENT_OPTION.Wait_for_THEM_9ee6,
         KEYWORDS_ROGUE_EVENT_OPTION.Stop_at_the_entrance_of_the_nest,
         KEYWORDS_ROGUE_EVENT_OPTION.Hug_it
     ],
@@ -174,7 +178,8 @@ STRATEGY_OCCURRENCE = {
     KEYWORDS_ROGUE_EVENT_TITLE.Insect_Nest: [
         KEYWORDS_ROGUE_EVENT_OPTION.Go_deeper_into_the_insect_nest,
         KEYWORDS_ROGUE_EVENT_OPTION.Hug_it,
-        KEYWORDS_ROGUE_EVENT_OPTION.Wait_for_THEM,
+        KEYWORDS_ROGUE_EVENT_OPTION.Wait_for_THEM_13dc,
+        KEYWORDS_ROGUE_EVENT_OPTION.Wait_for_THEM_9ee6,
         KEYWORDS_ROGUE_EVENT_OPTION.Stop_at_the_entrance_of_the_nest
     ]
 }

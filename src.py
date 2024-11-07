@@ -26,6 +26,12 @@ class StarRailCopilot(AzurLaneAutoScript):
             Login(self.config, device=self.device).app_start()
             UI(self.config, device=self.device).ui_goto_main()
 
+    def error_postprocess(self):
+        # Exit cloud game to reduce extra fee
+        if self.config.is_cloud_game:
+            from tasks.login.login import Login
+            Login(self.config, device=self.device).app_stop()
+
     def dungeon(self):
         from tasks.dungeon.dungeon import Dungeon
         Dungeon(config=self.config, device=self.device).run()

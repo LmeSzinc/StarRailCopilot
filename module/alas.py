@@ -120,6 +120,7 @@ class AzurLaneAutoScript:
             return False
         except ScriptError as e:
             logger.exception(e)
+            self.error_postprocess()
             logger.critical('This is likely to be a mistake of developers, but sometimes just random issues')
             self.save_error_log()
             handle_notify(
@@ -130,6 +131,7 @@ class AzurLaneAutoScript:
             exit(1)
         except RequestHumanTakeover:
             logger.critical('Request human takeover')
+            self.error_postprocess()
             handle_notify(
                 self.config.Error_OnePushConfig,
                 title=f"Src <{self.config_name}> crashed",
@@ -138,6 +140,7 @@ class AzurLaneAutoScript:
             exit(1)
         except Exception as e:
             logger.exception(e)
+            self.error_postprocess()
             self.save_error_log()
             handle_notify(
                 self.config.Error_OnePushConfig,
@@ -152,6 +155,12 @@ class AzurLaneAutoScript:
         Save logs to ./log/error/<timestamp>/log.txt
         """
         save_error_log(config=self.config, device=self.device)
+
+    def error_postprocess(self):
+        """
+        Do something when error occurred
+        """
+        pass
 
     def wait_until(self, future):
         """

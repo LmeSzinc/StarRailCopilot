@@ -20,6 +20,16 @@ COMBAT_PREPARE = ButtonWrapper(
         button=(956, 640, 1225, 676),
     ),
 )
+ENEMY_INFO_CHECK = ButtonWrapper(
+    name='ENEMY_INFO_CHECK',
+    share=Button(
+        file='./assets/share/combat/prepare/ENEMY_INFO_CHECK.png',
+        area=(42, 23, 72, 52),
+        search=(22, 3, 92, 72),
+        color=(138, 122, 96),
+        button=(42, 23, 72, 52),
+    ),
+)
 OCR_WAVE_COST = ButtonWrapper(
     name='OCR_WAVE_COST',
     share=Button(

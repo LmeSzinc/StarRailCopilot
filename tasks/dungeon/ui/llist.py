@@ -16,7 +16,8 @@ from module.ui.draggable_list import DraggableList
 from module.ui.switch import Switch
 from tasks.base.page import page_guide
 from tasks.base.ui import UI
-from tasks.combat.assets.assets_combat_prepare import COMBAT_PREPARE
+from tasks.combat.assets.assets_combat_obtain import ITEM_CLOSE
+from tasks.combat.assets.assets_combat_prepare import COMBAT_PREPARE, ENEMY_INFO_CHECK
 from tasks.dungeon.assets.assets_dungeon_ui_list import *
 from tasks.dungeon.keywords import (
     DungeonList,
@@ -448,6 +449,12 @@ class DungeonUIList(UI):
             # Popup that confirm character switch
             if self.handle_popup_confirm():
                 self.interval_reset(page_guide.check_button)
+                continue
+            # Close obtain info
+            if self.appear_then_click(ITEM_CLOSE):
+                continue
+            # Close enemy info
+            if self.handle_ui_close(ENEMY_INFO_CHECK, interval=5):
                 continue
 
             # Click teleport

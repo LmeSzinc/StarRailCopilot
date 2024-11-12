@@ -2,12 +2,12 @@ from module.base.timer import Timer
 from module.exception import GameNotRunningError
 from module.logger import logger
 from tasks.base.page import page_main
-from tasks.base.ui import UI
 from tasks.login.assets.assets_login import *
 from tasks.login.cloud import LoginAndroidCloud
+from tasks.rogue.blessing.ui import RogueUI
 
 
-class Login(UI, LoginAndroidCloud):
+class Login(LoginAndroidCloud, RogueUI):
     def _handle_app_login(self):
         """
         Pages:
@@ -70,6 +70,8 @@ class Login(UI, LoginAndroidCloud):
             if self.handle_popup_confirm():
                 continue
             if self.ui_additional():
+                continue
+            if self.handle_blessing():
                 continue
 
         return True

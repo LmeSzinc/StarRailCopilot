@@ -3,7 +3,6 @@ import numpy as np
 from module.logger import logger
 from module.ocr.keyword import Keyword
 from module.ocr.ocr import OcrResultButton
-from tasks.rogue.blessing.ui import RogueUI
 
 
 class RogueSelector:
@@ -11,7 +10,7 @@ class RogueSelector:
     An Interface used in blessing, curio, and other ui selection in rogue
     """
 
-    def __init__(self, main: RogueUI):
+    def __init__(self, main: "RogueUI"):
         self.main = main
         self.filter_ = None
         self.ocr_results = []

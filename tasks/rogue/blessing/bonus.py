@@ -1,14 +1,27 @@
+import re
+
 import numpy as np
 
 from module.base.timer import Timer
 from module.logger import logger
-from module.ocr.ocr import OcrResultButton
+from module.ocr.ocr import Ocr, OcrResultButton
 from tasks.rogue.assets.assets_rogue_blessing import OCR_ROGUE_BUFF
 from tasks.rogue.assets.assets_rogue_bonus import BONUS_BOTTOM_WHITE_BAR, BONUS_CONFIRM
 from tasks.rogue.blessing.selector import RogueSelector
-from tasks.rogue.blessing.ui import RogueBonusOcr
 from tasks.rogue.blessing.utils import is_card_selected
 from tasks.rogue.keywords import RogueBonus
+
+
+class RogueBonusOcr(Ocr):
+    def after_process(self, result):
+        result = super().after_process(result)
+        if self.lang == 'cn':
+            replace_pattern_dict = {
+                "[宇宝][宙审]": "宇宙",
+            }
+            for pat, replace in replace_pattern_dict.items():
+                result = re.sub(pat, replace, result)
+        return result
 
 
 class RogueBonusSelector(RogueSelector):

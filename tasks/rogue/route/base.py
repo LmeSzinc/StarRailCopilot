@@ -7,9 +7,6 @@ from tasks.map.control.waypoint import Waypoint, ensure_waypoints
 from tasks.map.route.base import RouteBase as RouteBase_
 from tasks.rogue.assets.assets_rogue_ui import BLESSING_CONFIRM
 from tasks.rogue.assets.assets_rogue_weekly import ROGUE_REPORT
-from tasks.rogue.blessing.blessing import RogueBlessingSelector
-from tasks.rogue.blessing.bonus import RogueBonusSelector
-from tasks.rogue.blessing.curio import RogueCurioSelector
 from tasks.rogue.event.event import RogueEvent
 from tasks.rogue.event.reward import RogueReward
 from tasks.rogue.route.exit import RogueExit
@@ -44,31 +41,6 @@ class RouteBase(RouteBase_, RogueExit, RogueEvent, RogueReward):
         if self.handle_blessing_popup():
             return True
         return super().walk_additional()
-
-    def handle_blessing(self):
-        """
-        Returns:
-            bool: If handled
-        """
-        if self.is_page_choose_blessing():
-            logger.hr('Choose blessing', level=2)
-            selector = RogueBlessingSelector(self)
-            selector.recognize_and_select()
-            return True
-        if self.is_page_choose_curio():
-            logger.hr('Choose curio', level=2)
-            selector = RogueCurioSelector(self)
-            selector.recognize_and_select()
-            return True
-        if self.is_page_choose_bonus():
-            logger.hr('Choose bonus', level=2)
-            selector = RogueBonusSelector(self)
-            selector.recognize_and_select()
-            return True
-        if self.handle_blessing_popup():
-            return True
-
-        return False
 
     def clear_blessing(self, skip_first_screenshot=True):
         """

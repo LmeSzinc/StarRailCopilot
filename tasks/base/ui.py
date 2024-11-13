@@ -1,7 +1,7 @@
 from module.base.button import ButtonWrapper
 from module.base.decorator import run_once
 from module.base.timer import Timer
-from module.exception import GameNotRunningError, GamePageUnknownError
+from module.exception import GameNotRunningError, GamePageUnknownError, HandledError
 from module.logger import logger
 from module.ocr.ocr import Ocr
 from tasks.base.assets.assets_base_main_page import ROGUE_LEAVE_FOR_NOW, ROGUE_LEAVE_FOR_NOW_OE
@@ -98,9 +98,7 @@ class UI(MainPage):
             if self.handle_popup_confirm():
                 timeout.reset()
                 continue
-            if self.is_in_login_confirm(interval=5):
-                self.device.click(LOGIN_CONFIRM)
-                timeout.reset()
+            if self.handle_login_confirm():
                 continue
             if self.appear(MAP_LOADING, interval=5):
                 logger.info('Map loading')
@@ -172,8 +170,7 @@ class UI(MainPage):
                 continue
             if self.handle_popup_confirm():
                 continue
-            if self.is_in_login_confirm(interval=5):
-                self.device.click(LOGIN_CONFIRM)
+            if self.handle_login_confirm():
                 continue
 
         # Reset connection
@@ -362,6 +359,17 @@ class UI(MainPage):
             self.interval_reset(MAP_EXIT, interval=interval)
 
         return appear
+
+    def handle_login_confirm(self):
+        """
+        If LOGIN_CONFIRM appears, do as task `Restart` not just clicking it
+        """
+        if self.is_in_login_confirm(interval=0):
+            logger.warning('Login page appeared')
+            from tasks.login.login import Login
+            Login(self.config, device=self.device).handle_app_login()
+            raise HandledError
+        return False
 
     def ui_goto_main(self):
         return self.ui_ensure(destination=page_main)

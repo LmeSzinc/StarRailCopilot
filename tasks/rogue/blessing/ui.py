@@ -1,24 +1,13 @@
-import re
-
 from module.base.utils import area_offset
 from module.logger import logger
-from module.ocr.ocr import Digit, Ocr, OcrResultButton
+from module.ocr.ocr import Digit, OcrResultButton
 from tasks.base.ui import UI
 from tasks.rogue.assets.assets_rogue_ui import *
 from tasks.rogue.assets.assets_rogue_weekly import REWARD_ENTER
+from tasks.rogue.blessing.blessing import RogueBlessingSelector
+from tasks.rogue.blessing.bonus import RogueBonusSelector
+from tasks.rogue.blessing.curio import RogueCurioSelector
 from tasks.rogue.keywords import RoguePath
-
-
-class RogueBonusOcr(Ocr):
-    def after_process(self, result):
-        result = super().after_process(result)
-        if self.lang == 'cn':
-            replace_pattern_dict = {
-                "[宇宝][宙审]": "宇宙",
-            }
-            for pat, replace in replace_pattern_dict.items():
-                result = re.sub(pat, replace, result)
-        return result
 
 
 class RogueUI(UI):
@@ -85,4 +74,29 @@ class RogueUI(UI):
             logger.info(f'{CURIO_FIXED} -> {BLESSING_CONFIRM}')
             self.device.click(BLESSING_CONFIRM)
             return True
+        return False
+
+    def handle_blessing(self):
+        """
+        Returns:
+            bool: If handled
+        """
+        if self.is_page_choose_blessing():
+            logger.hr('Choose blessing', level=2)
+            selector = RogueBlessingSelector(self)
+            selector.recognize_and_select()
+            return True
+        if self.is_page_choose_curio():
+            logger.hr('Choose curio', level=2)
+            selector = RogueCurioSelector(self)
+            selector.recognize_and_select()
+            return True
+        if self.is_page_choose_bonus():
+            logger.hr('Choose bonus', level=2)
+            selector = RogueBonusSelector(self)
+            selector.recognize_and_select()
+            return True
+        if self.handle_blessing_popup():
+            return True
+
         return False

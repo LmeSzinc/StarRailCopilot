@@ -21,3 +21,12 @@ All_About_Boothill = AssignmentEventGroup(
     jp='ブートヒルに関するすべて…',
     es='Todo sobre Boothill...',
 )
+Shadow_of_the_Ranger = AssignmentEventGroup(
+    id=3,
+    name='Shadow_of_the_Ranger',
+    cn='游侠谜影',
+    cht='遊俠謎影',
+    en='Shadow of the Ranger',
+    jp='レンジャーの影',
+    es='Sombra del Vigilante',
+)

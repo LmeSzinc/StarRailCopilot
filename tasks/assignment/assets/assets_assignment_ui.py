@@ -242,6 +242,40 @@ OCR_ASSIGNMENT_TIME = ButtonWrapper(
         button=(605, 564, 886, 589),
     ),
 )
+SHADOW_OF_THE_RANGER_CHECK = ButtonWrapper(
+    name='SHADOW_OF_THE_RANGER_CHECK',
+    cn=Button(
+        file='./assets/cn/assignment/ui/SHADOW_OF_THE_RANGER_CHECK.png',
+        area=(161, 100, 232, 117),
+        search=(141, 80, 252, 137),
+        color=(171, 166, 151),
+        button=(161, 100, 232, 117),
+    ),
+    en=Button(
+        file='./assets/en/assignment/ui/SHADOW_OF_THE_RANGER_CHECK.png',
+        area=(165, 95, 197, 126),
+        search=(145, 75, 217, 146),
+        color=(187, 182, 166),
+        button=(165, 95, 197, 126),
+    ),
+)
+SHADOW_OF_THE_RANGER_CLICK = ButtonWrapper(
+    name='SHADOW_OF_THE_RANGER_CLICK',
+    cn=Button(
+        file='./assets/cn/assignment/ui/SHADOW_OF_THE_RANGER_CLICK.png',
+        area=(161, 100, 232, 117),
+        search=(141, 80, 252, 137),
+        color=(88, 87, 86),
+        button=(161, 100, 232, 117),
+    ),
+    en=Button(
+        file='./assets/en/assignment/ui/SHADOW_OF_THE_RANGER_CLICK.png',
+        area=(165, 95, 197, 126),
+        search=(145, 75, 217, 146),
+        color=(80, 79, 77),
+        button=(165, 95, 197, 126),
+    ),
+)
 SPACE_STATION_TASK_FORCE_CHECK = ButtonWrapper(
     name='SPACE_STATION_TASK_FORCE_CHECK',
     cn=Button(

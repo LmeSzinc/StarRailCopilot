@@ -556,7 +556,7 @@ class KeywordExtract:
         self.load_keywords(['本周任务', '本期任务'])
         self.write_keywords(keyword_class='BattlePassMissionTab',
                             output_file='./tasks/battle_pass/keywords/mission_tab.py')
-        # self.generate_assignments()
+        self.generate_assignments()
         self.generate_forgotten_hall_stages()
         self.generate_daily_quests()
         self.generate_battle_pass_quests()

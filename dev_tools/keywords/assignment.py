@@ -59,7 +59,7 @@ def get_assignment_entry_data():
     for expedition_namehash, expedition_id in expedition_namehash_to_id.items():
         reward_id = expedition_id_to_reward_id[expedition_id]
         item_ids = reward_id_to_item_ids[reward_id]
-        item_names = [item_id_to_namehash[x] for x in item_ids]
+        item_names = [item_id_to_namehash[x] for x in item_ids if x]
         if len(item_names) == 1:
             item = GenerateKeyword.find_keyword(item_names[0], lang='cn')[1]
             if item in item_name_remap:
@@ -128,6 +128,7 @@ class GenerateAssignmentEventGroup(GenerateKeyword):
     def iter_keywords(self) -> Iterable[dict]:
         yield dict(text_id=self.find_keyword('空间站特派', lang='cn')[0])
         yield dict(text_id=self.find_keyword('关于波提欧的一切…', lang='cn')[0])
+        yield dict(text_id=self.find_keyword('游侠谜影', lang='cn')[0])
 
 
 class GenerateAssignmentEventEntry(GenerateKeyword):
@@ -141,5 +142,5 @@ class GenerateAssignmentEventEntry(GenerateKeyword):
 if __name__ == "__main__":
     from dev_tools.keywords.base import TextMap
 
-    TextMap.DATA_FOLDER = '../StarRailData'
+    TextMap.DATA_FOLDER = '../DanhengServer-Resources'
     GenerateAssignment()()

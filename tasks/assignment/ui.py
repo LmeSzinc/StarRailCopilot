@@ -39,14 +39,14 @@ class AssignmentOcr(Ocr):
             (KEYWORDS_ASSIGNMENT_ENTRY.Akashic_Records, '阿[未][夏复]记录'),
             (KEYWORDS_ASSIGNMENT_ENTRY.Legend_of_the_Puppet_Master, '^师传说'),
             (KEYWORDS_ASSIGNMENT_ENTRY.The_Wages_of_Humanity, '[赠]养人类'),
-            (KEYWORDS_ASSIGNMENT_EVENT_ENTRY.Car_Thief, '.*的偷车贼.*'),
-            (KEYWORDS_ASSIGNMENT_EVENT_ENTRY.Synesthesia_Beacon_Function_Iteration,
-             '联觉信标功能[送]代'),
+            # (KEYWORDS_ASSIGNMENT_EVENT_ENTRY.Car_Thief, '.*的偷车贼.*'),
+            # (KEYWORDS_ASSIGNMENT_EVENT_ENTRY.Synesthesia_Beacon_Function_Iteration,
+            #  '联觉信标功能[送]代'),
         ],
         'en': [
             # (KEYWORDS_ASSIGNMENT_EVENT_ENTRY.Food_Improvement_Plan.name,
             #  'Food\s*[I]{0}mprovement Plan'),
-            (KEYWORDS_ASSIGNMENT_EVENT_ENTRY.Car_Thief, '.*Car Thief.*'),
+            # (KEYWORDS_ASSIGNMENT_EVENT_ENTRY.Car_Thief, '.*Car Thief.*'),
         ]
     }
 
@@ -110,15 +110,10 @@ ASSIGNMENT_GROUP_SWITCH = AssignmentGroupSwitch(
     'AssignmentGroupSwitch',
     is_selector=True
 )
-# ASSIGNMENT_GROUP_SWITCH.add_state(
-#     KEYWORDS_ASSIGNMENT_EVENT_GROUP.Space_Station_Task_Force,
-#     check_button=SPACE_STATION_TASK_FORCE_CHECK,
-#     click_button=SPACE_STATION_TASK_FORCE_CLICK
-# )
 ASSIGNMENT_GROUP_SWITCH.add_state(
-    KEYWORDS_ASSIGNMENT_EVENT_GROUP.All_About_Boothill,
-    check_button=ALL_ABOUT_BOOTHILL_CHECK,
-    click_button=ALL_ABOUT_BOOTHILL_CLICK
+    CURRENT_EVENT_GROUP,
+    check_button=SHADOW_OF_THE_RANGER_CHECK,
+    click_button=SHADOW_OF_THE_RANGER_CLICK
 )
 ASSIGNMENT_GROUP_SWITCH.add_state(
     KEYWORDS_ASSIGNMENT_GROUP.Character_Materials,

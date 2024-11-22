@@ -1,5 +1,5 @@
 from module.base.timer import Timer
-from module.base.utils import random_rectangle_vector
+from module.base.utils import area_in_area, random_rectangle_vector
 from module.logger import logger
 from tasks.base.page import page_guide
 from tasks.dungeon.assets.assets_dungeon_ui import *
@@ -94,17 +94,6 @@ class DungeonRogueUI(DungeonUI):
         Swipe down to find teleport button of classic rogue
         Note that this method will change SIMULATED_UNIVERSE_LOADED_CLASSIC.search, original value should have a backup
         """
-        # Already having classic rogue entry insight
-        SIMULATED_UNIVERSE_LOADED_CLASSIC.load_search(OCR_DUNGEON_LIST.button)
-        if self.appear(SIMULATED_UNIVERSE_LOADED_CLASSIC):
-            buttons = TELEPORT.match_multi_template(self.device.image)
-            y = SIMULATED_UNIVERSE_LOADED_CLASSIC.button[1]
-            for button in buttons:
-                # And having a teleport button below
-                if button.button[1] > y:
-                    logger.info('Classic rogue teleport already in sight')
-                    return True
-
         logger.info('Dungeon rogue swipe down')
         interval = Timer(2, count=4)
         while 1:
@@ -114,10 +103,20 @@ class DungeonRogueUI(DungeonUI):
                 self.device.screenshot()
 
             # End
-            if self.appear(SIMULATED_UNIVERSE_LOADED_CLASSIC):
-                if self.appear(LAST_TELEPORT):
-                    logger.info('Classic rogue teleport at end')
-                    return True
+            if self.appear(SIMULATED_UNIVERSE_LOADED_CLASSIC, interval=3):
+                logger.info('Found rogue icon')
+                # Search teleport button on the right
+                _, y1, _, y2 = SIMULATED_UNIVERSE_LOADED_CLASSIC.button
+                x1, _, x2, _ = TELEPORT.area
+                search = (x1 - 50, y1 - 120, x2 + 50, y2 + 120)
+                # Check if button in search area
+                for button in TELEPORT.match_multi_template(self.device.image):
+                    if area_in_area(button.button, search, threshold=0):
+                        logger.info('Found rogue TELEPORT')
+                        self.device.click(button)
+                        return True
+                # TELEPORT not found
+                self.interval_clear(SIMULATED_UNIVERSE_LOADED_CLASSIC)
 
             # Swipe
             if interval.reached():

@@ -37,10 +37,10 @@ SIMULATED_UNIVERSE_LOADED_CLASSIC = ButtonWrapper(
     name='SIMULATED_UNIVERSE_LOADED_CLASSIC',
     share=Button(
         file='./assets/share/dungeon/ui_rogue/SIMULATED_UNIVERSE_LOADED_CLASSIC.png',
-        area=(549, 607, 572, 629),
-        search=(529, 587, 592, 649),
-        color=(147, 137, 157),
-        button=(549, 607, 572, 629),
+        area=(507, 501, 547, 541),
+        search=(465, 172, 588, 656),
+        color=(157, 155, 157),
+        button=(507, 501, 547, 541),
     ),
 )
 SURVIVAL_INDEX_OE_LOADED = ButtonWrapper(

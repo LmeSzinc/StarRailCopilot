@@ -143,6 +143,17 @@
     "domain": "Combat"
   },
   {
+    "name": "Combat_Herta_SupplyZone_F2_X599Y249",
+    "route": "route.rogue.Combat.Herta_SupplyZone_F2:Herta_SupplyZone_F2_X599Y249",
+    "plane": "Herta_SupplyZone",
+    "floor": "F2",
+    "position": [
+      599.6,
+      249.2
+    ],
+    "domain": "Combat"
+  },
+  {
     "name": "Combat_Herta_SupplyZone_F2_X657Y247",
     "route": "route.rogue.Combat.Herta_SupplyZone_F2:Herta_SupplyZone_F2_X657Y247",
     "plane": "Herta_SupplyZone",

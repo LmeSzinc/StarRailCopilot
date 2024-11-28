@@ -177,6 +177,47 @@ class Route(RouteBase):
         )
         self.clear_enemy(enemy3.straight_run())
 
+    def Herta_SupplyZone_F2_X599Y249(self):
+        """
+        | Waypoint | Position                  | Direction | Rotation |
+        | -------- | ------------------------- | --------- | -------- |
+        | spawn    | Waypoint((594.3, 247.5)), | 274.2     | 274      |
+        | item1    | Waypoint((578.9, 258.2)), | 282.8     | 276      |
+        | enemy1   | Waypoint((542.2, 246.2)), | 302.7     | 301      |
+        | enemy2   | Waypoint((542.2, 168.6)), | 11.1      | 177      |
+        | enemy3   | Waypoint((586.5, 128.3)), | 87.7      | 260      |
+        | item3    | Waypoint((560.2, 130.9)), | 67.2      | 66       |
+        | exit_    | Waypoint((586.9, 129.8)), | 266.1     | 1        |
+        | exit1    | Waypoint((580.9, 124.3)), | 354.1     | 350      |
+        | exit2    | Waypoint((594.2, 122.2)), | 12.6      | 6        |
+        """
+        self.map_init(plane=Herta_SupplyZone, floor="F2", position=(599.6, 249.2))
+        self.register_domain_exit(
+            Waypoint((586.9, 129.8)), end_rotation=1,
+            left_door=Waypoint((580.9, 124.3)), right_door=Waypoint((594.2, 122.2)))
+        item1 = Waypoint((578.9, 258.2))
+        enemy1 = Waypoint((542.2, 246.2))
+        enemy2 = Waypoint((542.2, 168.6))
+        enemy3 = Waypoint((586.5, 128.3))
+        item3 = Waypoint((560.2, 130.9))
+        # ===== End of generated waypoints =====
+
+        """
+        Notes
+        Herta_SupplyZone_F2_X599Y249 is the same as Herta_SupplyZone_F2_X594Y247
+        but for wrong spawn point detected
+        """
+        self.clear_item(item1)
+        self.clear_enemy(enemy1)
+        self.clear_enemy(enemy2.straight_run())
+
+        self.clear_item(
+            # Go through enemy2 before turning right
+            enemy2,
+            item3.straight_run(),
+        )
+        self.clear_enemy(enemy3.straight_run())
+
     def Herta_SupplyZone_F2_X657Y247(self):
         """
         | Waypoint | Position                  | Direction | Rotation |

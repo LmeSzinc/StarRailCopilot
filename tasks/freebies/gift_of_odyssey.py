@@ -54,9 +54,11 @@ class GiftofOdyssey(UI):
             else:
                 self.device.screenshot()
 
-            if not self.handle_reward() and not self.appear(GET_REWARD_BUTTON):
+            if self.appear(EVENT_SELECTED) and not self.appear(GET_REWARD_BUTTON):
                 logger.info("No more reward to get")
                 break
+            if self.handle_reward():
+                continue
             if interval.reached():
                 if self.appear_then_click(GET_REWARD_BUTTON):
                     interval.reset()

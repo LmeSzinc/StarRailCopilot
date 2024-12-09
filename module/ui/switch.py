@@ -1,5 +1,4 @@
 from module.base.base import ModuleBase
-from module.base.button import Button
 from module.base.timer import Timer
 from module.exception import ScriptError
 from module.logger import logger
@@ -29,16 +28,18 @@ class Switch:
                 For example: | [ON] | -> click -> | [OFF] |
         """
         self.name = name
-        self.is_choice = is_selector
+        self.is_selector = is_selector
         self.state_list = []
 
     def add_state(self, state, check_button, click_button=None):
         """
         Args:
-            state (str):
+            state (str): State name but cannot use 'unknown' as state name
             check_button (ButtonWrapper):
             click_button (ButtonWrapper):
         """
+        if state == 'unknown':
+            raise ScriptError(f'Cannot use "unknown" as state name')
         self.state_list.append({
             'state': state,
             'check_button': check_button,
@@ -97,8 +98,7 @@ class Switch:
             if row['state'] == state:
                 return row
 
-        logger.warning(f'Switch {self.name} received an invalid state {state}')
-        raise ScriptError(f'Switch {self.name} received an invalid state {state}')
+        raise ScriptError(f'Switch {self.name} received an invalid state: {state}')
 
     def handle_additional(self, main):
         """
@@ -123,9 +123,9 @@ class Switch:
         logger.info(f'{self.name} set to {state}')
         self.get_data(state)
 
-        counter = 0
         changed = False
-        warning_show_timer = Timer(5, count=10).start()
+        has_unknown = False
+        unknown_timer = Timer(5, count=10).start()
         click_timer = Timer(1, count=3)
         while 1:
             if skip_first_screenshot:
@@ -147,20 +147,39 @@ class Switch:
 
             # Warning
             if current == 'unknown':
-                if warning_show_timer.reached():
-                    logger.warning(f'Unknown {self.name} switch')
-                    warning_show_timer.reset()
-                    if counter >= 1:
-                        logger.warning(f'{self.name} switch {state} asset has evaluated to unknown too many times, '
-                                       f'asset should be re-verified')
-                    counter += 1
+                if unknown_timer.reached():
+                    logger.warning(f'Switch {self.name} has states evaluated to unknown, '
+                                   f'asset should be re-verified')
+                    has_unknown = True
+                    unknown_timer.reset()
+                # If unknown_timer never reached, don't click when having an unknown state,
+                # the unknown state is probably the switching animation.
+                # If unknown_timer reached once, click target state ignoring whether state is unknown or not,
+                # the unknown state is probably a new state not yet added.
+                # By ignoring new states, Switch.set() can still switch among known states.
+                if not has_unknown:
+                    continue
+            else:
+                # Known state, reset timer
+                unknown_timer.reset()
 
             # Click
             if click_timer.reached():
-                click_state = state if self.is_choice else current
+                if self.is_selector:
+                    # Click target state to switch
+                    click_state = state
+                else:
+                    # If this is a selector, click on current state to switch to another
+                    # But 'unknown' is not clickable, if it is, click target state instead
+                    # assuming all selector states share the same position.
+                    if current == 'unknown':
+                        click_state = state
+                    else:
+                        click_state = current
                 self.click(click_state, main=main)
-                click_timer.reset()
                 changed = True
+                click_timer.reset()
+                unknown_timer.reset()
 
         return changed
 

@@ -6,6 +6,7 @@ from module.logger import logger
 from module.ocr.ocr import Ocr
 from tasks.base.assets.assets_base_main_page import ROGUE_LEAVE_FOR_NOW, ROGUE_LEAVE_FOR_NOW_OE
 from tasks.base.assets.assets_base_page import CLOSE, MAIN_GOTO_CHARACTER, MAP_EXIT, MAP_EXIT_OE
+from tasks.base.assets.assets_base_popup import POPUP_STORY_LATER
 from tasks.base.main_page import MainPage
 from tasks.base.page import Page, page_gacha, page_main
 from tasks.combat.assets.assets_combat_finish import COMBAT_EXIT
@@ -394,6 +395,9 @@ class UI(MainPage):
         if self.appear_then_click(COMBAT_EXIT, interval=5):
             return True
         if self.appear_then_click(INFO_CLOSE, interval=5):
+            return True
+        # Popup story that advice you watch it, but no, later
+        if self.appear_then_click(POPUP_STORY_LATER, interval=5):
             return True
 
         return False

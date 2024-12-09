@@ -116,3 +116,13 @@ POPUP_SINGLE = ButtonWrapper(
         button=(578, 451, 705, 489),
     ),
 )
+POPUP_STORY_LATER = ButtonWrapper(
+    name='POPUP_STORY_LATER',
+    share=Button(
+        file='./assets/share/base/popup/POPUP_STORY_LATER.png',
+        area=(392, 534, 416, 558),
+        search=(359, 527, 424, 565),
+        color=(111, 103, 91),
+        button=(392, 534, 416, 558),
+    ),
+)

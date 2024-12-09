@@ -75,8 +75,8 @@ class DungeonList(Keyword):
         for path in RoguePath.instances.values():
             if path.name in self.name:
                 return path
-            elif path.name == 'The_Harmony' and 'Harmony' in self.name:
-                return path
+            # elif path.name == 'The_Harmony' and 'Harmony' in self.name:
+            #     return path
         return None
 
     @cached_property

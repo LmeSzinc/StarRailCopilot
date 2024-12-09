@@ -12,14 +12,14 @@ UpgradeMaterials = ItemTab(
     jp='育成素材',
     es='Materiales de mejora',
 )
-LightCones = ItemTab(
+LightCone = ItemTab(
     id=2,
-    name='LightCones',
+    name='LightCone',
     cn='光锥',
     cht='光錐',
-    en='Light Cones',
+    en='Light Cone',
     jp='光円錐',
-    es='Conos de luz',
+    es='Cono de luz',
 )
 Relics = ItemTab(
     id=3,

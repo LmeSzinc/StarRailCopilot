@@ -10,7 +10,7 @@ Special_HertaOffice = MapPlane(
     cht='黑塔的辦公室',
     en="Herta's Office",
     jp='ヘルタのオフィス',
-    es='oficina de Herta',
+    es='Oficina de Herta',
     world_id=-1,
     plane_id=1,
 )
@@ -146,8 +146,19 @@ Penacony_TheSoaringClockHand = MapPlane(
     world_id=3,
     plane_id=4,
 )
-Herta_ParlorCar = MapPlane(
+Herta_PartyCar = MapPlane(
     id=14,
+    name='Herta_PartyCar',
+    cn='派对车厢',
+    cht='派對車廂',
+    en='Party Car',
+    jp='パーティー車両',
+    es='Vagón de fiestas',
+    world_id=0,
+    plane_id=1000003,
+)
+Herta_ParlorCar = MapPlane(
+    id=15,
     name='Herta_ParlorCar',
     cn='观景车厢',
     cht='觀景車廂',
@@ -157,8 +168,19 @@ Herta_ParlorCar = MapPlane(
     world_id=0,
     plane_id=1000001,
 )
+Herta_PassengerCabin = MapPlane(
+    id=16,
+    name='Herta_PassengerCabin',
+    cn='客房车厢',
+    cht='客房車廂',
+    en='Passenger Cabin',
+    jp='客室車両',
+    es='Vagón dormitorio',
+    world_id=0,
+    plane_id=1000002,
+)
 Herta_MasterControlZone = MapPlane(
-    id=15,
+    id=17,
     name='Herta_MasterControlZone',
     cn='主控舱段',
     cht='主控艙段',
@@ -169,7 +191,7 @@ Herta_MasterControlZone = MapPlane(
     plane_id=1000101,
 )
 Herta_BaseZone = MapPlane(
-    id=16,
+    id=18,
     name='Herta_BaseZone',
     cn='基座舱段',
     cht='基座艙段',
@@ -180,7 +202,7 @@ Herta_BaseZone = MapPlane(
     plane_id=2000101,
 )
 Herta_StorageZone = MapPlane(
-    id=17,
+    id=19,
     name='Herta_StorageZone',
     cn='收容舱段',
     cht='收容艙段',
@@ -191,7 +213,7 @@ Herta_StorageZone = MapPlane(
     plane_id=2000201,
 )
 Herta_SupplyZone = MapPlane(
-    id=18,
+    id=20,
     name='Herta_SupplyZone',
     cn='支援舱段',
     cht='支援艙段',
@@ -202,7 +224,7 @@ Herta_SupplyZone = MapPlane(
     plane_id=2000301,
 )
 Herta_SeclusionZone = MapPlane(
-    id=19,
+    id=21,
     name='Herta_SeclusionZone',
     cn='禁闭舱段',
     cht='禁閉艙段',
@@ -213,7 +235,7 @@ Herta_SeclusionZone = MapPlane(
     plane_id=2000401,
 )
 Jarilo_AdministrativeDistrict = MapPlane(
-    id=20,
+    id=22,
     name='Jarilo_AdministrativeDistrict',
     cn='行政区',
     cht='行政區',
@@ -224,7 +246,7 @@ Jarilo_AdministrativeDistrict = MapPlane(
     plane_id=1010101,
 )
 Jarilo_OutlyingSnowPlains = MapPlane(
-    id=21,
+    id=23,
     name='Jarilo_OutlyingSnowPlains',
     cn='城郊雪原',
     cht='城郊雪原',
@@ -235,7 +257,7 @@ Jarilo_OutlyingSnowPlains = MapPlane(
     plane_id=2010101,
 )
 Jarilo_BackwaterPass = MapPlane(
-    id=22,
+    id=24,
     name='Jarilo_BackwaterPass',
     cn='边缘通路',
     cht='邊緣通道',
@@ -246,7 +268,7 @@ Jarilo_BackwaterPass = MapPlane(
     plane_id=2011101,
 )
 Jarilo_SilvermaneGuardRestrictedZone = MapPlane(
-    id=23,
+    id=25,
     name='Jarilo_SilvermaneGuardRestrictedZone',
     cn='铁卫禁区',
     cht='鐵衛禁區',
@@ -257,7 +279,7 @@ Jarilo_SilvermaneGuardRestrictedZone = MapPlane(
     plane_id=2013101,
 )
 Jarilo_CorridorofFadingEchoes = MapPlane(
-    id=24,
+    id=26,
     name='Jarilo_CorridorofFadingEchoes',
     cn='残响回廊',
     cht='殘響迴廊',
@@ -268,7 +290,7 @@ Jarilo_CorridorofFadingEchoes = MapPlane(
     plane_id=2013201,
 )
 Jarilo_EverwinterHill = MapPlane(
-    id=25,
+    id=27,
     name='Jarilo_EverwinterHill',
     cn='永冬岭',
     cht='永冬嶺',
@@ -279,7 +301,7 @@ Jarilo_EverwinterHill = MapPlane(
     plane_id=2013401,
 )
 Jarilo_PillarsofCreation = MapPlane(
-    id=26,
+    id=28,
     name='Jarilo_PillarsofCreation',
     cn='造物之柱',
     cht='造物之柱',
@@ -290,7 +312,7 @@ Jarilo_PillarsofCreation = MapPlane(
     plane_id=2013501,
 )
 Jarilo_OldWeaponTestingGround = MapPlane(
-    id=27,
+    id=29,
     name='Jarilo_OldWeaponTestingGround',
     cn='旧武器试验场',
     cht='舊武器試驗場',
@@ -301,7 +323,7 @@ Jarilo_OldWeaponTestingGround = MapPlane(
     plane_id=2013601,
 )
 Jarilo_BoulderTown = MapPlane(
-    id=28,
+    id=30,
     name='Jarilo_BoulderTown',
     cn='磐岩镇',
     cht='磐岩鎮',
@@ -312,7 +334,7 @@ Jarilo_BoulderTown = MapPlane(
     plane_id=1010201,
 )
 Jarilo_GreatMine = MapPlane(
-    id=29,
+    id=31,
     name='Jarilo_GreatMine',
     cn='大矿区',
     cht='大礦區',
@@ -323,7 +345,7 @@ Jarilo_GreatMine = MapPlane(
     plane_id=2012101,
 )
 Jarilo_RivetTown = MapPlane(
-    id=30,
+    id=32,
     name='Jarilo_RivetTown',
     cn='铆钉镇',
     cht='鉚釘鎮',
@@ -334,7 +356,7 @@ Jarilo_RivetTown = MapPlane(
     plane_id=2012201,
 )
 Jarilo_RobotSettlement = MapPlane(
-    id=31,
+    id=33,
     name='Jarilo_RobotSettlement',
     cn='机械聚落',
     cht='機械聚落',
@@ -345,7 +367,7 @@ Jarilo_RobotSettlement = MapPlane(
     plane_id=2012301,
 )
 Luofu_CentralStarskiffHaven = MapPlane(
-    id=32,
+    id=34,
     name='Luofu_CentralStarskiffHaven',
     cn='星槎海中枢',
     cht='星槎海中樞',
@@ -356,7 +378,7 @@ Luofu_CentralStarskiffHaven = MapPlane(
     plane_id=1020101,
 )
 Luofu_Cloudford = MapPlane(
-    id=33,
+    id=35,
     name='Luofu_Cloudford',
     cn='流云渡',
     cht='流雲渡',
@@ -367,7 +389,7 @@ Luofu_Cloudford = MapPlane(
     plane_id=2021101,
 )
 Luofu_StargazerNavalia = MapPlane(
-    id=34,
+    id=36,
     name='Luofu_StargazerNavalia',
     cn='迴星港',
     cht='迴星港',
@@ -378,7 +400,7 @@ Luofu_StargazerNavalia = MapPlane(
     plane_id=2021201,
 )
 Luofu_ExaltingSanctum = MapPlane(
-    id=35,
+    id=37,
     name='Luofu_ExaltingSanctum',
     cn='长乐天',
     cht='長樂天',
@@ -389,7 +411,7 @@ Luofu_ExaltingSanctum = MapPlane(
     plane_id=1020201,
 )
 Luofu_AurumAlley = MapPlane(
-    id=36,
+    id=38,
     name='Luofu_AurumAlley',
     cn='金人巷',
     cht='金人巷',
@@ -400,7 +422,7 @@ Luofu_AurumAlley = MapPlane(
     plane_id=1020204,
 )
 Luofu_DivinationCommission = MapPlane(
-    id=37,
+    id=39,
     name='Luofu_DivinationCommission',
     cn='太卜司',
     cht='太卜司',
@@ -411,7 +433,7 @@ Luofu_DivinationCommission = MapPlane(
     plane_id=2022101,
 )
 Luofu_ArtisanshipCommission = MapPlane(
-    id=38,
+    id=40,
     name='Luofu_ArtisanshipCommission',
     cn='工造司',
     cht='工造司',
@@ -422,7 +444,7 @@ Luofu_ArtisanshipCommission = MapPlane(
     plane_id=2022201,
 )
 Luofu_FyxestrollGarden = MapPlane(
-    id=39,
+    id=41,
     name='Luofu_FyxestrollGarden',
     cn='绥园',
     cht='綏園',
@@ -433,7 +455,7 @@ Luofu_FyxestrollGarden = MapPlane(
     plane_id=2022301,
 )
 Luofu_AlchemyCommission = MapPlane(
-    id=40,
+    id=42,
     name='Luofu_AlchemyCommission',
     cn='丹鼎司',
     cht='丹鼎司',
@@ -444,7 +466,7 @@ Luofu_AlchemyCommission = MapPlane(
     plane_id=2023101,
 )
 Luofu_ScalegorgeWaterscape = MapPlane(
-    id=41,
+    id=43,
     name='Luofu_ScalegorgeWaterscape',
     cn='鳞渊境',
     cht='鱗淵境',
@@ -455,7 +477,7 @@ Luofu_ScalegorgeWaterscape = MapPlane(
     plane_id=2023201,
 )
 Luofu_TheShacklingPrison = MapPlane(
-    id=42,
+    id=44,
     name='Luofu_TheShacklingPrison',
     cn='幽囚狱',
     cht='幽囚獄',
@@ -466,7 +488,7 @@ Luofu_TheShacklingPrison = MapPlane(
     plane_id=2024101,
 )
 Luofu_Skysplitter = MapPlane(
-    id=43,
+    id=45,
     name='Luofu_Skysplitter',
     cn='竞锋舰',
     cht='競鋒艦',
@@ -477,7 +499,7 @@ Luofu_Skysplitter = MapPlane(
     plane_id=2024201,
 )
 Penacony_TheReverieReality = MapPlane(
-    id=44,
+    id=46,
     name='Penacony_TheReverieReality',
     cn='「白日梦」酒店-现实',
     cht='「白日夢」飯店-現實',
@@ -488,7 +510,7 @@ Penacony_TheReverieReality = MapPlane(
     plane_id=1030501,
 )
 Penacony_GoldenHour = MapPlane(
-    id=45,
+    id=47,
     name='Penacony_GoldenHour',
     cn='黄金的时刻',
     cht='黃金的時刻',
@@ -499,7 +521,7 @@ Penacony_GoldenHour = MapPlane(
     plane_id=1030101,
 )
 Penacony_DreamEdge = MapPlane(
-    id=46,
+    id=48,
     name='Penacony_DreamEdge',
     cn='筑梦边境',
     cht='築夢邊境',
@@ -510,7 +532,7 @@ Penacony_DreamEdge = MapPlane(
     plane_id=2031301,
 )
 Penacony_AChildDream = MapPlane(
-    id=47,
+    id=49,
     name='Penacony_AChildDream',
     cn='稚子的梦',
     cht='稚子的夢',
@@ -521,7 +543,7 @@ Penacony_AChildDream = MapPlane(
     plane_id=2031201,
 )
 Penacony_TheReverieDreamscape = MapPlane(
-    id=48,
+    id=50,
     name='Penacony_TheReverieDreamscape',
     cn='「白日梦」酒店-梦境',
     cht='「白日夢」飯店-夢境',
@@ -532,7 +554,7 @@ Penacony_TheReverieDreamscape = MapPlane(
     plane_id=2031101,
 )
 Penacony_DewlightPavilion = MapPlane(
-    id=49,
+    id=51,
     name='Penacony_DewlightPavilion',
     cn='朝露公馆',
     cht='朝露公館',
@@ -543,7 +565,7 @@ Penacony_DewlightPavilion = MapPlane(
     plane_id=2032201,
 )
 Penacony_ClockStudiosThemePark = MapPlane(
-    id=50,
+    id=52,
     name='Penacony_ClockStudiosThemePark',
     cn='克劳克影视乐园',
     cht='克勞克影視樂園',
@@ -554,7 +576,7 @@ Penacony_ClockStudiosThemePark = MapPlane(
     plane_id=2032101,
 )
 Penacony_DreamfluxReef = MapPlane(
-    id=51,
+    id=53,
     name='Penacony_DreamfluxReef',
     cn='流梦礁',
     cht='流夢礁',
@@ -565,7 +587,7 @@ Penacony_DreamfluxReef = MapPlane(
     plane_id=1030401,
 )
 Penacony_SoulGladScorchsandAuditionVenue = MapPlane(
-    id=52,
+    id=54,
     name='Penacony_SoulGladScorchsandAuditionVenue',
     cn='苏乐达热砂海选会场',
     cht='蘇樂達熱砂海選會場',
@@ -576,7 +598,7 @@ Penacony_SoulGladScorchsandAuditionVenue = MapPlane(
     plane_id=2033101,
 )
 Penacony_PenaconyGrandTheater = MapPlane(
-    id=53,
+    id=55,
     name='Penacony_PenaconyGrandTheater',
     cn='匹诺康尼大剧院',
     cht='匹諾康尼大劇院',
@@ -587,7 +609,7 @@ Penacony_PenaconyGrandTheater = MapPlane(
     plane_id=2033201,
 )
 Penacony_PenaconyPaperfoldUniversityCollege = MapPlane(
-    id=55,
+    id=57,
     name='Penacony_PenaconyPaperfoldUniversityCollege',
     cn='匹诺康尼折纸大学学院',
     cht='匹諾康尼摺紙大學學院',

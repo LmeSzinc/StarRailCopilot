@@ -19,7 +19,7 @@ Teleport = DungeonEntrance(
     cht='傳送',
     en='Teleport',
     jp='テレポート',
-    es='Teletransportarse',
+    es='Ir',
 )
 Navigate = DungeonEntrance(
     id=3,

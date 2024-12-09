@@ -300,3 +300,21 @@ Boundless_Sea = RogueBonus(
     jp='果てなき海',
     es='Mar infinito',
 )
+Aether_Well = RogueBonus(
+    id=34,
+    name='Aether_Well',
+    cn='以太井',
+    cht='乙太井',
+    en='Aether Well',
+    jp='エーテル井戸',
+    es='Pozo etéreo',
+)
+Silent_Orifice = RogueBonus(
+    id=35,
+    name='Silent_Orifice',
+    cn='静默孔',
+    cht='靜默孔',
+    en='Silent Orifice',
+    jp='沈黙の孔',
+    es='Agujero de la quietud',
+)

@@ -1600,7 +1600,7 @@ Ship_of_Fools = RogueEventTitle(
     cht='愚人船',
     en='Ship of Fools',
     jp='阿呆船',
-    es='El barco de los tontos',
+    es='El barco de los Bufones',
     option_ids=[511, 512, 513, 514, 515, 516],
 )
 Stephen = RogueEventTitle(
@@ -1612,4 +1612,104 @@ Stephen = RogueEventTitle(
     jp='スティーブン',
     es='Stephen',
     option_ids=[5, 6, 7, 8, 10],
+)
+Blue_Ocean_Strategy = RogueEventTitle(
+    id=162,
+    name='Blue_Ocean_Strategy',
+    cn='销售蓝海',
+    cht='銷售藍海',
+    en='Blue Ocean Strategy',
+    jp='ブルーオーシャン戦略',
+    es='La estrategia del océano azul',
+    option_ids=[517, 518, 519, 520],
+)
+Majority_Report = RogueEventTitle(
+    id=163,
+    name='Majority_Report',
+    cn='多数派报告',
+    cht='多數派報告',
+    en='Majority Report',
+    jp='多数派報告',
+    es='Informe mayoritario',
+    option_ids=[521, 522],
+)
+Inspiration_Strikes = RogueEventTitle(
+    id=164,
+    name='Inspiration_Strikes',
+    cn='妙笔生花',
+    cht='妙筆生花',
+    en='Inspiration Strikes',
+    jp='妙筆生花',
+    es='El gran secreto',
+    option_ids=[523, 524, 525, 526, 527],
+)
+Temple_of_Reticence = RogueEventTitle(
+    id=165,
+    name='Temple_of_Reticence',
+    cn='缄默之殿',
+    cht='緘默之殿',
+    en='Temple of Reticence',
+    jp='沈黙の神殿',
+    es='Templo del Silencio',
+    option_ids=[528, 529, 530, 531],
+)
+False_Future = RogueEventTitle(
+    id=166,
+    name='False_Future',
+    cn='假未来',
+    cht='假未來',
+    en='False Future',
+    jp='偽りの未来',
+    es='Futuro falso',
+    option_ids=[532, 533],
+)
+Hackers_and_Sailors = RogueEventTitle(
+    id=167,
+    name='Hackers_and_Sailors',
+    cn='骇客与水手',
+    cht='駭客與水手',
+    en='Hackers and Sailors',
+    jp='ハッカーと船乗り',
+    es='Hackers y marineros',
+    option_ids=[534, 535, 536],
+)
+First_Battle_of_the_Shopping_Street = RogueEventTitle(
+    id=168,
+    name='First_Battle_of_the_Shopping_Street',
+    cn='商店街一番战',
+    cht='商店街一番戰',
+    en='First Battle of the Shopping Street',
+    jp='商店街での第一戦',
+    es='Primera batalla de la calle comercial',
+    option_ids=[537, 538, 539],
+)
+Life_is_Like_a_Vegetable_I = RogueEventTitle(
+    id=169,
+    name='Life_is_Like_a_Vegetable_I',
+    cn='人生如菜（其一）',
+    cht='人生如菜（其一）',
+    en='Life is Like a Vegetable (I)',
+    jp='人生は料理の如く（その1）',
+    es='La vida es como la verdura (I)',
+    option_ids=[540, 541, 542, 543, 544, 545],
+)
+Life_is_Like_a_Vegetable_II = RogueEventTitle(
+    id=170,
+    name='Life_is_Like_a_Vegetable_II',
+    cn='人生如菜（其二）',
+    cht='人生如菜（其二）',
+    en='Life is Like a Vegetable (II)',
+    jp='人生は料理の如く（その2）',
+    es='La vida es como la verdura (II)',
+    option_ids=[541, 542, 543, 544, 545],
+)
+Life_is_Like_a_Vegetable_III = RogueEventTitle(
+    id=171,
+    name='Life_is_Like_a_Vegetable_III',
+    cn='人生如菜（其三）',
+    cht='人生如菜（其三）',
+    en='Life is Like a Vegetable (III)',
+    jp='人生は料理の如く（その3）',
+    es='La vida es como la verdura (III)',
+    option_ids=[542, 543, 544, 545],
 )

@@ -270,7 +270,7 @@
       "Stagnant_Shadow_Perdition": "角色晋阶材料：物理（寒鸦 / 银枝）",
       "Stagnant_Shadow_Duty": "角色晋阶材料：物理（波提欧 / 知更鸟 / 云璃）",
       "Stagnant_Shadow_Blaze": "角色晋阶材料：火（姬子 / 艾丝妲 / 虎克）",
-      "Stagnant_Shadow_Scorch": "角色晋阶材料：火（桂乃芬 / 托帕&账账）",
+      "Stagnant_Shadow_Scorch": "角色晋阶材料：火（桂乃芬 / 托帕&账账 / 忘归人）",
       "Stagnant_Shadow_Ire": "角色晋阶材料：火（流萤 / 加拉赫 / 椒丘 / 灵砂）",
       "Stagnant_Shadow_Rime": "角色晋阶材料：冰（三月七 / 黑塔 / 杰帕德 / 佩拉）",
       "Stagnant_Shadow_Icicle": "角色晋阶材料：冰（彦卿 / 镜流 / 阮•梅）",
@@ -286,7 +286,7 @@
       "Stagnant_Shadow_Roast": "角色晋阶材料：量子（翡翠 / 花火）",
       "Stagnant_Shadow_Mirage": "角色晋阶材料：虚数（瓦尔特 / 罗刹 / 驭空）",
       "Stagnant_Shadow_Puppetry": "角色晋阶材料：虚数（丹恒•饮月 / 砂金 / 真理医生）",
-      "Stagnant_Shadow_Timbre": "角色晋阶材料：虚数（乱破）",
+      "Stagnant_Shadow_Timbre": "角色晋阶材料：虚数（星期日 / 乱破）",
       "Cavern_of_Corrosion_Path_of_Uncertainty": "Cavern_of_Corrosion_Path_of_Uncertainty（迷识之径）",
       "Cavern_of_Corrosion_Path_of_Cavalier": "遗器：超击破套+终追套（勇骑之径）",
       "Cavern_of_Corrosion_Path_of_Dreamdive": "遗器：负面套+击破套（梦潜之径）",
@@ -406,6 +406,7 @@
       "Feixiao": "飞霄",
       "Firefly": "流萤",
       "FuXuan": "符玄",
+      "Fugue": "忘归人",
       "Gallagher": "加拉赫",
       "Gepard": "杰帕德",
       "Guinaifen": "桂乃芬",
@@ -438,6 +439,7 @@
       "Serval": "希露瓦",
       "SilverWolf": "银狼",
       "Sparkle": "花火",
+      "Sunday": "星期日",
       "Sushang": "素裳",
       "Tingyun": "停云",
       "TopazNumby": "托帕&账账",
@@ -553,7 +555,7 @@
       "help": ""
     },
     "Item_Searing_Steel_Blade": {
-      "name": "角色晋阶材料：火（桂乃芬 / 托帕&账账）",
+      "name": "角色晋阶材料：火（桂乃芬 / 托帕&账账 / 忘归人）",
       "help": ""
     },
     "Item_Gelid_Chitin": {
@@ -601,7 +603,7 @@
       "help": ""
     },
     "Item_Chordal_Mirage": {
-      "name": "角色晋阶材料：虚数（乱破）",
+      "name": "角色晋阶材料：虚数（星期日 / 乱破）",
       "help": ""
     },
     "Item_Worldbreaker_Blade": {

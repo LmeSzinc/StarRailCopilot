@@ -81,7 +81,7 @@ Latest_Update = DungeonNav(
     cn='最近更新',
     cht='最近更新',
     en='Latest Update',
-    jp='更新情報',
+    jp='最近更新',
     es='Actualización reciente',
 )
 Forgotten_Hall = DungeonNav(

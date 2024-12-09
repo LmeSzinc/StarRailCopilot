@@ -1371,3 +1371,111 @@ Tangible_Luck = RogueCurio(
     jp='幸運の形',
     es='Suerte tangible',
 )
+Road_of_Prayers = RogueCurio(
+    id=153,
+    name='Road_of_Prayers',
+    cn='祈祷之路',
+    cht='祈禱之路',
+    en='Road of Prayers',
+    jp='祈りの道',
+    es='Camino de plegarias',
+)
+Automated_Experience = RogueCurio(
+    id=154,
+    name='Automated_Experience',
+    cn='自动化体验',
+    cht='自動化體驗',
+    en='Automated Experience',
+    jp='オートメーション',
+    es='Experiencia automatizada',
+)
+High_Calorie_Diet = RogueCurio(
+    id=155,
+    name='High_Calorie_Diet',
+    cn='高热饮食',
+    cht='高熱飲食',
+    en='High-Calorie Diet',
+    jp='高カロリー食',
+    es='Dieta calórica',
+)
+Peace_Box = RogueCurio(
+    id=156,
+    name='Peace_Box',
+    cn='和平箱',
+    cht='和平箱',
+    en='Peace Box',
+    jp='平和の箱',
+    es='Caja de paz',
+)
+The_Story_Presently = RogueCurio(
+    id=157,
+    name='The_Story_Presently',
+    cn='故事的现在时',
+    cht='故事的現在時',
+    en='The Story Presently',
+    jp='物語の現在',
+    es='La historia actual',
+)
+Genius_Society_Dangerous_Gossip = RogueCurio(
+    id=158,
+    name='Genius_Society_Dangerous_Gossip',
+    cn='天才俱乐部危险八卦',
+    cht='天才俱樂部危險八卦',
+    en="Genius Society's Dangerous Gossip",
+    jp='天才クラブの危険な噂',
+    es='Chisme peligroso del Círculo de Genios',
+)
+Hero_Triumphant_Return = RogueCurio(
+    id=159,
+    name='Hero_Triumphant_Return',
+    cn='英雄凯旋',
+    cht='英雄凱旋',
+    en="Hero's Triumphant Return",
+    jp='英雄の凱旋',
+    es='Regreso triunfante del héroe',
+)
+Unmanned_Comms = RogueCurio(
+    id=160,
+    name='Unmanned_Comms',
+    cn='无人通讯',
+    cht='無人通訊',
+    en='Unmanned Comms',
+    jp='応答なき通信',
+    es='Comunicaciones no tripuladas',
+)
+Doomsday_Compound_Eye_Early_Access_Version = RogueCurio(
+    id=161,
+    name='Doomsday_Compound_Eye_Early_Access_Version',
+    cn='末日复眼•先行版',
+    cht='末日複眼•首發版',
+    en='Doomsday Compound Eye — Early Access Version',
+    jp='終末の複眼･先行版',
+    es='Ojo del fin del mundo (versión de acceso anticipado)',
+)
+Towat_Cards = RogueCurio(
+    id=162,
+    name='Towat_Cards',
+    cn='奥塔牌',
+    cht='奧塔牌',
+    en='Towat Cards',
+    jp='オトッタカード',
+    es='Cartas de Towat',
+)
+High_Calorie_Diet_Decrypted = RogueCurio(
+    id=163,
+    name='High_Calorie_Diet_Decrypted',
+    cn='高热饮食（破解版）',
+    cht='高熱飲食（破解版）',
+    en='High-Calorie Diet (Decrypted)',
+    jp='高カロリー食（クラック版）',
+    es='Dieta calórica (versión pirateada)',
+)
+Unmanned_Comms_Decrypted = RogueCurio(
+    id=164,
+    name='Unmanned_Comms_Decrypted',
+    cn='无人通讯（破解版）',
+    cht='無人通訊（破解版）',
+    en='Unmanned Comms (Decrypted)',
+    jp='応答なき通信（クラック版）',
+    es='Comunicaciones no tripuladas (versión pirateada)',
+)

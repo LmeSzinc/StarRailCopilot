@@ -2493,7 +2493,7 @@ A_perfect_man_needs_a_popular_gacha_toy = RogueEventOption(
     cn='完美型男需要「潮流扭蛋人」。',
     cht='完美型男需要「潮流扭蛋人」。',
     en='A perfect man needs a "popular gacha toy."',
-    jp='美形ハンサムには「トレンドガチャマン」が必要だ',
+    jp='美形ハンサムには「流行のガチャ人形」が必要だ',
     es='Una persona perfecta necesita un juguete gacha popular.',
 )
 A_perfectionist_wants_them_all = RogueEventOption(
@@ -4646,4 +4646,265 @@ A_joke_about_a_broken_mask = RogueEventOption(
     en='A joke about a broken mask.',
     jp='割れた仮面のジョーク',
     es='Un chiste sobre una máscara rota.',
+)
+Just_a_cursory_amount_for_show = RogueEventOption(
+    id=517,
+    name='Just_a_cursory_amount_for_show',
+    cn='象征性意思意思',
+    cht='客氣一下而已',
+    en='Just a cursory amount for show',
+    jp='少しだけ誠意を見せる',
+    es='Compra solo una pequeña cantidad para quedar bien',
+)
+Buy_more_to_gift_friends_and_family = RogueEventOption(
+    id=518,
+    name='Buy_more_to_gift_friends_and_family',
+    cn='多买点送亲戚朋友',
+    cht='多買一點送親朋好友',
+    en='Buy more to gift friends and family',
+    jp='もっと買って親戚や友人のお土産にする',
+    es='Compra muchos regalos para la familia y los amigos',
+)
+Buy_everything_in_this_vending_machine = RogueEventOption(
+    id=519,
+    name='Buy_everything_in_this_vending_machine',
+    cn='这台售货机，你承包了！',
+    cht='這台販賣機，你承包了！',
+    en='Buy everything in this vending machine!',
+    jp='この自動販売機のものを全部買う！',
+    es='¡Compra todo lo que hay en esta máquina expendedora!',
+)
+You_decide_to_do_as_the_locals_do = RogueEventOption(
+    id=520,
+    name='You_decide_to_do_as_the_locals_do',
+    cn='你决定入乡随俗',
+    cht='你決定入鄉隨俗',
+    en='You decide to do as the locals do',
+    jp='郷に入っては郷に従うことに決めた',
+    es='Decides que "donde fueres, haz lo que vieres"',
+)
+Knock_out_the_golden_head_of_tricks = RogueEventOption(
+    id=521,
+    name='Knock_out_the_golden_head_of_tricks',
+    cn='敲晕手法的黄金脑袋',
+    cht='敲暈手法的黃金腦袋',
+    en='Knock out the golden head of tricks',
+    jp='トリックを推理するゴールデンヘッドを気絶させる',
+    es='Golpea la cabeza dorada de los trucos',
+)
+Knock_out_the_diamond_head_of_motives = RogueEventOption(
+    id=522,
+    name='Knock_out_the_diamond_head_of_motives',
+    cn='敲晕动机的钻石脑袋',
+    cht='敲暈動機的鑽石腦袋',
+    en='Knock out the diamond head of motives',
+    jp='動機を推理するダイヤモンドヘッドを気絶させる',
+    es='Golpea la cabeza de diamante de los motivos',
+)
+Wide_broad_strokes = RogueEventOption(
+    id=523,
+    name='Wide_broad_strokes',
+    cn='大笔一挥',
+    cht='大筆一揮',
+    en='Wide, broad strokes',
+    jp='絵を描く',
+    es='Pinceladas grandes y amplias',
+)
+Give_up_on_painting = RogueEventOption(
+    id=524,
+    name='Give_up_on_painting',
+    cn='放弃作画',
+    cht='放棄作畫',
+    en='Give up on painting',
+    jp='絵を描くのを諦める',
+    es='Deja de pintar',
+)
+Learn_from_a_master = RogueEventOption(
+    id=525,
+    name='Learn_from_a_master',
+    cn='拜师学艺',
+    cht='拜師學藝',
+    en='Learn from a master',
+    jp='師匠について学ぶ',
+    es='Aprende del maestro',
+)
+Purchase_high_quality_paints = RogueEventOption(
+    id=526,
+    name='Purchase_high_quality_paints',
+    cn='购买高级颜料',
+    cht='購買高級顏料',
+    en='Purchase high-quality paints',
+    jp='高級絵の具を購入する',
+    es='Compra pinturas de buena calidad',
+)
+Hire_a_local_illustrator = RogueEventOption(
+    id=527,
+    name='Hire_a_local_illustrator',
+    cn='聘请本地绘师',
+    cht='聘請本地繪師',
+    en='Hire a local illustrator',
+    jp='現地の画家を雇う',
+    es='Contrata a un artista local',
+)
+Offer_fury_to_the_deceased_king = RogueEventOption(
+    id=528,
+    name='Offer_fury_to_the_deceased_king',
+    cn='向已死之王献上愤怒',
+    cht='向已死之王獻上憤怒',
+    en='Offer fury to the deceased king',
+    jp='死した王に怒りを捧げる',
+    es='Ofrece furia al difunto rey',
+)
+Leave_this_gloomy_place = RogueEventOption(
+    id=529,
+    name='Leave_this_gloomy_place',
+    cn='离开这个阴沉的地方',
+    cht='離開這個陰沉的地方',
+    en='Leave this gloomy place',
+    jp='この陰鬱な場所を離れる',
+    es='Sal de este lugar sombrío',
+)
+Leave_with_the_Wrath_King_treasure = RogueEventOption(
+    id=530,
+    name='Leave_with_the_Wrath_King_treasure',
+    cn='带走嗔王的宝藏',
+    cht='帶走嗔王的寶藏',
+    en="Leave with the Wrath King's treasure",
+    jp='怒りの王の宝物を持ち去る',
+    es='Toma el tesoro del Rey de la Ira',
+)
+Leave_with_the_Wrath_King_memories = RogueEventOption(
+    id=531,
+    name='Leave_with_the_Wrath_King_memories',
+    cn='带走嗔王的回忆',
+    cht='帶走嗔王的回憶',
+    en="Leave with the Wrath King's memories",
+    jp='怒りの王の思い出を持ち去る',
+    es='Toma los recuerdos del Rey de la Ira',
+)
+Change_my_future = RogueEventOption(
+    id=532,
+    name='Change_my_future',
+    cn='改变我的未来',
+    cht='改變我的未來',
+    en='Change my future',
+    jp='の未来を変える',
+    es='Cambia mi futuro',
+)
+Abandon_the_suspicious_divination = RogueEventOption(
+    id=533,
+    name='Abandon_the_suspicious_divination',
+    cn='放弃可疑的占卜',
+    cht='放棄可疑的占卜',
+    en='Abandon the suspicious divination',
+    jp='怪しい占いを無視する',
+    es='Rehúsa la adivinación sospechosa',
+)
+Collect_the_remaining_data = RogueEventOption(
+    id=534,
+    name='Collect_the_remaining_data',
+    cn='收拾残存的数据',
+    cht='收拾殘存的資料',
+    en='Collect the remaining data',
+    jp='残りのデータを片付ける',
+    es='Reúne los datos restantes',
+)
+Gather_more_of_the_deep_data = RogueEventOption(
+    id=535,
+    name='Gather_more_of_the_deep_data',
+    cn='捞取更多深层数据',
+    cht='挖掘更多深層資料',
+    en='Gather more of the deep data',
+    jp='深層のデータをさらに引き上げる',
+    es='Reúne más datos profundos',
+)
+Float_toward_the_surface_data = RogueEventOption(
+    id=536,
+    name='Float_toward_the_surface_data',
+    cn='向数据表层上浮',
+    cht='挪移至資料表層',
+    en='Float toward the surface data',
+    jp='データの表層へ浮上する',
+    es='Flota hacia la superficie de los datos',
+)
+Gummy_candies_so_spicy_that_they_make_one_rethink_life = RogueEventOption(
+    id=537,
+    name='Gummy_candies_so_spicy_that_they_make_one_rethink_life',
+    cn='辣到怀疑人生的软糖',
+    cht='辣到懷疑人生的軟糖',
+    en='Gummy candies so spicy that they make one rethink life',
+    jp='人生の走馬灯が見える激辛グミ',
+    es='Golosinas tan picantes que te hacen dudar de la vida',
+)
+Hard_crack_candies_so_numbing_that_make_one_reconsider_monsterdom = RogueEventOption(
+    id=538,
+    name='Hard_crack_candies_so_numbing_that_make_one_reconsider_monsterdom',
+    cn='麻到怀疑妖生的硬糖',
+    cht='麻到懷疑妖生的硬糖',
+    en='Hard-crack candies so numbing that make one reconsider monsterdom',
+    jp='妖生の走馬灯が見える麻辣キャンディー',
+    es='Golosinas que te entumecen la lengua',
+)
+Fruit_candies_mumbling_speechlessly = RogueEventOption(
+    id=539,
+    name='Fruit_candies_mumbling_speechlessly',
+    cn='叽里咕噜无语水果糖',
+    cht='嘰哩咕嚕無言水果糖',
+    en='Fruit candies mumbling speechlessly',
+    jp='食べると言葉を失うフルーツキャンディー',
+    es='Caramelos de frutas que murmuran sin decir nada',
+)
+Punish_and_vanquish_evil = RogueEventOption(
+    id=540,
+    name='Punish_and_vanquish_evil',
+    cn='惩凶除恶',
+    cht='懲凶除惡',
+    en='Punish and vanquish evil',
+    jp='悪を懲らしめる',
+    es='Erradica el mal',
+)
+Protect_peace = RogueEventOption(
+    id=541,
+    name='Protect_peace',
+    cn='守望安宁',
+    cht='守望安寧',
+    en='Protect peace',
+    jp='平和を見守る',
+    es='Protege la paz',
+)
+I_want_to_eliminate_the_wicked = RogueEventOption(
+    id=542,
+    name='I_want_to_eliminate_the_wicked',
+    cn='我要剿灭奸邪之徒',
+    cht='我要剿滅奸邪之徒',
+    en='I want to eliminate the wicked',
+    jp='悪党を滅ぼしたい',
+    es='Quiero acabar con los malvados',
+)
+I_want_to_suppress_dangerous_entities = RogueEventOption(
+    id=543,
+    name='I_want_to_suppress_dangerous_entities',
+    cn='我要镇压危险之物',
+    cht='我要鎮壓危險之物',
+    en='I want to suppress dangerous entities',
+    jp='危険な存在を抑え込みたい',
+    es='Quiero eliminar los peligros',
+)
+I_will_stand_upon_the_Wardance_arena = RogueEventOption(
+    id=544,
+    name='I_will_stand_upon_the_Wardance_arena',
+    cn='我要登上演武仪典的擂台',
+    cht='我要登上演武儀典的擂台',
+    en="I will stand upon the Wardance's arena",
+    jp='演武典礼の演武台に上がりたい',
+    es='Quiero salir a la arena de la ceremonia de Habilidades Estelares de Combate',
+)
+I_will_rout_the_abominations_of_the_Plague_Author = RogueEventOption(
+    id=545,
+    name='I_will_rout_the_abominations_of_the_Plague_Author',
+    cn='我要去击退寿瘟的孽物',
+    cht='我要去擊退壽瘟的孽物',
+    en='I will rout the abominations of the Plague Author',
+    jp='寿瘟の忌み物を撃退したい',
+    es='Quiero derrotar a las abominaciones de la Hacedora de Plagas',
 )

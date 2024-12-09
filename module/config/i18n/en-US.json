@@ -262,15 +262,15 @@
       "Calyx_Crimson_Abundance_Luofu_FyxestrollGarden": "Trace: Abundance (Fyxestroll Garden)",
       "Calyx_Crimson_Erudition_Jarilo_RivetTown": "Trace: Erudition (Rivet Town)",
       "Calyx_Crimson_Erudition_Penacony_PenaconyGrandTheater": "Trace: Erudition (Penacony Grand Theater)",
-      "Calyx_Crimson_Harmony_Jarilo_RobotSettlement": "Trace: The Harmony (Robot Settlement)",
-      "Calyx_Crimson_Harmony_Penacony_TheReverieDreamscape": "Trace: The Harmony (The Reverie (Dreamscape))",
+      "Calyx_Crimson_Harmony_Jarilo_RobotSettlement": "Trace: Harmony (Robot Settlement)",
+      "Calyx_Crimson_Harmony_Penacony_TheReverieDreamscape": "Trace: Harmony (The Reverie (Dreamscape))",
       "Calyx_Crimson_Nihility_Jarilo_GreatMine": "Trace: Nihility (Great Mine)",
       "Calyx_Crimson_Nihility_Luofu_AlchemyCommission": "Trace: Nihility (Alchemy Commission)",
       "Stagnant_Shadow_Spike": "Ascension: Physical (Natasha / Clara / Luka / Sushang)",
       "Stagnant_Shadow_Perdition": "Ascension: Physical (Hanya / Argenti)",
       "Stagnant_Shadow_Duty": "Ascension: Physical (Boothill / Robin / Yunli)",
       "Stagnant_Shadow_Blaze": "Ascension: Fire (Himeko / Asta / Hook)",
-      "Stagnant_Shadow_Scorch": "Ascension: Fire (Guinaifen / Topaz & Numby)",
+      "Stagnant_Shadow_Scorch": "Ascension: Fire (Guinaifen / Topaz & Numby / Fugue)",
       "Stagnant_Shadow_Ire": "Ascension: Fire (Firefly / Gallagher / Jiaoqiu / Lingsha)",
       "Stagnant_Shadow_Rime": "Ascension: Ice (March 7th / Herta / Gepard / Pela)",
       "Stagnant_Shadow_Icicle": "Ascension: Ice (Yanqing / Jingliu / Ruan Mei)",
@@ -286,7 +286,7 @@
       "Stagnant_Shadow_Roast": "Ascension: Quantum (Jade / Sparkle)",
       "Stagnant_Shadow_Mirage": "Ascension: Imaginary (Welt / Luocha / Yukong)",
       "Stagnant_Shadow_Puppetry": "Ascension: Imaginary (Dan Heng • Imbibitor Lunae / Aventurine / Dr. Ratio)",
-      "Stagnant_Shadow_Timbre": "Ascension: Imaginary (Rappa)",
+      "Stagnant_Shadow_Timbre": "Ascension: Imaginary (Sunday / Rappa)",
       "Cavern_of_Corrosion_Path_of_Uncertainty": "Cavern_of_Corrosion_Path_of_Uncertainty (Path of Uncertainty)",
       "Cavern_of_Corrosion_Path_of_Cavalier": "Relics: Super Break Set & Pursuit Ultimate Set (Path of Cavalier)",
       "Cavern_of_Corrosion_Path_of_Dreamdive": "Relics: Debuff Set & Break Effect Set (Path of Dreamdive)",
@@ -321,8 +321,8 @@
       "Calyx_Crimson_Abundance_Luofu_FyxestrollGarden": "Trace: Abundance (Fyxestroll Garden)",
       "Calyx_Crimson_Erudition_Jarilo_RivetTown": "Trace: Erudition (Rivet Town)",
       "Calyx_Crimson_Erudition_Penacony_PenaconyGrandTheater": "Trace: Erudition (Penacony Grand Theater)",
-      "Calyx_Crimson_Harmony_Jarilo_RobotSettlement": "Trace: The Harmony (Robot Settlement)",
-      "Calyx_Crimson_Harmony_Penacony_TheReverieDreamscape": "Trace: The Harmony (The Reverie (Dreamscape))",
+      "Calyx_Crimson_Harmony_Jarilo_RobotSettlement": "Trace: Harmony (Robot Settlement)",
+      "Calyx_Crimson_Harmony_Penacony_TheReverieDreamscape": "Trace: Harmony (The Reverie (Dreamscape))",
       "Calyx_Crimson_Nihility_Jarilo_GreatMine": "Trace: Nihility (Great Mine)",
       "Calyx_Crimson_Nihility_Luofu_AlchemyCommission": "Trace: Nihility (Alchemy Commission)"
     },
@@ -406,6 +406,7 @@
       "Feixiao": "Feixiao",
       "Firefly": "Firefly",
       "FuXuan": "Fu Xuan",
+      "Fugue": "Fugue",
       "Gallagher": "Gallagher",
       "Gepard": "Gepard",
       "Guinaifen": "Guinaifen",
@@ -438,6 +439,7 @@
       "Serval": "Serval",
       "SilverWolf": "Silver Wolf",
       "Sparkle": "Sparkle",
+      "Sunday": "Sunday",
       "Sushang": "Sushang",
       "Tingyun": "Tingyun",
       "TopazNumby": "Topaz & Numby",
@@ -553,7 +555,7 @@
       "help": ""
     },
     "Item_Searing_Steel_Blade": {
-      "name": "Ascension: Fire (Guinaifen / Topaz & Numby)",
+      "name": "Ascension: Fire (Guinaifen / Topaz & Numby / Fugue)",
       "help": ""
     },
     "Item_Gelid_Chitin": {
@@ -601,7 +603,7 @@
       "help": ""
     },
     "Item_Chordal_Mirage": {
-      "name": "Ascension: Imaginary (Rappa)",
+      "name": "Ascension: Imaginary (Sunday / Rappa)",
       "help": ""
     },
     "Item_Worldbreaker_Blade": {
@@ -625,7 +627,7 @@
       "help": ""
     },
     "Item_Stellaris_Symphony": {
-      "name": "Trace: The Harmony (Robot Settlement)",
+      "name": "Trace: Harmony (Robot Settlement)",
       "help": ""
     },
     "Item_Flower_of_Eternity": {
@@ -653,7 +655,7 @@
       "help": ""
     },
     "Item_Heavenly_Melody": {
-      "name": "Trace: The Harmony (The Reverie (Dreamscape))",
+      "name": "Trace: Harmony (The Reverie (Dreamscape))",
       "help": ""
     },
     "Item_Myriad_Fruit": {

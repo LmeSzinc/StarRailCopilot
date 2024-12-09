@@ -270,7 +270,7 @@
       "Stagnant_Shadow_Perdition": "Ascension: Físico (Hanya / Argenti)",
       "Stagnant_Shadow_Duty": "Ascension: Físico (Boothill / Robin / Yunli)",
       "Stagnant_Shadow_Blaze": "Ascension: Fuego (Himeko / Asta / Hook)",
-      "Stagnant_Shadow_Scorch": "Ascension: Fuego (Guinaifen / Topaz y Conti)",
+      "Stagnant_Shadow_Scorch": "Ascension: Fuego (Guinaifen / Topaz y Conti / Fugue)",
       "Stagnant_Shadow_Ire": "Ascension: Fuego (Luciérnaga / Gallagher / Jiaoqiu / Lingsha)",
       "Stagnant_Shadow_Rime": "Ascension: Hielo (Siete de Marzo / Herta / Gepard / Pela)",
       "Stagnant_Shadow_Icicle": "Ascension: Hielo (Yanqing / Jingliu / Ruan Mei)",
@@ -286,7 +286,7 @@
       "Stagnant_Shadow_Roast": "Ascension: Cuántico (Jade / Sparkle)",
       "Stagnant_Shadow_Mirage": "Ascension: Imaginario (Welt / Luocha / Yukong)",
       "Stagnant_Shadow_Puppetry": "Ascension: Imaginario (Dan Heng - Imbibitor Lunae / Aventurino / Dr. Ratio)",
-      "Stagnant_Shadow_Timbre": "Ascension: Imaginario (Rappa)",
+      "Stagnant_Shadow_Timbre": "Ascension: Imaginario (Sunday / Rappa)",
       "Cavern_of_Corrosion_Path_of_Uncertainty": "Cavern_of_Corrosion_Path_of_Uncertainty (Senda de la incertidumbre)",
       "Cavern_of_Corrosion_Path_of_Cavalier": "Artefactos: Ultrarruptura y Adicional de Definitiva (Caverna de la corrosión: Senda del caballero) (Senda del caballero)",
       "Cavern_of_Corrosion_Path_of_Dreamdive": "Artefactos: Debuff y Efecto de Ruptura (Senda de los sueños)",
@@ -406,6 +406,7 @@
       "Feixiao": "Feixiao",
       "Firefly": "Luciérnaga",
       "FuXuan": "Fu Xuan",
+      "Fugue": "Fugue",
       "Gallagher": "Gallagher",
       "Gepard": "Gepard",
       "Guinaifen": "Guinaifen",
@@ -438,6 +439,7 @@
       "Serval": "Serval",
       "SilverWolf": "Silver Wolf",
       "Sparkle": "Sparkle",
+      "Sunday": "Sunday",
       "Sushang": "Sushang",
       "Tingyun": "Tingyun",
       "TopazNumby": "Topaz y Conti",
@@ -553,7 +555,7 @@
       "help": ""
     },
     "Item_Searing_Steel_Blade": {
-      "name": "Ascension: Fuego (Guinaifen / Topaz y Conti)",
+      "name": "Ascension: Fuego (Guinaifen / Topaz y Conti / Fugue)",
       "help": ""
     },
     "Item_Gelid_Chitin": {
@@ -601,7 +603,7 @@
       "help": ""
     },
     "Item_Chordal_Mirage": {
-      "name": "Ascension: Imaginario (Rappa)",
+      "name": "Ascension: Imaginario (Sunday / Rappa)",
       "help": ""
     },
     "Item_Worldbreaker_Blade": {

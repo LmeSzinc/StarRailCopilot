@@ -493,6 +493,20 @@
       "help": ""
     }
   },
+  "GiftofOdyssey": {
+    "_info": {
+      "name": "GiftofOdyssey._info.name",
+      "help": "GiftofOdyssey._info.help"
+    },
+    "Collect": {
+      "name": "GiftofOdyssey.Collect.name",
+      "help": "GiftofOdyssey.Collect.help"
+    },
+    "GiftofOdysseyClaimed": {
+      "name": "GiftofOdyssey.GiftofOdysseyClaimed.name",
+      "help": "GiftofOdyssey.GiftofOdysseyClaimed.help"
+    }
+  },
   "Planner": {
     "_info": {
       "name": "養成規劃進度",
@@ -831,14 +845,14 @@
       "Akashic_Records": "光錐經驗素材（阿卡夏紀錄）",
       "Nameless_Land_Nameless_People": "角色經驗素材（無名之地，無名之人）",
       "The_Invisible_Hand": "信用點（看不見的手）",
-      "Scalpel_and_Screwdriver": "鏽跡齒輪 & 老舊臼齒（手術刀與螺絲起子）",
-      "The_Wages_of_Humanity": "一人嘉禾 & 藥草萃取物（贍養人類）",
-      "Legend_of_the_Puppet_Master": "廢棄機巧零件 & 玉兆單元（偃師傳說）",
-      "The_Land_of_Gold": "基本食材 & 蛋白米（黃金大地）",
-      "Spring_of_Life": "固態淨水 & 虛粒子（生命之泉）",
-      "Fragments_of_Illusory_Dreams": "安逸 & 碎夢（幻夢的殘片）",
-      "The_Blossom_in_the_Storm": "氣態流體 & 種子（風暴中怒放的花）",
-      "Abandoned_and_Insulted": "燃素 & 金屬（被廢棄與損害的）"
+      "Scalpel_and_Screwdriver": "老舊臼齒 & 鏽跡齒輪（手術刀與螺絲起子）",
+      "The_Wages_of_Humanity": "藥草萃取物 & 一人嘉禾（贍養人類）",
+      "Legend_of_the_Puppet_Master": "玉兆單元 & 廢棄機巧零件（偃師傳說）",
+      "The_Land_of_Gold": "蛋白米 & 基本食材（黃金大地）",
+      "Spring_of_Life": "虛粒子 & 固態淨水（生命之泉）",
+      "Fragments_of_Illusory_Dreams": "碎夢 & 安逸（幻夢的殘片）",
+      "The_Blossom_in_the_Storm": "種子 & 氣態流體（風暴中怒放的花）",
+      "Abandoned_and_Insulted": "金屬 & 燃素（被廢棄與損害的）"
     },
     "Name_2": {
       "name": "第2個委託選擇",
@@ -854,14 +868,14 @@
       "Akashic_Records": "光錐經驗素材（阿卡夏紀錄）",
       "Nameless_Land_Nameless_People": "角色經驗素材（無名之地，無名之人）",
       "The_Invisible_Hand": "信用點（看不見的手）",
-      "Scalpel_and_Screwdriver": "鏽跡齒輪 & 老舊臼齒（手術刀與螺絲起子）",
-      "The_Wages_of_Humanity": "一人嘉禾 & 藥草萃取物（贍養人類）",
-      "Legend_of_the_Puppet_Master": "廢棄機巧零件 & 玉兆單元（偃師傳說）",
-      "The_Land_of_Gold": "基本食材 & 蛋白米（黃金大地）",
-      "Spring_of_Life": "固態淨水 & 虛粒子（生命之泉）",
-      "Fragments_of_Illusory_Dreams": "安逸 & 碎夢（幻夢的殘片）",
-      "The_Blossom_in_the_Storm": "氣態流體 & 種子（風暴中怒放的花）",
-      "Abandoned_and_Insulted": "燃素 & 金屬（被廢棄與損害的）"
+      "Scalpel_and_Screwdriver": "老舊臼齒 & 鏽跡齒輪（手術刀與螺絲起子）",
+      "The_Wages_of_Humanity": "藥草萃取物 & 一人嘉禾（贍養人類）",
+      "Legend_of_the_Puppet_Master": "玉兆單元 & 廢棄機巧零件（偃師傳說）",
+      "The_Land_of_Gold": "蛋白米 & 基本食材（黃金大地）",
+      "Spring_of_Life": "虛粒子 & 固態淨水（生命之泉）",
+      "Fragments_of_Illusory_Dreams": "碎夢 & 安逸（幻夢的殘片）",
+      "The_Blossom_in_the_Storm": "種子 & 氣態流體（風暴中怒放的花）",
+      "Abandoned_and_Insulted": "金屬 & 燃素（被廢棄與損害的）"
     },
     "Name_3": {
       "name": "第3個委託選擇",
@@ -877,14 +891,14 @@
       "Akashic_Records": "光錐經驗素材（阿卡夏紀錄）",
       "Nameless_Land_Nameless_People": "角色經驗素材（無名之地，無名之人）",
       "The_Invisible_Hand": "信用點（看不見的手）",
-      "Scalpel_and_Screwdriver": "鏽跡齒輪 & 老舊臼齒（手術刀與螺絲起子）",
-      "The_Wages_of_Humanity": "一人嘉禾 & 藥草萃取物（贍養人類）",
-      "Legend_of_the_Puppet_Master": "廢棄機巧零件 & 玉兆單元（偃師傳說）",
-      "The_Land_of_Gold": "基本食材 & 蛋白米（黃金大地）",
-      "Spring_of_Life": "固態淨水 & 虛粒子（生命之泉）",
-      "Fragments_of_Illusory_Dreams": "安逸 & 碎夢（幻夢的殘片）",
-      "The_Blossom_in_the_Storm": "氣態流體 & 種子（風暴中怒放的花）",
-      "Abandoned_and_Insulted": "燃素 & 金屬（被廢棄與損害的）"
+      "Scalpel_and_Screwdriver": "老舊臼齒 & 鏽跡齒輪（手術刀與螺絲起子）",
+      "The_Wages_of_Humanity": "藥草萃取物 & 一人嘉禾（贍養人類）",
+      "Legend_of_the_Puppet_Master": "玉兆單元 & 廢棄機巧零件（偃師傳說）",
+      "The_Land_of_Gold": "蛋白米 & 基本食材（黃金大地）",
+      "Spring_of_Life": "虛粒子 & 固態淨水（生命之泉）",
+      "Fragments_of_Illusory_Dreams": "碎夢 & 安逸（幻夢的殘片）",
+      "The_Blossom_in_the_Storm": "種子 & 氣態流體（風暴中怒放的花）",
+      "Abandoned_and_Insulted": "金屬 & 燃素（被廢棄與損害的）"
     },
     "Name_4": {
       "name": "第4個委託選擇",
@@ -900,14 +914,14 @@
       "Akashic_Records": "光錐經驗素材（阿卡夏紀錄）",
       "Nameless_Land_Nameless_People": "角色經驗素材（無名之地，無名之人）",
       "The_Invisible_Hand": "信用點（看不見的手）",
-      "Scalpel_and_Screwdriver": "鏽跡齒輪 & 老舊臼齒（手術刀與螺絲起子）",
-      "The_Wages_of_Humanity": "一人嘉禾 & 藥草萃取物（贍養人類）",
-      "Legend_of_the_Puppet_Master": "廢棄機巧零件 & 玉兆單元（偃師傳說）",
-      "The_Land_of_Gold": "基本食材 & 蛋白米（黃金大地）",
-      "Spring_of_Life": "固態淨水 & 虛粒子（生命之泉）",
-      "Fragments_of_Illusory_Dreams": "安逸 & 碎夢（幻夢的殘片）",
-      "The_Blossom_in_the_Storm": "氣態流體 & 種子（風暴中怒放的花）",
-      "Abandoned_and_Insulted": "燃素 & 金屬（被廢棄與損害的）"
+      "Scalpel_and_Screwdriver": "老舊臼齒 & 鏽跡齒輪（手術刀與螺絲起子）",
+      "The_Wages_of_Humanity": "藥草萃取物 & 一人嘉禾（贍養人類）",
+      "Legend_of_the_Puppet_Master": "玉兆單元 & 廢棄機巧零件（偃師傳說）",
+      "The_Land_of_Gold": "蛋白米 & 基本食材（黃金大地）",
+      "Spring_of_Life": "虛粒子 & 固態淨水（生命之泉）",
+      "Fragments_of_Illusory_Dreams": "碎夢 & 安逸（幻夢的殘片）",
+      "The_Blossom_in_the_Storm": "種子 & 氣態流體（風暴中怒放的花）",
+      "Abandoned_and_Insulted": "金屬 & 燃素（被廢棄與損害的）"
     },
     "Duration": {
       "name": "派遣時間",

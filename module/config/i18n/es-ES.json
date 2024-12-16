@@ -493,6 +493,20 @@
       "help": ""
     }
   },
+  "GiftofOdyssey": {
+    "_info": {
+      "name": "GiftofOdyssey._info.name",
+      "help": "GiftofOdyssey._info.help"
+    },
+    "Collect": {
+      "name": "GiftofOdyssey.Collect.name",
+      "help": "GiftofOdyssey.Collect.help"
+    },
+    "GiftofOdysseyClaimed": {
+      "name": "GiftofOdyssey.GiftofOdysseyClaimed.name",
+      "help": "GiftofOdyssey.GiftofOdysseyClaimed.help"
+    }
+  },
   "Planner": {
     "_info": {
       "name": "Progreso del planificador de personajes",
@@ -831,14 +845,14 @@
       "Akashic_Records": "Material de EXP de conos de luz (Los Registros de Akasha)",
       "Nameless_Land_Nameless_People": "Material de EXP de personaje (Lugar anónimo, personas anónimas)",
       "The_Invisible_Hand": "Crédito (La mano invisible)",
-      "Scalpel_and_Screwdriver": "Engranaje oxidado & Muela vieja (Bisturí y destornillador)",
-      "The_Wages_of_Humanity": "Cosecha tan alta como una persona & Extracto de hierbas medicinales (La paga de la humanidad)",
-      "Legend_of_the_Puppet_Master": "Componentes mecánicos abandonados & Unidad de ábaco de jade (La leyenda del titiritero)",
-      "The_Land_of_Gold": "Ingredientes básicos & Arroz proteico (Tierra de oportunidades)",
-      "Spring_of_Life": "Agua sólida & Partícula virtual (La fuente de la vida)",
-      "Fragments_of_Illusory_Dreams": "Tranquilidad & Sueños rotos (Fragmentos de sueños ilusorios)",
-      "The_Blossom_in_the_Storm": "Líquido gaseoso & Semilla (Flores en la tormenta)",
-      "Abandoned_and_Insulted": "Flogisto & Metal (Abandonado e insultado)"
+      "Scalpel_and_Screwdriver": "Muela vieja & Engranaje oxidado (Bisturí y destornillador)",
+      "The_Wages_of_Humanity": "Extracto de hierbas medicinales & Cosecha tan alta como una persona (La paga de la humanidad)",
+      "Legend_of_the_Puppet_Master": "Unidad de ábaco de jade & Componentes mecánicos abandonados (La leyenda del titiritero)",
+      "The_Land_of_Gold": "Arroz proteico & Ingredientes básicos (Tierra de oportunidades)",
+      "Spring_of_Life": "Partícula virtual & Agua sólida (La fuente de la vida)",
+      "Fragments_of_Illusory_Dreams": "Sueños rotos & Tranquilidad (Fragmentos de sueños ilusorios)",
+      "The_Blossom_in_the_Storm": "Semilla & Líquido gaseoso (Flores en la tormenta)",
+      "Abandoned_and_Insulted": "Metal & Flogisto (Abandonado e insultado)"
     },
     "Name_2": {
       "name": "Preferencia de Encargo 2",
@@ -854,14 +868,14 @@
       "Akashic_Records": "Material de EXP de conos de luz (Los Registros de Akasha)",
       "Nameless_Land_Nameless_People": "Material de EXP de personaje (Lugar anónimo, personas anónimas)",
       "The_Invisible_Hand": "Crédito (La mano invisible)",
-      "Scalpel_and_Screwdriver": "Engranaje oxidado & Muela vieja (Bisturí y destornillador)",
-      "The_Wages_of_Humanity": "Cosecha tan alta como una persona & Extracto de hierbas medicinales (La paga de la humanidad)",
-      "Legend_of_the_Puppet_Master": "Componentes mecánicos abandonados & Unidad de ábaco de jade (La leyenda del titiritero)",
-      "The_Land_of_Gold": "Ingredientes básicos & Arroz proteico (Tierra de oportunidades)",
-      "Spring_of_Life": "Agua sólida & Partícula virtual (La fuente de la vida)",
-      "Fragments_of_Illusory_Dreams": "Tranquilidad & Sueños rotos (Fragmentos de sueños ilusorios)",
-      "The_Blossom_in_the_Storm": "Líquido gaseoso & Semilla (Flores en la tormenta)",
-      "Abandoned_and_Insulted": "Flogisto & Metal (Abandonado e insultado)"
+      "Scalpel_and_Screwdriver": "Muela vieja & Engranaje oxidado (Bisturí y destornillador)",
+      "The_Wages_of_Humanity": "Extracto de hierbas medicinales & Cosecha tan alta como una persona (La paga de la humanidad)",
+      "Legend_of_the_Puppet_Master": "Unidad de ábaco de jade & Componentes mecánicos abandonados (La leyenda del titiritero)",
+      "The_Land_of_Gold": "Arroz proteico & Ingredientes básicos (Tierra de oportunidades)",
+      "Spring_of_Life": "Partícula virtual & Agua sólida (La fuente de la vida)",
+      "Fragments_of_Illusory_Dreams": "Sueños rotos & Tranquilidad (Fragmentos de sueños ilusorios)",
+      "The_Blossom_in_the_Storm": "Semilla & Líquido gaseoso (Flores en la tormenta)",
+      "Abandoned_and_Insulted": "Metal & Flogisto (Abandonado e insultado)"
     },
     "Name_3": {
       "name": "Preferencia de Encargo 3",
@@ -877,14 +891,14 @@
       "Akashic_Records": "Material de EXP de conos de luz (Los Registros de Akasha)",
       "Nameless_Land_Nameless_People": "Material de EXP de personaje (Lugar anónimo, personas anónimas)",
       "The_Invisible_Hand": "Crédito (La mano invisible)",
-      "Scalpel_and_Screwdriver": "Engranaje oxidado & Muela vieja (Bisturí y destornillador)",
-      "The_Wages_of_Humanity": "Cosecha tan alta como una persona & Extracto de hierbas medicinales (La paga de la humanidad)",
-      "Legend_of_the_Puppet_Master": "Componentes mecánicos abandonados & Unidad de ábaco de jade (La leyenda del titiritero)",
-      "The_Land_of_Gold": "Ingredientes básicos & Arroz proteico (Tierra de oportunidades)",
-      "Spring_of_Life": "Agua sólida & Partícula virtual (La fuente de la vida)",
-      "Fragments_of_Illusory_Dreams": "Tranquilidad & Sueños rotos (Fragmentos de sueños ilusorios)",
-      "The_Blossom_in_the_Storm": "Líquido gaseoso & Semilla (Flores en la tormenta)",
-      "Abandoned_and_Insulted": "Flogisto & Metal (Abandonado e insultado)"
+      "Scalpel_and_Screwdriver": "Muela vieja & Engranaje oxidado (Bisturí y destornillador)",
+      "The_Wages_of_Humanity": "Extracto de hierbas medicinales & Cosecha tan alta como una persona (La paga de la humanidad)",
+      "Legend_of_the_Puppet_Master": "Unidad de ábaco de jade & Componentes mecánicos abandonados (La leyenda del titiritero)",
+      "The_Land_of_Gold": "Arroz proteico & Ingredientes básicos (Tierra de oportunidades)",
+      "Spring_of_Life": "Partícula virtual & Agua sólida (La fuente de la vida)",
+      "Fragments_of_Illusory_Dreams": "Sueños rotos & Tranquilidad (Fragmentos de sueños ilusorios)",
+      "The_Blossom_in_the_Storm": "Semilla & Líquido gaseoso (Flores en la tormenta)",
+      "Abandoned_and_Insulted": "Metal & Flogisto (Abandonado e insultado)"
     },
     "Name_4": {
       "name": "Preferencia de Encargo 4",
@@ -900,14 +914,14 @@
       "Akashic_Records": "Material de EXP de conos de luz (Los Registros de Akasha)",
       "Nameless_Land_Nameless_People": "Material de EXP de personaje (Lugar anónimo, personas anónimas)",
       "The_Invisible_Hand": "Crédito (La mano invisible)",
-      "Scalpel_and_Screwdriver": "Engranaje oxidado & Muela vieja (Bisturí y destornillador)",
-      "The_Wages_of_Humanity": "Cosecha tan alta como una persona & Extracto de hierbas medicinales (La paga de la humanidad)",
-      "Legend_of_the_Puppet_Master": "Componentes mecánicos abandonados & Unidad de ábaco de jade (La leyenda del titiritero)",
-      "The_Land_of_Gold": "Ingredientes básicos & Arroz proteico (Tierra de oportunidades)",
-      "Spring_of_Life": "Agua sólida & Partícula virtual (La fuente de la vida)",
-      "Fragments_of_Illusory_Dreams": "Tranquilidad & Sueños rotos (Fragmentos de sueños ilusorios)",
-      "The_Blossom_in_the_Storm": "Líquido gaseoso & Semilla (Flores en la tormenta)",
-      "Abandoned_and_Insulted": "Flogisto & Metal (Abandonado e insultado)"
+      "Scalpel_and_Screwdriver": "Muela vieja & Engranaje oxidado (Bisturí y destornillador)",
+      "The_Wages_of_Humanity": "Extracto de hierbas medicinales & Cosecha tan alta como una persona (La paga de la humanidad)",
+      "Legend_of_the_Puppet_Master": "Unidad de ábaco de jade & Componentes mecánicos abandonados (La leyenda del titiritero)",
+      "The_Land_of_Gold": "Arroz proteico & Ingredientes básicos (Tierra de oportunidades)",
+      "Spring_of_Life": "Partícula virtual & Agua sólida (La fuente de la vida)",
+      "Fragments_of_Illusory_Dreams": "Sueños rotos & Tranquilidad (Fragmentos de sueños ilusorios)",
+      "The_Blossom_in_the_Storm": "Semilla & Líquido gaseoso (Flores en la tormenta)",
+      "Abandoned_and_Insulted": "Metal & Flogisto (Abandonado e insultado)"
     },
     "Duration": {
       "name": "Duración del encargo",

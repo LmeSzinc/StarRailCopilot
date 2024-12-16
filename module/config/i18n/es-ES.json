@@ -500,6 +500,20 @@
       "help": ""
     }
   },
+  "GiftofOdyssey": {
+    "_info": {
+      "name": "GiftofOdyssey._info.name",
+      "help": "GiftofOdyssey._info.help"
+    },
+    "Collect": {
+      "name": "GiftofOdyssey.Collect.name",
+      "help": "GiftofOdyssey.Collect.help"
+    },
+    "GiftofOdysseyClaimed": {
+      "name": "GiftofOdyssey.GiftofOdysseyClaimed.name",
+      "help": "GiftofOdyssey.GiftofOdysseyClaimed.help"
+    }
+  },
   "Planner": {
     "_info": {
       "name": "Progreso del planificador de personajes",

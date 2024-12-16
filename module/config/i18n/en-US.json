@@ -500,6 +500,20 @@
       "help": ""
     }
   },
+  "GiftofOdyssey": {
+    "_info": {
+      "name": "Gift of Odyssey",
+      "help": ""
+    },
+    "Collect": {
+      "name": "Claim Gift of Odyssey",
+      "help": ""
+    },
+    "GiftofOdysseyClaimed": {
+      "name": "Claimed X days of reward",
+      "help": ""
+    }
+  },
   "Planner": {
     "_info": {
       "name": "Character Planner Progress",

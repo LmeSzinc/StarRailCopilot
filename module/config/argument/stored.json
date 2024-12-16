@@ -951,6 +951,18 @@
     "order": 0,
     "color": "#777777"
   },
+  "GiftofOdysseyClaimed": {
+    "name": "GiftofOdysseyClaimed",
+    "path": "Freebies.GiftofOdyssey.GiftofOdysseyClaimed",
+    "i18n": "GiftofOdyssey.GiftofOdysseyClaimed.name",
+    "stored": "StoredInt",
+    "attrs": {
+      "time": "2020-01-01 00:00:00",
+      "value": 0
+    },
+    "order": 0,
+    "color": "#777777"
+  },
   "SimulatedUniverseFarm": {
     "name": "SimulatedUniverseFarm",
     "path": "Rogue.RogueWorld.SimulatedUniverseFarm",

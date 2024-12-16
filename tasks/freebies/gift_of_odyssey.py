@@ -3,8 +3,13 @@ from module.logger import logger
 from module.ocr.ocr import Ocr
 from tasks.base.page import page_event
 from tasks.base.ui import UI
-from tasks.freebies.assets.assets_freebies_gift_of_odyssey import OCR_EVENT, EVENT_SELECTED, GET_REWARD_BUTTON
-from tasks.freebies.keywords import GiftOfOdysseyEvent
+from tasks.freebies.assets.assets_freebies_gift_of_odyssey import (
+    OCR_CLAIM,
+    OCR_EVENT,
+    EVENT_SELECTED,
+    GET_REWARD_BUTTON,
+)
+from tasks.freebies.keywords import KEYWORDS_FREEBIES_GIFT_OF_ODYSSEY, GiftOfOdysseyEvent
 
 
 class GiftofOdyssey(UI):
@@ -41,8 +46,19 @@ class GiftofOdyssey(UI):
                 break
             if self.device.click(results[0]):
                 continue
-
         return True
+
+    def _get_claim_status(self, image):
+        ocr = Ocr(OCR_CLAIM)
+        results = ocr.matched_ocr(image, GiftOfOdysseyEvent)
+        claimed = [result for result in results if result == KEYWORDS_FREEBIES_GIFT_OF_ODYSSEY.Claimed]
+        claim = [result for result in results if result == KEYWORDS_FREEBIES_GIFT_OF_ODYSSEY.Claim]
+        awaiting = [result for result in results if result == KEYWORDS_FREEBIES_GIFT_OF_ODYSSEY.Awaiting_check_in]
+        status = len(claimed), len(claim), len(awaiting)
+        logger.info(f"Claim status (Claimed, Claim, Awaiting check in): {status}")
+        if sum(status) != 7:
+            logger.warning("Num of OCR results is not seven")
+        return status
 
     def _get_reward(self):
         logger.info("Getting reward")
@@ -54,9 +70,11 @@ class GiftofOdyssey(UI):
             else:
                 self.device.screenshot()
 
-            if self.appear(EVENT_SELECTED) and not self.appear(GET_REWARD_BUTTON):
-                logger.info("No more reward to get")
-                break
+            if self.appear(EVENT_SELECTED):
+                _, claim, _ = self._get_claim_status(self.device.image)
+                if claim == 0:
+                    logger.info("No more reward to get")
+                    break
             if self.handle_reward():
                 continue
             if interval.reached():

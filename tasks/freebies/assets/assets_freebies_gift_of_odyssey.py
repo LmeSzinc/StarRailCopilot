@@ -18,9 +18,19 @@ GET_REWARD_BUTTON = ButtonWrapper(
     share=Button(
         file='./assets/share/freebies/gift_of_odyssey/GET_REWARD_BUTTON.png',
         area=(647, 397, 665, 415),
-        search=(626, 243, 1212, 631),
+        search=(228, 25, 1263, 701),
         color=(121, 120, 105),
         button=(647, 397, 665, 415),
+    ),
+)
+OCR_CLAIM = ButtonWrapper(
+    name='OCR_CLAIM',
+    share=Button(
+        file='./assets/share/freebies/gift_of_odyssey/OCR_CLAIM.png',
+        area=(228, 25, 1263, 701),
+        search=(208, 5, 1280, 720),
+        color=(155, 149, 153),
+        button=(228, 25, 1263, 701),
     ),
 )
 OCR_EVENT = ButtonWrapper(

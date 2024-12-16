@@ -30,7 +30,8 @@ class GiftofOdyssey(UI):
             self.device.screenshot()
             results = ocr.matched_ocr(self.device.image, GiftOfOdysseyEvent)
             if len(results) == 0 and timer.reached():
-                logger.info("Event not found")
+                logger.info("Event not found, probably already been claimed")
+                self.config.stored.GiftofOdysseyClaimed.value = 7
                 return False
             if len(results) == 1:
                 break
@@ -58,6 +59,7 @@ class GiftofOdyssey(UI):
         logger.info(f"Claim status (Claimed, Claim, Awaiting check in): {status}")
         if sum(status) != 7:
             logger.warning("Num of OCR results is not seven")
+        self.config.stored.GiftofOdysseyClaimed.value = status[0]
         return status
 
     def _get_reward(self):

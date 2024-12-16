@@ -136,6 +136,11 @@ DungeonStorage:
     color: "#8fb5fe"
 SupportReward:
   Collect: true
+GiftofOdyssey:
+  Collect: true
+  GiftofOdysseyClaimed: 
+    stored: StoredInt
+    display: display
 Planner:
   PlannerOverall:
     stored: StoredPlannerOverall

@@ -576,8 +576,8 @@ class KeywordExtract:
             read_file(os.path.join(TextMap.DATA_FOLDER, 'ExcelOutput', 'RogueBonus.json')), 'BonusTitle.Hash')))
         self.write_keywords(keyword_class='RogueBonus', output_file='./tasks/rogue/keywords/bonus.py')
         self.generate_rogue_events()
-        self.load_keywords(['巡星之礼'])
-        self.write_keywords(keyword_class='GiftOfOdysseyEvent', output_file='./tasks/freebies/keywords/gift_of_odyssey.py')
+        self.load_keywords(["巡星之礼", "已领取", "领取", "待签到"])
+        self.write_keywords(keyword_class="GiftOfOdysseyEvent", output_file="./tasks/freebies/keywords/gift_of_odyssey.py")
 
 
 if __name__ == '__main__':

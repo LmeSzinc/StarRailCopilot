@@ -1,3 +1,4 @@
+import re
 from datetime import timedelta
 
 import cv2
@@ -9,6 +10,7 @@ from module.config.utils import DEFAULT_TIME, get_server_next_update
 from module.logger import logger
 from module.ocr.ocr import Ocr, OcrResultButton
 from module.ocr.utils import split_and_pair_buttons
+from tasks.base.page import page_guide
 from tasks.daily.assets.assets_daily_reward import *
 from tasks.daily.camera import CameraUI
 from tasks.daily.keywords import (
@@ -52,6 +54,10 @@ class DailyQuestOcr(Ocr):
                 result = "进行中"
             if "已领取" in result:
                 result = "已领取"
+            # 累计消耗120点开拓
+            # "力" is on the second line, det model is likely to ignore it
+            result = re.sub('开拓$', '开拓力', result)
+
         if self.lang == 'en':
             result = result.replace('wor(d', 'world')
             # Echo/ofWar

@@ -493,6 +493,20 @@
       "help": ""
     }
   },
+  "GiftofOdyssey": {
+    "_info": {
+      "name": "GiftofOdyssey._info.name",
+      "help": "GiftofOdyssey._info.help"
+    },
+    "Collect": {
+      "name": "GiftofOdyssey.Collect.name",
+      "help": "GiftofOdyssey.Collect.help"
+    },
+    "GiftofOdysseyClaimed": {
+      "name": "GiftofOdyssey.GiftofOdysseyClaimed.name",
+      "help": "GiftofOdyssey.GiftofOdysseyClaimed.help"
+    }
+  },
   "Planner": {
     "_info": {
       "name": "Planner._info.name",
@@ -831,14 +845,14 @@
       "Akashic_Records": "光円錐経験値素材（アーカーシャの記録）",
       "Nameless_Land_Nameless_People": "キャラクター経験値素材（無名の地、無名の人）",
       "The_Invisible_Hand": "信用ポイント（見えざる手）",
-      "Scalpel_and_Screwdriver": "錆びた歯車 & 古びた大臼歯（メスとスクリュードライバー）",
-      "The_Wages_of_Humanity": "一人稲 & 薬草抽出物（人類扶養）",
-      "Legend_of_the_Puppet_Master": "廃棄された機巧部品 & 玉兆単元（傀儡師伝説）",
-      "The_Land_of_Gold": "基本食材 & タンパク米（黄金の大地）",
-      "Spring_of_Life": "固形純水 & 仮想粒子（生命の泉）",
-      "Fragments_of_Illusory_Dreams": "安逸 & 砕けた夢（幻夢の残片）",
-      "The_Blossom_in_the_Storm": "気態流体 & 種子（嵐の中で咲き誇る花）",
-      "Abandoned_and_Insulted": "燃素 & 金属（捨てられしものと傷つけられしもの）"
+      "Scalpel_and_Screwdriver": "古びた大臼歯 & 錆びた歯車（メスとスクリュードライバー）",
+      "The_Wages_of_Humanity": "薬草抽出物 & 一人稲（人類扶養）",
+      "Legend_of_the_Puppet_Master": "玉兆単元 & 廃棄された機巧部品（傀儡師伝説）",
+      "The_Land_of_Gold": "タンパク米 & 基本食材（黄金の大地）",
+      "Spring_of_Life": "仮想粒子 & 固形純水（生命の泉）",
+      "Fragments_of_Illusory_Dreams": "砕けた夢 & 安逸（幻夢の残片）",
+      "The_Blossom_in_the_Storm": "種子 & 気態流体（嵐の中で咲き誇る花）",
+      "Abandoned_and_Insulted": "金属 & 燃素（捨てられしものと傷つけられしもの）"
     },
     "Name_2": {
       "name": "依頼 2",
@@ -854,14 +868,14 @@
       "Akashic_Records": "光円錐経験値素材（アーカーシャの記録）",
       "Nameless_Land_Nameless_People": "キャラクター経験値素材（無名の地、無名の人）",
       "The_Invisible_Hand": "信用ポイント（見えざる手）",
-      "Scalpel_and_Screwdriver": "錆びた歯車 & 古びた大臼歯（メスとスクリュードライバー）",
-      "The_Wages_of_Humanity": "一人稲 & 薬草抽出物（人類扶養）",
-      "Legend_of_the_Puppet_Master": "廃棄された機巧部品 & 玉兆単元（傀儡師伝説）",
-      "The_Land_of_Gold": "基本食材 & タンパク米（黄金の大地）",
-      "Spring_of_Life": "固形純水 & 仮想粒子（生命の泉）",
-      "Fragments_of_Illusory_Dreams": "安逸 & 砕けた夢（幻夢の残片）",
-      "The_Blossom_in_the_Storm": "気態流体 & 種子（嵐の中で咲き誇る花）",
-      "Abandoned_and_Insulted": "燃素 & 金属（捨てられしものと傷つけられしもの）"
+      "Scalpel_and_Screwdriver": "古びた大臼歯 & 錆びた歯車（メスとスクリュードライバー）",
+      "The_Wages_of_Humanity": "薬草抽出物 & 一人稲（人類扶養）",
+      "Legend_of_the_Puppet_Master": "玉兆単元 & 廃棄された機巧部品（傀儡師伝説）",
+      "The_Land_of_Gold": "タンパク米 & 基本食材（黄金の大地）",
+      "Spring_of_Life": "仮想粒子 & 固形純水（生命の泉）",
+      "Fragments_of_Illusory_Dreams": "砕けた夢 & 安逸（幻夢の残片）",
+      "The_Blossom_in_the_Storm": "種子 & 気態流体（嵐の中で咲き誇る花）",
+      "Abandoned_and_Insulted": "金属 & 燃素（捨てられしものと傷つけられしもの）"
     },
     "Name_3": {
       "name": "依頼 3",
@@ -877,14 +891,14 @@
       "Akashic_Records": "光円錐経験値素材（アーカーシャの記録）",
       "Nameless_Land_Nameless_People": "キャラクター経験値素材（無名の地、無名の人）",
       "The_Invisible_Hand": "信用ポイント（見えざる手）",
-      "Scalpel_and_Screwdriver": "錆びた歯車 & 古びた大臼歯（メスとスクリュードライバー）",
-      "The_Wages_of_Humanity": "一人稲 & 薬草抽出物（人類扶養）",
-      "Legend_of_the_Puppet_Master": "廃棄された機巧部品 & 玉兆単元（傀儡師伝説）",
-      "The_Land_of_Gold": "基本食材 & タンパク米（黄金の大地）",
-      "Spring_of_Life": "固形純水 & 仮想粒子（生命の泉）",
-      "Fragments_of_Illusory_Dreams": "安逸 & 砕けた夢（幻夢の残片）",
-      "The_Blossom_in_the_Storm": "気態流体 & 種子（嵐の中で咲き誇る花）",
-      "Abandoned_and_Insulted": "燃素 & 金属（捨てられしものと傷つけられしもの）"
+      "Scalpel_and_Screwdriver": "古びた大臼歯 & 錆びた歯車（メスとスクリュードライバー）",
+      "The_Wages_of_Humanity": "薬草抽出物 & 一人稲（人類扶養）",
+      "Legend_of_the_Puppet_Master": "玉兆単元 & 廃棄された機巧部品（傀儡師伝説）",
+      "The_Land_of_Gold": "タンパク米 & 基本食材（黄金の大地）",
+      "Spring_of_Life": "仮想粒子 & 固形純水（生命の泉）",
+      "Fragments_of_Illusory_Dreams": "砕けた夢 & 安逸（幻夢の残片）",
+      "The_Blossom_in_the_Storm": "種子 & 気態流体（嵐の中で咲き誇る花）",
+      "Abandoned_and_Insulted": "金属 & 燃素（捨てられしものと傷つけられしもの）"
     },
     "Name_4": {
       "name": "依頼 4",
@@ -900,14 +914,14 @@
       "Akashic_Records": "光円錐経験値素材（アーカーシャの記録）",
       "Nameless_Land_Nameless_People": "キャラクター経験値素材（無名の地、無名の人）",
       "The_Invisible_Hand": "信用ポイント（見えざる手）",
-      "Scalpel_and_Screwdriver": "錆びた歯車 & 古びた大臼歯（メスとスクリュードライバー）",
-      "The_Wages_of_Humanity": "一人稲 & 薬草抽出物（人類扶養）",
-      "Legend_of_the_Puppet_Master": "廃棄された機巧部品 & 玉兆単元（傀儡師伝説）",
-      "The_Land_of_Gold": "基本食材 & タンパク米（黄金の大地）",
-      "Spring_of_Life": "固形純水 & 仮想粒子（生命の泉）",
-      "Fragments_of_Illusory_Dreams": "安逸 & 砕けた夢（幻夢の残片）",
-      "The_Blossom_in_the_Storm": "気態流体 & 種子（嵐の中で咲き誇る花）",
-      "Abandoned_and_Insulted": "燃素 & 金属（捨てられしものと傷つけられしもの）"
+      "Scalpel_and_Screwdriver": "古びた大臼歯 & 錆びた歯車（メスとスクリュードライバー）",
+      "The_Wages_of_Humanity": "薬草抽出物 & 一人稲（人類扶養）",
+      "Legend_of_the_Puppet_Master": "玉兆単元 & 廃棄された機巧部品（傀儡師伝説）",
+      "The_Land_of_Gold": "タンパク米 & 基本食材（黄金の大地）",
+      "Spring_of_Life": "仮想粒子 & 固形純水（生命の泉）",
+      "Fragments_of_Illusory_Dreams": "砕けた夢 & 安逸（幻夢の残片）",
+      "The_Blossom_in_the_Storm": "種子 & 気態流体（嵐の中で咲き誇る花）",
+      "Abandoned_and_Insulted": "金属 & 燃素（捨てられしものと傷つけられしもの）"
     },
     "Duration": {
       "name": "派遣時間",

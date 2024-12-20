@@ -1,3 +1,4 @@
+import re
 from datetime import timedelta
 
 import cv2
@@ -9,6 +10,7 @@ from module.config.utils import DEFAULT_TIME, get_server_next_update
 from module.logger import logger
 from module.ocr.ocr import Ocr, OcrResultButton
 from module.ocr.utils import split_and_pair_buttons
+from tasks.base.page import page_guide
 from tasks.daily.assets.assets_daily_reward import *
 from tasks.daily.camera import CameraUI
 from tasks.daily.keywords import (
@@ -52,6 +54,10 @@ class DailyQuestOcr(Ocr):
                 result = "进行中"
             if "已领取" in result:
                 result = "已领取"
+            # 累计消耗120点开拓
+            # "力" is on the second line, det model is likely to ignore it
+            result = re.sub('开拓$', '开拓力', result)
+
         if self.lang == 'en':
             result = result.replace('wor(d', 'world')
             # Echo/ofWar
@@ -136,6 +142,11 @@ class DailyQuestUI(DungeonUI, RouteLoader):
         return results
 
     def _get_quest_reward(self, skip_first_screenshot=True):
+        """
+        Returns:
+            bool: If get any reward
+        """
+        reward = False
         self._ensure_position('left')
         while 1:
             if skip_first_screenshot:
@@ -150,7 +161,10 @@ class DailyQuestUI(DungeonUI, RouteLoader):
                 logger.info('No more quests to get, have quests uncompleted')
                 break
             if self.appear_then_click(DAILY_QUEST_REWARD, interval=1):
+                reward = True
                 continue
+
+        return reward
 
     def _no_reward_to_get(self):
         return (
@@ -167,6 +181,9 @@ class DailyQuestUI(DungeonUI, RouteLoader):
     def _get_active_point_reward(self, skip_first_screenshot=True):
         """
         self.claimed_point_reward will be set if claimed any point reward
+
+        Returns:
+            bool: If claimed any reward, self.claimed_point_reward
         """
 
         def get_active():
@@ -189,7 +206,8 @@ class DailyQuestUI(DungeonUI, RouteLoader):
             else:
                 self.device.screenshot()
 
-            if self._no_reward_to_get():
+            # Check page_guide to wait until reward popup disappeared
+            if self.match_template_color(page_guide.check_button) and self._no_reward_to_get():
                 logger.info('No more reward to get')
                 break
             if self.handle_reward():
@@ -220,6 +238,8 @@ class DailyQuestUI(DungeonUI, RouteLoader):
             if point == 500:
                 self.config.stored.DailyQuest.write_quests([])
 
+        return self.claimed_point_reward
+
     def get_daily_rewards(self):
         """
         Returns:
@@ -231,10 +251,22 @@ class DailyQuestUI(DungeonUI, RouteLoader):
         """
         logger.hr('Get daily rewards', level=1)
         self.dungeon_tab_goto(KEYWORDS_DUNGEON_TAB.Daily_Training)
+
+        # Get rewards
         logger.info("Getting quest rewards")
         self._get_quest_reward()
         logger.info("Getting active point rewards")
         self._get_active_point_reward()
+
+        # Retry get reward, quests might somehow slow to appear
+        for _ in range(2):
+            logger.info("Getting quest rewards")
+            quest_reward = self._get_quest_reward()
+            if not quest_reward:
+                break
+            logger.info("Getting active point rewards")
+            self._get_active_point_reward()
+
         if self._all_reward_got():
             logger.info("All daily reward got")
             return True

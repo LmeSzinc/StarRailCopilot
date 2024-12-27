@@ -1,3 +1,4 @@
+import time
 from dataclasses import dataclass
 from functools import wraps
 from json.decoder import JSONDecodeError
@@ -27,7 +28,7 @@ def retry(func):
         for _ in range(RETRY_TRIES):
             try:
                 if callable(init):
-                    retry_sleep(_)
+                    time.sleep(retry_sleep(_))
                     init()
                 return func(self, *args, **kwargs)
             # Can't handle

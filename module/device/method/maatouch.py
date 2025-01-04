@@ -1,5 +1,6 @@
 import socket
 import threading
+import time
 from functools import wraps
 
 from adbutils.errors import AdbError

@@ -53,13 +53,14 @@ class XPath:
     # 请选择排队队列
     # - 星云币时长快速通道队列 - 普通队列
     QUEUE_SELECT_TITLE = '//*[@resource-id="com.miHoYo.cloudgames.hkrpg:id/tvSelectQueueTypeTitle"]'
-    QUEUE_SELECT_PRIOR = '//*[@resource-id="com.miHoYo.cloudgames.hkrpg:id/tvOptionPrior"]'
+    QUEUE_SELECT_PRIOR = '//*[@resource-id="com.miHoYo.cloudgames.hkrpg:id/tvOptionPriorName"]'
     QUEUE_SELECT_NORMAL = '//*[@resource-id="com.miHoYo.cloudgames.hkrpg:id/clOptionNormal"]'
     # 排队中
     QUEUE_TITLE = '//*[@resource-id="com.miHoYo.cloudgames.hkrpg:id/tvEnqueueDialogTitle"]'
     # 预计等待时间
     QUEUE_REMAIN = ('//*[@resource-id="com.miHoYo.cloudgames.hkrpg:id/llEnqueueBody"]'
                     '//*[@resource-id="com.miHoYo.cloudgames.hkrpg:id/tvSingleValue"]')
+    QUEUE_REMAIN_LONG = '//*[@resource-id="com.miHoYo.cloudgames.hkrpg:id/tvQueueInfoWaitTimeDefault"]'
 
     """
     游戏界面元素
@@ -221,6 +222,11 @@ class LoginAndroidCloud(ModuleBase):
 
             # Queue daemon
             button = self.xpath(XPath.QUEUE_REMAIN)
+            if self.appear(button, interval=20):
+                remain = button.text
+                logger.info(f'Queue remain: {remain}')
+                self.device.stuck_record_clear()
+            button = self.xpath(XPath.QUEUE_REMAIN_LONG)
             if self.appear(button, interval=20):
                 remain = button.text
                 logger.info(f'Queue remain: {remain}')

@@ -180,7 +180,7 @@ class Button(Resource):
         Returns:
             bool.
         """
-        matched = self.match_template(image, similarity=similarity, direct_match=direct_match)
+        matched = self.match_template_luma(image, similarity=similarity, direct_match=direct_match)
         if not matched:
             return False
 

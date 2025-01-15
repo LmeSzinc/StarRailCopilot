@@ -93,6 +93,10 @@ class ItemBase(Keyword):
         return self.__class__.__name__ == 'ItemWeekly'
 
     @cached_property
+    def is_ItemValuable(self):
+        return self.__class__.__name__ == 'ItemValuable'
+
+    @cached_property
     def group_base(self):
         if not self.has_group_base:
             return self
@@ -149,4 +153,9 @@ class ItemTrace(ItemBase):
 
 @dataclass(repr=False)
 class ItemWeekly(ItemBase):
+    pass
+
+
+@dataclass(repr=False)
+class ItemValuable(ItemBase):
     pass

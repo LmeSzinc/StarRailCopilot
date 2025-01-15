@@ -174,3 +174,21 @@ Abandoned_and_Insulted = AssignmentEntryDetailed(
     jp='燃素 & 金属（捨てられしものと傷つけられしもの）',
     es='Flogisto & Metal (Abandonado e insultado)',
 )
+Record_of_Expeditions = AssignmentEntryDetailed(
+    id=20,
+    name='Record_of_Expeditions',
+    cn='恐惧踏碎血肉（远征记）',
+    cht='恐懼踏碎血肉（遠征記）',
+    en='Fear-Stomped Flesh (Record of Expeditions)',
+    jp='恐怖は血肉を踏み潰す（遠征記）',
+    es='Carne pisoteada del miedo (Diario de expedición)',
+)
+Work_and_Days = AssignmentEntryDetailed(
+    id=21,
+    name='Work_and_Days',
+    cn='醒目残翎 & 思维枝椁（工作与时日）',
+    cht='醒目殘翎 & 思維枝槨（工作與時日）',
+    en='Distinctive Tattered Feather & Bough of Thought (Work and Days)',
+    jp='鮮やかな残羽 & 思惟の枝（仕事と日々）',
+    es='Pluma del despertar & Rama del pensamiento (Trabajo y tiempo)',
+)

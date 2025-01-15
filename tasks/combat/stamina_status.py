@@ -21,7 +21,9 @@ class StaminaOcr(DigitCounter):
         # 0*0/24 -> 0/240
         result = re.sub(r'24$', '240', result)
         # * 50/2401+)
+        # 73/3001+)
         result = result.replace('/2401', '/240')
+        result = result.replace('/3001', '/300')
         return result
 
 

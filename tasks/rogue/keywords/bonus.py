@@ -318,3 +318,48 @@ Silent_Orifice = RogueBonus(
     jp='沈黙の孔',
     es='Agujero de la quietud',
 )
+Water_Mirrored_Moon = RogueBonus(
+    id=36,
+    name='Water_Mirrored_Moon',
+    cn='水中月',
+    cht='水中月',
+    en='Water-Mirrored Moon',
+    jp='水鏡の月',
+    es='Luna en el agua',
+)
+Stardust = RogueBonus(
+    id=37,
+    name='Stardust',
+    cn='星之尘',
+    cht='星之塵',
+    en='Stardust',
+    jp='星の塵',
+    es='Polvo estelar',
+)
+Praisesong = RogueBonus(
+    id=38,
+    name='Praisesong',
+    cn='赞美诗',
+    cht='讚美詩',
+    en='Praisesong',
+    jp='賛美歌',
+    es='Alabanza',
+)
+Data_Hole = RogueBonus(
+    id=39,
+    name='Data_Hole',
+    cn='数据孔',
+    cht='資料孔',
+    en='Data Hole',
+    jp='ポート',
+    es='Agujero de datos',
+)
+Butterfly_Adores_Flower = RogueBonus(
+    id=40,
+    name='Butterfly_Adores_Flower',
+    cn='蝶恋花',
+    cht='蝶戀花',
+    en='Butterfly Adores Flower',
+    jp='蝶恋花',
+    es='Amor floral de mariposa',
+)

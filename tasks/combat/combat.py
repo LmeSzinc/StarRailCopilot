@@ -1,6 +1,7 @@
 from module.base.decorator import run_once
 from module.exception import RequestHumanTakeover
 from module.logger import logger
+from tasks.base.page import page_guide
 from tasks.combat.assets.assets_combat_finish import COMBAT_AGAIN, COMBAT_EXIT
 from tasks.combat.assets.assets_combat_interact import DUNGEON_COMBAT_INTERACT
 from tasks.combat.assets.assets_combat_prepare import COMBAT_PREPARE
@@ -383,6 +384,8 @@ class Combat(CombatInteract, CombatPrepare, CombatState, CombatTeam, CombatSuppo
                 continue
             if self.handle_get_light_cone():
                 continue
+            if self.handle_ui_close(page_guide.check_button, interval=5):
+                continue
 
     def is_trailblaze_power_exhausted(self) -> bool:
         flag = self.config.stored.TrailblazePower.value < self.combat_wave_cost
@@ -409,7 +412,7 @@ class Combat(CombatInteract, CombatPrepare, CombatState, CombatTeam, CombatSuppo
             in: COMBAT_PREPARE
                 or page_main with DUNGEON_COMBAT_INTERACT
             out: page_main
-                or COMBAT_PREPARE if it is an early access dungeon
+                or COMBAT_PREPARE
         """
         if not skip_first_screenshot:
             self.device.screenshot()

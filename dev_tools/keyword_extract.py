@@ -579,5 +579,5 @@ class KeywordExtract:
 
 
 if __name__ == '__main__':
-    TextMap.DATA_FOLDER = '../DanhengServer-Resources'
+    TextMap.DATA_FOLDER = '../turnbasedgamedata'
     KeywordExtract().generate()

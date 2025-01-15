@@ -10,7 +10,7 @@ Analyzing_Genetic_Samples = AssignmentEventEntry(
     cht='解析基因樣本',
     en='Analyzing Genetic Samples',
     jp='遺伝子サンプル解析',
-    es='Análisis de muestras genéticas',
+    es='Análisis de muestras geneticas',
 )
 Ranger_Online_Looking_for_Group = AssignmentEventEntry(
     id=2,

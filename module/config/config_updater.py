@@ -72,7 +72,7 @@ class ConfigGenerator:
         # calyx_crimson
         from tasks.rogue.keywords import KEYWORDS_ROGUE_PATH as Path
         order = [Path.Destruction, Path.Preservation, Path.The_Hunt, Path.Abundance,
-                 Path.Erudition, Path.Harmony, Path.Nihility]
+                 Path.Erudition, Path.Harmony, Path.Nihility, Path.Remembrance]
         calyx_crimson = []
         for path in order:
             calyx_crimson += [dungeon.name for dungeon in DungeonList.instances.values()
@@ -112,6 +112,8 @@ class ConfigGenerator:
         # Insert planner items
         from tasks.planner.keywords.classes import ItemBase
         for item in ItemBase.instances.values():
+            if item.is_ItemValuable:
+                continue
             base = item.group_base
             deep_set(raw, keys=['Planner', f'Item_{base.name}'], value={
                 'stored': 'StoredPlanner',
@@ -424,7 +426,7 @@ class ConfigGenerator:
                          value=i18n_treasure[ingame_lang].format(dungeon=dungeon_name, world=world_name))
             if dungeon.is_Calyx_Crimson:
                 plane = dungeon.plane.__getattribute__(ingame_lang)
-                plane = re.sub('[「」]', '', plane)
+                plane = re.sub('[「」"]', '', plane)
                 path = dungeon.Calyx_Crimson_Path.__getattribute__(ingame_lang)
                 deep_set(new, keys=['Dungeon', 'Name', dungeon.name],
                          value=i18n_crimson[ingame_lang].format(path=path, plane=plane))
@@ -498,6 +500,8 @@ class ConfigGenerator:
         for item in ItemBase.instances.values():
             item: ItemBase = item
             name = f'Item_{item.name}'
+            if item.is_ItemValuable:
+                continue
             if item.is_ItemCurrency or item.name == 'Tracks_of_Destiny':
                 i18n = item.__getattribute__(ingame_lang)
             elif item.is_ItemExp and item.is_group_base:

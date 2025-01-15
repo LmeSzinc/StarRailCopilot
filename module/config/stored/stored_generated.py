@@ -74,6 +74,7 @@ class StoredGenerated:
     Item_Heaven_Incinerator = StoredPlanner("Dungeon.Planner.Item_Heaven_Incinerator")
     Item_Heavenly_Melody = StoredPlanner("Dungeon.Planner.Item_Heavenly_Melody")
     Item_Myriad_Fruit = StoredPlanner("Dungeon.Planner.Item_Myriad_Fruit")
+    Item_Flower_of_Alaya = StoredPlanner("Dungeon.Planner.Item_Flower_of_Alaya")
     Item_Tracks_of_Destiny = StoredPlanner("Dungeon.Planner.Item_Tracks_of_Destiny")
     Item_Destroyer_Final_Road = StoredPlanner("Dungeon.Planner.Item_Destroyer_Final_Road")
     Item_Guardian_Lament = StoredPlanner("Dungeon.Planner.Item_Guardian_Lament")

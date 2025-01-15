@@ -86,6 +86,16 @@ MONTHLY_CARD_REWARD = ButtonWrapper(
         button=(741, 495, 1071, 644),
     ),
 )
+POPUP_BATTLE_PASS_UPDATE = ButtonWrapper(
+    name='POPUP_BATTLE_PASS_UPDATE',
+    share=Button(
+        file='./assets/share/base/popup/POPUP_BATTLE_PASS_UPDATE.png',
+        area=(537, 217, 562, 244),
+        search=(517, 197, 582, 264),
+        color=(63, 52, 41),
+        button=(537, 217, 562, 244),
+    ),
+)
 POPUP_CANCEL = ButtonWrapper(
     name='POPUP_CANCEL',
     share=Button(

@@ -58,6 +58,10 @@ class PopupHandler(ModuleBase):
         """
         if self.appear_then_click(BATTLE_PASS_NOTIFICATION, interval=interval):
             return True
+        if self.appear(POPUP_BATTLE_PASS_UPDATE, interval=interval):
+            logger.info(f'{POPUP_BATTLE_PASS_UPDATE} -> {BATTLE_PASS_NOTIFICATION}')
+            self.device.click(BATTLE_PASS_NOTIFICATION)
+            return True
 
         return False
 

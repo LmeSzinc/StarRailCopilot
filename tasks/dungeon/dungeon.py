@@ -179,6 +179,7 @@ class Dungeon(DungeonStamina, DungeonEvent, Combat):
 
             # Check trailblaze power, this may stop current task
             if self.is_trailblaze_power_exhausted():
+                self.combat_exit()
                 # Scheduler
                 self.delay_dungeon_task(dungeon)
                 self.check_synthesize()
@@ -204,7 +205,6 @@ class Dungeon(DungeonStamina, DungeonEvent, Combat):
             in: Any
             out: page_main
         """
-        self.dungeon_is_early_access = False
         require = self.require_compulsory_support()
         if require and self.support_once:
             logger.info('Run once with support')
@@ -217,25 +217,21 @@ class Dungeon(DungeonStamina, DungeonEvent, Combat):
                     wave_limit -= 1
                 count += self._dungeon_run(dungeon=dungeon, team=team, wave_limit=wave_limit,
                                            support_character=support_character, skip_ui_switch=True)
-            # Early access dungeon ends at COMBAT_PREPARE
-            if self.dungeon_is_early_access:
-                self.combat_exit()
+            self.combat_exit()
             return count
 
         elif require and not self.support_once:
             # Run with support all the way
             count = self._dungeon_run(dungeon=dungeon, team=team, wave_limit=0,
                                       support_character=self.config.DungeonSupport_Character)
-            if self.dungeon_is_early_access:
-                self.combat_exit()
+            self.combat_exit()
             return count
 
         else:
             # Normal run
             count = self._dungeon_run(dungeon=dungeon, team=team, wave_limit=wave_limit,
                                       support_character=support_character)
-            if self.dungeon_is_early_access:
-                self.combat_exit()
+            self.combat_exit()
             return count
 
     def update_double_event_record(self):

@@ -58,7 +58,7 @@ class StaminaStatus(UI):
             STAMINA_OCR.load_offset(STAMINA_ICON)
             im = crop(image, STAMINA_OCR.button, copy=False)
             stamina, _, total = StaminaOcr(STAMINA_OCR).ocr_single_line(im, direct_ocr=True)
-            if total > 240 or total == 0:
+            if total > 300 or total == 0:
                 logger.warning(f'Unexpected stamina total: {total}')
                 stamina = None
 
@@ -76,7 +76,7 @@ class StaminaStatus(UI):
             IMMERSIFIER_OCR.load_offset(IMMERSIFIER_ICON)
             im = crop(image, IMMERSIFIER_OCR.button, copy=False)
             immersifier, _, total = StaminaOcr(IMMERSIFIER_OCR).ocr_single_line(im, direct_ocr=True)
-            if total != 8:
+            if total != 12:
                 logger.warning(f'Unexpected immersifier total: {total}')
                 immersifier = None
 

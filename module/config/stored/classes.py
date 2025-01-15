@@ -184,7 +184,7 @@ class StoredDailyActivity(StoredCounter, StoredExpiredAt0400):
 
 
 class StoredTrailblazePower(StoredCounter):
-    FIXED_TOTAL = 240
+    FIXED_TOTAL = 300
 
     def predict_current(self) -> int:
         """
@@ -211,7 +211,7 @@ class StoredResersed(StoredCounter):
 
 
 class StoredImmersifier(StoredCounter):
-    FIXED_TOTAL = 8
+    FIXED_TOTAL = 12
 
 
 class StoredSimulatedUniverse(StoredCounter, StoredExpiredAtMonday0400):

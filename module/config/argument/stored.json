@@ -541,6 +541,17 @@
     "order": 0,
     "color": "#777777"
   },
+  "Item_Flower_of_Alaya": {
+    "name": "Item_Flower_of_Alaya",
+    "path": "Dungeon.Planner.Item_Flower_of_Alaya",
+    "i18n": "Planner.Item_Flower_of_Alaya.name",
+    "stored": "StoredPlanner",
+    "attrs": {
+      "time": "2020-01-01 00:00:00"
+    },
+    "order": 0,
+    "color": "#777777"
+  },
   "Item_Tracks_of_Destiny": {
     "name": "Item_Tracks_of_Destiny",
     "path": "Dungeon.Planner.Item_Tracks_of_Destiny",

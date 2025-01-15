@@ -619,3 +619,58 @@ Penacony_PenaconyPaperfoldUniversityCollege = MapPlane(
     world_id=3,
     plane_id=1030601,
 )
+Special_EternalHolyCityOkhema = MapPlane(
+    id=58,
+    name='Special_EternalHolyCityOkhema',
+    cn='「永恒圣城」奥赫玛',
+    cht='「永恆聖城」奧赫瑪',
+    en='"Eternal Holy City" Okhema',
+    jp='「永遠の聖都」オクヘイマ',
+    es='Oqueima, ciudad sagrada eterna',
+    world_id=4,
+    plane_id=1040101,
+)
+Special_VortexofGenesis = MapPlane(
+    id=59,
+    name='Special_VortexofGenesis',
+    cn='创世涡心',
+    cht='創世渦心',
+    en='Vortex of Genesis',
+    jp='創世の渦心',
+    es='Vórtice de la Creación',
+    world_id=4,
+    plane_id=1040201,
+)
+Special_StrifeRuinsCastrumKremnos = MapPlane(
+    id=60,
+    name='Special_StrifeRuinsCastrumKremnos',
+    cn='「纷争荒墟」悬锋城',
+    cht='「紛爭荒墟」懸鋒城',
+    en='"Strife Ruins" Castrum Kremnos',
+    jp='「紛争の廃墟」クレムノス',
+    es='Castrum Kremnos, Ruinas del Conflicto',
+    world_id=4,
+    plane_id=2041101,
+)
+Special_BloodbathedBattlefrontCastrumKremnos = MapPlane(
+    id=61,
+    name='Special_BloodbathedBattlefrontCastrumKremnos',
+    cn='「浴血战端」悬锋城',
+    cht='「浴血戰端」懸鋒城',
+    en='"Bloodbathed Battlefront" Castrum Kremnos',
+    jp='「血染めの戦端」クレムノス',
+    es='Castrum Kremnos, Frente sangriento',
+    world_id=4,
+    plane_id=2041301,
+)
+Special_AbyssofFateJanusopolis = MapPlane(
+    id=62,
+    name='Special_AbyssofFateJanusopolis',
+    cn='「命运重渊」雅努萨波利斯',
+    cht='「命運重淵」雅努薩波利斯',
+    en='"Abyss of Fate" Janusopolis',
+    jp='「運命の深淵」ヤヌサポリス',
+    es='Janópolis, Abismo del Destino',
+    world_id=4,
+    plane_id=2041201,
+)

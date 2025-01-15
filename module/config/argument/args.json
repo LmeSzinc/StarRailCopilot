@@ -453,6 +453,12 @@
         "display": "display",
         "stored": "StoredPlanner"
       },
+      "Item_Flower_of_Alaya": {
+        "type": "planner",
+        "value": {},
+        "display": "display",
+        "stored": "StoredPlanner"
+      },
       "Item_Tracks_of_Destiny": {
         "type": "planner",
         "value": {},
@@ -572,6 +578,7 @@
           "Calyx_Crimson_Harmony_Penacony_TheReverieDreamscape",
           "Calyx_Crimson_Nihility_Jarilo_GreatMine",
           "Calyx_Crimson_Nihility_Luofu_AlchemyCommission",
+          "Calyx_Crimson_Remembrance_Special_StrifeRuinsCastrumKremnos",
           "Stagnant_Shadow_Spike",
           "Stagnant_Shadow_Perdition",
           "Stagnant_Shadow_Duty",
@@ -593,6 +600,7 @@
           "Stagnant_Shadow_Mirage",
           "Stagnant_Shadow_Puppetry",
           "Stagnant_Shadow_Timbre",
+          "Cavern_of_Corrosion_Path_of_Aria",
           "Cavern_of_Corrosion_Path_of_Uncertainty",
           "Cavern_of_Corrosion_Path_of_Cavalier",
           "Cavern_of_Corrosion_Path_of_Dreamdive",
@@ -632,13 +640,15 @@
           "Calyx_Crimson_Harmony_Jarilo_RobotSettlement",
           "Calyx_Crimson_Harmony_Penacony_TheReverieDreamscape",
           "Calyx_Crimson_Nihility_Jarilo_GreatMine",
-          "Calyx_Crimson_Nihility_Luofu_AlchemyCommission"
+          "Calyx_Crimson_Nihility_Luofu_AlchemyCommission",
+          "Calyx_Crimson_Remembrance_Special_StrifeRuinsCastrumKremnos"
         ]
       },
       "NameAtDoubleRelic": {
         "type": "select",
         "value": "Cavern_of_Corrosion_Path_of_Providence",
         "option": [
+          "Cavern_of_Corrosion_Path_of_Aria",
           "Cavern_of_Corrosion_Path_of_Uncertainty",
           "Cavern_of_Corrosion_Path_of_Cavalier",
           "Cavern_of_Corrosion_Path_of_Dreamdive",
@@ -683,6 +693,7 @@
         "option": [
           "FirstCharacter",
           "Acheron",
+          "Aglaea",
           "Argenti",
           "Arlan",
           "Asta",
@@ -734,11 +745,13 @@
           "Sparkle",
           "Sunday",
           "Sushang",
+          "TheHerta",
           "Tingyun",
           "TopazNumby",
           "TrailblazerDestruction",
           "TrailblazerHarmony",
           "TrailblazerPreservation",
+          "TrailblazerRemembrance",
           "Welt",
           "Xueyi",
           "Yanqing",
@@ -886,6 +899,7 @@
         "option": [
           "FirstCharacter",
           "Acheron",
+          "Aglaea",
           "Argenti",
           "Arlan",
           "Asta",
@@ -937,11 +951,13 @@
           "Sparkle",
           "Sunday",
           "Sushang",
+          "TheHerta",
           "Tingyun",
           "TopazNumby",
           "TrailblazerDestruction",
           "TrailblazerHarmony",
           "TrailblazerPreservation",
+          "TrailblazerRemembrance",
           "Welt",
           "Xueyi",
           "Yanqing",
@@ -1154,7 +1170,9 @@
           "Spring_of_Life",
           "Fragments_of_Illusory_Dreams",
           "The_Blossom_in_the_Storm",
-          "Abandoned_and_Insulted"
+          "Abandoned_and_Insulted",
+          "Record_of_Expeditions",
+          "Work_and_Days"
         ]
       },
       "Name_2": {
@@ -1179,7 +1197,9 @@
           "Spring_of_Life",
           "Fragments_of_Illusory_Dreams",
           "The_Blossom_in_the_Storm",
-          "Abandoned_and_Insulted"
+          "Abandoned_and_Insulted",
+          "Record_of_Expeditions",
+          "Work_and_Days"
         ]
       },
       "Name_3": {
@@ -1204,7 +1224,9 @@
           "Spring_of_Life",
           "Fragments_of_Illusory_Dreams",
           "The_Blossom_in_the_Storm",
-          "Abandoned_and_Insulted"
+          "Abandoned_and_Insulted",
+          "Record_of_Expeditions",
+          "Work_and_Days"
         ]
       },
       "Name_4": {
@@ -1229,7 +1251,9 @@
           "Spring_of_Life",
           "Fragments_of_Illusory_Dreams",
           "The_Blossom_in_the_Storm",
-          "Abandoned_and_Insulted"
+          "Abandoned_and_Insulted",
+          "Record_of_Expeditions",
+          "Work_and_Days"
         ]
       },
       "Duration": {
@@ -1427,6 +1451,7 @@
         "option": [
           "FirstCharacter",
           "Acheron",
+          "Aglaea",
           "Argenti",
           "Arlan",
           "Asta",
@@ -1478,11 +1503,13 @@
           "Sparkle",
           "Sunday",
           "Sushang",
+          "TheHerta",
           "Tingyun",
           "TopazNumby",
           "TrailblazerDestruction",
           "TrailblazerHarmony",
           "TrailblazerPreservation",
+          "TrailblazerRemembrance",
           "Welt",
           "Xueyi",
           "Yanqing",

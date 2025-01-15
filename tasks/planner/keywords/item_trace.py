@@ -549,3 +549,42 @@ Myriad_Fruit = ItemTrace(
     item_group=1217,
     dungeon_id=1021,
 )
+Bija_of_Consciousness = ItemTrace(
+    id=43,
+    name='Bija_of_Consciousness',
+    cn='思量的种',
+    cht='思量的種',
+    en='Bija of Consciousness',
+    jp='イの種',
+    es='Semilla de la reflexión',
+    rarity='NotNormal',
+    item_id=110251,
+    item_group=1218,
+    dungeon_id=1024,
+)
+Seedling_of_Manas = ItemTrace(
+    id=44,
+    name='Seedling_of_Manas',
+    cn='末那芽苗',
+    cht='末那芽苗',
+    en='Seedling of Manas',
+    jp='マナの苗',
+    es='Brote de manas',
+    rarity='Rare',
+    item_id=110252,
+    item_group=1218,
+    dungeon_id=1024,
+)
+Flower_of_Alaya = ItemTrace(
+    id=45,
+    name='Flower_of_Alaya',
+    cn='阿赖耶华',
+    cht='阿賴耶華',
+    en='Flower of Alaya',
+    jp='アラヤの花',
+    es='Alayawah',
+    rarity='VeryRare',
+    item_id=110253,
+    item_group=1218,
+    dungeon_id=1024,
+)

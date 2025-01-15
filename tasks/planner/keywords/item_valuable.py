@@ -3,21 +3,21 @@ from .classes import ItemValuable
 # This file was auto-generated, do not modify it manually. To generate:
 # ``` python -m dev_tools.keyword_extract ```
 
-Wishful_Resign = ItemValuable(
+Wishful_Resin = ItemValuable(
     id=1,
-    name='Wishful_Resign',
+    name='Wishful_Resin',
     cn='遂愿尘脂',
-    cht='',
-    en='Wishful Resign',
-    jp='',
-    es='',
+    cht='遂願塵脂',
+    en='Wishful Resin',
+    jp='遂願樹脂',
+    es='Resina de los deseos',
     rarity='SuperRare',
-    item_id=235,
+    item_id=237,
     item_group=0,
     dungeon_id=-1,
 )
 Self_Modeling_Resin = ItemValuable(
-    id=1,
+    id=2,
     name='Self_Modeling_Resin',
     cn='自塑尘脂',
     cht='自塑塵脂',
@@ -30,15 +30,15 @@ Self_Modeling_Resin = ItemValuable(
     dungeon_id=-1,
 )
 Variable_Dice = ItemValuable(
-    id=1,
+    id=3,
     name='Variable_Dice',
     cn='变量骰子',
-    cht='',
+    cht='變量骰子',
     en='Variable Dice',
-    jp='',
-    es='',
+    jp='変数サイコロ',
+    es='Dado variable',
     rarity='SuperRare',
-    item_id=237,
+    item_id=238,
     item_group=0,
     dungeon_id=-1,
 )

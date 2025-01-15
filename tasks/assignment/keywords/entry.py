@@ -174,3 +174,21 @@ Abandoned_and_Insulted = AssignmentEntry(
     jp='捨てられしものと傷つけられしもの',
     es='Abandonado e insultado',
 )
+Record_of_Expeditions = AssignmentEntry(
+    id=20,
+    name='Record_of_Expeditions',
+    cn='远征记',
+    cht='遠征記',
+    en='Record of Expeditions',
+    jp='遠征記',
+    es='Diario de expedición',
+)
+Work_and_Days = AssignmentEntry(
+    id=21,
+    name='Work_and_Days',
+    cn='工作与时日',
+    cht='工作與時日',
+    en='Work and Days',
+    jp='仕事と日々',
+    es='Trabajo y tiempo',
+)

@@ -19,7 +19,7 @@ EXP_Materials_Credits = AssignmentGroup(
     cht='經驗素材/信用點',
     en='EXP Materials/Credits',
     jp='経験値素材/信用ポイント',
-    es='Materiales de EXP/créditos',
+    es='Materiales de EXP/creditos',
 )
 Synthesis_Materials = AssignmentGroup(
     id=3,

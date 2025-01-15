@@ -109,6 +109,7 @@ class GenerateDungeonList(GenerateKeyword):
             'Calyx_Crimson_Erudition',
             'Calyx_Crimson_Harmony',
             'Calyx_Crimson_Nihility',
+            'Calyx_Crimson_Remembrance',
         ]
         for keyword in order:
             condition = lambda x: x['name'].startswith(keyword)

@@ -114,6 +114,10 @@ class GenerateItemCalyx(GenerateItemBase):
     output_file = './tasks/planner/keywords/item_calyx.py'
     purpose_type = [7]
 
+    # Not available at 3.0
+    # TODO: Delete this at next game patch
+    blacklist = [115001, 115002, 115003]
+
     def iter_keywords(self) -> t.Iterable[dict]:
         items = list(super().iter_keywords())
 
@@ -136,10 +140,19 @@ class GenerateItemValuable(GenerateItemBase):
     purpose_type = [10]
 
     def iter_keywords(self) -> t.Iterable[dict]:
+        data = {}
         for row in super().iter_keywords():
-            # 自塑尘脂
-            if row['item_id'] not in [236]:
+            # 自塑尘脂, 遂愿尘脂, 变量骰子
+            if row['item_id'] not in [236, 237, 238]:
                 continue
+            data[row['item_id']] = row
+
+        # 遂愿尘脂 first
+        try:
+            yield data.pop(237)
+        except KeyError:
+            pass
+        for row in data.values():
             yield row
 
 

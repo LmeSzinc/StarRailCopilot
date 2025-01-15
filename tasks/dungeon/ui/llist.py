@@ -11,7 +11,7 @@ from module.base.timer import Timer
 from module.base.utils import area_center, area_limit, area_offset, color_similarity_2d, crop, image_size
 from module.logger import logger
 from module.ocr.ocr import Ocr, OcrResultButton
-from module.ocr.utils import merge_result_button, split_and_pair_button_attr, split_and_pair_buttons
+from module.ocr.utils import merge_result_button, split_and_pair_button_attr
 from module.ui.draggable_list import DraggableList
 from module.ui.switch import Switch
 from tasks.base.page import page_guide
@@ -151,7 +151,6 @@ class OcrDungeonList(OcrDungeonName):
 class DraggableDungeonList(DraggableList):
     teleports: list[OcrResultButton] = []
     navigates: list[OcrResultButton] = []
-    early_access: list[OcrResultButton] = []
 
     # target_dungeon: Dungeon attribute to use map planes to predict dungeons only.
     target_dungeon = None
@@ -165,11 +164,10 @@ class DraggableDungeonList(DraggableList):
         """
         return main.dungeon_list_wait_list_end(skip_first_screenshot=skip_first_screenshot)
 
-    def load_rows(self, main: ModuleBase, allow_early_access=False):
+    def load_rows(self, main: ModuleBase):
         """
         Args:
             main:
-            allow_early_access: True to allow dungeons that are in temporarily early access during events
         """
         relative_area = (0, -40, 1280, 120)
 
@@ -183,47 +181,20 @@ class DraggableDungeonList(DraggableList):
         self.ocr_class = create_ocr_class
         super().load_rows(main=main)
 
-        # Check early access dungeons
-        buttons = DUNGEON_LIST.cur_buttons.copy()
-        for name, button in split_and_pair_buttons(
-                DUNGEON_LIST.cur_buttons,
-                split_func=lambda x: x != KEYWORDS_DUNGEON_ENTRANCE.Enter,
-                relative_area=relative_area
-        ):
-            logger.warning(f'Early access dungeon: {name}')
-            buttons.remove(name)
-            buttons.remove(button)
-
-        # Remove early access dungeons
-        if not allow_early_access:
-            DUNGEON_LIST.cur_buttons = buttons
-            # From super.load_rows(), re-calculate indexes
-            indexes = [self.keyword2index(row.matched_keyword)
-                       for row in self.cur_buttons]
-            indexes = [index for index in indexes if index]
-
-            if not indexes:
-                logger.warning(f'No valid rows loaded into {self}')
-                return
-
-            self.cur_min = min(indexes)
-            self.cur_max = max(indexes)
-            logger.attr(self.name, f'{self.cur_min} - {self.cur_max}')
-
         # Replace dungeon.button with teleport
         self.teleports = list(split_and_pair_button_attr(
             self.cur_buttons,
             split_func=lambda x: x != KEYWORDS_DUNGEON_ENTRANCE.Teleport,
             relative_area=relative_area
         ))
+        self.teleports += list(split_and_pair_button_attr(
+            self.cur_buttons,
+            split_func=lambda x: x != KEYWORDS_DUNGEON_ENTRANCE.Enter,
+            relative_area=relative_area
+        ))
         self.navigates = list(split_and_pair_button_attr(
             self.cur_buttons,
             split_func=lambda x: x != KEYWORDS_DUNGEON_ENTRANCE.Navigate,
-            relative_area=relative_area
-        ))
-        self.early_access = list(split_and_pair_button_attr(
-            self.cur_buttons,
-            split_func=lambda x: x != KEYWORDS_DUNGEON_ENTRANCE.Enter,
             relative_area=relative_area
         ))
 
@@ -234,9 +205,6 @@ DUNGEON_LIST = DraggableDungeonList(
 
 
 class DungeonUIList(UI):
-    # Whether current dungeon is an early access
-    # Value set in dungeon_insight()
-    dungeon_is_early_access = False
 
     def _dungeon_list_reset(self):
         """
@@ -315,7 +283,6 @@ class DungeonUIList(UI):
         # Predict dungeon by plane name in calyxes where dungeons share the same names
         DUNGEON_LIST.target_dungeon = dungeon
         DUNGEON_LIST.check_row_order = True
-        self.dungeon_is_early_access = False
 
         # Insight dungeon
         DUNGEON_LIST.insight_row(dungeon, main=self)
@@ -359,7 +326,6 @@ class DungeonUIList(UI):
         DUNGEON_LIST.search_button = OCR_DUNGEON_NAME
         DUNGEON_LIST.target_dungeon = dungeon
         DUNGEON_LIST.check_row_order = False
-        self.dungeon_is_early_access = False
 
         for _ in range(3):
             visited = set()
@@ -368,15 +334,10 @@ class DungeonUIList(UI):
             while 1:
                 visited_count = len(visited)
                 # Load
-                DUNGEON_LIST.load_rows(main=self, allow_early_access=True)
+                DUNGEON_LIST.load_rows(main=self)
                 for entrance in DUNGEON_LIST.teleports:
                     if entrance.matched_keyword == dungeon:
                         logger.info(f'Found dungeon {dungeon}')
-                        return True
-                for entrance in DUNGEON_LIST.early_access:
-                    if entrance.matched_keyword == dungeon:
-                        logger.info(f'Found early access dungeon {dungeon}')
-                        self.dungeon_is_early_access = True
                         return True
                 for entrance in DUNGEON_LIST.navigates:
                     if entrance.matched_keyword == dungeon:

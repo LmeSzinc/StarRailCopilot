@@ -485,6 +485,7 @@ class UI(MainPage):
                 self.device.click(MAP_EXIT)
                 continue
             if self.handle_popup_confirm():
+                clicked = True
                 continue
             if self.match_template_color(START_TRIAL, interval=2):
                 logger.info(f'{START_TRIAL} -> {CLOSE}')

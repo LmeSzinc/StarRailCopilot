@@ -6,7 +6,7 @@
     "stored": "StoredTrailblazePower",
     "attrs": {
       "time": "2020-01-01 00:00:00",
-      "total": 240,
+      "total": 300,
       "value": 0
     },
     "order": 1,
@@ -726,7 +726,7 @@
     "stored": "StoredImmersifier",
     "attrs": {
       "time": "2020-01-01 00:00:00",
-      "total": 8,
+      "total": 12,
       "value": 0
     },
     "order": 0,

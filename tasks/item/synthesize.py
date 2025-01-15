@@ -16,8 +16,8 @@ from tasks.item.inventory import InventoryManager
 from tasks.item.keywords import KEYWORDS_ITEM_TAB
 from tasks.item.slider import Slider
 from tasks.item.ui import ItemUI
-from tasks.planner.keywords import ITEM_CLASSES, ItemCalyx, ItemTrace
-from tasks.planner.keywords.classes import ItemBase
+from tasks.planner.keywords import ITEM_CLASSES, ITEM_TYPES, ItemCalyx, ItemTrace
+from tasks.planner.keywords.classes import ItemBase, ItemValuable
 from tasks.planner.model import ObtainedAmmount, StoredPlannerProxy
 from tasks.planner.scan import OcrItemName
 
@@ -74,6 +74,13 @@ class SynthesizeInventoryManager(InventoryManager):
         """
         data = {}
         index = 0
+
+        items = SelectedGrids(ItemBase.instances.values()).select(is_ItemValuable=True)
+        items.create_index('item_group')
+        for item_group in items.indexes.values():
+            for item in item_group[::-1]:
+                index += 1
+                data[item.name] = index
         items = SelectedGrids(ItemBase.instances.values()).select(is_ItemTrace=True)
         items.create_index('item_group')
         for item_group in items.indexes.values():
@@ -271,20 +278,29 @@ class Synthesize(CombatObtain, ItemUI):
         self.planner_write()
         return items
 
-    def synthesize_get_item(self) -> ItemBase | None:
+    def synthesize_get_item(self, skip_first_screenshot=True) -> ITEM_TYPES | None:
         ocr = SynthesizeItemName(ITEM_NAME)
-        item = ocr.matched_single_line(self.device.image, keyword_classes=ITEM_CLASSES)
-        if item is None:
-            logger.warning('synthesize_get_item: Unknown item name')
-            return None
+        timeout = Timer(1, count=3).start()
+        while 1:
+            if skip_first_screenshot:
+                skip_first_screenshot = False
+            else:
+                self.device.screenshot()
 
-        return item
+            item = ocr.matched_single_line(self.device.image, keyword_classes=ITEM_CLASSES)
+            if item is not None:
+                return item
+
+            logger.warning('synthesize_get_item: Unknown item name')
+            if timeout.reached():
+                logger.error('synthesize_get_item: get item name timeout')
+                return None
 
     @cached_property
     def synthesize_inventory(self):
         return SynthesizeInventoryManager(main=self, inventory=SYNTHESIZE_INVENTORY)
 
-    def synthesize_inventory_select(self, item: ItemTrace | ItemCalyx | str):
+    def synthesize_inventory_select(self, item: ItemTrace | ItemCalyx | ItemValuable | str):
         """
         Select item from inventory list.
         Inventory list must be at top be fore selecting.
@@ -300,7 +316,7 @@ class Synthesize(CombatObtain, ItemUI):
         logger.info(f'Synthesize select {item}')
         if isinstance(item, str):
             item = ItemBase.find(item)
-        if not isinstance(item, (ItemTrace, ItemCalyx)):
+        if not isinstance(item, (ItemTrace, ItemCalyx, ItemValuable)):
             raise ScriptError(f'synthesize_inventory_select: '
                               f'Trying to select item {item} but it is not an ItemTrace or ItemCalyx object')
 

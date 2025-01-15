@@ -130,6 +130,19 @@ class GenerateItemCalyx(GenerateItemBase):
         yield from items
 
 
+class GenerateItemValuable(GenerateItemBase):
+    output_file = './tasks/planner/keywords/item_valuable.py'
+
+    purpose_type = [10]
+
+    def iter_keywords(self) -> t.Iterable[dict]:
+        for row in super().iter_keywords():
+            # 自塑尘脂
+            if row['item_id'] not in [236]:
+                continue
+            yield row
+
+
 def generate_items():
     GenerateItemCurrency()()
     GenerateItemExp()()
@@ -137,3 +150,4 @@ def generate_items():
     GenerateItemTrace()()
     GenerateItemWeekly()()
     GenerateItemCalyx()()
+    GenerateItemValuable()()

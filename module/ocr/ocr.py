@@ -10,6 +10,7 @@ from module.base.decorator import cached_property
 from module.base.utils import *
 from module.exception import ScriptError
 from module.logger import logger
+from module.ocr.keyword import Keyword
 from module.ocr.models import OCR_MODEL, TextSystem
 from module.ocr.utils import merge_buttons
 
@@ -224,7 +225,7 @@ class Ocr:
             keyword_classes,
             lang: str = None,
             ignore_punctuation=True
-    ) -> OcrResultButton:
+    ) -> Keyword:
         """
         Args:
             image: Image to detect
@@ -233,7 +234,7 @@ class Ocr:
             ignore_punctuation:
 
         Returns:
-            OcrResultButton: Or None if it didn't matched known keywords.
+            Keyword: Or None if it didn't matched known keywords.
         """
         result = self.ocr_single_line(image)
 
@@ -254,7 +255,7 @@ class Ocr:
             keyword_classes,
             lang: str = None,
             ignore_punctuation=True
-    ) -> list[OcrResultButton]:
+    ) -> list[Keyword]:
         """
         Args:
             image_list:
@@ -263,7 +264,7 @@ class Ocr:
             ignore_punctuation:
 
         Returns:
-            List of matched OcrResultButton.
+            List of matched Keyword.
             OCR result which didn't matched known keywords will be dropped.
         """
         results = self.ocr_multi_lines(image_list)

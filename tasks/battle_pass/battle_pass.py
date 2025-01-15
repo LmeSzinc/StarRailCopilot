@@ -250,9 +250,23 @@ class BattlePassUI(UI):
             if self.handle_reward():
                 continue
 
-    def _get_battle_pass_level(self) -> int:
-        digit = Digit(OCR_LEVEL)
-        return digit.ocr_single_line(self.device.image)
+    def _get_battle_pass_level(self, skip_first_screenshot=True) -> int:
+        timeout = Timer(1.5, count=3).start()
+        ocr = Digit(OCR_LEVEL)
+        while 1:
+            if skip_first_screenshot:
+                skip_first_screenshot = False
+            else:
+                self.device.screenshot()
+
+            level = ocr.ocr_single_line(self.device.image)
+            if level > 0:
+                return level
+            if timeout.reached():
+                logger.warning('_get_battle_pass_level timeout')
+                break
+
+        return 0
 
     def _get_battle_pass_end(self) -> datetime.datetime:
         remain = Duration(OCR_REMAINING_TIME).ocr_single_line(self.device.image)

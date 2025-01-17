@@ -553,8 +553,12 @@ class PlannerProgressParser:
             if not row.can_daily_farm():
                 continue
             eta += row.eta
-            progress_current += row.progress_current
-            progress_total += row.progress_total
+            cost = row.combat_cost
+            drop = row.drop_equivalent_green
+            current = row.progress_current / drop * cost
+            total = row.progress_total / drop * cost
+            progress_current += current
+            progress_total += total
 
         try:
             progress = round(progress_current / progress_total * 100, 2)

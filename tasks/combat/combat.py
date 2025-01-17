@@ -34,34 +34,54 @@ class Combat(CombatInteract, CombatPrepare, CombatState, CombatTeam, CombatSuppo
         self.combat_waves = 1
         cost = self.combat_get_wave_cost()
         current = self.combat_get_trailblaze_power()
-        if current < self.combat_wave_cost:
-            if self._try_get_more_trablaize_power(self.combat_wave_cost):
+
+        # Try to get more stamina
+        if cost == 10:
+            # To a calyx, always try to redeem 60 stamina first
+            if current < cost * 6:
+                self._try_get_more_trablaize_power(cost * 6)
                 current = self.config.stored.TrailblazePower.value
-            else:
-                return False
+                # Still not enough to do 1 wave after redeem, exit combat
+                if current < cost:
+                    logger.info(f'Current has {current}, combat costs {cost}, can not run again')
+                    return False
+                # Not enough to do 6 waves but able to do some waves,
+                # continue as it is, self.combat_waves will be set
+                elif current < cost * 6:
+                    logger.info('Not enough stamina to do 6 waves')
+                # Enough stamina, all good
+                else:
+                    logger.info('Having enough stamina to do 6 waves after redeem')
+        else:
+            # To other dungeon, try to get its cost
+            if current < cost:
+                if self._try_get_more_trablaize_power(cost):
+                    current = self.config.stored.TrailblazePower.value
+                else:
+                    return False
 
         if cost == 10:
             # Calyx
-            self.combat_waves = min(current // self.combat_wave_cost, 6)
+            self.combat_waves = min(current // cost, 6)
             if self.combat_wave_limit:
                 self.combat_waves = min(self.combat_waves, self.combat_wave_limit - self.combat_wave_done)
                 logger.info(
-                    f'Current has {current}, combat costs {self.combat_wave_cost}, '
+                    f'Current has {current}, combat costs {cost}, '
                     f'wave={self.combat_wave_done}/{self.combat_wave_limit}, '
                     f'able to do {self.combat_waves} waves')
             else:
-                logger.info(f'Current has {current}, combat costs {self.combat_wave_cost}, '
+                logger.info(f'Current has {current}, combat costs {cost}, '
                             f'able to do {self.combat_waves} waves')
             if self.combat_waves > 0:
                 self.combat_set_wave(self.combat_waves)
         else:
             # Others
-            logger.info(f'Current has {current}, combat costs {self.combat_wave_cost}, '
+            logger.info(f'Current has {current}, combat costs {cost}, '
                         f'do {self.combat_waves} wave')
 
         # Check limits
-        if self.config.stored.TrailblazePower.value < self.combat_wave_cost:
-            return self._try_get_more_trablaize_power(self.combat_wave_cost)
+        if self.config.stored.TrailblazePower.value < cost:
+            return self._try_get_more_trablaize_power(cost)
         if self.combat_waves <= 0:
             logger.info('Combat wave limited, cannot continue combat')
             return False
@@ -386,11 +406,6 @@ class Combat(CombatInteract, CombatPrepare, CombatState, CombatTeam, CombatSuppo
                 continue
             if self.handle_ui_close(page_guide.check_button, interval=5):
                 continue
-
-    def is_trailblaze_power_exhausted(self) -> bool:
-        flag = self.config.stored.TrailblazePower.value < self.combat_wave_cost
-        logger.attr('TrailblazePowerExhausted', flag)
-        return flag
 
     def combat(self, team: int = 1, wave_limit: int = 0, support_character: str = None, skip_first_screenshot=True):
         """

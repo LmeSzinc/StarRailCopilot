@@ -79,6 +79,11 @@ class CombatPrepare(StaminaStatus):
 
         return data.stamina
 
+    def is_trailblaze_power_exhausted(self) -> bool:
+        flag = self.config.stored.TrailblazePower.value < self.combat_wave_cost
+        logger.attr('TrailblazePowerExhausted', flag)
+        return flag
+
     def combat_get_wave_cost(self, skip_first_screenshot=True):
         """
         Get traiblaze power cost and set it to `combat_cost`

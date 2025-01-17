@@ -286,8 +286,8 @@ class Combat(CombatInteract, CombatPrepare, CombatState, CombatTeam, CombatSuppo
         if self.obtain_frequent_check:
             if self.config.stored.TrailblazePower.value >= self.combat_wave_cost \
                     and (self.combat_wave_limit and self.combat_wave_done < self.combat_wave_limit):
-                logger.info(f'Stall having some trailblaze power '
-                            f'but wave limit reached {self.combat_wave_done}/{self.combat_wave_limit}, '
+                logger.info(f'Still having some trailblaze power '
+                            f'but wave limit not reached {self.combat_wave_done}/{self.combat_wave_limit}, '
                             f'ignore obtain_frequent_check cause will reenter later')
                 return False
             else:

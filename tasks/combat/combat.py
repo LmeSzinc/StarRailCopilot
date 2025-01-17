@@ -359,6 +359,10 @@ class Combat(CombatInteract, CombatPrepare, CombatState, CombatTeam, CombatSuppo
                 # Update obtain_frequent_check
                 if self.is_doing_planner:
                     self.obtained_is_full(dungeon=self.dungeon, wave_done=self.combat_wave_done, obtain_get=False)
+                    # Check obtained every 30 waves to reduce drop predict error
+                    if self.combat_waves == 6 and self.combat_wave_done % 30 == 0:
+                        logger.info(f'Check obtained at wave {self.combat_wave_done}')
+                        self.obtain_frequent_check = True
                 # Cache the result of _combat_can_again() as no expected stamina reduce during retry
                 if combat_can_again is None:
                     combat_can_again = self._combat_can_again()

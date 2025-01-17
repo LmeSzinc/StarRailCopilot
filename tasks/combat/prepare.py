@@ -57,6 +57,7 @@ class CombatPrepare(StaminaStatus):
         """
         timeout = Timer(1, count=2).start()
         before = self.config.stored.TrailblazePower.value
+        maximum = self.config.stored.TrailblazePower.FIXED_TOTAL
         while 1:
             if skip_first_screenshot:
                 skip_first_screenshot = False
@@ -73,7 +74,7 @@ class CombatPrepare(StaminaStatus):
             #     break
             if expect_reduce and data.stamina >= before:
                 continue
-            if data.stamina <= 240:
+            if data.stamina <= maximum:
                 break
 
         return data.stamina

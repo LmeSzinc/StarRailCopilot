@@ -730,6 +730,18 @@
     "order": 0,
     "color": "#777777"
   },
+  "Fuel": {
+    "name": "Fuel",
+    "path": "Dungeon.DungeonStorage.Fuel",
+    "i18n": "DungeonStorage.Fuel.name",
+    "stored": "StoredInt",
+    "attrs": {
+      "time": "2020-01-01 00:00:00",
+      "value": 0
+    },
+    "order": 0,
+    "color": "#777777"
+  },
   "Immersifier": {
     "name": "Immersifier",
     "path": "Dungeon.DungeonStorage.Immersifier",

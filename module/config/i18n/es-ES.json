@@ -473,6 +473,10 @@
       "name": "Trailblaze Poder Reservada",
       "help": ""
     },
+    "Fuel": {
+      "name": "DungeonStorage.Fuel.name",
+      "help": "DungeonStorage.Fuel.help"
+    },
     "Immersifier": {
       "name": "Inmersor",
       "help": ""

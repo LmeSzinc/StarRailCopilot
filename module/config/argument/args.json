@@ -775,6 +775,12 @@
         "display": "hide",
         "stored": "StoredResersed"
       },
+      "Fuel": {
+        "type": "stored",
+        "value": {},
+        "display": "hide",
+        "stored": "StoredInt"
+      },
       "Immersifier": {
         "type": "stored",
         "value": {},

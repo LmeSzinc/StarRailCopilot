@@ -473,6 +473,10 @@
       "name": "后备開拓力",
       "help": ""
     },
+    "Fuel": {
+      "name": "燃料",
+      "help": ""
+    },
     "Immersifier": {
       "name": "沉浸器",
       "help": ""

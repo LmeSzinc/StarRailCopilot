@@ -488,6 +488,8 @@ class LoginAndroidCloud(ModuleBase):
             # - 继续游戏 - 退出游戏
             if self.appear_then_click(XPath.POPUP_CONFIRM, interval=3):
                 continue
+            if self.appear_then_click(XPath.GET_REWARD):
+                continue
 
         # Update remain
         if self.config.stored.CloudRemainSeasonPass:

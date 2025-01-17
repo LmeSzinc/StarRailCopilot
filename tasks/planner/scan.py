@@ -41,6 +41,8 @@ class OcrItemName(Ocr):
         result = re.sub('一杯[酪酩酊酐]*的', '一杯酩酊的', result)
         # 蠢动原核
         result = re.sub('[鑫蠹]动', '蠢动', result)
+        # 变量骰子
+        result = re.sub('[般殷]子', '骰子', result)
         return result
 
 

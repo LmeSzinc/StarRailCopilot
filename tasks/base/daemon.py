@@ -9,6 +9,7 @@ from tasks.combat.assets.assets_combat_interact import DUNGEON_COMBAT_INTERACT
 from tasks.daily.assets.assets_daily_camera import PICTURE_TAKEN
 from tasks.map.assets.assets_map_bigmap import TELEPORT_RIGHT
 from tasks.map.interact.aim import AimDetectorMixin
+from tasks.map.minimap.radar import RadarMixin
 from tasks.rogue.route.base import RouteBase
 
 
@@ -17,13 +18,15 @@ class SecondaryMaatouchBuilder(maatouch.MaatouchBuilder):
         """
         Click on secondary contact to avoid interruption of real-person contact
         """
-        super().__init__(device, contact=2, handle_orientation=handle_orientation)
+        if contact == 0:
+            contact = 2
+        super().__init__(device, contact=contact, handle_orientation=handle_orientation)
 
 
 maatouch.MaatouchBuilder = SecondaryMaatouchBuilder
 
 
-class Daemon(RouteBase, DaemonBase, AimDetectorMixin):
+class Daemon(RouteBase, RadarMixin, DaemonBase, AimDetectorMixin):
     aim_interval = Timer(0.3, count=1)
 
     def handle_aim_click(self, item=True, enemy=True):
@@ -144,3 +147,5 @@ class Daemon(RouteBase, DaemonBase, AimDetectorMixin):
                     enemy='enemy' in self.config.Daemon_AimClicker,
             ):
                 continue
+            # Goto mission
+            # self.handle_mission_goto()

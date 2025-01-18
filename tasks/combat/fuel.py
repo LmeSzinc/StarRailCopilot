@@ -247,11 +247,13 @@ class Fuel(StaminaStatus):
                 used = True
                 self.update_stamina_status()
                 self.get_interval_timer(COMBAT_AGAIN).wait()
+                return used
 
         if use_fuel:
             self.use_fuel(current=self.config.stored.TrailblazePower.value)
             used = True
             self.update_stamina_status()
             self.get_interval_timer(COMBAT_AGAIN).wait()
+            return used
 
         return used

@@ -107,10 +107,12 @@ class JoystickContact:
         return point
 
     def up(self):
-        builder = self.builder
-        builder.up().commit()
-        builder.send()
-        self.prev_point = None
+        if self.is_downed:
+            logger.info('JoystickContact up')
+            builder = self.builder
+            builder.up().commit()
+            builder.send()
+            self.prev_point = None
 
     def set(self, direction, run=True):
         """

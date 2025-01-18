@@ -174,6 +174,7 @@ class Dungeon(DungeonStamina, DungeonEvent, Combat):
                 if KEYWORDS_DAILY_QUEST.Obtain_victory_in_combat_with_Support_Characters_1_times in self.daily_quests:
                     logger.info('Achieve daily quest Obtain_victory_in_combat_with_Support_Characters_1_times')
                     self.achieved_daily_quest = True
+                    self.pop_daily_support_quest()
             # Stamina quest
             self.check_stamina_quest(self.combat_wave_cost * count)
 
@@ -273,6 +274,17 @@ class Dungeon(DungeonStamina, DungeonEvent, Combat):
                 self.config.stored.DungeonDouble.calyx = calyx
                 self.config.stored.DungeonDouble.relic = relic
                 self.config.stored.DungeonDouble.rogue = rogue
+
+    def pop_daily_support_quest(self):
+        """
+        Do after calling a support in combat
+        so support won't be called again if dungeon task interrupted
+        """
+        quest = KEYWORDS_DAILY_QUEST.Obtain_victory_in_combat_with_Support_Characters_1_times
+        if quest in self.daily_quests:
+            logger.info('Pop daily quest Obtain_victory_in_combat_with_Support_Characters_1_times')
+            self.daily_quests = [q for q in self.daily_quests if q != quest]
+            self.config.stored.DailyQuest.write_quests(self.daily_quests)
 
     def run(self):
         self.sync_config_traiblaze_power('Ornament')

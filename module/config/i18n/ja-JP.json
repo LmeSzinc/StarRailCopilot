@@ -473,6 +473,10 @@
       "name": "DungeonStorage.Reserved.name",
       "help": "DungeonStorage.Reserved.help"
     },
+    "Fuel": {
+      "name": "DungeonStorage.Fuel.name",
+      "help": "DungeonStorage.Fuel.help"
+    },
     "Immersifier": {
       "name": "DungeonStorage.Immersifier.name",
       "help": "DungeonStorage.Immersifier.help"

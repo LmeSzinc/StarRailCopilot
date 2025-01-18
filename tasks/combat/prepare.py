@@ -57,6 +57,7 @@ class CombatPrepare(StaminaStatus):
         """
         timeout = Timer(1, count=2).start()
         before = self.config.stored.TrailblazePower.value
+        maximum = self.config.stored.TrailblazePower.FIXED_TOTAL
         while 1:
             if skip_first_screenshot:
                 skip_first_screenshot = False
@@ -73,10 +74,15 @@ class CombatPrepare(StaminaStatus):
             #     break
             if expect_reduce and data.stamina >= before:
                 continue
-            if data.stamina <= 240:
+            if data.stamina <= maximum:
                 break
 
         return data.stamina
+
+    def is_trailblaze_power_exhausted(self) -> bool:
+        flag = self.config.stored.TrailblazePower.value < self.combat_wave_cost
+        logger.attr('TrailblazePowerExhausted', flag)
+        return flag
 
     def combat_get_wave_cost(self, skip_first_screenshot=True):
         """

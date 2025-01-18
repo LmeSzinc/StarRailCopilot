@@ -124,6 +124,8 @@ DungeonStorage:
     color: "#eb8efe"
   Reserved:
     stored: StoredResersed
+  Fuel:
+    stored: StoredInt
   Immersifier:
     stored: StoredImmersifier
   DungeonDouble:

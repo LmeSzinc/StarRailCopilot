@@ -59,6 +59,7 @@ class GeneratedConfig:
     # Group `DungeonStorage`
     DungeonStorage_TrailblazePower = {}
     DungeonStorage_Reserved = {}
+    DungeonStorage_Fuel = {}
     DungeonStorage_Immersifier = {}
     DungeonStorage_DungeonDouble = {}
     DungeonStorage_EchoOfWar = {}

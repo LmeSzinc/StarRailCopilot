@@ -42,8 +42,7 @@ class DataStaminaStatus(BaseModel):
 
 
 class StaminaStatus(UI):
-    @staticmethod
-    def get_stamina_status(image) -> DataStaminaStatus:
+    def get_stamina_status(self, image) -> DataStaminaStatus:
         """
         Update trailblaze power, stored trailblaze power, immersifier
 
@@ -60,7 +59,8 @@ class StaminaStatus(UI):
             STAMINA_OCR.load_offset(STAMINA_ICON)
             im = crop(image, STAMINA_OCR.button, copy=False)
             stamina, _, total = StaminaOcr(STAMINA_OCR).ocr_single_line(im, direct_ocr=True)
-            if total > 300 or total == 0:
+            maximum = self.config.stored.TrailblazePower.FIXED_TOTAL
+            if total > maximum or total == 0:
                 logger.warning(f'Unexpected stamina total: {total}')
                 stamina = None
 
@@ -69,7 +69,8 @@ class StaminaStatus(UI):
             RESERVED_OCR.load_offset(RESERVED_ICON)
             im = crop(image, RESERVED_OCR.button, copy=False)
             reserved = ReservedOcr(RESERVED_OCR).ocr_single_line(im, direct_ocr=True)
-            if reserved > 2400:
+            maximum = self.config.stored.Reserved.FIXED_TOTAL
+            if reserved > maximum:
                 logger.warning(f'Unexpected reserved value: {reserved}')
                 reserved = None
 
@@ -78,7 +79,8 @@ class StaminaStatus(UI):
             IMMERSIFIER_OCR.load_offset(IMMERSIFIER_ICON)
             im = crop(image, IMMERSIFIER_OCR.button, copy=False)
             immersifier, _, total = StaminaOcr(IMMERSIFIER_OCR).ocr_single_line(im, direct_ocr=True)
-            if total != 12:
+            maximum = self.config.stored.Immersifier.FIXED_TOTAL
+            if total != maximum:
                 logger.warning(f'Unexpected immersifier total: {total}')
                 immersifier = None
 

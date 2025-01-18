@@ -5,9 +5,11 @@ from module.logger import logger
 from tasks.base.assets.assets_base_daemon import *
 from tasks.base.main_page import MainPage
 from tasks.base.page import page_main, page_rogue
+from tasks.combat.assets.assets_combat_interact import DUNGEON_COMBAT_INTERACT
 from tasks.daily.assets.assets_daily_camera import PICTURE_TAKEN
 from tasks.map.assets.assets_map_bigmap import TELEPORT_RIGHT
 from tasks.map.interact.aim import AimDetectorMixin
+from tasks.map.minimap.radar import RadarMixin
 from tasks.rogue.route.base import RouteBase
 
 
@@ -16,13 +18,15 @@ class SecondaryMaatouchBuilder(maatouch.MaatouchBuilder):
         """
         Click on secondary contact to avoid interruption of real-person contact
         """
-        super().__init__(device, contact=2, handle_orientation=handle_orientation)
+        if contact == 0:
+            contact = 2
+        super().__init__(device, contact=contact, handle_orientation=handle_orientation)
 
 
 maatouch.MaatouchBuilder = SecondaryMaatouchBuilder
 
 
-class Daemon(RouteBase, DaemonBase, AimDetectorMixin):
+class Daemon(RouteBase, RadarMixin, DaemonBase, AimDetectorMixin):
     aim_interval = Timer(0.3, count=1)
 
     def handle_aim_click(self, item=True, enemy=True):
@@ -65,6 +69,7 @@ class Daemon(RouteBase, DaemonBase, AimDetectorMixin):
         INTERACT_TREASURE.set_search_offset((-5, -5, 32, 5))
 
         teleport_confirm = Timer(1, count=5)
+        in_story_timeout = Timer(2, count=5)
         while 1:
             self.device.screenshot()
 
@@ -75,13 +80,22 @@ class Daemon(RouteBase, DaemonBase, AimDetectorMixin):
                 if not MainPage._lang_check_success:
                     MainPage._lang_checked = False
             # Story
+            in_page_main = self.ui_page_appear(page_main)
+            if in_page_main:
+                in_story_timeout.clear()
             if self.appear_then_click(STORY_NEXT, interval=0.7):
                 self.interval_reset(STORY_OPTION)
+                in_story_timeout.reset()
                 # self.interval_reset(INTERACT_INVESTIGATE)
                 continue
             if self.appear_then_click(STORY_OPTION, interval=1):
+                in_story_timeout.reset()
                 # self.interval_reset(INTERACT_INVESTIGATE)
                 continue
+            if in_story_timeout.started() and not in_story_timeout.reached():
+                if self.appear_then_click(DUNGEON_COMBAT_INTERACT, interval=1):
+                    in_story_timeout.reset()
+                    continue
             # Map interact
             if self.appear_then_click(INTERACT_TREASURE, interval=1):
                 continue
@@ -133,3 +147,5 @@ class Daemon(RouteBase, DaemonBase, AimDetectorMixin):
                     enemy='enemy' in self.config.Daemon_AimClicker,
             ):
                 continue
+            # Goto mission
+            # self.handle_mission_goto()

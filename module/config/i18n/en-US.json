@@ -473,6 +473,10 @@
       "name": "Reserved Trailblaze Power",
       "help": ""
     },
+    "Fuel": {
+      "name": "Combustible",
+      "help": ""
+    },
     "Immersifier": {
       "name": "Immersifier",
       "help": ""

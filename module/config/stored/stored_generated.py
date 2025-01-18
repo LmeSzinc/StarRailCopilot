@@ -92,6 +92,7 @@ class StoredGenerated:
     Item_Shards_of_Desires = StoredPlanner("Dungeon.Planner.Item_Shards_of_Desires")
     TrailblazePower = StoredTrailblazePower("Dungeon.DungeonStorage.TrailblazePower")
     Reserved = StoredResersed("Dungeon.DungeonStorage.Reserved")
+    Fuel = StoredInt("Dungeon.DungeonStorage.Fuel")
     Immersifier = StoredImmersifier("Dungeon.DungeonStorage.Immersifier")
     DungeonDouble = StoredDungeonDouble("Dungeon.DungeonStorage.DungeonDouble")
     EchoOfWar = StoredEchoOfWar("Dungeon.DungeonStorage.EchoOfWar")

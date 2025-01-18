@@ -191,6 +191,8 @@ class Fuel(StaminaStatus):
         image = crop(self.device.image, area_offset(OCR_FUEL.area, offset), copy=False)
         count = Digit(OCR_FUEL).ocr_single_line(image, direct_ocr=True)
 
+        self.config.stored.Fuel.value = count
+
         reserve = self.config.TrailblazePower_FuelReserve
         available_count = max(count - reserve, 0)
         use = min(use, available_count)
@@ -245,11 +247,13 @@ class Fuel(StaminaStatus):
                 used = True
                 self.update_stamina_status()
                 self.get_interval_timer(COMBAT_AGAIN).wait()
+                return used
 
         if use_fuel:
             self.use_fuel(current=self.config.stored.TrailblazePower.value)
             used = True
             self.update_stamina_status()
             self.get_interval_timer(COMBAT_AGAIN).wait()
+            return used
 
         return used

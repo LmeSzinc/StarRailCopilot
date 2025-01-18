@@ -30,7 +30,14 @@ from pywebio.output import (
     use_scope,
 )
 from pywebio.pin import pin, pin_on_change
-from pywebio.session import go_app, info, local, register_thread, run_js, set_env
+from pywebio.session import (
+    go_app,
+    info,
+    local,
+    register_thread,
+    run_js,
+    set_env,
+)
 
 import module.webui.lang as lang
 from module.config.config import AzurLaneConfig, Function
@@ -53,6 +60,7 @@ from module.webui.fake import (
 )
 from module.webui.fastapi import asgi_app
 from module.webui.lang import _t, t
+from module.webui.patch import patch_executor
 from module.webui.pin import put_input, put_select
 from module.webui.process_manager import ProcessManager
 from module.webui.remote_access import RemoteAccess
@@ -83,6 +91,7 @@ from module.webui.widgets import (
     put_output,
 )
 
+patch_executor()
 task_handler = TaskHandler()
 
 

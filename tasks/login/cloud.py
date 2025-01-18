@@ -53,8 +53,10 @@ class XPath:
     # 请选择排队队列
     # - 星云币时长快速通道队列 - 普通队列
     QUEUE_SELECT_TITLE = '//*[@resource-id="com.miHoYo.cloudgames.hkrpg:id/tvSelectQueueTypeTitle"]'
-    QUEUE_SELECT_PRIOR = '//*[@resource-id="com.miHoYo.cloudgames.hkrpg:id/tvOptionPriorName"]'
-    QUEUE_SELECT_NORMAL = '//*[@resource-id="com.miHoYo.cloudgames.hkrpg:id/clOptionNormalName"]'
+    QUEUE_SELECT_PRIOR = '//*[@resource-id="com.miHoYo.cloudgames.hkrpg:id/tvOptionPrior"]'
+    QUEUE_SELECT_PRIOR_NAME = '//*[@resource-id="com.miHoYo.cloudgames.hkrpg:id/tvOptionPriorName"]'
+    QUEUE_SELECT_NORMAL = '//*[@resource-id="com.miHoYo.cloudgames.hkrpg:id/clOptionNormal"]'
+    QUEUE_SELECT_NORMAL_NAME = '//*[@resource-id="com.miHoYo.cloudgames.hkrpg:id/clOptionNormalName"]'
     # 排队中
     QUEUE_TITLE = '//*[@resource-id="com.miHoYo.cloudgames.hkrpg:id/tvEnqueueDialogTitle"]'
     # 预计等待时间
@@ -261,8 +263,12 @@ class LoginAndroidCloud(ModuleBase):
             if self.config.Emulator_CloudPriorQueue:
                 if self.appear_then_click(XPath.QUEUE_SELECT_PRIOR):
                     continue
+                if self.appear_then_click(XPath.QUEUE_SELECT_PRIOR_NAME):
+                    continue
             else:
                 if self.appear_then_click(XPath.QUEUE_SELECT_NORMAL):
+                    continue
+                if self.appear_then_click(XPath.QUEUE_SELECT_NORMAL_NAME):
                     continue
 
         # Disable net state display
@@ -487,6 +493,8 @@ class LoginAndroidCloud(ModuleBase):
             # 是否确认退出游戏
             # - 继续游戏 - 退出游戏
             if self.appear_then_click(XPath.POPUP_CONFIRM, interval=3):
+                continue
+            if self.appear_then_click(XPath.GET_REWARD):
                 continue
 
         # Update remain

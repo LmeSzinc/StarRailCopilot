@@ -41,7 +41,12 @@ class WhiteStrip(Ocr):
         mask = cv2.inRange(mask, 160, 255, dst=mask)
 
         mask = np.mean(mask, axis=0)
-        point = np.array(cv2.findNonZero(mask))[:, 0, 1]
+        try:
+            point = np.array(cv2.findNonZero(mask))[:, 0, 1]
+        except IndexError:
+            # No white letters, cannot strip background
+            # IndexError: too many indices for array: array is 0-dimensional, but 3 were indexed
+            return image
         x1, x2 = point.min(), point.max()
 
         _, y = image_size(image)

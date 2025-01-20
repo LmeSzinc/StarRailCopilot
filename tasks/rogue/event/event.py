@@ -11,6 +11,7 @@ from module.base.decorator import del_cached_property
 from module.base.utils import area_limit, area_offset
 from module.logger import logger
 from module.ocr.ocr import Ocr, OcrResultButton
+from module.ocr.utils import merge_buttons
 from module.ui.scroll import Scroll
 from tasks.rogue.assets.assets_rogue_event import *
 from tasks.rogue.assets.assets_rogue_ui import BLESSING_CONFIRM, PAGE_EVENT
@@ -25,7 +26,7 @@ from tasks.rogue.keywords import (KEYWORDS_ROGUE_EVENT_OPTION,
 class OptionButton:
     prefix_icon: ClickButton
     button: OcrResultButton = None
-    is_valid: bool = True       # Option with requirements might be disabled
+    is_valid: bool = True  # Option with requirements might be disabled
     is_bottom_page: bool = False
 
     def __str__(self) -> str:
@@ -82,6 +83,14 @@ class OcrRogueEventTitle(OcrRogueEvent):
     def after_process(self, result):
         result = re.sub('卫[成戌]', '卫戍', result)
         return self._after_process(result, RogueEventTitle)
+
+    def detect_and_ocr(self, *args, **kwargs) -> list[BoxedResult]:
+        results = super().detect_and_ocr(*args, **kwargs)
+        # Merge ocr result ['咔嗪', '星际和平银行！(其二)']
+        if len(results) == 2:
+            if '咔' in results[0].ocr_text and '星际' in results[1].ocr_text:
+                results = merge_buttons(results, thres_x=300)
+        return results
 
 
 class OcrRogueEventOption(OcrRogueEvent):
@@ -273,7 +282,7 @@ class RogueEvent(RogueUI):
         if self.event_title is None:
             random_index = random.choice(range(len(self.valid_options)))
             logger.warning('Failed to OCR title')
-            logger.info(f'Randomly select option {random_index+1}')
+            logger.info(f'Randomly select option {random_index + 1}')
             return self.valid_options[random_index]
 
         strategy_name = self.config.RogueWorld_DomainStrategy
@@ -286,7 +295,7 @@ class RogueEvent(RogueUI):
         if self.event_title not in strategy:
             random_index = random.choice(range(len(self.valid_options)))
             logger.info(f'No strategy preset for {self.event_title}')
-            logger.info(f'Randomly select option {random_index+1}')
+            logger.info(f'Randomly select option {random_index + 1}')
             return self.valid_options[random_index]
         # Try ocr
         if not self.options:
@@ -312,7 +321,7 @@ class RogueEvent(RogueUI):
                 ocr_text = option.button.matched_keyword._keywords_to_find()[0]
                 expect_text = expect._keywords_to_find()[0]
                 if ocr_text == expect_text:
-                    logger.info(f'Select option {i+1}: {option}')
+                    logger.info(f'Select option {i + 1}: {option}')
                     return option
         logger.error('No option was selected, return the last instead')
         logger.info(f'Select last option: {self.valid_options[-1]}')

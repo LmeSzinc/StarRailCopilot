@@ -38,7 +38,9 @@ class RouteBase(RouteBase_, RogueExit, RogueEvent, RogueReward):
         self.clear_blessing()
 
     def walk_additional(self) -> bool:
-        if self.handle_blessing_popup():
+        # Handle all blessings, not just blessing popups,
+        # due to curio and map events
+        if self.handle_blessing():
             return True
         return super().walk_additional()
 

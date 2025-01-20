@@ -121,7 +121,8 @@ class Combat(CombatInteract, CombatPrepare, CombatState, CombatTeam, CombatSuppo
         else:
             support_set = True
         logger.info([support_character, support_set])
-        trial = 0
+        combat_trial = 0
+        team_trial = 0
         while 1:
             if skip_first_screenshot:
                 skip_first_screenshot = False
@@ -133,7 +134,10 @@ class Combat(CombatInteract, CombatPrepare, CombatState, CombatTeam, CombatSuppo
                 return True
             # Relics full
             # Clicking between COMBAT_PREPARE and COMBAT_TEAM_PREPARE
-            if trial > 3:
+            if combat_trial > 3:
+                logger.critical('Failed to enter dungeon after 3 trial, probably because relics are full')
+                raise RequestHumanTakeover
+            if team_trial > 3:
                 logger.critical('Failed to enter dungeon after 3 trial, probably because relics are full')
                 raise RequestHumanTakeover
 
@@ -149,6 +153,7 @@ class Combat(CombatInteract, CombatPrepare, CombatState, CombatTeam, CombatSuppo
                 self.device.click(COMBAT_TEAM_PREPARE)
                 self.interval_reset(COMBAT_TEAM_PREPARE)
                 self.interval_reset(COMBAT_TEAM_SUPPORT)
+                team_trial += 1
                 continue
             if self.appear(COMBAT_TEAM_PREPARE):
                 self.interval_reset(COMBAT_PREPARE)
@@ -165,7 +170,7 @@ class Combat(CombatInteract, CombatPrepare, CombatState, CombatTeam, CombatSuppo
                     return False
                 self.device.click(COMBAT_PREPARE)
                 self.interval_reset(COMBAT_PREPARE)
-                trial += 1
+                combat_trial += 1
                 continue
             if self.appear(DUNGEON_COMBAT_INTERACT):
                 if self.handle_combat_interact():

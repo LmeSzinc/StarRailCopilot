@@ -260,6 +260,12 @@ class LoginAndroidCloud(ModuleBase):
                 if title == '连接中断':
                     self.device.click(self.xpath(XPath.POPUP_CONFIRM))
                     continue
+                # 网络提示
+                # 当前使用的是移动网络，将消耗较多流量，建议切换至WiFi下体验...
+                # - 使用流量进行游戏 - 退出游戏
+                if title == '网络提示':
+                    self.device.click(self.xpath(XPath.POPUP_CONFIRM))
+                    continue
             if self.config.Emulator_CloudPriorQueue:
                 if self.appear_then_click(XPath.QUEUE_SELECT_PRIOR):
                     continue

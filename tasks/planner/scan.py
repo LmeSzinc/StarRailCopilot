@@ -30,10 +30,13 @@ class OcrItemName(Ocr):
         result = re.sub('工造机$', '工造机杼', result)
         result = re.sub('工造迥?轮', '工造迴轮', result)
         result = re.sub('月狂[療撩]?牙', '月狂獠牙', result)
-        # 毁灭者的未路 思绪末屑
+        # 毁灭者的末路
         result = result.replace('未路', '末路')
+        # 思绪末屑
         result = result.replace('未屑', '末屑')
         result = result.replace('粉未', '粉末')
+        # 末那芽苗
+        result = result.replace('未那', '末那')
         # Error words on blank background
         result = re.sub('^[國東]', '', result)
         result = re.sub('時$', '', result)

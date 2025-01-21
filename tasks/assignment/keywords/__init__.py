@@ -22,14 +22,16 @@ KEYWORDS_ASSIGNMENT_GROUP.EXP_Materials_Credits.entries = (
     KEYWORDS_ASSIGNMENT_ENTRY.The_Invisible_Hand,
 )
 KEYWORDS_ASSIGNMENT_GROUP.Synthesis_Materials.entries = (
-    KEYWORDS_ASSIGNMENT_ENTRY.Abandoned_and_Insulted,
-    KEYWORDS_ASSIGNMENT_ENTRY.Spring_of_Life,
-    KEYWORDS_ASSIGNMENT_ENTRY.The_Land_of_Gold,
-    KEYWORDS_ASSIGNMENT_ENTRY.The_Blossom_in_the_Storm,
-    KEYWORDS_ASSIGNMENT_ENTRY.Legend_of_the_Puppet_Master,
-    KEYWORDS_ASSIGNMENT_ENTRY.The_Wages_of_Humanity,
-    KEYWORDS_ASSIGNMENT_ENTRY.Fragments_of_Illusory_Dreams,
     KEYWORDS_ASSIGNMENT_ENTRY.Scalpel_and_Screwdriver,
+    KEYWORDS_ASSIGNMENT_ENTRY.The_Wages_of_Humanity,
+    KEYWORDS_ASSIGNMENT_ENTRY.Legend_of_the_Puppet_Master,
+    KEYWORDS_ASSIGNMENT_ENTRY.The_Land_of_Gold,
+    KEYWORDS_ASSIGNMENT_ENTRY.Spring_of_Life,
+    KEYWORDS_ASSIGNMENT_ENTRY.Fragments_of_Illusory_Dreams,
+    KEYWORDS_ASSIGNMENT_ENTRY.The_Blossom_in_the_Storm,
+    KEYWORDS_ASSIGNMENT_ENTRY.Abandoned_and_Insulted,
+    KEYWORDS_ASSIGNMENT_ENTRY.Record_of_Expeditions,
+    KEYWORDS_ASSIGNMENT_ENTRY.Work_and_Days,
 )
 CURRENT_EVENT_GROUP.entries = tuple(AssignmentEventEntry.instances.values())
 for group in (

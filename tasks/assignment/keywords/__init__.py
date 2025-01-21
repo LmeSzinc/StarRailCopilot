@@ -31,7 +31,7 @@ KEYWORDS_ASSIGNMENT_GROUP.Synthesis_Materials.entries = (
     KEYWORDS_ASSIGNMENT_ENTRY.The_Blossom_in_the_Storm,
     KEYWORDS_ASSIGNMENT_ENTRY.Abandoned_and_Insulted,
     KEYWORDS_ASSIGNMENT_ENTRY.Record_of_Expeditions,
-    KEYWORDS_ASSIGNMENT_ENTRY.The_Blossom_in_the_Storm,
+    KEYWORDS_ASSIGNMENT_ENTRY.Work_and_Days,
 )
 CURRENT_EVENT_GROUP.entries = tuple(AssignmentEventEntry.instances.values())
 for group in (

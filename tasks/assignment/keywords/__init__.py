@@ -7,14 +7,15 @@ from tasks.assignment.keywords.classes import *
 
 CURRENT_EVENT_GROUP = KEYWORDS_ASSIGNMENT_EVENT_GROUP.Shadow_of_the_Ranger
 KEYWORDS_ASSIGNMENT_GROUP.Character_Materials.entries = (
-    KEYWORDS_ASSIGNMENT_ENTRY.Nine_Billion_Names,
-    KEYWORDS_ASSIGNMENT_ENTRY.Destruction_of_the_Destroyer,
-    KEYWORDS_ASSIGNMENT_ENTRY.Winter_Soldiers,
-    KEYWORDS_ASSIGNMENT_ENTRY.Born_to_Obey,
-    KEYWORDS_ASSIGNMENT_ENTRY.Root_Out_the_Turpitude,
-    KEYWORDS_ASSIGNMENT_ENTRY.Fire_Lord_Inflames_Blades_of_War,
-    KEYWORDS_ASSIGNMENT_ENTRY.A_Startling_Night_Terror,
     KEYWORDS_ASSIGNMENT_ENTRY.Tranquility_of_Vimala_bhumi,
+    KEYWORDS_ASSIGNMENT_ENTRY.A_Startling_Night_Terror,
+    KEYWORDS_ASSIGNMENT_ENTRY.Fire_Lord_Inflames_Blades_of_War,
+    KEYWORDS_ASSIGNMENT_ENTRY.Root_Out_the_Turpitude,
+    KEYWORDS_ASSIGNMENT_ENTRY.Born_to_Obey,
+    KEYWORDS_ASSIGNMENT_ENTRY.Winter_Soldiers,
+    KEYWORDS_ASSIGNMENT_ENTRY.Destruction_of_the_Destroyer,
+    KEYWORDS_ASSIGNMENT_ENTRY.Nine_Billion_Names,
+    KEYWORDS_ASSIGNMENT_ENTRY.Record_of_Expeditions,
 )
 KEYWORDS_ASSIGNMENT_GROUP.EXP_Materials_Credits.entries = (
     KEYWORDS_ASSIGNMENT_ENTRY.Nameless_Land_Nameless_People,
@@ -30,7 +31,6 @@ KEYWORDS_ASSIGNMENT_GROUP.Synthesis_Materials.entries = (
     KEYWORDS_ASSIGNMENT_ENTRY.Fragments_of_Illusory_Dreams,
     KEYWORDS_ASSIGNMENT_ENTRY.The_Blossom_in_the_Storm,
     KEYWORDS_ASSIGNMENT_ENTRY.Abandoned_and_Insulted,
-    KEYWORDS_ASSIGNMENT_ENTRY.Record_of_Expeditions,
     KEYWORDS_ASSIGNMENT_ENTRY.Work_and_Days,
 )
 CURRENT_EVENT_GROUP.entries = tuple(AssignmentEventEntry.instances.values())

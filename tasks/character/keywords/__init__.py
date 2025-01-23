@@ -10,6 +10,7 @@ DICT_SORTED_RANGES = {
         DanHengImbibitorLunae,
         Welt,
         Aventurine,
+        TheHerta,
         FuXuan,
         # Longer precast
         BlackSwan,
@@ -21,7 +22,9 @@ DICT_SORTED_RANGES = {
     # Archer
     'Archer': [
         Boothill,
+        Lingsha,
         Yukong,
+        Moze,
         TopazNumby,
         March7thPreservation,
         Bronya,

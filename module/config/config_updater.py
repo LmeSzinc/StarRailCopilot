@@ -660,6 +660,19 @@ class ConfigGenerator:
 
         update('./webapp/packages/main/public/deploy.yaml.tpl', tpl)
 
+    def check_character_templates(self):
+        characters = deep_get(self.args, 'Dungeon.DungeonSupport.Character.option', default=[])
+        for name in characters:
+            if name == 'FirstCharacter':
+                continue
+            if name.startswith('Trailblazer'):
+                for name in [f'Stelle{name[11:]}', f'Caelum{name[11:]}']:
+                    if not os.path.exists(f'./assets/character/{name}.png'):
+                        print(f'WARNING: character template not exist: {name}')
+            else:
+                if not os.path.exists(f'./assets/character/{name}.png'):
+                    print(f'WARNING: character template not exist: {name}')
+
     @timer
     def generate(self):
         _ = self.args
@@ -675,6 +688,7 @@ class ConfigGenerator:
         for lang in LANGUAGES:
             self.generate_i18n(lang)
         self.generate_deploy_template()
+        self.check_character_templates()
 
 
 class ConfigUpdater:

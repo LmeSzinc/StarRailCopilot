@@ -66,11 +66,6 @@ class Dungeon(DungeonStamina, DungeonEvent, Combat):
                 self.dungeon_tab_goto(KEYWORDS_DUNGEON_TAB.Survival_Index)
                 self.dungeon_goto(dungeon)
 
-            if dungeon == KEYWORDS_DUNGEON_LIST.Stagnant_Shadow_Blaze:
-                if self.handle_destructible_around_blaze():
-                    self.dungeon_tab_goto(KEYWORDS_DUNGEON_TAB.Survival_Index)
-                    self.dungeon_goto(dungeon)
-
         self.combat_enter_from_map()
         # Check double event remain before combat
         # Conservatively prefer the smaller result
@@ -395,46 +390,6 @@ class Dungeon(DungeonStamina, DungeonEvent, Combat):
 
             # Delay tasks
             self.dungeon_stamina_delay(dungeon)
-
-    def handle_destructible_around_blaze(self):
-        """
-        Stagnant_Shadow_Blaze has a destructible object nearby, attacks are aimed at it first
-        so destroy it first
-
-        Returns:
-            bool: If handled.
-
-        Pages:
-            in: COMBAT_PREPARE
-            out: page_main, map position changed if handled
-        """
-        logger.hr('Handle destructible around blaze')
-        self.combat_exit()
-        # Check if there's a front sight at bottom-left corner
-        area = area_offset((-50, -150, 0, 0), offset=self.config.ASSETS_RESOLUTION)
-
-        skip_first_screenshot = True
-        self.map_A_timer.reset()
-        handled = False
-        while 1:
-            if skip_first_screenshot:
-                skip_first_screenshot = False
-            else:
-                self.device.screenshot()
-
-            if self.image_color_count(area, color=(48, 170, 204), threshold=221, count=50):
-                logger.info(f'Found destructible object')
-                if self.handle_map_A():
-                    handled = True
-                    continue
-            else:
-                logger.info(f'No destructible object')
-                if not handled:
-                    break
-                if self.map_A_timer.reached():
-                    break
-
-        return handled
 
     def require_compulsory_support(self) -> bool:
         require = False

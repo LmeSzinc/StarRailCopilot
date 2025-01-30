@@ -51,8 +51,7 @@
           "scrcpy",
           "nemu_ipc",
           "ldopengl"
-        ],
-        "display": "hide"
+        ]
       },
       "ControlMethod": {
         "type": "select",

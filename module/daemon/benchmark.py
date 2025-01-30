@@ -170,10 +170,10 @@ class Benchmark(DaemonBase):
         return fastest_screenshot, fastest_click
 
     def get_test_methods(self) -> t.Tuple[t.Tuple[str], t.Tuple[str]]:
-        device = self.config.Benchmark_DeviceType
-        # device == 'emulator'
+        # device = self.config.Benchmark_DeviceType
+        device = 'emulator'
         screenshot = ['ADB', 'ADB_nc', 'uiautomator2', 'aScreenCap', 'aScreenCap_nc', 'DroidCast', 'DroidCast_raw']
-        click = ['ADB', 'uiautomator2', 'minitouch']
+        click = ['ADB', 'uiautomator2', 'minitouch', 'MaaTouch']
 
         def remove(*args):
             return [l for l in screenshot if l not in args]
@@ -195,7 +195,7 @@ class Benchmark(DaemonBase):
         if self.device.ldopengl_available():
             screenshot.append('ldopengl')
 
-        scene = self.config.Benchmark_TestScene
+        scene = 'screenshot_click'
         if 'screenshot' not in scene:
             screenshot = []
         if 'click' not in scene:
@@ -211,8 +211,8 @@ class Benchmark(DaemonBase):
             logger.critical('Request human takeover')
             return
 
-        logger.attr('DeviceType', self.config.Benchmark_DeviceType)
-        logger.attr('TestScene', self.config.Benchmark_TestScene)
+        # logger.attr('DeviceType', self.config.Benchmark_DeviceType)
+        # logger.attr('TestScene', self.config.Benchmark_TestScene)
         screenshot, click = self.get_test_methods()
         self.benchmark(screenshot, click)
 

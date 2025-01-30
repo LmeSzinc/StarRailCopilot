@@ -164,6 +164,9 @@ class Benchmark(DaemonBase):
         if click_result:
             self.show(test='Control', data=click_result, evaluate_func=self.evaluate_click)
             fastest = sorted(click_result, key=lambda item: compare(item))[0]
+            # Prefer MaaTouch if both minitouch and MaaTouch are fastest
+            if 'MaaTouch' in click and fastest[0] == 'minitouch':
+                fastest[0] = 'MaaTouch'
             logger.info(f'Recommend control method: {fastest[0]} ({float2str(fastest[1])})')
             fastest_click = fastest[0]
 

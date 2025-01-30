@@ -7,7 +7,6 @@
 
 Alas:
   Emulator:
-    ScreenshotMethod: scrcpy
     ControlMethod: MaaTouch
   Optimization:
     ScreenshotInterval: 0.2

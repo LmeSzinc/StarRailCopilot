@@ -1,7 +1,7 @@
 from module.base.timer import Timer
 from module.logger import logger
 from module.ocr.ocr import Ocr
-from tasks.base.page import page_event
+from tasks.base.page import page_event, page_main
 from tasks.base.ui import UI
 from tasks.freebies.assets.assets_freebies_gift_of_odyssey import (
     OCR_CLAIM,
@@ -20,6 +20,7 @@ class GiftofOdyssey(UI):
         if self._select_event():
             logger.info("Event selected")
             self._get_reward()
+        self.ui_ensure(page_main)
 
     def _select_event(self):
         logger.info("Selecting Gift of Odyssey event")
@@ -65,20 +66,26 @@ class GiftofOdyssey(UI):
     def _get_reward(self):
         logger.info("Getting reward")
         skip_first_screenshot = True
-        interval = Timer(2)
+        interval = Timer(1)
         while 1:
             if skip_first_screenshot:
                 skip_first_screenshot = False
             else:
                 self.device.screenshot()
 
+            if self.handle_reward():
+                continue
             if self.appear(EVENT_SELECTED):
                 _, claim, _ = self._get_claim_status(self.device.image)
                 if claim == 0:
                     logger.info("No more reward to get")
                     break
-            if self.handle_reward():
-                continue
             if interval.reached():
                 if self.appear_then_click(GET_REWARD_BUTTON):
                     interval.reset()
+
+
+if __name__ == '__main__':
+    self = GiftofOdyssey('alas')
+    self.device.screenshot()
+    self.run()

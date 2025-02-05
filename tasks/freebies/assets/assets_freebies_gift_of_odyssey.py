@@ -8,7 +8,7 @@ EVENT_SELECTED = ButtonWrapper(
     share=Button(
         file='./assets/share/freebies/gift_of_odyssey/EVENT_SELECTED.png',
         area=(1080, 376, 1144, 440),
-        search=(1060, 356, 1164, 460),
+        search=(228, 25, 1263, 701),
         color=(206, 177, 134),
         button=(1080, 376, 1144, 440),
     ),

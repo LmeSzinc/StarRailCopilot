@@ -126,6 +126,7 @@ class GeneratedConfig:
     Planner_Item_Artifex_Gyreheart = {}
     Planner_Item_Dream_Making_Engine = {}
     Planner_Item_Shards_of_Desires = {}
+    Planner_Item_Glory_Aspersed_Torso = {}
 
     # Group `Weekly`
     Weekly_Name = 'Echo_of_War_Divine_Seed'  # Echo_of_War_Inner_Beast_Battlefield, Echo_of_War_Salutations_of_Ashen_Dreams, Echo_of_War_Borehole_Planet_Old_Crater, Echo_of_War_Divine_Seed, Echo_of_War_End_of_the_Eternal_Freeze, Echo_of_War_Destruction_Beginning

@@ -736,6 +736,10 @@
     "Item_Shards_of_Desires": {
       "name": "Fragmento de deseos",
       "help": ""
+    },
+    "Item_Glory_Aspersed_Torso": {
+      "name": "Torso bautizado de gloria",
+      "help": ""
     }
   },
   "Weekly": {

@@ -266,7 +266,7 @@
       "Calyx_Crimson_Harmony_Penacony_TheReverieDreamscape": "軌跡素材：調和（ホテル・レバリー-夢境）",
       "Calyx_Crimson_Nihility_Jarilo_GreatMine": "軌跡素材：虚無（大鉱区）",
       "Calyx_Crimson_Nihility_Luofu_AlchemyCommission": "軌跡素材：虚無（丹鼎司）",
-      "Calyx_Crimson_Remembrance_Special_StrifeRuinsCastrumKremnos": "軌跡素材：記憶（紛争の廃墟クレムノス）",
+      "Calyx_Crimson_Remembrance_Special_StrifeRuinsCastrumKremnos": "軌跡素材：記憶（紛争の爪痕クレムノス）",
       "Stagnant_Shadow_Spike": "キャラクター昇格素材：物理（ナターシャ / クラーラ / ルカ / 素裳）",
       "Stagnant_Shadow_Perdition": "キャラクター昇格素材：物理（寒鴉 / アルジェンティ）",
       "Stagnant_Shadow_Duty": "キャラクター昇格素材：物理（ブートヒル / ロビン / 雲璃）",
@@ -327,7 +327,7 @@
       "Calyx_Crimson_Harmony_Penacony_TheReverieDreamscape": "軌跡素材：調和（ホテル・レバリー-夢境）",
       "Calyx_Crimson_Nihility_Jarilo_GreatMine": "軌跡素材：虚無（大鉱区）",
       "Calyx_Crimson_Nihility_Luofu_AlchemyCommission": "軌跡素材：虚無（丹鼎司）",
-      "Calyx_Crimson_Remembrance_Special_StrifeRuinsCastrumKremnos": "軌跡素材：記憶（紛争の廃墟クレムノス）"
+      "Calyx_Crimson_Remembrance_Special_StrifeRuinsCastrumKremnos": "軌跡素材：記憶（紛争の爪痕クレムノス）"
     },
     "NameAtDoubleRelic": {
       "name": "Dungeon.NameAtDoubleRelic.name",
@@ -674,7 +674,7 @@
       "help": ""
     },
     "Item_Flower_of_Alaya": {
-      "name": "軌跡素材：記憶（紛争の廃墟クレムノス）",
+      "name": "軌跡素材：記憶（紛争の爪痕クレムノス）",
       "help": ""
     },
     "Item_Tracks_of_Destiny": {
@@ -735,6 +735,10 @@
     },
     "Item_Shards_of_Desires": {
       "name": "砕けた欲望の鏡",
+      "help": ""
+    },
+    "Item_Glory_Aspersed_Torso": {
+      "name": "栄光は身体を洗礼する",
       "help": ""
     }
   },

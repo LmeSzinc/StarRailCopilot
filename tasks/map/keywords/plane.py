@@ -626,7 +626,7 @@ Special_EternalHolyCityOkhema = MapPlane(
     cht='「永恆聖城」奧赫瑪',
     en='"Eternal Holy City" Okhema',
     jp='「永遠の聖都」オクヘイマ',
-    es='Oqueima, ciudad sagrada eterna',
+    es='Oqueima, Ciudad Sagrada Eterna',
     world_id=4,
     plane_id=1040101,
 )
@@ -647,7 +647,7 @@ Special_StrifeRuinsCastrumKremnos = MapPlane(
     cn='「纷争荒墟」悬锋城',
     cht='「紛爭荒墟」懸鋒城',
     en='"Strife Ruins" Castrum Kremnos',
-    jp='「紛争の廃墟」クレムノス',
+    jp='「紛争の爪痕」クレムノス',
     es='Castrum Kremnos, Ruinas del Conflicto',
     world_id=4,
     plane_id=2041101,
@@ -659,7 +659,7 @@ Special_BloodbathedBattlefrontCastrumKremnos = MapPlane(
     cht='「浴血戰端」懸鋒城',
     en='"Bloodbathed Battlefront" Castrum Kremnos',
     jp='「血染めの戦端」クレムノス',
-    es='Castrum Kremnos, Frente sangriento',
+    es='Castrum Kremnos, Frente Sangriento',
     world_id=4,
     plane_id=2041301,
 )

@@ -90,6 +90,7 @@ class StoredGenerated:
     Item_Artifex_Gyreheart = StoredPlanner("Dungeon.Planner.Item_Artifex_Gyreheart")
     Item_Dream_Making_Engine = StoredPlanner("Dungeon.Planner.Item_Dream_Making_Engine")
     Item_Shards_of_Desires = StoredPlanner("Dungeon.Planner.Item_Shards_of_Desires")
+    Item_Glory_Aspersed_Torso = StoredPlanner("Dungeon.Planner.Item_Glory_Aspersed_Torso")
     TrailblazePower = StoredTrailblazePower("Dungeon.DungeonStorage.TrailblazePower")
     Reserved = StoredResersed("Dungeon.DungeonStorage.Reserved")
     Fuel = StoredInt("Dungeon.DungeonStorage.Fuel")

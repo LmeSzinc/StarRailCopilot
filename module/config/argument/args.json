@@ -547,6 +547,12 @@
         "value": {},
         "display": "display",
         "stored": "StoredPlanner"
+      },
+      "Item_Glory_Aspersed_Torso": {
+        "type": "planner",
+        "value": {},
+        "display": "display",
+        "stored": "StoredPlanner"
       }
     },
     "Dungeon": {

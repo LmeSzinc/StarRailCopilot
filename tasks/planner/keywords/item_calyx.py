@@ -315,3 +315,42 @@ Shards_of_Desires = ItemCalyx(
     item_group=1408,
     dungeon_id=1014,
 )
+Fear_Stomped_Flesh = ItemCalyx(
+    id=25,
+    name='Fear_Stomped_Flesh',
+    cn='恐惧踏碎血肉',
+    cht='恐懼踏碎血肉',
+    en='Fear-Stomped Flesh',
+    jp='恐怖は血肉を踏み潰す',
+    es='Carne pisoteada del miedo',
+    rarity='NotNormal',
+    item_id=115001,
+    item_group=1409,
+    dungeon_id=-1,
+)
+Courage_Torn_Chest = ItemCalyx(
+    id=26,
+    name='Courage_Torn_Chest',
+    cn='勇气撕裂胸膛',
+    cht='勇氣撕裂胸膛',
+    en='Courage-Torn Chest',
+    jp='勇気は胸を切り裂く',
+    es='Pecho hendido del valor',
+    rarity='Rare',
+    item_id=115002,
+    item_group=1409,
+    dungeon_id=-1,
+)
+Glory_Aspersed_Torso = ItemCalyx(
+    id=27,
+    name='Glory_Aspersed_Torso',
+    cn='荣耀洗礼身躯',
+    cht='榮耀洗禮身軀',
+    en='Glory-Aspersed Torso',
+    jp='栄光は身体を洗礼する',
+    es='Torso bautizado de gloria',
+    rarity='VeryRare',
+    item_id=115003,
+    item_group=1409,
+    dungeon_id=-1,
+)

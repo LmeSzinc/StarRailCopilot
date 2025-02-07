@@ -3,6 +3,7 @@ import typing as t
 from dev_tools.keywords.base import GenerateKeyword, SHARE_DATA
 from module.base.decorator import cached_property
 from module.config.utils import deep_get
+from module.logger import logger
 
 
 class GenerateItemBase(GenerateKeyword):
@@ -114,10 +115,6 @@ class GenerateItemCalyx(GenerateItemBase):
     output_file = './tasks/planner/keywords/item_calyx.py'
     purpose_type = [7]
 
-    # Not available at 3.0
-    # TODO: Delete this at next game patch
-    blacklist = [115001, 115002, 115003]
-
     def iter_keywords(self) -> t.Iterable[dict]:
         items = list(super().iter_keywords())
 
@@ -128,7 +125,12 @@ class GenerateItemCalyx(GenerateItemBase):
             if dungeon > 0:
                 dic_group_to_dungeonid[item['item_group']] = dungeon
         for item in items:
-            dungeon = dic_group_to_dungeonid[item['item_group']]
+            item_group = item['item_group']
+            try:
+                dungeon = dic_group_to_dungeonid[item_group]
+            except KeyError:
+                logger.warning(f'No dungeon drops item {item}')
+                dungeon = -1
             item['dungeon_id'] = dungeon
 
         yield from items

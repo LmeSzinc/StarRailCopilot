@@ -54,7 +54,8 @@ class CombatState(UI):
     def combat_state_reset(self):
         self._combat_auto_checked = False
         self._combat_2x_checked = False
-        self._combat_click_interval.clear()
+        # Reset click interval so COMBAT_AUTO cannot be clicked at the very first 1 second
+        self._combat_click_interval.set_current(1)
 
     def handle_combat_state(self, auto=True, speed_2x=True):
         """

@@ -1,5 +1,6 @@
 from module.base.timer import Timer
 from module.logger import logger
+from tasks.rogue.assets.assets_rogue_entry import LEVEL_CONFIRM
 from tasks.rogue.assets.assets_rogue_weekly import CLAIM_ALL, REWARD_CHECK, REWARD_CLOSE, REWARD_ENTER, REWARD_RED_DOT
 from tasks.rogue.blessing.ui import RogueUI
 
@@ -33,6 +34,8 @@ class RogueRewardHandler(RogueUI):
                 break
 
             if self.appear_then_click(REWARD_ENTER, interval=2):
+                continue
+            if self.handle_ui_back(LEVEL_CONFIRM):
                 continue
 
     def _rogue_reward_exit(self, skip_first_screenshot=True):

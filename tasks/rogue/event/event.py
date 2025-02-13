@@ -89,7 +89,8 @@ class OcrRogueEventTitle(OcrRogueEvent):
         # Merge ocr result ['咔嗪', '星际和平银行！(其二)']
         if len(results) == 2:
             if '咔' in results[0].ocr_text and '星际' in results[1].ocr_text:
-                results = merge_buttons(results, thres_x=300)
+                results = merge_buttons(results, thres_x=300, thres_y=300)
+                logger.attr(f'{self.name} after', results)
         return results
 
 

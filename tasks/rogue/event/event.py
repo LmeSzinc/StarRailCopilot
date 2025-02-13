@@ -94,6 +94,8 @@ class OcrRogueEventTitle(OcrRogueEvent):
         return results
 
 
+# To search OCR errors, search this regex in logs
+# Failed to OCR title|results is not as expected
 class OcrRogueEventOption(OcrRogueEvent):
     expected_options: list[OptionButton] = []
     OCR_REPLACE = {
@@ -105,8 +107,9 @@ class OcrRogueEventOption(OcrRogueEvent):
             (KEYWORDS_ROGUE_EVENT_OPTION.Wait_for_THEM_13dc, '^等待.*'),
             (KEYWORDS_ROGUE_EVENT_OPTION.Choose_number_two_It_snores_like_Andatur_Zazzalo, '.*二号.*安达.*'),
             (KEYWORDS_ROGUE_EVENT_OPTION.Choose_number_three_Its_teeth_are_rusted_0f13, '.*三号.*牙齿.*'),
-            (KEYWORDS_ROGUE_EVENT_OPTION.Believe_in_THEM_with_pure_devotion, '虔诚信仰'),
-            (KEYWORDS_ROGUE_EVENT_OPTION.A_box_of_expired_doughnuts_6308, '^盒过期甜甜圈'),
+            (KEYWORDS_ROGUE_EVENT_OPTION.Believe_in_THEM_with_pure_devotion, '.*虔诚信仰.*'),
+            (KEYWORDS_ROGUE_EVENT_OPTION.A_box_of_expired_doughnuts_6308, '^盒过期甜甜圈.*'),
+            (KEYWORDS_ROGUE_EVENT_OPTION.Give_everything_to_THEM, '^将一切奉献给.*')
         ],
         'en': [
             (KEYWORDS_ROGUE_EVENT_OPTION.Deposit_2_Cosmic_Fragments_39a6, 'Deposit \d+.*'),
@@ -132,6 +135,7 @@ class OcrRogueEventOption(OcrRogueEvent):
         return image
 
     def after_process(self, result):
+        result = re.sub('(许愿|机械|黑|准)厘', r'\1匣', result)
         return self._after_process(result, RogueEventOption)
 
 

@@ -10,6 +10,7 @@ from tasks.combat.assets.assets_combat_state import COMBAT_AUTO, COMBAT_PAUSE, C
 
 class CombatState(UI):
     _combat_click_interval = Timer(2, count=4)
+    _combat_enter_timer = Timer(1, count=3)
     _combat_auto_checked = False
     _combat_2x_checked = False
 
@@ -54,8 +55,9 @@ class CombatState(UI):
     def combat_state_reset(self):
         self._combat_auto_checked = False
         self._combat_2x_checked = False
-        # Reset click interval so COMBAT_AUTO cannot be clicked at the very first 1 second
-        self._combat_click_interval.set_current(1)
+        self._combat_click_interval.clear()
+        # Game client does not response to COMBAT_AUTO clicks at the very beginning
+        self._combat_enter_timer.reset()
 
     def handle_combat_state(self, auto=True, speed_2x=True):
         """
@@ -80,13 +82,13 @@ class CombatState(UI):
                     logger.info('_combat_2x_checked')
                     self._combat_2x_checked = True
                 else:
-                    if self._combat_click_interval.reached():
+                    if self._combat_enter_timer.reached() and self._combat_click_interval.reached():
                         self.device.click(COMBAT_SPEED_2X)
                         self._combat_click_interval.reset()
                         return True
             else:
                 if self.is_combat_speed_2x():
-                    if self._combat_click_interval.reached():
+                    if self._combat_enter_timer.reached() and self._combat_click_interval.reached():
                         self.device.click(COMBAT_SPEED_2X)
                         self._combat_click_interval.reset()
                         return True
@@ -100,13 +102,13 @@ class CombatState(UI):
                     logger.info('_combat_auto_checked')
                     self._combat_auto_checked = True
                 else:
-                    if self._combat_click_interval.reached():
+                    if self._combat_enter_timer.reached() and self._combat_click_interval.reached():
                         self.device.click(COMBAT_AUTO)
                         self._combat_click_interval.reset()
                         return True
             else:
                 if self.is_combat_auto():
-                    if self._combat_click_interval.reached():
+                    if self._combat_enter_timer.reached() and self._combat_click_interval.reached():
                         self.device.click(COMBAT_AUTO)
                         self._combat_click_interval.reset()
                         return True

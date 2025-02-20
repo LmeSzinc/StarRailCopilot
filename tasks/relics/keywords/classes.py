@@ -8,7 +8,13 @@ from module.ocr.keyword import Keyword
 class MainStat(Keyword):
     instances: ClassVar = {}
 
+    def __hash__(self) -> int:
+        return super().__hash__()
+
 
 @dataclass(repr=False)
 class SubStat(Keyword):
     instances: ClassVar = {}
+
+    def __hash__(self) -> int:
+        return super().__hash__()

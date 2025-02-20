@@ -144,7 +144,10 @@ class RouteBase(RouteBase_, RogueExit, RogueEvent, RogueReward):
 
         result = super().clear_enemy(*waypoints)
         # logger.attr("result",result)
+        self.after_elite(result)
+        return result
 
+    def after_elite(self, result):
         if 'enemy' in result:
             # runs when one elite battle finishes, and increases rogue farming count by 1
             if not self.config.stored.SimulatedUniverseFarm.is_full():

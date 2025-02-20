@@ -1,3 +1,4 @@
+import os
 import typing as t
 
 
@@ -60,6 +61,12 @@ class CodeGenerator:
 
     def write(self, file: str = None):
         lines = self.generate()
+        try:
+            with open(file, 'w', encoding='utf-8', newline='') as f:
+                f.write(lines)
+        except FileNotFoundError:
+            pass
+        os.makedirs(os.path.dirname(file), exist_ok=True)
         with open(file, 'w', encoding='utf-8', newline='') as f:
             f.write(lines)
 

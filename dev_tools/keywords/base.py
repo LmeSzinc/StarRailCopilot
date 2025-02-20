@@ -135,6 +135,7 @@ class GenerateKeyword:
         return text_map.find(keyword)
 
     output_file = ''
+    DEFAULT_KEYWORD_NAME = 'Unnamed_Keyword'
 
     def __init__(self):
         self.gen = CodeGenerator()
@@ -142,7 +143,7 @@ class GenerateKeyword:
         self.keyword_index = 0
         self.keyword_format = {
             'id': 0,
-            'name': 'Unnamed_Keyword'
+            'name': self.DEFAULT_KEYWORD_NAME
         }
         for lang in UI_LANGUAGES:
             self.keyword_format[lang] = ''
@@ -195,10 +196,11 @@ class GenerateKeyword:
         # Attrs
         base.update(keyword)
         # Name
-        _, name = self.find_keyword(text_id, lang='en')
-        name = self.convert_name(name, keyword=base)
-        base['name'] = name
-        if not name:
+        if base['name'] == self.DEFAULT_KEYWORD_NAME:
+            _, name = self.find_keyword(text_id, lang='en')
+            name = self.convert_name(name, keyword=base)
+            base['name'] = name
+        if not base['name']:
             logger.warning(f'Empty name for {keyword}')
             return None
         # Translations

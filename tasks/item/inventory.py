@@ -6,24 +6,8 @@ from module.base.base import ModuleBase
 from module.base.button import ButtonWrapper
 from module.base.decorator import cached_property
 from module.base.timer import Timer
-from module.base.utils import Lines, area_center, area_offset, color_similarity_2d
+from module.base.utils import Lines, area_center, area_offset, color_similarity_2d, xywh2xyxy
 from module.logger import logger
-
-
-def xywh2xyxy(area):
-    """
-    Convert (x, y, width, height) to (x1, y1, x2, y2)
-    """
-    x, y, w, h = area
-    return x, y, x + w, y + h
-
-
-def xyxy2xywh(area):
-    """
-    Convert (x1, y1, x2, y2) to (x, y, width, height)
-    """
-    x1, y1, x2, y2 = area
-    return min(x1, x2), min(y1, y2), abs(x2 - x1), abs(y2 - y1)
 
 
 class InventoryItem:

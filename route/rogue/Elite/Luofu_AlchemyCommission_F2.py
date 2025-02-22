@@ -1,4 +1,5 @@
-from tasks.map.control.waypoint import Waypoint
+from module.logger import logger
+from tasks.map.control.waypoint import Waypoint, ensure_waypoints
 from tasks.map.keywords.plane import Luofu_AlchemyCommission
 from tasks.rogue.route.base import RouteBase
 
@@ -50,3 +51,18 @@ class Route(RouteBase):
 
         Spawn point is too far from the correct result but should be fine in Boss room
         """
+
+    def clear_elite(self, *waypoints):
+        logger.hr('Clear elite', level=1)
+        waypoints = ensure_waypoints(waypoints)
+        # No running
+        # end_point = waypoints[-1]
+        # end_point.speed = 'run_2x'
+
+        # TODO: Use techniques before BOSS
+        pass
+
+        result = super().clear_enemy(*waypoints)
+        # logger.attr("result",result)
+        self.after_elite(result)
+        return result

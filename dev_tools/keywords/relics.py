@@ -108,7 +108,7 @@ class GenerateSubStat(RelicBase):
 class GenerateRelicSet(RelicBase):
     output_file = './tasks/relics/keywords/relicset.py'
 
-    def iter_keywords(self):
+    def iter_keywords(self) -> Iterable[dict]:
         dict_set = {}
         for row in SHARE_DATA.ItemConfig:
             if row.get('ItemSubType', None) != 'RelicSetShowOnly':
@@ -126,7 +126,27 @@ class GenerateRelicSet(RelicBase):
             }
 
 
+class GenerateRelicPart(RelicBase):
+    output_file = './tasks/relics/keywords/relicpart.py'
+
+    def iter_keywords(self) -> Iterable[dict]:
+        # JSON that defines what mainstats each relic part can have
+        data = self.read_file('./ExcelOutput/RelicBaseType.json')
+        for row in data:
+            if 'Type' not in row:
+                continue
+            text_id = deep_get(row, ['BaseTypeText', 'Hash'], default=0)
+            yield {
+                'text_id': text_id
+            }
+
+    def convert_name(self, text: str, keyword: dict) -> str:
+        # Hands -> Hand
+        return super().convert_name(text, keyword).removesuffix('s')
+
+
 def generate_relics():
     GenerateMainStat()()
     GenerateSubStat()()
     GenerateRelicSet()()
+    GenerateRelicPart()()

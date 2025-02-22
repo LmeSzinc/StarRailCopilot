@@ -22,6 +22,22 @@ class SubStat(Keyword):
 
 
 @dataclass(repr=False)
+class RelicPart(Keyword):
+    instances: ClassVar = {}
+
+    def __hash__(self) -> int:
+        return super().__hash__()
+
+    @cached_property
+    def is_outer(self):
+        return self.name in ['Head', 'Hand', 'Body', 'Feet']
+
+    @cached_property
+    def is_inner(self):
+        return self.name in ['PlanarSphere', 'LinkRope']
+
+
+@dataclass(repr=False)
 class RelicSet(Keyword):
     instances: ClassVar = {}
 

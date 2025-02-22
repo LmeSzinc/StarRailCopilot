@@ -152,7 +152,7 @@ class GeneratorBase:
             # RelicRecGenerator.rec_main_cn() will be called
         """
         for name, func in vars(cls).items():
-            if name.startswith('_'):
+            if name.startswith('_') or name == 'generate':
                 continue
             if callable(func):
                 print(f'Run func: {cls.__name__}.{name}')

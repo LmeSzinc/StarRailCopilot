@@ -19,6 +19,9 @@ config/reloadflag
 config/reloadalas
 test.py
 test/
+/dev_tools/fonts
+
+### Electron
 resources/
 locales/
 *.pak

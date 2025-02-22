@@ -1,6 +1,6 @@
 from typing import Dict, Iterable, List
 
-from dev_tools.keywords.base import GenerateKeyword
+from dev_tools.keywords.base import GenerateKeyword, SHARE_DATA
 from module.base.decorator import cached_property
 from module.config.utils import deep_get
 
@@ -105,6 +105,28 @@ class GenerateSubStat(RelicBase):
             }
 
 
+class GenerateRelicSet(RelicBase):
+    output_file = './tasks/relics/keywords/relicset.py'
+
+    def iter_keywords(self):
+        dict_set = {}
+        for row in SHARE_DATA.ItemConfig:
+            if row.get('ItemSubType', None) != 'RelicSetShowOnly':
+                continue
+            setid = deep_get(row, ['CustomDataList', 0], default=0)
+            if setid in dict_set:
+                continue
+            # rarity = row.get('Rarity', 'Unknown')
+            text_id = deep_get(row, ['ItemName', 'Hash'], default='')
+            # text = self.find_keyword(text_id, lang='cn')[1]
+            dict_set[setid] = text_id
+            yield {
+                'text_id': text_id,
+                'setid': setid,
+            }
+
+
 def generate_relics():
     GenerateMainStat()()
     GenerateSubStat()()
+    GenerateRelicSet()()

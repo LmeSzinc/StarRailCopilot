@@ -5,7 +5,7 @@ from module.config.server import VALID_LANG
 from module.config.utils import read_file, write_file
 from module.logger import logger
 from tasks.relics.dev.base import Font, GeneratorBase
-from tasks.relics.keywords import RelicSet, mainstat, substat
+from tasks.relics.keywords import RelicSet, mainstat, relicpart, substat
 
 
 class RelicSetKeywordGenerator(GeneratorBase):
@@ -163,6 +163,25 @@ class RelicRecGenerator(GeneratorBase):
             substat.EffectHitRate: '命中',
             substat.EffectRES: '抵抗',
             substat.BreakEffect: '击破',
+        }
+        Font.clear_output(output)
+        for stat, text in dict_text.items():
+            out = f'{output}/{stat.name}.png'
+            Font(file, size).draw(text, out)
+
+    @staticmethod
+    def rec_part_cn(
+            file='zh-cn.ttf',
+            output='./assets/cn/relics/rec_part',
+            size=18,
+    ):
+        dict_text = {
+            relicpart.Head: '头部',
+            relicpart.Hand: '手部',
+            relicpart.Body: '躯干',
+            relicpart.Feet: '脚部',
+            relicpart.PlanarSphere: '位面',
+            relicpart.LinkRope: '连结',
         }
         Font.clear_output(output)
         for stat, text in dict_text.items():

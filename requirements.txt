@@ -41,7 +41,7 @@ onepush==1.3.0            # via -r requirements-in.txt
 onnxruntime==1.14.1       # via pponnxcr
 opencv-python==4.7.0.72   # via -r requirements-in.txt, pponnxcr
 packaging==20.9           # via deprecation, onnxruntime, uiautomator2
-pillow==9.5.0             # via -r requirements-in.txt, adbutils, uiautomator2
+pillow==10.4.0            # via -r requirements-in.txt, adbutils, uiautomator2
 pponnxcr==2.0             # via -r requirements-in.txt
 prettytable==2.2.1        # via -r requirements-in.txt
 progress==1.6             # via uiautomator2

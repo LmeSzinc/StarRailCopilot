@@ -17,6 +17,9 @@ from module.logger import logger
 
 SHARE_SERVER = 'share'
 ASSET_SERVER = [SHARE_SERVER] + VALID_LANG
+IGNORE_PATH = [
+    'relics/rec_main', 'relics/rec_sub', 'relics/rec_part', 'relics/rec_set',
+]
 
 
 def parse_grid(image):
@@ -156,11 +159,21 @@ class AssetsImage:
 
 def iter_images():
     for server in ASSET_SERVER:
+        ignore_path = {
+            os.path.join(AzurLaneConfig.ASSETS_FOLDER, server, i).replace('\\', '/'): object
+            for i in IGNORE_PATH
+        }
         for path, folders, files in os.walk(os.path.join(AzurLaneConfig.ASSETS_FOLDER, server)):
+            # Ignore path
+            path = os.path.join(path).replace('\\', '/')
+            if path in ignore_path:
+                continue
             for file in files:
-                if not file.startswith('.'):
-                    file = os.path.join(path, file).replace('\\', '/')
-                    yield AssetsImage(file)
+                # Ignore .DS_store
+                if file.startswith('.'):
+                    continue
+                f = os.path.join(path, file).replace('\\', '/')
+                yield AssetsImage(f)
 
 
 def iter_grids(images):

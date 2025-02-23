@@ -92,9 +92,9 @@ class RelicSetKeywordGenerator(GeneratorBase):
 
 class RelicRecGenerator(GeneratorBase):
     @staticmethod
-    def rec_main_cn(
+    def rec_mainstat_cn(
             file='zh-cn.ttf',
-            output='./assets/cn/relics/rec_main',
+            output='./assets/cn/relics/rec_mainstat',
             size=22,
     ):
         dict_text = {
@@ -122,9 +122,9 @@ class RelicRecGenerator(GeneratorBase):
             Font(file, size).draw(text, out)
 
     @staticmethod
-    def _rec_main_en(
+    def _rec_mainstat_en(
             file='en-US.ttf',
-            output='./assets/en/relics/rec_main',
+            output='./assets/en/relics/rec_mainstat',
             size=22,
     ):
         dict_text = {
@@ -148,9 +148,9 @@ class RelicRecGenerator(GeneratorBase):
         }
 
     @staticmethod
-    def rec_sub_cn(
+    def rec_substat_cn(
             file='zh-cn.ttf',
-            output='./assets/cn/relics/rec_sub',
+            output='./assets/cn/relics/rec_substat',
             size=18,
     ):
         dict_text = {
@@ -170,9 +170,9 @@ class RelicRecGenerator(GeneratorBase):
             Font(file, size).draw(text, out)
 
     @staticmethod
-    def rec_part_cn(
+    def rec_relicpart_cn(
             file='zh-cn.ttf',
-            output='./assets/cn/relics/rec_part',
+            output='./assets/cn/relics/rec_relicpart',
             size=18,
     ):
         dict_text = {
@@ -189,9 +189,9 @@ class RelicRecGenerator(GeneratorBase):
             Font(file, size).draw(text, out)
 
     @staticmethod
-    def rec_set_cn(
+    def rec_relicset_cn(
             file='zh-cn.ttf',
-            output='./assets/cn/relics/rec_set',
+            output='./assets/cn/relics/rec_relicset',
             size=20,
             lang='cn'
     ):

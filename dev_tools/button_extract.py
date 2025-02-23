@@ -18,7 +18,7 @@ from module.logger import logger
 SHARE_SERVER = 'share'
 ASSET_SERVER = [SHARE_SERVER] + VALID_LANG
 IGNORE_PATH = [
-    'relics/rec_main', 'relics/rec_sub', 'relics/rec_part', 'relics/rec_set',
+    'relics/rec_mainstat', 'relics/rec_substat', 'relics/rec_relicpart', 'relics/rec_relicset',
 ]
 
 

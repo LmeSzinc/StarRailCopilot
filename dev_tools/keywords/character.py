@@ -103,7 +103,7 @@ class GenerateCharacterHeight(GenerateKeyword):
         from tasks.character.keywords.classes import CharacterList
         with self.gen.Dict('CHARACTER_HEIGHT'):
             for character, height in dict_height.items():
-                print(character, height)
+                # print(character, height)
                 character = convert_inner_character_to_keyword(character)
                 try:
                     CharacterList.find_name(character)

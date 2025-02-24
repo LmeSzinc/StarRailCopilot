@@ -266,6 +266,14 @@ class LoginAndroidCloud(ModuleBase):
                 if title == '网络提示':
                     self.device.click(self.xpath(XPath.POPUP_CONFIRM))
                     continue
+                # 游戏时间已耗尽
+                # 您的畅玩卡已到期且星云币时长不足，无法进行游戏。
+                # - 取消 - 前往充值
+                if title == '游戏时间已耗尽':
+                    logger.error('Cloud game time exhausted')
+                    self._cloud_exit_exhausted()
+                    raise RequestHumanTakeover
+
             if self.config.Emulator_CloudPriorQueue:
                 if self.appear_then_click(XPath.QUEUE_SELECT_PRIOR):
                     continue
@@ -537,6 +545,27 @@ class LoginAndroidCloud(ModuleBase):
                         break
 
         logger.info('Cloud exited')
+
+    def _cloud_exit_exhausted(self, skip_first=True):
+        logger.info('Cloud exit exhausted')
+        while 1:
+            if skip_first:
+                skip_first = False
+            else:
+                self.device.dump_hierarchy()
+
+            # End
+            if self.appear(XPath.START_GAME):
+                break
+
+            if self.appear_then_click(XPath.FLOAT_WINDOW, interval=3):
+                continue
+            if self.appear_then_click(XPath.FLOAT_EXIT, interval=3):
+                continue
+            if self.appear_then_click(XPath.POPUP_CANCEL, interval=3):
+                continue
+            if self.appear_then_click(XPath.GET_REWARD):
+                continue
 
     def cloud_keep_alive(self):
         """

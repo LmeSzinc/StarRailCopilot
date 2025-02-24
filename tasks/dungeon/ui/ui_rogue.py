@@ -28,14 +28,41 @@ class DungeonRogueUI(DungeonUI):
         """
         logger.hr('Dungeon tab goto', level=2)
         ui_switched = self.ui_ensure(page_guide)
-        SWITCH_DUNGEON_TAB.wait(main=self)
 
-        if (
-                self.appear(SIMULATED_UNIVERSE_CLICK)
-                or self.appear(SIMULATED_UNIVERSE_CHECK)
-                or self.appear(SURVIVAL_INDEX_OE_LOADED)
-        ):
-            logger.info('Having rogue tab')
+        # Wait until any SWITCH_DUNGEON_TAB appears
+        # If Ornament Extraction unlocked, Simulated Universe moves to a separate tab
+        timeout = Timer(5, count=15).start()
+        skip_first_screenshot = True
+        while 1:
+            if skip_first_screenshot:
+                skip_first_screenshot = False
+            else:
+                self.device.screenshot()
+
+            # Timeout
+            if timeout.reached():
+                logger.warning('Wait DungeonTab timeout, assume OE unlocked')
+                unlocked_oe = True
+                break
+            # End with OE unlocked
+            matched = False
+            for check_button in [SURVIVAL_INDEX_OE_LOADED, SIMULATED_UNIVERSE_CLICK, SIMULATED_UNIVERSE_CHECK]:
+                if self.appear(check_button):
+                    logger.info(f'Having rogue tab ({check_button})')
+                    matched = True
+                    break
+            if matched:
+                unlocked_oe = True
+                break
+            # End with other dungeon tabs
+            current = SWITCH_DUNGEON_TAB.get(main=self)
+            logger.attr(SWITCH_DUNGEON_TAB.name, current)
+            if current != 'unknown':
+                logger.info('No rogue tab')
+                unlocked_oe = False
+                break
+
+        if unlocked_oe:
             state = KEYWORDS_DUNGEON_TAB.Simulated_Universe
             # Switch tab
             tab_switched = SWITCH_DUNGEON_TAB.set(state, main=self)
@@ -50,7 +77,6 @@ class DungeonRogueUI(DungeonUI):
             # Swipe
             self._dungeon_rogue_swipe_down()
         else:
-            logger.info('No rogue tab')
             state = KEYWORDS_DUNGEON_TAB.Survival_Index
             # Switch tab
             tab_switched = SWITCH_DUNGEON_TAB.set(state, main=self)

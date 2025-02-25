@@ -103,3 +103,13 @@ TrailblazerPreservationMale = ButtonWrapper(
         button=(1171, 394, 1189, 412),
     ),
 )
+TrailblazerRemembranceFemale = ButtonWrapper(
+    name='TrailblazerRemembranceFemale',
+    share=Button(
+        file='./assets/share/character/switch/TrailblazerRemembranceFemale.png',
+        area=(1174, 238, 1192, 256),
+        search=(1154, 218, 1212, 276),
+        color=(209, 185, 180),
+        button=(1174, 238, 1192, 256),
+    ),
+)

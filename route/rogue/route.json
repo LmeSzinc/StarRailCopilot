@@ -1507,13 +1507,13 @@
     "domain": "Elite"
   },
   {
-    "name": "Elite_Luofu_StargazerNavalia_F1_X617Y511",
-    "route": "route.rogue.Elite.Luofu_StargazerNavalia_F1:Luofu_StargazerNavalia_F1_X617Y511",
+    "name": "Elite_Luofu_StargazerNavalia_F1_X621Y507",
+    "route": "route.rogue.Elite.Luofu_StargazerNavalia_F1:Luofu_StargazerNavalia_F1_X621Y507",
     "plane": "Luofu_StargazerNavalia",
     "floor": "F1",
     "position": [
-      617.5,
-      511.5
+      621.0,
+      507.0
     ],
     "domain": "Elite"
   },

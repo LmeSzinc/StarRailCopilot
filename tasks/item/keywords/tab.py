@@ -75,3 +75,12 @@ MaterialExchange = ItemTab(
     jp='素材交換',
     es='Intercambio de materiales',
 )
+Pet = ItemTab(
+    id=9,
+    name='Pet',
+    cn='随宠',
+    cht='隨身寵物',
+    en='Pet',
+    jp='おともペット',
+    es='Mascotas',
+)

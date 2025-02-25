@@ -1,9 +1,10 @@
+from module.base.utils import random_rectangle_vector_opted
 from module.logger import logger
 from module.ui.switch import Switch
 from tasks.base.ui import UI
 from tasks.item.assets.assets_item_consumable_usage import SIMPLE_PROTECTIVE_GEAR
 from tasks.item.assets.assets_item_ui import *
-from tasks.item.keywords import KEYWORDS_ITEM_TAB
+from tasks.item.keywords import ItemTab, KEYWORDS_ITEM_TAB
 
 
 class SwitchItemTab(Switch):
@@ -28,6 +29,14 @@ class SwitchItemTab(Switch):
         button = self.get_data(state)['click_button']
         _ = button.match_template_luma(main.device.image)  # Search button to load offset
         main.device.click(button)
+
+    def is_state_insight(self, state, main):
+        data = self.get_data(state)
+        if main.appear(data['check_button']):
+            return True
+        if main.appear(data['click_button']):
+            return True
+        return False
 
 
 SWITCH_ITEM_TAB = SwitchItemTab('ItemTab', is_selector=True)
@@ -67,6 +76,12 @@ SWITCH_ITEM_TAB.add_state(
     click_button=VALUABLES_CLICK
 )
 SWITCH_ITEM_TAB.add_state(
+    KEYWORDS_ITEM_TAB.Pet,
+    check_button=PET_CHECK,
+    click_button=PET_CLICK
+)
+# Tabs in synthesize
+SWITCH_ITEM_TAB.add_state(
     KEYWORDS_ITEM_TAB.MaterialExchange,
     check_button=MATERIAL_EXCHANGE_CHECK,
     click_button=MATERIAL_EXCHANGE_CLICK
@@ -74,7 +89,7 @@ SWITCH_ITEM_TAB.add_state(
 
 
 class ItemUI(UI):
-    def item_goto(self, state: KEYWORDS_ITEM_TAB, wait_until_stable=True):
+    def item_goto(self, state: ItemTab, wait_until_stable=True):
         """
         Args:
             state:
@@ -90,6 +105,27 @@ class ItemUI(UI):
             self.item_goto(KEYWORDS_ITEM_TAB.Relics)
             self.item_goto(KEYWORDS_ITEM_TAB.Consumables)
         """
+        current = SWITCH_ITEM_TAB.get(main=self)
+        logger.attr(SWITCH_ITEM_TAB.name, current)
+        # Insight tabs
+        if state in [
+            KEYWORDS_ITEM_TAB.UpgradeMaterials,
+            KEYWORDS_ITEM_TAB.LightCone,
+        ]:
+            if SWITCH_ITEM_TAB.is_state_insight(KEYWORDS_ITEM_TAB.Valuables, main=self) \
+                    or SWITCH_ITEM_TAB.is_state_insight(KEYWORDS_ITEM_TAB.Pet, main=self):
+                # List at bottom, looking up
+                self._item_ui_drag((0, 300))
+        if state in [
+            KEYWORDS_ITEM_TAB.Valuables,
+            KEYWORDS_ITEM_TAB.Pet,
+        ]:
+            if SWITCH_ITEM_TAB.is_state_insight(KEYWORDS_ITEM_TAB.UpgradeMaterials, main=self) \
+                    or SWITCH_ITEM_TAB.is_state_insight(KEYWORDS_ITEM_TAB.LightCone, main=self):
+                # List at top, looking down
+                self._item_ui_drag((0, -300))
+
+        # Set tab
         if SWITCH_ITEM_TAB.set(state, main=self):
             if wait_until_stable:
                 logger.info(f'Tab goto {state}, wait until loaded')
@@ -99,3 +135,7 @@ class ItemUI(UI):
             return True
         else:
             return False
+
+    def _item_ui_drag(self, vector):
+        p1, p2 = random_rectangle_vector_opted(vector, box=SWITCH_SEARCH.button)
+        self.device.drag(p1, p2, name=f'{SWITCH_ITEM_TAB.name}_DRAG')

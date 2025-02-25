@@ -103,6 +103,26 @@ OTHER_MATERIALS_CLICK = ButtonWrapper(
         button=(40, 387, 78, 407),
     ),
 )
+PET_CHECK = ButtonWrapper(
+    name='PET_CHECK',
+    share=Button(
+        file='./assets/share/item/ui/PET_CHECK.png',
+        area=(47, 597, 70, 632),
+        search=(27, 577, 90, 652),
+        color=(83, 83, 83),
+        button=(47, 597, 70, 632),
+    ),
+)
+PET_CLICK = ButtonWrapper(
+    name='PET_CLICK',
+    share=Button(
+        file='./assets/share/item/ui/PET_CLICK.png',
+        area=(47, 597, 70, 632),
+        search=(27, 577, 90, 652),
+        color=(134, 132, 135),
+        button=(47, 597, 70, 632),
+    ),
+)
 RELICS_CHECK = ButtonWrapper(
     name='RELICS_CHECK',
     share=Button(

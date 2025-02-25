@@ -214,6 +214,9 @@ class RouteLoader(RouteBase, MinimapWrapper, RouteLoader_, CharacterSwitch):
             'Occurrence_Jarilo_RivetTown_F1_X289Y97',
             'Occurrence_Luofu_DivinationCommission_F2_X425Y791',
             'Occurrence_Luofu_ArtisanshipCommission_F1_X169Y491',
+            # [('Occurrence_Jarilo_SilvermaneGuardRestrictedZone_F1_X439Y237', 0.185, (440.8, 232.9)),
+            # ('Occurrence_Luofu_Cloudford_F1_X283Y865', 0.081, (287.5, 864.8))]
+            'Occurrence_Jarilo_SilvermaneGuardRestrictedZone_F1_X439Y237'
         ] and similarity > 0.1:
             return True
         # Luofu_Cloudford_F1_X283Y865 and its equivalents

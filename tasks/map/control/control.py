@@ -104,6 +104,8 @@ class MapControl(Combat, AimDetectorMixin):
         """
         if self.appear_then_click(CLOSE):
             return True
+        if self.handle_monthly_card_reward():
+            return True
 
         return False
 

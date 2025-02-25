@@ -13,7 +13,9 @@ from tasks.combat.assets.assets_combat_finish import COMBAT_EXIT
 from tasks.combat.assets.assets_combat_interact import MAP_LOADING
 from tasks.combat.assets.assets_combat_prepare import COMBAT_PREPARE
 from tasks.daily.assets.assets_daily_trial import INFO_CLOSE, START_TRIAL
+from tasks.forgotten_hall.assets.assets_forgotten_hall_ui import EFFECT_NOTIFICATION
 from tasks.login.assets.assets_login import LOGIN_CONFIRM
+from tasks.map.assets.assets_map_control import RUN_BUTTON
 
 
 class UI(MainPage):
@@ -499,4 +501,8 @@ class UI(MainPage):
                 continue
             if self.appear_then_click(ROGUE_LEAVE_FOR_NOW_OE, interval=2):
                 clicked = True
+                continue
+            if self.appear(EFFECT_NOTIFICATION, interval=2):
+                logger.info(f'{EFFECT_NOTIFICATION} -> {RUN_BUTTON}')
+                self.device.click(RUN_BUTTON)
                 continue

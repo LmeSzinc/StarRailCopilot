@@ -2,6 +2,7 @@ from module.base.timer import Timer
 from module.exception import GameNotRunningError
 from module.logger import logger
 from tasks.base.page import page_main
+from tasks.combat.assets.assets_combat_interact import MAP_LOADING
 from tasks.login.assets.assets_login import *
 from tasks.login.cloud import LoginAndroidCloud
 from tasks.rogue.blessing.ui import RogueUI
@@ -24,6 +25,8 @@ class Login(LoginAndroidCloud, RogueUI):
         startup_timer = Timer(5).start()
         app_timer = Timer(5).start()
         login_success = False
+        first_map_loading = True
+        self.device.stuck_record_clear()
 
         while 1:
             # Watch if game alive
@@ -54,6 +57,13 @@ class Login(LoginAndroidCloud, RogueUI):
                 self.device.stuck_record_clear()
                 app_timer.reset()
                 orientation_timer.reset()
+            # Watch map loading
+            if first_map_loading and self.appear(MAP_LOADING, similarity=0.75):
+                logger.info('Map loading')
+                # Reset stuck record after map loading to extend wait time on slow devices
+                self.device.stuck_record_clear()
+                first_map_loading = False
+                continue
 
             # Login
             if self.is_in_login_confirm(interval=5):

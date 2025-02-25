@@ -101,7 +101,7 @@ class UI(MainPage):
                 continue
             if self.handle_login_confirm():
                 continue
-            if self.appear(MAP_LOADING, interval=5):
+            if self.appear(MAP_LOADING, similarity=0.75, interval=2):
                 logger.info('Map loading')
                 timeout.reset()
                 continue

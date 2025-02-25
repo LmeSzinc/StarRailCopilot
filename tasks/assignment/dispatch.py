@@ -70,6 +70,8 @@ class AssignmentDispatch(AssignmentUI):
         self._wait_until_assignment_started()
         future = now() + timedelta(hours=duration)
         logger.info(f'Assignment dispatched, will finish at {future}')
+        # Repeated dispatch operations may trigger too many clicks check
+        self.device.click_record_clear()
         self.dispatched[assignment] = future
         self.has_new_dispatch = True
 

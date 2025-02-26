@@ -246,12 +246,15 @@
       "Calyx_Golden_Memories_Penacony": "Material: Character EXP (Bud of Memories, Penacony)",
       "Calyx_Golden_Memories_The_Xianzhou_Luofu": "Material: Character EXP (Bud of Memories, The Xianzhou Luofu)",
       "Calyx_Golden_Memories_Jarilo_VI": "Material: Character EXP (Bud of Memories, Jarilo-VI)",
+      "Calyx_Golden_Memories_Amphoreus": "Material: Character EXP (Bud of Memories, Amphoreus)",
       "Calyx_Golden_Aether_Penacony": "Material: Light Cone EXP (Bud of Aether)",
       "Calyx_Golden_Aether_The_Xianzhou_Luofu": "Material: Light Cone EXP (Bud of Aether)",
       "Calyx_Golden_Aether_Jarilo_VI": "Material: Light Cone EXP (Bud of Aether)",
+      "Calyx_Golden_Aether_Amphoreus": "Material: Light Cone EXP (Bud of Aether)",
       "Calyx_Golden_Treasures_Penacony": "Material: Credit (Bud of Treasures)",
       "Calyx_Golden_Treasures_The_Xianzhou_Luofu": "Material: Credit (Bud of Treasures)",
       "Calyx_Golden_Treasures_Jarilo_VI": "Material: Credit (Bud of Treasures)",
+      "Calyx_Golden_Treasures_Amphoreus": "Material: Credit (Bud of Treasures)",
       "Calyx_Crimson_Destruction_Herta_StorageZone": "Trace: Destruction (Storage Zone)",
       "Calyx_Crimson_Destruction_Luofu_ScalegorgeWaterscape": "Trace: Destruction (Scalegorge Waterscape)",
       "Calyx_Crimson_Preservation_Herta_SupplyZone": "Trace: Preservation (Supply Zone)",
@@ -266,7 +269,7 @@
       "Calyx_Crimson_Harmony_Penacony_TheReverieDreamscape": "Trace: Harmony (The Reverie (Dreamscape))",
       "Calyx_Crimson_Nihility_Jarilo_GreatMine": "Trace: Nihility (Great Mine)",
       "Calyx_Crimson_Nihility_Luofu_AlchemyCommission": "Trace: Nihility (Alchemy Commission)",
-      "Calyx_Crimson_Remembrance_Special_StrifeRuinsCastrumKremnos": "Trace: Remembrance (Strife Ruins Castrum Kremnos)",
+      "Calyx_Crimson_Remembrance_Amphoreus_StrifeRuinsCastrumKremnos": "Trace: Remembrance (Strife Ruins Castrum Kremnos)",
       "Stagnant_Shadow_Spike": "Ascension: Physical (Natasha / Clara / Luka / Sushang)",
       "Stagnant_Shadow_Perdition": "Ascension: Physical (Hanya / Argenti)",
       "Stagnant_Shadow_Duty": "Ascension: Physical (Boothill / Robin / Yunli)",
@@ -285,9 +288,11 @@
       "Stagnant_Shadow_Quanta": "Ascension: Quantum (Silver Wolf / Seele / Qingque)",
       "Stagnant_Shadow_Abomination": "Ascension: Quantum (Lynx / Fu Xuan / Xueyi)",
       "Stagnant_Shadow_Roast": "Ascension: Quantum (Jade / Sparkle)",
+      "Stagnant_Shadow_Gelidmoon": "Ascension: Quantum (Tribbie)",
       "Stagnant_Shadow_Mirage": "Ascension: Imaginary (Welt / Luocha / Yukong)",
       "Stagnant_Shadow_Puppetry": "Ascension: Imaginary (Dan Heng • Imbibitor Lunae / Aventurine / Dr. Ratio)",
       "Stagnant_Shadow_Timbre": "Ascension: Imaginary (Sunday / Rappa)",
+      "Stagnant_Shadow_Sloggyre": "Ascension: Imaginary (Mydei)",
       "Cavern_of_Corrosion_Path_of_Aria": "Cavern_of_Corrosion_Path_of_Aria (Path of Aria)",
       "Cavern_of_Corrosion_Path_of_Uncertainty": "Cavern_of_Corrosion_Path_of_Uncertainty (Path of Uncertainty)",
       "Cavern_of_Corrosion_Path_of_Cavalier": "Relics: Super Break Set & Pursuit Ultimate Set (Path of Cavalier)",
@@ -307,12 +312,15 @@
       "Calyx_Golden_Memories_Penacony": "Material: Character EXP (Bud of Memories, Penacony)",
       "Calyx_Golden_Memories_The_Xianzhou_Luofu": "Material: Character EXP (Bud of Memories, The Xianzhou Luofu)",
       "Calyx_Golden_Memories_Jarilo_VI": "Material: Character EXP (Bud of Memories, Jarilo-VI)",
+      "Calyx_Golden_Memories_Amphoreus": "Material: Character EXP (Bud of Memories, Amphoreus)",
       "Calyx_Golden_Aether_Penacony": "Material: Light Cone EXP (Bud of Aether)",
       "Calyx_Golden_Aether_The_Xianzhou_Luofu": "Material: Light Cone EXP (Bud of Aether)",
       "Calyx_Golden_Aether_Jarilo_VI": "Material: Light Cone EXP (Bud of Aether)",
+      "Calyx_Golden_Aether_Amphoreus": "Material: Light Cone EXP (Bud of Aether)",
       "Calyx_Golden_Treasures_Penacony": "Material: Credit (Bud of Treasures)",
       "Calyx_Golden_Treasures_The_Xianzhou_Luofu": "Material: Credit (Bud of Treasures)",
       "Calyx_Golden_Treasures_Jarilo_VI": "Material: Credit (Bud of Treasures)",
+      "Calyx_Golden_Treasures_Amphoreus": "Material: Credit (Bud of Treasures)",
       "Calyx_Crimson_Destruction_Herta_StorageZone": "Trace: Destruction (Storage Zone)",
       "Calyx_Crimson_Destruction_Luofu_ScalegorgeWaterscape": "Trace: Destruction (Scalegorge Waterscape)",
       "Calyx_Crimson_Preservation_Herta_SupplyZone": "Trace: Preservation (Supply Zone)",
@@ -327,7 +335,7 @@
       "Calyx_Crimson_Harmony_Penacony_TheReverieDreamscape": "Trace: Harmony (The Reverie (Dreamscape))",
       "Calyx_Crimson_Nihility_Jarilo_GreatMine": "Trace: Nihility (Great Mine)",
       "Calyx_Crimson_Nihility_Luofu_AlchemyCommission": "Trace: Nihility (Alchemy Commission)",
-      "Calyx_Crimson_Remembrance_Special_StrifeRuinsCastrumKremnos": "Trace: Remembrance (Strife Ruins Castrum Kremnos)"
+      "Calyx_Crimson_Remembrance_Amphoreus_StrifeRuinsCastrumKremnos": "Trace: Remembrance (Strife Ruins Castrum Kremnos)"
     },
     "NameAtDoubleRelic": {
       "name": "At Double Relic Event, choose dungeon",
@@ -433,6 +441,7 @@
       "March7thTheHunt": "March 7th: The Hunt",
       "Misha": "Misha",
       "Moze": "Moze",
+      "Mydei": "Mydei",
       "Natasha": "Natasha",
       "Pela": "Pela",
       "Qingque": "Qingque",
@@ -453,6 +462,7 @@
       "TrailblazerHarmony": "Trailblazer Harmony",
       "TrailblazerPreservation": "Trailblazer Preservation",
       "TrailblazerRemembrance": "TrailblazerRemembrance",
+      "Tribbie": "Tribbie",
       "Welt": "Welt",
       "Xueyi": "Xueyi",
       "Yanqing": "Yanqing",
@@ -617,6 +627,14 @@
       "name": "Ascension: Imaginary (Sunday / Rappa)",
       "help": ""
     },
+    "Item_Darkveil_Moonlight": {
+      "name": "Ascension: Quantum (Tribbie)",
+      "help": ""
+    },
+    "Item_Harbinger_of_Strife": {
+      "name": "Ascension: Imaginary (Mydei)",
+      "help": ""
+    },
     "Item_Worldbreaker_Blade": {
       "name": "Trace: Destruction (Storage Zone)",
       "help": ""
@@ -740,6 +758,10 @@
     "Item_Glory_Aspersed_Torso": {
       "name": "Glory-Aspersed Torso",
       "help": ""
+    },
+    "Item_Eternal_Lament": {
+      "name": "Eternal Lament",
+      "help": ""
     }
   },
   "Weekly": {
@@ -859,6 +881,7 @@
       "The_Blossom_in_the_Storm": "Gaseous Liquid & Seed (The Blossom in the Storm)",
       "Abandoned_and_Insulted": "Phlogiston & Metal (Abandoned and Insulted)",
       "Record_of_Expeditions": "Fear-Stomped Flesh (Record of Expeditions)",
+      "Creationism_and_Beyond": "Ethereal Omen (Creationism and Beyond)",
       "Work_and_Days": "Distinctive Tattered Feather & Bough of Thought (Work and Days)"
     },
     "Name_2": {
@@ -884,6 +907,7 @@
       "The_Blossom_in_the_Storm": "Gaseous Liquid & Seed (The Blossom in the Storm)",
       "Abandoned_and_Insulted": "Phlogiston & Metal (Abandoned and Insulted)",
       "Record_of_Expeditions": "Fear-Stomped Flesh (Record of Expeditions)",
+      "Creationism_and_Beyond": "Ethereal Omen (Creationism and Beyond)",
       "Work_and_Days": "Distinctive Tattered Feather & Bough of Thought (Work and Days)"
     },
     "Name_3": {
@@ -909,6 +933,7 @@
       "The_Blossom_in_the_Storm": "Gaseous Liquid & Seed (The Blossom in the Storm)",
       "Abandoned_and_Insulted": "Phlogiston & Metal (Abandoned and Insulted)",
       "Record_of_Expeditions": "Fear-Stomped Flesh (Record of Expeditions)",
+      "Creationism_and_Beyond": "Ethereal Omen (Creationism and Beyond)",
       "Work_and_Days": "Distinctive Tattered Feather & Bough of Thought (Work and Days)"
     },
     "Name_4": {
@@ -934,6 +959,7 @@
       "The_Blossom_in_the_Storm": "Gaseous Liquid & Seed (The Blossom in the Storm)",
       "Abandoned_and_Insulted": "Phlogiston & Metal (Abandoned and Insulted)",
       "Record_of_Expeditions": "Fear-Stomped Flesh (Record of Expeditions)",
+      "Creationism_and_Beyond": "Ethereal Omen (Creationism and Beyond)",
       "Work_and_Days": "Distinctive Tattered Feather & Bough of Thought (Work and Days)"
     },
     "Duration": {
@@ -1107,6 +1133,7 @@
     "Dungeon": {
       "name": "Dungeon Name",
       "help": "",
+      "Divergent_Universe_Unceasing_Strife": "Divergent_Universe_Unceasing_Strife (Unceasing Strife)",
       "Divergent_Universe_Famished_Worker": "Divergent_Universe_Famished_Worker (Famished Worker)",
       "Divergent_Universe_Eternal_Comedy": "Running Wolves & Kalpagni Lantern (Eternal Comedy)",
       "Divergent_Universe_To_Sweet_Dreams": "Sigonia & Izumo Gensei (To Sweet Dreams)",

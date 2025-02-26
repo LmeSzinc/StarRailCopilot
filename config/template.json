@@ -70,6 +70,8 @@
       "Item_A_Glass_of_the_Besotted_Era": {},
       "Item_Dream_Flamer": {},
       "Item_Chordal_Mirage": {},
+      "Item_Darkveil_Moonlight": {},
+      "Item_Harbinger_of_Strife": {},
       "Item_Worldbreaker_Blade": {},
       "Item_Arrow_of_the_Starchaser": {},
       "Item_Key_of_Wisdom": {},
@@ -100,7 +102,8 @@
       "Item_Artifex_Gyreheart": {},
       "Item_Dream_Making_Engine": {},
       "Item_Shards_of_Desires": {},
-      "Item_Glory_Aspersed_Torso": {}
+      "Item_Glory_Aspersed_Torso": {},
+      "Item_Eternal_Lament": {}
     },
     "Dungeon": {
       "Name": "Calyx_Golden_Treasures_Jarilo_VI",

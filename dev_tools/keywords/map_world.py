@@ -31,3 +31,8 @@ class GenerateMapWorld(GenerateKeyword):
             world_id=3,
             short_name='Penacony'
         )
+        yield dict(
+            text_id=to_id('Amphoreus'),
+            world_id=4,
+            short_name='Amphoreus'
+        )

@@ -175,3 +175,7 @@ class MapWorld(Keyword):
     @cached_property
     def is_Penacony(self):
         return self.short_name == 'Penacony'
+
+    @cached_property
+    def is_Amphoreus(self):
+        return self.short_name == 'Amphoreus'

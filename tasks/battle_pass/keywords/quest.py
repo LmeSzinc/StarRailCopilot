@@ -55,7 +55,7 @@ Clear_Stagnant_Shadow_1_times = BattlePassQuest(
     cht='完成1次「凝滯虛影」',
     en='Clear Stagnant Shadow 1 time(s)',
     jp='「凝結虚影」を1回クリアする',
-    es='Completa Sombra paralizada 1 veces',
+    es='Completa Sombra paralizada 1 vez',
 )
 Clear_Cavern_of_Corrosion_1_times = BattlePassQuest(
     id=7,

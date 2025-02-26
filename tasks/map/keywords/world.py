@@ -47,3 +47,14 @@ Penacony = MapWorld(
     world_id=3,
     short_name='Penacony',
 )
+Amphoreus = MapWorld(
+    id=5,
+    name='Amphoreus',
+    cn='翁法罗斯',
+    cht='翁法羅斯',
+    en='Amphoreus',
+    jp='オンパロス',
+    es='Amphoreus',
+    world_id=4,
+    short_name='Amphoreus',
+)

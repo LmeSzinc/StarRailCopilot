@@ -17,9 +17,9 @@ LightCone = ItemTab(
     name='LightCone',
     cn='光锥',
     cht='光錐',
-    en='Light Cone',
+    en='Light Cones',
     jp='光円錐',
-    es='Cono de luz',
+    es='Conos de luz',
 )
 Relics = ItemTab(
     id=3,
@@ -46,7 +46,7 @@ Consumables = ItemTab(
     cht='消耗品',
     en='Consumables',
     jp='消耗品',
-    es='Consumible',
+    es='Consumibles',
 )
 Missions = ItemTab(
     id=6,

@@ -192,3 +192,21 @@ Stagnant_Shadow_Gloam = DungeonDetailed(
     jp='キャラクター昇格素材：風（飛霄）',
     es='Ascension: Viento (Feixiao)',
 )
+Stagnant_Shadow_Sloggyre = DungeonDetailed(
+    id=22,
+    name='Stagnant_Shadow_Sloggyre',
+    cn='角色晋阶材料：虚数（万敌）',
+    cht='角色晉階材料：虛數（萬敵）',
+    en='Ascension: Imaginary (Mydei)',
+    jp='キャラクター昇格素材：虚数（モーディス）',
+    es='Ascension: Imaginario (Midei)',
+)
+Stagnant_Shadow_Gelidmoon = DungeonDetailed(
+    id=23,
+    name='Stagnant_Shadow_Gelidmoon',
+    cn='角色晋阶材料：量子（缇宝）',
+    cht='角色晉階材料：量子（緹寶）',
+    en='Ascension: Quantum (Tribbie)',
+    jp='キャラクター昇格素材：量子（トリビー）',
+    es='Ascension: Cuántico (Tribbie)',
+)

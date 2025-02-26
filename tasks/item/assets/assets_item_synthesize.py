@@ -13,6 +13,16 @@ ENTRY_ITEM_FROM = ButtonWrapper(
         button=(825, 408, 905, 488),
     ),
 )
+ENTRY_ITEM_FROM_LEFT = ButtonWrapper(
+    name='ENTRY_ITEM_FROM_LEFT',
+    share=Button(
+        file='./assets/share/item/synthesize/ENTRY_ITEM_FROM_LEFT.png',
+        area=(751, 408, 831, 488),
+        search=(731, 388, 851, 508),
+        color=(89, 104, 156),
+        button=(751, 408, 831, 488),
+    ),
+)
 ENTRY_ITEM_TO = ButtonWrapper(
     name='ENTRY_ITEM_TO',
     share=Button(
@@ -21,6 +31,26 @@ ENTRY_ITEM_TO = ButtonWrapper(
         search=(795, 173, 935, 313),
         color=(157, 143, 120),
         button=(815, 193, 915, 293),
+    ),
+)
+ENTRY_ITEM_USE3 = ButtonWrapper(
+    name='ENTRY_ITEM_USE3',
+    share=Button(
+        file='./assets/share/item/synthesize/ENTRY_ITEM_USE3.png',
+        area=(869, 493, 889, 511),
+        search=(862, 489, 925, 515),
+        color=(137, 143, 157),
+        button=(869, 493, 889, 511),
+    ),
+)
+ENTRY_ITEM_USE9 = ButtonWrapper(
+    name='ENTRY_ITEM_USE9',
+    share=Button(
+        file='./assets/share/item/synthesize/ENTRY_ITEM_USE9.png',
+        area=(869, 493, 889, 510),
+        search=(862, 489, 925, 515),
+        color=(138, 145, 158),
+        button=(869, 493, 889, 510),
     ),
 )
 ITEM_NAME = ButtonWrapper(

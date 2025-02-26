@@ -115,6 +115,9 @@ class GenerateItemCalyx(GenerateItemBase):
     output_file = './tasks/planner/keywords/item_calyx.py'
     purpose_type = [7]
 
+    # Can't farm Tears_of_Souls
+    blacklist = [111000]
+
     def iter_keywords(self) -> t.Iterable[dict]:
         items = list(super().iter_keywords())
 

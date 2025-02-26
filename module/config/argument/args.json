@@ -368,6 +368,18 @@
         "display": "display",
         "stored": "StoredPlanner"
       },
+      "Item_Darkveil_Moonlight": {
+        "type": "planner",
+        "value": {},
+        "display": "display",
+        "stored": "StoredPlanner"
+      },
+      "Item_Harbinger_of_Strife": {
+        "type": "planner",
+        "value": {},
+        "display": "display",
+        "stored": "StoredPlanner"
+      },
       "Item_Worldbreaker_Blade": {
         "type": "planner",
         "value": {},
@@ -553,6 +565,12 @@
         "value": {},
         "display": "display",
         "stored": "StoredPlanner"
+      },
+      "Item_Eternal_Lament": {
+        "type": "planner",
+        "value": {},
+        "display": "display",
+        "stored": "StoredPlanner"
       }
     },
     "Dungeon": {
@@ -563,12 +581,15 @@
           "Calyx_Golden_Memories_Penacony",
           "Calyx_Golden_Memories_The_Xianzhou_Luofu",
           "Calyx_Golden_Memories_Jarilo_VI",
+          "Calyx_Golden_Memories_Amphoreus",
           "Calyx_Golden_Aether_Penacony",
           "Calyx_Golden_Aether_The_Xianzhou_Luofu",
           "Calyx_Golden_Aether_Jarilo_VI",
+          "Calyx_Golden_Aether_Amphoreus",
           "Calyx_Golden_Treasures_Penacony",
           "Calyx_Golden_Treasures_The_Xianzhou_Luofu",
           "Calyx_Golden_Treasures_Jarilo_VI",
+          "Calyx_Golden_Treasures_Amphoreus",
           "Calyx_Crimson_Destruction_Herta_StorageZone",
           "Calyx_Crimson_Destruction_Luofu_ScalegorgeWaterscape",
           "Calyx_Crimson_Preservation_Herta_SupplyZone",
@@ -583,7 +604,7 @@
           "Calyx_Crimson_Harmony_Penacony_TheReverieDreamscape",
           "Calyx_Crimson_Nihility_Jarilo_GreatMine",
           "Calyx_Crimson_Nihility_Luofu_AlchemyCommission",
-          "Calyx_Crimson_Remembrance_Special_StrifeRuinsCastrumKremnos",
+          "Calyx_Crimson_Remembrance_Amphoreus_StrifeRuinsCastrumKremnos",
           "Stagnant_Shadow_Spike",
           "Stagnant_Shadow_Perdition",
           "Stagnant_Shadow_Duty",
@@ -602,9 +623,11 @@
           "Stagnant_Shadow_Quanta",
           "Stagnant_Shadow_Abomination",
           "Stagnant_Shadow_Roast",
+          "Stagnant_Shadow_Gelidmoon",
           "Stagnant_Shadow_Mirage",
           "Stagnant_Shadow_Puppetry",
           "Stagnant_Shadow_Timbre",
+          "Stagnant_Shadow_Sloggyre",
           "Cavern_of_Corrosion_Path_of_Aria",
           "Cavern_of_Corrosion_Path_of_Uncertainty",
           "Cavern_of_Corrosion_Path_of_Cavalier",
@@ -626,12 +649,15 @@
           "Calyx_Golden_Memories_Penacony",
           "Calyx_Golden_Memories_The_Xianzhou_Luofu",
           "Calyx_Golden_Memories_Jarilo_VI",
+          "Calyx_Golden_Memories_Amphoreus",
           "Calyx_Golden_Aether_Penacony",
           "Calyx_Golden_Aether_The_Xianzhou_Luofu",
           "Calyx_Golden_Aether_Jarilo_VI",
+          "Calyx_Golden_Aether_Amphoreus",
           "Calyx_Golden_Treasures_Penacony",
           "Calyx_Golden_Treasures_The_Xianzhou_Luofu",
           "Calyx_Golden_Treasures_Jarilo_VI",
+          "Calyx_Golden_Treasures_Amphoreus",
           "Calyx_Crimson_Destruction_Herta_StorageZone",
           "Calyx_Crimson_Destruction_Luofu_ScalegorgeWaterscape",
           "Calyx_Crimson_Preservation_Herta_SupplyZone",
@@ -646,7 +672,7 @@
           "Calyx_Crimson_Harmony_Penacony_TheReverieDreamscape",
           "Calyx_Crimson_Nihility_Jarilo_GreatMine",
           "Calyx_Crimson_Nihility_Luofu_AlchemyCommission",
-          "Calyx_Crimson_Remembrance_Special_StrifeRuinsCastrumKremnos"
+          "Calyx_Crimson_Remembrance_Amphoreus_StrifeRuinsCastrumKremnos"
         ]
       },
       "NameAtDoubleRelic": {
@@ -737,6 +763,7 @@
           "March7thTheHunt",
           "Misha",
           "Moze",
+          "Mydei",
           "Natasha",
           "Pela",
           "Qingque",
@@ -757,6 +784,7 @@
           "TrailblazerHarmony",
           "TrailblazerPreservation",
           "TrailblazerRemembrance",
+          "Tribbie",
           "Welt",
           "Xueyi",
           "Yanqing",
@@ -859,6 +887,7 @@
         "type": "select",
         "value": "Divergent_Universe_Eternal_Comedy",
         "option": [
+          "Divergent_Universe_Unceasing_Strife",
           "Divergent_Universe_Famished_Worker",
           "Divergent_Universe_Eternal_Comedy",
           "Divergent_Universe_To_Sweet_Dreams",
@@ -949,6 +978,7 @@
           "March7thTheHunt",
           "Misha",
           "Moze",
+          "Mydei",
           "Natasha",
           "Pela",
           "Qingque",
@@ -969,6 +999,7 @@
           "TrailblazerHarmony",
           "TrailblazerPreservation",
           "TrailblazerRemembrance",
+          "Tribbie",
           "Welt",
           "Xueyi",
           "Yanqing",
@@ -1183,6 +1214,7 @@
           "The_Blossom_in_the_Storm",
           "Abandoned_and_Insulted",
           "Record_of_Expeditions",
+          "Creationism_and_Beyond",
           "Work_and_Days"
         ]
       },
@@ -1210,6 +1242,7 @@
           "The_Blossom_in_the_Storm",
           "Abandoned_and_Insulted",
           "Record_of_Expeditions",
+          "Creationism_and_Beyond",
           "Work_and_Days"
         ]
       },
@@ -1237,6 +1270,7 @@
           "The_Blossom_in_the_Storm",
           "Abandoned_and_Insulted",
           "Record_of_Expeditions",
+          "Creationism_and_Beyond",
           "Work_and_Days"
         ]
       },
@@ -1264,6 +1298,7 @@
           "The_Blossom_in_the_Storm",
           "Abandoned_and_Insulted",
           "Record_of_Expeditions",
+          "Creationism_and_Beyond",
           "Work_and_Days"
         ]
       },
@@ -1501,6 +1536,7 @@
           "March7thTheHunt",
           "Misha",
           "Moze",
+          "Mydei",
           "Natasha",
           "Pela",
           "Qingque",
@@ -1521,6 +1557,7 @@
           "TrailblazerHarmony",
           "TrailblazerPreservation",
           "TrailblazerRemembrance",
+          "Tribbie",
           "Welt",
           "Xueyi",
           "Yanqing",

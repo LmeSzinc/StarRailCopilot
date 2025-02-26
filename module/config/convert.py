@@ -45,6 +45,6 @@ def convert_Item_Moon_Madness_Fang(value):
 
 def convert_31_dungeon(value):
     if value == 'Calyx_Crimson_Remembrance_Special_StrifeRuinsCastrumKremnos':
-        return 'Calyx_Crimson_Remembrance_Amphoreus_StrifeRuinsCastrumKremnos '
+        return 'Calyx_Crimson_Remembrance_Amphoreus_StrifeRuinsCastrumKremnos'
 
     return value

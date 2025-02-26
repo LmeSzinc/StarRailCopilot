@@ -113,7 +113,7 @@ class SynthesizeInventoryManager(InventoryManager):
 
 
 class Synthesize(CombatObtain, ItemUI):
-    def item_get_rarity(self, button) -> str | None:
+    def _item_get_rarity_from_button(self, button) -> str | None:
         """
         Args:
             button:
@@ -142,7 +142,39 @@ class Synthesize(CombatObtain, ItemUI):
 
         return None
 
-    def item_get_rarity_retry(self, button, skip_first_screenshot=True) -> str | None:
+    def item_get_rarity(self) -> str | None:
+        """
+        Returns:
+            str: Rarity color of the required material or None if no match
+
+        Pages:
+            in: page_synthesize
+        """
+        # 2025.02.26, Since 3.1 purple items can be auto synthesized from blue and green at one time
+        # Having two items -> purple is selected
+        rarity = self._item_get_rarity_from_button(ENTRY_ITEM_FROM_LEFT)
+        if rarity:
+            logger.attr('SynthesizeRarity', rarity)
+            return rarity
+        # Check item in the middle
+        rarity = self._item_get_rarity_from_button(ENTRY_ITEM_FROM)
+        if rarity == 'blue':
+            # Blue item appears -> purple is selected
+            logger.attr('SynthesizeRarity', rarity)
+            return rarity
+        elif rarity == 'green':
+            # If middle item is green, it could be purple or blue item selected
+            if ENTRY_ITEM_USE9.match_template_luma(self.device.image, similarity=0.7):
+                logger.attr('SynthesizeRarity', 'blue (USE9)')
+                return 'blue'
+            if ENTRY_ITEM_USE3.match_template_luma(self.device.image, similarity=0.7):
+                logger.attr('SynthesizeRarity', 'green (USE3)')
+                return 'green'
+
+        logger.attr('SynthesizeRarity', None)
+        return None
+
+    def item_get_rarity_retry(self, skip_first_screenshot=True) -> str | None:
         timeout = Timer(1, count=3).start()
         while 1:
             if skip_first_screenshot:
@@ -151,9 +183,8 @@ class Synthesize(CombatObtain, ItemUI):
                 self.device.screenshot()
 
             # End
-            current = self.item_get_rarity(button)
-            logger.attr('SynthesizeRarity', current)
-            if current is not None:
+            current = self.item_get_rarity()
+            if current:
                 return current
             if timeout.reached():
                 logger.warning(f'item_get_rarity_retry timeout')
@@ -183,8 +214,7 @@ class Synthesize(CombatObtain, ItemUI):
                 self.device.screenshot()
 
             # End
-            current = self.item_get_rarity(ENTRY_ITEM_FROM)
-            logger.attr('SynthesizeRarity', current)
+            current = self.item_get_rarity()
             if current is not None and current == rarity:
                 break
 
@@ -213,7 +243,7 @@ class Synthesize(CombatObtain, ItemUI):
         """
         for _ in range(3):
             logger.hr('synthesize rarity reset')
-            current = self.item_get_rarity_retry(ENTRY_ITEM_FROM)
+            current = self.item_get_rarity_retry()
             if current == 'blue':
                 r1, r2 = 'green', 'blue'
             elif current == 'green':
@@ -245,7 +275,7 @@ class Synthesize(CombatObtain, ItemUI):
         items = []
 
         def obtain_end():
-            return self.ui_page_appear(page_synthesize) and self.item_get_rarity(ENTRY_ITEM_FROM) is not None
+            return self.ui_page_appear(page_synthesize) and self.item_get_rarity() is not None
 
         # Purple
         self.synthesize_rarity_set('blue')
@@ -255,13 +285,15 @@ class Synthesize(CombatObtain, ItemUI):
             items.append(item)
         self._obtain_close(check_button=obtain_end)
         # Blue
-        self._obtain_enter(ENTRY_ITEM_FROM, appear_button=page_synthesize.check_button)
+        # 2025.02.26, Since 3.1 purple items can be auto synthesized from blue and green at one time
+        # In case there are two items in ENTRY_ITEM_FROM, set to green first as blue only has one in ENTRY_ITEM_FROM
+        self.synthesize_rarity_set('green')
+        self._obtain_enter(ENTRY_ITEM_TO, appear_button=page_synthesize.check_button)
         item = self.obtain_parse()
         if item is not None:
             items.append(item)
         self._obtain_close(check_button=obtain_end)
         # Green
-        self.synthesize_rarity_set('green')
         self._obtain_enter(ENTRY_ITEM_FROM, appear_button=page_synthesize.check_button)
         item = self.obtain_parse()
         if item is not None:

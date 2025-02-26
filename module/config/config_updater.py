@@ -694,14 +694,19 @@ class ConfigGenerator:
 class ConfigUpdater:
     # source, target, (optional)convert_func
     redirection = [
-        ('Dungeon.Dungeon.Name', 'Dungeon.Dungeon.Name', convert_20_dungeon),
-        ('Dungeon.Dungeon.NameAtDoubleCalyx', 'Dungeon.Dungeon.NameAtDoubleCalyx', convert_20_dungeon),
-        ('Dungeon.DungeonDaily.CalyxGolden', 'Dungeon.DungeonDaily.CalyxGolden', convert_20_dungeon),
-        ('Dungeon.DungeonDaily.CalyxCrimson', 'Dungeon.DungeonDaily.CalyxCrimson', convert_20_dungeon),
-        ('Rogue.RogueWorld.SimulatedUniverseElite', 'Rogue.RogueWorld.SimulatedUniverseFarm', convert_rogue_farm),
+        # ('Dungeon.Dungeon.Name', 'Dungeon.Dungeon.Name', convert_20_dungeon),
+        # ('Dungeon.Dungeon.NameAtDoubleCalyx', 'Dungeon.Dungeon.NameAtDoubleCalyx', convert_20_dungeon),
+        # ('Dungeon.DungeonDaily.CalyxGolden', 'Dungeon.DungeonDaily.CalyxGolden', convert_20_dungeon),
+        # ('Dungeon.DungeonDaily.CalyxCrimson', 'Dungeon.DungeonDaily.CalyxCrimson', convert_20_dungeon),
+        # ('Rogue.RogueWorld.SimulatedUniverseElite', 'Rogue.RogueWorld.SimulatedUniverseFarm', convert_rogue_farm),
         # 2.3
-        ('Dungeon.Planner.Item_Moon_Madness_Fang', 'Dungeon.Planner.Item_Moon_Rage_Fang',
-         convert_Item_Moon_Madness_Fang),
+        # ('Dungeon.Planner.Item_Moon_Madness_Fang', 'Dungeon.Planner.Item_Moon_Rage_Fang',
+        #  convert_Item_Moon_Madness_Fang),
+        # 3.1
+        ('Dungeon.Dungeon.Name', 'Dungeon.Dungeon.Name', convert_31_dungeon),
+        ('Dungeon.Dungeon.NameAtDoubleCalyx', 'Dungeon.Dungeon.NameAtDoubleCalyx', convert_31_dungeon),
+        ('Dungeon.DungeonDaily.CalyxGolden', 'Dungeon.DungeonDaily.CalyxGolden', convert_31_dungeon),
+        ('Dungeon.DungeonDaily.CalyxCrimson', 'Dungeon.DungeonDaily.CalyxCrimson', convert_31_dungeon),
     ]
 
     @cached_property

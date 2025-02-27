@@ -154,7 +154,12 @@ class GenerateDungeonList(GenerateKeyword):
 
         # Reverse Calyx_Golden, sort by world
         # Poor sort
-        dungeons[0:3], dungeons[6:9] = dungeons[6:9], dungeons[0:3]
+        Jarilo = dungeons[0:3]
+        Luofu = dungeons[3:6]
+        Penacony = dungeons[6:9]
+        Amphoreus = dungeons[9:12]
+        others = dungeons[12:]
+        dungeons = Amphoreus + Penacony + Luofu + Jarilo + others
 
         # Re-sort ID
         self.keyword_index = 0

@@ -3,107 +3,8 @@ from .classes import DungeonList
 # This file was auto-generated, do not modify it manually. To generate:
 # ``` python -m dev_tools.keyword_extract ```
 
-Calyx_Golden_Memories_Penacony = DungeonList(
-    id=1,
-    name='Calyx_Golden_Memories_Penacony',
-    cn='回忆之蕾',
-    cht='回憶之蕾',
-    en='Bud of Memories',
-    jp='回憶の蕾',
-    es='Flor de los recuerdos',
-    dungeon_id=1014,
-    plane_id=2031301,
-)
-Calyx_Golden_Aether_Penacony = DungeonList(
-    id=2,
-    name='Calyx_Golden_Aether_Penacony',
-    cn='以太之蕾',
-    cht='乙太之蕾',
-    en='Bud of Aether',
-    jp='エーテルの蕾',
-    es='Flor de eter',
-    dungeon_id=1015,
-    plane_id=2031201,
-)
-Calyx_Golden_Treasures_Penacony = DungeonList(
-    id=3,
-    name='Calyx_Golden_Treasures_Penacony',
-    cn='藏珍之蕾',
-    cht='藏珍之蕾',
-    en='Bud of Treasures',
-    jp='秘蔵の蕾',
-    es='Flor de tesoros',
-    dungeon_id=1016,
-    plane_id=2031101,
-)
-Calyx_Golden_Memories_The_Xianzhou_Luofu = DungeonList(
-    id=4,
-    name='Calyx_Golden_Memories_The_Xianzhou_Luofu',
-    cn='回忆之蕾',
-    cht='回憶之蕾',
-    en='Bud of Memories',
-    jp='回憶の蕾',
-    es='Flor de los recuerdos',
-    dungeon_id=1011,
-    plane_id=2021101,
-)
-Calyx_Golden_Aether_The_Xianzhou_Luofu = DungeonList(
-    id=5,
-    name='Calyx_Golden_Aether_The_Xianzhou_Luofu',
-    cn='以太之蕾',
-    cht='乙太之蕾',
-    en='Bud of Aether',
-    jp='エーテルの蕾',
-    es='Flor de eter',
-    dungeon_id=1012,
-    plane_id=2022101,
-)
-Calyx_Golden_Treasures_The_Xianzhou_Luofu = DungeonList(
-    id=6,
-    name='Calyx_Golden_Treasures_The_Xianzhou_Luofu',
-    cn='藏珍之蕾',
-    cht='藏珍之蕾',
-    en='Bud of Treasures',
-    jp='秘蔵の蕾',
-    es='Flor de tesoros',
-    dungeon_id=1013,
-    plane_id=2022201,
-)
-Calyx_Golden_Memories_Jarilo_VI = DungeonList(
-    id=7,
-    name='Calyx_Golden_Memories_Jarilo_VI',
-    cn='回忆之蕾',
-    cht='回憶之蕾',
-    en='Bud of Memories',
-    jp='回憶の蕾',
-    es='Flor de los recuerdos',
-    dungeon_id=1001,
-    plane_id=2010101,
-)
-Calyx_Golden_Aether_Jarilo_VI = DungeonList(
-    id=8,
-    name='Calyx_Golden_Aether_Jarilo_VI',
-    cn='以太之蕾',
-    cht='乙太之蕾',
-    en='Bud of Aether',
-    jp='エーテルの蕾',
-    es='Flor de eter',
-    dungeon_id=1002,
-    plane_id=2011101,
-)
-Calyx_Golden_Treasures_Jarilo_VI = DungeonList(
-    id=9,
-    name='Calyx_Golden_Treasures_Jarilo_VI',
-    cn='藏珍之蕾',
-    cht='藏珍之蕾',
-    en='Bud of Treasures',
-    jp='秘蔵の蕾',
-    es='Flor de tesoros',
-    dungeon_id=1003,
-    plane_id=2012101,
-)
 Calyx_Golden_Memories_Amphoreus = DungeonList(
-    id=10,
+    id=1,
     name='Calyx_Golden_Memories_Amphoreus',
     cn='回忆之蕾',
     cht='回憶之蕾',
@@ -114,7 +15,7 @@ Calyx_Golden_Memories_Amphoreus = DungeonList(
     plane_id=2042201,
 )
 Calyx_Golden_Aether_Amphoreus = DungeonList(
-    id=11,
+    id=2,
     name='Calyx_Golden_Aether_Amphoreus',
     cn='以太之蕾',
     cht='乙太之蕾',
@@ -125,7 +26,7 @@ Calyx_Golden_Aether_Amphoreus = DungeonList(
     plane_id=2041101,
 )
 Calyx_Golden_Treasures_Amphoreus = DungeonList(
-    id=12,
+    id=3,
     name='Calyx_Golden_Treasures_Amphoreus',
     cn='藏珍之蕾',
     cht='藏珍之蕾',
@@ -134,6 +35,105 @@ Calyx_Golden_Treasures_Amphoreus = DungeonList(
     es='Flor de tesoros',
     dungeon_id=1027,
     plane_id=2042101,
+)
+Calyx_Golden_Memories_Penacony = DungeonList(
+    id=4,
+    name='Calyx_Golden_Memories_Penacony',
+    cn='回忆之蕾',
+    cht='回憶之蕾',
+    en='Bud of Memories',
+    jp='回憶の蕾',
+    es='Flor de los recuerdos',
+    dungeon_id=1014,
+    plane_id=2031301,
+)
+Calyx_Golden_Aether_Penacony = DungeonList(
+    id=5,
+    name='Calyx_Golden_Aether_Penacony',
+    cn='以太之蕾',
+    cht='乙太之蕾',
+    en='Bud of Aether',
+    jp='エーテルの蕾',
+    es='Flor de eter',
+    dungeon_id=1015,
+    plane_id=2031201,
+)
+Calyx_Golden_Treasures_Penacony = DungeonList(
+    id=6,
+    name='Calyx_Golden_Treasures_Penacony',
+    cn='藏珍之蕾',
+    cht='藏珍之蕾',
+    en='Bud of Treasures',
+    jp='秘蔵の蕾',
+    es='Flor de tesoros',
+    dungeon_id=1016,
+    plane_id=2031101,
+)
+Calyx_Golden_Memories_The_Xianzhou_Luofu = DungeonList(
+    id=7,
+    name='Calyx_Golden_Memories_The_Xianzhou_Luofu',
+    cn='回忆之蕾',
+    cht='回憶之蕾',
+    en='Bud of Memories',
+    jp='回憶の蕾',
+    es='Flor de los recuerdos',
+    dungeon_id=1011,
+    plane_id=2021101,
+)
+Calyx_Golden_Aether_The_Xianzhou_Luofu = DungeonList(
+    id=8,
+    name='Calyx_Golden_Aether_The_Xianzhou_Luofu',
+    cn='以太之蕾',
+    cht='乙太之蕾',
+    en='Bud of Aether',
+    jp='エーテルの蕾',
+    es='Flor de eter',
+    dungeon_id=1012,
+    plane_id=2022101,
+)
+Calyx_Golden_Treasures_The_Xianzhou_Luofu = DungeonList(
+    id=9,
+    name='Calyx_Golden_Treasures_The_Xianzhou_Luofu',
+    cn='藏珍之蕾',
+    cht='藏珍之蕾',
+    en='Bud of Treasures',
+    jp='秘蔵の蕾',
+    es='Flor de tesoros',
+    dungeon_id=1013,
+    plane_id=2022201,
+)
+Calyx_Golden_Memories_Jarilo_VI = DungeonList(
+    id=10,
+    name='Calyx_Golden_Memories_Jarilo_VI',
+    cn='回忆之蕾',
+    cht='回憶之蕾',
+    en='Bud of Memories',
+    jp='回憶の蕾',
+    es='Flor de los recuerdos',
+    dungeon_id=1001,
+    plane_id=2010101,
+)
+Calyx_Golden_Aether_Jarilo_VI = DungeonList(
+    id=11,
+    name='Calyx_Golden_Aether_Jarilo_VI',
+    cn='以太之蕾',
+    cht='乙太之蕾',
+    en='Bud of Aether',
+    jp='エーテルの蕾',
+    es='Flor de eter',
+    dungeon_id=1002,
+    plane_id=2011101,
+)
+Calyx_Golden_Treasures_Jarilo_VI = DungeonList(
+    id=12,
+    name='Calyx_Golden_Treasures_Jarilo_VI',
+    cn='藏珍之蕾',
+    cht='藏珍之蕾',
+    en='Bud of Treasures',
+    jp='秘蔵の蕾',
+    es='Flor de tesoros',
+    dungeon_id=1003,
+    plane_id=2012101,
 )
 Calyx_Crimson_Destruction_Herta_StorageZone = DungeonList(
     id=13,

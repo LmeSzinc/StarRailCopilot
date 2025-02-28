@@ -387,6 +387,28 @@
     "order": 0,
     "color": "#777777"
   },
+  "Item_Darkveil_Moonlight": {
+    "name": "Item_Darkveil_Moonlight",
+    "path": "Dungeon.Planner.Item_Darkveil_Moonlight",
+    "i18n": "Planner.Item_Darkveil_Moonlight.name",
+    "stored": "StoredPlanner",
+    "attrs": {
+      "time": "2020-01-01 00:00:00"
+    },
+    "order": 0,
+    "color": "#777777"
+  },
+  "Item_Harbinger_of_Strife": {
+    "name": "Item_Harbinger_of_Strife",
+    "path": "Dungeon.Planner.Item_Harbinger_of_Strife",
+    "i18n": "Planner.Item_Harbinger_of_Strife.name",
+    "stored": "StoredPlanner",
+    "attrs": {
+      "time": "2020-01-01 00:00:00"
+    },
+    "order": 0,
+    "color": "#777777"
+  },
   "Item_Worldbreaker_Blade": {
     "name": "Item_Worldbreaker_Blade",
     "path": "Dungeon.Planner.Item_Worldbreaker_Blade",
@@ -721,6 +743,17 @@
     "name": "Item_Glory_Aspersed_Torso",
     "path": "Dungeon.Planner.Item_Glory_Aspersed_Torso",
     "i18n": "Planner.Item_Glory_Aspersed_Torso.name",
+    "stored": "StoredPlanner",
+    "attrs": {
+      "time": "2020-01-01 00:00:00"
+    },
+    "order": 0,
+    "color": "#777777"
+  },
+  "Item_Eternal_Lament": {
+    "name": "Item_Eternal_Lament",
+    "path": "Dungeon.Planner.Item_Eternal_Lament",
+    "i18n": "Planner.Item_Eternal_Lament.name",
     "stored": "StoredPlanner",
     "attrs": {
       "time": "2020-01-01 00:00:00"

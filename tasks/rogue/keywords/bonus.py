@@ -363,3 +363,66 @@ Butterfly_Adores_Flower = RogueBonus(
     jp='蝶恋花',
     es='Amor floral de mariposa',
 )
+Guard = RogueBonus(
+    id=41,
+    name='Guard',
+    cn='守卫',
+    cht='守衛',
+    en='Guard',
+    jp='守り人',
+    es='Guardia',
+)
+Teacher = RogueBonus(
+    id=42,
+    name='Teacher',
+    cn='导师',
+    cht='導師',
+    en='Teacher',
+    jp='導く者',
+    es='Maestro',
+)
+Messenger = RogueBonus(
+    id=43,
+    name='Messenger',
+    cn='信使',
+    cht='信使',
+    en='Messenger',
+    jp='使者',
+    es='Mensajera',
+)
+Dream_Oracles = RogueBonus(
+    id=44,
+    name='Dream_Oracles',
+    cn='梦的谕示',
+    cht='夢的諭示',
+    en='Dream Oracles',
+    jp='夢の啓示',
+    es='Vaticinio de los sueños',
+)
+Lightning_Residues = RogueBonus(
+    id=45,
+    name='Lightning_Residues',
+    cn='雷的残骸',
+    cht='雷的殘骸',
+    en='Lightning Residues',
+    jp='雷の残骸',
+    es='Restos de rayo',
+)
+Sword_Fragments = RogueBonus(
+    id=46,
+    name='Sword_Fragments',
+    cn='剑的碎片',
+    cht='劍的碎片',
+    en='Sword Fragments',
+    jp='剣の破片',
+    es='Fragmento de espada',
+)
+Heart_Embers = RogueBonus(
+    id=47,
+    name='Heart_Embers',
+    cn='心的余火',
+    cht='心的餘火',
+    en='Heart Embers',
+    jp='心の残り火',
+    es='Ascuas del corazón',
+)

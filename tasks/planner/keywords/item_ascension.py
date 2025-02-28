@@ -276,3 +276,29 @@ Chordal_Mirage = ItemAscension(
     item_group=1100,
     dungeon_id=1119,
 )
+Darkveil_Moonlight = ItemAscension(
+    id=22,
+    name='Darkveil_Moonlight',
+    cn='暗帷月华',
+    cht='暗帷月華',
+    en='Darkveil Moonlight',
+    jp='夜の帳に輝く月華',
+    es='Claro de luna velado',
+    rarity='VeryRare',
+    item_id=110436,
+    item_group=1100,
+    dungeon_id=1123,
+)
+Harbinger_of_Strife = ItemAscension(
+    id=23,
+    name='Harbinger_of_Strife',
+    cn='纷争先兆',
+    cht='紛爭先兆',
+    en='Harbinger of Strife',
+    jp='紛争の兆し',
+    es='Presagio del conflicto',
+    rarity='VeryRare',
+    item_id=110437,
+    item_group=1100,
+    dungeon_id=1122,
+)

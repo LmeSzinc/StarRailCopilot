@@ -246,12 +246,15 @@
       "Calyx_Golden_Memories_Penacony": "材料：角色经验（回忆之蕾 匹诺康尼）",
       "Calyx_Golden_Memories_The_Xianzhou_Luofu": "材料：角色经验（回忆之蕾 仙舟罗浮）",
       "Calyx_Golden_Memories_Jarilo_VI": "材料：角色经验（回忆之蕾 雅利洛-Ⅵ）",
+      "Calyx_Golden_Memories_Amphoreus": "材料：角色经验（回忆之蕾 翁法罗斯）",
       "Calyx_Golden_Aether_Penacony": "材料：武器经验（以太之蕾）",
       "Calyx_Golden_Aether_The_Xianzhou_Luofu": "材料：武器经验（以太之蕾）",
       "Calyx_Golden_Aether_Jarilo_VI": "材料：武器经验（以太之蕾）",
+      "Calyx_Golden_Aether_Amphoreus": "材料：武器经验（以太之蕾）",
       "Calyx_Golden_Treasures_Penacony": "材料：信用点（藏珍之蕾）",
       "Calyx_Golden_Treasures_The_Xianzhou_Luofu": "材料：信用点（藏珍之蕾）",
       "Calyx_Golden_Treasures_Jarilo_VI": "材料：信用点（藏珍之蕾）",
+      "Calyx_Golden_Treasures_Amphoreus": "材料：信用点（藏珍之蕾）",
       "Calyx_Crimson_Destruction_Herta_StorageZone": "行迹材料：毁灭（收容舱段）",
       "Calyx_Crimson_Destruction_Luofu_ScalegorgeWaterscape": "行迹材料：毁灭（鳞渊境）",
       "Calyx_Crimson_Preservation_Herta_SupplyZone": "行迹材料：存护（支援舱段）",
@@ -266,7 +269,7 @@
       "Calyx_Crimson_Harmony_Penacony_TheReverieDreamscape": "行迹材料：同谐（白日梦酒店-梦境）",
       "Calyx_Crimson_Nihility_Jarilo_GreatMine": "行迹材料：虚无（大矿区）",
       "Calyx_Crimson_Nihility_Luofu_AlchemyCommission": "行迹材料：虚无（丹鼎司）",
-      "Calyx_Crimson_Remembrance_Special_StrifeRuinsCastrumKremnos": "行迹材料：记忆（纷争荒墟悬锋城）",
+      "Calyx_Crimson_Remembrance_Amphoreus_StrifeRuinsCastrumKremnos": "行迹材料：记忆（纷争荒墟悬锋城）",
       "Stagnant_Shadow_Spike": "角色晋阶材料：物理（娜塔莎 / 克拉拉 / 卢卡 / 素裳）",
       "Stagnant_Shadow_Perdition": "角色晋阶材料：物理（寒鸦 / 银枝）",
       "Stagnant_Shadow_Duty": "角色晋阶材料：物理（波提欧 / 知更鸟 / 云璃）",
@@ -285,9 +288,11 @@
       "Stagnant_Shadow_Quanta": "角色晋阶材料：量子（银狼 / 希儿 / 青雀）",
       "Stagnant_Shadow_Abomination": "角色晋阶材料：量子（玲可 / 符玄 / 雪衣）",
       "Stagnant_Shadow_Roast": "角色晋阶材料：量子（翡翠 / 花火）",
+      "Stagnant_Shadow_Gelidmoon": "角色晋阶材料：量子（缇宝）",
       "Stagnant_Shadow_Mirage": "角色晋阶材料：虚数（瓦尔特 / 罗刹 / 驭空）",
       "Stagnant_Shadow_Puppetry": "角色晋阶材料：虚数（丹恒•饮月 / 砂金 / 真理医生）",
       "Stagnant_Shadow_Timbre": "角色晋阶材料：虚数（星期日 / 乱破）",
+      "Stagnant_Shadow_Sloggyre": "角色晋阶材料：虚数（万敌）",
       "Cavern_of_Corrosion_Path_of_Aria": "Cavern_of_Corrosion_Path_of_Aria（弦歌之径）",
       "Cavern_of_Corrosion_Path_of_Uncertainty": "Cavern_of_Corrosion_Path_of_Uncertainty（迷识之径）",
       "Cavern_of_Corrosion_Path_of_Cavalier": "遗器：超击破套+终追套（勇骑之径）",
@@ -307,12 +312,15 @@
       "Calyx_Golden_Memories_Penacony": "材料：角色经验（回忆之蕾 匹诺康尼）",
       "Calyx_Golden_Memories_The_Xianzhou_Luofu": "材料：角色经验（回忆之蕾 仙舟罗浮）",
       "Calyx_Golden_Memories_Jarilo_VI": "材料：角色经验（回忆之蕾 雅利洛-Ⅵ）",
+      "Calyx_Golden_Memories_Amphoreus": "材料：角色经验（回忆之蕾 翁法罗斯）",
       "Calyx_Golden_Aether_Penacony": "材料：武器经验（以太之蕾）",
       "Calyx_Golden_Aether_The_Xianzhou_Luofu": "材料：武器经验（以太之蕾）",
       "Calyx_Golden_Aether_Jarilo_VI": "材料：武器经验（以太之蕾）",
+      "Calyx_Golden_Aether_Amphoreus": "材料：武器经验（以太之蕾）",
       "Calyx_Golden_Treasures_Penacony": "材料：信用点（藏珍之蕾）",
       "Calyx_Golden_Treasures_The_Xianzhou_Luofu": "材料：信用点（藏珍之蕾）",
       "Calyx_Golden_Treasures_Jarilo_VI": "材料：信用点（藏珍之蕾）",
+      "Calyx_Golden_Treasures_Amphoreus": "材料：信用点（藏珍之蕾）",
       "Calyx_Crimson_Destruction_Herta_StorageZone": "行迹材料：毁灭（收容舱段）",
       "Calyx_Crimson_Destruction_Luofu_ScalegorgeWaterscape": "行迹材料：毁灭（鳞渊境）",
       "Calyx_Crimson_Preservation_Herta_SupplyZone": "行迹材料：存护（支援舱段）",
@@ -327,7 +335,7 @@
       "Calyx_Crimson_Harmony_Penacony_TheReverieDreamscape": "行迹材料：同谐（白日梦酒店-梦境）",
       "Calyx_Crimson_Nihility_Jarilo_GreatMine": "行迹材料：虚无（大矿区）",
       "Calyx_Crimson_Nihility_Luofu_AlchemyCommission": "行迹材料：虚无（丹鼎司）",
-      "Calyx_Crimson_Remembrance_Special_StrifeRuinsCastrumKremnos": "行迹材料：记忆（纷争荒墟悬锋城）"
+      "Calyx_Crimson_Remembrance_Amphoreus_StrifeRuinsCastrumKremnos": "行迹材料：记忆（纷争荒墟悬锋城）"
     },
     "NameAtDoubleRelic": {
       "name": "有遗器活动时，选择副本",
@@ -433,6 +441,7 @@
       "March7thTheHunt": "三月七•巡猎",
       "Misha": "米沙",
       "Moze": "貊泽",
+      "Mydei": "万敌",
       "Natasha": "娜塔莎",
       "Pela": "佩拉",
       "Qingque": "青雀",
@@ -453,6 +462,7 @@
       "TrailblazerHarmony": "开拓者•同谐",
       "TrailblazerPreservation": "开拓者•存护",
       "TrailblazerRemembrance": "TrailblazerRemembrance",
+      "Tribbie": "缇宝",
       "Welt": "瓦尔特",
       "Xueyi": "雪衣",
       "Yanqing": "彦卿",
@@ -617,6 +627,14 @@
       "name": "角色晋阶材料：虚数（星期日 / 乱破）",
       "help": ""
     },
+    "Item_Darkveil_Moonlight": {
+      "name": "角色晋阶材料：量子（缇宝）",
+      "help": ""
+    },
+    "Item_Harbinger_of_Strife": {
+      "name": "角色晋阶材料：虚数（万敌）",
+      "help": ""
+    },
     "Item_Worldbreaker_Blade": {
       "name": "行迹材料：毁灭（收容舱段）",
       "help": ""
@@ -682,27 +700,27 @@
       "help": ""
     },
     "Item_Destroyer_Final_Road": {
-      "name": "毁灭的开端•历战余响 (空间站「黑塔」)",
+      "name": "毁灭的开端 (空间站「黑塔」)",
       "help": ""
     },
     "Item_Guardian_Lament": {
-      "name": "寒潮的落幕•历战余响 (雅利洛-Ⅵ)",
+      "name": "寒潮的落幕 (雅利洛-Ⅵ)",
       "help": ""
     },
     "Item_Regret_of_Infinite_Ochema": {
-      "name": "不死的神实•历战余响 (仙舟「罗浮」)",
+      "name": "不死的神实 (仙舟「罗浮」)",
       "help": ""
     },
     "Item_Past_Evils_of_the_Borehole_Planet_Disaster": {
-      "name": "蛀星的旧靥•历战余响 (空间站「黑塔」)",
+      "name": "蛀星的旧靥 (空间站「黑塔」)",
       "help": ""
     },
     "Item_Lost_Echo_of_the_Shared_Wish": {
-      "name": "尘梦的赞礼•历战余响 (匹诺康尼)",
+      "name": "尘梦的赞礼 (匹诺康尼)",
       "help": ""
     },
     "Item_Auspice_Sliver": {
-      "name": "心兽的战场•历战余响 (仙舟「罗浮」)",
+      "name": "心兽的战场 (仙舟「罗浮」)",
       "help": ""
     },
     "Item_Squirming_Core": {
@@ -740,6 +758,10 @@
     "Item_Glory_Aspersed_Torso": {
       "name": "荣耀洗礼身躯",
       "help": ""
+    },
+    "Item_Eternal_Lament": {
+      "name": "哀叹漫无止息",
+      "help": ""
     }
   },
   "Weekly": {
@@ -750,12 +772,12 @@
     "Name": {
       "name": "副本名称",
       "help": "",
-      "Echo_of_War_Inner_Beast_Battlefield": "心兽的战场•历战余响 (仙舟「罗浮」)",
-      "Echo_of_War_Salutations_of_Ashen_Dreams": "尘梦的赞礼•历战余响 (匹诺康尼)",
-      "Echo_of_War_Borehole_Planet_Old_Crater": "蛀星的旧靥•历战余响 (空间站「黑塔」)",
-      "Echo_of_War_Divine_Seed": "不死的神实•历战余响 (仙舟「罗浮」)",
-      "Echo_of_War_End_of_the_Eternal_Freeze": "寒潮的落幕•历战余响 (雅利洛-Ⅵ)",
-      "Echo_of_War_Destruction_Beginning": "毁灭的开端•历战余响 (空间站「黑塔」)"
+      "Echo_of_War_Inner_Beast_Battlefield": "心兽的战场 (仙舟「罗浮」)",
+      "Echo_of_War_Salutations_of_Ashen_Dreams": "尘梦的赞礼 (匹诺康尼)",
+      "Echo_of_War_Borehole_Planet_Old_Crater": "蛀星的旧靥 (空间站「黑塔」)",
+      "Echo_of_War_Divine_Seed": "不死的神实 (仙舟「罗浮」)",
+      "Echo_of_War_End_of_the_Eternal_Freeze": "寒潮的落幕 (雅利洛-Ⅵ)",
+      "Echo_of_War_Destruction_Beginning": "毁灭的开端 (空间站「黑塔」)"
     },
     "Team": {
       "name": "打本队伍",
@@ -859,6 +881,7 @@
       "The_Blossom_in_the_Storm": "气态流体 & 种子（风暴中怒放的花）",
       "Abandoned_and_Insulted": "燃素 & 金属（被废弃与损害的）",
       "Record_of_Expeditions": "恐惧踏碎血肉（远征记）",
+      "Creationism_and_Beyond": "预兆似有若无（造物论及其他）",
       "Work_and_Days": "醒目残翎 & 思维枝椁（工作与时日）"
     },
     "Name_2": {
@@ -884,6 +907,7 @@
       "The_Blossom_in_the_Storm": "气态流体 & 种子（风暴中怒放的花）",
       "Abandoned_and_Insulted": "燃素 & 金属（被废弃与损害的）",
       "Record_of_Expeditions": "恐惧踏碎血肉（远征记）",
+      "Creationism_and_Beyond": "预兆似有若无（造物论及其他）",
       "Work_and_Days": "醒目残翎 & 思维枝椁（工作与时日）"
     },
     "Name_3": {
@@ -909,6 +933,7 @@
       "The_Blossom_in_the_Storm": "气态流体 & 种子（风暴中怒放的花）",
       "Abandoned_and_Insulted": "燃素 & 金属（被废弃与损害的）",
       "Record_of_Expeditions": "恐惧踏碎血肉（远征记）",
+      "Creationism_and_Beyond": "预兆似有若无（造物论及其他）",
       "Work_and_Days": "醒目残翎 & 思维枝椁（工作与时日）"
     },
     "Name_4": {
@@ -934,6 +959,7 @@
       "The_Blossom_in_the_Storm": "气态流体 & 种子（风暴中怒放的花）",
       "Abandoned_and_Insulted": "燃素 & 金属（被废弃与损害的）",
       "Record_of_Expeditions": "恐惧踏碎血肉（远征记）",
+      "Creationism_and_Beyond": "预兆似有若无（造物论及其他）",
       "Work_and_Days": "醒目残翎 & 思维枝椁（工作与时日）"
     },
     "Duration": {
@@ -1107,6 +1133,7 @@
     "Dungeon": {
       "name": "副本名称",
       "help": "",
+      "Divergent_Universe_Unceasing_Strife": "Divergent_Universe_Unceasing_Strife（纷争不休）",
       "Divergent_Universe_Famished_Worker": "海域+香蕉（蠹役饥肠）",
       "Divergent_Universe_Eternal_Comedy": "奔狼+火宫（永恒笑剧）",
       "Divergent_Universe_To_Sweet_Dreams": "茨冈尼亚+出云神国（伴你入眠）",

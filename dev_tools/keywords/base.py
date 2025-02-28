@@ -49,9 +49,12 @@ class TextMap:
             text
         """
         if isinstance(name, int) or (isinstance(name, str) and name.isdigit()):
-            name = int(name)
+            text_id = int(name)
+            # if text_id < 10000000000:
+            #     text_id = xxhash.xxh64(str(text_id)).intdigest()
+
             try:
-                return name, self.data[name]
+                return text_id, self.data[text_id]
             except KeyError:
                 pass
 

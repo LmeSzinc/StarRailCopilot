@@ -27,7 +27,7 @@ class Route(RouteBase):
         # ===== End of generated waypoints =====
 
     @locked_rotation(90)
-    def Luofu_StargazerNavalia_F1_X617Y511(self):
+    def Luofu_StargazerNavalia_F1_X621Y507(self):
         """
         | Waypoint | Position                  | Direction | Rotation |
         | -------- | ------------------------- | --------- | -------- |
@@ -36,7 +36,7 @@ class Route(RouteBase):
         | reward   | Waypoint((677.1, 521.2)), | 212.8     | 108      |
         | exit_    | Waypoint((684.6, 505.0)), | 91.3      | 82       |
         """
-        self.map_init(plane=Luofu_StargazerNavalia, floor="F1", position=(617.5, 511.5))
+        self.map_init(plane=Luofu_StargazerNavalia, floor="F1", position=(621.0, 507.0))
         enemy = Waypoint((664.6, 512.6))
         reward = Waypoint((677.1, 521.2))
         exit_ = Waypoint((684.6, 505.0))
@@ -48,7 +48,7 @@ class Route(RouteBase):
 
         """
         Notes
-        Herta_SupplyZone_F2_X397Y239 is the same as Herta_SupplyZone_F2_X397Y233
+        Luofu_StargazerNavalia_F1_X621Y507 is the same as Luofu_StargazerNavalia_F1_X617Y511
         but for wrong spawn point detected
         """
         # Best 3 predictions: [

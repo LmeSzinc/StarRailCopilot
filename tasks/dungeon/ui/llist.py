@@ -60,6 +60,8 @@ class OcrDungeonName(Ocr):
             result = re.sub(r'蛀星的旧.*?历战', '蛀星的旧靥•历战', result)
             # 蠹役饥肠
             result = re.sub('[鑫蠢]役', '蠹役', result)
+            # 「呓语密林」神悟树庭
+            result = re.sub('[艺吃]语', '呓语', result)
 
         # 9支援仓段
         for word in 'Q9α':

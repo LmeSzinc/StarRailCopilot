@@ -183,8 +183,17 @@ Record_of_Expeditions = AssignmentEntryDetailed(
     jp='恐怖は血肉を踏み潰す（遠征記）',
     es='Carne pisoteada del miedo (Diario de expedición)',
 )
-Work_and_Days = AssignmentEntryDetailed(
+Creationism_and_Beyond = AssignmentEntryDetailed(
     id=21,
+    name='Creationism_and_Beyond',
+    cn='预兆似有若无（造物论及其他）',
+    cht='預兆似有若無（造物論及其他）',
+    en='Ethereal Omen (Creationism and Beyond)',
+    jp='あるようでない予兆（造物論およびその他）',
+    es='Augurio etéreo (Creacionismo y más allá)',
+)
+Work_and_Days = AssignmentEntryDetailed(
+    id=22,
     name='Work_and_Days',
     cn='醒目残翎 & 思维枝椁（工作与时日）',
     cht='醒目殘翎 & 思維枝槨（工作與時日）',

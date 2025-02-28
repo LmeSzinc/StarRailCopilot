@@ -326,7 +326,7 @@ Fear_Stomped_Flesh = ItemCalyx(
     rarity='NotNormal',
     item_id=115001,
     item_group=1409,
-    dungeon_id=-1,
+    dungeon_id=1025,
 )
 Courage_Torn_Chest = ItemCalyx(
     id=26,
@@ -339,7 +339,7 @@ Courage_Torn_Chest = ItemCalyx(
     rarity='Rare',
     item_id=115002,
     item_group=1409,
-    dungeon_id=-1,
+    dungeon_id=1025,
 )
 Glory_Aspersed_Torso = ItemCalyx(
     id=27,
@@ -352,5 +352,44 @@ Glory_Aspersed_Torso = ItemCalyx(
     rarity='VeryRare',
     item_id=115003,
     item_group=1409,
-    dungeon_id=-1,
+    dungeon_id=1025,
+)
+Ethereal_Omen = ItemCalyx(
+    id=28,
+    name='Ethereal_Omen',
+    cn='预兆似有若无',
+    cht='預兆似有若無',
+    en='Ethereal Omen',
+    jp='あるようでない予兆',
+    es='Augurio etereo',
+    rarity='NotNormal',
+    item_id=115011,
+    item_group=1410,
+    dungeon_id=1025,
+)
+Echoing_Wail = ItemCalyx(
+    id=29,
+    name='Echoing_Wail',
+    cn='悲鸣由远及近',
+    cht='悲鳴由遠及近',
+    en='Echoing Wail',
+    jp='遠くから近づく悲鳴',
+    es='Gemido resonante',
+    rarity='Rare',
+    item_id=115012,
+    item_group=1410,
+    dungeon_id=1025,
+)
+Eternal_Lament = ItemCalyx(
+    id=30,
+    name='Eternal_Lament',
+    cn='哀叹漫无止息',
+    cht='哀嘆漫無止息',
+    en='Eternal Lament',
+    jp='果てしなく続く悲嘆',
+    es='Lamento eterno',
+    rarity='VeryRare',
+    item_id=115013,
+    item_group=1410,
+    dungeon_id=1025,
 )

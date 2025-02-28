@@ -16,6 +16,7 @@ KEYWORDS_ASSIGNMENT_GROUP.Character_Materials.entries = (
     KEYWORDS_ASSIGNMENT_ENTRY.Destruction_of_the_Destroyer,
     KEYWORDS_ASSIGNMENT_ENTRY.Nine_Billion_Names,
     KEYWORDS_ASSIGNMENT_ENTRY.Record_of_Expeditions,
+    KEYWORDS_ASSIGNMENT_ENTRY.Creationism_and_Beyond,
 )
 KEYWORDS_ASSIGNMENT_GROUP.EXP_Materials_Credits.entries = (
     KEYWORDS_ASSIGNMENT_ENTRY.Nameless_Land_Nameless_People,

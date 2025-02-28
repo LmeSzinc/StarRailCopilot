@@ -560,8 +560,9 @@ class KeywordExtract:
         self.generate_forgotten_hall_stages()
         self.generate_daily_quests()
         self.generate_battle_pass_quests()
-        self.load_keywords(['养成材料', '光锥', '遗器', '其他材料', '消耗品', '任务', '贵重物', '材料置换'])
-        self.write_keywords(keyword_class='ItemTab', text_convert=lambda name: name.replace(' ', ''),
+        self.load_keywords(['养成材料', '光锥', '遗器', '其他材料', '消耗品', '任务', '贵重物', '材料置换', '随宠'])
+        self.write_keywords(keyword_class='ItemTab',
+                            text_convert=lambda name: name.replace(' ', '').replace('LightCones', 'LightCone'),
                             output_file='./tasks/item/keywords/tab.py')
         from dev_tools.keywords.item import generate_items
         generate_items()

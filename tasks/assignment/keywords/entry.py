@@ -183,8 +183,17 @@ Record_of_Expeditions = AssignmentEntry(
     jp='遠征記',
     es='Diario de expedición',
 )
-Work_and_Days = AssignmentEntry(
+Creationism_and_Beyond = AssignmentEntry(
     id=21,
+    name='Creationism_and_Beyond',
+    cn='造物论及其他',
+    cht='造物論及其他',
+    en='Creationism and Beyond',
+    jp='造物論およびその他',
+    es='Creacionismo y más allá',
+)
+Work_and_Days = AssignmentEntry(
+    id=22,
     name='Work_and_Days',
     cn='工作与时日',
     cht='工作與時日',

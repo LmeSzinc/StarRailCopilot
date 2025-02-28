@@ -6,8 +6,9 @@ import numpy as np
 
 from module.base.timer import Timer
 from module.base.utils import area_offset
-from module.device.method.maatouch import MaatouchBuilder
-from module.device.method.minitouch import CommandBuilder, insert_swipe, random_normal_distribution
+from module.device.method.maatouch import MaatouchBuilder, retry as maatouch_retry
+from module.device.method.minitouch import (
+    CommandBuilder, insert_swipe, random_normal_distribution, retry as minitouch_retry)
 from module.exception import ScriptError
 from module.logger import logger
 from tasks.base.ui import UI
@@ -78,6 +79,17 @@ class JoystickContact:
 
         return builder
 
+    def with_retry(self, func):
+        method = self.main.config.Emulator_ControlMethod
+        if method == 'MaaTouch':
+            retry = maatouch_retry
+        elif method == 'minitouch':
+            retry = minitouch_retry
+        else:
+            raise ScriptError(f'Control method {method} does not support multi-finger')
+
+        return retry(func)(self)
+
     @classmethod
     def direction2screen(cls, direction, run=True):
         """
@@ -107,12 +119,17 @@ class JoystickContact:
         return point
 
     def up(self):
-        if self.is_downed:
-            logger.info('JoystickContact up')
-            builder = self.builder
+        if not self.is_downed:
+            return
+        logger.info('JoystickContact up')
+        builder = self.builder
+
+        def _up(_self):
             builder.up().commit()
             builder.send()
-            self.prev_point = None
+
+        self.with_retry(_up)
+        self.prev_point = None
 
     def set(self, direction, run=True):
         """
@@ -135,12 +152,19 @@ class JoystickContact:
 
         if self.is_downed:
             points = insert_swipe(p0=self.prev_point, p3=point, speed=20)
-            for point in points[1:]:
-                builder.move(*point).commit().wait(10)
-            builder.send()
+
+            def _set(_self):
+                for p in points[1:]:
+                    builder.move(*p).commit().wait(10)
+                builder.send()
+
+            self.with_retry(_set)
         else:
-            builder.down(*point).commit()
-            builder.send()
+            def _set(_self):
+                builder.down(*point).commit()
+                builder.send()
+
+            self.with_retry(_set)
             # Character starts moving, RUN button is still unavailable in a short time.
             # Assume available in 0.3s
             # We still have reties if 0.3s is incorrect.

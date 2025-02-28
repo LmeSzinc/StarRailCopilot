@@ -12,9 +12,20 @@ def dungeon_name(name: str) -> str:
     name = re.sub('Bud_of_(.*)', r'Calyx_Crimson_\1', name).replace('Calyx_Crimson_Calyx_Crimson_', 'Calyx_Crimson_')
     name = re.sub('Shape_of_(.*)', r'Stagnant_Shadow_\1', name)
     name = re.sub('Path_of_(.*)', r'Cavern_of_Corrosion_Path_of_\1', name)
-    if name in ['Destruction_Beginning', 'End_of_the_Eternal_Freeze', 'Divine_Seed', 'Borehole_Planet_Old_Crater']:
+    if name in [
+        'Destruction_Beginning',
+        'End_of_the_Eternal_Freeze',
+        'Divine_Seed',
+        'Borehole_Planet_Old_Crater',
+        'Inner_Beast_Battlefield',
+        'Salutations_of_Ashen_Dreams',
+    ]:
         name = f'Echo_of_War_{name}'
-    if name in ['The_Swarm_Disaster', 'Gold_and_Gears']:
+    if name in [
+        'The_Swarm_Disaster',
+        'Swarm_Disaster',
+        'Gold_and_Gears',
+    ]:
         name = f'Simulated_Universe_{name}'
     name = name.replace('Stagnant_Shadow_Stagnant_Shadow', 'Stagnant_Shadow')
     name = name.replace('Cavern_of_Corrosion_Cavern_of_Corrosion', 'Cavern_of_Corrosion')
@@ -143,7 +154,12 @@ class GenerateDungeonList(GenerateKeyword):
 
         # Reverse Calyx_Golden, sort by world
         # Poor sort
-        dungeons[0:3], dungeons[6:9] = dungeons[6:9], dungeons[0:3]
+        Jarilo = dungeons[0:3]
+        Luofu = dungeons[3:6]
+        Penacony = dungeons[6:9]
+        Amphoreus = dungeons[9:12]
+        others = dungeons[12:]
+        dungeons = Amphoreus + Penacony + Luofu + Jarilo + others
 
         # Re-sort ID
         self.keyword_index = 0

@@ -28,7 +28,7 @@ class RelicSetKeywordGenerator(GeneratorBase):
         if is_latin:
             for w in re.split(r'[ \-—]', text):
                 w = w.strip(',.:;[]')
-                if len(w) >= 5:
+                if len(w) >= 4:
                     yield w
         else:
             try:

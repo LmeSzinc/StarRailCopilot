@@ -160,6 +160,9 @@ class DailyQuestUI(DungeonUI, RouteLoader):
             if self.appear(DAILY_QUEST_GOTO):
                 logger.info('No more quests to get, have quests uncompleted')
                 break
+            if self.appear(DAILY_QUEST_IN_PROGRESS):
+                logger.info('No more quests to get, have quests in progress')
+                break
             if self.appear_then_click(DAILY_QUEST_REWARD, interval=1):
                 reward = True
                 continue

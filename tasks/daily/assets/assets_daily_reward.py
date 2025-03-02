@@ -180,6 +180,23 @@ DAILY_QUEST_GOTO = ButtonWrapper(
         button=(175, 572, 192, 591),
     ),
 )
+DAILY_QUEST_IN_PROGRESS = ButtonWrapper(
+    name='DAILY_QUEST_IN_PROGRESS',
+    cn=Button(
+        file='./assets/cn/daily/reward/DAILY_QUEST_IN_PROGRESS.png',
+        area=(203, 570, 261, 587),
+        search=(183, 550, 281, 607),
+        color=(126, 109, 80),
+        button=(203, 570, 261, 587),
+    ),
+    en=Button(
+        file='./assets/en/daily/reward/DAILY_QUEST_IN_PROGRESS.png',
+        area=(214, 575, 289, 586),
+        search=(194, 555, 309, 606),
+        color=(144, 124, 88),
+        button=(214, 575, 289, 586),
+    ),
+)
 DAILY_QUEST_LEFT_START = ButtonWrapper(
     name='DAILY_QUEST_LEFT_START',
     share=Button(

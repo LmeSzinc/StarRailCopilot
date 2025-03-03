@@ -20,6 +20,7 @@ SPECIAL_PLANES = [
     ('Luofu_Cloudford', 'F1Rogue'),
     ('Luofu_StargazerNavalia', 'F1Rogue'),
     ('Luofu_StargazerNavalia', 'F2Rogue'),
+    ('Amphoreus_StrifeRuinsCastrumKremnos', 'F1OE'),
 ]
 
 

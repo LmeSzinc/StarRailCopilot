@@ -27,7 +27,8 @@ Star Rail auto script | 星铁速溶茶，崩坏：星穹铁道脚本，基于�
 
 ## 开发
 
-Discord https://discord.gg/aJkt3mKDEr QQ群 752620927
+QQ群 1033583803
+Discord https://discord.gg/aJkt3mKDEr
 
 - [小地图识别原理](https://github.com/LmeSzinc/StarRailCopilot/wiki/MinimapTracking)
 - 开发文档（目录在侧边栏）：[Alas wiki](https://github.com/LmeSzinc/AzurLaneAutoScript/wiki/1.-Start)，但很多内容是新写的，建议阅读源码和历史提交。

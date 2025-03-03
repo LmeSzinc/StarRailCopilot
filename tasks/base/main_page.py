@@ -27,6 +27,8 @@ class OcrPlaneName(OcrWhiteLetterOnComplexBackground):
         if 'Audition' in result:
             right = result.find('Audition') + len('Audition')
             result = result[:right] + ' Venue'
+        # The Radiant Feldspar
+        result = re.sub(r'The\s*Rad', 'Rad', result)
         # 幽囚狱
         result = result.replace('幽因狱', '幽囚狱')
         result = result.replace('幽因獄', '幽囚獄')

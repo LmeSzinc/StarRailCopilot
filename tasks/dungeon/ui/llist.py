@@ -286,7 +286,7 @@ class DungeonUIList(UI):
         """
         logger.hr('Dungeon insight (index)', level=2)
         if dungeon.is_Ornament_Extraction:
-            # Limit drag area in iOrnament_Extraction
+            # Limit drag area in Ornament_Extraction
             DUNGEON_LIST.search_button = OCR_DUNGEON_NAME_ROGUE
         elif dungeon.is_Echo_of_War:
             DUNGEON_LIST.search_button = OCR_DUNGEON_LIST
@@ -313,6 +313,9 @@ class DungeonUIList(UI):
             logger.info('Dungeon name is insight, swipe down a little bit to find the teleport button')
             if dungeon.is_Forgotten_Hall:
                 DUNGEON_LIST.drag_vector = (-0.4, -0.2)  # Keyword loaded is reversed
+            elif dungeon.is_Ornament_Extraction:
+                # Having banner, smaller list, drag more
+                DUNGEON_LIST.drag_vector = (0.65, 0.85)
             else:
                 DUNGEON_LIST.drag_vector = (0.2, 0.4)
             DUNGEON_LIST.limit_entrance = True

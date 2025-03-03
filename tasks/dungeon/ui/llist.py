@@ -79,15 +79,28 @@ class OcrDungeonList(OcrDungeonName):
         self.limit_entrance = False
 
     def detect_and_ocr(self, image, direct_ocr=False) -> list[BoxedResult]:
-        if self.button != OCR_DUNGEON_NAME:
-            if self.limit_entrance:
-                self.button = ClickButton((*self.button.area[:3], self.button.area[3] - 70))
-            return super().detect_and_ocr(image, direct_ocr=direct_ocr)
+        if self.button == OCR_DUNGEON_NAME:
+            return self.detect_and_ocr_with_teleport(
+                image, OCR_DUNGEON_NAME, OCR_DUNGEON_TELEPORT, direct_ocr=direct_ocr)
+        if self.button == OCR_DUNGEON_NAME_ROGUE:
+            return self.detect_and_ocr_with_teleport(
+                image, OCR_DUNGEON_NAME_ROGUE, OCR_DUNGEON_TELEPORT_ROGUE, direct_ocr=direct_ocr)
+        # Classic detect_and_ocr
+        if self.limit_entrance:
+            self.button = ClickButton((*self.button.area[:3], self.button.area[3] - 70))
+        return super().detect_and_ocr(image, direct_ocr=direct_ocr)
 
+    def detect_and_ocr_with_teleport(
+            self,
+            image,
+            ocr_name: ButtonWrapper,
+            ocr_teleport: ButtonWrapper,
+            direct_ocr=False
+    ) -> list[BoxedResult]:
         # Concat OCR_DUNGEON_NAME and OCR_DUNGEON_TELEPORT
         # so they can be OCRed at one time
-        left = crop(image, OCR_DUNGEON_NAME.area, copy=False)
-        right = crop(image, OCR_DUNGEON_TELEPORT.area, copy=False)
+        left = crop(image, ocr_name.area, copy=False)
+        right = crop(image, ocr_teleport.area, copy=False)
         lw, lh = image_size(left)
         rw, rh = image_size(right)
         if lh != rh:
@@ -106,10 +119,10 @@ class OcrDungeonList(OcrDungeonName):
             # Belongs to right image
             if x >= lw:
                 result.box = area_offset(result.box, offset=(-lw, 0))
-                result.box = area_offset(result.box, offset=OCR_DUNGEON_TELEPORT.area[:2])
+                result.box = area_offset(result.box, offset=ocr_teleport.area[:2])
             # Belongs to left image
             else:
-                result.box = area_offset(result.box, offset=OCR_DUNGEON_NAME.area[:2])
+                result.box = area_offset(result.box, offset=ocr_name.area[:2])
 
         before = copy(results)
         # Calyx_Crimson_The_Hunt_Penacony_SoulGladScorchsandAuditionVenue

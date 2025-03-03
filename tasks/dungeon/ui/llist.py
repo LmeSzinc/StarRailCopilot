@@ -113,12 +113,9 @@ class OcrDungeonList(OcrDungeonName):
 
         before = copy(results)
         # Calyx_Crimson_The_Hunt_Penacony_SoulGladScorchsandAuditionVenue
-        merge_result_button(
-            results,
-            left_func=lambda x: 'Audition' in x,
-            right_func=lambda x: 'Venue' in x,
-            text_func=lambda l, r: f'SoulGladScorchsandAuditionVenue'
-        )
+        merge_result_button(results, 'Audition', 'Venue', 'SoulGladScorchsandAuditionVenue')
+        merge_result_button(results, 'Sanctum', 'Janusopo', 'SanctumofProphecyJanusopolis')
+        merge_result_button(results, 'Murmuring', 'Epiphany', 'MurmuringWoodsGroveofEpiphany')
         if results != before:
             logger.attr(name=self.name,
                         text=str([result.ocr_text for result in results]))

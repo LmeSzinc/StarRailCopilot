@@ -53,40 +53,35 @@ def _merge_boxed_result(left: BoxedResult, right: BoxedResult) -> BoxedResult:
 
 def merge_result_button(
         results: list[BoxedResult],
-        left_func: callable,
-        right_func: callable,
-        text_func: callable
+        left_keyword: str,
+        right_keyword: str,
+        merged_text: str
 ) -> list[BoxedResult]:
     """
     Args:
         results:
-        left_func: Function that inputs ocr_text (str) and outputs bool
-            True means mark as left text
-        right_func:
-        text_func: Function that inputs left_text (str) right_text (str) and outputs text (str)
+        left_keyword:
+        right_keyword:
+        merged_text:
     """
     left = None
     right = None
     for result in results:
-        if left_func(result.ocr_text):
+        if left_keyword in result.ocr_text:
             left = result
-        elif right_func(result.ocr_text):
+        elif right_keyword in result.ocr_text:
             right = result
 
-    text = text_func(
-        left.ocr_text if left is not None else '',
-        right.ocr_text if right is not None else ''
-    )
     if left is not None:
         if right is not None:
             results.remove(right)
             left.box = _merge_area(left.box, right.box)
-            left.ocr_text = text
+            left.ocr_text = merged_text
         else:
-            left.ocr_text = text
+            left.ocr_text = merged_text
     else:
         if right is not None:
-            right.ocr_text = text
+            right.ocr_text = merged_text
         else:
             pass
     return results

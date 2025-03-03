@@ -73,3 +73,13 @@ OCR_DUNGEON_TELEPORT = ButtonWrapper(
         button=(1013, 172, 1163, 624),
     ),
 )
+OCR_DUNGEON_TELEPORT_ROGUE = ButtonWrapper(
+    name='OCR_DUNGEON_TELEPORT_ROGUE',
+    share=Button(
+        file='./assets/share/dungeon/ui_list/OCR_DUNGEON_TELEPORT_ROGUE.png',
+        area=(1013, 292, 1163, 624),
+        search=(993, 272, 1183, 644),
+        color=(238, 238, 238),
+        button=(1013, 292, 1163, 624),
+    ),
+)

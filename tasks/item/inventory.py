@@ -4,7 +4,7 @@ from scipy import signal
 
 from module.base.base import ModuleBase
 from module.base.button import ButtonWrapper
-from module.base.decorator import cached_property
+from module.base.decorator import cached_property, del_cached_property
 from module.base.timer import Timer
 from module.base.utils import Lines, area_center, area_offset, color_similarity_2d, xywh2xyxy
 from module.logger import logger
@@ -24,6 +24,10 @@ class InventoryItem:
     def crop(self, area, copy=False):
         area = area_offset(area, offset=self.point)
         return self.main.image_crop(area, copy=copy)
+
+    def clear_cache(self):
+        del_cached_property(self, 'button')
+        del_cached_property(self, 'is_selected')
 
     @cached_property
     def button(self):
@@ -51,7 +55,10 @@ class InventoryItem:
 
 
 class InventoryManager:
+    ITEM_CLASS = InventoryItem
     GRID_DELTA = (104, 124)
+    CONST_X_LIST: list[int] = []
+    CONST_Y_LIST: list[int] = []
 
     ERROR_LINES_TOLERANCE = (-10, 10)
     COINCIDENT_POINT_ENCOURAGE_DISTANCE = 1.
@@ -172,26 +179,35 @@ class InventoryManager:
         points = np.array(area_item)
         points += self.inventory.area[:2]
         area = self.inventory.area
-        x_list = np.unique(np.sort(points[:, 0]))
-        y_list = np.unique(np.sort(points[:, 1]))
-        # print(x_list)
-        # print(y_list)
-        x_list = self.mid_cleanse(
-            x_list,
-            mid_diff_range=(self.GRID_DELTA[0] - 3, self.GRID_DELTA[0] + 3),
-            edge_range=(area[0], area[2])
-        )
-        y_list = self.mid_cleanse(
-            y_list,
-            mid_diff_range=(self.GRID_DELTA[1] - 3, self.GRID_DELTA[1] + 3),
-            edge_range=(area[1], area[3])
-        )
+        if self.CONST_X_LIST:
+            x_list = self.CONST_X_LIST
+        else:
+            x_list = np.unique(np.sort(points[:, 0]))
+            # print(x_list)
+            x_list = self.mid_cleanse(
+                x_list,
+                mid_diff_range=(self.GRID_DELTA[0] - 3, self.GRID_DELTA[0] + 3),
+                edge_range=(area[0], area[2])
+            )
+        if self.CONST_Y_LIST:
+            y_list = self.CONST_Y_LIST
+        else:
+            y_list = np.unique(np.sort(points[:, 1]))
+            # print(y_list)
+            y_list = self.mid_cleanse(
+                y_list,
+                mid_diff_range=(self.GRID_DELTA[1] - 3, self.GRID_DELTA[1] + 3),
+                edge_range=(area[1], area[3])
+            )
+
         # print(x_list)
         # print(y_list)
 
         def is_near_existing(p):
             diff = np.linalg.norm(points - p, axis=1)
-            return np.any(diff < 3)
+            near = points[np.argmin(diff)]
+            diff_x, diff_y = np.abs(near - p)
+            return diff_x < 24 and diff_y < 8
 
         def iter_items():
             y_max = -1
@@ -204,7 +220,7 @@ class InventoryManager:
                 if y < y_max:
                     # Fill items
                     for xi, x in enumerate(x_list):
-                        yield InventoryItem(main=self.main, loca=(xi, yi), point=(int(x), int(y)))
+                        yield self.ITEM_CLASS(main=self.main, loca=(xi, yi), point=(int(x), int(y)))
                 elif y == y_max:
                     # Fill until the last item
                     x_max = -1
@@ -213,15 +229,26 @@ class InventoryManager:
                             x_max = xi
                     for xi, x in enumerate(x_list):
                         if xi <= x_max:
-                            yield InventoryItem(main=self.main, loca=(xi, yi), point=(int(x), int(y)))
+                            yield self.ITEM_CLASS(main=self.main, loca=(xi, yi), point=(int(x), int(y)))
                 else:
                     break
 
         # Re-generate items
         self.items = {}
-        selected = []
         for item in iter_items():
             self.items[item.loca] = item
+
+        self.update_selected(log=False)
+
+        count = len(self.items)
+        logger.info(f'Inventory: {count} items, selected {self.selected}')
+        if count > self.MAXIMUM_ITEMS:
+            logger.warning('Too many inventory items detected')
+
+    def update_selected(self, log=True):
+        selected = []
+        for item in self.items.values():
+            item.clear_cache()
             if item.is_selected:
                 selected.append(item)
 
@@ -237,10 +264,8 @@ class InventoryManager:
         else:
             self.selected = selected[0]
 
-        count = len(self.items)
-        logger.info(f'Inventory: {count} items, selected {self.selected}')
-        if count > self.MAXIMUM_ITEMS:
-            logger.warning('Too many inventory items detected')
+        if log:
+            logger.info(f'Inventory: selected {self.selected}')
 
     def get_row_first(self, row=1, first=0) -> InventoryItem | None:
         """
@@ -281,22 +306,45 @@ class InventoryManager:
         except KeyError:
             return None
 
-    def select(self, item, skip_first_screenshot=True):
+    def select(self, item, first_click=True, early_stop=None, skip_first_screenshot=True):
+        """
+        Select an item in inventory.
+        `self.update()` should have called before selecting item.
+
+        Args:
+            item: InventoryItem object or (x, y) in item grid
+            first_click (bool):
+                True in most cases, False if this is the second select() after early stop.
+                Example:
+                    # Click til early stop triggered
+                    inv.select(early_stop=...)
+                    # Wait until item selected
+                    inv.select(first_click=False)
+            early_stop (callable): A function that returns bool, True to stop state loop
+            skip_first_screenshot:
+        """
         logger.info(f'Inventory select {item}')
         if isinstance(item, InventoryItem):
             loca = item.loca
         else:
             loca = item
+        # Reuse existing item grid first, re-update every 5s
+        update_interval = Timer(5, count=10).reset()
 
-        interval = Timer(2, count=6)
+        click_interval = Timer(2, count=6)
         clicked = False
+        if not first_click:
+            click_interval.reset()
+            clicked = True
         while 1:
             if skip_first_screenshot:
                 skip_first_screenshot = False
             else:
                 self.main.device.screenshot()
 
-            self.update()
+            if update_interval.reached():
+                self.update()
+                update_interval.reset()
             if len(self.items) > self.MAXIMUM_ITEMS:
                 continue
             try:
@@ -309,12 +357,19 @@ class InventoryManager:
             if clicked and item.is_selected:
                 logger.info('Inventory item selected')
                 break
+            if clicked and early_stop is not None and early_stop():
+                logger.info('Inventory item select early stop')
+                break
             # Click
-            if interval.reached():
+            if click_interval.reached():
                 self.main.device.click(item)
-                interval.reset()
+                click_interval.reset()
                 clicked = True
                 continue
+
+    def assume_selected(self, item):
+        logger.info(f'Assume selected: {item}')
+        self.selected = item
 
     def wait_selected(self, select_first=False, skip_first_screenshot=True):
         """
@@ -332,6 +387,7 @@ class InventoryManager:
                 skip_first_screenshot = False
             else:
                 self.main.device.screenshot()
+                self.update_selected()
 
             self.update()
 

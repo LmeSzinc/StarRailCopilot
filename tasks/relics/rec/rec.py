@@ -67,7 +67,7 @@ class RelicRec(RecMainStat, RecSubStat, RecRelicPart, RecRelicSet, RecRelicLevel
             return None
 
         reliclevel = self.rec_reliclevel(image)
-        if reliclevel <= 0 or reliclevel > 15:
+        if reliclevel < 0 or reliclevel > 15:
             logger.warning(f'Invalid relic, invalid reliclevel')
             return None
 

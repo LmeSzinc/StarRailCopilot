@@ -29,4 +29,4 @@ class RecRelicLevel(RelicRecBase):
             return int(res.group(1))
         else:
             logger.warning(f'No digit found in {result}')
-            return 0
+            return -1

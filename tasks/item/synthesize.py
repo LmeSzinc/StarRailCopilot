@@ -153,14 +153,15 @@ class Synthesize(CombatObtain, ItemUI):
         # 2025.02.26, Since 3.1 purple items can be auto synthesized from blue and green at one time
         # Having two items -> purple is selected
         rarity = self._item_get_rarity_from_button(ENTRY_ITEM_FROM_LEFT)
-        if rarity:
-            logger.attr('SynthesizeRarity', rarity)
+        # When having 2 items, left is blue and right is green
+        if rarity == 'blue':
+            logger.attr('SynthesizeRarity', 'blue (LEFT)')
             return rarity
         # Check item in the middle
         rarity = self._item_get_rarity_from_button(ENTRY_ITEM_FROM)
         if rarity == 'blue':
             # Blue item appears -> purple is selected
-            logger.attr('SynthesizeRarity', rarity)
+            logger.attr('SynthesizeRarity', 'blue (MIDDLE)')
             return rarity
         elif rarity == 'green':
             # If middle item is green, it could be purple or blue item selected

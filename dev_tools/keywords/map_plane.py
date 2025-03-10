@@ -37,13 +37,13 @@ class GenerateMapPlane(GenerateKeyword):
     def iter_planes_v20(self) -> t.Iterable[dict]:
         dic_hardcoded_text = {
             # 观景车厢
-            1000001: 1731188599,
+            1000001: 16122116119434705823,
             # 客房车厢
-            1000002: 2134473126,
+            1000002: 12276379320375710796,
             # 派对车厢
-            1000003: 1905536184,
+            1000003: 17599885756999781312,
             # 金人巷
-            1020204: 1146019185,
+            1020204: 13008309485488480024,
         }
         for data in self.AreaMapConfig:
             plane_id = int(deep_get(data, 'ID', 0))
@@ -137,7 +137,7 @@ class GenerateMapPlane(GenerateKeyword):
                 world_id=-2,
                 plane_id=index + 1,
             )
-        domains = ['晖长石号', '开拓之尾号', '塔塔洛夫号', '飞翔时针号']
+        domains = ['晖长石号', '开拓之尾号', '塔塔洛夫号', '飞翔时针号', '差分宇宙']
         for index, domain in enumerate(domains):
             yield dict(
                 text_id=to_id(domain),

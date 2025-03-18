@@ -3,6 +3,8 @@ import re
 from dataclasses import dataclass
 from typing import Callable, Generic, Iterable, TypeVar
 
+from deploy.Windows.atomic import atomic_read, atomic_write
+
 T = TypeVar("T")
 
 DEPLOY_CONFIG = './config/deploy.yaml'
@@ -64,29 +66,26 @@ def poor_yaml_read(file):
     Returns:
         dict:
     """
-    if not os.path.exists(file):
-        return {}
-
+    content = atomic_read(file)
     data = {}
     regex = re.compile(r'^(.*?):(.*?)$')
-    with open(file, 'r', encoding='utf-8') as f:
-        for line in f.readlines():
-            line = line.strip('\n\r\t ').replace('\\', '/')
-            if line.startswith('#'):
-                continue
-            result = re.match(regex, line)
-            if result:
-                k, v = result.group(1), result.group(2).strip('\n\r\t\' ')
-                if v:
-                    if v.lower() == 'null':
-                        v = None
-                    elif v.lower() == 'false':
-                        v = False
-                    elif v.lower() == 'true':
-                        v = True
-                    elif v.isdigit():
-                        v = int(v)
-                    data[k] = v
+    for line in content.splitlines():
+        line = line.strip('\n\r\t ').replace('\\', '/')
+        if line.startswith('#'):
+            continue
+        result = re.match(regex, line)
+        if result:
+            k, v = result.group(1), result.group(2).strip('\n\r\t\' ')
+            if v:
+                if v.lower() == 'null':
+                    v = None
+                elif v.lower() == 'false':
+                    v = False
+                elif v.lower() == 'true':
+                    v = True
+                elif v.isdigit():
+                    v = int(v)
+                data[k] = v
 
     return data
 
@@ -98,8 +97,8 @@ def poor_yaml_write(data, file, template_file=DEPLOY_TEMPLATE):
         file (str):
         template_file (str):
     """
-    with open(template_file, 'r', encoding='utf-8') as f:
-        text = f.read().replace('\\', '/')
+    text = atomic_read(template_file)
+    text = text.replace('\\', '/')
 
     for key, value in data.items():
         if value is None:
@@ -110,9 +109,7 @@ def poor_yaml_write(data, file, template_file=DEPLOY_TEMPLATE):
             value = "false"
         text = re.sub(f'{key}:.*?\n', f'{key}: {value}\n', text)
 
-    with open(file, 'w', encoding='utf-8', newline='') as f:
-        f.write(text)
-
+    atomic_write(file, text)
 
 @dataclass
 class DataProcessInfo:

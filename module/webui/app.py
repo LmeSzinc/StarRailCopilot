@@ -1332,6 +1332,9 @@ def app():
     logger.attr("Password", True if key else False)
     logger.attr("CDN", cdn)
 
+    from deploy.Windows.atomic import atomic_failure_cleanup
+    atomic_failure_cleanup('./config')
+
     def index():
         if key is not None and not login(key):
             logger.warning(f"{info.user_ip} login failed.")

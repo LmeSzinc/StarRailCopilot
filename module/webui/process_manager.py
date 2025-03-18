@@ -6,10 +6,8 @@ from multiprocessing import Process
 from typing import Dict, List, Union
 
 import inflection
-from filelock import FileLock
 from rich.console import Console, ConsoleRenderable
 
-from module.config.utils import filepath_config
 from module.logger import logger, set_file_logger, set_func_logger
 from module.webui.fake import get_config_mod, mod_instance
 from module.webui.setting import State
@@ -26,6 +24,7 @@ class ProcessManager:
         self.renderables_max_length = 400
         self.renderables_reduce_length = 80
         self._process: Process = None
+        self._process_locks: Dict[str, threading.Lock] = {}
         self.thd_log_queue_handler: threading.Thread = None
 
     def start(self, func, ev: threading.Event = None) -> None:
@@ -56,7 +55,12 @@ class ProcessManager:
         self.thd_log_queue_handler.start()
 
     def stop(self) -> None:
-        lock = FileLock(f"{filepath_config(self.config_name)}.lock")
+        try:
+            lock = self._process_locks[self.config_name]
+        except KeyError:
+            lock = threading.Lock()
+            self._process_locks[self.config_name] = lock
+
         with lock:
             if self.alive:
                 self._process.kill()

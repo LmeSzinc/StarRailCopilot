@@ -7,7 +7,8 @@ from hashlib import md5
 
 from dev_tools.keywords.base import TextMap, UI_LANGUAGES, replace_templates, text_to_variable
 from module.base.code_generator import CodeGenerator
-from module.config.utils import deep_get, read_file
+from module.config.deep import deep_get
+from module.config.utils import read_file
 from module.logger import logger
 
 

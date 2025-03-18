@@ -13,6 +13,8 @@ from deploy.Windows.pip import PipManager
 
 class Installer(GitManager, PipManager, AdbManager, AppManager, AlasManager):
     def install(self):
+        from deploy.Windows.atomic import atomic_failure_cleanup
+        atomic_failure_cleanup('./config')
         try:
             self.git_install()
             self.alas_kill()

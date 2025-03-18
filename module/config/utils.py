@@ -2,14 +2,12 @@ import json
 import os
 import random
 import string
-from collections import deque
 from datetime import datetime, timedelta, timezone
 
 import yaml
-from filelock import FileLock
 
 import module.config.server as server_
-from module.config.atomicwrites import atomic_write
+from deploy.Windows.atomic import atomic_read, atomic_write
 
 LANGUAGES = ['zh-CN', 'en-US', 'ja-JP', 'zh-TW', 'es-ES']
 SERVER_TO_TIMEZONE = {
@@ -68,33 +66,23 @@ def read_file(file):
     Returns:
         dict, list:
     """
-    folder = os.path.dirname(file)
-    if not os.path.exists(folder):
-        os.mkdir(folder)
-
-    if not os.path.exists(file):
-        return {}
-
-    _, ext = os.path.splitext(file)
-    lock = FileLock(f"{file}.lock")
-    with lock:
-        print(f'read: {file}')
-        if ext == '.yaml':
-            with open(file, mode='r', encoding='utf-8') as f:
-                s = f.read()
-                data = list(yaml.safe_load_all(s))
-                if len(data) == 1:
-                    data = data[0]
-                if not data:
-                    data = {}
-                return data
-        elif ext == '.json':
-            with open(file, mode='r', encoding='utf-8') as f:
-                s = f.read()
-                return json.loads(s)
-        else:
-            print(f'Unsupported config file extension: {ext}')
+    print(f'read: {file}')
+    if file.endswith('.json'):
+        content = atomic_read(file, mode='rb')
+        if not content:
             return {}
+        return json.loads(content)
+    elif file.endswith('.yaml'):
+        content = atomic_read(file, mode='r')
+        data = list(yaml.safe_load_all(content))
+        if len(data) == 1:
+            data = data[0]
+        if not data:
+            data = {}
+        return data
+    else:
+        print(f'Unsupported config file extension: {file}')
+        return {}
 
 
 def write_file(file, data):
@@ -105,28 +93,20 @@ def write_file(file, data):
         file (str):
         data (dict, list):
     """
-    folder = os.path.dirname(file)
-    if not os.path.exists(folder):
-        os.mkdir(folder)
-
-    _, ext = os.path.splitext(file)
-    lock = FileLock(f"{file}.lock")
-    with lock:
-        print(f'write: {file}')
-        if ext == '.yaml':
-            with atomic_write(file, overwrite=True, encoding='utf-8', newline='') as f:
-                if isinstance(data, list):
-                    yaml.safe_dump_all(data, f, default_flow_style=False, encoding='utf-8', allow_unicode=True,
-                                       sort_keys=False)
-                else:
-                    yaml.safe_dump(data, f, default_flow_style=False, encoding='utf-8', allow_unicode=True,
-                                   sort_keys=False)
-        elif ext == '.json':
-            with atomic_write(file, overwrite=True, encoding='utf-8', newline='') as f:
-                s = json.dumps(data, indent=2, ensure_ascii=False, sort_keys=False, default=str)
-                f.write(s)
+    print(f'write: {file}')
+    if file.endswith('.json'):
+        content = json.dumps(data, indent=2, ensure_ascii=False, sort_keys=False, default=str)
+        atomic_write(file, content)
+    elif file.endswith('.yaml'):
+        if isinstance(data, list):
+            content = yaml.safe_dump_all(
+                data, default_flow_style=False, encoding='utf-8', allow_unicode=True, sort_keys=False)
         else:
-            print(f'Unsupported config file extension: {ext}')
+            content = yaml.safe_dump(
+                data, default_flow_style=False, encoding='utf-8', allow_unicode=True, sort_keys=False)
+        atomic_write(file, content)
+    else:
+        print(f'Unsupported config file extension: {file}')
 
 
 def iter_folder(folder, is_dir=False, ext=None):
@@ -188,188 +168,6 @@ def alas_instance():
         out = ['src']
 
     return out
-
-
-def deep_get(d, keys, default=None):
-    # 240 + 30 * depth (ns)
-    if type(keys) is str:
-        keys = keys.split('.')
-
-    try:
-        for k in keys:
-            d = d[k]
-        return d
-    # No such key
-    except KeyError:
-        return default
-    # Input `keys` is not iterable or input `d` is not dict
-    except TypeError:
-        return default
-
-
-def deep_set(d, keys, value):
-    """
-    Set value into dictionary safely, imitating deep_get().
-    """
-    # 150 * depth (ns)
-    if type(keys) is str:
-        keys = keys.split('.')
-
-    first = True
-    exist = True
-    prev_d = None
-    prev_k = None
-    prev_k2 = None
-    try:
-        for k in keys:
-            if first:
-                prev_d = d
-                prev_k = k
-                first = False
-                continue
-            try:
-                # if key in dict: dict[key] > dict.get > dict.setdefault > try dict[key] except
-                if exist and prev_k in d:
-                    prev_d = d
-                    d = d[prev_k]
-                else:
-                    exist = False
-                    new = {}
-                    d[prev_k] = new
-                    d = new
-            except TypeError:
-                # `d` is not dict
-                exist = False
-                d = {}
-                prev_d[prev_k2] = {prev_k: d}
-
-            prev_k2 = prev_k
-            prev_k = k
-            # prev_k2, prev_k = prev_k, k
-    # Input `keys` is not iterable
-    except TypeError:
-        return
-
-    # Last key, set value
-    try:
-        d[prev_k] = value
-        return
-    # Last value `d` is not dict
-    except TypeError:
-        prev_d[prev_k2] = {prev_k: value}
-        return
-
-
-def deep_pop(d, keys, default=None):
-    if type(keys) is str:
-        keys = keys.split('.')
-
-    try:
-        for k in keys[:-1]:
-            d = d[k]
-        return d.pop(keys[-1], default)
-    # No such key
-    except KeyError:
-        return default
-    # Input `keys` is not iterable or input `d` is not dict
-    except TypeError:
-        return default
-    # Input `keys` out of index
-    except IndexError:
-        return default
-    # Last `d` is not dict
-    except AttributeError:
-        return default
-
-
-def deep_default(d, keys, value):
-    """
-    Set default value into dictionary safely, imitating deep_get().
-    Value is set only when the dict doesn't contain such keys.
-    """
-    if isinstance(keys, str):
-        keys = keys.split('.')
-    assert type(keys) is list
-    if not keys:
-        if d:
-            return d
-        else:
-            return value
-    if not isinstance(d, dict):
-        d = {}
-    d[keys[0]] = deep_default(d.get(keys[0], {}), keys[1:], value)
-    return d
-
-
-def deep_iter(data, min_depth=None, depth=3):
-    """
-    300us on alas.json depth=3 (530+ rows)
-
-    Args:
-        data:
-        min_depth:
-        depth:
-
-    Returns:
-
-    """
-    if min_depth is None:
-        min_depth = depth
-    assert 1 <= min_depth <= depth
-
-    # Equivalent to dict.items()
-    try:
-        if depth == 1:
-            for k, v in data.items():
-                yield [k], v
-            return
-        # Iter first depth
-        elif min_depth == 1:
-            q = deque()
-            for k, v in data.items():
-                key = [k]
-                if type(v) is dict:
-                    q.append((key, v))
-                else:
-                    yield key, v
-        # Iter target depth only
-        else:
-            q = deque()
-            for k, v in data.items():
-                key = [k]
-                if type(v) is dict:
-                    q.append((key, v))
-    except AttributeError:
-        # `data` is not dict
-        return
-
-    # Iter depths
-    current = 2
-    while current <= depth:
-        new_q = deque()
-        # max depth
-        if current == depth:
-            for key, data in q:
-                for k, v in data.items():
-                    yield key + [k], v
-        # in target depth
-        elif min_depth <= current < depth:
-            for key, data in q:
-                for k, v in data.items():
-                    subkey = key + [k]
-                    if type(v) is dict:
-                        new_q.append((subkey, v))
-                    else:
-                        yield subkey, v
-        # Haven't reached min depth
-        else:
-            for key, data in q:
-                for k, v in data.items():
-                    subkey = key + [k]
-                    if type(v) is dict:
-                        new_q.append((subkey, v))
-        q = new_q
-        current += 1
 
 
 def parse_value(value, data):

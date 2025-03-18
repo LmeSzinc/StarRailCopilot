@@ -41,12 +41,10 @@ from pywebio.session import (
 
 import module.webui.lang as lang
 from module.config.config import AzurLaneConfig, Function
+from module.config.deep import deep_get, deep_iter, deep_set
 from module.config.utils import (
     alas_instance,
     alas_template,
-    deep_get,
-    deep_iter,
-    deep_set,
     dict_to_kv,
     filepath_args,
     filepath_config,
@@ -1331,6 +1329,9 @@ def app():
     logger.attr("Language", lang.LANG)
     logger.attr("Password", True if key else False)
     logger.attr("CDN", cdn)
+
+    from deploy.Windows.atomic import atomic_failure_cleanup
+    atomic_failure_cleanup('./config')
 
     def index():
         if key is not None and not login(key):

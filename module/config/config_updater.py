@@ -7,6 +7,7 @@ from cached_property import cached_property
 from deploy.Windows.utils import DEPLOY_TEMPLATE, poor_yaml_read, poor_yaml_write
 from module.base.timer import timer
 from module.config.convert import *
+from module.config.deep import deep_default, deep_get, deep_iter, deep_set
 from module.config.server import VALID_SERVER
 from module.config.utils import *
 

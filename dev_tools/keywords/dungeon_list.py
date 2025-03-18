@@ -3,7 +3,7 @@ import typing as t
 
 from dev_tools.keywords.base import GenerateKeyword, SHARE_DATA, text_to_variable
 from module.base.decorator import cached_property
-from module.config.utils import deep_get
+from module.config.deep import deep_get
 
 
 def dungeon_name(name: str) -> str:

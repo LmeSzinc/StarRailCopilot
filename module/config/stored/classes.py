@@ -2,7 +2,8 @@ from datetime import datetime
 from functools import cached_property as functools_cached_property
 
 from module.base.decorator import cached_property
-from module.config.utils import DEFAULT_TIME, deep_get, get_server_last_monday_update, get_server_last_update
+from module.config.deep import deep_get
+from module.config.utils import DEFAULT_TIME, get_server_last_monday_update, get_server_last_update
 from module.exception import ScriptError
 
 

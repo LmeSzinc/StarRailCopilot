@@ -18,7 +18,10 @@ Star Rail Instant Tea, a bot for Honkai: Star Rail, based on the next generation
 
 ## Install [![](https://img.shields.io/github/downloads/LmeSzinc/StarRailCopilot/total?color=4e4c97)](https://github.com/LmeSzinc/StarRailCopilot/releases)
 
-Refers to [Installation tutorial](https://github.com/LmeSzinc/StarRailCopilot/wiki/Installation_en), including easy-installer manual, use manual, manual installation tutorial.
+[Installation tutorial](https://github.com/LmeSzinc/StarRailCopilot/wiki/Installation_en), including easy-installer manual, use manual, manual installation tutorial.
+
+[Device Manual](https://github.com/LmeSzinc/AzurLaneAutoScript/wiki/Emulator_cn), supporting Windows/Mac/Linux and various running methods.
+
 
 > **Why use emulators?** If you run a bot on the desktop client, game windows must stay at front. I guess you don't wanna baby-sit there without being able to move the mouse and keyboard while running the bot, so use the emulators.
 

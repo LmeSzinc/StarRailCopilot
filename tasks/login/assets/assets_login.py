@@ -5,14 +5,22 @@ from module.base.button import Button, ButtonWrapper
 
 ACCOUNT_CONFIRM = ButtonWrapper(
     name='ACCOUNT_CONFIRM',
-    cn=Button(
-        file='./assets/cn/login/ACCOUNT_CONFIRM.png',
-        area=(583, 424, 696, 450),
-        search=(563, 404, 716, 470),
-        color=(172, 145, 92),
-        button=(583, 424, 696, 450),
-    ),
-    en=None,
+    share=[
+        Button(
+            file='./assets/share/login/ACCOUNT_CONFIRM.png',
+            area=(583, 424, 696, 450),
+            search=(563, 404, 716, 470),
+            color=(172, 145, 92),
+            button=(583, 424, 696, 450),
+        ),
+        Button(
+            file='./assets/share/login/ACCOUNT_CONFIRM.2.png',
+            area=(602, 416, 644, 442),
+            search=(582, 396, 664, 462),
+            color=(180, 150, 93),
+            button=(602, 416, 644, 442),
+        ),
+    ],
 )
 LOGIN_CONFIRM = ButtonWrapper(
     name='LOGIN_CONFIRM',

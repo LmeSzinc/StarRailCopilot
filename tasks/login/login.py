@@ -72,8 +72,6 @@ class Login(LoginAndroidCloud, RogueUI):
                 continue
             if self.handle_user_agreement():
                 continue
-            if self.appear_then_click(ACCOUNT_CONFIRM):
-                continue
             # Additional
             if self.handle_popup_single():
                 continue
@@ -103,6 +101,21 @@ class Login(LoginAndroidCloud, RogueUI):
             if not self.image_color_count(TOS_AGREE_CHECKBOX, color=(254, 240, 108), count=20, threshold=180):
                 self.device.click(TOS_AGREE_CHECKBOX)
                 return True
+        return False
+
+    def handle_account_confirm(self):
+        """
+        ACCOUNT_CONFIRM is not a multi-server assets as text language is not detected before log in.
+        It just detects all languages.
+
+        ACCOUNT_CONFIRM doesn't appear in most times, sometimes game client won't auto login but requiring you to
+        click login even if there is only one account.
+
+        Returns:
+            bool: If clicked
+        """
+        if self.appear_then_click(ACCOUNT_CONFIRM):
+            return True
         return False
 
     def handle_app_login(self):

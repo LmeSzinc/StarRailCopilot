@@ -70,7 +70,7 @@ class Login(LoginAndroidCloud, RogueUI):
                 self.device.click(LOGIN_CONFIRM)
                 login_success = True
                 continue
-            if self.appear_then_click(USER_AGREEMENT_ACCEPT):
+            if self.handle_user_agreement():
                 continue
             if self.appear_then_click(ACCOUNT_CONFIRM):
                 continue
@@ -85,6 +85,25 @@ class Login(LoginAndroidCloud, RogueUI):
                 continue
 
         return True
+
+    def handle_user_agreement(self):
+        """
+        Returns:
+            bool: If clicked
+        """
+        # CN user agreement popup
+        if self.appear_then_click(USER_AGREEMENT_ACCEPT, interval=3):
+            return True
+        # Oversea TOS
+        if self.match_template_color(TOS_ACCEPT, interval=3):
+            self.device.click(TOS_ACCEPT)
+            return True
+        if self.appear(TOS_AGREE_TEXT, interval=3):
+            # Select checkbox
+            if not self.image_color_count(TOS_AGREE_CHECKBOX, color=(254, 240, 108), count=20, threshold=180):
+                self.device.click(TOS_AGREE_CHECKBOX)
+                return True
+        return False
 
     def handle_app_login(self):
         logger.info('handle_app_login')

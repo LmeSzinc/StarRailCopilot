@@ -21,13 +21,16 @@ Star Rail auto script | 星铁速溶茶，崩坏：星穹铁道脚本，基于�
 
 [中文安装教程](https://github.com/LmeSzinc/StarRailCopilot/wiki/Installation_cn)，包含自动安装教程，使用教程，手动安装教程。
 
+[设备支持文档](https://github.com/LmeSzinc/AzurLaneAutoScript/wiki/Emulator_cn)，支持 Windows/Mac/Linux 以及各种骚方式运行。
+
 > **为什么使用模拟器？** 如果你用桌面端来运行脚本的话，游戏窗口必须保持在前台，我猜你也不想运行脚本的时候不能动鼠标键盘像个傻宝一样坐在那吧，所以用模拟器。
 
 > **模拟器的性能表现如何？** Lme 的 8700k+1080ti 使用 MuMu 12 模拟器画质设置非常高是有 40fps 的，如果你的配置稍微新一点的话，特效最高 60fps 不是问题。
 
 ## 开发
 
-QQ群 1033583803
+QQ一群 752620927 (有开发意向请加一群)
+QQ二群 1033583803
 Discord https://discord.gg/aJkt3mKDEr
 
 - [小地图识别原理](https://github.com/LmeSzinc/StarRailCopilot/wiki/MinimapTracking)

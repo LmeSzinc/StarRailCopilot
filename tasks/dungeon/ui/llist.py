@@ -58,6 +58,7 @@ class OcrDungeonName(Ocr):
             result = re.sub('^怒之形', '嗔怒之形', result)
             # 蛀星的旧·历战余响
             result = re.sub(r'蛀星的旧.*?历战', '蛀星的旧靥•历战', result)
+            result = re.sub(r'蛀星的旧$', '蛀星的旧靥', result)
             # 蠹役饥肠
             result = re.sub('[鑫蠢]役', '蠹役', result)
             # 「呓语密林」神悟树庭

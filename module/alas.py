@@ -7,7 +7,7 @@ from cached_property import cached_property
 
 from module.base.decorator import del_cached_property
 from module.config.config import AzurLaneConfig, TaskEnd
-from module.config.utils import deep_get, deep_set
+from module.config.deep import deep_get, deep_set
 from module.exception import *
 from module.logger import logger, save_error_log
 from module.notify import handle_notify
@@ -215,7 +215,9 @@ class AzurLaneAutoScript:
                         del_cached_property(self, 'config')
                         continue
                     if task.command != 'Restart':
-                        self.run('start')
+                        self.config.task_call('Restart')
+                        del_cached_property(self, 'config')
+                        continue
                 elif method == 'goto_main':
                     logger.info('Goto main page during wait')
                     self.run('goto_main')

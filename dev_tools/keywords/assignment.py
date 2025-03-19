@@ -2,7 +2,7 @@ from functools import cache
 from typing import Iterable
 
 from dev_tools.keywords.base import UI_LANGUAGES, GenerateKeyword
-from module.config.utils import deep_get
+from module.config.deep import deep_get
 
 
 def resort(dic: dict):

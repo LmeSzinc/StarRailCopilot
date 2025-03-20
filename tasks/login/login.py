@@ -3,12 +3,13 @@ from module.exception import GameNotRunningError
 from module.logger import logger
 from tasks.base.page import page_main
 from tasks.combat.assets.assets_combat_interact import MAP_LOADING
+from tasks.login.agreement import AgreementHandler
 from tasks.login.assets.assets_login import *
 from tasks.login.cloud import LoginAndroidCloud
 from tasks.rogue.blessing.ui import RogueUI
 
 
-class Login(LoginAndroidCloud, RogueUI):
+class Login(LoginAndroidCloud, RogueUI, AgreementHandler):
     def _handle_app_login(self):
         """
         Pages:
@@ -83,25 +84,6 @@ class Login(LoginAndroidCloud, RogueUI):
                 continue
 
         return True
-
-    def handle_user_agreement(self):
-        """
-        Returns:
-            bool: If clicked
-        """
-        # CN user agreement popup
-        if self.appear_then_click(USER_AGREEMENT_ACCEPT, interval=3):
-            return True
-        # Oversea TOS
-        if self.match_template_color(TOS_ACCEPT, interval=3):
-            self.device.click(TOS_ACCEPT)
-            return True
-        if self.appear(TOS_AGREE_TEXT, interval=3):
-            # Select checkbox
-            if not self.image_color_count(TOS_AGREE_CHECKBOX, color=(254, 240, 108), count=20, threshold=180):
-                self.device.click(TOS_AGREE_CHECKBOX)
-                return True
-        return False
 
     def handle_account_confirm(self):
         """

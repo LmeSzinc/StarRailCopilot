@@ -69,6 +69,8 @@ class Login(LoginAndroidCloud, RogueUI, AgreementHandler):
             # Login
             if self.is_in_login_confirm(interval=5):
                 self.device.click(LOGIN_CONFIRM)
+                # Reset stuck record to extend wait time on slow devices
+                self.device.stuck_record_clear()
                 login_success = True
                 continue
             if self.handle_user_agreement():

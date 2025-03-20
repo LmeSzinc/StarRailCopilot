@@ -585,9 +585,8 @@ class LoginAndroidCloud(ModuleBase):
 
 
 if __name__ == '__main__':
-    self = LoginAndroidCloud('src2')
-    # self.device.app_start()
+    self = LoginAndroidCloud('src')
+    self.device.app_start()
     self.device.dump_hierarchy()
-    self._cloud_setting_disable_net_state()
-    # self.cloud_enter_game()
-    # self.cloud_keep_alive()
+    self.cloud_enter_game()
+    self.cloud_keep_alive()

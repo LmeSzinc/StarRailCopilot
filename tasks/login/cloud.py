@@ -75,7 +75,8 @@ class XPath:
     悬浮窗及侧边栏元素
     """
     # 悬浮窗
-    FLOAT_WINDOW = '//*[@package="com.miHoYo.cloudgames.hkrpg" and @class="android.widget.LinearLayout"]'
+    FLOAT_WINDOW = ('//*[@package="com.miHoYo.cloudgames.hkrpg" and @class="android.widget.RelativeLayout"]'
+                    '/*[@class="android.widget.LinearLayout"]')
     # 退出按钮，返回登录页面
     FLOAT_EXIT = '//*[@resource-id="com.miHoYo.cloudgames.hkrpg:id/iv_exit"]'
     # 弹出侧边栏的 节点信息
@@ -584,8 +585,9 @@ class LoginAndroidCloud(ModuleBase):
 
 
 if __name__ == '__main__':
-    self = LoginAndroidCloud('src')
-    self.device.app_start()
+    self = LoginAndroidCloud('src2')
+    # self.device.app_start()
     self.device.dump_hierarchy()
-    self.cloud_enter_game()
-    self.cloud_keep_alive()
+    self._cloud_setting_disable_net_state()
+    # self.cloud_enter_game()
+    # self.cloud_keep_alive()

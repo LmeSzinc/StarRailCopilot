@@ -228,6 +228,10 @@
     },
     "SupportReward": {
       "Collect": true
+    },
+    "GiftofOdyssey": {
+      "Collect": true,
+      "GiftofOdysseyClaimed": {}
     }
   },
   "Weekly": {

@@ -54,7 +54,7 @@ class GeneratedConfig:
 
     # Group `DungeonSupport`
     DungeonSupport_Use = 'when_daily'  # always_use, when_daily, do_not_use
-    DungeonSupport_Character = 'FirstCharacter'  # FirstCharacter, Acheron, Aglaea, Anaxa, Argenti, Arlan, Asta, Aventurine, Bailu, BlackSwan, Blade, Boothill, Bronya, Castorice, Clara, DanHeng, DanHengImbibitorLunae, DrRatio, Feixiao, Firefly, FuXuan, Fugue, Gallagher, Gepard, Guinaifen, Hanya, Herta, Himeko, Hook, Huohuo, Jade, Jiaoqiu, JingYuan, Jingliu, Kafka, Lingsha, Luka, Luocha, Lynx, March7thPreservation, March7thTheHunt, Misha, Moze, Mydei, Natasha, Pela, Qingque, Rappa, Robin, RuanMei, Sampo, Seele, Serval, SilverWolf, Sparkle, Sunday, Sushang, TheHerta, Tingyun, TopazNumby, TrailblazerDestruction, TrailblazerHarmony, TrailblazerPreservation, TrailblazerRemembrance, Tribbie, Welt, Xueyi, Yanqing, Yukong, Yunli
+    DungeonSupport_Character = 'FirstCharacter'  # FirstCharacter, Castorice, Anaxa, Tribbie, Mydei, TheHerta, Aglaea, Sunday, Fugue, Rappa, Feixiao, Lingsha, Moze, Yunli, March7thTheHunt, Jiaoqiu, Firefly, Jade, Robin, Boothill, Acheron, Aventurine, Gallagher, BlackSwan, Sparkle, Misha, RuanMei, DrRatio, Xueyi, Huohuo, Argenti, Hanya, Jingliu, TopazNumby, Guinaifen, DanHengImbibitorLunae, FuXuan, Lynx, Blade, Kafka, Luka, SilverWolf, Luocha, Yukong, Seele, JingYuan, TrailblazerDestruction, TrailblazerPreservation, TrailblazerHarmony, TrailblazerRemembrance, Himeko, Welt, Gepard, Bronya, Clara, Yanqing, Bailu, March7thPreservation, DanHeng, Asta, Serval, Herta, Qingque, Sushang, Hook, Arlan, Sampo, Tingyun, Pela, Natasha
 
     # Group `DungeonStorage`
     DungeonStorage_TrailblazePower = {}

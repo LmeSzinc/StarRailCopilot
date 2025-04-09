@@ -100,9 +100,9 @@ class ConfigGenerator:
         ornament = [dungeon.name for dungeon in DungeonList.instances.values() if dungeon.is_Ornament_Extraction]
         option_add(keys='Ornament.Dungeon.option', options=ornament)
         # Insert characters
-        from tasks.character.keywords import CharacterList
+        from tasks.character.aired_version import list_support_characters
         unsupported_characters = []
-        characters = [character.name for character in CharacterList.instances.values()
+        characters = [character.name for character in list_support_characters()
                       if character.name not in unsupported_characters]
         option_add(keys='DungeonSupport.Character.option', options=characters)
         # Insert assignments
@@ -466,13 +466,24 @@ class ConfigGenerator:
         update_dungeon_names('Dungeon.NameAtDoubleRelic')
 
         # Character names
+        i18n_trailblazer = {
+            'cn': '开拓者',
+            'cht': '開拓者',
+            'jp': '開拓者',
+            'en': 'Trailblazer',
+            'es': 'Trailblazer',
+        }
         from tasks.character.keywords import CharacterList
+        from tasks.character.aired_version import get_character_version
         characters = deep_get(self.argument, keys='DungeonSupport.Character.option')
         for character in CharacterList.instances.values():
             if character.name in characters:
                 value = character.__getattribute__(ingame_lang)
-                if "Trailblazer" in value:
-                    continue
+                version = get_character_version(character)
+                if version:
+                    value = f'[{version}] {value}'
+                if 'trailblazer' in value.lower():
+                    value = re.sub('Trailblazer', i18n_trailblazer[ingame_lang], value)
                 deep_set(new, keys=['DungeonSupport', 'Character', character.name], value=value)
 
         # Assignments

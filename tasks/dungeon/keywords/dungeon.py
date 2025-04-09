@@ -707,14 +707,14 @@ Echo_of_War_Salutations_of_Ashen_Dreams = DungeonList(
     dungeon_id=1305,
     plane_id=2033201,
 )
-Echo_of_War_Borehole_Planet_Old_Crater = DungeonList(
+Echo_of_War_Borehole_Planet_Past_Nightmares = DungeonList(
     id=65,
-    name='Echo_of_War_Borehole_Planet_Old_Crater',
-    cn='蛀星的旧靥',
-    cht='蛀星的舊靨',
-    en="Borehole Planet's Old Crater",
-    jp='星を蝕む往日の面影',
-    es='Cráter del planeta devorado',
+    name='Echo_of_War_Borehole_Planet_Past_Nightmares',
+    cn='蛀星的旧魇',
+    cht='蛀星的舊魘',
+    en="Borehole Planet's Past Nightmares",
+    jp='星を蝕む往日の悪夢',
+    es='Pesadilla del planeta devorado',
     dungeon_id=1304,
     plane_id=2000401,
 )

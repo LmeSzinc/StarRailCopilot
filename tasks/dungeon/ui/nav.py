@@ -172,11 +172,16 @@ class DungeonUINav(UI):
             if self.appear(SURVIVAL_INDEX_OE_LOADED):
                 logger.info('Survival index loaded, SURVIVAL_INDEX_OE_LOADED')
                 return True
+            if self.appear(SURVIVAL_INDEX_BUILD_LOADED):
+                logger.info('Survival index loaded, SURVIVAL_INDEX_BUILD_LOADED')
+                return True
 
     def _dungeon_survival_index_top_appear(self):
         if self.appear(SURVIVAL_INDEX_SU_LOADED):
             return True
         if self.appear(SURVIVAL_INDEX_OE_LOADED):
+            return True
+        if self.appear(SURVIVAL_INDEX_BUILD_LOADED):
             return True
         return False
 

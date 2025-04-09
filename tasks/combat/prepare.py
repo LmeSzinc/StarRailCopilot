@@ -1,15 +1,16 @@
 import module.config.server as server
 from module.base.timer import Timer
-from module.base.utils import color_similar, get_color
 from module.logger import logger
 from module.ocr.ocr import Digit
 from tasks.combat.assets.assets_combat_prepare import (
     OCR_WAVE_COST,
     OCR_WAVE_COUNT,
+    WAVE_COST_CHECK,
     WAVE_MINUS,
     WAVE_PLUS,
     WAVE_SLIDER
 )
+from tasks.combat.assets.assets_combat_relics import COMBAT_RELIC_ENTER
 from tasks.combat.stamina_status import StaminaStatus
 from tasks.item.slider import Slider
 
@@ -84,6 +85,32 @@ class CombatPrepare(StaminaStatus):
         logger.attr('TrailblazePowerExhausted', flag)
         return flag
 
+    def _combat_get_wave_cost_value(self) -> int:
+        """
+        Get traiblaze power cost from current image directly
+
+        Returns:
+            int: E.g. 10, 30, 40
+
+        Pages:
+            in: COMBAT_PREPARE
+        """
+        if self.appear(WAVE_COST_CHECK, similarity=0.6):
+            OCR_WAVE_COST.load_offset(WAVE_COST_CHECK)
+            area = OCR_WAVE_COST.button
+            image = self.image_crop(area, copy=False)
+            cost = Digit(OCR_WAVE_COST).ocr_single_line(image, direct_ocr=True)
+            return cost
+
+        # No stamina cost, this should be Echo_of_War
+        OCR_WAVE_COST.clear_offset()
+        if self.appear(COMBAT_RELIC_ENTER):
+            return 0
+
+        # But we have COMBAT_RELIC_ENTER, this may be Cavern_of_Corrosion or Echo_of_War
+        logger.warning(f'{WAVE_COST_CHECK} not appear but {COMBAT_RELIC_ENTER} appears, assume wave_cost is 0')
+        return 0
+
     def combat_get_wave_cost(self, skip_first_screenshot=True):
         """
         Get traiblaze power cost and set it to `combat_cost`
@@ -101,14 +128,12 @@ class CombatPrepare(StaminaStatus):
             else:
                 self.device.screenshot()
 
-            color = get_color(self.device.image, OCR_WAVE_COST.area)
-            if color_similar(color, (229, 231, 223), threshold=30):
+            cost = self._combat_get_wave_cost_value()
+            if cost == 0:
                 logger.info(f'Combat is trailblaze power free')
                 self.combat_wave_cost = 0
                 return 0
-
-            cost = Digit(OCR_WAVE_COST).ocr_single_line(self.device.image)
-            if cost == 10:
+            elif cost == 10:
                 logger.attr('CombatMultiWave', self.combat_has_multi_wave())
                 if self.combat_has_multi_wave():
                     self.combat_wave_cost = cost

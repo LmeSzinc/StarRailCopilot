@@ -5,6 +5,7 @@ from tasks.base.page import page_main
 from tasks.combat.assets.assets_combat_interact import MAP_LOADING
 from tasks.login.agreement import AgreementHandler
 from tasks.login.assets.assets_login import *
+from tasks.login.assets.assets_login_popup import ADVERTISE_Castorice
 from tasks.login.cloud import LoginAndroidCloud
 from tasks.rogue.blessing.ui import RogueUI
 
@@ -82,6 +83,8 @@ class Login(LoginAndroidCloud, RogueUI, AgreementHandler):
                 continue
             if self.ui_additional():
                 continue
+            if self.handle_login_popup():
+                continue
             if self.handle_blessing():
                 continue
 
@@ -99,6 +102,16 @@ class Login(LoginAndroidCloud, RogueUI, AgreementHandler):
             bool: If clicked
         """
         if self.appear_then_click(ACCOUNT_CONFIRM):
+            return True
+        return False
+
+    def handle_login_popup(self):
+        """
+        Returns:
+            bool: If clicked
+        """
+        # 3.2 Castorice popup that advertise you go gacha, but no, close it
+        if self.handle_ui_close(ADVERTISE_Castorice, interval=2):
             return True
         return False
 

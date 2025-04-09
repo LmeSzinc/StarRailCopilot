@@ -8,6 +8,7 @@ from module.logger import logger
 from module.ui.scroll import AdaptiveScroll
 from tasks.base.assets.assets_base_popup import POPUP_CANCEL
 from tasks.base.ui import UI
+from tasks.character.keywords import CharacterList
 from tasks.combat.assets.assets_combat_support import *
 from tasks.combat.assets.assets_combat_team import COMBAT_TEAM_DISMISSSUPPORT, COMBAT_TEAM_SUPPORT
 
@@ -144,6 +145,8 @@ class CombatSupport(UI):
             out: COMBAT_PREPARE
         """
         logger.hr("Combat support")
+        if isinstance(support_character_name, CharacterList):
+            support_character_name = support_character_name.name
         self.interval_clear(COMBAT_TEAM_SUPPORT)
         skip_first_screenshot = True
         selected_support = False

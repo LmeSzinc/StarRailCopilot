@@ -4,6 +4,7 @@ from module.logger import logger
 from module.ui.scroll import AdaptiveScroll
 from tasks.base.assets.assets_base_page import MAP_EXIT
 from tasks.base.assets.assets_base_popup import POPUP_CANCEL
+from tasks.character.keywords import CharacterList
 from tasks.combat.assets.assets_combat_prepare import COMBAT_PREPARE
 from tasks.combat.assets.assets_combat_support import COMBAT_SUPPORT_LIST, COMBAT_SUPPORT_LIST_SCROLL_OE
 from tasks.dungeon.dungeon import Dungeon
@@ -80,6 +81,8 @@ class OrnamentCombat(Dungeon, RouteLoader, DungeonState):
             out: COMBAT_PREPARE
         """
         logger.hr("Combat support")
+        if isinstance(support_character_name, CharacterList):
+            support_character_name = support_character_name.name
         self.interval_clear(SUPPORT_ADD)
         skip_first_screenshot = True
         selected_support = False

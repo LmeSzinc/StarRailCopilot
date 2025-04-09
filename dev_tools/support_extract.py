@@ -133,4 +133,5 @@ if __name__ == '__main__':
     self.gen_templates()
 
     # Test if support can be selected
-    # self.support_set('Castorice')
+    # from tasks.character.keywords import KEYWORDS_CHARACTER_LIST
+    # self.support_set(KEYWORDS_CHARACTER_LIST.Castorice)

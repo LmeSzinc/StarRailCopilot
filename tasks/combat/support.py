@@ -187,7 +187,20 @@ class CombatSupport(UI):
             # Should return something
             return character
         else:
-            return SupportCharacter(support_character_name, self.device.image)
+            character = SupportCharacter(support_character_name, self.device.image)
+            if character:
+                return character
+            # Search skin also
+            dict_skin: "dict[str, list[str]]" = {
+                'March7thPreservation': ['March7thPreservation.2']
+            }
+            if support_character_name in dict_skin:
+                for skin in dict_skin[support_character_name]:
+                    character = SupportCharacter(skin, self.device.image)
+                    if character:
+                        return character
+            # Should return something
+            return character
 
     @staticmethod
     def _support_scroll():

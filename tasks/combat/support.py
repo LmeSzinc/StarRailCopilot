@@ -174,8 +174,9 @@ class CombatSupport(UI):
                 self.interval_clear(COMBAT_SUPPORT_LIST)
                 continue
             if self.appear(COMBAT_SUPPORT_LIST, interval=2):
-                if not selected_support and support_character_name != "FirstCharacter":
-                    self._search_support(support_character_name)  # Search support
+                # Search support
+                if not selected_support:
+                    self._search_support_with_fallback(support_character_name)
                     selected_support = True
                 self.device.click(COMBAT_SUPPORT_ADD)
                 self.interval_reset(COMBAT_SUPPORT_LIST)
@@ -270,6 +271,31 @@ class CombatSupport(UI):
                 logger.info("Support not found")
                 self.device.click_record_clear()
                 return False
+
+    def _search_support_with_fallback(self, support_character_name: str = "JingYuan"):
+        """
+        Args:
+            support_character_name: Support character name
+
+        Returns:
+            bool: True if found support else False
+
+        Pages:
+            in: COMBAT_SUPPORT_LIST
+            out: COMBAT_SUPPORT_LIST
+        """
+        if support_character_name == "FirstCharacter":
+            # In normal dungeons first character is selected by default
+            return True
+        else:
+            selected = self._search_support(support_character_name)
+            if selected:
+                return selected
+            # Support not found, fallback to first character
+            scroll = self._support_scroll()
+            scroll.set_top(main=self)
+            self._select_first()
+            return True
 
     def _select_support(self, character: SupportCharacter):
         """

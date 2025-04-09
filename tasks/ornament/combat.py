@@ -67,6 +67,13 @@ class OrnamentCombat(Dungeon, RouteLoader, DungeonState):
         return AdaptiveScroll(area=COMBAT_SUPPORT_LIST_SCROLL_OE.area,
                               name=COMBAT_SUPPORT_LIST_SCROLL_OE.name)
 
+    def _search_support_with_fallback(self, support_character_name: str = "JingYuan"):
+        # In Ornament Extraction, first character isn't selected by default
+        if support_character_name == "FirstCharacter":
+            self._select_first()
+            return True
+        return super()._search_support_with_fallback(support_character_name)
+
     def support_set(self, support_character_name: str = "FirstCharacter"):
         """
         Args:
@@ -110,12 +117,10 @@ class OrnamentCombat(Dungeon, RouteLoader, DungeonState):
                 continue
             if self.appear(COMBAT_SUPPORT_LIST, interval=2):
                 if not selected_support:
-                    # In Ornament Extraction, first character isn't selected by default
-                    if support_character_name == "FirstCharacter":
-                        self._select_first()
-                    else:
-                        self._search_support(support_character_name)  # Search support
-                    selected_support = True
+                    # Search support
+                    if not selected_support:
+                        self._search_support_with_fallback(support_character_name)
+                        selected_support = True
                 self.device.click(SUPPORT_ADD)
                 self.interval_reset(COMBAT_SUPPORT_LIST)
                 continue

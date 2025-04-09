@@ -66,10 +66,10 @@ class ConfigGenerator:
         option_add(keys='Emulator.PackageName.option', options=list(VALID_SERVER.keys()))
         # Insert dungeons
         from tasks.dungeon.keywords import DungeonList
-        calyx_golden = [dungeon.name for dungeon in DungeonList.instances.values() if dungeon.is_Calyx_Golden_Memories] \
-                       + [dungeon.name for dungeon in DungeonList.instances.values() if dungeon.is_Calyx_Golden_Aether] \
-                       + [dungeon.name for dungeon in DungeonList.instances.values() if
-                          dungeon.is_Calyx_Golden_Treasures]
+        calyx_golden = [dungeon.name for dungeon in DungeonList.instances.values() if dungeon.is_Calyx_Golden_Memories]
+        calyx_golden += [dungeon.name for dungeon in DungeonList.instances.values() if dungeon.is_Calyx_Golden_Aether]
+        calyx_golden += [dungeon.name for dungeon in DungeonList.instances.values() if
+                         dungeon.is_Calyx_Golden_Treasures]
         # calyx_crimson
         from tasks.rogue.keywords import KEYWORDS_ROGUE_PATH as Path
         order = [Path.Destruction, Path.Preservation, Path.The_Hunt, Path.Abundance,
@@ -708,6 +708,8 @@ class ConfigUpdater:
         ('Dungeon.Dungeon.NameAtDoubleCalyx', 'Dungeon.Dungeon.NameAtDoubleCalyx', convert_31_dungeon),
         ('Dungeon.DungeonDaily.CalyxGolden', 'Dungeon.DungeonDaily.CalyxGolden', convert_31_dungeon),
         ('Dungeon.DungeonDaily.CalyxCrimson', 'Dungeon.DungeonDaily.CalyxCrimson', convert_31_dungeon),
+        # 3.2
+        ('Weekly.Weekly.Name', 'Weekly.Weekly.Name', convert_32_weekly),
     ]
 
     @cached_property
@@ -734,7 +736,6 @@ class ConfigUpdater:
                 value = data['value']
             value = parse_value(value, data=data)
             deep_set(new, keys=keys, value=value)
-
 
         if not is_template:
             new = self.config_redirect(old, new)

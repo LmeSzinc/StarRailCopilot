@@ -37,10 +37,10 @@ LIST_LOADED_CHECK = ButtonWrapper(
     name='LIST_LOADED_CHECK',
     share=Button(
         file='./assets/share/dungeon/ui/LIST_LOADED_CHECK.png',
-        area=(576, 606, 951, 664),
-        search=(556, 586, 971, 684),
-        color=(180, 188, 195),
-        button=(576, 606, 951, 664),
+        area=(453, 540, 1151, 624),
+        search=(433, 520, 1171, 644),
+        color=(239, 236, 238),
+        button=(453, 540, 1151, 624),
     ),
 )
 OCR_DUNGEON_NAV = ButtonWrapper(

@@ -3,7 +3,7 @@ import numpy as np
 
 from module.base.button import ClickButton
 from module.base.timer import Timer
-from module.base.utils import area_offset, crop, load_image
+from module.base.utils import area_offset, crop, image_size, load_image
 from module.logger import logger
 from module.ui.scroll import AdaptiveScroll
 from tasks.base.assets.assets_base_popup import POPUP_CANCEL
@@ -42,6 +42,22 @@ class SupportCharacter:
 
     __repr__ = __str__
 
+    @classmethod
+    def load_image(cls, file):
+        image = load_image(file)
+        size = image_size(image)
+        # Template from support page
+        if size == (86, 81):
+            return image
+        # Template from character list page
+        if size == (95, 89):
+            image = cv2.resize(image, (86, 81))
+            return image
+        # Unexpected size, resize anyway
+        logger.warning(f'Unexpected shape from support template {file}, image size: {size}')
+        cv2.resize(image, (86, 81))
+        return image
+
     def _scale_character(self):
         """
         Returns:
@@ -52,11 +68,10 @@ class SupportCharacter:
             logger.info(f"Using cached image of {self.name}")
             return SupportCharacter._image_cache[self.name]
 
-        img = load_image(f"assets/character/{self.name}.png")
-        scaled_img = cv2.resize(img, (86, 81))
-        SupportCharacter._image_cache[self.name] = scaled_img
+        image = self.load_image(f"assets/character/{self.name}.png")
+        SupportCharacter._image_cache[self.name] = image
         logger.info(f"Character {self.name} image cached")
-        return scaled_img
+        return image
 
     def _find_character(self):
         character = np.array(self.image)

@@ -57,6 +57,26 @@ FRIENDS_CLICK = ButtonWrapper(
         button=(103, 85, 159, 100),
     ),
 )
+LIST_REFRESH = ButtonWrapper(
+    name='LIST_REFRESH',
+    share=Button(
+        file='./assets/share/combat/support_dev/LIST_REFRESH.png',
+        area=(319, 653, 337, 672),
+        search=(299, 633, 357, 692),
+        color=(173, 172, 174),
+        button=(319, 653, 337, 672),
+    ),
+)
+LIST_REFRESHED = ButtonWrapper(
+    name='LIST_REFRESHED',
+    share=Button(
+        file='./assets/share/combat/support_dev/LIST_REFRESHED.png',
+        area=(319, 653, 337, 672),
+        search=(299, 633, 357, 692),
+        color=(63, 63, 68),
+        button=(319, 653, 337, 672),
+    ),
+)
 STRANGER_CHECK = ButtonWrapper(
     name='STRANGER_CHECK',
     cn=Button(

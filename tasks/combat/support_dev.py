@@ -1,16 +1,17 @@
 import os
 import time
 
+from PIL import Image
+
 from module.base.button import match_template
 from module.base.decorator import cached_property
-from module.base.utils import area_offset, area_pad, load_image
+from module.base.utils import area_offset, area_pad
 from module.config.utils import iter_folder, random_id
 from module.logger import logger
 from module.ui.switch import Switch
 from tasks.base.ui import UI
 from tasks.combat.assets.assets_combat_support_dev import *
 from tasks.combat.support import SupportCharacter
-from PIL import Image
 
 
 class SupportTab(Switch):
@@ -39,6 +40,36 @@ class SupportDev(UI):
         tab.add_state('Friends', check_button=FRIENDS_CHECK, click_button=FRIENDS_CLICK)
         tab.add_state('Strangers', check_button=STRANGER_CHECK, click_button=STRANGER_CLICK)
         return tab
+
+    def support_refresh_list(self, skip_first_screenshot=True):
+        """
+        Pages:
+            in: LIST_REFRESH
+            out: LIST_REFRESHED
+        """
+        logger.info('Support refresh list')
+        # Wait until LIST_REFRESH appear
+        while 1:
+            if skip_first_screenshot:
+                skip_first_screenshot = False
+            else:
+                self.device.screenshot()
+            if self.match_template_color(LIST_REFRESH):
+                break
+
+        # LIST_REFRESH -> LIST_REFRESHED
+        skip_first_screenshot = True
+        self.interval_clear(LIST_REFRESH)
+        while 1:
+            if skip_first_screenshot:
+                skip_first_screenshot = False
+            else:
+                self.device.screenshot()
+            if self.match_template_color(LIST_REFRESHED):
+                break
+            if self.match_template_color(LIST_REFRESH, interval=2):
+                self.device.click(LIST_REFRESH)
+                continue
 
     def iter_character_image(self):
         op_x, op_y, _, _ = CHARACTER_OPERATE.area
@@ -77,7 +108,7 @@ class SupportDev(UI):
 
         # Test if match existing templates
         for template in self.all_support_templates.values():
-            if match_template(search_image, template):
+            if match_template(search_image, template, similarity=0.75):
                 return False
 
         # No match, create new template

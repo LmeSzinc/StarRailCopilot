@@ -170,12 +170,15 @@ class DeployConfig(ConfigModel):
 
     @cached_property
     def python(self) -> str:
-        exe = self.filepath(self.PythonExecutable)
-        if os.path.exists(exe):
-            return exe
+        # No need to read PythonExecutable
+        # since you run this code with python, current python is the python
+
+        # exe = self.filepath(self.PythonExecutable)
+        # if os.path.exists(exe):
+        #     return exe
 
         current = sys.executable.replace("\\", "/")
-        logger.warning(f'PythonExecutable: {exe} does not exist, use current python instead: {current}')
+        # logger.warning(f'PythonExecutable: {exe} does not exist, use current python instead: {current}')
         return current
 
     @cached_property

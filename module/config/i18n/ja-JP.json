@@ -243,18 +243,18 @@
     "Name": {
       "name": "Dungeon.Name.name",
       "help": "Dungeon.Name.help",
+      "Calyx_Golden_Memories_Amphoreus": "素材：役割経験（回憶の蕾 オンパロス）：",
       "Calyx_Golden_Memories_Penacony": "素材：役割経験（回憶の蕾 ピノコニー）：",
       "Calyx_Golden_Memories_The_Xianzhou_Luofu": "素材：役割経験（回憶の蕾 仙舟羅浮）：",
       "Calyx_Golden_Memories_Jarilo_VI": "素材：役割経験（回憶の蕾 ヤリーロ-VI）：",
-      "Calyx_Golden_Memories_Amphoreus": "素材：役割経験（回憶の蕾 オンパロス）：",
+      "Calyx_Golden_Aether_Amphoreus": "素材：武器経験（エーテルの蕾）",
       "Calyx_Golden_Aether_Penacony": "素材：武器経験（エーテルの蕾）",
       "Calyx_Golden_Aether_The_Xianzhou_Luofu": "素材：武器経験（エーテルの蕾）",
       "Calyx_Golden_Aether_Jarilo_VI": "素材：武器経験（エーテルの蕾）",
-      "Calyx_Golden_Aether_Amphoreus": "素材：武器経験（エーテルの蕾）",
+      "Calyx_Golden_Treasures_Amphoreus": "素材：クレジット（秘蔵の蕾）",
       "Calyx_Golden_Treasures_Penacony": "素材：クレジット（秘蔵の蕾）",
       "Calyx_Golden_Treasures_The_Xianzhou_Luofu": "素材：クレジット（秘蔵の蕾）",
       "Calyx_Golden_Treasures_Jarilo_VI": "素材：クレジット（秘蔵の蕾）",
-      "Calyx_Golden_Treasures_Amphoreus": "素材：クレジット（秘蔵の蕾）",
       "Calyx_Crimson_Destruction_Herta_StorageZone": "軌跡素材：壊滅（収容部分）",
       "Calyx_Crimson_Destruction_Luofu_ScalegorgeWaterscape": "軌跡素材：壊滅（鱗淵境）",
       "Calyx_Crimson_Preservation_Herta_SupplyZone": "軌跡素材：存護（サポート部分）",
@@ -284,11 +284,11 @@
       "Stagnant_Shadow_Mechwolf": "キャラクター昇格素材：雷（モゼ / アグライア）",
       "Stagnant_Shadow_Gust": "キャラクター昇格素材：風（丹恒 / ブローニャ / サンポ）",
       "Stagnant_Shadow_Celestial": "キャラクター昇格素材：風（刃 / フォフォ / ブラックスワン）",
-      "Stagnant_Shadow_Gloam": "キャラクター昇格素材：風（飛霄）",
+      "Stagnant_Shadow_Gloam": "キャラクター昇格素材：風（飛霄 / アナイクス）",
       "Stagnant_Shadow_Quanta": "キャラクター昇格素材：量子（銀狼 / ゼーレ / 青雀）",
       "Stagnant_Shadow_Abomination": "キャラクター昇格素材：量子（リンクス / 符玄 / 雪衣）",
       "Stagnant_Shadow_Roast": "キャラクター昇格素材：量子（ジェイド / 花火）",
-      "Stagnant_Shadow_Gelidmoon": "キャラクター昇格素材：量子（トリビー）",
+      "Stagnant_Shadow_Gelidmoon": "キャラクター昇格素材：量子（トリビー / キャストリス）",
       "Stagnant_Shadow_Mirage": "キャラクター昇格素材：虚数（ヴェルト / 羅刹 / 御空）",
       "Stagnant_Shadow_Puppetry": "キャラクター昇格素材：虚数（丹恒・飲月 / アベンチュリン / Dr.レイシオ）",
       "Stagnant_Shadow_Timbre": "キャラクター昇格素材：虚数（サンデー / 乱破）",
@@ -309,18 +309,18 @@
     "NameAtDoubleCalyx": {
       "name": "Dungeon.NameAtDoubleCalyx.name",
       "help": "Dungeon.NameAtDoubleCalyx.help",
+      "Calyx_Golden_Memories_Amphoreus": "素材：役割経験（回憶の蕾 オンパロス）：",
       "Calyx_Golden_Memories_Penacony": "素材：役割経験（回憶の蕾 ピノコニー）：",
       "Calyx_Golden_Memories_The_Xianzhou_Luofu": "素材：役割経験（回憶の蕾 仙舟羅浮）：",
       "Calyx_Golden_Memories_Jarilo_VI": "素材：役割経験（回憶の蕾 ヤリーロ-VI）：",
-      "Calyx_Golden_Memories_Amphoreus": "素材：役割経験（回憶の蕾 オンパロス）：",
+      "Calyx_Golden_Aether_Amphoreus": "素材：武器経験（エーテルの蕾）",
       "Calyx_Golden_Aether_Penacony": "素材：武器経験（エーテルの蕾）",
       "Calyx_Golden_Aether_The_Xianzhou_Luofu": "素材：武器経験（エーテルの蕾）",
       "Calyx_Golden_Aether_Jarilo_VI": "素材：武器経験（エーテルの蕾）",
-      "Calyx_Golden_Aether_Amphoreus": "素材：武器経験（エーテルの蕾）",
+      "Calyx_Golden_Treasures_Amphoreus": "素材：クレジット（秘蔵の蕾）",
       "Calyx_Golden_Treasures_Penacony": "素材：クレジット（秘蔵の蕾）",
       "Calyx_Golden_Treasures_The_Xianzhou_Luofu": "素材：クレジット（秘蔵の蕾）",
       "Calyx_Golden_Treasures_Jarilo_VI": "素材：クレジット（秘蔵の蕾）",
-      "Calyx_Golden_Treasures_Amphoreus": "素材：クレジット（秘蔵の蕾）",
       "Calyx_Crimson_Destruction_Herta_StorageZone": "軌跡素材：壊滅（収容部分）",
       "Calyx_Crimson_Destruction_Luofu_ScalegorgeWaterscape": "軌跡素材：壊滅（鱗淵境）",
       "Calyx_Crimson_Preservation_Herta_SupplyZone": "軌跡素材：存護（サポート部分）",
@@ -403,6 +403,7 @@
       "FirstCharacter": "FirstCharacter",
       "Acheron": "黄泉",
       "Aglaea": "アグライア",
+      "Anaxa": "アナイクス",
       "Argenti": "アルジェンティ",
       "Arlan": "アーラン",
       "Asta": "アスター",
@@ -412,6 +413,7 @@
       "Blade": "刃",
       "Boothill": "ブートヒル",
       "Bronya": "ブローニャ",
+      "Castorice": "キャストリス",
       "Clara": "クラーラ",
       "DanHeng": "丹恒",
       "DanHengImbibitorLunae": "丹恒・飲月",
@@ -616,7 +618,7 @@
       "help": ""
     },
     "Item_A_Glass_of_the_Besotted_Era": {
-      "name": "キャラクター昇格素材：風（飛霄）",
+      "name": "キャラクター昇格素材：風（飛霄 / アナイクス）",
       "help": ""
     },
     "Item_Dream_Flamer": {
@@ -628,7 +630,7 @@
       "help": ""
     },
     "Item_Darkveil_Moonlight": {
-      "name": "キャラクター昇格素材：量子（トリビー）",
+      "name": "キャラクター昇格素材：量子（トリビー / キャストリス）",
       "help": ""
     },
     "Item_Harbinger_of_Strife": {
@@ -712,7 +714,7 @@
       "help": ""
     },
     "Item_Past_Evils_of_the_Borehole_Planet_Disaster": {
-      "name": "星を蝕む往日の面影 (宇宙ステーション「ヘルタ」)",
+      "name": "星を蝕む往日の悪夢 (宇宙ステーション「ヘルタ」)",
       "help": ""
     },
     "Item_Lost_Echo_of_the_Shared_Wish": {
@@ -774,7 +776,7 @@
       "help": "Weekly.Name.help",
       "Echo_of_War_Inner_Beast_Battlefield": "心獣の戦場 (仙舟「羅浮」)",
       "Echo_of_War_Salutations_of_Ashen_Dreams": "現世の夢の礼賛 (ピノコニー)",
-      "Echo_of_War_Borehole_Planet_Old_Crater": "星を蝕む往日の面影 (宇宙ステーション「ヘルタ」)",
+      "Echo_of_War_Borehole_Planet_Past_Nightmares": "星を蝕む往日の悪夢 (宇宙ステーション「ヘルタ」)",
       "Echo_of_War_Divine_Seed": "不死の神実 (仙舟「羅浮」)",
       "Echo_of_War_End_of_the_Eternal_Freeze": "寒波の幕切れ (ヤリーロ-VI)",
       "Echo_of_War_Destruction_Beginning": "壊滅の始まり (宇宙ステーション「ヘルタ」)"

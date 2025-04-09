@@ -243,18 +243,18 @@
     "Name": {
       "name": "副本名称",
       "help": "默认打本设置",
+      "Calyx_Golden_Memories_Amphoreus": "材料：角色经验（回忆之蕾 翁法罗斯）",
       "Calyx_Golden_Memories_Penacony": "材料：角色经验（回忆之蕾 匹诺康尼）",
       "Calyx_Golden_Memories_The_Xianzhou_Luofu": "材料：角色经验（回忆之蕾 仙舟罗浮）",
       "Calyx_Golden_Memories_Jarilo_VI": "材料：角色经验（回忆之蕾 雅利洛-Ⅵ）",
-      "Calyx_Golden_Memories_Amphoreus": "材料：角色经验（回忆之蕾 翁法罗斯）",
+      "Calyx_Golden_Aether_Amphoreus": "材料：武器经验（以太之蕾）",
       "Calyx_Golden_Aether_Penacony": "材料：武器经验（以太之蕾）",
       "Calyx_Golden_Aether_The_Xianzhou_Luofu": "材料：武器经验（以太之蕾）",
       "Calyx_Golden_Aether_Jarilo_VI": "材料：武器经验（以太之蕾）",
-      "Calyx_Golden_Aether_Amphoreus": "材料：武器经验（以太之蕾）",
+      "Calyx_Golden_Treasures_Amphoreus": "材料：信用点（藏珍之蕾）",
       "Calyx_Golden_Treasures_Penacony": "材料：信用点（藏珍之蕾）",
       "Calyx_Golden_Treasures_The_Xianzhou_Luofu": "材料：信用点（藏珍之蕾）",
       "Calyx_Golden_Treasures_Jarilo_VI": "材料：信用点（藏珍之蕾）",
-      "Calyx_Golden_Treasures_Amphoreus": "材料：信用点（藏珍之蕾）",
       "Calyx_Crimson_Destruction_Herta_StorageZone": "行迹材料：毁灭（收容舱段）",
       "Calyx_Crimson_Destruction_Luofu_ScalegorgeWaterscape": "行迹材料：毁灭（鳞渊境）",
       "Calyx_Crimson_Preservation_Herta_SupplyZone": "行迹材料：存护（支援舱段）",
@@ -284,11 +284,11 @@
       "Stagnant_Shadow_Mechwolf": "角色晋阶材料：雷（貊泽 / 阿格莱雅）",
       "Stagnant_Shadow_Gust": "角色晋阶材料：风（丹恒 / 布洛妮娅 / 桑博）",
       "Stagnant_Shadow_Celestial": "角色晋阶材料：风（刃 / 藿藿 / 黑天鹅）",
-      "Stagnant_Shadow_Gloam": "角色晋阶材料：风（飞霄）",
+      "Stagnant_Shadow_Gloam": "角色晋阶材料：风（飞霄 / 那刻夏）",
       "Stagnant_Shadow_Quanta": "角色晋阶材料：量子（银狼 / 希儿 / 青雀）",
       "Stagnant_Shadow_Abomination": "角色晋阶材料：量子（玲可 / 符玄 / 雪衣）",
       "Stagnant_Shadow_Roast": "角色晋阶材料：量子（翡翠 / 花火）",
-      "Stagnant_Shadow_Gelidmoon": "角色晋阶材料：量子（缇宝）",
+      "Stagnant_Shadow_Gelidmoon": "角色晋阶材料：量子（缇宝 / 遐蝶）",
       "Stagnant_Shadow_Mirage": "角色晋阶材料：虚数（瓦尔特 / 罗刹 / 驭空）",
       "Stagnant_Shadow_Puppetry": "角色晋阶材料：虚数（丹恒•饮月 / 砂金 / 真理医生）",
       "Stagnant_Shadow_Timbre": "角色晋阶材料：虚数（星期日 / 乱破）",
@@ -309,18 +309,18 @@
     "NameAtDoubleCalyx": {
       "name": "有双倍花活动时，选择副本",
       "help": "次数耗尽后回退到默认打本设置",
+      "Calyx_Golden_Memories_Amphoreus": "材料：角色经验（回忆之蕾 翁法罗斯）",
       "Calyx_Golden_Memories_Penacony": "材料：角色经验（回忆之蕾 匹诺康尼）",
       "Calyx_Golden_Memories_The_Xianzhou_Luofu": "材料：角色经验（回忆之蕾 仙舟罗浮）",
       "Calyx_Golden_Memories_Jarilo_VI": "材料：角色经验（回忆之蕾 雅利洛-Ⅵ）",
-      "Calyx_Golden_Memories_Amphoreus": "材料：角色经验（回忆之蕾 翁法罗斯）",
+      "Calyx_Golden_Aether_Amphoreus": "材料：武器经验（以太之蕾）",
       "Calyx_Golden_Aether_Penacony": "材料：武器经验（以太之蕾）",
       "Calyx_Golden_Aether_The_Xianzhou_Luofu": "材料：武器经验（以太之蕾）",
       "Calyx_Golden_Aether_Jarilo_VI": "材料：武器经验（以太之蕾）",
-      "Calyx_Golden_Aether_Amphoreus": "材料：武器经验（以太之蕾）",
+      "Calyx_Golden_Treasures_Amphoreus": "材料：信用点（藏珍之蕾）",
       "Calyx_Golden_Treasures_Penacony": "材料：信用点（藏珍之蕾）",
       "Calyx_Golden_Treasures_The_Xianzhou_Luofu": "材料：信用点（藏珍之蕾）",
       "Calyx_Golden_Treasures_Jarilo_VI": "材料：信用点（藏珍之蕾）",
-      "Calyx_Golden_Treasures_Amphoreus": "材料：信用点（藏珍之蕾）",
       "Calyx_Crimson_Destruction_Herta_StorageZone": "行迹材料：毁灭（收容舱段）",
       "Calyx_Crimson_Destruction_Luofu_ScalegorgeWaterscape": "行迹材料：毁灭（鳞渊境）",
       "Calyx_Crimson_Preservation_Herta_SupplyZone": "行迹材料：存护（支援舱段）",
@@ -403,6 +403,7 @@
       "FirstCharacter": "支援列表第一个角色",
       "Acheron": "黄泉",
       "Aglaea": "阿格莱雅",
+      "Anaxa": "那刻夏",
       "Argenti": "银枝",
       "Arlan": "阿兰",
       "Asta": "艾丝妲",
@@ -412,6 +413,7 @@
       "Blade": "刃",
       "Boothill": "波提欧",
       "Bronya": "布洛妮娅",
+      "Castorice": "遐蝶",
       "Clara": "克拉拉",
       "DanHeng": "丹恒",
       "DanHengImbibitorLunae": "丹恒•饮月",
@@ -616,7 +618,7 @@
       "help": ""
     },
     "Item_A_Glass_of_the_Besotted_Era": {
-      "name": "角色晋阶材料：风（飞霄）",
+      "name": "角色晋阶材料：风（飞霄 / 那刻夏）",
       "help": ""
     },
     "Item_Dream_Flamer": {
@@ -628,7 +630,7 @@
       "help": ""
     },
     "Item_Darkveil_Moonlight": {
-      "name": "角色晋阶材料：量子（缇宝）",
+      "name": "角色晋阶材料：量子（缇宝 / 遐蝶）",
       "help": ""
     },
     "Item_Harbinger_of_Strife": {
@@ -712,7 +714,7 @@
       "help": ""
     },
     "Item_Past_Evils_of_the_Borehole_Planet_Disaster": {
-      "name": "蛀星的旧靥 (空间站「黑塔」)",
+      "name": "蛀星的旧魇 (空间站「黑塔」)",
       "help": ""
     },
     "Item_Lost_Echo_of_the_Shared_Wish": {
@@ -774,7 +776,7 @@
       "help": "",
       "Echo_of_War_Inner_Beast_Battlefield": "心兽的战场 (仙舟「罗浮」)",
       "Echo_of_War_Salutations_of_Ashen_Dreams": "尘梦的赞礼 (匹诺康尼)",
-      "Echo_of_War_Borehole_Planet_Old_Crater": "蛀星的旧靥 (空间站「黑塔」)",
+      "Echo_of_War_Borehole_Planet_Past_Nightmares": "蛀星的旧魇 (空间站「黑塔」)",
       "Echo_of_War_Divine_Seed": "不死的神实 (仙舟「罗浮」)",
       "Echo_of_War_End_of_the_Eternal_Freeze": "寒潮的落幕 (雅利洛-Ⅵ)",
       "Echo_of_War_Destruction_Beginning": "毁灭的开端 (空间站「黑塔」)"

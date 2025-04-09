@@ -707,3 +707,25 @@ Amphoreus_MurmuringWoodsGroveofEpiphany = MapPlane(
     world_id=4,
     plane_id=2042101,
 )
+Amphoreus_DemigodCouncilDawncloud = MapPlane(
+    id=66,
+    name='Amphoreus_DemigodCouncilDawncloud',
+    cn='「半神议院」黎明云崖',
+    cht='「半神議院」黎明雲崖',
+    en='"Demigod Council" Dawncloud',
+    jp='「半神議院」黎明の崖',
+    es='Risco Nubealba, Consejo de Semidioses',
+    world_id=4,
+    plane_id=1040301,
+)
+Amphoreus_DragonboneCityStyxia = MapPlane(
+    id=67,
+    name='Amphoreus_DragonboneCityStyxia',
+    cn='「龙骸古城」斯缇科西亚',
+    cht='「龍骸古城」斯緹科西亞',
+    en='"Dragonbone City" Styxia',
+    jp='「竜骸の古城」スティコシア',
+    es='Estisia, Ciudad Dragósea',
+    world_id=4,
+    plane_id=2042301,
+)

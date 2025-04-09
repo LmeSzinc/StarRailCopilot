@@ -243,18 +243,18 @@
     "Name": {
       "name": "Dungeon Name",
       "help": "Default dungeon setting",
+      "Calyx_Golden_Memories_Amphoreus": "Material: Character EXP (Bud of Memories, Amphoreus)",
       "Calyx_Golden_Memories_Penacony": "Material: Character EXP (Bud of Memories, Penacony)",
       "Calyx_Golden_Memories_The_Xianzhou_Luofu": "Material: Character EXP (Bud of Memories, The Xianzhou Luofu)",
       "Calyx_Golden_Memories_Jarilo_VI": "Material: Character EXP (Bud of Memories, Jarilo-VI)",
-      "Calyx_Golden_Memories_Amphoreus": "Material: Character EXP (Bud of Memories, Amphoreus)",
+      "Calyx_Golden_Aether_Amphoreus": "Material: Light Cone EXP (Bud of Aether)",
       "Calyx_Golden_Aether_Penacony": "Material: Light Cone EXP (Bud of Aether)",
       "Calyx_Golden_Aether_The_Xianzhou_Luofu": "Material: Light Cone EXP (Bud of Aether)",
       "Calyx_Golden_Aether_Jarilo_VI": "Material: Light Cone EXP (Bud of Aether)",
-      "Calyx_Golden_Aether_Amphoreus": "Material: Light Cone EXP (Bud of Aether)",
+      "Calyx_Golden_Treasures_Amphoreus": "Material: Credit (Bud of Treasures)",
       "Calyx_Golden_Treasures_Penacony": "Material: Credit (Bud of Treasures)",
       "Calyx_Golden_Treasures_The_Xianzhou_Luofu": "Material: Credit (Bud of Treasures)",
       "Calyx_Golden_Treasures_Jarilo_VI": "Material: Credit (Bud of Treasures)",
-      "Calyx_Golden_Treasures_Amphoreus": "Material: Credit (Bud of Treasures)",
       "Calyx_Crimson_Destruction_Herta_StorageZone": "Trace: Destruction (Storage Zone)",
       "Calyx_Crimson_Destruction_Luofu_ScalegorgeWaterscape": "Trace: Destruction (Scalegorge Waterscape)",
       "Calyx_Crimson_Preservation_Herta_SupplyZone": "Trace: Preservation (Supply Zone)",
@@ -284,11 +284,11 @@
       "Stagnant_Shadow_Mechwolf": "Ascension: Lightning (Moze / Aglaea)",
       "Stagnant_Shadow_Gust": "Ascension: Wind (Dan Heng / Bronya / Sampo)",
       "Stagnant_Shadow_Celestial": "Ascension: Wind (Blade / Huohuo / Black Swan)",
-      "Stagnant_Shadow_Gloam": "Ascension: Wind (Feixiao)",
+      "Stagnant_Shadow_Gloam": "Ascension: Wind (Feixiao / Anaxa)",
       "Stagnant_Shadow_Quanta": "Ascension: Quantum (Silver Wolf / Seele / Qingque)",
       "Stagnant_Shadow_Abomination": "Ascension: Quantum (Lynx / Fu Xuan / Xueyi)",
       "Stagnant_Shadow_Roast": "Ascension: Quantum (Jade / Sparkle)",
-      "Stagnant_Shadow_Gelidmoon": "Ascension: Quantum (Tribbie)",
+      "Stagnant_Shadow_Gelidmoon": "Ascension: Quantum (Tribbie / Castorice)",
       "Stagnant_Shadow_Mirage": "Ascension: Imaginary (Welt / Luocha / Yukong)",
       "Stagnant_Shadow_Puppetry": "Ascension: Imaginary (Dan Heng • Imbibitor Lunae / Aventurine / Dr. Ratio)",
       "Stagnant_Shadow_Timbre": "Ascension: Imaginary (Sunday / Rappa)",
@@ -309,18 +309,18 @@
     "NameAtDoubleCalyx": {
       "name": "At Double Calyx Event, choose dungeon",
       "help": "Return to the default dungeon settings after double times exhausted",
+      "Calyx_Golden_Memories_Amphoreus": "Material: Character EXP (Bud of Memories, Amphoreus)",
       "Calyx_Golden_Memories_Penacony": "Material: Character EXP (Bud of Memories, Penacony)",
       "Calyx_Golden_Memories_The_Xianzhou_Luofu": "Material: Character EXP (Bud of Memories, The Xianzhou Luofu)",
       "Calyx_Golden_Memories_Jarilo_VI": "Material: Character EXP (Bud of Memories, Jarilo-VI)",
-      "Calyx_Golden_Memories_Amphoreus": "Material: Character EXP (Bud of Memories, Amphoreus)",
+      "Calyx_Golden_Aether_Amphoreus": "Material: Light Cone EXP (Bud of Aether)",
       "Calyx_Golden_Aether_Penacony": "Material: Light Cone EXP (Bud of Aether)",
       "Calyx_Golden_Aether_The_Xianzhou_Luofu": "Material: Light Cone EXP (Bud of Aether)",
       "Calyx_Golden_Aether_Jarilo_VI": "Material: Light Cone EXP (Bud of Aether)",
-      "Calyx_Golden_Aether_Amphoreus": "Material: Light Cone EXP (Bud of Aether)",
+      "Calyx_Golden_Treasures_Amphoreus": "Material: Credit (Bud of Treasures)",
       "Calyx_Golden_Treasures_Penacony": "Material: Credit (Bud of Treasures)",
       "Calyx_Golden_Treasures_The_Xianzhou_Luofu": "Material: Credit (Bud of Treasures)",
       "Calyx_Golden_Treasures_Jarilo_VI": "Material: Credit (Bud of Treasures)",
-      "Calyx_Golden_Treasures_Amphoreus": "Material: Credit (Bud of Treasures)",
       "Calyx_Crimson_Destruction_Herta_StorageZone": "Trace: Destruction (Storage Zone)",
       "Calyx_Crimson_Destruction_Luofu_ScalegorgeWaterscape": "Trace: Destruction (Scalegorge Waterscape)",
       "Calyx_Crimson_Preservation_Herta_SupplyZone": "Trace: Preservation (Supply Zone)",
@@ -403,6 +403,7 @@
       "FirstCharacter": "First Character",
       "Acheron": "Acheron",
       "Aglaea": "Aglaea",
+      "Anaxa": "Anaxa",
       "Argenti": "Argenti",
       "Arlan": "Arlan",
       "Asta": "Asta",
@@ -412,6 +413,7 @@
       "Blade": "Blade",
       "Boothill": "Boothill",
       "Bronya": "Bronya",
+      "Castorice": "Castorice",
       "Clara": "Clara",
       "DanHeng": "Dan Heng",
       "DanHengImbibitorLunae": "Dan Heng • Imbibitor Lunae",
@@ -616,7 +618,7 @@
       "help": ""
     },
     "Item_A_Glass_of_the_Besotted_Era": {
-      "name": "Ascension: Wind (Feixiao)",
+      "name": "Ascension: Wind (Feixiao / Anaxa)",
       "help": ""
     },
     "Item_Dream_Flamer": {
@@ -628,7 +630,7 @@
       "help": ""
     },
     "Item_Darkveil_Moonlight": {
-      "name": "Ascension: Quantum (Tribbie)",
+      "name": "Ascension: Quantum (Tribbie / Castorice)",
       "help": ""
     },
     "Item_Harbinger_of_Strife": {
@@ -712,7 +714,7 @@
       "help": ""
     },
     "Item_Past_Evils_of_the_Borehole_Planet_Disaster": {
-      "name": "Borehole Planet's Old Crater (Herta Space Station)",
+      "name": "Borehole Planet's Past Nightmares (Herta Space Station)",
       "help": ""
     },
     "Item_Lost_Echo_of_the_Shared_Wish": {
@@ -774,7 +776,7 @@
       "help": "",
       "Echo_of_War_Inner_Beast_Battlefield": "Inner Beast's Battlefield (The Xianzhou Luofu)",
       "Echo_of_War_Salutations_of_Ashen_Dreams": "Salutations of Ashen Dreams (Penacony)",
-      "Echo_of_War_Borehole_Planet_Old_Crater": "Borehole Planet's Old Crater (Herta Space Station)",
+      "Echo_of_War_Borehole_Planet_Past_Nightmares": "Borehole Planet's Past Nightmares (Herta Space Station)",
       "Echo_of_War_Divine_Seed": "Divine Seed (The Xianzhou Luofu)",
       "Echo_of_War_End_of_the_Eternal_Freeze": "End of the Eternal Freeze (Jarilo-VI)",
       "Echo_of_War_Destruction_Beginning": "Destruction's Beginning (Herta Space Station)"

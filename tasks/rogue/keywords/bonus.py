@@ -426,3 +426,39 @@ Heart_Embers = RogueBonus(
     jp='心の残り火',
     es='Ascuas del corazón',
 )
+Sweet_Dreams_of_Flowers = RogueBonus(
+    id=48,
+    name='Sweet_Dreams_of_Flowers',
+    cn='花的美梦',
+    cht='花的美夢',
+    en='Sweet Dreams of Flowers',
+    jp='花の夢想',
+    es='Dulce sueño floral',
+)
+Endless_Verse_of_the_Night = RogueBonus(
+    id=49,
+    name='Endless_Verse_of_the_Night',
+    cn='夜的长诗',
+    cht='夜的長詩',
+    en='Endless Verse of the Night',
+    jp='夜の長詩',
+    es='Poema nocturno eterno',
+)
+Budding_of_Knowledge = RogueBonus(
+    id=50,
+    name='Budding_of_Knowledge',
+    cn='知的萌芽',
+    cht='知的萌芽',
+    en='Budding of Knowledge',
+    jp='知の芽吹き',
+    es='Brote de conocimiento',
+)
+Lingering_Whispers_of_Love = RogueBonus(
+    id=51,
+    name='Lingering_Whispers_of_Love',
+    cn='爱的残语',
+    cht='愛的殘語',
+    en='Lingering Whispers of Love',
+    jp='愛の残響',
+    es='Susurros de amor',
+)

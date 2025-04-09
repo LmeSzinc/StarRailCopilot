@@ -1,10 +1,12 @@
 from module.base.decorator import run_once
 from module.exception import RequestHumanTakeover
 from module.logger import logger
+from module.ui.scroll import AdaptiveScroll
 from tasks.base.assets.assets_base_page import MAP_EXIT
 from tasks.base.assets.assets_base_popup import POPUP_CANCEL
+from tasks.character.keywords import CharacterList
 from tasks.combat.assets.assets_combat_prepare import COMBAT_PREPARE
-from tasks.combat.assets.assets_combat_support import COMBAT_SUPPORT_LIST
+from tasks.combat.assets.assets_combat_support import COMBAT_SUPPORT_LIST, COMBAT_SUPPORT_LIST_SCROLL_OE
 from tasks.dungeon.dungeon import Dungeon
 from tasks.dungeon.ui.state import DungeonState
 from tasks.map.route.loader import RouteLoader
@@ -57,6 +59,21 @@ class OrnamentCombat(Dungeon, RouteLoader, DungeonState):
             if self.handle_popup_confirm():
                 continue
 
+    @staticmethod
+    def _support_scroll():
+        """
+        v3.2, Ornament has different support scroll so OrnamentCombat._support_scroll overrides
+        """
+        return AdaptiveScroll(area=COMBAT_SUPPORT_LIST_SCROLL_OE.area,
+                              name=COMBAT_SUPPORT_LIST_SCROLL_OE.name)
+
+    def _search_support_with_fallback(self, support_character_name: str = "JingYuan"):
+        # In Ornament Extraction, first character isn't selected by default
+        if support_character_name == "FirstCharacter":
+            self._select_first()
+            return True
+        return super()._search_support_with_fallback(support_character_name)
+
     def support_set(self, support_character_name: str = "FirstCharacter"):
         """
         Args:
@@ -71,6 +88,8 @@ class OrnamentCombat(Dungeon, RouteLoader, DungeonState):
             out: COMBAT_PREPARE
         """
         logger.hr("Combat support")
+        if isinstance(support_character_name, CharacterList):
+            support_character_name = support_character_name.name
         self.interval_clear(SUPPORT_ADD)
         skip_first_screenshot = True
         selected_support = False
@@ -98,12 +117,10 @@ class OrnamentCombat(Dungeon, RouteLoader, DungeonState):
                 continue
             if self.appear(COMBAT_SUPPORT_LIST, interval=2):
                 if not selected_support:
-                    # In Ornament Extraction, first character isn't selected by default
-                    if support_character_name == "FirstCharacter":
-                        self._select_first()
-                    else:
-                        self._search_support(support_character_name)  # Search support
-                    selected_support = True
+                    # Search support
+                    if not selected_support:
+                        self._search_support_with_fallback(support_character_name)
+                        selected_support = True
                 self.device.click(SUPPORT_ADD)
                 self.interval_reset(COMBAT_SUPPORT_LIST)
                 continue

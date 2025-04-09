@@ -46,9 +46,10 @@ class PipManager(DeployConfig):
         return f'"{self.python}" -m pip'
 
     @cached_property
-    def python_site_packages(self):
-        return os.path.abspath(os.path.join(self.python, '../Lib/site-packages')) \
-            .replace(r"\\", "/").replace("\\", "/")
+    def python_site_packages(self) -> str:
+        import site
+        path = site.getsitepackages()[0]
+        return path
 
     @cached_property
     def set_installed_dependency(self) -> t.Set[DataDependency]:

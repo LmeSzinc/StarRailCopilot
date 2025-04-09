@@ -43,6 +43,16 @@ COMBAT_SUPPORT_LIST_SCROLL = ButtonWrapper(
         button=(472, 162, 476, 598),
     ),
 )
+COMBAT_SUPPORT_LIST_SCROLL_OE = ButtonWrapper(
+    name='COMBAT_SUPPORT_LIST_SCROLL_OE',
+    share=Button(
+        file='./assets/share/combat/support/COMBAT_SUPPORT_LIST_SCROLL_OE.png',
+        area=(478, 126, 482, 598),
+        search=(458, 106, 502, 618),
+        color=(77, 72, 73),
+        button=(478, 126, 482, 598),
+    ),
+)
 FIRST_CHARACTER = ButtonWrapper(
     name='FIRST_CHARACTER',
     share=Button(

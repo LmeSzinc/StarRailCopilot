@@ -174,6 +174,14 @@ class CombatSupport(UI):
         else:
             return SupportCharacter(support_character_name, self.device.image)
 
+    @staticmethod
+    def _support_scroll():
+        """
+        v3.2, Ornament has different support scroll so OrnamentCombat._support_scroll will override this
+        """
+        return AdaptiveScroll(area=COMBAT_SUPPORT_LIST_SCROLL.area,
+                              name=COMBAT_SUPPORT_LIST_SCROLL.name)
+
     def _search_support(self, support_character_name: str = "JingYuan"):
         """
         Args:
@@ -195,8 +203,7 @@ class CombatSupport(UI):
                 return True
 
         # Search in the following pages
-        scroll = AdaptiveScroll(area=COMBAT_SUPPORT_LIST_SCROLL.area,
-                                name=COMBAT_SUPPORT_LIST_SCROLL.name)
+        scroll = self._support_scroll()
         if scroll.appear(main=self):
             if not scroll.at_bottom(main=self):
                 # Dropdown to load the entire support list, so large threshold is acceptable

@@ -16,7 +16,7 @@ from module.device.env import IS_WINDOWS
 from module.device.method.minitouch import insert_swipe, random_rectangle_point
 from module.device.method.pool import JobTimeout, WORKER_POOL
 from module.device.method.utils import RETRY_TRIES, retry_sleep
-from module.device.platform import Platform
+from module.device.platform.plat import Platform
 from module.exception import RequestHumanTakeover
 from module.logger import logger
 

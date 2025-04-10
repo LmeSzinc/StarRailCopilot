@@ -48,8 +48,13 @@ class PipManager(DeployConfig):
     @cached_property
     def python_site_packages(self) -> str:
         import site
-        path = site.getsitepackages()[0]
-        return path
+        paths = site.getsitepackages()
+        # site-packages should be site-packages folder
+        for path in paths:
+            if path.endswith('site-packages'):
+                return path
+        # Otherwise pick first
+        return paths[0]
 
     @cached_property
     def set_installed_dependency(self) -> t.Set[DataDependency]:

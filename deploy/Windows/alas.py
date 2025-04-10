@@ -1,10 +1,10 @@
 import os
 import time
-import typing as t
+from typing import Iterable
 
 from deploy.Windows.config import DeployConfig
 from deploy.Windows.logger import Progress, logger
-from deploy.Windows.utils import DataProcessInfo, cached_property, iter_process
+from deploy.Windows.utils import cached_property, iter_process
 
 
 class AlasManager(DeployConfig):
@@ -19,43 +19,45 @@ class AlasManager(DeployConfig):
     def self_pid(self):
         return os.getpid()
 
-    def list_process(self) -> t.List[DataProcessInfo]:
+    def list_process(self) -> "list[tuple[int, list[str]]]":
         logger.info('List process')
-        process = list(iter_process())
-        logger.info(f'Found {len(process)} processes')
-        return process
+        process_data = list(iter_process())
+        logger.info(f'Found {len(process_data)} processes')
+        return process_data
 
-    def iter_process_by_names(self, names, in_alas=False) -> t.Iterable[DataProcessInfo]:
+    def iter_process_by_names(self, names, in_alas=False) -> "Iterable[int]":
         """
         Args:
             names (str, list[str]): process name, such as 'alas.exe'
             in_alas (bool): If the output process must in Alas
 
         Yields:
-            DataProcessInfo:
+            pid:
         """
         if not isinstance(names, list):
             names = [names]
         try:
-            for proc in self.list_process():
+            for pid, cmdline in self.list_process():
+                if pid == self.self_pid:
+                    continue
+                exe = cmdline[0]
+                name = os.path.basename(exe)
+                if not (name and name in names):
+                    continue
 
-                if not (proc.name and proc.name in names):
-                    continue
-                if proc.pid == self.self_pid:
-                    continue
                 if in_alas:
-                    cmdline = proc.cmdline.replace(r"\\", "/").replace("\\", "/")
+                    exe = exe.replace(r"\\", "/").replace("\\", "/")
                     for folder in self.alas_folder:
-                        if folder in cmdline:
-                            yield proc
+                        if folder in exe:
+                            yield pid
                 else:
-                    yield proc
+                    yield pid
         except Exception as e:
             logger.info(str(e))
             return False
 
-    def kill_process(self, process: DataProcessInfo):
-        self.execute(f'taskkill /f /t /pid {process.pid}', allow_failure=True, output=False)
+    def kill_process(self, pid: int):
+        self.execute(f'taskkill /f /t /pid {pid}', allow_failure=True, output=False)
 
     def alas_kill(self):
         for _ in range(10):

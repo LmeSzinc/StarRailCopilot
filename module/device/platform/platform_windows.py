@@ -4,12 +4,12 @@ import subprocess
 
 import psutil
 
-from deploy.Windows.utils import DataProcessInfo
 from module.base.decorator import run_once
 from module.base.timer import Timer
 from module.device.connection import AdbDeviceWithStatus
 from module.device.platform.platform_base import PlatformBase
 from module.device.platform.emulator_windows import Emulator, EmulatorInstance, EmulatorManager
+from module.device.platform.utils import iter_process
 from module.logger import logger
 
 
@@ -71,12 +71,16 @@ class PlatformWindows(PlatformBase, EmulatorManager):
         """
         count = 0
 
-        for proc in psutil.process_iter():
-            cmdline = DataProcessInfo(proc=proc, pid=proc.pid).cmdline
+        for pid, cmdline in iter_process():
+            cmdline = ' '.join(cmdline)
             if re.search(regex, cmdline):
                 logger.info(f'Kill emulator: {cmdline}')
-                proc.kill()
-                count += 1
+                try:
+                    proc = psutil._psplatform.Process(pid)
+                    proc.kill()
+                    count += 1
+                except (psutil.AccessDenied, psutil.NoSuchProcess, OSError) as e:
+                    logger.error(f'Failed to kill process pid={pid}, {e}')
 
         return count
 

@@ -30,7 +30,12 @@ class RogueUI(UI):
         return self.appear(PAGE_CHOOSE_CURIO)
 
     def is_page_choose_bonus(self):
-        return self.appear(PAGE_CHOOSE_BONUS)
+        if self.appear(PAGE_CHOOSE_BONUS):
+            return True
+        # Also check bonus cards
+        if self.appear(PAGE_CHOOSE_BONUS_TRAILBLAZE):
+            return True
+        return False
 
     def is_page_event(self):
         return self.appear(PAGE_EVENT)

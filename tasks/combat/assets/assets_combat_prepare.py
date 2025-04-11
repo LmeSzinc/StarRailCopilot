@@ -52,13 +52,22 @@ OCR_WAVE_COUNT = ButtonWrapper(
 )
 WAVE_COST_CHECK = ButtonWrapper(
     name='WAVE_COST_CHECK',
-    share=Button(
-        file='./assets/share/combat/prepare/WAVE_COST_CHECK.png',
-        area=(830, 645, 856, 671),
-        search=(815, 634, 963, 682),
-        color=(194, 185, 219),
-        button=(830, 645, 856, 671),
-    ),
+    share=[
+        Button(
+            file='./assets/share/combat/prepare/WAVE_COST_CHECK.png',
+            area=(830, 645, 856, 671),
+            search=(815, 634, 963, 682),
+            color=(194, 185, 219),
+            button=(830, 645, 856, 671),
+        ),
+        Button(
+            file='./assets/share/combat/prepare/WAVE_COST_CHECK.2.png',
+            area=(830, 645, 856, 671),
+            search=(815, 634, 963, 682),
+            color=(195, 190, 226),
+            button=(830, 645, 856, 671),
+        ),
+    ],
 )
 WAVE_MINUS = ButtonWrapper(
     name='WAVE_MINUS',

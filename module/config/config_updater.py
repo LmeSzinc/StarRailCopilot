@@ -380,18 +380,18 @@ class ConfigGenerator:
             'es': 'Material: EXP de personaje ({dungeon}, {world})',
         }
         i18n_aether = {
-            'cn': '材料：武器经验（{dungeon}）',
-            'cht': '材料：武器經驗（{dungeon}）',
-            'jp': '素材：武器経験（{dungeon}）',
-            'en': 'Material: Light Cone EXP ({dungeon})',
-            'es': 'Material: EXP de conos de luz ({dungeon})',
+            'cn': '材料：武器经验（{dungeon} {world}）',
+            'cht': '材料：武器經驗（{dungeon} {world}）',
+            'jp': '素材：武器経験（{dungeon} {world}）',
+            'en': 'Material: Light Cone EXP ({dungeon}, {world})',
+            'es': 'Material: EXP de conos de luz ({dungeon}, {world})',
         }
         i18n_treasure = {
-            'cn': '材料：信用点（{dungeon}）',
-            'cht': '材料：信用點（{dungeon}）',
-            'jp': '素材：クレジット（{dungeon}）',
-            'en': 'Material: Credit ({dungeon})',
-            'es': 'Material: Créditos ({dungeon})',
+            'cn': '材料：信用点（{dungeon} {world}）',
+            'cht': '材料：信用點（{dungeon} {world}）',
+            'jp': '素材：クレジット（{dungeon} {world}）',
+            'en': 'Material: Credit ({dungeon}, {world})',
+            'es': 'Material: Créditos ({dungeon}, {world})',
         }
         i18n_crimson = {
             'cn': '行迹材料：{path}（{plane}）',

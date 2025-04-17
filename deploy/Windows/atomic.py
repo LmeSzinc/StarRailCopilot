@@ -68,12 +68,13 @@ def windows_attempt_delay(attempt: int) -> float:
     return 2 ** attempt * WINDOWS_RETRY_DELAY
 
 
-def replace_tmp(temp: str, file: str):
+def replace_tmp(tmp: str, file: str):
     """
     Replace temp file to file
 
     Raises:
         PermissionError: (Windows only) If another process is still reading the file and all retries failed
+        FileNotFoundError: If tmp file gets deleted unexpectedly
     """
     if IS_WINDOWS:
         # PermissionError on Windows if another process is reading
@@ -81,7 +82,7 @@ def replace_tmp(temp: str, file: str):
         for attempt in range(WINDOWS_MAX_ATTEMPT):
             try:
                 # Atomic operation
-                os.replace(temp, file)
+                os.replace(tmp, file)
                 # success
                 return
             except PermissionError as e:
@@ -89,6 +90,9 @@ def replace_tmp(temp: str, file: str):
                 delay = windows_attempt_delay(attempt)
                 time.sleep(delay)
                 continue
+            except FileNotFoundError:
+                # tmp file gets deleted unexpectedly
+                raise
             except Exception as e:
                 last_error = e
                 break
@@ -96,15 +100,20 @@ def replace_tmp(temp: str, file: str):
         # Linux and Mac allow existing reading
         try:
             # Atomic operation
-            os.replace(temp, file)
+            os.replace(tmp, file)
             # success
             return
+        except FileNotFoundError:
+            raise
         except Exception as e:
             last_error = e
 
-    # Clean up temp file on failure
+    # Clean up tmp file on failure
     try:
-        os.unlink(temp)
+        os.unlink(tmp)
+    except FileNotFoundError:
+        # tmp file already get deleted
+        pass
     except:
         pass
     if last_error is not None:
@@ -117,6 +126,7 @@ def atomic_replace(replace_from: str, replace_to: str):
 
     Raises:
         PermissionError: (Windows only) If another process is still reading the file and all retries failed
+        FileNotFoundError:
     """
     if IS_WINDOWS:
         # PermissionError on Windows if another process is reading
@@ -132,6 +142,11 @@ def atomic_replace(replace_from: str, replace_to: str):
                 delay = windows_attempt_delay(attempt)
                 time.sleep(delay)
                 continue
+            except FileNotFoundError:
+                raise
+            except Exception as e:
+                last_error = e
+                break
         if last_error is not None:
             raise last_error from None
     else:
@@ -258,9 +273,9 @@ def atomic_write(
         file:
         data:
     """
-    temp = to_tmp_file(file)
-    file_write(temp, data)
-    replace_tmp(temp, file)
+    tmp = to_tmp_file(file)
+    file_write(tmp, data)
+    replace_tmp(tmp, file)
 
 
 def atomic_write_stream(
@@ -278,9 +293,9 @@ def atomic_write_stream(
         file: Target file path
         data_generator: An iterable that yields data chunks (str or bytes)
     """
-    temp = to_tmp_file(file)
-    file_write_stream(temp, data_generator)
-    replace_tmp(temp, file)
+    tmp = to_tmp_file(file)
+    file_write_stream(tmp, data_generator)
+    replace_tmp(tmp, file)
 
 
 def file_read_text(
@@ -522,7 +537,7 @@ def folder_rmtree(folder, may_symlinks=True):
         # If it's a symlinks, unlink it
         if may_symlinks and os.path.islink(folder):
             file_remove(folder)
-            return
+            return True
         # Iter folder
         with os.scandir(folder) as entries:
             for entry in entries:
@@ -539,10 +554,10 @@ def folder_rmtree(folder, may_symlinks=True):
 
     except FileNotFoundError:
         # directory to clean up does not exist, no need to clean up
-        return
+        return True
     except NotADirectoryError:
         file_remove(folder)
-        return
+        return True
 
     # Remove empty folder
     # May raise OSError if it's still not empty
@@ -550,10 +565,10 @@ def folder_rmtree(folder, may_symlinks=True):
         os.rmdir(folder)
         return True
     except FileNotFoundError:
-        return
+        return True
     except NotADirectoryError:
         file_remove(folder)
-        return
+        return True
     except OSError:
         return False
 
@@ -564,9 +579,13 @@ def atomic_rmtree(folder: str):
     Rename folder as temp folder and remove it,
     folder can be removed by atomic_failure_cleanup at next startup if remove gets interrupted
     """
-    temp = to_tmp_file(folder)
-    atomic_replace(folder, temp)
-    folder_rmtree(folder)
+    tmp = to_tmp_file(folder)
+    try:
+        atomic_replace(folder, tmp)
+    except FileNotFoundError:
+        # Folder not exist, no need to rmtree
+        return
+    folder_rmtree(tmp)
 
 
 def atomic_failure_cleanup(folder: str, recursive: bool = False):
@@ -607,4 +626,5 @@ def atomic_failure_cleanup(folder: str, recursive: bool = False):
     except NotADirectoryError:
         file_remove(folder)
     except:
+        # Ignore all failures, it doesn't matter if tmp files still exist
         pass

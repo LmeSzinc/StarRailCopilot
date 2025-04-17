@@ -13,3 +13,13 @@ ADVERTISE_Castorice = ButtonWrapper(
         button=(478, 615, 500, 637),
     ),
 )
+UNITY_ENGINE_ERROR = ButtonWrapper(
+    name='UNITY_ENGINE_ERROR',
+    share=Button(
+        file='./assets/share/login/popup/UNITY_ENGINE_ERROR.png',
+        area=(592, 373, 645, 395),
+        search=(572, 353, 665, 415),
+        color=(204, 204, 204),
+        button=(592, 373, 645, 395),
+    ),
+)

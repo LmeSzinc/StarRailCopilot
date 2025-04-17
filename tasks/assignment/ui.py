@@ -189,8 +189,13 @@ class AssignmentUI(UI):
             raise ScriptError(err_msg)
         else:
             if self.goto_group(entry.group):
-                # Already insight in goto_group() - _wait_until_correct_entry_loaded()
-                ASSIGNMENT_ENTRY_LIST.select_row(entry, self, insight=False)
+                # Already load_rows in goto_group() - _wait_until_correct_entry_loaded()
+                if ASSIGNMENT_ENTRY_LIST.keyword2button(entry, show_warning=False):
+                    logger.info('Assignment entry is already insight')
+                    ASSIGNMENT_ENTRY_LIST.select_row(entry, self, insight=False)
+                else:
+                    logger.info('Assignment entry is not insight')
+                    ASSIGNMENT_ENTRY_LIST.select_row(entry, self, insight=True)
             else:
                 ASSIGNMENT_ENTRY_LIST.select_row(entry, self, insight=insight)
 

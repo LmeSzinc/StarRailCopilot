@@ -122,6 +122,8 @@ class BattlePassUI(UI):
             if self.appear(REWARDS_LOADED):
                 logger.info('Rewards tab loaded')
                 return True
+            if self.handle_battle_pass_notification():
+                continue
 
     def _battle_pass_wait_missions_loaded(self, skip_first_screenshot=True):
         """
@@ -146,6 +148,8 @@ class BattlePassUI(UI):
                 if np.mean(color) > 128:
                     logger.info('Missions tab loaded')
                     return True
+            if self.handle_battle_pass_notification():
+                continue
 
     def battle_pass_goto(self, state: KEYWORDS_BATTLE_PASS_TAB):
         """

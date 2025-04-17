@@ -444,8 +444,3 @@ class BattlePassUI(UI):
             self.config.task_delay(target=self._get_battle_pass_end())
         else:
             self.config.task_delay(server_update=True)
-
-
-if __name__ == '__main__':
-    self = BattlePassUI('oversea')
-    self.run()

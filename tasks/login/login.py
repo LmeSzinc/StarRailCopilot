@@ -5,7 +5,7 @@ from tasks.base.page import page_main
 from tasks.combat.assets.assets_combat_interact import MAP_LOADING
 from tasks.login.agreement import AgreementHandler
 from tasks.login.assets.assets_login import *
-from tasks.login.assets.assets_login_popup import ADVERTISE_Castorice
+from tasks.login.assets.assets_login_popup import ADVERTISE_Castorice, UNITY_ENGINE_ERROR
 from tasks.login.cloud import LoginAndroidCloud
 from tasks.rogue.blessing.ui import RogueUI
 
@@ -67,6 +67,12 @@ class Login(LoginAndroidCloud, RogueUI, AgreementHandler):
                 first_map_loading = False
                 continue
 
+            # Error
+            # Unable to initialize Unity Engine
+            if self.match_template_luma(UNITY_ENGINE_ERROR):
+                logger.error('Unable to initialize Unity Engine')
+                self.device.app_stop()
+                raise GameNotRunningError('Unable to initialize Unity Engine')
             # Login
             if self.is_in_login_confirm(interval=5):
                 self.device.click(LOGIN_CONFIRM)

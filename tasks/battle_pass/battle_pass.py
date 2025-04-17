@@ -129,6 +129,7 @@ class BattlePassUI(UI):
             bool: If load success
         """
         timeout = Timer(2, count=4).start()
+        scroll = Scroll(MISSION_PAGE_SCROLL, color=(198, 198, 198))
         while 1:
             if skip_first_screenshot:
                 skip_first_screenshot = False
@@ -140,7 +141,7 @@ class BattlePassUI(UI):
                 return False
 
             # Has scroll and last mission loaded
-            if self.appear(MISSION_PAGE_SCROLL):
+            if scroll.appear(main=self):
                 color = get_color(self.device.image, MISSIONS_LOADED.area)
                 if np.mean(color) > 128:
                     logger.info('Missions tab loaded')
@@ -439,3 +440,8 @@ class BattlePassUI(UI):
             self.config.task_delay(target=self._get_battle_pass_end())
         else:
             self.config.task_delay(server_update=True)
+
+
+if __name__ == '__main__':
+    self = BattlePassUI('oversea')
+    self.run()

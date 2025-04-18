@@ -93,6 +93,7 @@ class AssignmentClaim(AssignmentDispatch):
         if self.appear(CLAIM_ALL):
             self._claim_all()
             self._exit_report(should_redispatch=True)
+            self._wait_until_assignment_started()
             self.has_new_dispatch = True
             self._scan_ongoing()
             return True

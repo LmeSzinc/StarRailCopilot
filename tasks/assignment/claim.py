@@ -6,7 +6,7 @@ from module.ocr.ocr import Duration
 from tasks.assignment.assets.assets_assignment_claim import *
 from tasks.assignment.assets.assets_assignment_ui import EVENT_COMPLETED
 from tasks.assignment.dispatch import AssignmentDispatch
-from tasks.assignment.keywords import AssignmentEntry
+from tasks.assignment.keywords import AssignmentEntry, KEYWORDS_ASSIGNMENT_GROUP
 from tasks.base.page import page_assignment
 
 
@@ -23,7 +23,7 @@ class AssignmentClaim(AssignmentDispatch):
             out: DISPATCHED or EMPTY_SLOT
         """
         redispatched = False
-        self._wait_for_report()
+        self._claim_one()
         if should_redispatch:
             redispatched = self._is_duration_expected(duration_expected)
         self._exit_report(redispatched)
@@ -38,13 +38,14 @@ class AssignmentClaim(AssignmentDispatch):
             self.goto_entry(assignment)
             self.dispatch(assignment, duration_expected)
 
-    def _wait_for_report(self):
+    def _claim_one(self, skip_first_screenshot=True):
         """
         Pages:
             in: CLAIM
             out: REPORT
         """
-        skip_first_screenshot = True
+        logger.info('Assignment claim one')
+        self.interval_clear(CLAIM, interval=2)
         while 1:
             if skip_first_screenshot:
                 skip_first_screenshot = False
@@ -59,6 +60,39 @@ class AssignmentClaim(AssignmentDispatch):
             # Claim rewards
             if self.appear_then_click(CLAIM, interval=2):
                 continue
+
+    def _claim_all(self, skip_first_screenshot=True):
+        """
+        Pages:
+            in: CLAIM_ALL
+            out: REPORT
+        """
+        logger.info('Assignment claim all')
+        while 1:
+            if skip_first_screenshot:
+                skip_first_screenshot = False
+            else:
+                self.device.screenshot()
+            # End
+            # Neither CLOSE_REPORT nor REDISPATCH is shown
+            # If it is an EVENT assignment
+            if self.appear(REPORT):
+                logger.info('Assignment report appears')
+                break
+            # Claim rewards
+            if self.appear_then_click(CLAIM_ALL, interval=2):
+                continue
+
+    def claim_all(self):
+        """
+        Do claim all if CLAIM_ALL appears
+        """
+        self.goto_group(KEYWORDS_ASSIGNMENT_GROUP.Character_Materials)
+        if self.appear(CLAIM_ALL):
+            self._claim_all()
+            self._exit_report(should_redispatch=True)
+        else:
+            logger.warning('No CLAIM_ALL button')
 
     def _exit_report(self, should_redispatch: bool):
         """

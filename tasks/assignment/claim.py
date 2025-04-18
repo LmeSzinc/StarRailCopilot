@@ -7,6 +7,7 @@ from tasks.assignment.assets.assets_assignment_claim import *
 from tasks.assignment.assets.assets_assignment_ui import EVENT_COMPLETED
 from tasks.assignment.dispatch import AssignmentDispatch
 from tasks.assignment.keywords import AssignmentEntry, KEYWORDS_ASSIGNMENT_GROUP
+from tasks.assignment.ui import ASSIGNMENT_ENTRY_LIST
 from tasks.base.page import page_assignment
 
 
@@ -87,12 +88,18 @@ class AssignmentClaim(AssignmentDispatch):
         """
         Do claim all if CLAIM_ALL appears
         """
+        logger.hr('Assignment claim all', level=1)
         self.goto_group(KEYWORDS_ASSIGNMENT_GROUP.Character_Materials)
         if self.appear(CLAIM_ALL):
             self._claim_all()
             self._exit_report(should_redispatch=True)
+            self.has_new_dispatch = True
+            self._scan_ongoing()
+            return True
         else:
-            logger.warning('No CLAIM_ALL button')
+            logger.info('No CLAIM_ALL button')
+            self._scan_ongoing()
+            return False
 
     def _exit_report(self, should_redispatch: bool):
         """
@@ -138,3 +145,26 @@ class AssignmentClaim(AssignmentDispatch):
         duration_reported: timedelta = Duration(
             OCR_ASSIGNMENT_REPORT_TIME).ocr_single_line(self.device.image)
         return duration_reported.total_seconds() == duration * 3600
+
+    def _scan_ongoing(self):
+        logger.hr('Scan ongoing', level=2)
+        post = Duration(OCR_ASSIGNMENT_REPORT_TIME)
+        for group in [
+            KEYWORDS_ASSIGNMENT_GROUP.Character_Materials,
+            KEYWORDS_ASSIGNMENT_GROUP.EXP_Materials_Credits,
+            KEYWORDS_ASSIGNMENT_GROUP.Synthesis_Materials,
+        ]:
+            self.goto_group(group)
+            # goto_group includes load_rows, we just get remain time from cache
+            dict_remain: "dict[AssignmentEntry, str]" = ASSIGNMENT_ENTRY_LIST.ocr.dict_remain
+            current = now()
+            for assignment, remain in dict_remain.items():
+                remain = post.after_process(remain)
+                remain = post.format_result(remain)
+                if remain.total_seconds() > 0:
+                    future = current + remain
+                    logger.info(f'Assignment ongoing, will finish at {future}')
+                    self.dispatched[assignment] = future
+            # Can only have 4 at max
+            if len(self.dispatched) >= 4:
+                break

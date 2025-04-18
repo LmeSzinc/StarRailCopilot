@@ -37,8 +37,13 @@ class Assignment(AssignmentClaim, SynthesizeUI):
         if not switched:
             self.ensure_scroll_top(page_menu, skip_first_screenshot=True)
         self.ui_goto(page_assignment)
+
         self.dispatched = dict()
         self.has_new_dispatch = False
+
+        # Try claim all first
+        self.claim_all()
+
         ASSIGNMENT_ENTRY_LIST.cur_buttons = []
         event_ongoing = next((
             g for g in self._iter_groups()
@@ -47,20 +52,24 @@ class Assignment(AssignmentClaim, SynthesizeUI):
         if join_event and event_ongoing is not None:
             if self._check_event():
                 self._check_event()
-        # Iterate in user-specified order, return undispatched ones
-        undispatched = list(self._check_inlist(assignments, duration))
-        remain = self._check_all()
-        undispatched = [x for x in undispatched if x not in self.dispatched]
-        # There are unchecked assignments
-        if remain > 0:
-            for assignment in undispatched[:remain]:
-                self.goto_entry(assignment)
-                self.dispatch(assignment, duration)
-            if remain < len(undispatched):
-                logger.warning('The following assignments can not be dispatched due to limit: '
-                               f'{", ".join([x.name for x in undispatched[remain:]])}')
-            elif remain > len(undispatched):
-                self._dispatch_remain(duration, remain - len(undispatched))
+
+        # Full-fill assignment
+        if len(self.dispatched) < 4:
+            # Iterate in user-specified order, return undispatched ones
+            undispatched = list(self._check_inlist(assignments, duration))
+            remain = self._check_all()
+            undispatched = [x for x in undispatched if x not in self.dispatched]
+            # There are unchecked assignments
+            if remain > 0:
+                for assignment in undispatched[:remain]:
+                    self.goto_entry(assignment)
+                    self.dispatch(assignment, duration)
+                if remain < len(undispatched):
+                    logger.warning('The following assignments can not be dispatched due to limit: '
+                                   f'{", ".join([x.name for x in undispatched[remain:]])}')
+                elif remain > len(undispatched):
+                    self._dispatch_remain(duration, remain - len(undispatched))
+
         # Refresh dashboard before return
         _ = self._limit_status
         # Scheduler

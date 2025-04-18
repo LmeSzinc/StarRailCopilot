@@ -33,11 +33,13 @@ class Assignment(AssignmentClaim, SynthesizeUI):
         if join_event is None:
             join_event = self.config.Assignment_Event
 
+        switched = self.ui_ensure(page_menu)
+        if not switched:
+            self.ensure_scroll_top(page_menu, skip_first_screenshot=True)
+        self.ui_goto(page_assignment)
         self.dispatched = dict()
         self.has_new_dispatch = False
         ASSIGNMENT_ENTRY_LIST.cur_buttons = []
-        self.ensure_scroll_top(page_menu)
-        self.ui_ensure(page_assignment)
         event_ongoing = next((
             g for g in self._iter_groups()
             if isinstance(g, AssignmentEventGroup)

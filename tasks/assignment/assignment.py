@@ -42,7 +42,8 @@ class Assignment(AssignmentClaim, SynthesizeUI):
         self.has_new_dispatch = False
 
         # Try claim all first
-        self.claim_all()
+        if self.config.Assignment_ClaimAll:
+            self.claim_all()
 
         ASSIGNMENT_ENTRY_LIST.cur_buttons = []
         event_ongoing = next((

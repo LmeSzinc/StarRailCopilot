@@ -860,6 +860,10 @@
       "name": "依頼設定",
       "help": ""
     },
+    "ClaimAll": {
+      "name": "Assignment.ClaimAll.name",
+      "help": "Assignment.ClaimAll.help"
+    },
     "Name_1": {
       "name": "依頼 1",
       "help": "",

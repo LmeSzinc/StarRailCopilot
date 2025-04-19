@@ -44,10 +44,8 @@ ASSIGNMENT_DURATION_SWITCH.add_state('20', DURATION_20)
 
 
 class AssignmentDispatch(AssignmentUI):
-    dispatched: dict[AssignmentEntry, datetime] = dict()
-    has_new_dispatch: bool = False
 
-    def dispatch(self, assignment: AssignmentEntry, duration: int | None):
+    def dispatch(self, assignment: AssignmentEntry, duration: "int | None"):
         """
         Dispatch assignment.
         Should be called only when limit is checked

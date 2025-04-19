@@ -860,6 +860,10 @@
       "name": "Assignment Settings",
       "help": "Claim rewards and dispatch, handling specified assignments first\nIf the assignment limit is not reached after that, others will be dispatched according to preset priority (EXP Materials/Credits → Character Materials → Synthesis Materials)"
     },
+    "ClaimAll": {
+      "name": "Redispatch Previous Assignments",
+      "help": "If previous dispatch amount does not reach max limit, full-fill it with assignment preferences below"
+    },
     "Name_1": {
       "name": "Assignment 1 Preference",
       "help": "",

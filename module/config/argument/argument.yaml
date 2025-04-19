@@ -200,6 +200,7 @@ BattlePassStorage:
     display: display
 
 Assignment:
+  ClaimAll: true
   # Options in Name_x will be injected in config updater
   Name_1:
     value: Nameless_Land_Nameless_People

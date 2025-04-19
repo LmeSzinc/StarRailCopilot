@@ -13,12 +13,22 @@ CLAIM = ButtonWrapper(
         button=(1023, 644, 1135, 683),
     ),
 )
+CLAIM_ALL = ButtonWrapper(
+    name='CLAIM_ALL',
+    share=Button(
+        file='./assets/share/assignment/claim/CLAIM_ALL.png',
+        area=(185, 660, 203, 678),
+        search=(147, 653, 313, 685),
+        color=(79, 67, 47),
+        button=(185, 660, 203, 678),
+    ),
+)
 CLOSE_REPORT = ButtonWrapper(
     name='CLOSE_REPORT',
     share=Button(
         file='./assets/share/assignment/claim/CLOSE_REPORT.png',
         area=(398, 598, 422, 622),
-        search=(290, 592, 579, 630),
+        search=(290, 592, 579, 651),
         color=(99, 93, 80),
         button=(385, 592, 505, 630),
     ),
@@ -38,7 +48,7 @@ REDISPATCH = ButtonWrapper(
     share=Button(
         file='./assets/share/assignment/claim/REDISPATCH.png',
         area=(786, 598, 810, 622),
-        search=(700, 592, 987, 629),
+        search=(700, 592, 987, 651),
         color=(96, 90, 78),
         button=(779, 592, 905, 629),
     ),

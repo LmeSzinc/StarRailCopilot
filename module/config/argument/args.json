@@ -1194,6 +1194,10 @@
       }
     },
     "Assignment": {
+      "ClaimAll": {
+        "type": "checkbox",
+        "value": true
+      },
       "Name_1": {
         "type": "select",
         "value": "Nameless_Land_Nameless_People",

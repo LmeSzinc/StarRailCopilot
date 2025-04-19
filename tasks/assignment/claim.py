@@ -95,6 +95,8 @@ class AssignmentClaim(AssignmentDispatch):
             self._exit_report(should_redispatch=True)
             self._wait_until_assignment_started()
             self.has_new_dispatch = True
+            # Load rows again to update remains
+            ASSIGNMENT_ENTRY_LIST.load_rows(main=self)
             self._scan_ongoing()
             return True
         else:

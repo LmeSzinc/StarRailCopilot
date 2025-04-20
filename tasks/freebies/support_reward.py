@@ -1,7 +1,7 @@
 from module.base.timer import Timer
 from module.logger import logger
-from tasks.base.assets.assets_base_page import CLOSE, MENU_CHECK
-from tasks.base.page import page_menu
+from tasks.base.assets.assets_base_page import CLOSE, MAIN_GOTO_MENU, MENU_CHECK
+from tasks.base.page import page_main, page_menu
 from tasks.base.ui import UI
 from tasks.freebies.assets.assets_freebies_support_reward import (
     CAN_GET_REWARD,
@@ -33,6 +33,7 @@ class SupportReward(UI):
         """
         skip_first_screenshot = False
         logger.info('Going to profile')
+        self.interval_clear(page_main.check_button)
         while 1:
             if skip_first_screenshot:
                 skip_first_screenshot = False
@@ -45,8 +46,12 @@ class SupportReward(UI):
 
             if self.appear_then_click(MENU_TO_PROFILE):
                 continue
-
             if self.appear_then_click(PROFILE):
+                continue
+            # Accidentally at page_main
+            if self.ui_page_appear(page_main, interval=5):
+                logger.info(f'{page_main} -> {MAIN_GOTO_MENU}')
+                self.device.click(MAIN_GOTO_MENU)
                 continue
 
     def _get_reward(self, skip_first_screenshot=True):

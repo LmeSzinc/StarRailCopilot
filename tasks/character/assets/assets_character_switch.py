@@ -23,6 +23,35 @@ Huohuo = ButtonWrapper(
         button=(1171, 162, 1189, 180),
     ),
 )
+March7thPreservation = ButtonWrapper(
+    name='March7thPreservation',
+    share=[
+        Button(
+            file='./assets/share/character/switch/March7thPreservation.png',
+            area=(1177, 161, 1195, 179),
+            search=(1157, 141, 1215, 199),
+            color=(225, 193, 202),
+            button=(1177, 161, 1195, 179),
+        ),
+        Button(
+            file='./assets/share/character/switch/March7thPreservation.2.png',
+            area=(1175, 160, 1193, 178),
+            search=(1155, 140, 1213, 198),
+            color=(222, 184, 194),
+            button=(1175, 160, 1193, 178),
+        ),
+    ],
+)
+March7thTheHunt = ButtonWrapper(
+    name='March7thTheHunt',
+    share=Button(
+        file='./assets/share/character/switch/March7thTheHunt.png',
+        area=(1173, 239, 1191, 257),
+        search=(1153, 219, 1211, 277),
+        color=(227, 191, 195),
+        button=(1173, 239, 1191, 257),
+    ),
+)
 OCR_MAP_CHARACTERS = ButtonWrapper(
     name='OCR_MAP_CHARACTERS',
     share=Button(

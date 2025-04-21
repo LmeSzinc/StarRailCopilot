@@ -3,6 +3,7 @@ from datetime import datetime, timedelta
 from module.base.timer import Timer
 from module.logger import logger
 from tasks.base.assets.assets_base_popup import GET_REWARD
+from tasks.combat.assets.assets_combat_interact import DUNGEON_COMBAT_INTERACT
 from tasks.combat.interact import CombatInteract
 from tasks.dungeon.ui.state import DungeonState
 from tasks.rogue.assets.assets_rogue_reward import REWARD_CLOSE, USE_IMMERSIFIER, USE_STAMINA
@@ -10,6 +11,15 @@ from tasks.rogue.blessing.ui import RogueUI
 
 
 class RogueReward(RogueUI, CombatInteract, DungeonState):
+    def handle_domain_reward_close(self, interval=2):
+        """
+        Returns:
+            bool: If clicked
+        """
+        if self.appear_then_click(REWARD_CLOSE, interval=interval):
+            return True
+        return False
+
     def claim_domain_reward(
             self,
             use_trailblaze_power=False,
@@ -30,6 +40,8 @@ class RogueReward(RogueUI, CombatInteract, DungeonState):
         initial_stamina = 0
         initial_immersifier = 0
         exhausted = False
+        self.interval_clear(REWARD_CLOSE, interval=2)
+        self.interval_clear(DUNGEON_COMBAT_INTERACT, interval=2)
 
         while 1:
             if skip_first_screenshot:

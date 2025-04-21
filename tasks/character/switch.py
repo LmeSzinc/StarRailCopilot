@@ -110,6 +110,9 @@ class CharacterSwitch(UI):
             ],
             KEYWORDS_CHARACTER_LIST.Huohuo: [Huohuo],
             KEYWORDS_CHARACTER_LIST.FuXuan: [FuXuan],
+            # Special match March7th because she has skins and paths
+            KEYWORDS_CHARACTER_LIST.March7thPreservation: [March7thPreservation],
+            KEYWORDS_CHARACTER_LIST.March7thTheHunt: [March7thTheHunt],
         }
         for character, templates in dict_template.items():
             for template in templates:

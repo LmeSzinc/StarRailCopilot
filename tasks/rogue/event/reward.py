@@ -10,6 +10,15 @@ from tasks.rogue.blessing.ui import RogueUI
 
 
 class RogueReward(RogueUI, CombatInteract, DungeonState):
+    def handle_domain_reward_close(self, interval=2):
+        """
+        Returns:
+            bool: If clicked
+        """
+        if self.appear_then_click(REWARD_CLOSE, interval=interval):
+            return True
+        return False
+
     def claim_domain_reward(
             self,
             use_trailblaze_power=False,

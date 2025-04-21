@@ -42,6 +42,10 @@ class RouteBase(RouteBase_, RogueExit, RogueEvent, RogueReward):
         # due to curio and map events
         if self.handle_blessing():
             return True
+        # Close domain reward popup
+        # domain reward be accidentally click during dungeon exit because they share the interact button
+        if self.handle_domain_reward_close():
+            return True
         return super().walk_additional()
 
     def clear_blessing(self, skip_first_screenshot=True):

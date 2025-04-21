@@ -1,12 +1,17 @@
 import os
 
 import numpy as np
-from PIL import Image
 
+from module.base.decorator import cached_property
 from module.base.utils import load_image
+from module.exception import ScriptError
+from tasks.map.resource.imfile import image_save
 
 
 class ResourceConst:
+    # Absolute path to local srcmap folder
+    SRC = 'assets/srcmap'
+    # Absolute path to srcmap folder
     SRCMAP = ''
 
     # Hard-coded coordinates under 1280x720
@@ -79,8 +84,22 @@ class ResourceConst:
         # Current position on GIMAP with an error of about 0.1 pixel
         self.bigmap: tuple[float, float] = (0, 0)
 
+    @cached_property
+    def srcmap_path(self):
+        # In dev, SRCMAP must be set
+        if not self.SRCMAP:
+            raise ScriptError('ResourceConst.SRCMAP is not set')
+        return os.path.abspath(self.SRCMAP)
+
+    @cached_property
+    def src_path(self):
+        return os.path.abspath(self.SRC)
+
     def filepath(self, path: str) -> str:
-        return os.path.abspath(os.path.join(self.SRCMAP, path))
+        return os.path.normpath(os.path.join(self.srcmap_path, path))
+
+    def filepath_local(self, path) -> str:
+        return os.path.normpath(os.path.join(self.src_path, path))
 
     def load_image(self, file):
         if os.path.isabs(file):
@@ -88,10 +107,16 @@ class ResourceConst:
         else:
             return load_image(self.filepath(file))
 
+    def load_image_local(self, file):
+        if os.path.isabs(file):
+            return load_image(file)
+        else:
+            return load_image(self.filepath_local(file))
+
     def save_image(self, image, file):
         file = self.filepath(file)
         print(f'Save image: {file}')
-        Image.fromarray(image).save(file)
+        image_save(image, file)
 
     def position_diff(self, target):
         """

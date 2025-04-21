@@ -17,10 +17,10 @@ IN_PROFILE = ButtonWrapper(
     name='IN_PROFILE',
     share=Button(
         file='./assets/share/freebies/support_reward/IN_PROFILE.png',
-        area=(640, 155, 666, 173),
-        search=(620, 135, 686, 193),
-        color=(109, 97, 83),
-        button=(640, 155, 666, 173),
+        area=(175, 90, 198, 100),
+        search=(155, 70, 218, 120),
+        color=(177, 177, 178),
+        button=(175, 90, 198, 100),
     ),
 )
 MENU_TO_PROFILE = ButtonWrapper(

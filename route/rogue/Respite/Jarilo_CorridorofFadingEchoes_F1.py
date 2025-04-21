@@ -12,12 +12,12 @@ class Route(RouteBase):
         | spawn    | Waypoint((291.7, 653.4)), | 190.1     | 184      |
         | item     | Waypoint((280.6, 668.6)), | 210.2     | 198      |
         | herta    | Waypoint((284.0, 702.2)), | 182.8     | 188      |
-        | exit_    | Waypoint((293.2, 719.4)), | 282.9     | 343      |
+        | exit_    | Waypoint((292.9, 711.4)), | 183.8     | 184      |
         """
         self.map_init(plane=Jarilo_CorridorofFadingEchoes, floor="F1", position=(291.7, 653.4))
         item = Waypoint((280.6, 668.6))
         herta = Waypoint((284.0, 702.2))
-        exit_ = Waypoint((293.2, 719.4))
+        exit_ = Waypoint((292.9, 711.4))
 
         self.clear_item(item)
         self.domain_herta(herta)

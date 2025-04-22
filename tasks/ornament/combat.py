@@ -274,5 +274,5 @@ class OrnamentCombat(Dungeon, RouteLoader):
     def route_special_match(self, plane: MapPlane):
         # No black floors loaded
         if self.appear(Amphoreus_StrifeRuinsCastrumKremnos_F1OE_X373Y317):
-            return 'Amphoreus_StrifeRuinsCastrumKremnos_F1OE_X373Y317'
+            return 'Combat_Amphoreus_StrifeRuinsCastrumKremnos_F1OE_X373Y317'
         super().route_special_match(plane)

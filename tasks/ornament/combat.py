@@ -8,14 +8,13 @@ from tasks.character.keywords import CharacterList
 from tasks.combat.assets.assets_combat_prepare import COMBAT_PREPARE
 from tasks.combat.assets.assets_combat_support import COMBAT_SUPPORT_LIST, COMBAT_SUPPORT_LIST_SCROLL_OE
 from tasks.dungeon.dungeon import Dungeon
-from tasks.dungeon.ui.state import DungeonState
-from tasks.map.route.loader import RouteLoader
 from tasks.map.route.route.daily import OrnamentExtraction__route
 from tasks.ornament.assets.assets_ornament_combat import *
 from tasks.ornament.assets.assets_ornament_ui import *
+from tasks.rogue.route.loader import RouteLoader
 
 
-class OrnamentCombat(Dungeon, RouteLoader, DungeonState):
+class OrnamentCombat(Dungeon, RouteLoader):
     def combat_enter_from_map(self, skip_first_screenshot=True):
         # Don't enter from map, UI too deep inside
         # Enter from survival index instead

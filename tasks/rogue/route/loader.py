@@ -80,7 +80,7 @@ class MinimapWrapper:
         return self.all_minimap[route.plane_floor]
 
 
-class RouteLoader(RouteBase, MinimapWrapper, RouteLoader_, CharacterSwitch):
+class RouteLoader(RouteBase, RouteLoader_, MinimapWrapper, CharacterSwitch):
     def position_find_known(self, image, force_return=False) -> Optional[RogueRouteModel]:
         """
         Try to find from known route spawn point

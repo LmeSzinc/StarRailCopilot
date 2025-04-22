@@ -6,7 +6,7 @@ from tasks.dungeon.ui.nav import DungeonUINav
 from tasks.dungeon.ui.state import DungeonState
 
 
-class DungeonUI(DungeonState, DungeonUINav, DungeonUIList, DungeonUIInteract):
+class DungeonUI(DungeonUINav, DungeonUIList, DungeonUIInteract, DungeonState):
     def dungeon_goto(self, dungeon: DungeonList):
         """
         Returns:

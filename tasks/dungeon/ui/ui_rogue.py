@@ -148,7 +148,8 @@ class DungeonRogueUI(DungeonUI):
             if interval.reached():
                 p1, p2 = random_rectangle_vector(
                     (0, -450), box=OCR_DUNGEON_LIST.button, random_range=(-20, -20, 20, 20), padding=5)
-                self.device.swipe(p1, p2)
+                # Drag, simulated universe can be at the middle, with locked rogue theme at bottom
+                self.device.drag(p1, p2)
                 interval.reset()
 
 

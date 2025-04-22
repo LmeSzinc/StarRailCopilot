@@ -9,7 +9,9 @@ from tasks.character.keywords import CharacterList
 from tasks.combat.assets.assets_combat_prepare import COMBAT_PREPARE
 from tasks.combat.assets.assets_combat_support import COMBAT_SUPPORT_LIST, COMBAT_SUPPORT_LIST_SCROLL_OE
 from tasks.dungeon.dungeon import Dungeon
+from tasks.map.keywords import MapPlane
 from tasks.ornament.assets.assets_ornament_combat import *
+from tasks.ornament.assets.assets_ornament_special import *
 from tasks.ornament.assets.assets_ornament_ui import *
 from tasks.rogue.route.loader import RouteLoader, model_from_json
 from tasks.rogue.route.model import RogueRouteListModel, RogueRouteModel
@@ -260,3 +262,9 @@ class OrnamentCombat(Dungeon, RouteLoader):
         routes = model_from_json(RogueRouteListModel, './route/ornament/route.json').root
         logger.attr('RouteLoaded', len(routes))
         return routes
+
+    def route_special_match(self, plane: MapPlane):
+        # No black floors loaded
+        if self.appear(Amphoreus_StrifeRuinsCastrumKremnos_F1OE_X373Y317):
+            return 'Amphoreus_StrifeRuinsCastrumKremnos_F1OE_X373Y317'
+        super().route_special_match(plane)

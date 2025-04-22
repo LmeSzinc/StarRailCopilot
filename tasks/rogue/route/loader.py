@@ -1,10 +1,8 @@
-from typing import Optional
-
 import numpy as np
 
 from module.base.decorator import cached_property
 from module.base.timer import Timer
-from module.exception import GameStuckError, HandledError
+from module.exception import GameStuckError, HandledError, ScriptError
 from module.logger import logger, save_error_log
 from tasks.base.assets.assets_base_main_page import ROGUE_LEAVE_FOR_NOW
 from tasks.base.assets.assets_base_page import MAP_EXIT
@@ -80,7 +78,7 @@ class MinimapWrapper:
 
 
 class RouteLoader(RouteBase, RouteLoader_, MinimapWrapper, CharacterSwitch):
-    def position_find_known(self, image, force_return=False) -> Optional[RogueRouteModel]:
+    def position_find_known(self, image, force_return=False) -> "RogueRouteModel | None":
         """
         Try to find from known route spawn point
         """
@@ -89,6 +87,12 @@ class RouteLoader(RouteBase, RouteLoader_, MinimapWrapper, CharacterSwitch):
         if plane is None:
             logger.warning('Unknown rogue domain')
             return
+
+        # Special match
+        special = self.route_special_match(plane)
+        if special:
+            logger.info(f'Special match route: {special}')
+            return self._rogue_route_name_to_model(special)
 
         visited = []
         for route in self.all_route:
@@ -234,6 +238,22 @@ class RouteLoader(RouteBase, RouteLoader_, MinimapWrapper, CharacterSwitch):
         ] and similarity > 0.05:
             return True
         return False
+
+    def route_special_match(self, plane: MapPlane):
+        """
+        Special match rogue plane from screenshot
+
+        Returns:
+            str: route name like Combat_Luofu_ArtisanshipCommission_F1_X481Y920
+        """
+        return ''
+
+    def _rogue_route_name_to_model(self, name: str) -> "RogueRouteModel":
+        for route in self.all_route:
+            if route.name == name:
+                return route
+        # This shouldn't happen because special match is manually maintained
+        raise ScriptError(f'Special match result {name} has no corresponding route')
 
     def position_find_bruteforce(self, image) -> Minimap:
         """

@@ -1,12 +1,11 @@
 from datetime import timedelta
 
-from module.base.base import ModuleBase
 from module.base.utils import crop
 from module.config.stored.classes import now
 from module.config.utils import DEFAULT_TIME, get_server_next_monday_update, get_server_next_update
 from module.logger import logger
 from module.ocr.ocr import DigitCounter
-from tasks.combat.stamina_status import StaminaStatus
+from tasks.base.ui import UI
 from tasks.dungeon.assets.assets_dungeon_state import OCR_SIMUNI_POINT, OCR_SIMUNI_POINT_OFFSET
 from tasks.dungeon.keywords import DungeonList
 
@@ -18,7 +17,7 @@ class OcrSimUniPoint(DigitCounter):
         return result
 
 
-class DungeonState(StaminaStatus):
+class DungeonState(UI):
     def dungeon_get_simuni_point(self, image=None) -> int:
         """
         Page:
@@ -47,23 +46,23 @@ class DungeonState(StaminaStatus):
             logger.warning(f'Invalid SimulatedUniverse points: {value}/{total}')
             return 0
 
-    def dungeon_update_simuni(self):
-        """
-        Update rogue weekly points, stamina, immersifier
-        Run in a new thread to be faster as data is not used immediately
-
-        Page:
-            in: page_guide, Survival_Index, Simulated_Universe
-        """
-        logger.info('dungeon_update_simuni')
-
-        def func(image):
-            logger.info('Update thread start')
-            with self.config.multi_set():
-                # self.dungeon_get_simuni_point(image)
-                self.update_stamina_status(image)
-
-        ModuleBase.worker.submit(func, self.device.image)
+    # def dungeon_update_simuni(self):
+    #     """
+    #     Update rogue weekly points, stamina, immersifier
+    #     Run in a new thread to be faster as data is not used immediately
+    #
+    #     Page:
+    #         in: page_guide, Survival_Index, Simulated_Universe
+    #     """
+    #     logger.info('dungeon_update_simuni')
+    #
+    #     def func(image):
+    #         logger.info('Update thread start')
+    #         with self.config.multi_set():
+    #             # self.dungeon_get_simuni_point(image)
+    #             self.update_stamina_status(image)
+    #
+    #     ModuleBase.worker.submit(func, self.device.image)
 
     def dungeon_stamina_delay(self, dungeon: DungeonList):
         """

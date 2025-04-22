@@ -77,7 +77,7 @@ class MinimapWrapper:
         return self.all_minimap[route.plane_floor]
 
 
-class RouteLoader(RouteBase, RouteLoader_, MinimapWrapper, CharacterSwitch):
+class RouteLoader(RouteLoader_, MinimapWrapper, CharacterSwitch):
     def position_find_known(self, image, force_return=False) -> "RogueRouteModel | None":
         """
         Try to find from known route spawn point
@@ -298,42 +298,12 @@ class RouteLoader(RouteBase, RouteLoader_, MinimapWrapper, CharacterSwitch):
             if route is not None:
                 return route
 
-    def rogue_leave(self, skip_first_screenshot=True):
-        logger.hr('Rogue leave', level=1)
-        while 1:
-            if skip_first_screenshot:
-                skip_first_screenshot = False
-            else:
-                self.device.screenshot()
-
-            # End
-            if self.is_page_rogue_main():
-                logger.info('Rogue left')
-                break
-
-            # Re-enter
-            if self.handle_combat_interact():
-                continue
-            # From ui_leave_special
-            if self.is_in_map_exit(interval=2):
-                self.device.click(MAP_EXIT)
-                continue
-            if self.handle_popup_confirm():
-                continue
-            if self.appear_then_click(ROGUE_LEAVE_FOR_NOW, interval=2):
-                continue
-            # Blessing
-            if self.handle_blessing():
-                continue
-            # _domain_exit_wait_next()
-            if self.match_template_color(ROGUE_REPORT, interval=2):
-                logger.info(f'{ROGUE_REPORT} -> {BLESSING_CONFIRM}')
-                self.device.click(BLESSING_CONFIRM)
-                continue
-            if self.handle_reward():
-                continue
-            if self.handle_get_character():
-                continue
+    def route_error_postprocess(self):
+        """
+        Returns:
+            bool: If handled error
+        """
+        return False
 
     def route_run(self, route=None):
         """
@@ -356,41 +326,12 @@ class RouteLoader(RouteBase, RouteLoader_, MinimapWrapper, CharacterSwitch):
             return True
         except GameStuckError as e:
             logger.error(e)
-            save_error_log(config=self.config, device=self.device)
-            self.rogue_leave()
+
+        save_error_log(config=self.config, device=self.device)
+        handled = self.route_error_postprocess()
+        if handled:
             raise HandledError('Rogue run failed')
-
-    def rogue_run(self, skip_first_screenshot=True):
-        """
-        Do a complete rogue run, no error handle yet.
-
-        Pages:
-            in: page_rogue, is_page_rogue_launch()
-            out: page_rogue, is_page_rogue_main()
-        """
-        base = RouteBase(config=self.config, device=self.device, task=self.config.task.command)
-        count = 1
-        self.character_is_ranged = None
-        while 1:
-            if skip_first_screenshot:
-                skip_first_screenshot = False
-            else:
-                self.device.screenshot()
-
-            logger.hr(f'Route run: {count}', level=1)
-            base.clear_blessing()
-            self.character_switch_to_ranged(update=True)
-
-            self.route_run()
-            # if not success:
-            #     self.device.image_save()
-            #     continue
-
-            # End
-            if self.is_page_rogue_main():
-                break
-
-            count += 1
+        return False
 
 
 if __name__ == '__main__':

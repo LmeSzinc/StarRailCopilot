@@ -61,6 +61,14 @@ class OrnamentCombat(Dungeon, RouteLoader):
             if self.handle_popup_confirm():
                 continue
 
+    def route_error_postprocess(self):
+        """
+        When having route error, leave for now and re-enter
+        May be another trial would fix it
+        """
+        self.oe_leave()
+        return True
+
     @staticmethod
     def _support_scroll():
         """

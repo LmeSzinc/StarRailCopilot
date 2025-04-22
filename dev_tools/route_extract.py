@@ -486,5 +486,10 @@ if __name__ == '__main__':
     self.predict()
     self.write()
     self.insert('./route/rogue', base='tasks.rogue.route.base')
-
     rogue_extract('./route/rogue')
+
+    self = RouteDetect('../SrcRoute/ornament')
+    self.predict()
+    self.write()
+    self.insert('./route/ornament', base='tasks.ornament.route_base')
+    rogue_extract('./route/ornament')

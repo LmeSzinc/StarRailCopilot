@@ -22,7 +22,6 @@ from tasks.map.resource.resource import SPECIAL_PLANES
 from tasks.map.route.loader import RouteLoader as RouteLoader_
 from tasks.rogue.assets.assets_rogue_ui import BLESSING_CONFIRM
 from tasks.rogue.assets.assets_rogue_weekly import ROGUE_REPORT
-from tasks.rogue.blessing.ui import RogueUI
 from tasks.rogue.route.base import RouteBase
 from tasks.rogue.route.model import RogueRouteListModel, RogueRouteModel
 
@@ -111,9 +110,9 @@ class RouteLoader(RouteBase, RouteLoader_, MinimapWrapper, CharacterSwitch):
                 continue
             visited.append((route, minimap.position_similarity, minimap.position))
 
-        if len(visited) < 3:
-            logger.warning('Too few routes to search from, not enough to make a prediction')
-            return
+        # if len(visited) < 3:
+        #     logger.warning('Too few routes to search from, not enough to make a prediction')
+        #     return
 
         visited = sorted(visited, key=lambda x: x[1], reverse=True)
         logger.info(f'Best 3 predictions: {[(r.name, s, p) for r, s, p in visited[:3]]}')

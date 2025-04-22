@@ -1,4 +1,5 @@
 from module.base.decorator import run_once
+from module.device.platform.utils import cached_property
 from module.exception import RequestHumanTakeover
 from module.logger import logger
 from module.ui.scroll import AdaptiveScroll
@@ -8,10 +9,10 @@ from tasks.character.keywords import CharacterList
 from tasks.combat.assets.assets_combat_prepare import COMBAT_PREPARE
 from tasks.combat.assets.assets_combat_support import COMBAT_SUPPORT_LIST, COMBAT_SUPPORT_LIST_SCROLL_OE
 from tasks.dungeon.dungeon import Dungeon
-from tasks.map.route.route.daily import OrnamentExtraction__route
 from tasks.ornament.assets.assets_ornament_combat import *
 from tasks.ornament.assets.assets_ornament_ui import *
-from tasks.rogue.route.loader import RouteLoader
+from tasks.rogue.route.loader import RouteLoader, model_from_json
+from tasks.rogue.route.model import RogueRouteListModel, RogueRouteModel
 
 
 class OrnamentCombat(Dungeon, RouteLoader):
@@ -249,5 +250,13 @@ class OrnamentCombat(Dungeon, RouteLoader):
             if self.handle_popup_confirm():
                 continue
 
-        self.route_run(OrnamentExtraction__route)
+        logger.hr('Route Ornament Extraction', level=1)
+        self.route_run()
         return True
+
+    @cached_property
+    def all_route(self) -> "list[RogueRouteModel]":
+        # Override to load route indexes from ornament
+        routes = model_from_json(RogueRouteListModel, './route/ornament/route.json').root
+        logger.attr('RouteLoaded', len(routes))
+        return routes

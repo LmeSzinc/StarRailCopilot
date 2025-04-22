@@ -1,5 +1,6 @@
 import numpy as np
 
+from deploy.Windows.atomic import atomic_read_bytes
 from module.base.decorator import cached_property
 from module.base.timer import Timer
 from module.exception import GameStuckError, HandledError, ScriptError
@@ -25,8 +26,7 @@ from tasks.rogue.route.model import RogueRouteListModel, RogueRouteModel
 
 
 def model_from_json(model, file: str):
-    with open(file, 'r', encoding='utf-8') as f:
-        content = f.read()
+    content = atomic_read_bytes(file)
     data = model.model_validate_json(content)
     return data
 

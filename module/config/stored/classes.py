@@ -219,6 +219,10 @@ class StoredSimulatedUniverse(StoredCounter, StoredExpiredAtMonday0400):
     pass
 
 
+class StoredRelic(StoredCounter):
+    FIXED_TOTAL = 2000
+
+
 class StoredSimulatedUniverseElite(StoredCounter, StoredExpiredAtMonday0400):
     # These variables are used in Rogue Farming feature.
 

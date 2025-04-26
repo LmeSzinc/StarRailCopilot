@@ -504,6 +504,10 @@
     "SimulatedUniverse": {
       "name": "模擬宇宙",
       "help": ""
+    },
+    "Relic": {
+      "name": "遺器",
+      "help": ""
     }
   },
   "SupportReward": {

@@ -841,6 +841,14 @@
         "stored": "StoredSimulatedUniverse",
         "order": 6,
         "color": "#8fb5fe"
+      },
+      "Relic": {
+        "type": "stored",
+        "value": {},
+        "display": "hide",
+        "stored": "StoredRelic",
+        "order": 3,
+        "color": "#79dbc4"
       }
     },
     "TrailblazePower": {
@@ -1328,9 +1336,7 @@
         "type": "stored",
         "value": {},
         "display": "hide",
-        "stored": "StoredAssignment",
-        "order": 3,
-        "color": "#79dbc4"
+        "stored": "StoredAssignment"
       }
     }
   },

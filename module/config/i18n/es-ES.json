@@ -486,8 +486,8 @@
       "help": ""
     },
     "Fuel": {
-      "name": "DungeonStorage.Fuel.name",
-      "help": "DungeonStorage.Fuel.help"
+      "name": "Combustible",
+      "help": ""
     },
     "Immersifier": {
       "name": "Inmersor",
@@ -503,6 +503,10 @@
     },
     "SimulatedUniverse": {
       "name": "Univ.Sim.",
+      "help": ""
+    },
+    "Relic": {
+      "name": "Artefacto",
       "help": ""
     }
   },

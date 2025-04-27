@@ -504,6 +504,10 @@
     "SimulatedUniverse": {
       "name": "DungeonStorage.SimulatedUniverse.name",
       "help": "DungeonStorage.SimulatedUniverse.help"
+    },
+    "Relic": {
+      "name": "DungeonStorage.Relic.name",
+      "help": "DungeonStorage.Relic.help"
     }
   },
   "SupportReward": {

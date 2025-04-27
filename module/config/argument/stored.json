@@ -25,14 +25,14 @@
     "order": 2,
     "color": "#ffcf70"
   },
-  "Assignment": {
-    "name": "Assignment",
-    "path": "Assignment.Assignment.Assignment",
-    "i18n": "Assignment.Assignment.name",
-    "stored": "StoredAssignment",
+  "Relic": {
+    "name": "Relic",
+    "path": "Dungeon.DungeonStorage.Relic",
+    "i18n": "DungeonStorage.Relic.name",
+    "stored": "StoredRelic",
     "attrs": {
       "time": "2020-01-01 00:00:00",
-      "total": 0,
+      "total": 2000,
       "value": 0
     },
     "order": 3,
@@ -963,6 +963,19 @@
     "path": "BattlePass.BattlePassStorage.BattlePassQuestTrailblazePower",
     "i18n": "BattlePassStorage.BattlePassQuestTrailblazePower.name",
     "stored": "StoredBattlePassQuestTrailblazePower",
+    "attrs": {
+      "time": "2020-01-01 00:00:00",
+      "total": 0,
+      "value": 0
+    },
+    "order": 0,
+    "color": "#777777"
+  },
+  "Assignment": {
+    "name": "Assignment",
+    "path": "Assignment.Assignment.Assignment",
+    "i18n": "Assignment.Assignment.name",
+    "stored": "StoredAssignment",
     "attrs": {
       "time": "2020-01-01 00:00:00",
       "total": 0,

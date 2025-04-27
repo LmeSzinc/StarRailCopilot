@@ -64,6 +64,7 @@ class GeneratedConfig:
     DungeonStorage_DungeonDouble = {}
     DungeonStorage_EchoOfWar = {}
     DungeonStorage_SimulatedUniverse = {}
+    DungeonStorage_Relic = {}
 
     # Group `SupportReward`
     SupportReward_Collect = True

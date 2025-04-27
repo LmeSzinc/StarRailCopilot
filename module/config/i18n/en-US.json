@@ -486,7 +486,7 @@
       "help": ""
     },
     "Fuel": {
-      "name": "Combustible",
+      "name": "Fuel",
       "help": ""
     },
     "Immersifier": {
@@ -503,6 +503,10 @@
     },
     "SimulatedUniverse": {
       "name": "Sim.Univ.",
+      "help": ""
+    },
+    "Relic": {
+      "name": "Relics",
       "help": ""
     }
   },

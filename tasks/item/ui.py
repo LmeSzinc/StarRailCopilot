@@ -134,8 +134,8 @@ class ItemUI(UI):
             self.item_goto(KEYWORDS_ITEM_TAB.Relics)
             self.item_goto(KEYWORDS_ITEM_TAB.Consumables)
         """
-        current = SWITCH_ITEM_TAB.get(main=self)
-        logger.attr(SWITCH_ITEM_TAB.name, current)
+        # Wait tabs appear, so _item_ui_insight_aside won't swipe on unknown tab
+        SWITCH_ITEM_TAB.wait(main=self)
 
         # Insight tabs
         self._item_ui_insight_aside(state)

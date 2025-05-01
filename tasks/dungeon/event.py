@@ -1,5 +1,6 @@
 import re
 
+from module.base.utils import area_offset
 from module.logger import logger
 from module.ocr.ocr import DigitCounter
 from tasks.base.ui import UI
@@ -7,6 +8,7 @@ from tasks.dungeon.assets.assets_dungeon_event import (
     DOUBLE_CALYX_EVENT_TAG,
     DOUBLE_RELIC_EVENT_TAG,
     DOUBLE_ROGUE_EVENT_TAG,
+    HAS_PINNED_CHARACTER,
     OCR_DOUBLE_EVENT_REMAIN,
     OCR_DOUBLE_EVENT_REMAIN_AT_COMBAT,
     OCR_DOUBLE_ROGUE_REMAIN,
@@ -25,15 +27,26 @@ class DoubleEventOcr(DigitCounter):
 
 
 class DungeonEvent(UI):
+    def has_pinned_character(self):
+        """
+        Pages:
+            in: page_guide, Survival_Index, nav at top
+        """
+        return self.appear(HAS_PINNED_CHARACTER)
+
     def has_double_calyx_event(self) -> bool:
         """
         Pages:
             in: page_guide, Survival_Index, nav at top
         """
-        has = self.image_color_count(DOUBLE_CALYX_EVENT_TAG, color=(252, 209, 123), threshold=221, count=50)
-        has |= self.image_color_count(DOUBLE_CALYX_EVENT_TAG, color=(252, 251, 140), threshold=221, count=50)
+        if self.has_pinned_character():
+            area = area_offset(DOUBLE_CALYX_EVENT_TAG.area, (0, 136))
+        else:
+            area = DOUBLE_CALYX_EVENT_TAG.area
+        has = self.image_color_count(area, color=(252, 209, 123), threshold=221, count=50)
+        has |= self.image_color_count(area, color=(252, 251, 140), threshold=221, count=50)
         # Anniversary 3x rogue event
-        has |= self.image_color_count(DOUBLE_CALYX_EVENT_TAG, color=(229, 62, 44), threshold=221, count=50)
+        has |= self.image_color_count(area, color=(229, 62, 44), threshold=221, count=50)
         logger.attr('Double calyx', has)
         return has
 
@@ -42,6 +55,7 @@ class DungeonEvent(UI):
         Pages:
             in: page_guide, Survival_Index, nav at top
         """
+        # If has_pinned_character, DOUBLE_RELIC_EVENT_TAG will be out of list, donno how to do yet
         has = self.image_color_count(DOUBLE_RELIC_EVENT_TAG, color=(252, 209, 123), threshold=221, count=50)
         has |= self.image_color_count(DOUBLE_RELIC_EVENT_TAG, color=(252, 251, 140), threshold=221, count=50)
         # Anniversary 3x rogue event
@@ -54,10 +68,14 @@ class DungeonEvent(UI):
         Pages:
             in: page_guide, Survival_Index, nav at top
         """
-        has = self.image_color_count(DOUBLE_ROGUE_EVENT_TAG, color=(252, 209, 123), threshold=221, count=50)
-        has |= self.image_color_count(DOUBLE_ROGUE_EVENT_TAG, color=(252, 251, 140), threshold=221, count=50)
+        if self.has_pinned_character():
+            area = area_offset(DOUBLE_ROGUE_EVENT_TAG.area, (0, 136))
+        else:
+            area = DOUBLE_ROGUE_EVENT_TAG.area
+        has = self.image_color_count(area, color=(252, 209, 123), threshold=221, count=50)
+        has |= self.image_color_count(area, color=(252, 251, 140), threshold=221, count=50)
         # Anniversary 3x rogue event
-        has |= self.image_color_count(DOUBLE_ROGUE_EVENT_TAG, color=(229, 62, 44), threshold=221, count=50)
+        has |= self.image_color_count(area, color=(229, 62, 44), threshold=221, count=50)
         logger.attr('Double rogue', has)
         return has
 

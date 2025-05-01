@@ -256,6 +256,8 @@ class Dungeon(Combat, DungeonStamina, DungeonEvent):
             calyx = 0
             relic = 0
             rogue = 0
+            pinned = self.has_pinned_character()
+            logger.attr('Pinned character', pinned)
             if self.has_double_rogue_event():
                 rogue = self.get_double_rogue_remain()
             if self.has_double_calyx_event():

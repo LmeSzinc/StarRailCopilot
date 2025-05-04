@@ -1,0 +1,101 @@
+name: build-installers-on-release
+
+on:
+  release:
+    types: [published]
+  workflow_dispatch:
+    inputs:
+      version:
+        description: version, e.g. 0.5.7
+        required: false
+      tag:
+        description: tag, e.g. v2025.03.04
+        required: false
+
+permissions:
+  contents: write
+
+jobs:
+  build:
+    runs-on: windows-latest
+    env:
+      EVT_TAG:       ${{ github.event.release.tag_name }}
+      EVT_TITLE:     ${{ github.event.release.name }}
+      INP_VERSION:   ${{ inputs.version }}
+      INP_TAG:       ${{ inputs.tag }}
+      APPNAME:       StarRailCopilot
+      ISCC_PATH:     'C:\Program Files (x86)\Inno Setup 6\ISCC.exe'
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: resolve-vars
+        id: vars
+        shell: bash
+        run: |
+          VERSION="$INP_VERSION"
+          if [ -z "$VERSION" ] && [ -n "$EVT_TITLE" ]; then
+            VERSION=$(echo "$EVT_TITLE" | grep -oE '[0-9]+\.[0-9]+\.[0-9]+' | head -n1)
+          fi
+          if [ -z "$VERSION" ] && [ -n "$EVT_TAG" ]; then
+            VERSION=$(echo "$EVT_TAG" | grep -oE '[0-9]+\.[0-9]+\.[0-9]+' | head -n1)
+          fi
+          if [ -z "$VERSION" ]; then
+            echo "::error::missing semantic version"
+            exit 1
+          fi
+          TAG="$INP_TAG"
+          if [ -z "$TAG" ]; then
+            if [ -n "$EVT_TAG" ]; then
+              TAG="$EVT_TAG"
+            else
+              TAG="v$VERSION"
+            fi
+          fi
+          echo "VERSION=$VERSION"   >> "$GITHUB_ENV"
+          echo "RELEASE_TAG=$TAG"   >> "$GITHUB_ENV"
+
+      - name: install-tools
+        run: choco install -y innosetup 7zip.commandline
+
+      - name: download-assets
+        shell: pwsh
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          if (Test-Path assets) { Remove-Item assets -Recurse -Force }
+          New-Item -ItemType Directory -Path assets | Out-Null
+
+          gh release download $env:RELEASE_TAG --pattern "*_full*.7z" --dir assets
+
+
+      - name: extract-en
+        run: 7z x "assets\${{ env.APPNAME }}_*_full.7z"   -o"en"
+
+      - name: extract-cn
+        run: 7z x "assets\${{ env.APPNAME }}_*_fullcn.7z" -o"cn"
+
+      - name: compile-en
+        shell: pwsh
+        run: |
+          Copy-Item "installer\setup_en.iss" "en\setup.iss"
+          & "$env:ISCC_PATH" /DAppVersion=$env:VERSION /Odist "en\setup.iss"
+
+      - name: compile-cn
+        shell: pwsh
+        run: |
+          Copy-Item 'installer\setup_cn.iss'       'cn\setup.iss'
+          Copy-Item 'installer\Languages' -Recurse 'cn\Languages'
+          & "$env:ISCC_PATH" /DAppVersion=$env:VERSION /Odist 'cn\setup.iss'
+
+
+
+      - name: upload-installers
+        uses: softprops/action-gh-release@v2
+        with:
+          tag_name: ${{ env.RELEASE_TAG }}
+          files: |
+            dist/StarRailCopilot-Setup-${{ env.VERSION }}.exe
+            dist/StarRailCopilot-Setup-${{ env.VERSION }}-cn.exe
+          fail_on_unmatched_files: true
+

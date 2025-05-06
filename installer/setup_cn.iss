@@ -41,6 +41,7 @@ Filename: "{app}\src.exe"; Description: "运行 {#AppName}"; Flags: nowait posti
 [UninstallDelete]
 Type: filesandordirs; Name: "{app}"
 
+[Code]
 function InitializeUninstall(): Boolean;
 var
   ErrorCode: Integer;

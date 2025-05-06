@@ -7,11 +7,13 @@
 [Setup]
 AppName={#AppName}
 AppVersion={#AppVersion}
-DefaultDirName={userappdata}\{#AppName}
+PrivilegesRequired=admin
+PrivilegesRequiredOverridesAllowed=dialog
+DefaultDirName={autopf}\{#AppName}
 DefaultGroupName={#AppName}
 OutputBaseFilename={#AppName}-Setup-{#AppVersion}{#Suffix}
 Compression=lzma2/ultra64
-SolidCompression=no
+SolidCompression=yes
 WizardStyle=modern
 DisableDirPage=no
 DisableProgramGroupPage=no

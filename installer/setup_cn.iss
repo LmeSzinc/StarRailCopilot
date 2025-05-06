@@ -7,31 +7,32 @@
 [Setup]
 AppName={#AppName}
 AppVersion={#AppVersion}
-PrivilegesRequired=admin
+PrivilegesRequired=lowest
 PrivilegesRequiredOverridesAllowed=dialog
 DefaultDirName={autopf}\{#AppName}
 DefaultGroupName={#AppName}
-OutputBaseFilename={#AppName}-Setup-{#AppVersion}{#Suffix}
+OutputBaseFilename={#AppName}-Setup-{#AppVersion}
 Compression=lzma2/ultra64
 SolidCompression=yes
 WizardStyle=modern
 DisableDirPage=no
 DisableProgramGroupPage=no
+AppMutex=SRCMutex
+AllowNoIcons=yes
 
 [Languages]
 Name: "chinesesimplified"; MessagesFile: "Languages\ChineseSimplified.isl"
 
 [Tasks]
 Name: "desktopicon"; Description: "在桌面创建图标(&D)"; Flags: unchecked
-Name: "startmenuentry"; Description: "创建开始菜单项(&S)"; Flags: checkedonce
 
 [Files]
 Source: "StarRailCopilot\*"; DestDir: "{app}"; Flags: recursesubdirs createallsubdirs ignoreversion
 
 [Icons]
-Name: "{group}\{#AppName}";      Filename: "{app}\src.exe"; IconFilename: "{app}\src.exe"; IconIndex: 0; Tasks: startmenuentry
-Name: "{group}\SRC";            Filename: "{app}\src.exe"; IconFilename: "{app}\src.exe"; IconIndex: 0; Tasks: startmenuentry
-Name: "{group}\卸载 {#AppName}"; Filename: "{uninstallexe}";                                  Tasks: startmenuentry
+Name: "{group}\{#AppName}"; Filename: "{app}\src.exe"; IconFilename: "{app}\src.exe"
+Name: "{group}\SRC"; Filename: "{app}\src.exe"; IconFilename: "{app}\src.exe"
+Name: "{group}\卸载{#AppName}"; Filename: "{uninstallexe}"                                Tasks: startmenuentry
 Name: "{userdesktop}\{#AppName}"; Filename: "{app}\src.exe"; IconFilename: "{app}\src.exe"; IconIndex: 0; Tasks: desktopicon
 
 [Run]
@@ -39,3 +40,18 @@ Filename: "{app}\src.exe"; Description: "运行 {#AppName}"; Flags: nowait posti
 
 [UninstallDelete]
 Type: filesandordirs; Name: "{app}"
+
+function InitializeUninstall(): Boolean;
+var
+  ErrorCode: Integer;
+begin
+  if CheckForMutexes('SRCMutex') and
+     (MsgBox('SRC正在运行，是否要关闭它？',
+             mbConfirmation, MB_OKCANCEL) = IDOK) then
+  begin
+    Exec('taskkill.exe', '/f /im src.exe', '', SW_HIDE,
+         ewWaitUntilTerminated, ErrorCode);
+  end;
+
+  Result := True;
+end;

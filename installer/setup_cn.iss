@@ -32,7 +32,7 @@ Source: "StarRailCopilot\*"; DestDir: "{app}"; Flags: recursesubdirs createallsu
 [Icons]
 Name: "{group}\{#AppName}"; Filename: "{app}\src.exe"; IconFilename: "{app}\src.exe"
 Name: "{group}\SRC"; Filename: "{app}\src.exe"; IconFilename: "{app}\src.exe"
-Name: "{group}\卸载{#AppName}"; Filename: "{uninstallexe}"                                Tasks: startmenuentry
+Name: "{group}\卸载{#AppName}"; Filename: "{uninstallexe}"
 Name: "{userdesktop}\{#AppName}"; Filename: "{app}\src.exe"; IconFilename: "{app}\src.exe"; IconIndex: 0; Tasks: desktopicon
 
 [Run]

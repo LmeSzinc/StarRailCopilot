@@ -26,7 +26,7 @@ Name: "chinesesimplified"; MessagesFile: "Languages\ChineseSimplified.isl"
 Name: "desktopicon"; Description: "在桌面创建图标(&D)"; Flags: unchecked
 
 [Files]
-Source: "StarRailCopilot\*"; DestDir: "{app}"; Flags: recursesubdirs createallsubdirs ignoreversion
+Source: "StarRailCopilot\*"; DestDir: "{app}"; Flags: recursesubdirs createallsubdirs ignoreversion uninsrestartdelete
 
 [Icons]
 Name: "{group}\{#AppName}"; Filename: "{app}\src.exe"; IconFilename: "{app}\src.exe"
@@ -41,16 +41,22 @@ Filename: "{app}\src.exe"; Description: "运行 {#AppName}"; Flags: nowait posti
 Type: filesandordirs; Name: "{app}"
 
 [Code]
-function InitializeUninstall(): Boolean;
+function InitializeUninstall: Boolean;
 var
-  ErrorCode: Integer;
+  Cmd, Args: String;
+  R: Integer;
 begin
-  Exec('taskkill.exe', '/f /im src.exe', '', SW_HIDE,
-        ewWaitUntilTerminated, ErrorCode);
+  Exec('taskkill.exe', '/f /t /im src.exe', '', SW_HIDE,
+       ewWaitUntilTerminated, R);
 
-  Exec('taskkill.exe', '/f /im python.exe', '', SW_HIDE,
-    ewWaitUntilTerminated, ErrorCode);     
-    
-  Sleep(1000);
+  Cmd  := ExpandConstant('{sys}\WindowsPowerShell\v1.0\powershell.exe');
+  Args := '-NoLogo -NonInteractive -Command "Get-Process python ' +
+          '| Where-Object {$_.Path -eq ''' +
+          ExpandConstant('{app}\toolkit\python.exe') +
+          '''} | Stop-Process -Force"';
+
+  Exec(Cmd, Args, '', SW_HIDE, ewWaitUntilTerminated, R);
+
+  Sleep(500);
   Result := True;
 end;

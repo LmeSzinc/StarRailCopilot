@@ -25,7 +25,7 @@ Name: "english"; MessagesFile: "compiler:Default.isl"
 Name: "desktopicon"; Description: "Create a &desktop icon"; Flags: unchecked
 
 [Files]
-Source: "StarRailCopilot\*"; DestDir: "{app}"; Flags: recursesubdirs createallsubdirs ignoreversion
+Source: "StarRailCopilot\*"; DestDir: "{app}"; Flags: recursesubdirs createallsubdirs ignoreversion uninsrestartdelete
 
 [Icons]
 Name: "{group}\{#AppName}"; Filename: "{app}\src.exe"; IconFilename: "{app}\src.exe"
@@ -40,16 +40,22 @@ Filename: "{app}\src.exe"; Description: "Run {#AppName} now"; Flags: nowait post
 Type: filesandordirs; Name: "{app}"
 
 [Code]
-function InitializeUninstall(): Boolean;
+function InitializeUninstall: Boolean;
 var
-  ErrorCode: Integer;
+  Cmd, Args: String;
+  R: Integer;
 begin
-  Exec('taskkill.exe', '/f /im src.exe', '', SW_HIDE,
-        ewWaitUntilTerminated, ErrorCode);
+  Exec('taskkill.exe', '/f /t /im src.exe', '', SW_HIDE,
+       ewWaitUntilTerminated, R);
 
-  Exec('taskkill.exe', '/f /im python.exe', '', SW_HIDE,
-    ewWaitUntilTerminated, ErrorCode);     
+  Cmd  := ExpandConstant('{sys}\WindowsPowerShell\v1.0\powershell.exe');
+  Args := '-NoLogo -NonInteractive -Command "Get-Process python ' +
+          '| Where-Object {$_.Path -eq ''' +
+          ExpandConstant('{app}\toolkit\python.exe') +
+          '''} | Stop-Process -Force"';
 
-  Sleep(1000);
+  Exec(Cmd, Args, '', SW_HIDE, ewWaitUntilTerminated, R);
+
+  Sleep(500);
   Result := True;
 end;

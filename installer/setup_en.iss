@@ -16,7 +16,6 @@ SolidCompression=yes
 WizardStyle=modern
 DisableDirPage=no
 DisableProgramGroupPage=no
-AppMutex=SRCMutex
 AllowNoIcons=yes
 
 [Languages]
@@ -45,13 +44,12 @@ function InitializeUninstall(): Boolean;
 var
   ErrorCode: Integer;
 begin
-  if CheckForMutexes('SRCMutex') and
-     (MsgBox('Application is running, do you want to close it?',
-             mbConfirmation, MB_OKCANCEL) = IDOK) then
-  begin
-    Exec('taskkill.exe', '/f /im src.exe', '', SW_HIDE,
-         ewWaitUntilTerminated, ErrorCode);
-  end;
-   
+  Exec('taskkill.exe', '/f /im src.exe', '', SW_HIDE,
+        ewWaitUntilTerminated, ErrorCode);
+
+  Exec('taskkill.exe', '/f /im python.exe', '', SW_HIDE,
+    ewWaitUntilTerminated, ErrorCode);     
+
+  Sleep(1000);
   Result := True;
 end;

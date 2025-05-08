@@ -1,5 +1,7 @@
 {
   "PasserbyofWanderingCloud": {
+    "setid": 101,
+    "dungeon_id": 1203,
     "cn_origin": "云无留迹的过客",
     "cht_origin": "雲無留跡的過客",
     "en_origin": "Passerby of Wandering Cloud",
@@ -12,6 +14,8 @@
     "es": "Cicatrización set"
   },
   "MusketeerofWildWheat": {
+    "setid": 102,
+    "dungeon_id": 1203,
     "cn_origin": "野穗伴行的快枪手",
     "cht_origin": "野穗伴行的快槍手",
     "en_origin": "Musketeer of Wild Wheat",
@@ -24,6 +28,8 @@
     "es": "Pistolera"
   },
   "KnightofPurityPalace": {
+    "setid": 103,
+    "dungeon_id": 1205,
     "cn_origin": "净庭教宗的圣骑士",
     "cht_origin": "淨庭教宗的聖騎士",
     "en_origin": "Knight of Purity Palace",
@@ -36,6 +42,8 @@
     "es": "DEF set"
   },
   "HunterofGlacialForest": {
+    "setid": 104,
+    "dungeon_id": 1201,
     "cn_origin": "密林卧雪的猎人",
     "cht_origin": "密林臥雪的獵人",
     "en_origin": "Hunter of Glacial Forest",
@@ -48,6 +56,8 @@
     "es": "Hielo set"
   },
   "ChampionofStreetwiseBoxing": {
+    "setid": 105,
+    "dungeon_id": 1202,
     "cn_origin": "街头出身的拳王",
     "cht_origin": "街頭出身的拳王",
     "en_origin": "Champion of Streetwise Boxing",
@@ -60,6 +70,8 @@
     "es": "Físico set"
   },
   "GuardofWutheringSnow": {
+    "setid": 106,
+    "dungeon_id": 1204,
     "cn_origin": "戍卫风雪的铁卫",
     "cht_origin": "戍衛風雪的鐵衛",
     "en_origin": "Guard of Wuthering Snow",
@@ -72,6 +84,8 @@
     "es": "Guardia"
   },
   "FiresmithofLavaForging": {
+    "setid": 107,
+    "dungeon_id": 1206,
     "cn_origin": "熔岩锻铸的火匠",
     "cht_origin": "熔岩鍛鑄的火匠",
     "en_origin": "Firesmith of Lava-Forging",
@@ -84,6 +98,8 @@
     "es": "Fuego set"
   },
   "GeniusofBrilliantStars": {
+    "setid": 108,
+    "dungeon_id": 1204,
     "cn_origin": "繁星璀璨的天才",
     "cht_origin": "繁星璀璨的天才",
     "en_origin": "Genius of Brilliant Stars",
@@ -96,6 +112,8 @@
     "es": "Cuántico set"
   },
   "BandofSizzlingThunder": {
+    "setid": 109,
+    "dungeon_id": 1205,
     "cn_origin": "激奏雷电的乐队",
     "cht_origin": "激奏雷電的樂團",
     "en_origin": "Band of Sizzling Thunder",
@@ -108,6 +126,8 @@
     "es": "Rayo set"
   },
   "EagleofTwilightLine": {
+    "setid": 110,
+    "dungeon_id": 1201,
     "cn_origin": "晨昏交界的翔鹰",
     "cht_origin": "晨昏交界的翔鷹",
     "en_origin": "Eagle of Twilight Line",
@@ -120,6 +140,8 @@
     "es": "Viento set"
   },
   "ThiefofShootingMeteor": {
+    "setid": 111,
+    "dungeon_id": 1202,
     "cn_origin": "流星追迹的怪盗",
     "cht_origin": "流星追跡的怪盜",
     "en_origin": "Thief of Shooting Meteor",
@@ -132,6 +154,8 @@
     "es": "Ladrón"
   },
   "WastelanderofBanditryDesert": {
+    "setid": 112,
+    "dungeon_id": 1206,
     "cn_origin": "盗匪荒漠的废土客",
     "cht_origin": "盜匪荒漠的廢土客",
     "en_origin": "Wastelander of Banditry Desert",
@@ -144,6 +168,8 @@
     "es": "Imaginario set"
   },
   "LongevousDisciple": {
+    "setid": 113,
+    "dungeon_id": 1207,
     "cn_origin": "宝命长存的莳者",
     "cht_origin": "寶命長存的蒔者",
     "en_origin": "Longevous Disciple",
@@ -156,6 +182,8 @@
     "es": "Discípula"
   },
   "MessengerTraversingHackerspace": {
+    "setid": 114,
+    "dungeon_id": 1207,
     "cn_origin": "骇域漫游的信使",
     "cht_origin": "駭域漫遊的信使",
     "en_origin": "Messenger Traversing Hackerspace",
@@ -168,6 +196,8 @@
     "es": "Mensajero"
   },
   "TheAshblazingGrandDuke": {
+    "setid": 115,
+    "dungeon_id": 1208,
     "cn_origin": "毁烬焚骨的大公",
     "cht_origin": "毀燼焚骨的大公",
     "en_origin": "The Ashblazing Grand Duke",
@@ -180,6 +210,8 @@
     "es": "Gran duque"
   },
   "PrisonerinDeepConfinement": {
+    "setid": 116,
+    "dungeon_id": 1208,
     "cn_origin": "幽锁深牢的系囚",
     "cht_origin": "幽鎖深牢的繫囚",
     "en_origin": "Prisoner in Deep Confinement",
@@ -192,6 +224,8 @@
     "es": "DoT set"
   },
   "PioneerDiverofDeadWaters": {
+    "setid": 117,
+    "dungeon_id": 1209,
     "cn_origin": "死水深潜的先驱",
     "cht_origin": "死水深潛的先驅",
     "en_origin": "Pioneer Diver of Dead Waters",
@@ -204,6 +238,8 @@
     "es": "Agua muerta"
   },
   "WatchmakerMasterofDreamMachinations": {
+    "setid": 118,
+    "dungeon_id": 1209,
     "cn_origin": "机心戏梦的钟表匠",
     "cht_origin": "機心戲夢的鐘錶匠",
     "en_origin": "Watchmaker, Master of Dream Machinations",
@@ -216,6 +252,8 @@
     "es": "Relojero"
   },
   "IronCavalryAgainsttheScourge": {
+    "setid": 119,
+    "dungeon_id": 1210,
     "cn_origin": "荡除蠹灾的铁骑",
     "cht_origin": "蕩除蠹災的鐵騎",
     "en_origin": "Iron Cavalry Against the Scourge",
@@ -225,9 +263,11 @@
     "cht": "鐵騎",
     "en": "Iron Cavalry",
     "jp": "鉄騎",
-    "es": "Caballería de hierro plaguicida"
+    "es": "Caballería"
   },
   "TheWindSoaringValorous": {
+    "setid": 120,
+    "dungeon_id": 1210,
     "cn_origin": "风举云飞的勇烈",
     "cht_origin": "風舉雲飛的勇烈",
     "en_origin": "The Wind-Soaring Valorous",
@@ -240,6 +280,8 @@
     "es": "Intrepida"
   },
   "SacerdoRelivedOrdeal": {
+    "setid": 121,
+    "dungeon_id": 1211,
     "cn_origin": "重循苦旅的司铎",
     "cht_origin": "重循苦旅的司鐸",
     "en_origin": "Sacerdos' Relived Ordeal",
@@ -252,6 +294,8 @@
     "es": "Calvario"
   },
   "ScholarLostinErudition": {
+    "setid": 122,
+    "dungeon_id": 1211,
     "cn_origin": "识海迷坠的学者",
     "cht_origin": "識海迷墜的學者",
     "en_origin": "Scholar Lost in Erudition",
@@ -264,6 +308,8 @@
     "es": "Eruditos"
   },
   "HeroofTriumphantSong": {
+    "setid": 123,
+    "dungeon_id": 1212,
     "cn_origin": "凯歌祝捷的英豪",
     "cht_origin": "凱歌祝捷的英豪",
     "en_origin": "Hero of Triumphant Song",
@@ -276,6 +322,8 @@
     "es": "Heroe"
   },
   "PoetofMourningCollapse": {
+    "setid": 124,
+    "dungeon_id": 1212,
     "cn_origin": "哀歌覆国的诗人",
     "cht_origin": "哀歌覆國的詩人",
     "en_origin": "Poet of Mourning Collapse",
@@ -288,6 +336,8 @@
     "es": "Poetisa"
   },
   "SpaceSealingStation": {
+    "setid": 301,
+    "dungeon_id": 230,
     "cn_origin": "太空封印站",
     "cht_origin": "太空封印站",
     "en_origin": "Space Sealing Station",
@@ -300,6 +350,8 @@
     "es": "Espacios"
   },
   "FleetoftheAgeless": {
+    "setid": 302,
+    "dungeon_id": 230,
     "cn_origin": "不老者的仙舟",
     "cht_origin": "不老者的仙舟",
     "en_origin": "Fleet of the Ageless",
@@ -312,6 +364,8 @@
     "es": "Eternos Flota"
   },
   "PanCosmicCommercialEnterprise": {
+    "setid": 303,
+    "dungeon_id": 250,
     "cn_origin": "泛银河商业公司",
     "cht_origin": "泛銀河商業公司",
     "en_origin": "Pan-Cosmic Commercial Enterprise",
@@ -324,6 +378,8 @@
     "es": "Entidad comercial"
   },
   "BelobogoftheArchitects": {
+    "setid": 304,
+    "dungeon_id": 260,
     "cn_origin": "筑城者的贝洛伯格",
     "cht_origin": "築城者的貝洛伯格",
     "en_origin": "Belobog of the Architects",
@@ -336,6 +392,8 @@
     "es": "Belobog"
   },
   "CelestialDifferentiator": {
+    "setid": 305,
+    "dungeon_id": 250,
     "cn_origin": "星体差分机",
     "cht_origin": "星體差分機",
     "en_origin": "Celestial Differentiator",
@@ -348,6 +406,8 @@
     "es": "Diferenciador"
   },
   "InertSalsotto": {
+    "setid": 306,
+    "dungeon_id": 260,
     "cn_origin": "停转的萨尔索图",
     "cht_origin": "停轉的薩爾索圖",
     "en_origin": "Inert Salsotto",
@@ -360,6 +420,8 @@
     "es": "Salsotto"
   },
   "TaliaKingdomofBanditry": {
+    "setid": 307,
+    "dungeon_id": 240,
     "cn_origin": "盗贼公国塔利亚",
     "cht_origin": "盜賊公國塔利亞",
     "en_origin": "Talia: Kingdom of Banditry",
@@ -372,6 +434,8 @@
     "es": "Forajidos"
   },
   "SprightlyVonwacq": {
+    "setid": 308,
+    "dungeon_id": 240,
     "cn_origin": "生命的翁瓦克",
     "cht_origin": "生命的翁瓦克",
     "en_origin": "Sprightly Vonwacq",
@@ -384,6 +448,8 @@
     "es": "Vonwacq"
   },
   "RutilantArena": {
+    "setid": 309,
+    "dungeon_id": 270,
     "cn_origin": "繁星竞技场",
     "cht_origin": "繁星競技場",
     "en_origin": "Rutilant Arena",
@@ -396,6 +462,8 @@
     "es": "Arena rutilante"
   },
   "BrokenKeel": {
+    "setid": 310,
+    "dungeon_id": 270,
     "cn_origin": "折断的龙骨",
     "cht_origin": "折斷的龍骨",
     "en_origin": "Broken Keel",
@@ -408,6 +476,8 @@
     "es": "Quilla"
   },
   "FirmamentFrontlineGlamoth": {
+    "setid": 311,
+    "dungeon_id": 280,
     "cn_origin": "苍穹战线格拉默",
     "cht_origin": "蒼穹戰線格拉默",
     "en_origin": "Firmament Frontline: Glamoth",
@@ -420,6 +490,8 @@
     "es": "Glamoth"
   },
   "PenaconyLandoftheDreams": {
+    "setid": 312,
+    "dungeon_id": 280,
     "cn_origin": "梦想之地匹诺康尼",
     "cht_origin": "夢想之地匹諾康尼",
     "en_origin": "Penacony, Land of the Dreams",
@@ -432,6 +504,8 @@
     "es": "Colonipenal"
   },
   "SigoniatheUnclaimedDesolation": {
+    "setid": 313,
+    "dungeon_id": 290,
     "cn_origin": "无主荒星茨冈尼亚",
     "cht_origin": "無主荒星茨岡尼亞",
     "en_origin": "Sigonia, the Unclaimed Desolation",
@@ -444,6 +518,8 @@
     "es": "Sigonia"
   },
   "IzumoGenseiandTakamaDivineRealm": {
+    "setid": 314,
+    "dungeon_id": 290,
     "cn_origin": "出云显世与高天神国",
     "cht_origin": "出雲顯世與高天神國",
     "en_origin": "Izumo Gensei and Takama Divine Realm",
@@ -456,6 +532,8 @@
     "es": "Izumo"
   },
   "DuranDynastyofRunningWolves": {
+    "setid": 315,
+    "dungeon_id": 300,
     "cn_origin": "奔狼的都蓝王朝",
     "cht_origin": "奔狼的都藍王朝",
     "en_origin": "Duran, Dynasty of Running Wolves",
@@ -468,6 +546,8 @@
     "es": "Lobos raudos"
   },
   "ForgeoftheKalpagniLantern": {
+    "setid": 316,
+    "dungeon_id": 300,
     "cn_origin": "劫火莲灯铸炼宫",
     "cht_origin": "劫火蓮燈鑄煉宮",
     "en_origin": "Forge of the Kalpagni Lantern",
@@ -480,6 +560,8 @@
     "es": "Linterna"
   },
   "LushakatheSunkenSeas": {
+    "setid": 317,
+    "dungeon_id": 310,
     "cn_origin": "沉陆海域露莎卡",
     "cht_origin": "沉陸海域露莎卡",
     "en_origin": "Lushaka, the Sunken Seas",
@@ -492,6 +574,8 @@
     "es": "Bajo el mar"
   },
   "TheWondrousBananAmusementPark": {
+    "setid": 318,
+    "dungeon_id": 310,
     "cn_origin": "奇想蕉乐园",
     "cht_origin": "奇想蕉樂園",
     "en_origin": "The Wondrous BananAmusement Park",
@@ -504,6 +588,8 @@
     "es": "Platanolandia"
   },
   "BoneCollectionSereneDemesne": {
+    "setid": 319,
+    "dungeon_id": 320,
     "cn_origin": "谧宁拾骨地",
     "cht_origin": "謐寧拾骨地",
     "en_origin": "Bone Collection's Serene Demesne",
@@ -516,6 +602,8 @@
     "es": "Osario sereno"
   },
   "GiantTreeofRaptBrooding": {
+    "setid": 320,
+    "dungeon_id": 320,
     "cn_origin": "渊思寂虑的巨树",
     "cht_origin": "淵思寂慮的巨樹",
     "en_origin": "Giant Tree of Rapt Brooding",

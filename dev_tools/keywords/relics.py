@@ -1,8 +1,9 @@
 from typing import Dict, Iterable, List
 
-from dev_tools.keywords.base import GenerateKeyword, SHARE_DATA
+from dev_tools.keywords.base import GenerateKeyword, SHARE_DATA, UI_LANGUAGES
 from module.base.decorator import cached_property
-from module.config.deep import deep_get
+from module.config.deep import deep_get, deep_set
+from module.config.utils import read_file, write_file
 
 # Converts relic stat names in game internal to SRC keyword names
 DICT_STATS_CONVERT = {
@@ -124,6 +125,38 @@ class GenerateRelicSet(RelicBase):
                 'text_id': text_id,
                 'setid': setid,
             }
+
+    def generate(self):
+        super().generate()
+        self.update_relicset_nickname()
+
+    def update_relicset_nickname(self):
+        """
+        Maintain structure of /tasks/relics/keywords/relicset_nickname.json
+        """
+        file = 'tasks/relics/keywords/relicset_nickname.json'
+        old = read_file(file)
+        new = {}
+        for row in self.iter_rows():
+            try:
+                name = row['name']
+            except KeyError:
+                continue
+
+            # original name
+            for lang in UI_LANGUAGES:
+                lang_name = row.get(lang, '')
+                deep_set(new, [name, f'{lang}_origin'], lang_name)
+            # nickname
+            for lang in UI_LANGUAGES:
+                key = [name, lang]
+                old_name = deep_get(old, key, default='')
+                if not old_name:
+                    old_name = row.get(lang, '')
+                deep_set(new, key, old_name)
+
+
+        write_file(file, new)
 
 
 def generate_relics():

@@ -423,3 +423,23 @@ TheWondrousBananAmusementPark = RelicSet(
     es='Parque de Platanolandia',
     setid=318,
 )
+BoneCollectionSereneDemesne = RelicSet(
+    id=43,
+    name='BoneCollectionSereneDemesne',
+    cn='谧宁拾骨地',
+    cht='謐寧拾骨地',
+    en="Bone Collection's Serene Demesne",
+    jp='静謐な拾骨地',
+    es='Osario sereno',
+    setid=319,
+)
+GiantTreeofRaptBrooding = RelicSet(
+    id=44,
+    name='GiantTreeofRaptBrooding',
+    cn='渊思寂虑的巨树',
+    cht='淵思寂慮的巨樹',
+    en='Giant Tree of Rapt Brooding',
+    jp='深慮に浸る巨樹',
+    es='Árbol gigante en meditación profunda',
+    setid=320,
+)

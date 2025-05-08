@@ -567,6 +567,8 @@ class KeywordExtract:
                             output_file='./tasks/item/keywords/tab.py')
         from dev_tools.keywords.item import generate_items
         generate_items()
+        from dev_tools.keywords.relics import generate_relics
+        generate_relics()
         self.generate_rogue_buff()
         self.load_keywords(['已强化'])
         self.write_keywords(keyword_class='RogueEnhancement', output_file='./tasks/rogue/keywords/enhancement.py')

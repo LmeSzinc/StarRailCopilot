@@ -1,5 +1,5 @@
 import os
-from typing import Callable, Generic, TypeVar
+from typing import Callable, Generic, Iterable, TypeVar
 
 T = TypeVar("T")
 
@@ -52,3 +52,65 @@ def iter_folder(folder, is_dir=False, ext=None):
                     yield os.path.join(folder, file).replace('\\\\', '/').replace('\\', '/')
         else:
             yield os.path.join(folder, file).replace('\\\\', '/').replace('\\', '/')
+
+
+def iter_process() -> "Iterable[tuple[int, list[str]]]":
+    """
+    Yields:
+        int: pid
+        list[str]: cmdline, and it's guaranteed to have at least one element
+    """
+    try:
+        import psutil
+    except ModuleNotFoundError:
+        return
+
+    if psutil.WINDOWS:
+        # Since this is a one-time-usage, we access psutil._psplatform.Process directly
+        # to bypass the call of psutil.Process.is_running().
+        # This only costs about 0.017s.
+        # If you do psutil.process_iter(['pid', 'cmdline']) it will take over 1s
+        import psutil._psutil_windows as cetx
+        for pid in psutil.pids():
+            # 0 and 4 are always represented in taskmgr and process-hacker
+            if pid == 0 or pid == 4:
+                continue
+            try:
+                # This would be fast on psutil<=5.9.8 taking overall time 0.027s
+                # but taking 0.39s on psutil>=6.0.0
+                cmdline = cetx.proc_cmdline(pid, use_peb=True)
+            except (psutil.AccessDenied, psutil.NoSuchProcess, IndexError, OSError):
+                # psutil.AccessDenied
+                # NoSuchProcess: process no longer exists (pid=xxx)
+                # ProcessLookupError: [Errno 3] assume no such process (originated from psutil_pid_is_running -> 0)
+                # OSError: [WinError 87] 参数错误。: '(originated from ReadProcessMemory)'
+                continue
+
+            # Validate cmdline
+            if not cmdline:
+                continue
+            try:
+                exe = cmdline[0]
+            except IndexError:
+                continue
+            # \??\C:\Windows\system32\conhost.exe
+            if exe.startswith(r'\??'):
+                continue
+            yield pid, cmdline
+    else:
+        # No optimizations yet
+        for pid in psutil.pids():
+            proc = psutil._psplatform.Process(pid)
+            try:
+                cmdline = proc.cmdline()
+            except (psutil.AccessDenied, psutil.NoSuchProcess, IndexError, OSError):
+                continue
+
+            # Validate cmdline
+            if not cmdline:
+                continue
+            try:
+                cmdline[0]
+            except IndexError:
+                continue
+            yield pid, cmdline

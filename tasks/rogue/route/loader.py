@@ -1,10 +1,9 @@
-from typing import Optional
-
 import numpy as np
 
+from deploy.Windows.atomic import atomic_read_bytes
 from module.base.decorator import cached_property
 from module.base.timer import Timer
-from module.exception import GameStuckError, HandledError
+from module.exception import GameStuckError, HandledError, ScriptError
 from module.logger import logger, save_error_log
 from tasks.base.assets.assets_base_main_page import ROGUE_LEAVE_FOR_NOW
 from tasks.base.assets.assets_base_page import MAP_EXIT
@@ -22,14 +21,12 @@ from tasks.map.resource.resource import SPECIAL_PLANES
 from tasks.map.route.loader import RouteLoader as RouteLoader_
 from tasks.rogue.assets.assets_rogue_ui import BLESSING_CONFIRM
 from tasks.rogue.assets.assets_rogue_weekly import ROGUE_REPORT
-from tasks.rogue.blessing.ui import RogueUI
 from tasks.rogue.route.base import RouteBase
 from tasks.rogue.route.model import RogueRouteListModel, RogueRouteModel
 
 
 def model_from_json(model, file: str):
-    with open(file, 'r', encoding='utf-8') as f:
-        content = f.read()
+    content = atomic_read_bytes(file)
     data = model.model_validate_json(content)
     return data
 
@@ -80,8 +77,8 @@ class MinimapWrapper:
         return self.all_minimap[route.plane_floor]
 
 
-class RouteLoader(RouteBase, MinimapWrapper, RouteLoader_, CharacterSwitch):
-    def position_find_known(self, image, force_return=False) -> Optional[RogueRouteModel]:
+class RouteLoader(RouteLoader_, MinimapWrapper, CharacterSwitch):
+    def position_find_known(self, image, force_return=False) -> "RogueRouteModel | None":
         """
         Try to find from known route spawn point
         """
@@ -90,6 +87,12 @@ class RouteLoader(RouteBase, MinimapWrapper, RouteLoader_, CharacterSwitch):
         if plane is None:
             logger.warning('Unknown rogue domain')
             return
+
+        # Special match
+        special = self.route_special_match(plane)
+        if special:
+            logger.info(f'Special match route: {special}')
+            return self._rogue_route_name_to_model(special)
 
         visited = []
         for route in self.all_route:
@@ -111,9 +114,9 @@ class RouteLoader(RouteBase, MinimapWrapper, RouteLoader_, CharacterSwitch):
                 continue
             visited.append((route, minimap.position_similarity, minimap.position))
 
-        if len(visited) < 3:
-            logger.warning('Too few routes to search from, not enough to make a prediction')
-            return
+        # if len(visited) < 3:
+        #     logger.warning('Too few routes to search from, not enough to make a prediction')
+        #     return
 
         visited = sorted(visited, key=lambda x: x[1], reverse=True)
         logger.info(f'Best 3 predictions: {[(r.name, s, p) for r, s, p in visited[:3]]}')
@@ -236,6 +239,22 @@ class RouteLoader(RouteBase, MinimapWrapper, RouteLoader_, CharacterSwitch):
             return True
         return False
 
+    def route_special_match(self, plane: MapPlane):
+        """
+        Special match rogue plane from screenshot
+
+        Returns:
+            str: route name like Combat_Luofu_ArtisanshipCommission_F1_X481Y920
+        """
+        return ''
+
+    def _rogue_route_name_to_model(self, name: str) -> "RogueRouteModel":
+        for route in self.all_route:
+            if route.name == name:
+                return route
+        # This shouldn't happen because special match is manually maintained
+        raise ScriptError(f'Special match result {name} has no corresponding route')
+
     def position_find_bruteforce(self, image) -> Minimap:
         """
         Fallback method to find from all planes and floors
@@ -279,42 +298,12 @@ class RouteLoader(RouteBase, MinimapWrapper, RouteLoader_, CharacterSwitch):
             if route is not None:
                 return route
 
-    def rogue_leave(self, skip_first_screenshot=True):
-        logger.hr('Rogue leave', level=1)
-        while 1:
-            if skip_first_screenshot:
-                skip_first_screenshot = False
-            else:
-                self.device.screenshot()
-
-            # End
-            if self.is_page_rogue_main():
-                logger.info('Rogue left')
-                break
-
-            # Re-enter
-            if self.handle_combat_interact():
-                continue
-            # From ui_leave_special
-            if self.is_in_map_exit(interval=2):
-                self.device.click(MAP_EXIT)
-                continue
-            if self.handle_popup_confirm():
-                continue
-            if self.appear_then_click(ROGUE_LEAVE_FOR_NOW, interval=2):
-                continue
-            # Blessing
-            if self.handle_blessing():
-                continue
-            # _domain_exit_wait_next()
-            if self.match_template_color(ROGUE_REPORT, interval=2):
-                logger.info(f'{ROGUE_REPORT} -> {BLESSING_CONFIRM}')
-                self.device.click(BLESSING_CONFIRM)
-                continue
-            if self.handle_reward():
-                continue
-            if self.handle_get_character():
-                continue
+    def route_error_postprocess(self):
+        """
+        Returns:
+            bool: If handled error
+        """
+        return False
 
     def route_run(self, route=None):
         """
@@ -337,41 +326,12 @@ class RouteLoader(RouteBase, MinimapWrapper, RouteLoader_, CharacterSwitch):
             return True
         except GameStuckError as e:
             logger.error(e)
-            save_error_log(config=self.config, device=self.device)
-            self.rogue_leave()
+
+        save_error_log(config=self.config, device=self.device)
+        handled = self.route_error_postprocess()
+        if handled:
             raise HandledError('Rogue run failed')
-
-    def rogue_run(self, skip_first_screenshot=True):
-        """
-        Do a complete rogue run, no error handle yet.
-
-        Pages:
-            in: page_rogue, is_page_rogue_launch()
-            out: page_rogue, is_page_rogue_main()
-        """
-        base = RouteBase(config=self.config, device=self.device, task=self.config.task.command)
-        count = 1
-        self.character_is_ranged = None
-        while 1:
-            if skip_first_screenshot:
-                skip_first_screenshot = False
-            else:
-                self.device.screenshot()
-
-            logger.hr(f'Route run: {count}', level=1)
-            base.clear_blessing()
-            self.character_switch_to_ranged(update=True)
-
-            self.route_run()
-            # if not success:
-            #     self.device.image_save()
-            #     continue
-
-            # End
-            if self.is_page_rogue_main():
-                break
-
-            count += 1
+        return False
 
 
 if __name__ == '__main__':

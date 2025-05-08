@@ -153,6 +153,23 @@ PAGE_CHOOSE_BONUS = ButtonWrapper(
         button=(503, 180, 555, 230),
     ),
 )
+PAGE_CHOOSE_BONUS_TRAILBLAZE = ButtonWrapper(
+    name='PAGE_CHOOSE_BONUS_TRAILBLAZE',
+    cn=Button(
+        file='./assets/cn/rogue/ui/PAGE_CHOOSE_BONUS_TRAILBLAZE.png',
+        area=(623, 570, 656, 587),
+        search=(603, 550, 676, 607),
+        color=(182, 181, 183),
+        button=(623, 570, 656, 587),
+    ),
+    en=Button(
+        file='./assets/en/rogue/ui/PAGE_CHOOSE_BONUS_TRAILBLAZE.png',
+        area=(601, 571, 679, 586),
+        search=(581, 551, 699, 606),
+        color=(187, 186, 188),
+        button=(601, 571, 679, 586),
+    ),
+)
 PAGE_CHOOSE_BUFF = ButtonWrapper(
     name='PAGE_CHOOSE_BUFF',
     share=Button(

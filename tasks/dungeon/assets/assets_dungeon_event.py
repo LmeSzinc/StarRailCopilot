@@ -33,6 +33,25 @@ DOUBLE_ROGUE_EVENT_TAG = ButtonWrapper(
         button=(346, 156, 431, 217),
     ),
 )
+HAS_PINNED_CHARACTER = ButtonWrapper(
+    name='HAS_PINNED_CHARACTER',
+    share=[
+        Button(
+            file='./assets/share/dungeon/event/HAS_PINNED_CHARACTER.png',
+            area=(122, 206, 137, 221),
+            search=(102, 186, 157, 241),
+            color=(170, 140, 92),
+            button=(122, 206, 137, 221),
+        ),
+        Button(
+            file='./assets/share/dungeon/event/HAS_PINNED_CHARACTER.2.png',
+            area=(122, 206, 137, 221),
+            search=(102, 186, 157, 241),
+            color=(144, 143, 145),
+            button=(122, 206, 137, 221),
+        ),
+    ],
+)
 OCR_DOUBLE_EVENT_REMAIN = ButtonWrapper(
     name='OCR_DOUBLE_EVENT_REMAIN',
     share=Button(

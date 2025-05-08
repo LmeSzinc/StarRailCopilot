@@ -16,7 +16,7 @@ def dungeon_name(name: str) -> str:
         'Destruction_Beginning',
         'End_of_the_Eternal_Freeze',
         'Divine_Seed',
-        'Borehole_Planet_Old_Crater',
+        'Borehole_Planet_Past_Nightmares',
         'Inner_Beast_Battlefield',
         'Salutations_of_Ashen_Dreams',
     ]:

@@ -1,13 +1,93 @@
 from module.exception import RequestHumanTakeover
 from module.logger import logger
+from tasks.base.assets.assets_base_main_page import ROGUE_LEAVE_FOR_NOW
+from tasks.base.assets.assets_base_page import MAP_EXIT
 from tasks.battle_pass.keywords import KEYWORDS_BATTLE_PASS_QUEST
 from tasks.daily.keywords import KEYWORDS_DAILY_QUEST
+from tasks.rogue.assets.assets_rogue_ui import BLESSING_CONFIRM
+from tasks.rogue.assets.assets_rogue_weekly import ROGUE_REPORT
 from tasks.rogue.entry.entry import RogueEntry
 from tasks.rogue.exception import RogueReachedWeeklyPointLimit, RogueTeamNotPrepared
 from tasks.rogue.route.loader import RouteLoader
 
 
 class Rogue(RouteLoader, RogueEntry):
+    def rogue_leave(self, skip_first_screenshot=True):
+        logger.hr('Rogue leave', level=1)
+        while 1:
+            if skip_first_screenshot:
+                skip_first_screenshot = False
+            else:
+                self.device.screenshot()
+
+            # End
+            if self.is_page_rogue_main():
+                logger.info('Rogue left')
+                break
+
+            # Re-enter
+            if self.handle_combat_interact():
+                continue
+            # From ui_leave_special
+            if self.is_in_map_exit(interval=2):
+                self.device.click(MAP_EXIT)
+                continue
+            if self.handle_popup_confirm():
+                continue
+            if self.appear_then_click(ROGUE_LEAVE_FOR_NOW, interval=2):
+                continue
+            # Blessing
+            if self.handle_blessing():
+                continue
+            # _domain_exit_wait_next()
+            if self.match_template_color(ROGUE_REPORT, interval=2):
+                logger.info(f'{ROGUE_REPORT} -> {BLESSING_CONFIRM}')
+                self.device.click(BLESSING_CONFIRM)
+                continue
+            if self.handle_reward():
+                continue
+            if self.handle_get_character():
+                continue
+
+    def route_error_postprocess(self):
+        """
+        When having route error, leave for now and re-enter
+        May be another trial would fix it
+        """
+        self.rogue_leave()
+        return True
+
+    def rogue_run(self, skip_first_screenshot=True):
+        """
+        Do a complete rogue run, no error handle yet.
+
+        Pages:
+            in: page_rogue, is_page_rogue_launch()
+            out: page_rogue, is_page_rogue_main()
+        """
+        count = 1
+        self.character_is_ranged = None
+        while 1:
+            if skip_first_screenshot:
+                skip_first_screenshot = False
+            else:
+                self.device.screenshot()
+
+            logger.hr(f'Route run: {count}', level=1)
+            self.clear_blessing()
+            self.character_switch_to_ranged(update=True)
+
+            self.route_run()
+            # if not success:
+            #     self.device.image_save()
+            #     continue
+
+            # End
+            if self.is_page_rogue_main():
+                break
+
+            count += 1
+
     def rogue_once(self):
         """
         Do a complete rogue run.

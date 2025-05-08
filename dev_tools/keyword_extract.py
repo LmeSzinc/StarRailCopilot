@@ -247,9 +247,9 @@ class KeywordExtract:
             item_id = deep_get(data, '5.DisplayItemList')[-1]['ItemID']
             shadow_info[shadow_hash] = promotion_info[item_id]
         prefix_dict = {
-            'cn': '角色晋阶材料：',
-            'cht': '角色晉階材料：',
-            'jp': 'キャラクター昇格素材：',
+            'cn': '晋阶材料：',
+            'cht': '晉階材料：',
+            'jp': '昇格素材：',
             'en': 'Ascension: ',
             'es': 'Ascension: '
         }

@@ -5,14 +5,22 @@ from module.base.button import Button, ButtonWrapper
 
 ACCOUNT_CONFIRM = ButtonWrapper(
     name='ACCOUNT_CONFIRM',
-    cn=Button(
-        file='./assets/cn/login/ACCOUNT_CONFIRM.png',
-        area=(583, 424, 696, 450),
-        search=(563, 404, 716, 470),
-        color=(172, 145, 92),
-        button=(583, 424, 696, 450),
-    ),
-    en=None,
+    share=[
+        Button(
+            file='./assets/share/login/ACCOUNT_CONFIRM.png',
+            area=(583, 424, 696, 450),
+            search=(563, 404, 716, 470),
+            color=(172, 145, 92),
+            button=(583, 424, 696, 450),
+        ),
+        Button(
+            file='./assets/share/login/ACCOUNT_CONFIRM.2.png',
+            area=(602, 416, 644, 442),
+            search=(582, 396, 664, 462),
+            color=(180, 150, 93),
+            button=(602, 416, 644, 442),
+        ),
+    ],
 )
 LOGIN_CONFIRM = ButtonWrapper(
     name='LOGIN_CONFIRM',
@@ -42,15 +50,4 @@ LOGIN_LOADING = ButtonWrapper(
         color=(98, 98, 106),
         button=(1103, 599, 1119, 616),
     ),
-)
-USER_AGREEMENT_ACCEPT = ButtonWrapper(
-    name='USER_AGREEMENT_ACCEPT',
-    cn=Button(
-        file='./assets/cn/login/USER_AGREEMENT_ACCEPT.png',
-        area=(751, 467, 791, 488),
-        search=(731, 447, 811, 508),
-        color=(196, 167, 111),
-        button=(678, 459, 867, 496),
-    ),
-    en=None,
 )

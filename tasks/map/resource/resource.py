@@ -20,6 +20,7 @@ SPECIAL_PLANES = [
     ('Luofu_Cloudford', 'F1Rogue'),
     ('Luofu_StargazerNavalia', 'F1Rogue'),
     ('Luofu_StargazerNavalia', 'F2Rogue'),
+    ('Amphoreus_BloodbathedBattlefrontCastrumKremnos', 'F1OE'),
     ('Amphoreus_StrifeRuinsCastrumKremnos', 'F1OE'),
 ]
 
@@ -30,18 +31,6 @@ class MapResource(ResourceConst):
     def __init__(self):
         super().__init__()
 
-        if MapResource.SRCMAP:
-            self.SRCMAP = os.path.abspath(MapResource.SRCMAP)
-            logger.warning(f'MapResource.SRMAP is set to "{self.SRCMAP}", '
-                           f'this should only be used in DEV environment.')
-        else:
-            try:
-                import srcmap
-                self.SRCMAP = srcmap.srcmap()
-            except ImportError:
-                logger.critical('Dependency "srmap" is not installed')
-                raise ScriptError('Dependency "srmap" is not installed')
-
         # Jarilo_AdministrativeDistrict
         self.plane: MapPlane = KEYWORDS_MAP_PLANE.Herta_ParlorCar
         # Floor name in game (B1, F1, F2, ...)
@@ -51,12 +40,24 @@ class MapResource(ResourceConst):
         self._dict_circle_mask = {}
 
     @cached_property
+    def srcmap_path(self):
+        # In production, srcmap must be installed
+        if self.SRCMAP:
+            return os.path.abspath(self.SRCMAP)
+        try:
+            import srcmap
+        except ImportError:
+            logger.critical('Dependency "srcmap" is not installed')
+            raise ScriptError('Dependency "srcmap" is not installed')
+        return os.path.abspath(srcmap.srcmap())
+
+    @cached_property
     def ArrowRotateMap(self):
-        return self.load_image('./direction/ArrowRotateMap.png')
+        return self.load_image_local('./direction/ArrowRotateMap.png')
 
     @cached_property
     def ArrowRotateMapAll(self):
-        return self.load_image('./direction/ArrowRotateMapAll.png')
+        return self.load_image_local('./direction/ArrowRotateMapAll.png')
 
     def set_plane(self, plane, floor='F1'):
         """
@@ -90,11 +91,11 @@ class MapResource(ResourceConst):
 
     @cached_property
     def assets_floor_feat(self):
-        return self.load_image(f'{self.assets_file_basename}.feat.png')
+        return self.load_image_local(f'{self.assets_file_basename}.feat.png')
 
     @cached_property
     def assets_floor_outside_mask(self):
-        image = self.load_image(f'{self.assets_file_basename}.area.png')
+        image = self.load_image_local(f'{self.assets_file_basename}.area.png')
         return image == 0
 
     def get_minimap(self, image, radius):

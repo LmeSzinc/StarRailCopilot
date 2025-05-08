@@ -1,19 +1,23 @@
 from module.base.decorator import run_once
+from module.device.platform.utils import cached_property
 from module.exception import RequestHumanTakeover
 from module.logger import logger
+from module.ui.scroll import AdaptiveScroll
 from tasks.base.assets.assets_base_page import MAP_EXIT
 from tasks.base.assets.assets_base_popup import POPUP_CANCEL
+from tasks.character.keywords import CharacterList
 from tasks.combat.assets.assets_combat_prepare import COMBAT_PREPARE
-from tasks.combat.assets.assets_combat_support import COMBAT_SUPPORT_LIST
+from tasks.combat.assets.assets_combat_support import COMBAT_SUPPORT_LIST, COMBAT_SUPPORT_LIST_SCROLL_OE
 from tasks.dungeon.dungeon import Dungeon
-from tasks.dungeon.ui.state import DungeonState
-from tasks.map.route.loader import RouteLoader
-from tasks.map.route.route.daily import OrnamentExtraction__route
+from tasks.map.keywords import MapPlane
 from tasks.ornament.assets.assets_ornament_combat import *
+from tasks.ornament.assets.assets_ornament_special import *
 from tasks.ornament.assets.assets_ornament_ui import *
+from tasks.rogue.route.loader import RouteLoader, model_from_json
+from tasks.rogue.route.model import RogueRouteListModel, RogueRouteModel
 
 
-class OrnamentCombat(Dungeon, RouteLoader, DungeonState):
+class OrnamentCombat(Dungeon, RouteLoader):
     def combat_enter_from_map(self, skip_first_screenshot=True):
         # Don't enter from map, UI too deep inside
         # Enter from survival index instead
@@ -57,6 +61,29 @@ class OrnamentCombat(Dungeon, RouteLoader, DungeonState):
             if self.handle_popup_confirm():
                 continue
 
+    def route_error_postprocess(self):
+        """
+        When having route error, leave for now and re-enter
+        May be another trial would fix it
+        """
+        self.oe_leave()
+        return True
+
+    @staticmethod
+    def _support_scroll():
+        """
+        v3.2, Ornament has different support scroll so OrnamentCombat._support_scroll overrides
+        """
+        return AdaptiveScroll(area=COMBAT_SUPPORT_LIST_SCROLL_OE.area,
+                              name=COMBAT_SUPPORT_LIST_SCROLL_OE.name)
+
+    def _search_support_with_fallback(self, support_character_name: str = "JingYuan"):
+        # In Ornament Extraction, first character isn't selected by default
+        if support_character_name == "FirstCharacter":
+            self._select_first()
+            return True
+        return super()._search_support_with_fallback(support_character_name)
+
     def support_set(self, support_character_name: str = "FirstCharacter"):
         """
         Args:
@@ -71,6 +98,8 @@ class OrnamentCombat(Dungeon, RouteLoader, DungeonState):
             out: COMBAT_PREPARE
         """
         logger.hr("Combat support")
+        if isinstance(support_character_name, CharacterList):
+            support_character_name = support_character_name.name
         self.interval_clear(SUPPORT_ADD)
         skip_first_screenshot = True
         selected_support = False
@@ -98,12 +127,10 @@ class OrnamentCombat(Dungeon, RouteLoader, DungeonState):
                 continue
             if self.appear(COMBAT_SUPPORT_LIST, interval=2):
                 if not selected_support:
-                    # In Ornament Extraction, first character isn't selected by default
-                    if support_character_name == "FirstCharacter":
-                        self._select_first()
-                    else:
-                        self._search_support(support_character_name)  # Search support
-                    selected_support = True
+                    # Search support
+                    if not selected_support:
+                        self._search_support_with_fallback(support_character_name)
+                        selected_support = True
                 self.device.click(SUPPORT_ADD)
                 self.interval_reset(COMBAT_SUPPORT_LIST)
                 continue
@@ -233,5 +260,19 @@ class OrnamentCombat(Dungeon, RouteLoader, DungeonState):
             if self.handle_popup_confirm():
                 continue
 
-        self.route_run(OrnamentExtraction__route)
+        logger.hr('Route Ornament Extraction', level=1)
+        self.route_run()
         return True
+
+    @cached_property
+    def all_route(self) -> "list[RogueRouteModel]":
+        # Override to load route indexes from ornament
+        routes = model_from_json(RogueRouteListModel, './route/ornament/route.json').root
+        logger.attr('RouteLoaded', len(routes))
+        return routes
+
+    def route_special_match(self, plane: MapPlane):
+        # No black floors loaded
+        if self.appear(Amphoreus_StrifeRuinsCastrumKremnos_F1OE_X373Y317):
+            return 'Combat_Amphoreus_StrifeRuinsCastrumKremnos_F1OE_X373Y317'
+        super().route_special_match(plane)

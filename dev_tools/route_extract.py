@@ -149,6 +149,7 @@ class RouteDetect:
         self.folder = os.path.abspath(folder)
         print(self.folder)
         self.waypoints = SelectedGrids(list(self.iter_image()))
+        self.is_ornament = 'ornament' in folder
 
     @cached_property
     def detector(self):
@@ -285,9 +286,10 @@ class RouteDetect:
         exit_: RogueWaypointModel = waypoints.select(is_exit=True).first_or_none()
         exit1: RogueWaypointModel = waypoints.select(is_exit1=True).first_or_none()
         exit2: RogueWaypointModel = waypoints.select(is_exit2=True).first_or_none()
-        if spawn is None or exit_ is None:
-            print(f'WARNING | No spawn point or no exit: {waypoints}')
-            return ''
+        if not self.is_ornament:
+            if spawn is None or exit_ is None:
+                print(f'WARNING | No spawn point or no exit: {waypoints}')
+                return ''
 
         class WaypointRepr:
             def __init__(self, position):
@@ -331,7 +333,8 @@ class RouteDetect:
                     gen.add(f'    {WaypointRepr(exit_)}, end_rotation={exit_.rotation},')
                     gen.add(f'    left_door={WaypointRepr(exit1)}, right_door={WaypointRepr(exit2)})')
                 else:
-                    gen.add(f'self.register_domain_exit({WaypointRepr(exit_)}, end_rotation={exit_.rotation})')
+                    if not self.is_ornament:
+                        gen.add(f'self.register_domain_exit({WaypointRepr(exit_)}, end_rotation={exit_.rotation})')
                 # Waypoint attributes
                 for waypoint in waypoints:
                     if waypoint.is_spawn:
@@ -486,5 +489,10 @@ if __name__ == '__main__':
     self.predict()
     self.write()
     self.insert('./route/rogue', base='tasks.rogue.route.base')
-
     rogue_extract('./route/rogue')
+
+    self = RouteDetect('../SrcRoute/ornament')
+    self.predict()
+    self.write()
+    self.insert('./route/ornament', base='tasks.ornament.route_base')
+    rogue_extract('./route/ornament')

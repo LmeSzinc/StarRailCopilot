@@ -136,6 +136,10 @@ DungeonStorage:
     stored: StoredSimulatedUniverse
     order: 6
     color: "#8fb5fe"
+  Relic:
+    stored: StoredRelic
+    order: 3
+    color: "#79dbc4"
 SupportReward:
   Collect: true
 Planner:
@@ -200,6 +204,7 @@ BattlePassStorage:
     display: display
 
 Assignment:
+  ClaimAll: true
   # Options in Name_x will be injected in config updater
   Name_1:
     value: Nameless_Land_Nameless_People
@@ -219,8 +224,6 @@ Assignment:
   Event: true
   Assignment:
     stored: StoredAssignment
-    order: 3
-    color: "#79dbc4"
 
 ItemStorage:
   Credit:

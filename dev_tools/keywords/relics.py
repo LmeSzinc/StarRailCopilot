@@ -1,8 +1,9 @@
 from typing import Dict, Iterable, List
 
-from dev_tools.keywords.base import GenerateKeyword, SHARE_DATA
+from dev_tools.keywords.base import GenerateKeyword, SHARE_DATA, UI_LANGUAGES
 from module.base.decorator import cached_property
-from module.config.utils import deep_get
+from module.config.deep import deep_get, deep_set
+from module.config.utils import read_file, write_file
 
 # Converts relic stat names in game internal to SRC keyword names
 DICT_STATS_CONVERT = {
@@ -124,6 +125,116 @@ class GenerateRelicSet(RelicBase):
                 'text_id': text_id,
                 'setid': setid,
             }
+
+    def generate(self):
+        super().generate()
+        self.update_relicset_nickname()
+
+    @cached_property
+    def RelicConfig(self) -> "dict[int, dict]":
+        """
+        Contains info of each part of each relic
+        {
+            "ID": 61012,
+            "SetID": 101,
+            "Type": "HAND",
+            "Rarity": "CombatPowerRelicRarity5",
+            "MainAffixGroup": 52,
+            "SubAffixGroup": 5,
+            "MaxLevel": 15,
+            "ExpType": 4,
+            "ExpProvide": 1500,
+            "CoinCost": 2250,
+            "Mode": "BASIC"
+        },
+        """
+        data = {}
+        for row in self.read_file('./ExcelOutput/RelicConfig.json'):
+            try:
+                itemid = row['ID']
+            except KeyError:
+                continue
+            data[itemid] = row
+        return data
+
+    @cached_property
+    def ItemComeFrom(self) -> "dict[int, dict]":
+        """
+        Contains items and the dungeon to farm this item (key "GotoParam")
+        {
+            "ID": 61012,
+            "ComefromID": 1,
+            "Sort": 1,
+            "Desc": {
+                "Hash": 2905305945211970818
+            },
+            "GotoID": 5602,
+            "GotoParam": [
+                1203
+            ]
+        },
+        """
+        data = {}
+        for row in self.read_file('./ExcelOutput/ItemComeFrom.json'):
+            try:
+                itemid = row['ID']
+            except KeyError:
+                continue
+            data[itemid] = row
+        return data
+
+    def relicset_to_dungeonid(self, relicset):
+        itemid = -1
+        for itemid, row in self.RelicConfig.items():
+            try:
+                setid = row['SetID']
+            except KeyError:
+                continue
+            if setid == relicset:
+                break
+        if itemid <= 0:
+            print(f'Error | no relic item belongs relicset {relicset}')
+            return -1
+
+        comefrom = self.ItemComeFrom.get(itemid, {})
+        dungeon_id = deep_get(comefrom, ['GotoParam', 0], default=-1)
+        return dungeon_id
+
+    def update_relicset_nickname(self):
+        """
+        Maintain structure of /tasks/relics/keywords/relicset_nickname.json
+        """
+        file = 'tasks/relics/keywords/relicset_nickname.json'
+        old = read_file(file)
+        new = {}
+        for row in self.iter_rows():
+            try:
+                name = row['name']
+            except KeyError:
+                continue
+
+            # setid
+            setid = row['setid']
+            deep_set(new, [name, 'setid'], setid)
+            # dungeon_id
+            dungeon_id = self.relicset_to_dungeonid(setid)
+            if dungeon_id < 100:
+                # ornament extraction, convert 1, 2, 3 to 230, 240, 250
+                dungeon_id = 220 + dungeon_id * 10
+            deep_set(new, [name, 'dungeon_id'], dungeon_id)
+            # original name
+            for lang in UI_LANGUAGES:
+                lang_name = row.get(lang, '')
+                deep_set(new, [name, f'{lang}_origin'], lang_name)
+            # nickname
+            for lang in UI_LANGUAGES:
+                key = [name, lang]
+                old_name = deep_get(old, key, default='')
+                if not old_name:
+                    old_name = row.get(lang, '')
+                deep_set(new, key, old_name)
+
+        write_file(file, new)
 
 
 class GenerateRelicPart(RelicBase):

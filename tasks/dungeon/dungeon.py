@@ -1,7 +1,6 @@
 from datetime import timedelta
 
 from module.base.decorator import set_cached_property
-from module.base.utils import area_offset
 from module.config.stored.classes import now
 from module.logger import logger
 from tasks.battle_pass.keywords import KEYWORDS_BATTLE_PASS_QUEST
@@ -13,7 +12,7 @@ from tasks.dungeon.stamina import DungeonStamina
 from tasks.item.synthesize import Synthesize
 
 
-class Dungeon(DungeonStamina, DungeonEvent, Combat):
+class Dungeon(Combat, DungeonStamina, DungeonEvent):
     # Value cleared in Dungeon.run()
     daily_quests = []
     weekly_quests = []
@@ -257,6 +256,8 @@ class Dungeon(DungeonStamina, DungeonEvent, Combat):
             calyx = 0
             relic = 0
             rogue = 0
+            pinned = self.has_pinned_character()
+            logger.attr('Pinned character', pinned)
             if self.has_double_rogue_event():
                 rogue = self.get_double_rogue_remain()
             if self.has_double_calyx_event():

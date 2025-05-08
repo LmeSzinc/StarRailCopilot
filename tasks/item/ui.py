@@ -89,6 +89,35 @@ SWITCH_ITEM_TAB.add_state(
 
 
 class ItemUI(UI):
+    def _item_ui_insight_aside(self, state: ItemTab):
+        # Insight tabs
+        if state in [
+            KEYWORDS_ITEM_TAB.UpgradeMaterials,
+            KEYWORDS_ITEM_TAB.LightCone,
+        ]:
+            # When aside is at top, Valuables is half appeared and is_state_insight returns True
+            if SWITCH_ITEM_TAB.is_state_insight(KEYWORDS_ITEM_TAB.UpgradeMaterials, main=self):
+                return
+            if SWITCH_ITEM_TAB.is_state_insight(KEYWORDS_ITEM_TAB.Valuables, main=self) \
+                    or SWITCH_ITEM_TAB.is_state_insight(KEYWORDS_ITEM_TAB.Pet, main=self):
+                # List at bottom, looking up
+                self._item_ui_drag((0, 300))
+        if state in [
+            KEYWORDS_ITEM_TAB.Valuables,
+            KEYWORDS_ITEM_TAB.Pet,
+        ]:
+            if SWITCH_ITEM_TAB.is_state_insight(KEYWORDS_ITEM_TAB.Pet, main=self):
+                return
+            if SWITCH_ITEM_TAB.is_state_insight(KEYWORDS_ITEM_TAB.UpgradeMaterials, main=self) \
+                    or SWITCH_ITEM_TAB.is_state_insight(KEYWORDS_ITEM_TAB.LightCone, main=self):
+                # List at top, looking down
+                self._item_ui_drag((0, -300))
+
+    def _item_ui_drag(self, vector):
+        p1, p2 = random_rectangle_vector_opted(
+            vector, box=SWITCH_SEARCH.button, random_range=(-5, -20, 5, 20), padding=0)
+        self.device.drag(p1, p2, name=f'{SWITCH_ITEM_TAB.name}_DRAG')
+
     def item_goto(self, state: ItemTab, wait_until_stable=True):
         """
         Args:
@@ -100,30 +129,16 @@ class ItemUI(UI):
             bool: If switched
 
         Examples:
-            self = ItemUI('alas')
+            self = ItemUI('src2')
             self.device.screenshot()
             self.item_goto(KEYWORDS_ITEM_TAB.Relics)
             self.item_goto(KEYWORDS_ITEM_TAB.Consumables)
         """
-        current = SWITCH_ITEM_TAB.get(main=self)
-        logger.attr(SWITCH_ITEM_TAB.name, current)
+        # Wait tabs appear, so _item_ui_insight_aside won't swipe on unknown tab
+        SWITCH_ITEM_TAB.wait(main=self)
+
         # Insight tabs
-        if state in [
-            KEYWORDS_ITEM_TAB.UpgradeMaterials,
-            KEYWORDS_ITEM_TAB.LightCone,
-        ]:
-            if SWITCH_ITEM_TAB.is_state_insight(KEYWORDS_ITEM_TAB.Valuables, main=self) \
-                    or SWITCH_ITEM_TAB.is_state_insight(KEYWORDS_ITEM_TAB.Pet, main=self):
-                # List at bottom, looking up
-                self._item_ui_drag((0, 300))
-        if state in [
-            KEYWORDS_ITEM_TAB.Valuables,
-            KEYWORDS_ITEM_TAB.Pet,
-        ]:
-            if SWITCH_ITEM_TAB.is_state_insight(KEYWORDS_ITEM_TAB.UpgradeMaterials, main=self) \
-                    or SWITCH_ITEM_TAB.is_state_insight(KEYWORDS_ITEM_TAB.LightCone, main=self):
-                # List at top, looking down
-                self._item_ui_drag((0, -300))
+        self._item_ui_insight_aside(state)
 
         # Set tab
         if SWITCH_ITEM_TAB.set(state, main=self):
@@ -135,7 +150,3 @@ class ItemUI(UI):
             return True
         else:
             return False
-
-    def _item_ui_drag(self, vector):
-        p1, p2 = random_rectangle_vector_opted(vector, box=SWITCH_SEARCH.button)
-        self.device.drag(p1, p2, name=f'{SWITCH_ITEM_TAB.name}_DRAG')

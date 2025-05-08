@@ -6,7 +6,7 @@ from pponnxcr.predict_system import BoxedResult
 
 from module.base.base import ModuleBase
 from module.base.button import ClickButton
-from module.base.decorator import run_once
+from module.base.decorator import run_once, set_cached_property
 from module.base.timer import Timer
 from module.base.utils import area_center, area_limit, area_offset, color_similarity_2d, crop, image_size
 from module.logger import logger
@@ -57,8 +57,9 @@ class OcrDungeonName(Ocr):
             # 嗔怒之形•凝滞虚影
             result = re.sub('^怒之形', '嗔怒之形', result)
             # 蛀星的旧·历战余响
-            result = re.sub(r'蛀星的旧.*?历战', '蛀星的旧靥•历战', result)
-            result = re.sub(r'蛀星的旧$', '蛀星的旧靥', result)
+            result = re.sub(r'蛀星的旧.?历战.+$', '蛀星的旧魇•历战的余响', result)
+            result = re.sub(r'蛀星的旧.?历战?$', '蛀星的旧魇•历战', result)
+            result = re.sub(r'蛀星的旧.?$', '蛀星的旧魇', result)
             # 蠹役饥肠
             result = re.sub('[鑫蠢]役', '蠹役', result)
             # 「呓语密林」神悟树庭
@@ -184,14 +185,12 @@ class DraggableDungeonList(DraggableList):
         """
         relative_area = (0, -40, 1280, 120)
 
-        def create_ocr_class(*args, **kwargs):
-            # Passing to OcrDungeonList
-            obj = OcrDungeonList(*args, **kwargs)
-            obj.target_dungeon = self.target_dungeon
-            obj.limit_entrance = self.limit_entrance
-            return obj
+        # Passing to OcrDungeonList
+        ocr = OcrDungeonList(self.search_button)
+        ocr.target_dungeon = self.target_dungeon
+        ocr.limit_entrance = self.limit_entrance
 
-        self.ocr_class = create_ocr_class
+        set_cached_property(self, 'ocr', ocr)
         super().load_rows(main=main)
 
         # Replace dungeon.button with teleport

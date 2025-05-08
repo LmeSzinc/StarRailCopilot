@@ -99,6 +99,36 @@ class ModuleBase:
 
         return appear
 
+    def match_template_luma(self, button, interval=0, similarity=0.85):
+        """
+        Args:
+            button (ButtonWrapper):
+            interval (int, float): interval between two active events.
+            similarity (int, float): 0 to 1.
+
+        Returns:
+            bool:
+
+        Examples:
+            Image detection:
+            ```
+            self.device.screenshot()
+            self.appear(Button(area=(...), color=(...), button=(...))
+            self.appear(Template(file='...')
+            ```
+        """
+        self.device.stuck_record_add(button)
+
+        if interval and not self.interval_is_reached(button, interval=interval):
+            return False
+
+        appear = button.match_template_luma(self.device.image, similarity=similarity)
+
+        if appear and interval:
+            self.interval_reset(button, interval=interval)
+
+        return appear
+
     def match_color(self, button, interval=0, threshold=10):
         """
         Args:

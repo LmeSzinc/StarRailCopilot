@@ -30,6 +30,7 @@ class SynthesizeUI(UI):
             case page_menu.name:
                 check_image = MENU_CHECK
                 scroll = Scroll(MENU_SCROLL.button, color=(191, 191, 191), name=MENU_SCROLL.name)
+                scroll.edge_threshold= 0.1
             case page_synthesize.name:
                 check_image = SYNTHESIZE_CHECK
                 scroll = AdaptiveScroll(SYNTHESIZE_SCROLL.button, name=SYNTHESIZE_SCROLL.name)

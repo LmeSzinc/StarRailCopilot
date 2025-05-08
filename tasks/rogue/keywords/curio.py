@@ -1695,3 +1695,21 @@ Memory_Cycle_Decrypted = RogueCurio(
     jp='記憶のルーレット（クラック版）',
     es='Ciclo de recuerdos (versión pirateada)',
 )
+Angel_type_I_O_U_Dispenser_Prototype = RogueCurio(
+    id=189,
+    name='Angel_type_I_O_U_Dispenser_Prototype',
+    cn='天使型谢债发行机（原型机）',
+    cht='天使型謝債發行機（原型機）',
+    en='Angel-type I.O.U. Dispenser (Prototype)',
+    jp='天使型謝債発行機（プロトタイプ）',
+    es='Dispensador de deuda en forma de ángel (prototipo)',
+)
+Angel_type_I_O_U_Dispenser_Mass_Produced = RogueCurio(
+    id=190,
+    name='Angel_type_I_O_U_Dispenser_Mass_Produced',
+    cn='天使型谢债发行机（量产机）',
+    cht='天使型謝債發行機（量產機）',
+    en='Angel-type I.O.U. Dispenser (Mass-Produced)',
+    jp='天使型謝債発行機（量産型）',
+    es='Dispensador de deuda en forma de ángel (producto final)',
+)

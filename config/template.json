@@ -122,7 +122,8 @@
       "Immersifier": {},
       "DungeonDouble": {},
       "EchoOfWar": {},
-      "SimulatedUniverse": {}
+      "SimulatedUniverse": {},
+      "Relic": {}
     },
     "TrailblazePower": {
       "ExtractReservedTrailblazePower": false,
@@ -193,6 +194,7 @@
       "ServerUpdate": "04:00"
     },
     "Assignment": {
+      "ClaimAll": true,
       "Name_1": "Nameless_Land_Nameless_People",
       "Name_2": "Akashic_Records",
       "Name_3": "The_Invisible_Hand",

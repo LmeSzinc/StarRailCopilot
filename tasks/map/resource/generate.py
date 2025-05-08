@@ -37,9 +37,9 @@ class ResourceGenerator(ResourceConst):
     """
 
     @cached_property
-    @register_output('./srcmap/direction/Arrow.png')
+    @register_output('srcmap/direction/Arrow.png')
     def Arrow(self):
-        return self.load_image('./resources/direction/Arrow.png')
+        return self.load_image('resources/direction/Arrow.png')
 
     """
     Output images
@@ -62,7 +62,7 @@ class ResourceGenerator(ResourceConst):
         return arrows
 
     @cached_property
-    @register_output('./srcmap/direction/ArrowRotateMap.png')
+    @register_output('srcmap/direction/ArrowRotateMap.png')
     def ArrowRotateMap(self):
         radius = self.DIRECTION_RADIUS
         image = np.zeros((10 * radius * 2, 9 * radius * 2), dtype=np.uint8)
@@ -78,7 +78,7 @@ class ResourceGenerator(ResourceConst):
         return image
 
     @cached_property
-    @register_output('./srcmap/direction/ArrowRotateMapAll.png')
+    @register_output('srcmap/direction/ArrowRotateMapAll.png')
     def ArrowRotateMapAll(self):
         radius = self.DIRECTION_RADIUS
         image = np.zeros((136 * radius * 2, 9 * radius * 2), dtype=np.uint8)
@@ -95,7 +95,7 @@ class ResourceGenerator(ResourceConst):
 
     @cached_property
     def _map_background(self):
-        image = self.load_image('./resources/position/background.png')
+        image = self.load_image('resources/position/background.png')
         height, width, channel = image.shape
         grid = (10, 10)
 
@@ -152,7 +152,7 @@ class ResourceGenerator(ResourceConst):
 
     @cached_property
     def GernerateMapFloors(self):
-        for world in iter_folder(self.filepath('./resources/position'), is_dir=True):
+        for world in iter_folder(self.filepath('resources/position'), is_dir=True):
             world_name = os.path.basename(world)
             for floor in iter_folder(world, ext='.png'):
                 print(f'Read image: {floor}')
@@ -160,31 +160,32 @@ class ResourceGenerator(ResourceConst):
                 floor_name = os.path.basename(floor)[:-4]
                 if floor_name.endswith('.area'):
                     # ./srcmap/position/{world_name}/xxx.area.png
-                    output = f'./srcmap/position/{world_name}/{floor_name}.png'
+                    output = f'srcmap/position/{world_name}/{floor_name}.png'
                     register_output(output)(ResourceGenerator._map_image_extract_area)(self, image)
                 else:
-                    output = f'./srcmap/position/{world_name}/{floor_name}.png'
+                    output = f'srcmap/position/{world_name}/{floor_name}.png'
                     register_output(output)(ResourceGenerator._map_image_standardize)(self, image)
-                    output = f'./srcmap/position/{world_name}/{floor_name}.feat.png'
+                    output = f'srcmap/position/{world_name}/{floor_name}.feat.png'
                     register_output(output)(ResourceGenerator._map_image_extract_feat)(self, image)
 
         # Floor images are cached already, no need to return a real value
         return True
 
     def generate_output(self):
-        os.makedirs(self.filepath('./srcmap'), exist_ok=True)
         # Calculate all resources
         for method in self.__dir__():
             if not method.startswith('__') and not method.islower():
                 _ = getattr(self, method)
-        # Create output folder
-        folders = set([os.path.dirname(file) for file in self.DICT_GENERATE.keys()])
-        for output in folders:
-            output = self.filepath(output)
-            os.makedirs(output, exist_ok=True)
         # Save image
         for output, image in self.DICT_GENERATE.items():
             self.save_image(image, file=output)
+        # Save to assets also
+        for output, image in self.DICT_GENERATE.items():
+            if output.endswith('.area.png') or output.endswith('.feat.png') or output.startswith('srcmap/direction'):
+                # srcmap/position/xxx.png -> position/xxx.png
+                _, _, output = output.partition('/')
+                output = self.filepath_local(output)
+                self.save_image(image, file=output)
 
 
 if __name__ == '__main__':

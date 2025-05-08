@@ -10,7 +10,7 @@ from dataclasses import dataclass
 # Will be used in Alas Easy Install, they shouldn't import any Alas modules.
 from module.device.platform.emulator_base import EmulatorBase, EmulatorInstanceBase, EmulatorManagerBase, \
     remove_duplicated_path
-from module.device.platform.utils import cached_property, iter_folder
+from module.device.platform.utils import cached_property, iter_folder, iter_process
 
 
 @dataclass
@@ -494,24 +494,8 @@ class EmulatorManager(EmulatorManagerBase):
         Yields:
             str: Path to emulator executables, may contains duplicate values
         """
-        try:
-            import psutil
-        except ModuleNotFoundError:
-            return
-        # Since this is a one-time-usage, we access psutil._psplatform.Process directly
-        # to bypass the call of psutil.Process.is_running().
-        # This only costs about 0.017s.
-        for pid in psutil.pids():
-            proc = psutil._psplatform.Process(pid)
-            try:
-                exe = proc.cmdline()
-                exe = exe[0].replace(r'\\', '/').replace('\\', '/')
-            except (psutil.AccessDenied, psutil.NoSuchProcess, IndexError, OSError):
-                # psutil.AccessDenied
-                # NoSuchProcess: process no longer exists (pid=xxx)
-                # OSError: [WinError 87] 参数错误。: '(originated from ReadProcessMemory)'
-                continue
-
+        for pid, cmdline in iter_process():
+            exe = cmdline[0]
             if Emulator.is_emulator(exe):
                 yield exe
 

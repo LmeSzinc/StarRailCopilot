@@ -4,6 +4,7 @@ import numpy as np
 
 from module.base.base import ModuleBase
 from module.base.button import ButtonWrapper
+from module.base.decorator import cached_property
 from module.base.timer import Timer
 from module.base.utils import area_size, random_rectangle_vector_opted
 from module.logger import logger
@@ -67,6 +68,10 @@ class DraggableList:
     def __hash__(self):
         return hash(self.name)
 
+    @cached_property
+    def ocr(self):
+        return self.ocr_class(self.search_button)
+
     def keyword2index(self, row: Keyword) -> int:
         try:
             return self.known_rows.index(row) + 1
@@ -88,8 +93,7 @@ class DraggableList:
         """
         Parse current rows to get list position.
         """
-        self.cur_buttons = self.ocr_class(self.search_button) \
-            .matched_ocr(main.device.image, self.keyword_class)
+        self.cur_buttons = self.ocr.matched_ocr(main.device.image, self.keyword_class)
         # Get indexes
         indexes = [self.keyword2index(row.matched_keyword)
                    for row in self.cur_buttons]

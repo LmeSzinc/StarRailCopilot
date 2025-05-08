@@ -38,13 +38,20 @@ def convert_rogue_farm(value):
         value['total'] = 100
         return value
 
+
 def convert_Item_Moon_Madness_Fang(value):
     if isinstance(value, dict):
         value['item'] = 'Moon_Rage_Fang'
     return value
 
+
 def convert_31_dungeon(value):
     if value == 'Calyx_Crimson_Remembrance_Special_StrifeRuinsCastrumKremnos':
         return 'Calyx_Crimson_Remembrance_Amphoreus_StrifeRuinsCastrumKremnos'
+    return value
 
+
+def convert_32_weekly(value):
+    if value == 'Echo_of_War_Borehole_Planet_Old_Crater':
+        return 'Echo_of_War_Borehole_Planet_Past_Nightmares'
     return value

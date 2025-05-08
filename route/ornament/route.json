@@ -1,0 +1,24 @@
+[
+  {
+    "name": "Combat_Amphoreus_BloodbathedBattlefrontCastrumKremnos_F1OE_X155Y669",
+    "route": "route.ornament.Combat.Amphoreus_BloodbathedBattlefrontCastrumKremnos_F1OE:Amphoreus_BloodbathedBattlefrontCastrumKremnos_F1OE_X155Y669",
+    "plane": "Amphoreus_BloodbathedBattlefrontCastrumKremnos",
+    "floor": "F1OE",
+    "position": [
+      155.5,
+      669.3
+    ],
+    "domain": "Combat"
+  },
+  {
+    "name": "Combat_Amphoreus_StrifeRuinsCastrumKremnos_F1OE_X373Y317",
+    "route": "route.ornament.Combat.Amphoreus_StrifeRuinsCastrumKremnos_F1OE:Amphoreus_StrifeRuinsCastrumKremnos_F1OE_X373Y317",
+    "plane": "Amphoreus_StrifeRuinsCastrumKremnos",
+    "floor": "F1OE",
+    "position": [
+      373.2,
+      317.4
+    ],
+    "domain": "Combat"
+  }
+]

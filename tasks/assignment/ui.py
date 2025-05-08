@@ -1,10 +1,13 @@
 import re
 from collections.abc import Iterator
-from datetime import timedelta
+from datetime import datetime, timedelta
 from enum import Enum
 from functools import cached_property
 
+from pponnxcr.predict_system import BoxedResult
+
 from module.base.timer import Timer
+from module.base.utils import area_center
 from module.exception import ScriptError
 from module.logger import logger
 from module.ocr.ocr import DigitCounter, Duration, Ocr
@@ -50,6 +53,13 @@ class AssignmentOcr(Ocr):
         ]
     }
 
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        # OCR result of remain time
+        self.remain_result: "list[BoxedResult]" = []
+        # Key: Assignment, value: remain time
+        self.dict_remain: "dict[AssignmentEntry, str]" = {}
+
     @cached_property
     def ocr_regex(self) -> re.Pattern | None:
         rules = AssignmentOcr.OCR_REPLACE.get(self.lang)
@@ -64,6 +74,8 @@ class AssignmentOcr(Ocr):
         # Drop duration rows
         res = Duration.timedelta_regex(self.lang).search(result.ocr_text)
         if res.group('hours') or res.group('seconds'):
+            # Store remain time
+            self.remain_result.append(result)
             return False
         # Locked event assignments
         locked_pattern = {
@@ -87,8 +99,8 @@ class AssignmentOcr(Ocr):
         if matched is None:
             return result
         for keyword_class in (
-            KEYWORDS_ASSIGNMENT_ENTRY,
-            KEYWORDS_ASSIGNMENT_EVENT_ENTRY,
+                KEYWORDS_ASSIGNMENT_ENTRY,
+                KEYWORDS_ASSIGNMENT_EVENT_ENTRY,
         ):
             kw = getattr(keyword_class, matched.lastgroup, None)
             if kw is not None:
@@ -100,6 +112,24 @@ class AssignmentOcr(Ocr):
         logger.attr(name=f'{self.name} after_process',
                     text=f'{result} -> {matched}')
         return matched
+
+    def matched_ocr(self, *args, **kwargs):
+        # Clear previous remain time on new OCR
+        self.remain_result.clear()
+        self.dict_remain.clear()
+        results = super().matched_ocr(*args, **kwargs)
+
+        # Match assignment with remain
+        for assignment in results:
+            _, name_y = area_center(assignment.area)
+            for remain in self.remain_result:
+                _, remain_y = area_center(remain.box)
+                if 10 < remain_y - name_y < 40:
+                    self.dict_remain[assignment.matched_keyword] = remain.ocr_text
+                    logger.info(f'Assignment ongoing, {assignment.matched_keyword}: {remain.ocr_text}')
+                    break
+
+        return results
 
 
 class AssignmentGroupSwitch(DungeonTabSwitch):
@@ -145,6 +175,9 @@ ASSIGNMENT_ENTRY_LIST.known_rows = [
 
 
 class AssignmentUI(UI):
+    dispatched: dict[AssignmentEntry, datetime] = dict()
+    has_new_dispatch: bool = False
+
     def goto_group(self, group: AssignmentGroup):
         """
         Args:
@@ -189,8 +222,13 @@ class AssignmentUI(UI):
             raise ScriptError(err_msg)
         else:
             if self.goto_group(entry.group):
-                # Already insight in goto_group() - _wait_until_correct_entry_loaded()
-                ASSIGNMENT_ENTRY_LIST.select_row(entry, self, insight=False)
+                # Already load_rows in goto_group() - _wait_until_correct_entry_loaded()
+                if ASSIGNMENT_ENTRY_LIST.keyword2button(entry, show_warning=False):
+                    logger.info('Assignment entry is already insight')
+                    ASSIGNMENT_ENTRY_LIST.select_row(entry, self, insight=False)
+                else:
+                    logger.info('Assignment entry is not insight')
+                    ASSIGNMENT_ENTRY_LIST.select_row(entry, self, insight=True)
             else:
                 ASSIGNMENT_ENTRY_LIST.select_row(entry, self, insight=insight)
 
@@ -250,8 +288,8 @@ class AssignmentUI(UI):
 
             ASSIGNMENT_ENTRY_LIST.load_rows(self)
             if ASSIGNMENT_ENTRY_LIST.cur_buttons and all(
-                x.matched_keyword.group == group
-                for x in ASSIGNMENT_ENTRY_LIST.cur_buttons
+                    x.matched_keyword.group == group
+                    for x in ASSIGNMENT_ENTRY_LIST.cur_buttons
             ):
                 logger.info('Correct entry loaded')
                 break

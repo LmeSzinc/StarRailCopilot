@@ -22,6 +22,7 @@ from module.config.stored.classes import (
     StoredInt,
     StoredPlanner,
     StoredPlannerOverall,
+    StoredRelic,
     StoredResersed,
     StoredSimulatedUniverse,
     StoredSimulatedUniverseElite,
@@ -101,6 +102,7 @@ class StoredGenerated:
     DungeonDouble = StoredDungeonDouble("Dungeon.DungeonStorage.DungeonDouble")
     EchoOfWar = StoredEchoOfWar("Dungeon.DungeonStorage.EchoOfWar")
     SimulatedUniverse = StoredSimulatedUniverse("Dungeon.DungeonStorage.SimulatedUniverse")
+    Relic = StoredRelic("Dungeon.DungeonStorage.Relic")
     DailyActivity = StoredDailyActivity("DailyQuest.DailyStorage.DailyActivity")
     DailyQuest = StoredDaily("DailyQuest.DailyStorage.DailyQuest")
     BattlePassLevel = StoredBattlePassLevel("BattlePass.BattlePassStorage.BattlePassLevel")

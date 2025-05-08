@@ -88,7 +88,7 @@ class ConfigGenerator:
                                dungeon.is_Cavern_of_Corrosion]
         option_add(
             keys='Dungeon.Name.option',
-            options=calyx_golden + calyx_crimson + stagnant_shadow + cavern_of_corrosion
+            options=cavern_of_corrosion + calyx_golden + calyx_crimson + stagnant_shadow
         )
         # Double events
         option_add(keys='Dungeon.NameAtDoubleCalyx.option', options=calyx_golden + calyx_crimson)
@@ -312,6 +312,10 @@ class ConfigGenerator:
 
         gen.write('module/config/stored/stored_generated.py')
 
+    @cached_property
+    def relics_nickname(self):
+        return read_file('tasks/relics/keywords/relicset_nickname.json')
+
     @timer
     def generate_i18n(self, lang):
         """
@@ -401,13 +405,29 @@ class ConfigGenerator:
             'es': 'Rastros: {path} ({plane})',
         }
         i18n_relic = {
-            'cn': '（{dungeon}）',
-            'cht': '（{dungeon}）',
-            'jp': '（{dungeon}）',
-            'en': ' ({dungeon})',
-            'es': ' ({dungeon})',
+            'cn': '遗器：{relic}（{dungeon}）',
+            'cht': '遺器：{relic}（{dungeon}）',
+            'jp': '遺器：{relic}（{dungeon}）',
+            'en': 'Relics: {relic} ({dungeon})',
+            'es': 'Artefactos: {relic} ({dungeon})',
         }
+        i18n_ornament = {
+            'cn': '饰品：{relic}（{dungeon}）',
+            'cht': '飾品：{relic}（{dungeon}）',
+            'jp': '飾品：{relic}（{dungeon}）',
+            'en': 'Ornament: {relic} ({dungeon})',
+            'es': 'Ornamentos: {relic} ({dungeon})',
+        }
+
         from tasks.dungeon.keywords import DungeonList, DungeonDetailed
+        def relicdungeon2name(dun: DungeonList):
+            dungeon_id = dun.dungeon_id
+            relic_list = []
+            for name, row in self.relics_nickname.items():
+                if row.get('dungeon_id') == dungeon_id:
+                    relic_list.append(row.get(ingame_lang, ''))
+            return ' & '.join(relic_list)
+
         for dungeon in DungeonList.instances.values():
             dungeon: DungeonList = dungeon
             dungeon_name = dungeon.__getattribute__(ingame_lang)
@@ -432,22 +452,21 @@ class ConfigGenerator:
                 deep_set(new, keys=['Dungeon', 'Name', dungeon.name],
                          value=i18n_crimson[ingame_lang].format(path=path, plane=plane))
             if dungeon.is_Cavern_of_Corrosion:
-                value = deep_get(new, keys=['Dungeon', 'Name', dungeon.name], default='')
-                suffix = i18n_relic[ingame_lang].format(dungeon=dungeon_name).replace('Cavern of Corrosion: ', '')
-                if not value.endswith(suffix):
-                    deep_set(new, keys=['Dungeon', 'Name', dungeon.name], value=f'{value}{suffix}')
+                value = relicdungeon2name(dungeon)
+                value = i18n_relic[ingame_lang].format(dungeon=dungeon_name, relic=value)
+                value = value.replace('Cavern of Corrosion: ', '')
+                deep_set(new, keys=['Dungeon', 'Name', dungeon.name], value=value)
             if dungeon.is_Ornament_Extraction:
-                value = deep_get(new, keys=['Ornament', 'Dungeon', dungeon.name], default='')
-                suffix = i18n_relic[ingame_lang].format(dungeon=dungeon_name)
-                suffix = re.sub(
+                value = relicdungeon2name(dungeon)
+                value = i18n_ornament[ingame_lang].format(dungeon=dungeon_name, relic=value)
+                value = re.sub(
                     r'(•差分宇宙'
                     r'|Divergent Universe: '
                     r'|階差宇宙・'
                     r'|: Universo Diferenciado'
                     r'|Universo Diferenciado: '
-                    r')', '', suffix)
-                if not value.endswith(suffix):
-                    deep_set(new, keys=['Ornament', 'Dungeon', dungeon.name], value=f'{value}{suffix}')
+                    r')', '', value)
+                deep_set(new, keys=['Ornament', 'Dungeon', dungeon.name], value=value)
 
         # Stagnant shadows with character names
         for dungeon in DungeonDetailed.instances.values():

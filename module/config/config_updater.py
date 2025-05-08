@@ -88,7 +88,7 @@ class ConfigGenerator:
                                dungeon.is_Cavern_of_Corrosion]
         option_add(
             keys='Dungeon.Name.option',
-            options=calyx_golden + calyx_crimson + stagnant_shadow + cavern_of_corrosion
+            options=cavern_of_corrosion + calyx_golden + calyx_crimson + stagnant_shadow
         )
         # Double events
         option_add(keys='Dungeon.NameAtDoubleCalyx.option', options=calyx_golden + calyx_crimson)

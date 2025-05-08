@@ -22,6 +22,7 @@ jobs:
       INP_TAG: ${{ inputs.tag }}
       APPNAME: StarRailCopilot
       ISCC_PATH: 'C:\Program Files (x86)\Inno Setup 6\ISCC.exe'
+      PEAZIP_PATH: 'C:\Program Files\PeaZip\peazip.exe'
     steps:
       - uses: actions/checkout@v4
       - name: resolve-vars
@@ -50,7 +51,7 @@ jobs:
           echo "VERSION=$VERSION" >> "$GITHUB_ENV"
           echo "RELEASE_TAG=$TAG" >> "$GITHUB_ENV"
       - name: install-tools
-        run: choco install -y innosetup 7zip.commandline
+        run: choco install -y innosetup 7zip.commandline peazip
       - name: download-assets
         shell: pwsh
         env:
@@ -67,13 +68,13 @@ jobs:
         shell: pwsh
         run: |
           Push-Location en\StarRailCopilot
-          7z a -sfx -mx=9 -m0=lzma2 payload.exe * -xr!src.exe
+          & "${env:PEAZIP_PATH}" -add2sfx7zultra payload.exe * -exclude2 src.exe
           Pop-Location
       - name: make-sfx-cn
         shell: pwsh
         run: |
           Push-Location cn\StarRailCopilot
-          7z a -sfx -mx=9 -m0=lzma2 payload.exe * -xr!src.exe
+          & "${env:PEAZIP_PATH}" -add2sfx7zultra payload.exe * -exclude2 src.exe
           Pop-Location
       - name: calc-payload-size
         shell: pwsh

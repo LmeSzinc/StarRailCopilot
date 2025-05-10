@@ -39,3 +39,10 @@ class DungeonUI(DungeonUINav, DungeonUIList, DungeonUIInteract, DungeonState):
 
         logger.error(f'Goto dungeon {dungeon} is not supported')
         return False
+
+
+if __name__ == '__main__':
+    self = DungeonUI('src')
+    from tasks.dungeon.keywords import KEYWORDS_DUNGEON_LIST
+    self.device.screenshot()
+    print(self._dungeon_survival_index_top_appear())

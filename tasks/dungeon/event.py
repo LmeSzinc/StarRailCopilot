@@ -4,15 +4,7 @@ from module.base.utils import area_offset
 from module.logger import logger
 from module.ocr.ocr import DigitCounter
 from tasks.base.ui import UI
-from tasks.dungeon.assets.assets_dungeon_event import (
-    DOUBLE_CALYX_EVENT_TAG,
-    DOUBLE_RELIC_EVENT_TAG,
-    DOUBLE_ROGUE_EVENT_TAG,
-    HAS_PINNED_CHARACTER,
-    OCR_DOUBLE_EVENT_REMAIN,
-    OCR_DOUBLE_EVENT_REMAIN_AT_COMBAT,
-    OCR_DOUBLE_ROGUE_REMAIN,
-)
+from tasks.dungeon.assets.assets_dungeon_event import *
 
 
 class DoubleEventOcr(DigitCounter):
@@ -55,13 +47,31 @@ class DungeonEvent(UI):
         Pages:
             in: page_guide, Survival_Index, nav at top
         """
-        # If has_pinned_character, DOUBLE_RELIC_EVENT_TAG will be out of list, donno how to do yet
-        has = self.image_color_count(DOUBLE_RELIC_EVENT_TAG, color=(252, 209, 123), threshold=221, count=50)
-        has |= self.image_color_count(DOUBLE_RELIC_EVENT_TAG, color=(252, 251, 140), threshold=221, count=50)
+        if self.has_pinned_character():
+            area = area_offset(DOUBLE_CALYX_EVENT_TAG.area, (0, 136))
+        else:
+            area = DOUBLE_CALYX_EVENT_TAG.area
+        has = self.image_color_count(area, color=(252, 209, 123), threshold=221, count=50)
+        has |= self.image_color_count(area, color=(252, 251, 140), threshold=221, count=50)
         # Anniversary 3x rogue event
-        has |= self.image_color_count(DOUBLE_RELIC_EVENT_TAG, color=(229, 62, 44), threshold=221, count=50)
+        has |= self.image_color_count(area, color=(229, 62, 44), threshold=221, count=50)
         logger.attr('Double relic', has)
-        return has
+        if has:
+            return has
+
+        # If has_pinned_character, DOUBLE_RELIC_EVENT_TAG will be out of list
+        # we try to find the relic event tag at pinned page
+        if self.appear(PINNED_RELIC_CHECK):
+            PINNED_RELIC_EVENT_TAG.load_offset(PINNED_RELIC_CHECK)
+            has = self.image_color_count(PINNED_RELIC_CHECK, color=(252, 209, 123), threshold=221, count=50)
+            has |= self.image_color_count(PINNED_RELIC_CHECK, color=(252, 251, 140), threshold=221, count=50)
+            has |= self.image_color_count(PINNED_RELIC_CHECK, color=(229, 62, 44), threshold=221, count=50)
+            logger.attr('Double relic (pinned)', has)
+            if has:
+                return has
+        # If pinned character has items to farm, relic icon is not at the first page
+        # we donno how to handle, just act like no double event
+        return False
 
     def has_double_rogue_event(self) -> bool:
         """

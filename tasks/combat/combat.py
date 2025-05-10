@@ -119,6 +119,7 @@ class Combat(CombatInteract, CombatPrepare, CombatSupport, CombatTeam, CombatSki
             support_set = False
         else:
             support_set = True
+        combat_prepared = False
         logger.info([support_character, support_set])
         combat_trial = 0
         team_trial = 0
@@ -157,16 +158,18 @@ class Combat(CombatInteract, CombatPrepare, CombatSupport, CombatTeam, CombatSki
             if self.appear(COMBAT_TEAM_PREPARE):
                 self.interval_reset(COMBAT_PREPARE)
                 self.map_A_timer.reset()
-            if self.appear(COMBAT_PREPARE, interval=2):
-                if self.is_doing_planner and self.obtained_is_full(self.dungeon, wave_done=self.combat_wave_done):
-                    # Update stamina so task can be delayed if both obtained_is_full and stamina exhausted
-                    self.combat_get_trailblaze_power()
-                    return False
-                if not self.handle_combat_prepare():
-                    return False
-                if self.is_doing_planner and self.combat_wave_cost == 0:
-                    logger.info('Free combat gets nothing cannot meet planner needs')
-                    return False
+            if self.appear(COMBAT_PREPARE, interval=5):
+                if not combat_prepared:
+                    if self.is_doing_planner and self.obtained_is_full(self.dungeon, wave_done=self.combat_wave_done):
+                        # Update stamina so task can be delayed if both obtained_is_full and stamina exhausted
+                        self.combat_get_trailblaze_power()
+                        return False
+                    if not self.handle_combat_prepare():
+                        return False
+                    if self.is_doing_planner and self.combat_wave_cost == 0:
+                        logger.info('Free combat gets nothing cannot meet planner needs')
+                        return False
+                combat_prepared = True
                 self.device.click(COMBAT_PREPARE)
                 self.interval_reset(COMBAT_PREPARE)
                 combat_trial += 1

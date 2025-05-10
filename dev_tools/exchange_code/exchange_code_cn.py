@@ -1,21 +1,12 @@
 import requests
 import re
-from datetime import datetime, timedelta
-
+from datetime import datetime, timedelta, timezone
+import json
 
 class GameRedeemCode:
-    def __init__(self, game_type="原神"):
-        # 游戏类型映射
-        self.game_map = {
-            "原神": "75276539",
-            "星铁": "80823548",
-            "崩铁": "80823548",
-            "崩坏三": "73565430",
-            "崩坏3": "73565430",
-            "绝区零": "152039148"
-        }
+    def __init__(self):
 
-        self.uid = self.game_map.get(game_type, "75276539")
+        self.uid = "80823548"
         self.act_id = None
         self.code_ver = None
         self.deadline = None
@@ -48,14 +39,10 @@ class GameRedeemCode:
 
     def _calculate_deadline(self, create_time):
         """计算兑换码过期时间"""
-        create_date = datetime.fromtimestamp(create_time)
-
-        if self.uid in ["80823548", "152039148"]:  # 星铁/绝区零
-            self.deadline = (create_date + timedelta(days=1)).replace(hour=23, minute=59, second=59)
-        elif self.uid == "73565430":  # 崩坏三
-            self.deadline = (create_date + timedelta(days=5)).replace(hour=12, minute=0, second=0)
-        else:  # 原神
-            self.deadline = (create_date + timedelta(days=5)).replace(hour=12, minute=0, second=0)
+        beijing_tz = timezone(timedelta(hours=8))
+        create_time = datetime.fromtimestamp(create_time, tz=beijing_tz)
+        self.deadline = (create_time + timedelta(days=1)).replace(hour=23, minute=59, second=59)
+        self.expires_iso = self.deadline.isoformat(timespec="seconds")
 
     def get_live_info(self):
         """获取直播信息"""
@@ -97,23 +84,48 @@ class GameRedeemCode:
             print(f"获取兑换码失败: {str(e)}")
             return None
 
-    def format_result(self):
-        """格式化输出结果"""
+    def generate_output(self):
+        """生成结构化输出"""
         codes = self.get_redeem_codes()
         if not codes:
-            return "当前没有可用的兑换码"
+            return {
+                "error": {
+                    "code": 404,
+                    "message": "当前没有可用的兑换码",
+                    "timestamp": datetime.now(timezone.utc).isoformat()
+                }
+            }
 
-        return (
-                f"🕒 过期时间: {self.deadline.strftime('%Y-%m-%d %H:%M:%S')}\n"
-                "🎮 兑换码列表：\n" +
-                "\n".join([f"▸ {code}" for code in codes])
-        )
+        return {
+            "data": {
+                "codes": [
+                    {
+                        "code": code,
+                        "expires_at": self.expires_iso,
+                    } for code in codes
+                ]
+            }
+        }
+
+    def save_to_file(self, filename="codes_cn.json"):
+        with open(filename, "w", encoding="utf-8") as f:
+            json.dump(self.generate_output(), f, indent=2, ensure_ascii=False)
 
 
 # 使用示例
 if __name__ == "__main__":
     # 支持的游戏类型：原神、星铁/崩铁、崩坏三/崩坏3、绝区零
-    game = GameRedeemCode(game_type="星铁")  # 修改此处切换游戏
+    redeem_code_fetcher = GameRedeemCode()  # 修改此处切换游戏
 
-    result = game.format_result()
-    print(result)
+    # 获取并输出结果
+    result = redeem_code_fetcher.generate_output()
+    redeem_code_fetcher.save_to_file()
+
+    # 配置JSON输出格式
+    print(json.dumps(
+        result,
+        indent=2,
+        ensure_ascii=False,  # 支持中文显示
+        default=str,  # 处理可能的datetime对象
+        sort_keys=False  # 保持字段顺序
+    ))

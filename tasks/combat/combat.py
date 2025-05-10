@@ -11,14 +11,13 @@ from tasks.combat.interact import CombatInteract
 from tasks.combat.obtain import CombatObtain
 from tasks.combat.prepare import CombatPrepare
 from tasks.combat.skill import CombatSkill
-from tasks.combat.state import CombatState
 from tasks.combat.support import CombatSupport
 from tasks.combat.team import CombatTeam
 from tasks.dungeon.keywords import DungeonList
 from tasks.map.control.joystick import MapControlJoystick
 
 
-class Combat(CombatInteract, CombatPrepare, CombatState, CombatTeam, CombatSupport, CombatSkill, CombatObtain,
+class Combat(CombatInteract, CombatPrepare, CombatSupport, CombatTeam, CombatSkill, CombatObtain,
              MapControlJoystick, Fuel):
     dungeon: DungeonList | None = None
     is_doing_planner: bool = False

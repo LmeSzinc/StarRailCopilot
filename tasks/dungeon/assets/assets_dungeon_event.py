@@ -82,3 +82,23 @@ OCR_DOUBLE_ROGUE_REMAIN = ButtonWrapper(
         button=(517, 179, 1118, 201),
     ),
 )
+PINNED_RELIC_CHECK = ButtonWrapper(
+    name='PINNED_RELIC_CHECK',
+    share=Button(
+        file='./assets/share/dungeon/event/PINNED_RELIC_CHECK.png',
+        area=(465, 272, 489, 296),
+        search=(456, 172, 496, 684),
+        color=(153, 151, 153),
+        button=(465, 272, 489, 296),
+    ),
+)
+PINNED_RELIC_EVENT_TAG = ButtonWrapper(
+    name='PINNED_RELIC_EVENT_TAG',
+    share=Button(
+        file='./assets/share/dungeon/event/PINNED_RELIC_EVENT_TAG.png',
+        area=(1045, 297, 1175, 330),
+        search=(1025, 277, 1195, 350),
+        color=(231, 223, 210),
+        button=(1045, 297, 1175, 330),
+    ),
+)

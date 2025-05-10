@@ -7,10 +7,10 @@ from module.base.utils import area_offset, crop, image_size, load_image
 from module.logger import logger
 from module.ui.scroll import AdaptiveScroll
 from tasks.base.assets.assets_base_popup import POPUP_CANCEL
-from tasks.base.ui import UI
 from tasks.character.keywords import CharacterList
 from tasks.combat.assets.assets_combat_support import *
 from tasks.combat.assets.assets_combat_team import COMBAT_TEAM_DISMISSSUPPORT, COMBAT_TEAM_SUPPORT
+from tasks.combat.state import CombatState
 
 
 def get_position_in_original_image(position_in_croped_image, crop_area):
@@ -130,7 +130,7 @@ class NextSupportCharacter:
         return SUPPORT_SELECTED.match_template(image, similarity=0.75, direct_match=True)
 
 
-class CombatSupport(UI):
+class CombatSupport(CombatState):
     def support_set(self, support_character_name: str = "FirstCharacter"):
         """
         Args:
@@ -142,7 +142,7 @@ class CombatSupport(UI):
         Pages:
             in: COMBAT_PREPARE
             mid: COMBAT_SUPPORT_LIST
-            out: COMBAT_PREPARE
+            out: COMBAT_PREPARE or is_combat_executing
         """
         logger.hr("Combat support")
         if isinstance(support_character_name, CharacterList):
@@ -159,11 +159,16 @@ class CombatSupport(UI):
             # End
             if self.appear(COMBAT_TEAM_DISMISSSUPPORT):
                 return True
+            if self.is_combat_executing():
+                # Entered combat unexpectedly, probably double-clicked COMBAT_SUPPORT_ADD
+                logger.warning('support_set ended at is_combat_executing')
+                return True
 
             # Click
-            if self.appear(COMBAT_TEAM_SUPPORT, interval=2):
+            if self.appear(COMBAT_TEAM_SUPPORT, interval=5):
                 self.device.click(COMBAT_TEAM_SUPPORT)
                 self.interval_reset(COMBAT_TEAM_SUPPORT)
+                self.interval_clear(COMBAT_SUPPORT_LIST)
                 continue
             if self.appear(POPUP_CANCEL, interval=1):
                 logger.warning(
@@ -173,7 +178,7 @@ class CombatSupport(UI):
                 self.interval_reset(POPUP_CANCEL)
                 self.interval_clear(COMBAT_SUPPORT_LIST)
                 continue
-            if self.appear(COMBAT_SUPPORT_LIST, interval=2):
+            if self.appear(COMBAT_SUPPORT_LIST, interval=5):
                 # Search support
                 if not selected_support:
                     self._search_support_with_fallback(support_character_name)

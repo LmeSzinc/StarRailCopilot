@@ -69,6 +69,10 @@ class GeneratedConfig:
     # Group `SupportReward`
     SupportReward_Collect = True
 
+    # Group `GiftofOdyssey`
+    GiftofOdyssey_Collect = True
+    GiftofOdyssey_GiftofOdysseyClaimed = {}
+
     # Group `Planner`
     Planner_PlannerOverall = {}
     Planner_Item_Credit = {}

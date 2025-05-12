@@ -1761,5 +1761,19 @@
         "value": false
       }
     }
+  },
+  "RewardCollector": {
+    "RewardCollector": {
+      "Enable": {
+        "type": "state",
+        "value": true,
+        "option": [
+          true
+        ],
+        "option_bold": [
+          true
+        ]
+      }
+    }
   }
 }

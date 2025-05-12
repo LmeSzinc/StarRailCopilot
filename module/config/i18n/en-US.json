@@ -69,6 +69,10 @@
     "PlannerScan": {
       "name": "Character Planner",
       "help": ""
+    },
+    "RewardCollector": {
+      "name": "Reward Collector",
+      "help": ""
     }
   },
   "Scheduler": {
@@ -1196,6 +1200,17 @@
     "ResultAdd": {
       "name": "Accumulate multiple scan results",
       "help": "Turn on when planning multiple characters, will raise multiple characters all together\nTurn off when planning one character, planning goal will be refreshed at every scan"
+    }
+  },
+  "RewardCollector": {
+    "_info": {
+      "name": "Reward Collector",
+      "help": "At the moment only achievements collecting!\nTools need to stop the scheduler and then run independently"
+    },
+    "Enable": {
+      "name": "Reward Collector",
+      "help": "Automatically collect rewards and handle popups",
+      "True": "Enabled"
     }
   },
   "Gui": {

@@ -77,3 +77,5 @@ Tool:
       - Daemon
     PlannerScan:
       - PlannerScan
+    RewardCollector:
+      - RewardCollector

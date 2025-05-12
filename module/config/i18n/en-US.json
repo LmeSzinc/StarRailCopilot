@@ -1205,12 +1205,19 @@
   "RewardCollector": {
     "_info": {
       "name": "Reward Collector",
-      "help": "At the moment only achievements collecting!\nTools need to stop the scheduler and then run independently"
+      "help": "Collecting At the moment achievements and universe index rewards!\nTools need to stop the scheduler and then run independently"
     },
     "Enable": {
       "name": "Reward Collector",
-      "help": "Automatically collect rewards and handle popups",
-      "True": "Enabled"
+      "help": "Automatically collect rewards and handle popups."
+    },
+    "CollectAchievements": {
+      "name": "Collect Achievements Rewards",
+      "help": "Enable to collect all available achievement rewards."
+    },
+    "CollectSimulatedUniverse": {
+      "name": "Collect Simulated Universe Index Rewards",
+      "help": "Enable to collect Simulated Universe index rewards."
     }
   },
   "Gui": {

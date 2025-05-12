@@ -11,6 +11,29 @@ ACHIEVEMENT_ACHIEVED_BUTTON = ButtonWrapper(
     ),
 )
 
+CLAIM_BUTTON = ButtonWrapper(
+    name='CLAIM_BUTTON',
+    share=Button(
+        file='./assets/share/achievement_collector/Claim.png',
+        area=(1094, 234, 1111, 246),
+        search=(1099, 239, 1106, 242),
+        color=(255, 199, 89),
+        button=(1094, 234, 1111, 246),
+    ),
+)
+
+# Placeholder for CLAIM1_BUTTON, for later testing purposes
+CLAIM1_BUTTON = ButtonWrapper(
+    name='CLAIM1_BUTTON',
+    share=Button(
+        file='./assets/share/achievement_collector/Claim1.png',
+        area=(1124, 221, 1193, 253),
+        search=(1132, 229, 1182, 248),
+        color=(255, 199, 89),
+        button=(1124, 221, 1193, 253),
+    ),
+) 
+
 # Placeholder for ACHIEVEMENT1_ACHIEVED_BUTTON, for later testing purposes
 ACHIEVEMENT1_ACHIEVED_BUTTON = ButtonWrapper(
     name='ACHIEVEMENT1_ACHIEVED_BUTTON',
@@ -34,26 +57,3 @@ EXCLAMATION_MARK_BUTTON = ButtonWrapper(
         button=(6, 6, 99, 69),
     ),
 )
-
-CLAIM_BUTTON = ButtonWrapper(
-    name='CLAIM_BUTTON',
-    share=Button(
-        file='./assets/share/achievement_collector/Claim.png',
-        area=(1094, 234, 1111, 246),
-        search=(1099, 239, 1106, 242),
-        color=(255, 199, 89),
-        button=(1094, 234, 1111, 246),
-    ),
-) 
-
-# Placeholder for CLAIM1_BUTTON, for later testing purposes
-CLAIM1_BUTTON = ButtonWrapper(
-    name='CLAIM1_BUTTON',
-    share=Button(
-        file='./assets/share/achievement_collector/Claim1.png',
-        area=(1124, 221, 1193, 253),
-        search=(1132, 229, 1182, 248),
-        color=(255, 199, 89),
-        button=(1124, 221, 1193, 253),
-    ),
-) 

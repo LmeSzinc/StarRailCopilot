@@ -1764,15 +1764,13 @@
   },
   "RewardCollector": {
     "RewardCollector": {
-      "Enable": {
-        "type": "state",
-        "value": true,
-        "option": [
-          true
-        ],
-        "option_bold": [
-          true
-        ]
+      "CollectAchievements": {
+        "type": "checkbox",
+        "value": true
+      },
+      "CollectSimulatedUniverse": {
+        "type": "checkbox",
+        "value": true
       }
     }
   }

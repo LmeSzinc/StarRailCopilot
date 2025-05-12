@@ -289,5 +289,18 @@
     "PlannerScan": {
       "ResultAdd": false
     }
+  },
+  "RewardCollector": {
+    "RewardCollector": {
+      "Enable": true,
+      "CollectAchievements": true,
+      "CollectSimulatedUniverse": true
+    },
+    "Scheduler": {
+      "Enable": false,
+      "NextRun": "2020-01-01 00:00:00",
+      "Command": "RewardCollector",
+      "ServerUpdate": "04:00"
+    }
   }
 }

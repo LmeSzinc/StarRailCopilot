@@ -209,3 +209,5 @@ class GeneratedConfig:
 
     # Group `RewardCollector`
     RewardCollector_Enable = True  # True
+    RewardCollector_CollectAchievements = True
+    RewardCollector_CollectSimulatedUniverse = True

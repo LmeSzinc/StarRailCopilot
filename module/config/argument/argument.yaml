@@ -345,3 +345,5 @@ RewardCollector:
     value: true
     option: [ true ]
     option_bold: [ true, ]
+  CollectAchievements: true
+  CollectSimulatedUniverse: true

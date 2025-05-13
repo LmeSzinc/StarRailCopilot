@@ -15,6 +15,8 @@ class DoubleEventOcr(DigitCounter):
         result = re.sub(r'(?<!\d)(\d[02-9]*)12$', r'\1/12', result)
         # x112 -> x/12
         result = re.sub(r'112$', '/12', result)
+        # 19/212面 -> 19/21
+        result = result.replace('/212',  '/21')
         return result
 
 

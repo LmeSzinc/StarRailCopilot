@@ -13,7 +13,7 @@ class ManualConfig:
     > Weekly > Ornament > Dungeon > Assignment
     > BattlePass > DailyQuest
     > Freebies > DataUpdate
-    > Rogue
+    > Rogue > RewardCollector
     """
 
     """
@@ -124,6 +124,11 @@ class ManualConfig:
     """
     tasks.rogue
     """
+
+
+    # tasks.reward_collector
+    RewardCollector_Settings_CollectAchievements = True
+    RewardCollector_Settings_CollectSimulatedUniverse = True
 
 
 ADDING = ''.join([chr(int(f)) for f in ManualConfig.OS_EXPLORE_CENTER.split('>')])

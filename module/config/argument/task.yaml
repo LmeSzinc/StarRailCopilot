@@ -79,3 +79,4 @@ Tool:
       - PlannerScan
     RewardCollector:
       - RewardCollector
+      - Scheduler

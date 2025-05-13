@@ -1207,10 +1207,6 @@
       "name": "Reward Collector",
       "help": "Collecting At the moment achievements and universe index rewards!\nTools need to stop the scheduler and then run independently"
     },
-    "Enable": {
-      "name": "Reward Collector",
-      "help": "Automatically collect rewards and handle popups."
-    },
     "CollectAchievements": {
       "name": "Collect Achievements Rewards",
       "help": "Enable to collect all available achievement rewards."

@@ -1,207 +1,350 @@
 import time
-# import os # No longer needed directly here
-# from datetime import datetime # No longer needed directly here
-# from PIL import Image # No longer needed directly here
-
 from module.logger import logger
 from tasks.dungeon.ui.ui_rogue import DungeonRogueUI
-from tasks.reward_collector.assets.assets_index_collector import (
-    IndexMark, BlessingsMark, BlessingNextMark, BlessingClaim,
+from module.base.button import ClickButton
+from .assets.assets_reward_collector_Simulated import (
+    BlessingClaim2, IndexMark, BlessingMark, BlessingClaim,
     OccurrenceMark, OccurrenceClaim, CurioMark, CurioClaim
 )
+from tasks.forgotten_hall.assets.assets_forgotten_hall_ui import TELEPORT
 from tasks.base.page import page_main
-from .debug_utils import DebugHelper
+from module.base.timer import Timer
 
 class SimulatedUniverseCollector(DungeonRogueUI):
-    # _SCREENSHOT_DIR removed
 
     def __init__(self, device, config):
-        # super().__init__(...) removed
-        self.device = device  # Explicitly set device
-        self.config = config  # Explicitly set config
-        # WARNING: self.appear might not work correctly as super().__init__ (which sets up ButtonManager) is not called.
-        self.debug_helper = DebugHelper(self.device, self.appear)
+        super().__init__(config=config, device=device)
 
-    # Removed _ensure_screenshot_dir_exists
-    # Removed capture_and_save_debug_screenshot
-    # Removed _debug_match_tester
+    def _click_blessing_coord_and_attempt_claim(self, coord):
+            logger.info(f"Checking blessing coordinate: {coord}")
+            coord_button = ClickButton(area=(coord[0], coord[1], coord[0], coord[1]), name=f"BLESSING_COORD_{coord[0]}_{coord[1]}")
+            self.device.click(coord_button)
+
+            claim_made = False
+
+            claim_check_timeout = Timer(2)
+            claim_check_timeout.start()
+
+            while not claim_check_timeout.reached():
+                self.device.screenshot()
+                if self.appear(BlessingClaim, similarity=0.80, interval=0):
+                    logger.info(f"BlessingClaim found near {coord}, attempting click.")
+                    self.device.click(BlessingClaim)
+                    logger.info("BlessingClaim clicked successfully.")
+                    claim_made = True
+                    break
+                
+            if claim_made is True:
+                blessing_claim2_clicked = False
+
+                blessing_claim2_timeout = Timer(5)
+                blessing_claim2_timeout.start()
+
+                while not blessing_claim2_timeout.reached():
+                    self.device.screenshot()
+                    if self.appear(BlessingClaim2, similarity=0.80, interval=0):
+                        logger.info("BlessingClaim2 found, attempting click.")
+                        self.device.click(BlessingClaim2)
+                        time.sleep(2)
+                        blessing_claim2_clicked = True
+                        middle_x, middle_y = 640, 360
+                        middle_button = ClickButton(area=(middle_x, middle_y, middle_x, middle_y), name="MIDDLE_SCREEN_CLICK_AFTER_BLESSING_CLAIM2")
+                        logger.info(f"Clicking middle of screen ({middle_x}, {middle_y}) after blessing claim.")
+                        self.device.click(middle_button)
+                        time.sleep(2)
+                        self.device.adb_shell(['input', 'keyevent', '111'])
+                        break
+                
+                if not blessing_claim2_clicked:
+                    logger.warning("BlessingClaim2 not found within timeout period.")
+
+            if not claim_made and claim_check_timeout.reached():
+                logger.debug(f"No BlessingClaim found near {coord} within timeout period.")
+
+            return claim_made
 
     def _collect_blessings_index(self):
-        logger.info("Attempting to collect Blessings Index rewards...")
-        self.device.screenshot()
-        if self.appear(BlessingsMark, interval=0):
-            logger.info("BlessingsMark found. Clicking it.")
-            self.device.click(BlessingsMark)
-            time.sleep(1.5)
-            self.debug_helper.capture_and_save_debug_screenshot("su_blessings_index_entered")
+        logger.info("Starting Blessings Index reward collection...")
 
-            claimed_in_blessings = False
-            for _ in range(10):
-                self.device.screenshot()
-                action_taken_this_screen = False
-                if self.appear(BlessingClaim, interval=0):
-                    logger.info("BlessingClaim found. Clicking.")
-                    self.device.click(BlessingClaim)
-                    claimed_in_blessings = True
-                    action_taken_this_screen = True
-                    time.sleep(1.5)
-                    self.debug_helper.capture_and_save_debug_screenshot("su_blessing_claimed")
-                
-                self.device.screenshot()
-                if self.appear(BlessingNextMark, interval=0):
-                    logger.info("BlessingNextMark found. Clicking to next page.")
-                    self.device.click(BlessingNextMark)
-                    action_taken_this_screen = True
-                    time.sleep(1.5)
-                    self.debug_helper.capture_and_save_debug_screenshot("su_blessing_next_page")
-                elif not action_taken_this_screen and not self.appear(BlessingClaim, interval=0, static=False): 
-                    logger.info("No more claims or next pages for Blessings found on this screen.")
-                    break 
-                elif not self.appear(BlessingClaim, interval=0, static=False) and not self.appear(BlessingNextMark, interval=0, static=False):
-                    logger.info("Neither BlessingClaim nor BlessingNextMark found. Exiting blessings loop.")
-                    break
-            
-            logger.info("Exiting Blessings Index section (going back from blessings list).")
-            self.device.adb_shell(['input', 'keyevent', '111'])
-            time.sleep(1)
-            self.debug_helper.capture_and_save_debug_screenshot("su_blessings_index_exited_to_main_index")
-            return claimed_in_blessings
+        blessing_coords = [
+            (79, 124), (175, 124), (271, 124), (367, 124),
+            (482, 124), (578, 124), (683, 124), (778, 124)
+        ]
+
+        claimed_in_blessings = False
+        logger.info(f"Processing {len(blessing_coords)} blessing coordinates...")
+        for coord in blessing_coords:
+            if self._click_blessing_coord_and_attempt_claim(coord):
+                claimed_in_blessings = True
+
+        if claimed_in_blessings:
+            logger.info("Blessings collection: At least one reward claimed.")
         else:
-            logger.info("BlessingsMark not found. Skipping Blessings Index.")
-            return False
+            logger.info("Blessings collection: No rewards claimed.")
+        
+        self.device.adb_shell(['input', 'keyevent', '111'])
+        return claimed_in_blessings
+
+    def _click_occurrence_coord_and_attempt_claim(self, coord):
+        logger.info(f"Checking occurrence coordinate: {coord}")
+        coord_button = ClickButton(area=(coord[0], coord[1], coord[0], coord[1]), name=f"OCCURRENCE_COORD_{coord[0]}_{coord[1]}")
+        self.device.click(coord_button)
+
+        claim_successful = False
+        claim_check_timeout = Timer(3.0)
+        logger.debug(f"Waiting for OccurrenceClaim near {coord}...")
+        claim_check_timeout.start()
+        while not claim_check_timeout.reached():
+            self.device.screenshot()
+            if self.appear(OccurrenceClaim, similarity=0.60, interval=0):
+                logger.info(f"OccurrenceClaim found near {coord}, attempting click.")
+                self.device.click(OccurrenceClaim)
+                logger.info("OccurrenceClaim clicked successfully.")
+                claim_successful = True
+                time.sleep(1)                 
+                middle_x, middle_y = 640, 600
+                middle_button = ClickButton(area=(middle_x, middle_y, middle_x, middle_y), name="MIDDLE_SCREEN_CLICK_AFTER_OCCURRENCE_CLAIM")
+                logger.info(f"Clicking middle of screen ({middle_x}, {middle_y}) after occurrence claim.")
+                self.device.click(middle_button)
+                time.sleep(1) 
+                break
+        
+        if not claim_successful and claim_check_timeout.reached():
+            logger.debug(f"No OccurrenceClaim found near {coord} within timeout period.")
+        return claim_successful
 
     def _collect_occurrences_index(self):
-        logger.info("Attempting to collect Occurrences Index rewards...")
-        self.device.screenshot()
-        if self.appear(OccurrenceMark, interval=0):
-            logger.info("OccurrenceMark found. Clicking it.")
-            self.device.click(OccurrenceMark)
-            time.sleep(1.5)
-            self.debug_helper.capture_and_save_debug_screenshot("su_occurrences_index_entered")
-            claimed_in_occurrences = False
-            for _ in range(10):
-                self.device.screenshot()
-                if self.appear(OccurrenceClaim, interval=0):
-                    logger.info("OccurrenceClaim found. Clicking.")
-                    self.device.click(OccurrenceClaim)
-                    claimed_in_occurrences = True
-                    time.sleep(1.5)
-                    self.debug_helper.capture_and_save_debug_screenshot("su_occurrence_claimed")
+        logger.info("Starting Occurrences Index reward collection...")
+        occurrence_coords = [
+            (232, 119),
+            (232, 209), (232, 297), (232, 372),
+            (232, 457), (232, 531), (232, 605)
+        ]
+        any_claim_made_overall = False
+
+        while True: 
+            logger.info("Processing current occurrences screen...")
+            claims_made_on_this_screen = False
+            for coord in occurrence_coords:
+                if self._click_occurrence_coord_and_attempt_claim(coord):
+                    claims_made_on_this_screen = True
+                    any_claim_made_overall = True
                 else:
-                    logger.info("No more OccurrenceClaims found.")
+                    logger.info(f"No OccurrenceClaim found for coordinate {coord}, stopping current screen check.")
                     break
-            logger.info("Exiting Occurrences Index section (going back from occurrences list).")
+
+            if not claims_made_on_this_screen:
+                logger.info("Occurrences collection: No rewards claimed on current screen.")
+                break
+
+            logger.info("Occurrences claimed on current screen, checking for more occurrences...")
             self.device.adb_shell(['input', 'keyevent', '111'])
-            time.sleep(1)
-            self.debug_helper.capture_and_save_debug_screenshot("su_occurrences_index_exited_to_main_index")
-            return claimed_in_occurrences
+
+            logger.info("Attempting to find OccurrenceMark again...")
+            re_entered_successfully = False
+            occurrence_mark_recheck_timeout = Timer(3.0)
+            occurrence_mark_recheck_timeout.start()
+            while not occurrence_mark_recheck_timeout.reached():
+                self.device.screenshot()
+                if self.appear(OccurrenceMark, similarity=0.60, interval=0):
+                    logger.info("OccurrenceMark found, re-entering occurrences section.")
+                    self.device.click(OccurrenceMark)
+                    re_entered_successfully = True
+                    break
+                    
+            if not re_entered_successfully:
+                logger.info("OccurrenceMark not found, no more occurrences to process.")
+                break
+            else:
+                logger.info("Successfully re-entered OccurrenceMark, continuing collection...")
+
+        logger.info("Occurrences collection complete, returning to main index.")
+        self.device.adb_shell(['input', 'keyevent', '111'])
+        time.sleep(1.0)
+
+        if any_claim_made_overall:
+            logger.info("Occurrences collection: At least one reward claimed overall.")
         else:
-            logger.info("OccurrenceMark not found. Skipping Occurrences Index.")
-            return False
+            logger.info("Occurrences collection: No rewards claimed overall.")
+        return any_claim_made_overall
+
+    def _click_curio_coord_and_attempt_claim(self, coord):
+        logger.info(f"Checking curio coordinate: {coord}")
+        coord_button = ClickButton(area=(coord[0], coord[1], coord[0], coord[1]), name=f"CURIO_COORD_{coord[0]}_{coord[1]}")
+        self.device.click(coord_button)
+
+        claim_successful = False
+        claim_check_timeout = Timer(3.0)
+        logger.debug(f"Waiting for CurioClaim near {coord}...")
+        claim_check_timeout.start()
+        while not claim_check_timeout.reached():
+            self.device.screenshot()
+            if self.appear(CurioClaim, similarity=0.80, interval=0):
+                logger.info(f"CurioClaim found near {coord}, attempting click.")
+                self.device.click(CurioClaim)
+                logger.info("CurioClaim clicked successfully.")
+                claim_successful = True
+                time.sleep(1.5)                    
+                middle_x, middle_y = 640, 600
+                middle_button = ClickButton(area=(middle_x, middle_y, middle_x, middle_y), name="MIDDLE_SCREEN_CLICK_AFTER_CURIO_CLAIM")
+                logger.info(f"Clicking middle of screen ({middle_x}, {middle_y}) after curio claim.")
+                self.device.click(middle_button)
+          
+        if not claim_successful and claim_check_timeout.reached():
+            logger.debug(f"No CurioClaim found near {coord} within timeout period.")
+        return claim_successful
 
     def _collect_curios_index(self):
-        logger.info("Attempting to collect Curios Index rewards...")
-        self.device.screenshot()
-        if self.appear(CurioMark, interval=0):
-            logger.info("CurioMark found. Clicking it.")
-            self.device.click(CurioMark)
-            time.sleep(1.5)
-            self.debug_helper.capture_and_save_debug_screenshot("su_curios_index_entered")
-            claimed_in_curios = False
-            for _ in range(10):
-                self.device.screenshot()
-                if self.appear(CurioClaim, interval=0):
-                    logger.info("CurioClaim found. Clicking.")
-                    self.device.click(CurioClaim)
-                    claimed_in_curios = True
-                    time.sleep(1.5)
-                    self.debug_helper.capture_and_save_debug_screenshot("su_curio_claimed")
+        logger.info("Starting Curios Index reward collection...")
+        curio_coords = [
+            (124, 285), (323, 285), (521, 285), (719, 285)
+        ]
+        any_claim_made_overall = False
+
+        while True: 
+            logger.info("Processing current curios screen...")
+            for coord in curio_coords: 
+                if self._click_curio_coord_and_attempt_claim(coord):
+                    any_claim_made_overall = True
                 else:
-                    logger.info("No more CurioClaims found.")
-                    break
-            logger.info("Exiting Curios Index section (going back from curios list).")
+                    logger.info(f"No CurioClaim found for coordinate {coord} on this screen.")
+            
+            logger.info("Finished processing current curios screen.")
+
+            logger.info("Going back to SU Index to check for more curio pages...")
             self.device.adb_shell(['input', 'keyevent', '111'])
-            time.sleep(1)
-            self.debug_helper.capture_and_save_debug_screenshot("su_curios_index_exited_to_main_index")
-            return claimed_in_curios
+            time.sleep(1.0)
+
+            logger.info("Attempting to find CurioMark again...")
+            re_entered_successfully = False
+            curio_mark_recheck_timeout = Timer(3.0)
+            curio_mark_recheck_timeout.start()
+            while not curio_mark_recheck_timeout.reached():
+                self.device.screenshot()
+                if self.appear(CurioMark, similarity=0.60, interval=0):
+                    logger.info("CurioMark found, re-entering curios section.")
+                    self.device.click(CurioMark)
+                    time.sleep(1.5)
+                    re_entered_successfully = True
+                    break
+            
+            if not re_entered_successfully:
+                logger.info("CurioMark not found, no more curio pages to process.")
+                break
+            else:
+                logger.info("Successfully re-entered CurioMark, continuing collection...")
+
+        logger.info("Curios collection complete, returning to main index.")
+        self.device.adb_shell(['input', 'keyevent', '111'])
+        time.sleep(1.0)
+
+        if any_claim_made_overall:
+            logger.info("Curios collection: At least one reward claimed overall.")
         else:
-            logger.info("CurioMark not found. Skipping Curios Index.")
-            return False
+            logger.info("Curios collection: No rewards claimed overall.")
+        return any_claim_made_overall
 
     def run_simulated_universe(self):
-        #test here
-                # here add image tester 
-        self.debug_helper.debug_match_tester(IndexMark)
-
-
-        time.sleep(999999999)
-
-        # Small upward swipe to scroll content down slightly
-        try:
-            center_x = self.device.width // 2
-            center_y = self.device.height // 2
-            swipe_distance = int(self.device.height * 0.05) # 5% of screen height
-
-            start_y_swipe = center_y + swipe_distance // 2
-            end_y_swipe = center_y - swipe_distance // 2
-
-            # Ensure coordinates are within screen bounds (0 to height-1 or width-1)
-            start_y_swipe = max(0, min(start_y_swipe, self.device.height - 1))
-            end_y_swipe = max(0, min(end_y_swipe, self.device.height - 1))
-            
-            # Ensure there's an actual swipe to perform (start_y != end_y)
-            if start_y_swipe > end_y_swipe: 
-                start_point = (center_x, start_y_swipe)
-                end_point = (center_x, end_y_swipe)
-                logger.info(f"Performing a small upward swipe (scrolls content down): from {start_point} to {end_point}")
-                self.device.swipe(start_point, end_point, duration=(0.1, 0.2), name='SMALL_UPWARD_SWIPE')
-                time.sleep(0.5) # Small pause after swipe
-            else:
-                logger.info("Skipping small swipe, calculated distance is zero or negative.")
-        except AttributeError as e:
-            logger.error(f"Could not perform small swipe due to AttributeError (device.width/height missing?): {e}")
-        except Exception as e:
-            logger.error(f"Error during small swipe: {e}")
-        #endtest here
-        logger.info("Starting Simulated Universe INDEX reward collection...")
-        self.debug_helper.capture_and_save_debug_screenshot("su_index_collection_init")
+        logger.info("Starting Simulated Universe reward collection...")
         
-        self.device.screenshot()
-        self.debug_helper.debug_match_tester(IndexMark) 
-        self.debug_helper.debug_match_tester(BlessingsMark, start_sim=0.60, end_sim=0.95, step=0.05)
-        self.debug_helper.debug_match_tester(BlessingClaim, start_sim=0.70)
+        self.dungeon_goto_rogue() 
 
-        self.ui_ensure(page_main)
-        self.debug_helper.capture_and_save_debug_screenshot("su_index_nav_ensured_main_page")
+        teleport_successful = False
+
+        teleport_timeout = Timer(5, count=20)
+        teleport_timeout.start()
         
-        logger.info("Navigating to Simulated Universe section for Index Collection...")
-        self.dungeon_goto_rogue()
-        self.debug_helper.capture_and_save_debug_screenshot("su_after_dungeon_goto_rogue_for_index")
-        time.sleep(1.5)
+        while not teleport_timeout.reached():
+            self.device.screenshot()
 
-        self.device.screenshot()
-        if self.appear(IndexMark, interval=0):
-            logger.info("IndexMark (entry to SU Index) found. Clicking it.")
-            self.device.click(IndexMark)
-            time.sleep(2)
-            self.debug_helper.capture_and_save_debug_screenshot("su_index_section_entered")
+            if self.appear(TELEPORT, similarity=0.80, interval=0):
+                logger.info("TELEPORT button found, attempting click.")
+                self.device.click(TELEPORT)
+                teleport_successful = True
+                break 
 
-            self._collect_blessings_index()
-            time.sleep(0.5) 
-            
-            self._collect_occurrences_index()
-            time.sleep(0.5)
-            
-            self._collect_curios_index()
-            
-            logger.info("Finished all SU index collection attempts. Exiting main Index section.")
-            self.device.adb_shell(['input', 'keyevent', '111'])
-            time.sleep(1)
-            self.debug_helper.capture_and_save_debug_screenshot("su_exited_main_index_to_su_page")
+        if not teleport_successful:
+            logger.error("Failed to find TELEPORT button within timeout period.")
+            logger.info("Simulated Universe Collector task complete.")
+            return
         else:
-            logger.warning("IndexMark (entry to SU Index) not found on the SU page. Cannot collect SU Index rewards.")
+            logger.info("TELEPORT clicked successfully, proceeding to SU collection.")
+            
+            index_mark_clicked = False
 
-        logger.info("SU Index collection attempt finished. Returning to main page.")
-        self.ui_ensure(page_main)
-        self.debug_helper.capture_and_save_debug_screenshot("su_index_collection_end_at_main")
-        logger.info("Simulated Universe INDEX reward collection finished.") 
+            index_mark_timeout = Timer(5, count=20)
+            index_mark_timeout.start()
+
+            while not index_mark_timeout.reached():
+                self.device.screenshot()
+                if self.appear(IndexMark, similarity=0.80, interval=0):
+                    logger.info("IndexMark found, attempting click.")
+                    self.device.click(IndexMark, control_check=True)
+                    index_mark_clicked = True
+                    break
+            if not index_mark_clicked:
+                logger.info("IndexMark not found or already collected.")
+                logger.info("Simulated Universe Collector task complete.")
+                return
+            else:
+                logger.info("IndexMark clicked successfully, proceeding to sub-sections.")
+
+            blessing_mark_clicked = False
+            blessing_mark_timeout = Timer(3)
+            blessing_mark_timeout.start()
+
+            while not blessing_mark_timeout.reached():
+                self.device.screenshot()
+                if self.appear(BlessingMark, similarity=0.60, interval=0):
+                    logger.info("BlessingMark found, attempting click.")
+                    self.device.click(BlessingMark)
+                    blessing_mark_clicked = True
+                    break 
+
+            if not blessing_mark_clicked:
+                logger.info("BlessingMark not found or already collected.")
+            else:
+                logger.info("BlessingMark clicked successfully, proceeding to Blessings collection.")
+                self._collect_blessings_index()
+                
+            occurrences_mark_clicked = False
+            occurrences_mark_timeout = Timer(3)
+            occurrences_mark_timeout.start()
+
+            while not occurrences_mark_timeout.reached():
+                self.device.screenshot()
+                if self.appear(OccurrenceMark, similarity=0.60, interval=0):
+                    logger.info("OccurrenceMark found, attempting click.")
+                    self.device.click(OccurrenceMark)
+                    occurrences_mark_clicked = True
+                    break 
+
+            if not occurrences_mark_clicked:
+                logger.info("OccurrenceMark not found or already collected.")
+            else:
+                logger.info("OccurrenceMark clicked successfully, proceeding to Occurrences collection.")
+                self._collect_occurrences_index()
+
+            curios_mark_clicked = False
+            curios_mark_timeout = Timer(3)
+            curios_mark_timeout.start()
+
+            while not curios_mark_timeout.reached():
+                self.device.screenshot()
+                if self.appear(CurioMark, similarity=0.60, interval=0):
+                    logger.info("CurioMark found, attempting click.")
+                    self.device.click(CurioMark)
+                    curios_mark_clicked = True
+                    break 
+
+            if not curios_mark_clicked:
+                logger.info("CurioMark not found or already collected.")
+            else:
+                logger.info("CurioMark clicked successfully, proceeding to Curios collection.")
+                self._collect_curios_index()
+
+            logger.info("Simulated Universe Index collection complete.")
+
+        logger.info("Returning to main page.")
+        logger.info("Simulated Universe Collector task complete.")
+        return

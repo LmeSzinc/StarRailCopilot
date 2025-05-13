@@ -69,6 +69,10 @@
     "PlannerScan": {
       "name": "Planificador de personajes",
       "help": ""
+    },
+    "RewardCollector": {
+      "name": "Task.RewardCollector.name",
+      "help": "Task.RewardCollector.help"
     }
   },
   "Scheduler": {
@@ -1196,6 +1200,20 @@
     "ResultAdd": {
       "name": "Acumular múltiples resultados de escaneo",
       "help": "Activar cuando se planifican varios personajes, generará varios personajes todos juntos\nDesactivar cuando se planifica un personaje, el objetivo de planificación se actualizará en cada escaneo"
+    }
+  },
+  "RewardCollector": {
+    "_info": {
+      "name": "RewardCollector._info.name",
+      "help": "RewardCollector._info.help"
+    },
+    "CollectAchievements": {
+      "name": "RewardCollector.CollectAchievements.name",
+      "help": "RewardCollector.CollectAchievements.help"
+    },
+    "CollectSimulatedUniverse": {
+      "name": "RewardCollector.CollectSimulatedUniverse.name",
+      "help": "RewardCollector.CollectSimulatedUniverse.help"
     }
   },
   "Gui": {

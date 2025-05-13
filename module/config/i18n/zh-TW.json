@@ -69,6 +69,10 @@
     "PlannerScan": {
       "name": "角色養成規劃",
       "help": ""
+    },
+    "RewardCollector": {
+      "name": "Task.RewardCollector.name",
+      "help": "Task.RewardCollector.help"
     }
   },
   "Scheduler": {
@@ -1196,6 +1200,20 @@
     "ResultAdd": {
       "name": "累加多次掃描結果",
       "help": "需要養成多個角色時勾選，同時養成多個角色\n只養成一個角色不勾選，每次掃描時刷新養成目標"
+    }
+  },
+  "RewardCollector": {
+    "_info": {
+      "name": "RewardCollector._info.name",
+      "help": "RewardCollector._info.help"
+    },
+    "CollectAchievements": {
+      "name": "RewardCollector.CollectAchievements.name",
+      "help": "RewardCollector.CollectAchievements.help"
+    },
+    "CollectSimulatedUniverse": {
+      "name": "RewardCollector.CollectSimulatedUniverse.name",
+      "help": "RewardCollector.CollectSimulatedUniverse.help"
     }
   },
   "Gui": {

@@ -69,6 +69,10 @@
     "PlannerScan": {
       "name": "Task.PlannerScan.name",
       "help": "Task.PlannerScan.help"
+    },
+    "RewardCollector": {
+      "name": "Task.RewardCollector.name",
+      "help": "Task.RewardCollector.help"
     }
   },
   "Scheduler": {
@@ -1196,6 +1200,20 @@
     "ResultAdd": {
       "name": "PlannerScan.ResultAdd.name",
       "help": "PlannerScan.ResultAdd.help"
+    }
+  },
+  "RewardCollector": {
+    "_info": {
+      "name": "RewardCollector._info.name",
+      "help": "RewardCollector._info.help"
+    },
+    "CollectAchievements": {
+      "name": "RewardCollector.CollectAchievements.name",
+      "help": "RewardCollector.CollectAchievements.help"
+    },
+    "CollectSimulatedUniverse": {
+      "name": "RewardCollector.CollectSimulatedUniverse.name",
+      "help": "RewardCollector.CollectSimulatedUniverse.help"
     }
   },
   "Gui": {

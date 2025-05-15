@@ -69,6 +69,10 @@
     "PlannerScan": {
       "name": "角色养成规划",
       "help": ""
+    },
+    "RewardCollector": {
+      "name": "Task.RewardCollector.name",
+      "help": "Task.RewardCollector.help"
     }
   },
   "Scheduler": {
@@ -1196,6 +1200,20 @@
     "ResultAdd": {
       "name": "累加多次扫描结果",
       "help": "需要养成多个角色时勾选，同时养成多个角色\n仅养成一个角色不勾选，每次扫描时刷新养成目标"
+    }
+  },
+  "RewardCollector": {
+    "_info": {
+      "name": "RewardCollector._info.name",
+      "help": "RewardCollector._info.help"
+    },
+    "CollectAchievements": {
+      "name": "RewardCollector.CollectAchievements.name",
+      "help": "RewardCollector.CollectAchievements.help"
+    },
+    "CollectSimulatedUniverse": {
+      "name": "RewardCollector.CollectSimulatedUniverse.name",
+      "help": "RewardCollector.CollectSimulatedUniverse.help"
     }
   },
   "Gui": {

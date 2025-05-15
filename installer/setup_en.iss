@@ -46,7 +46,7 @@ var
   R: Integer;
 begin
   PyExe := ExpandConstant('{app}\toolkit\python.exe');
-  KillScripts := ExpandConstant('{app}\toolkit\kill_processes.py');
+  KillScripts := ExpandConstant('{app}\installer\kill_processes.py');
   Args := '"' + KillScripts + '" "' + ExpandConstant('{app}') + '"';
   Exec(PyExe, Args, '', SW_HIDE, ewWaitUntilTerminated, R);
   Sleep(500);

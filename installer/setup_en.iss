@@ -42,20 +42,13 @@ Type: filesandordirs; Name: "{app}"
 [Code]
 function InitializeUninstall: Boolean;
 var
-  Cmd, Args: String;
+  PyExe, KillScripts, Args: String;
   R: Integer;
 begin
-  Exec('taskkill.exe', '/f /t /im src.exe', '', SW_HIDE,
-       ewWaitUntilTerminated, R);
-
-  Cmd  := ExpandConstant('{sys}\WindowsPowerShell\v1.0\powershell.exe');
-  Args := '-NoLogo -NonInteractive -Command "Get-Process python ' +
-          '| Where-Object {$_.Path -eq ''' +
-          ExpandConstant('{app}\toolkit\python.exe') +
-          '''} | Stop-Process -Force"';
-
-  Exec(Cmd, Args, '', SW_HIDE, ewWaitUntilTerminated, R);
-
+  PyExe := ExpandConstant('{app}\toolkit\python.exe');
+  KillScripts := ExpandConstant('{app}\toolkit\kill_processes.py');
+  Args := '"' + KillScripts + '" "' + ExpandConstant('{app}') + '"';
+  Exec(PyExe, Args, '', SW_HIDE, ewWaitUntilTerminated, R);
   Sleep(500);
   Result := True;
 end;

@@ -72,6 +72,7 @@ def convert_inner_character_to_keyword(name):
         'DanHengIL': 'DanHengImbibitorLunae',
         'Topaz': 'TopazNumby',
         'Dr_Ratio': 'DrRatio',
+        'Mydeimos': 'Mydei',
     }
     return convert_dict.get(name, name)
 

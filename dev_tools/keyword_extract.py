@@ -547,6 +547,8 @@ class KeywordExtract:
                             output_file='./tasks/battle_pass/keywords/quest_state.py')
         self.generate_map_planes()
         self.generate_character_keywords()
+        from dev_tools.keywords.cone import generate_cone
+        generate_cone()
         from dev_tools.keywords.dungeon_list import GenerateDungeonList
         GenerateDungeonList()()
         self.load_keywords(['进入', '传送', '追踪'])

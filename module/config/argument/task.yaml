@@ -25,6 +25,7 @@ Daily:
     Dungeon:
       - Scheduler
       - Planner
+      - PlannerTarget
       - Dungeon
       - DungeonSupport
       - DungeonStorage

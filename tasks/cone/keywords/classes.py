@@ -34,3 +34,13 @@ class Cone(Keyword):
         except ScriptError as e:
             logger.error(e)
             return None
+
+    @property
+    def star_string(self):
+        if self.rarity == 'SuperRare':
+            return '5*'
+        if self.rarity == 'VeryRare':
+            return '4*'
+        if self.rarity == 'Rare':
+            return '3*'
+        return self.rarity

@@ -105,6 +105,20 @@
       "Item_Glory_Aspersed_Torso": {},
       "Item_Eternal_Lament": {}
     },
+    "PlannerTarget": {
+      "Enable": false,
+      "Character": "_none_",
+      "Cone": "_none_",
+      "LevelTarget": "max",
+      "CharacterLevel": 80,
+      "ConeLevel": 80,
+      "AttackLevel": 6,
+      "SkillLevel": 10,
+      "UltimateLevel": 10,
+      "TalentLevel": 10,
+      "MemoSkillLevel": 6,
+      "MemoTalentLevel": 6
+    },
     "Dungeon": {
       "Name": "Calyx_Golden_Treasures_Jarilo_VI",
       "NameAtDoubleCalyx": "Calyx_Golden_Treasures_Jarilo_VI",

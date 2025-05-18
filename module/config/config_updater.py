@@ -105,6 +105,11 @@ class ConfigGenerator:
         characters = [character.name for character in list_support_characters()
                       if character.name not in unsupported_characters]
         option_add(keys='DungeonSupport.Character.option', options=characters)
+        option_add(keys='PlannerTarget.Character.option', options=characters)
+        # Insert cones
+        from tasks.cone.aired_version import list_cones
+        cones = [cone.name for cone in list_cones()]
+        option_add(keys='PlannerTarget.Cone.option', options=cones)
         # Insert assignments
         from tasks.assignment.keywords import AssignmentEntry
         assignments = [entry.name for entry in AssignmentEntry.instances.values()]
@@ -494,16 +499,40 @@ class ConfigGenerator:
         }
         from tasks.character.keywords import CharacterList
         from tasks.character.aired_version import get_character_version
-        characters = deep_get(self.argument, keys='DungeonSupport.Character.option')
-        for character in CharacterList.instances.values():
-            if character.name in characters:
-                value = character.__getattribute__(ingame_lang)
-                version = get_character_version(character)
-                if version:
-                    value = f'[{version}] {value}'
-                if 'trailblazer' in value.lower():
-                    value = re.sub('Trailblazer', i18n_trailblazer[ingame_lang], value)
-                deep_set(new, keys=['DungeonSupport', 'Character', character.name], value=value)
+        for keys in [
+            'DungeonSupport.Character.option',
+            'PlannerTarget.Character.option',
+        ]:
+            characters = deep_get(self.argument, keys=keys)
+            keys = keys.split('.')
+            base = keys[:-1]
+            for character in CharacterList.instances.values():
+                if character.name in characters:
+                    value = character.__getattribute__(ingame_lang)
+                    version = get_character_version(character)
+                    # [3.2] Castorice
+                    if version:
+                        value = f'[{version}] {value}'
+                    if 'trailblazer' in value.lower():
+                        value = re.sub('Trailblazer', i18n_trailblazer[ingame_lang], value)
+                    deep_set(new, keys=base + [character.name], value=value)
+
+        # Cone names
+        from tasks.cone.aired_version import Cone
+        keys = 'PlannerTarget.Cone.option'
+        cones = deep_get(self.argument, keys=keys)
+        keys = keys.split('.')
+        base = keys[:-1]
+        for cone in Cone.instances.values():
+            if cone.name in cones:
+                # 5* Cruising in the Stellar Sea
+                value = cone.star_string + ' ' + cone.__getattribute__(ingame_lang)
+                if cone.character:
+                    character = deep_get(new, ['PlannerTarget', 'Character', cone.character.name])
+                    if character:
+                        # [3.2] Castorice 5* Make Farewells More Beautiful
+                        value = f'{character} | {value}'
+                deep_set(new, keys=base + [cone.name], value=value)
 
         # Assignments
         from tasks.assignment.keywords import AssignmentEntryDetailed

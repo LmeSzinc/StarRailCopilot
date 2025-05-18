@@ -25,23 +25,26 @@ class GenerateCharacterList(GenerateKeyword):
         names = {}
         for row in self.data:
             icon = deep_get(row, ['ItemIconPath'], default='')
-            # Must be a avartar icon
+            # Must be a avatar icon
             if not icon.startswith('SpriteOutput/AvatarRoundIcon/Avatar'):
                 continue
 
             name_id = deep_get(row, 'ItemName.Hash')
+            # 201313 -> 1313
+            character_id = row.get('ID') % 10000
             _, name_en = self.find_keyword(name_id, lang='en')
             if name_en in names and not name_en.startswith('Trailblazer'):
                 logger.warning(f'Duplicate character name: id={name_id}, name={name_en}')
-            names[name_en] = name_id
+            names[name_en] = {
+                'id': character_id,
+                'text_id': name_id,
+            }
 
-        # Sort characters by their English names
-        names = sorted(names.items(), key=lambda kv: kv[0])
+        # Sort characters by character ID
+        names = sorted(names.items(), key=lambda kv: kv[1]['id'])
 
-        for _, name_id in names:
-            yield dict(
-                text_id=name_id,
-            )
+        for _, row in names:
+            yield row
 
 
 class GenerateCombatType(GenerateKeyword):

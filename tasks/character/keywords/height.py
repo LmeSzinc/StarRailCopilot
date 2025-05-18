@@ -64,4 +64,5 @@ CHARACTER_HEIGHT = {
     'Gallagher': 'Male',
     'Boothill': 'Male',
     'Moze': 'Male',
+    'Mydei': 'Male',
 }

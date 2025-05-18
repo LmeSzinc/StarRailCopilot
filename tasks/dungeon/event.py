@@ -10,7 +10,9 @@ from tasks.dungeon.assets.assets_dungeon_event import *
 class DoubleEventOcr(DigitCounter):
     def after_process(self, result):
         result = super().after_process(result)
-        # 19/212面 -> 19/21, before \1/12
+        # 71212 -> 7/21
+        result = result.replace('1212', '/21')
+        # # 19/212面 -> 19/21, before \1/12
         result = result.replace('/212',  '/21')
         # re.sub as last resort, just in case
         # x12 -> x/12 but x112 does not change

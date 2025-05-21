@@ -219,6 +219,22 @@ class CombatSupport(CombatState):
         return AdaptiveScroll(area=COMBAT_SUPPORT_LIST_SCROLL.area,
                               name=COMBAT_SUPPORT_LIST_SCROLL.name)
 
+    def support_refresh_wait_top(self):
+        """
+        Wait until scroll at top after refresh support list
+
+        Pages:
+            in: LIST_REFRESH
+        """
+        scroll = self._support_scroll()
+        timeout = Timer(1, count=3).start()
+        for _ in self.loop():
+            if timeout.reached():
+                logger.warning('Wait support list at top timeout')
+                break
+            if scroll.at_top(main=self):
+                break
+
     def _search_support(self, support_character_name: str = "JingYuan"):
         """
         Args:

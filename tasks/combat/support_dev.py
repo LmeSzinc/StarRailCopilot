@@ -41,7 +41,7 @@ class SupportDev(UI):
         tab.add_state('Strangers', check_button=STRANGER_CHECK, click_button=STRANGER_CLICK)
         return tab
 
-    def support_refresh_list(self, skip_first_screenshot=True):
+    def support_refresh_list(self):
         """
         Pages:
             in: LIST_REFRESH
@@ -49,25 +49,16 @@ class SupportDev(UI):
         """
         logger.info('Support refresh list')
         # Wait until LIST_REFRESH appear
-        while 1:
-            if skip_first_screenshot:
-                skip_first_screenshot = False
-            else:
-                self.device.screenshot()
-            if self.match_template_color(LIST_REFRESH):
+        for _ in self.loop():
+            if self.match_template_color(LIST_REFRESH, threshold=10):
                 break
 
         # LIST_REFRESH -> LIST_REFRESHED
-        skip_first_screenshot = True
         self.interval_clear(LIST_REFRESH)
-        while 1:
-            if skip_first_screenshot:
-                skip_first_screenshot = False
-            else:
-                self.device.screenshot()
-            if self.match_template_color(LIST_REFRESHED):
+        for _ in self.loop():
+            if self.match_template_color(LIST_REFRESHED, threshold=10):
                 break
-            if self.match_template_color(LIST_REFRESH, interval=2):
+            if self.match_template_color(LIST_REFRESH, threshold=10, interval=2):
                 self.device.click(LIST_REFRESH)
                 continue
 

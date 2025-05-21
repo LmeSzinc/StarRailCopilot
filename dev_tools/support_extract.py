@@ -114,6 +114,7 @@ class SupportExtract(Ornament, SupportDev):
                 self.device.click_record_clear()
                 scroll.next_page(main=self)
             self.support_refresh_list()
+            self.support_refresh_wait_top()
 
 
 if __name__ == '__main__':

@@ -96,7 +96,10 @@ class DungeonList(Keyword):
         if not self.is_Stagnant_Shadow:
             return None
         from tasks.dungeon.keywords import DungeonDetailed
-        detail = DungeonDetailed.find_name(self.name)
+        try:
+            detail = DungeonDetailed.find_name(self.name)
+        except ScriptError:
+            return None
         if detail is None:
             return None
         from tasks.character.keywords import CombatType

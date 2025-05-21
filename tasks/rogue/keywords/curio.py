@@ -1659,8 +1659,278 @@ Moment_of_Tranquility = RogueCurio(
     jp='つかの間の安らぎ',
     es='Momento de paz',
 )
-Warping_Compound_Eye_Decrypted = RogueCurio(
+Goodluck_Cookie = RogueCurio(
     id=185,
+    name='Goodluck_Cookie',
+    cn='好运饼干',
+    cht='好運餅乾',
+    en='Goodluck Cookie',
+    jp='フォーチュンクッキー',
+    es='Galletita de la suerte',
+)
+Loveless_Dust = RogueCurio(
+    id=186,
+    name='Loveless_Dust',
+    cn='无爱之尘',
+    cht='無愛之塵',
+    en='Loveless Dust',
+    jp='無愛の塵',
+    es='Polvo del desamor',
+)
+Lost_Golden_Claw_Anchor = RogueCurio(
+    id=187,
+    name='Lost_Golden_Claw_Anchor',
+    cn='失金爪锚',
+    cht='失金爪錨',
+    en='Lost Golden Claw Anchor',
+    jp='金爪のアンカー',
+    es='Ancla de aurogarra perdida',
+)
+Steeltorso_Massage_Device = RogueCurio(
+    id=188,
+    name='Steeltorso_Massage_Device',
+    cn='钢筋铁骨按摩器',
+    cht='鋼筋鐵骨按摩器',
+    en='Steeltorso Massage Device',
+    jp='鉄筋ほぐしのマッサージ器',
+    es='Masajeador de hueso acerado',
+)
+Dance_of_the_Scorching_Sun = RogueCurio(
+    id=189,
+    name='Dance_of_the_Scorching_Sun',
+    cn='烈阳之舞',
+    cht='烈陽之舞',
+    en='Dance of the Scorching Sun',
+    jp='烈日の舞',
+    es='Danza del sol abrasador',
+)
+Sky_High_Model_I = RogueCurio(
+    id=190,
+    name='Sky_High_Model_I',
+    cn='飞向高天Ⅰ型',
+    cht='飛向高天Ⅰ型',
+    en='Sky High Model I',
+    jp='空へ翔けるI型',
+    es='Por las nubes modelo I',
+)
+Sky_High_Model_II = RogueCurio(
+    id=191,
+    name='Sky_High_Model_II',
+    cn='飞向高天Ⅱ型',
+    cht='飛向高天Ⅱ型',
+    en='Sky High Model II',
+    jp='空へ翔けるII型',
+    es='Por las nubes modelo II',
+)
+Sky_High_Model_III = RogueCurio(
+    id=192,
+    name='Sky_High_Model_III',
+    cn='飞向高天Ⅲ型',
+    cht='飛向高天Ⅲ型',
+    en='Sky High Model III',
+    jp='空へ翔けるIII型',
+    es='Por las nubes modelo III',
+)
+Arena_of_the_Strong = RogueCurio(
+    id=193,
+    name='Arena_of_the_Strong',
+    cn='强者竞技',
+    cht='強者競技',
+    en='Arena of the Strong',
+    jp='強者のスポーツ',
+    es='Torneo de los fuertes',
+)
+Wishing_Scales = RogueCurio(
+    id=194,
+    name='Wishing_Scales',
+    cn='许愿托盘',
+    cht='許願托盤',
+    en='Wishing Scales',
+    jp='願いの受け皿',
+    es='Platillo de los deseos',
+)
+Door_Other_Side = RogueCurio(
+    id=195,
+    name='Door_Other_Side',
+    cn='门的彼岸',
+    cht='門的彼岸',
+    en="Doors' Other Side",
+    jp='扉の彼岸',
+    es='El otro lado de la puerta',
+)
+Beastmaster_Rein_Wheel = RogueCurio(
+    id=196,
+    name='Beastmaster_Rein_Wheel',
+    cn='驭兽缰盘',
+    cht='馭獸韁盤',
+    en="Beastmaster's Rein Wheel",
+    jp='獣使いの手綱',
+    es='Brida-volante domabestias',
+)
+Dragon_Bone_Shield = RogueCurio(
+    id=197,
+    name='Dragon_Bone_Shield',
+    cn='龙骨盾',
+    cht='龍骨盾',
+    en='Dragon Bone Shield',
+    jp='竜骨の盾',
+    es='Escudo de hueso dragontino',
+)
+Sleep_and_Death = RogueCurio(
+    id=198,
+    name='Sleep_and_Death',
+    cn='睡眠和死亡',
+    cht='睡眠和死亡',
+    en='Sleep and Death',
+    jp='眠りと死',
+    es='Sueño y muerte',
+)
+Window_of_Fortune = RogueCurio(
+    id=199,
+    name='Window_of_Fortune',
+    cn='机运窗',
+    cht='機運窗',
+    en='Window of Fortune',
+    jp='時運の窓',
+    es='Ventana de oportunidad',
+)
+Quiz_With_No_Prize = RogueCurio(
+    id=200,
+    name='Quiz_With_No_Prize',
+    cn='无奖竞答',
+    cht='無獎競答',
+    en='Quiz With No Prize',
+    jp='報酬のないクイズブック',
+    es='Cuestionario sin recompensa',
+)
+Benediction_Shard_Strife = RogueCurio(
+    id=201,
+    name='Benediction_Shard_Strife',
+    cn='赐福残晶•纷争',
+    cht='賜福殘晶•紛爭',
+    en='Benediction Shard: Strife',
+    jp='祝福の残晶・紛争',
+    es='Esquirla bendita: Conflicto',
+)
+Benediction_Shard_Sky = RogueCurio(
+    id=202,
+    name='Benediction_Shard_Sky',
+    cn='赐福残晶•天空',
+    cht='賜福殘晶•天空',
+    en='Benediction Shard: Sky',
+    jp='祝福の残晶・天空',
+    es='Esquirla bendita: Cielo',
+)
+Benediction_Shard_Death = RogueCurio(
+    id=203,
+    name='Benediction_Shard_Death',
+    cn='赐福残晶•死亡',
+    cht='賜福殘晶•死亡',
+    en='Benediction Shard: Death',
+    jp='祝福の残晶・死',
+    es='Esquirla bendita: Muerte',
+)
+Benediction_Shard_Trickery = RogueCurio(
+    id=204,
+    name='Benediction_Shard_Trickery',
+    cn='赐福残晶•诡计',
+    cht='賜福殘晶•詭計',
+    en='Benediction Shard: Trickery',
+    jp='祝福の残晶・詭術',
+    es='Esquirla bendita: Engaño',
+)
+Benediction_Shard_Reason = RogueCurio(
+    id=205,
+    name='Benediction_Shard_Reason',
+    cn='赐福残晶•理性',
+    cht='賜福殘晶•理性',
+    en='Benediction Shard: Reason',
+    jp='祝福の残晶・理性',
+    es='Esquirla bendita: Razón',
+)
+Benediction_Shard_Time = RogueCurio(
+    id=206,
+    name='Benediction_Shard_Time',
+    cn='赐福残晶•岁月',
+    cht='賜福殘晶•歲月',
+    en='Benediction Shard: Time',
+    jp='祝福の残晶・歳月',
+    es='Esquirla bendita: Tiempo',
+)
+Benediction_Shard_Passage = RogueCurio(
+    id=207,
+    name='Benediction_Shard_Passage',
+    cn='赐福残晶•门径',
+    cht='賜福殘晶•門徑',
+    en='Benediction Shard: Passage',
+    jp='祝福の残晶・門と道',
+    es='Esquirla bendita: Sendas',
+)
+Benediction_Shard_Romance = RogueCurio(
+    id=208,
+    name='Benediction_Shard_Romance',
+    cn='赐福残晶•浪漫',
+    cht='賜福殘晶•浪漫',
+    en='Benediction Shard: Romance',
+    jp='祝福の残晶・浪漫',
+    es='Esquirla bendita: Romance',
+)
+Footstep_of_Gods = RogueCurio(
+    id=209,
+    name='Footstep_of_Gods',
+    cn='神之足迹',
+    cht='神之足跡',
+    en='Footstep of Gods',
+    jp='神の足跡',
+    es='Huella divina',
+)
+Memory_of_Stars = RogueCurio(
+    id=210,
+    name='Memory_of_Stars',
+    cn='星星的回忆',
+    cht='星星的回憶',
+    en='Memory of Stars',
+    jp='星々の思い出',
+    es='Recuerdo de estrella',
+)
+Simple_Judgment = RogueCurio(
+    id=211,
+    name='Simple_Judgment',
+    cn='简易判决',
+    cht='簡易判決',
+    en='Simple Judgment',
+    jp='簡易判決',
+    es='Juicio sencillo',
+)
+Self_Amusement = RogueCurio(
+    id=212,
+    name='Self_Amusement',
+    cn='自娱自乐',
+    cht='自娛自樂',
+    en='Self-Amusement',
+    jp='独りの娯楽',
+    es='Entretenimiento personal',
+)
+Sapient_Pen = RogueCurio(
+    id=213,
+    name='Sapient_Pen',
+    cn='智多笔',
+    cht='智多筆',
+    en='Sapient Pen',
+    jp='理知の筆',
+    es='Lápiz sapiente',
+)
+Love_Seeking_Golden_Dart = RogueCurio(
+    id=214,
+    name='Love_Seeking_Golden_Dart',
+    cn='寻爱金镖',
+    cht='尋愛金鏢',
+    en='Love-Seeking Golden Dart',
+    jp='愛を探す金のダーツ',
+    es='Dardo dorado del amor',
+)
+Warping_Compound_Eye_Decrypted = RogueCurio(
+    id=215,
     name='Warping_Compound_Eye_Decrypted',
     cn='跃迁复眼（破解版）',
     cht='躍遷複眼（破解版）',
@@ -1669,7 +1939,7 @@ Warping_Compound_Eye_Decrypted = RogueCurio(
     es='Ojo compuesto luminoso (versión pirateada)',
 )
 Dimension_Reduction_Dice_Decrypted = RogueCurio(
-    id=186,
+    id=216,
     name='Dimension_Reduction_Dice_Decrypted',
     cn='降维骰子（破解版）',
     cht='降維骰子（破解版）',
@@ -1678,7 +1948,7 @@ Dimension_Reduction_Dice_Decrypted = RogueCurio(
     es='Dado de la reducción dimensional (versión pirateada)',
 )
 Wish_Upon_a_Star_Decrypted = RogueCurio(
-    id=187,
+    id=217,
     name='Wish_Upon_a_Star_Decrypted',
     cn='许愿星（破解版）',
     cht='許願星（破解版）',
@@ -1687,7 +1957,7 @@ Wish_Upon_a_Star_Decrypted = RogueCurio(
     es='Estrella de los deseos (versión pirateada)',
 )
 Memory_Cycle_Decrypted = RogueCurio(
-    id=188,
+    id=218,
     name='Memory_Cycle_Decrypted',
     cn='记忆轮（破解版）',
     cht='記憶輪（破解版）',
@@ -1696,7 +1966,7 @@ Memory_Cycle_Decrypted = RogueCurio(
     es='Ciclo de recuerdos (versión pirateada)',
 )
 Angel_type_I_O_U_Dispenser_Prototype = RogueCurio(
-    id=189,
+    id=219,
     name='Angel_type_I_O_U_Dispenser_Prototype',
     cn='天使型谢债发行机（原型机）',
     cht='天使型謝債發行機（原型機）',
@@ -1705,11 +1975,20 @@ Angel_type_I_O_U_Dispenser_Prototype = RogueCurio(
     es='Dispensador de deuda en forma de ángel (prototipo)',
 )
 Angel_type_I_O_U_Dispenser_Mass_Produced = RogueCurio(
-    id=190,
+    id=220,
     name='Angel_type_I_O_U_Dispenser_Mass_Produced',
     cn='天使型谢债发行机（量产机）',
     cht='天使型謝債發行機（量產機）',
     en='Angel-type I.O.U. Dispenser (Mass-Produced)',
     jp='天使型謝債発行機（量産型）',
     es='Dispensador de deuda en forma de ángel (producto final)',
+)
+Quiz_With_No_Prize_Decrypted = RogueCurio(
+    id=221,
+    name='Quiz_With_No_Prize_Decrypted',
+    cn='无奖竞答（破解版）',
+    cht='無獎競答（破解版）',
+    en='Quiz With No Prize (Decrypted)',
+    jp='報酬のないクイズブック（クラック版）',
+    es='Cuestionario sin recompensa (versión pirateada)',
 )

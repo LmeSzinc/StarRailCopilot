@@ -94,3 +94,16 @@ Auspice_Sliver = ItemWeekly(
     item_group=1310,
     dungeon_id=1306,
 )
+Daythunder_Anamnesis = ItemWeekly(
+    id=8,
+    name='Daythunder_Anamnesis',
+    cn='阳雷的遥想',
+    cht='陽雷的遙想',
+    en='Daythunder Anamnesis',
+    jp='遥かなる陽雷の想い',
+    es='Recuerdos del Trueno Solar',
+    rarity='VeryRare',
+    item_id=110507,
+    item_group=1310,
+    dungeon_id=1307,
+)

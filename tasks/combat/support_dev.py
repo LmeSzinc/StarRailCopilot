@@ -41,7 +41,7 @@ class SupportDev(UI):
         tab.add_state('Strangers', check_button=STRANGER_CHECK, click_button=STRANGER_CLICK)
         return tab
 
-    def support_refresh_list(self, skip_first_screenshot=True):
+    def support_refresh_list(self):
         """
         Pages:
             in: LIST_REFRESH
@@ -49,35 +49,30 @@ class SupportDev(UI):
         """
         logger.info('Support refresh list')
         # Wait until LIST_REFRESH appear
-        while 1:
-            if skip_first_screenshot:
-                skip_first_screenshot = False
-            else:
-                self.device.screenshot()
-            if self.match_template_color(LIST_REFRESH):
+        for _ in self.loop():
+            if self.match_template_color(LIST_REFRESH, threshold=10):
                 break
 
         # LIST_REFRESH -> LIST_REFRESHED
-        skip_first_screenshot = True
         self.interval_clear(LIST_REFRESH)
-        while 1:
-            if skip_first_screenshot:
-                skip_first_screenshot = False
-            else:
-                self.device.screenshot()
-            if self.match_template_color(LIST_REFRESHED):
+        for _ in self.loop():
+            if self.match_template_color(LIST_REFRESHED, threshold=10):
                 break
-            if self.match_template_color(LIST_REFRESH, interval=2):
+            if self.match_template_color(LIST_REFRESH, threshold=10, interval=2):
                 self.device.click(LIST_REFRESH)
                 continue
 
     def iter_character_image(self):
         op_x, op_y, _, _ = CHARACTER_OPERATE.area
         _, limit_y1, _, limit_y2 = CHARACTER_OPERATE.search
+        x1, y1, x2, y2 = CHARACTER_AVATAR.area
         relative = area_offset(CHARACTER_AVATAR.area, offset=(-op_x, -op_y))
         # Find CHARACTER_OPERATE and move to CHARACTER_AVATAR
         for button in CHARACTER_OPERATE.match_multi_template(self.device.image):
             area = area_offset(relative, button.area[:2])
+            # CHARACTER_OPERATE has different relative to CHARACTER_AVATAR in ornament and dungeon
+            # use static x coordinate
+            area = (x1, area[1], x2, area[3])
             # Limit in height of CHARACTER_OPERATE.search
             if limit_y1 <= area[1] and area[3] <= limit_y2:
                 yield area

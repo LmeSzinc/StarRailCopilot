@@ -387,6 +387,17 @@
     "order": 0,
     "color": "#777777"
   },
+  "Item_Invasive_Clot": {
+    "name": "Item_Invasive_Clot",
+    "path": "Dungeon.Planner.Item_Invasive_Clot",
+    "i18n": "Planner.Item_Invasive_Clot.name",
+    "stored": "StoredPlanner",
+    "attrs": {
+      "time": "2020-01-01 00:00:00"
+    },
+    "order": 0,
+    "color": "#777777"
+  },
   "Item_Darkveil_Moonlight": {
     "name": "Item_Darkveil_Moonlight",
     "path": "Dungeon.Planner.Item_Darkveil_Moonlight",
@@ -644,6 +655,17 @@
     "name": "Item_Auspice_Sliver",
     "path": "Dungeon.Planner.Item_Auspice_Sliver",
     "i18n": "Planner.Item_Auspice_Sliver.name",
+    "stored": "StoredPlanner",
+    "attrs": {
+      "time": "2020-01-01 00:00:00"
+    },
+    "order": 0,
+    "color": "#777777"
+  },
+  "Item_Daythunder_Anamnesis": {
+    "name": "Item_Daythunder_Anamnesis",
+    "path": "Dungeon.Planner.Item_Daythunder_Anamnesis",
+    "i18n": "Planner.Item_Daythunder_Anamnesis.name",
     "stored": "StoredPlanner",
     "attrs": {
       "time": "2020-01-01 00:00:00"

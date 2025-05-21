@@ -579,6 +579,15 @@ Anaxa = CharacterList(
     jp='アナイクス',
     es='Anaxa',
 )
+Cipher = CharacterList(
+    id=1406,
+    name='Cipher',
+    cn='赛飞儿',
+    cht='賽飛兒',
+    en='Cipher',
+    jp='サフェル',
+    es='Cífer',
+)
 Castorice = CharacterList(
     id=1407,
     name='Castorice',
@@ -587,6 +596,15 @@ Castorice = CharacterList(
     en='Castorice',
     jp='キャストリス',
     es='Castorice',
+)
+Hyacine = CharacterList(
+    id=1409,
+    name='Hyacine',
+    cn='风堇',
+    cht='風堇',
+    en='Hyacine',
+    jp='ヒアンシー',
+    es='Hyacine',
 )
 TrailblazerDestruction = CharacterList(
     id=8002,

@@ -79,6 +79,8 @@ dict_aired_version = {
     Mydei: "3.1",
     Castorice: "3.2",
     Anaxa: "3.2",
+    Hyacine: "3.3",
+    Cipher: "3.3",
 }
 
 
@@ -109,7 +111,7 @@ def list_support_characters() -> "list[CharacterList]":
         out[character] = version
     for character in CharacterList.instances.values():
         if character not in out:
-            print(f'WARNING | Character {character} is not in dict_aired_version')
+            print(f'WARNING | Character {character} is not in dict_aired_version, please define it manually')
             out[character] = ''
     return list(out)
 

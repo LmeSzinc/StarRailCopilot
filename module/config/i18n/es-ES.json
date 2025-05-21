@@ -243,6 +243,7 @@
     "Name": {
       "name": "Nombre de la Mazmorra",
       "help": "Ajustes predeterminados de las mazmorras",
+      "Cavern_of_Corrosion_Path_of_Thundersurge": "Artefactos: Guerrera celestial & Capitán (Senda del estruendo)",
       "Cavern_of_Corrosion_Path_of_Aria": "Artefactos: Heroe & Poetisa (Senda de la canción)",
       "Cavern_of_Corrosion_Path_of_Uncertainty": "Artefactos: Calvario & Eruditos (Senda de la incertidumbre)",
       "Cavern_of_Corrosion_Path_of_Cavalier": "Artefactos: Caballería & Intrepida (Senda del caballero)",
@@ -296,11 +297,11 @@
       "Stagnant_Shadow_Mechwolf": "Ascension: Rayo (Moze / Aglaea)",
       "Stagnant_Shadow_Gust": "Ascension: Viento (Dan Heng / Bronya / Sampo)",
       "Stagnant_Shadow_Celestial": "Ascension: Viento (Blade / Huohuo / Cisne Negro)",
-      "Stagnant_Shadow_Gloam": "Ascension: Viento (Feixiao / Anaxa)",
+      "Stagnant_Shadow_Gloam": "Ascension: Viento (Feixiao / Anaxa / Hyacine)",
       "Stagnant_Shadow_Quanta": "Ascension: Cuántico (Silver Wolf / Seele / Qingque)",
       "Stagnant_Shadow_Abomination": "Ascension: Cuántico (Lynx / Fu Xuan / Xueyi)",
       "Stagnant_Shadow_Roast": "Ascension: Cuántico (Jade / Sparkle)",
-      "Stagnant_Shadow_Gelidmoon": "Ascension: Cuántico (Tribbie / Castorice)",
+      "Stagnant_Shadow_Gelidmoon": "Ascension: Cuántico (Tribbie / Castorice / Cífer)",
       "Stagnant_Shadow_Mirage": "Ascension: Imaginario (Welt / Luocha / Yukong)",
       "Stagnant_Shadow_Puppetry": "Ascension: Imaginario (Dan Heng - Imbibitor Lunae / Aventurino / Dr. Ratio)",
       "Stagnant_Shadow_Timbre": "Ascension: Imaginario (Sunday / Rappa)",
@@ -340,6 +341,7 @@
     "NameAtDoubleRelic": {
       "name": "En los eventos de x2 de Caverna de la corrosión",
       "help": "Se volverán a los ajustes predeterminados una vez se acaben los intentos del evento",
+      "Cavern_of_Corrosion_Path_of_Thundersurge": "Artefactos: Guerrera celestial & Capitán (Senda del estruendo)",
       "Cavern_of_Corrosion_Path_of_Aria": "Artefactos: Heroe & Poetisa (Senda de la canción)",
       "Cavern_of_Corrosion_Path_of_Uncertainty": "Artefactos: Calvario & Eruditos (Senda de la incertidumbre)",
       "Cavern_of_Corrosion_Path_of_Cavalier": "Artefactos: Caballería & Intrepida (Senda del caballero)",
@@ -401,6 +403,8 @@
       "name": "Personaje de apoyo",
       "help": "Selecciona qué personaje de apoyo de un amigo se usará. Si no se encuentra, se seleccionará al predeterminado.\nEl personaje de apoyo no debe ser el mismo que el personaje del equipo, se recomienda priorizar a los amigos.",
       "FirstCharacter": "Primer personaje",
+      "Hyacine": "[3.3] Hyacine",
+      "Cipher": "[3.3] Cífer",
       "Castorice": "[3.2] Castorice",
       "Anaxa": "[3.2] Anaxa",
       "Tribbie": "[3.1] Tribbie",
@@ -622,7 +626,7 @@
       "help": ""
     },
     "Item_A_Glass_of_the_Besotted_Era": {
-      "name": "Ascension: Viento (Feixiao / Anaxa)",
+      "name": "Ascension: Viento (Feixiao / Anaxa / Hyacine)",
       "help": ""
     },
     "Item_Dream_Flamer": {
@@ -633,8 +637,12 @@
       "name": "Ascension: Imaginario (Sunday / Rappa)",
       "help": ""
     },
+    "Item_Invasive_Clot": {
+      "name": "Unknown_Dungeon_Come_From",
+      "help": ""
+    },
     "Item_Darkveil_Moonlight": {
-      "name": "Ascension: Cuántico (Tribbie / Castorice)",
+      "name": "Ascension: Cuántico (Tribbie / Castorice / Cífer)",
       "help": ""
     },
     "Item_Harbinger_of_Strife": {
@@ -729,6 +737,10 @@
       "name": "Campo de batalla de la bestia interior (El Luofu de Xianzhou)",
       "help": ""
     },
+    "Item_Daythunder_Anamnesis": {
+      "name": "Una mirada al crepúsculo (Amphoreus)",
+      "help": ""
+    },
     "Item_Squirming_Core": {
       "name": "Núcleo serpenteante",
       "help": ""
@@ -783,6 +795,8 @@
       "name": "Character",
       "help": "",
       "_none_": "None",
+      "Hyacine": "[3.3] Hyacine",
+      "Cipher": "[3.3] Cífer",
       "Castorice": "[3.2] Castorice",
       "Anaxa": "[3.2] Anaxa",
       "Tribbie": "[3.1] Tribbie",
@@ -857,6 +871,8 @@
       "name": "Cone",
       "help": "",
       "_none_": "None",
+      "Lies_Dance_on_the_Breeze": "[3.3] Cífer | 5* Mentiras que vuelan en el viento",
+      "Long_May_Rainbows_Adorn_the_Sky": "[3.3] Hyacine | 5* Que el arcoíris siempre este en el cielo",
       "Life_Should_Be_Cast_to_Flames": "[3.2] Anaxa | 5* La vida en llamas",
       "Make_Farewells_More_Beautiful": "[3.2] Castorice | 5* Despedidas más bellas",
       "Flame_of_Blood_Blaze_My_Path": "[3.1] Midei | 5* Sangre y fuego, abran camino",
@@ -1094,6 +1110,7 @@
     "Name": {
       "name": "Nombre de la Mazmorra",
       "help": "",
+      "Echo_of_War_Glance_of_Twilight": "Una mirada al crepúsculo (Amphoreus)",
       "Echo_of_War_Inner_Beast_Battlefield": "Campo de batalla de la bestia interior (El Luofu de Xianzhou)",
       "Echo_of_War_Salutations_of_Ashen_Dreams": "Tributo del sueño ceniciento (Colonipenal)",
       "Echo_of_War_Borehole_Planet_Past_Nightmares": "Pesadilla del planeta devorado (Estación Espacial Herta)",

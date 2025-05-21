@@ -368,6 +368,12 @@
         "display": "display",
         "stored": "StoredPlanner"
       },
+      "Item_Invasive_Clot": {
+        "type": "planner",
+        "value": {},
+        "display": "display",
+        "stored": "StoredPlanner"
+      },
       "Item_Darkveil_Moonlight": {
         "type": "planner",
         "value": {},
@@ -512,6 +518,12 @@
         "display": "display",
         "stored": "StoredPlanner"
       },
+      "Item_Daythunder_Anamnesis": {
+        "type": "planner",
+        "value": {},
+        "display": "display",
+        "stored": "StoredPlanner"
+      },
       "Item_Squirming_Core": {
         "type": "planner",
         "value": {},
@@ -585,6 +597,8 @@
         "display": "hide",
         "option": [
           "_none_",
+          "Hyacine",
+          "Cipher",
           "Castorice",
           "Anaxa",
           "Tribbie",
@@ -662,6 +676,8 @@
         "display": "hide",
         "option": [
           "_none_",
+          "Lies_Dance_on_the_Breeze",
+          "Long_May_Rainbows_Adorn_the_Sky",
           "Life_Should_Be_Cast_to_Flames",
           "Make_Farewells_More_Beautiful",
           "Flame_of_Blood_Blaze_My_Path",
@@ -924,6 +940,7 @@
         "type": "select",
         "value": "Calyx_Golden_Treasures_Jarilo_VI",
         "option": [
+          "Cavern_of_Corrosion_Path_of_Thundersurge",
           "Cavern_of_Corrosion_Path_of_Aria",
           "Cavern_of_Corrosion_Path_of_Uncertainty",
           "Cavern_of_Corrosion_Path_of_Cavalier",
@@ -1025,6 +1042,7 @@
         "type": "select",
         "value": "Cavern_of_Corrosion_Path_of_Providence",
         "option": [
+          "Cavern_of_Corrosion_Path_of_Thundersurge",
           "Cavern_of_Corrosion_Path_of_Aria",
           "Cavern_of_Corrosion_Path_of_Uncertainty",
           "Cavern_of_Corrosion_Path_of_Cavalier",
@@ -1069,6 +1087,8 @@
         "value": "FirstCharacter",
         "option": [
           "FirstCharacter",
+          "Hyacine",
+          "Cipher",
           "Castorice",
           "Anaxa",
           "Tribbie",
@@ -1294,6 +1314,8 @@
         "value": "FirstCharacter",
         "option": [
           "FirstCharacter",
+          "Hyacine",
+          "Cipher",
           "Castorice",
           "Anaxa",
           "Tribbie",
@@ -1818,6 +1840,7 @@
         "value": "Echo_of_War_Divine_Seed",
         "options": [],
         "option": [
+          "Echo_of_War_Glance_of_Twilight",
           "Echo_of_War_Inner_Beast_Battlefield",
           "Echo_of_War_Salutations_of_Ashen_Dreams",
           "Echo_of_War_Borehole_Planet_Past_Nightmares",
@@ -1856,6 +1879,8 @@
         "value": "FirstCharacter",
         "option": [
           "FirstCharacter",
+          "Hyacine",
+          "Cipher",
           "Castorice",
           "Anaxa",
           "Tribbie",

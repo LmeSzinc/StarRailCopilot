@@ -243,6 +243,7 @@
     "Name": {
       "name": "副本名稱",
       "help": "默認打本設定",
+      "Cavern_of_Corrosion_Path_of_Thundersurge": "遺器：烈陽 & 船長（靂湧之徑）",
       "Cavern_of_Corrosion_Path_of_Aria": "遺器：英豪 & 詩人（絃歌之徑）",
       "Cavern_of_Corrosion_Path_of_Uncertainty": "遺器：司鐸 & 學者（迷識之徑）",
       "Cavern_of_Corrosion_Path_of_Cavalier": "遺器：鐵騎 & 勇烈（勇騎之徑）",
@@ -296,11 +297,11 @@
       "Stagnant_Shadow_Mechwolf": "晉階材料：雷（貊澤 / 阿格萊雅）",
       "Stagnant_Shadow_Gust": "晉階材料：風（丹恆 / 布洛妮婭 / 桑博）",
       "Stagnant_Shadow_Celestial": "晉階材料：風（刃 / 藿藿 / 黑天鵝）",
-      "Stagnant_Shadow_Gloam": "晉階材料：風（飛霄 / 那刻夏）",
+      "Stagnant_Shadow_Gloam": "晉階材料：風（飛霄 / 那刻夏 / 風堇）",
       "Stagnant_Shadow_Quanta": "晉階材料：量子（銀狼 / 希兒 / 青雀）",
       "Stagnant_Shadow_Abomination": "晉階材料：量子（玲可 / 符玄 / 雪衣）",
       "Stagnant_Shadow_Roast": "晉階材料：量子（翡翠 / 花火）",
-      "Stagnant_Shadow_Gelidmoon": "晉階材料：量子（緹寶 / 遐蝶）",
+      "Stagnant_Shadow_Gelidmoon": "晉階材料：量子（緹寶 / 遐蝶 / 賽飛兒）",
       "Stagnant_Shadow_Mirage": "晉階材料：虛數（瓦爾特 / 羅剎 / 馭空）",
       "Stagnant_Shadow_Puppetry": "晉階材料：虛數（丹恆•飲月 / 砂金 / 真理醫生）",
       "Stagnant_Shadow_Timbre": "晉階材料：虛數（星期日 / 亂破）",
@@ -340,6 +341,7 @@
     "NameAtDoubleRelic": {
       "name": "有遺器活動時，選擇副本",
       "help": "次數耗儘後回退到默認打本設定",
+      "Cavern_of_Corrosion_Path_of_Thundersurge": "遺器：烈陽 & 船長（靂湧之徑）",
       "Cavern_of_Corrosion_Path_of_Aria": "遺器：英豪 & 詩人（絃歌之徑）",
       "Cavern_of_Corrosion_Path_of_Uncertainty": "遺器：司鐸 & 學者（迷識之徑）",
       "Cavern_of_Corrosion_Path_of_Cavalier": "遺器：鐵騎 & 勇烈（勇騎之徑）",
@@ -401,6 +403,8 @@
       "name": "好友支援角色",
       "help": "選擇好友支援角色，未找到則選擇默認（第一個）角色\n支援角色不要與隊伍中的角色重複，建議置頂好友角色",
       "FirstCharacter": "支援列表第一個角色",
+      "Hyacine": "[3.3] 風堇",
+      "Cipher": "[3.3] 賽飛兒",
       "Castorice": "[3.2] 遐蝶",
       "Anaxa": "[3.2] 那刻夏",
       "Tribbie": "[3.1] 緹寶",
@@ -622,7 +626,7 @@
       "help": ""
     },
     "Item_A_Glass_of_the_Besotted_Era": {
-      "name": "晉階材料：風（飛霄 / 那刻夏）",
+      "name": "晉階材料：風（飛霄 / 那刻夏 / 風堇）",
       "help": ""
     },
     "Item_Dream_Flamer": {
@@ -633,8 +637,12 @@
       "name": "晉階材料：虛數（星期日 / 亂破）",
       "help": ""
     },
+    "Item_Invasive_Clot": {
+      "name": "Unknown_Dungeon_Come_From",
+      "help": ""
+    },
     "Item_Darkveil_Moonlight": {
-      "name": "晉階材料：量子（緹寶 / 遐蝶）",
+      "name": "晉階材料：量子（緹寶 / 遐蝶 / 賽飛兒）",
       "help": ""
     },
     "Item_Harbinger_of_Strife": {
@@ -729,6 +737,10 @@
       "name": "心獸的戰場 (仙舟「羅浮」)",
       "help": ""
     },
+    "Item_Daythunder_Anamnesis": {
+      "name": "晨昏的回眸 (翁法羅斯)",
+      "help": ""
+    },
     "Item_Squirming_Core": {
       "name": "蠢動原核",
       "help": ""
@@ -783,6 +795,8 @@
       "name": "養成角色",
       "help": "",
       "_none_": "無",
+      "Hyacine": "[3.3] 風堇",
+      "Cipher": "[3.3] 賽飛兒",
       "Castorice": "[3.2] 遐蝶",
       "Anaxa": "[3.2] 那刻夏",
       "Tribbie": "[3.1] 緹寶",
@@ -857,6 +871,8 @@
       "name": "養成光錐",
       "help": "",
       "_none_": "無",
+      "Lies_Dance_on_the_Breeze": "[3.3] 賽飛兒 | 5* 謊言在風中飄揚",
+      "Long_May_Rainbows_Adorn_the_Sky": "[3.3] 風堇 | 5* 願虹光永駐天空",
       "Life_Should_Be_Cast_to_Flames": "[3.2] 那刻夏 | 5* 生命當付之一炬",
       "Make_Farewells_More_Beautiful": "[3.2] 遐蝶 | 5* 讓告別，更美一點",
       "Flame_of_Blood_Blaze_My_Path": "[3.1] 萬敵 | 5* 血火啊，燃燒前路",
@@ -1094,6 +1110,7 @@
     "Name": {
       "name": "副本名稱",
       "help": "",
+      "Echo_of_War_Glance_of_Twilight": "晨昏的回眸 (翁法羅斯)",
       "Echo_of_War_Inner_Beast_Battlefield": "心獸的戰場 (仙舟「羅浮」)",
       "Echo_of_War_Salutations_of_Ashen_Dreams": "塵夢的贊禮 (匹諾康尼)",
       "Echo_of_War_Borehole_Planet_Past_Nightmares": "蛀星的舊魘 (太空站「黑塔」)",

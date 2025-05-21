@@ -243,6 +243,7 @@
     "Name": {
       "name": "Dungeon.Name.name",
       "help": "Dungeon.Name.help",
+      "Cavern_of_Corrosion_Path_of_Thundersurge": "遺器：烈陽 & 船長（雷滾の路）",
       "Cavern_of_Corrosion_Path_of_Aria": "遺器：英雄 & 詩人（弦歌の路）",
       "Cavern_of_Corrosion_Path_of_Uncertainty": "遺器：司祭 & 学者（迷識の路）",
       "Cavern_of_Corrosion_Path_of_Cavalier": "遺器：鉄騎 & 勇烈（勇騎の路）",
@@ -296,11 +297,11 @@
       "Stagnant_Shadow_Mechwolf": "昇格素材：雷（モゼ / アグライア）",
       "Stagnant_Shadow_Gust": "昇格素材：風（丹恒 / ブローニャ / サンポ）",
       "Stagnant_Shadow_Celestial": "昇格素材：風（刃 / フォフォ / ブラックスワン）",
-      "Stagnant_Shadow_Gloam": "昇格素材：風（飛霄 / アナイクス）",
+      "Stagnant_Shadow_Gloam": "昇格素材：風（飛霄 / アナイクス / ヒアンシー）",
       "Stagnant_Shadow_Quanta": "昇格素材：量子（銀狼 / ゼーレ / 青雀）",
       "Stagnant_Shadow_Abomination": "昇格素材：量子（リンクス / 符玄 / 雪衣）",
       "Stagnant_Shadow_Roast": "昇格素材：量子（ジェイド / 花火）",
-      "Stagnant_Shadow_Gelidmoon": "昇格素材：量子（トリビー / キャストリス）",
+      "Stagnant_Shadow_Gelidmoon": "昇格素材：量子（トリビー / キャストリス / サフェル）",
       "Stagnant_Shadow_Mirage": "昇格素材：虚数（ヴェルト / 羅刹 / 御空）",
       "Stagnant_Shadow_Puppetry": "昇格素材：虚数（丹恒・飲月 / アベンチュリン / Dr.レイシオ）",
       "Stagnant_Shadow_Timbre": "昇格素材：虚数（サンデー / 乱破）",
@@ -340,6 +341,7 @@
     "NameAtDoubleRelic": {
       "name": "Dungeon.NameAtDoubleRelic.name",
       "help": "Dungeon.NameAtDoubleRelic.help",
+      "Cavern_of_Corrosion_Path_of_Thundersurge": "遺器：烈陽 & 船長（雷滾の路）",
       "Cavern_of_Corrosion_Path_of_Aria": "遺器：英雄 & 詩人（弦歌の路）",
       "Cavern_of_Corrosion_Path_of_Uncertainty": "遺器：司祭 & 学者（迷識の路）",
       "Cavern_of_Corrosion_Path_of_Cavalier": "遺器：鉄騎 & 勇烈（勇騎の路）",
@@ -401,6 +403,8 @@
       "name": "DungeonSupport.Character.name",
       "help": "DungeonSupport.Character.help",
       "FirstCharacter": "FirstCharacter",
+      "Hyacine": "[3.3] ヒアンシー",
+      "Cipher": "[3.3] サフェル",
       "Castorice": "[3.2] キャストリス",
       "Anaxa": "[3.2] アナイクス",
       "Tribbie": "[3.1] トリビー",
@@ -622,7 +626,7 @@
       "help": ""
     },
     "Item_A_Glass_of_the_Besotted_Era": {
-      "name": "昇格素材：風（飛霄 / アナイクス）",
+      "name": "昇格素材：風（飛霄 / アナイクス / ヒアンシー）",
       "help": ""
     },
     "Item_Dream_Flamer": {
@@ -633,8 +637,12 @@
       "name": "昇格素材：虚数（サンデー / 乱破）",
       "help": ""
     },
+    "Item_Invasive_Clot": {
+      "name": "Unknown_Dungeon_Come_From",
+      "help": ""
+    },
     "Item_Darkveil_Moonlight": {
-      "name": "昇格素材：量子（トリビー / キャストリス）",
+      "name": "昇格素材：量子（トリビー / キャストリス / サフェル）",
       "help": ""
     },
     "Item_Harbinger_of_Strife": {
@@ -729,6 +737,10 @@
       "name": "心獣の戦場 (仙舟「羅浮」)",
       "help": ""
     },
+    "Item_Daythunder_Anamnesis": {
+      "name": "晨昏の回顧 (オンパロス)",
+      "help": ""
+    },
     "Item_Squirming_Core": {
       "name": "脈動する原核",
       "help": ""
@@ -783,6 +795,8 @@
       "name": "PlannerTarget.Character.name",
       "help": "PlannerTarget.Character.help",
       "_none_": "_none_",
+      "Hyacine": "[3.3] ヒアンシー",
+      "Cipher": "[3.3] サフェル",
       "Castorice": "[3.2] キャストリス",
       "Anaxa": "[3.2] アナイクス",
       "Tribbie": "[3.1] トリビー",
@@ -857,6 +871,8 @@
       "name": "PlannerTarget.Cone.name",
       "help": "PlannerTarget.Cone.help",
       "_none_": "_none_",
+      "Lies_Dance_on_the_Breeze": "[3.3] サフェル | 5* 風に揺蕩う虚言",
+      "Long_May_Rainbows_Adorn_the_Sky": "[3.3] ヒアンシー | 5* 空の虹が消えぬように",
       "Life_Should_Be_Cast_to_Flames": "[3.2] アナイクス | 5* 生命、焼滅すべし",
       "Make_Farewells_More_Beautiful": "[3.2] キャストリス | 5* 永訣よ美しくあれ",
       "Flame_of_Blood_Blaze_My_Path": "[3.1] モーディス | 5* 前途燃やす血の如き炎",
@@ -1094,6 +1110,7 @@
     "Name": {
       "name": "Weekly.Name.name",
       "help": "Weekly.Name.help",
+      "Echo_of_War_Glance_of_Twilight": "晨昏の回顧 (オンパロス)",
       "Echo_of_War_Inner_Beast_Battlefield": "心獣の戦場 (仙舟「羅浮」)",
       "Echo_of_War_Salutations_of_Ashen_Dreams": "現世の夢の礼賛 (ピノコニー)",
       "Echo_of_War_Borehole_Planet_Past_Nightmares": "星を蝕む往日の悪夢 (宇宙ステーション「ヘルタ」)",

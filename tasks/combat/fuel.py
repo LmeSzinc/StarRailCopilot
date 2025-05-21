@@ -220,7 +220,7 @@ class Fuel(StaminaStatus):
         self._fuel_confirm()
         return True
 
-    def extract_stamina(self, update=True, use_reserved=True, use_fuel=False):
+    def extract_stamina(self, update=True, use_reserved=True, use_fuel=False, is_doing_planner=False):
         """
         Args:
             update:
@@ -250,6 +250,9 @@ class Fuel(StaminaStatus):
                 return used
 
         if use_fuel:
+            if self.config.TrailblazePower_FuelOnlyPlanner:
+                if is_doing_planner == False:
+                    return used
             self.use_fuel(current=self.config.stored.TrailblazePower.value)
             used = True
             self.update_stamina_status()

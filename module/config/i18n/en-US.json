@@ -382,6 +382,10 @@
       "name": "Use Fuel",
       "help": ""
     },
+    "FuelOnlyPlanner": {
+      "name": "Only Use Fuel When Running Planner",
+      "help": ""
+    },
     "FuelReserve": {
       "name": "Reserve X Fuel",
       "help": ""

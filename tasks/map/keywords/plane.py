@@ -630,8 +630,19 @@ Penacony_PenaconyPaperfoldUniversityCollege = MapPlane(
     world_id=3,
     plane_id=1030601,
 )
-Amphoreus_EternalHolyCityOkhema = MapPlane(
+Amphoreus_FallenTwilightCityOkhema = MapPlane(
     id=59,
+    name='Amphoreus_FallenTwilightCityOkhema',
+    cn='「沉沦暮城」奥赫玛',
+    cht='「沉淪暮城」奧赫瑪',
+    en='"Fallen Twilight City" Okhema',
+    jp='「黄昏に沈む城」オクヘイマ',
+    es='Oqueima, Ciudad Sumida en el Crepúsculo',
+    world_id=4,
+    plane_id=1040401,
+)
+Amphoreus_EternalHolyCityOkhema = MapPlane(
+    id=60,
     name='Amphoreus_EternalHolyCityOkhema',
     cn='「永恒圣城」奥赫玛',
     cht='「永恆聖城」奧赫瑪',
@@ -642,7 +653,7 @@ Amphoreus_EternalHolyCityOkhema = MapPlane(
     plane_id=1040101,
 )
 Amphoreus_VortexofGenesis = MapPlane(
-    id=60,
+    id=61,
     name='Amphoreus_VortexofGenesis',
     cn='创世涡心',
     cht='創世渦心',
@@ -653,7 +664,7 @@ Amphoreus_VortexofGenesis = MapPlane(
     plane_id=1040201,
 )
 Amphoreus_StrifeRuinsCastrumKremnos = MapPlane(
-    id=61,
+    id=62,
     name='Amphoreus_StrifeRuinsCastrumKremnos',
     cn='「纷争荒墟」悬锋城',
     cht='「紛爭荒墟」懸鋒城',
@@ -664,7 +675,7 @@ Amphoreus_StrifeRuinsCastrumKremnos = MapPlane(
     plane_id=2041101,
 )
 Amphoreus_BloodbathedBattlefrontCastrumKremnos = MapPlane(
-    id=62,
+    id=63,
     name='Amphoreus_BloodbathedBattlefrontCastrumKremnos',
     cn='「浴血战端」悬锋城',
     cht='「浴血戰端」懸鋒城',
@@ -675,7 +686,7 @@ Amphoreus_BloodbathedBattlefrontCastrumKremnos = MapPlane(
     plane_id=2041301,
 )
 Amphoreus_AbyssofFateJanusopolis = MapPlane(
-    id=63,
+    id=64,
     name='Amphoreus_AbyssofFateJanusopolis',
     cn='「命运重渊」雅努萨波利斯',
     cht='「命運重淵」雅努薩波利斯',
@@ -686,7 +697,7 @@ Amphoreus_AbyssofFateJanusopolis = MapPlane(
     plane_id=2041201,
 )
 Amphoreus_SanctumofProphecyJanusopolis = MapPlane(
-    id=64,
+    id=65,
     name='Amphoreus_SanctumofProphecyJanusopolis',
     cn='「神谕圣地」雅努萨波利斯',
     cht='「神諭聖地」雅努薩波利斯',
@@ -697,7 +708,7 @@ Amphoreus_SanctumofProphecyJanusopolis = MapPlane(
     plane_id=2042201,
 )
 Amphoreus_MurmuringWoodsGroveofEpiphany = MapPlane(
-    id=65,
+    id=66,
     name='Amphoreus_MurmuringWoodsGroveofEpiphany',
     cn='「呓语密林」神悟树庭',
     cht='「囈語密林」神悟樹庭',
@@ -707,8 +718,19 @@ Amphoreus_MurmuringWoodsGroveofEpiphany = MapPlane(
     world_id=4,
     plane_id=2042101,
 )
+Amphoreus_LightlessChapelDawncloud = MapPlane(
+    id=67,
+    name='Amphoreus_LightlessChapelDawncloud',
+    cn='「无晖祈堂」黎明云崖',
+    cht='「無暉祈堂」黎明雲崖',
+    en='"Lightless Chapel" Dawncloud',
+    jp='「無光の聖堂」黎明の崖',
+    es='Risco Nubealba, Capilla del Sol Oculto',
+    world_id=4,
+    plane_id=2043301,
+)
 Amphoreus_DemigodCouncilDawncloud = MapPlane(
-    id=66,
+    id=68,
     name='Amphoreus_DemigodCouncilDawncloud',
     cn='「半神议院」黎明云崖',
     cht='「半神議院」黎明雲崖',
@@ -719,7 +741,7 @@ Amphoreus_DemigodCouncilDawncloud = MapPlane(
     plane_id=1040301,
 )
 Amphoreus_DragonboneCityStyxia = MapPlane(
-    id=67,
+    id=69,
     name='Amphoreus_DragonboneCityStyxia',
     cn='「龙骸古城」斯缇科西亚',
     cht='「龍骸古城」斯緹科西亞',
@@ -728,4 +750,26 @@ Amphoreus_DragonboneCityStyxia = MapPlane(
     es='Estisia, Ciudad Dragósea',
     world_id=4,
     plane_id=2042301,
+)
+Amphoreus_CloudedgeBastionRuinsEyeofTwilight = MapPlane(
+    id=70,
+    name='Amphoreus_CloudedgeBastionRuinsEyeofTwilight',
+    cn='「云端遗堡」晨昏之眼',
+    cht='「雲端遺堡」晨昏之眼',
+    en='"Cloudedge Bastion Ruins" Eye of Twilight',
+    jp='「雲上の廃砦」晨昏の目',
+    es='Ojo Circadiano, Ruinas de la Fortaleza Surcanubes',
+    world_id=4,
+    plane_id=2043201,
+)
+Amphoreus_FortressofDomeEyeofTwilight = MapPlane(
+    id=71,
+    name='Amphoreus_FortressofDomeEyeofTwilight',
+    cn='「穹顶关塞」晨昏之眼',
+    cht='「穹頂關塞」晨昏之眼',
+    en='"Fortress of Dome" Eye of Twilight',
+    jp='「天穹要塞」晨昏の目',
+    es='Ojo Circadiano, Fortaleza de la Bóveda',
+    world_id=4,
+    plane_id=2043101,
 )

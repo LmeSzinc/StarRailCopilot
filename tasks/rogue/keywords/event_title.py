@@ -1791,7 +1791,7 @@ Ideal_Success_Ratio = RogueEventTitle(
     en='Ideal Success Ratio',
     jp='成功の黄金比',
     es='La medida del éxito',
-    option_ids=[596, 597, 598, 599],
+    option_ids=[596, 597, 598, 599, 600],
 )
 Corrupt_Deal = RogueEventTitle(
     id=180,
@@ -1801,7 +1801,7 @@ Corrupt_Deal = RogueEventTitle(
     en='Corrupt Deal',
     jp='不正な取引',
     es='Transacción corrupta',
-    option_ids=[600, 601, 602, 603, 604, 605],
+    option_ids=[601, 602, 603, 604, 605, 606],
 )
 Voice_of_the_Sea = RogueEventTitle(
     id=181,
@@ -1811,7 +1811,7 @@ Voice_of_the_Sea = RogueEventTitle(
     en='Voice of the Sea',
     jp='海の声',
     es='La voz del mar',
-    option_ids=[606, 607, 608, 609, 610, 611, 612, 613, 614],
+    option_ids=[607, 608, 609, 610, 611, 612, 613, 614, 615],
 )
 Prayer_Line_Occupied = RogueEventTitle(
     id=182,
@@ -1821,7 +1821,7 @@ Prayer_Line_Occupied = RogueEventTitle(
     en='Prayer-Line Occupied',
     jp='忙しくお祈り中',
     es='Oración apresurada',
-    option_ids=[615, 616, 617, 618, 619, 620, 621],
+    option_ids=[616, 617, 618, 619, 620, 621, 622],
 )
 Birth_of_a_Hero_I = RogueEventTitle(
     id=183,
@@ -1831,7 +1831,7 @@ Birth_of_a_Hero_I = RogueEventTitle(
     en='Birth of a Hero (I)',
     jp='英雄の誕生（その1）',
     es='El nacimiento de un héroe I',
-    option_ids=[622, 623, 624, 625, 626, 627, 628],
+    option_ids=[623, 624, 625, 626, 627, 628, 629],
 )
 Birth_of_a_Hero_II = RogueEventTitle(
     id=184,
@@ -1841,7 +1841,7 @@ Birth_of_a_Hero_II = RogueEventTitle(
     en='Birth of a Hero (II)',
     jp='英雄の誕生（その2）',
     es='El nacimiento de un héroe II',
-    option_ids=[623, 624, 625, 626, 627, 628],
+    option_ids=[624, 625, 626, 627, 628, 629],
 )
 Birth_of_a_Hero_III = RogueEventTitle(
     id=185,
@@ -1851,7 +1851,7 @@ Birth_of_a_Hero_III = RogueEventTitle(
     en='Birth of a Hero (III)',
     jp='英雄の誕生（その3）',
     es='El nacimiento de un héroe III',
-    option_ids=[624, 625, 626, 627, 628],
+    option_ids=[625, 626, 627, 628, 629],
 )
 Life_Divergence_I = RogueEventTitle(
     id=186,
@@ -1861,7 +1861,7 @@ Life_Divergence_I = RogueEventTitle(
     en='Life Divergence (I)',
     jp='人生の分かれ道（その1）',
     es='Divergencia vital I',
-    option_ids=[629, 630, 631, 632, 633],
+    option_ids=[630, 631, 632, 633, 634],
 )
 Life_Divergence_II = RogueEventTitle(
     id=187,
@@ -1871,7 +1871,7 @@ Life_Divergence_II = RogueEventTitle(
     en='Life Divergence (II)',
     jp='人生の分かれ道（その2）',
     es='Divergencia vital II',
-    option_ids=[630, 631, 632, 633],
+    option_ids=[631, 632, 633, 634],
 )
 Boardtop_Theater = RogueEventTitle(
     id=188,
@@ -1881,5 +1881,5 @@ Boardtop_Theater = RogueEventTitle(
     en='Boardtop Theater',
     jp='盤上劇',
     es='Juego de tablero',
-    option_ids=[634, 635, 636, 637, 638, 639, 640, 641, 642, 643, 644, 645, 646],
+    option_ids=[635, 636, 637, 638, 639, 640, 641, 642, 643, 644, 645, 646, 647],
 )

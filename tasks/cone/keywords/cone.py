@@ -1345,6 +1345,28 @@ Life_Should_Be_Cast_to_Flames = Cone(
     rarity='SuperRare',
     character_name='Anaxa',
 )
+Long_May_Rainbows_Adorn_the_Sky = Cone(
+    id=23042,
+    name='Long_May_Rainbows_Adorn_the_Sky',
+    cn='愿虹光永驻天空',
+    cht='願虹光永駐天空',
+    en='Long May Rainbows Adorn the Sky',
+    jp='空の虹が消えぬように',
+    es='Que el arcoíris siempre este en el cielo',
+    rarity='SuperRare',
+    character_name='Hyacine',
+)
+Lies_Dance_on_the_Breeze = Cone(
+    id=23043,
+    name='Lies_Dance_on_the_Breeze',
+    cn='谎言在风中飘扬',
+    cht='謊言在風中飄揚',
+    en='Lies Dance on the Breeze',
+    jp='風に揺蕩う虚言',
+    es='Mentiras que vuelan en el viento',
+    rarity='SuperRare',
+    character_name='Cipher',
+)
 On_the_Fall_of_an_Aeon = Cone(
     id=24000,
     name='On_the_Fall_of_an_Aeon',

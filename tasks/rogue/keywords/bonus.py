@@ -462,3 +462,39 @@ Lingering_Whispers_of_Love = RogueBonus(
     jp='愛の残響',
     es='Susurros de amor',
 )
+Scattered_Poems = RogueBonus(
+    id=52,
+    name='Scattered_Poems',
+    cn='零落诗篇',
+    cht='零落詩篇',
+    en='Scattered Poems',
+    jp='散逸した詩篇',
+    es='Un poema fragmentado',
+)
+Rusted_Gold_Coin = RogueBonus(
+    id=53,
+    name='Rusted_Gold_Coin',
+    cn='锈蚀金币',
+    cht='鏽蝕金幣',
+    en='Rusted Gold Coin',
+    jp='錆びたコイン',
+    es='Moneda de oro oxidada',
+)
+Golden_Short_Sword = RogueBonus(
+    id=54,
+    name='Golden_Short_Sword',
+    cn='黄金短剑',
+    cht='黃金短劍',
+    en='Golden Short Sword',
+    jp='黄金の短剣',
+    es='Espada corta dorada',
+)
+Mirage_In_The_Water = RogueBonus(
+    id=55,
+    name='Mirage_In_The_Water',
+    cn='水中影',
+    cht='水中影',
+    en='Mirage In The Water',
+    jp='水中の影',
+    es='Espejismo bajo el agua',
+)

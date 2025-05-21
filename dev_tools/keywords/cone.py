@@ -32,9 +32,7 @@ class GenerateCone(GenerateKeyword):
         name = name.removeprefix('SubTabIcon_')
         name = name.removesuffix('_00')
         name = convert_inner_character_to_keyword(name)
-        # Poor sunday don't event have a name
-        if name == '1313':
-            name = 'Sunday'
+
         return name
 
     @cached_property
@@ -81,11 +79,11 @@ class GenerateCone(GenerateKeyword):
             except KeyError:
                 continue
             try:
-                CharacterList.find_name(character)
+                character = CharacterList.find(character)
             except ScriptError:
                 print(f'Character cone gets unknown character {character}')
                 continue
-            out[cone] = character
+            out[cone] = character.name
 
         return out
 

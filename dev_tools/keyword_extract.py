@@ -261,6 +261,8 @@ class KeywordExtract:
         """)
         gen.CommentAutoGenerage('dev_tools.keyword_extract')
         for index, (keyword, characters) in enumerate(shadow_info.items()):
+            if not characters:
+                continue
             _, name = self.find_keyword(keyword, lang='en')
             name = text_to_variable(name).replace('Shape_of_', '')
             with gen.Object(key=name, object_class=keyword_class):

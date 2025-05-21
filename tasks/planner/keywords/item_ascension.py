@@ -276,8 +276,21 @@ Chordal_Mirage = ItemAscension(
     item_group=1100,
     dungeon_id=1119,
 )
-Darkveil_Moonlight = ItemAscension(
+Invasive_Clot = ItemAscension(
     id=22,
+    name='Invasive_Clot',
+    cn='侵略凝块',
+    cht='侵略凝塊',
+    en='Invasive Clot',
+    jp='侵略の結晶',
+    es='Coágulo invasivo',
+    rarity='VeryRare',
+    item_id=110431,
+    item_group=1100,
+    dungeon_id=1124,
+)
+Darkveil_Moonlight = ItemAscension(
+    id=23,
     name='Darkveil_Moonlight',
     cn='暗帷月华',
     cht='暗帷月華',
@@ -290,7 +303,7 @@ Darkveil_Moonlight = ItemAscension(
     dungeon_id=1123,
 )
 Harbinger_of_Strife = ItemAscension(
-    id=23,
+    id=24,
     name='Harbinger_of_Strife',
     cn='纷争先兆',
     cht='紛爭先兆',

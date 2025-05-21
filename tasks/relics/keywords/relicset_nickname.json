@@ -335,6 +335,34 @@
     "jp": "詩人",
     "es": "Poetisa"
   },
+  "WarriorGoddessofSunandThunder": {
+    "setid": 125,
+    "dungeon_id": 1213,
+    "cn_origin": "烈阳惊雷的女武神",
+    "cht_origin": "烈陽驚雷的女武神",
+    "en_origin": "Warrior Goddess of Sun and Thunder",
+    "jp_origin": "烈陽と雷鳴の武神",
+    "es_origin": "Guerrera celestial del sol y el trueno",
+    "cn": "烈阳",
+    "cht": "烈陽",
+    "en": "Warrior Goddess",
+    "jp": "烈陽",
+    "es": "Guerrera celestial"
+  },
+  "WavestriderCaptain": {
+    "setid": 126,
+    "dungeon_id": 1213,
+    "cn_origin": "恶海逐波的船长",
+    "cht_origin": "惡海逐波的船長",
+    "en_origin": "Wavestrider Captain",
+    "jp_origin": "荒海を越える船長",
+    "es_origin": "Capitán del mar maldito",
+    "cn": "船长",
+    "cht": "船長",
+    "en": "Captain",
+    "jp": "船長",
+    "es": "Capitán"
+  },
   "SpaceSealingStation": {
     "setid": 301,
     "dungeon_id": 230,

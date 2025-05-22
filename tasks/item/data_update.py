@@ -34,7 +34,7 @@ class DataUpdate(ItemUI, PlannerMixin):
 
         timeout = Timer(2, count=6).start()
         credit, jade = 0, 0
-        while 1:
+        for _ in self.loop():
             data = ocr.detect_and_ocr(self.device.image)
             if len(data) == 2:
                 credit, jade = [int(re.sub(r'\s', '', d.ocr_text)) for d in data]
@@ -57,7 +57,8 @@ class DataUpdate(ItemUI, PlannerMixin):
         """
         ocr = RelicOcr(OCR_RELIC)
         timeout = Timer(2, count=6).start()
-        while 1:
+        relic = 0
+        for _ in self.loop():
             relic, _, total = ocr.ocr_single_line(self.device.image)
             if total == 3000 or relic < 0:
                 break

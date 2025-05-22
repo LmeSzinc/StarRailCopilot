@@ -19,7 +19,7 @@ class DataDigit(Digit):
 
 class RelicOcr(DigitCounter):
     def after_process(self, result):
-        result = re.sub(r'[l1|]2000', '/2000', result)
+        result = re.sub(r'[l1|]3000', '/3000', result)
         result = re.sub(r'[oO]', '0', result)
         return super().after_process(result)
 
@@ -59,7 +59,7 @@ class DataUpdate(ItemUI, PlannerMixin):
         timeout = Timer(2, count=6).start()
         while 1:
             relic, _, total = ocr.ocr_single_line(self.device.image)
-            if total == 2000 or relic < 0:
+            if total == 3000 or relic < 0:
                 break
             logger.warning(f'Invalid relic amount: {relic}/{total}')
             if timeout.reached():

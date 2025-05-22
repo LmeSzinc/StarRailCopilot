@@ -274,7 +274,8 @@ class Combat(CombatInteract, CombatPrepare, CombatSupport, CombatTeam, CombatSki
         self.extract_stamina(
             update=False,
             use_reserved=self.config.TrailblazePower_ExtractReservedTrailblazePower,
-            use_fuel=self.config.TrailblazePower_UseFuel
+            use_fuel=self.config.TrailblazePower_UseFuel,
+            is_doing_planner=self.is_doing_planner
         )
         current = self.config.stored.TrailblazePower.value
         if current >= cost:

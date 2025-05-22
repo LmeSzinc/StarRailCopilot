@@ -928,8 +928,12 @@ class ConfigUpdater:
         """
         if deep_get(data, 'Dungeon.TrailblazePower.UseFuel') == False:
             yield 'Dungeon.TrailblazePower.FuelReserve'
+        if deep_get(data, 'Dungeon.TrailblazePower.UseFuel') == False:
+            yield 'Dungeon.TrailblazePower.FuelOnlyPlanner'
         if deep_get(data, 'Ornament.TrailblazePower.UseFuel') == False:
             yield 'Ornament.TrailblazePower.FuelReserve'
+        if deep_get(data, 'Ornament.TrailblazePower.UseFuel') == False:
+            yield 'Ornament.TrailblazePower.FuelOnlyPlanner'
         if deep_get(data, 'Rogue.RogueBlessing.PresetBlessingFilter') != 'custom':
             yield 'Rogue.RogueBlessing.CustomBlessingFilter'
         if deep_get(data, 'Rogue.RogueBlessing.PresetResonanceFilter') != 'custom':

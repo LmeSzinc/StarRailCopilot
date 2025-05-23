@@ -39,6 +39,7 @@ footer {
     transition: border .05s ease-in-out, padding .05s ease-in-out;
     white-space: pre-wrap;
     text-align: left;
+    width: 100%;
 }
 
 .btn-menu:hover,

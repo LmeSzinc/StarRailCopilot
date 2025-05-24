@@ -68,6 +68,12 @@ jobs:
 
           gh release download $env:RELEASE_TAG --pattern "*_full*.7z" --dir assets
 
+      - name: download-7zip-sfx
+        shell: pwsh
+        run: |
+          # Download 7-Zip SFX modules
+          Invoke-WebRequest -Uri "https://www.7-zip.org/a/7z2408-extra.7z" -OutFile "7z-extra.7z"
+          7z x 7z-extra.7z -o"7z-sfx"
 
       - name: extract-en
         run: 7z x "assets\${{ env.APPNAME }}_*_full.7z"   -o"en"
@@ -75,20 +81,71 @@ jobs:
       - name: extract-cn
         run: 7z x "assets\${{ env.APPNAME }}_*_fullcn.7z" -o"cn"
 
+      - name: create-sfx-archives-en
+        shell: pwsh
+        run: |
+          @'
+          ;!@Install@!UTF-8!
+          Progress="no"
+          GUIMode="2"
+          ExtractDialogWidth=0
+          ExtractDialogHeight=0
+          ;!@InstallEnd@!
+          '@ | Out-File -Encoding UTF8 "sfx-config.txt"
+
+          $largeFolders = @("toolkit", "locales", "resources", "deploy")
+          
+          foreach ($folder in $largeFolders) {
+            if (Test-Path "en\StarRailCopilot\$folder") {
+              Write-Host "Creating SFX for $folder..."
+              & 7z a -t7z -mx=5 -mmt=on "en\$folder.7z" "en\StarRailCopilot\$folder\*" -r
+              Copy-Item "7z-sfx\7zSD.sfx" "en\$folder.exe"
+              cmd /c copy /b "en\$folder.exe" + "sfx-config.txt" + "en\$folder.7z" "en\$folder.exe"
+              Remove-Item "en\StarRailCopilot\$folder" -Recurse -Force
+              Remove-Item "en\$folder.7z"
+            }
+          }
+
+      - name: create-sfx-archives-cn
+        shell: pwsh
+        run: |
+          $largeFolders = @("toolkit", "locales", "resources", "deploy")
+          
+          foreach ($folder in $largeFolders) {
+            if (Test-Path "cn\StarRailCopilot\$folder") {
+              Write-Host "Creating SFX for $folder..."
+              & 7z a -t7z -mx=5 -mmt=on "cn\$folder.7z" "cn\StarRailCopilot\$folder\*" -r
+              Copy-Item "7z-sfx\7zSD.sfx" "cn\$folder.exe"
+              cmd /c copy /b "cn\$folder.exe" + "sfx-config.txt" + "cn\$folder.7z" "cn\$folder.exe"
+              Remove-Item "cn\StarRailCopilot\$folder" -Recurse -Force
+              Remove-Item "cn\$folder.7z"
+            }
+          }
+
       - name: compile-en
         shell: pwsh
         run: |
-          Copy-Item "installer\setup_en.iss" "en\setup.iss"
+          Copy-Item "installer\setup_en_sfx.iss" "en\setup.iss" -ErrorAction SilentlyContinue
+          if (!(Test-Path "en\setup.iss")) {
+            Write-Host "Creating default setup_en_sfx.iss in installer folder..."
+            New-Item -ItemType Directory -Path "installer" -Force | Out-Null
+            Copy-Item "installer\setup_en.iss" "installer\setup_en_sfx.iss" -Force
+            Copy-Item "installer\setup_en_sfx.iss" "en\setup.iss"
+          }
           & "$env:ISCC_PATH" /DAppVersion=$env:VERSION /Odist "en\setup.iss"
 
       - name: compile-cn
         shell: pwsh
         run: |
-          Copy-Item 'installer\setup_cn.iss'       'cn\setup.iss'
+          Copy-Item 'installer\setup_cn_sfx.iss' 'cn\setup.iss' -ErrorAction SilentlyContinue
+          if (!(Test-Path "cn\setup.iss")) {
+            Write-Host "Creating default setup_cn_sfx.iss in installer folder..."
+            New-Item -ItemType Directory -Path "installer" -Force | Out-Null
+            Copy-Item "installer\setup_cn.iss" "installer\setup_cn_sfx.iss" -Force
+            Copy-Item 'installer\setup_cn_sfx.iss' 'cn\setup.iss'
+          }
           Copy-Item 'installer\Languages' -Recurse 'cn\Languages'
           & "$env:ISCC_PATH" /DAppVersion=$env:VERSION /Odist 'cn\setup.iss'
-
-
 
       - name: upload-installers
         uses: softprops/action-gh-release@v2
@@ -98,4 +155,3 @@ jobs:
             dist/StarRailCopilot-Setup-${{ env.VERSION }}.exe
             dist/StarRailCopilot-Setup-${{ env.VERSION }}-cn.exe
           fail_on_unmatched_files: true
-

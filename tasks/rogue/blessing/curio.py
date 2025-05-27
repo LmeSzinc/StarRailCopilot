@@ -33,6 +33,9 @@ class RogueCurioOcr(Ocr):
                 "般": "骰",
                 "漂灭": "湮灭",
                 "殷子": "骰子",
+                # 闪耀的偏方三八面殷, 万象无常骰
+                "面殷": "面骰",
+                "常殷": "常骰",
             }
             for pattern, replace in replace_pattern_dict.items():
                 result = re.sub(pattern, replace, result)

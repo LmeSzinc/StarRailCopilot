@@ -43,11 +43,21 @@ class RogueCurioSelector(RogueSelector):
     def recognition(self):
         self.ocr_results = []
         ocr = RogueCurioOcr(OCR_ROGUE_CURIO)
-        results = ocr.matched_ocr(self.main.device.image, RogueCurio)
-        expect_num = 3
-        if len(results) != expect_num:
-            logger.warning(f"The OCR result does not match the curio count. "
-                           f"Expect {expect_num}, but recognized {len(results)} only.")
+        results = []
+        # curio is a transparent page, may OCR when it's showing up
+        timeout = Timer(1, count=2).start()
+        for _ in self.main.loop():
+            results = ocr.matched_ocr(self.main.device.image, RogueCurio)
+            expect_num = 3
+            if len(results) != expect_num:
+                logger.warning(f"The OCR result does not match the curio count. "
+                               f"Expect {expect_num}, but recognized {len(results)} only.")
+            if len(results):
+                break
+            if timeout.reached():
+                logger.error('RogueCurioSelector.recognition timeout')
+                break
+
         self.ocr_results = results
         return results
 

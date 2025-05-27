@@ -66,7 +66,12 @@ class RogueCurioSelector(RogueSelector):
 
     def ui_select(self, target: OcrResultButton | None, skip_first_screenshot=True):
         def is_curio_selected():
-            CURIO_SELECTED.matched_button.search = area_pad(area_offset(target.area, (0, -50)), -50)
+            if target is None:
+                # search around the top of CURIO_ENFORCE
+                area = CURIO_ENFORCE.area
+                CURIO_SELECTED.matched_button.search = (area[0], area[1] - 30, area[2], area[1] + 30)
+            else:
+                CURIO_SELECTED.matched_button.search = area_pad(area_offset(target.area, (0, -50)), -50)
             return self.main.appear(CURIO_SELECTED)
 
         def is_select_curio_complete():

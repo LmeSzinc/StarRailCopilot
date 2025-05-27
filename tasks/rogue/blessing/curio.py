@@ -33,6 +33,9 @@ class RogueCurioOcr(Ocr):
                 "般": "骰",
                 "漂灭": "湮灭",
                 "殷子": "骰子",
+                # 闪耀的偏方三八面殷, 万象无常骰
+                "面殷": "面骰",
+                "常殷": "常骰",
             }
             for pattern, replace in replace_pattern_dict.items():
                 result = re.sub(pattern, replace, result)
@@ -43,17 +46,32 @@ class RogueCurioSelector(RogueSelector):
     def recognition(self):
         self.ocr_results = []
         ocr = RogueCurioOcr(OCR_ROGUE_CURIO)
-        results = ocr.matched_ocr(self.main.device.image, RogueCurio)
-        expect_num = 3
-        if len(results) != expect_num:
-            logger.warning(f"The OCR result does not match the curio count. "
-                           f"Expect {expect_num}, but recognized {len(results)} only.")
+        results = []
+        # curio is a transparent page, may OCR when it's showing up
+        timeout = Timer(1, count=2).start()
+        for _ in self.main.loop():
+            results = ocr.matched_ocr(self.main.device.image, RogueCurio)
+            expect_num = 3
+            if len(results) != expect_num:
+                logger.warning(f"The OCR result does not match the curio count. "
+                               f"Expect {expect_num}, but recognized {len(results)} only.")
+            if len(results):
+                break
+            if timeout.reached():
+                logger.error('RogueCurioSelector.recognition timeout')
+                break
+
         self.ocr_results = results
         return results
 
     def ui_select(self, target: OcrResultButton | None, skip_first_screenshot=True):
         def is_curio_selected():
-            CURIO_SELECTED.matched_button.search = area_pad(area_offset(target.area, (0, -50)), -50)
+            if target is None:
+                # search around the top of CURIO_ENFORCE
+                area = CURIO_ENFORCE.area
+                CURIO_SELECTED.matched_button.search = (area[0], area[1] - 30, area[2], area[1] + 30)
+            else:
+                CURIO_SELECTED.matched_button.search = area_pad(area_offset(target.area, (0, -50)), -50)
             return self.main.appear(CURIO_SELECTED)
 
         def is_select_curio_complete():

@@ -382,6 +382,10 @@
       "name": "Use Fuel",
       "help": ""
     },
+    "FuelOnlyPlanner": {
+      "name": "Use Fuel Only On Character Planner",
+      "help": ""
+    },
     "FuelReserve": {
       "name": "Reserve X Fuel",
       "help": ""

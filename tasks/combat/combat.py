@@ -271,17 +271,21 @@ class Combat(CombatInteract, CombatPrepare, CombatSupport, CombatTeam, CombatSki
                 return self._try_get_more_trablaize_power(self.combat_wave_cost * self.combat_waves)
 
     def _try_get_more_trablaize_power(self, cost):
+        use_fuel_ = self.config.TrailblazePower_UseFuel
+        if use_fuel_:
+            if self.config.TrailblazePower_FuelOnlyPlanner and not self.is_doing_planner:
+                use_fuel_ = False
         self.extract_stamina(
             update=False,
             use_reserved=self.config.TrailblazePower_ExtractReservedTrailblazePower,
-            use_fuel=self.config.TrailblazePower_UseFuel,
-            is_doing_planner=self.is_doing_planner
+            use_fuel=use_fuel_
         )
         current = self.config.stored.TrailblazePower.value
         if current >= cost:
             return True
         else:
-            logger.info(f'Current has {current}, combat costs {self.combat_wave_cost}, can not run again')
+            logger.info(
+                f'Current has {current}, combat costs {self.combat_wave_cost}, can not run again')
             return False
 
     def _combat_should_reenter(self):

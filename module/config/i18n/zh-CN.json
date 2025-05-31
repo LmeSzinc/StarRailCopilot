@@ -383,8 +383,8 @@
       "help": ""
     },
     "FuelOnlyPlanner": {
-      "name": "仅养成规划",
-      "help": "仅在执行养成规划时使用燃料"
+      "name": "仅在养成规划时使用燃料",
+      "help": ""
     },
     "FuelReserve": {
       "name": "保留 X 燃料",

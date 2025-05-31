@@ -383,7 +383,7 @@
       "help": ""
     },
     "FuelOnlyPlanner": {
-      "name": "Only Use Fuel When Running Planner",
+      "name": "Use Fuel Only On Character Planner",
       "help": ""
     },
     "FuelReserve": {

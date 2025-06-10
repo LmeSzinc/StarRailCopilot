@@ -126,6 +126,26 @@ class DungeonList(Keyword):
         return 'Divergent_Universe' in self.name
 
     @cached_property
+    def combat_wave_cost(self):
+        """
+        Note that Echo_of_War costs 0 when weekly trial exhausted
+
+        Returns:
+            int:
+        """
+        if self.is_Calyx:
+            return 10
+        if self.is_Stagnant_Shadow:
+            return 30
+        if self.is_Echo_of_War:
+            return 30
+        if self.is_Cavern_of_Corrosion:
+            return 40
+        if self.is_Ornament_Extraction:
+            return 40
+        return 0
+
+    @cached_property
     def is_Forgotten_Hall(self):
         for word in [
             'Forgotten_Hall',

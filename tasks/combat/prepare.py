@@ -23,6 +23,7 @@ class CombatPrepare(StaminaStatus):
     combat_wave_done = 0
     # E.g. 10, 30, 40
     combat_wave_cost = 10
+    dungeon: "DungeonList | None" = None
 
     def combat_set_wave(self, count=6):
         """
@@ -91,6 +92,7 @@ class CombatPrepare(StaminaStatus):
 
         Returns:
             int: E.g. 10, 30, 40
+                or 0 if failed to recognise
 
         Pages:
             in: COMBAT_PREPARE
@@ -102,13 +104,11 @@ class CombatPrepare(StaminaStatus):
             cost = Digit(OCR_WAVE_COST).ocr_single_line(image, direct_ocr=True)
             return cost
 
-        # No stamina cost, this should be Echo_of_War
         OCR_WAVE_COST.clear_offset()
         if self.appear(COMBAT_RELIC_ENTER):
+            logger.warning(f'{WAVE_COST_CHECK} not appear but {COMBAT_RELIC_ENTER} appears')
             return 0
 
-        # But we have COMBAT_RELIC_ENTER, this may be Cavern_of_Corrosion or Echo_of_War
-        logger.warning(f'{WAVE_COST_CHECK} not appear but {COMBAT_RELIC_ENTER} appears, assume wave_cost is 0')
         return 0
 
     def combat_get_wave_cost(self, skip_first_screenshot=True):
@@ -121,6 +121,18 @@ class CombatPrepare(StaminaStatus):
         Pages:
             in: COMBAT_PREPARE
         """
+        # try get from current state
+        dungeon = self.dungeon
+        if dungeon is not None:
+            # dungeon: DungeonList
+            cost = dungeon.combat_wave_cost
+            if cost and not dungeon.is_Echo_of_War:
+                logger.info(f'Static dungeon costs {cost}: {dungeon.name}')
+                logger.attr('CombatMultiWave', self.combat_has_multi_wave())
+                self.combat_wave_cost = cost
+                return cost
+
+        # get from ocr
         timeout = Timer(1.5, count=6).start()
         while 1:
             if skip_first_screenshot:
@@ -130,9 +142,8 @@ class CombatPrepare(StaminaStatus):
 
             cost = self._combat_get_wave_cost_value()
             if cost == 0:
-                logger.info(f'Combat is trailblaze power free')
-                self.combat_wave_cost = 0
-                return 0
+                logger.warning('No WAVE_COST_CHECK icon')
+                continue
             elif cost == 10:
                 logger.attr('CombatMultiWave', self.combat_has_multi_wave())
                 if self.combat_has_multi_wave():
@@ -164,6 +175,11 @@ class CombatPrepare(StaminaStatus):
             cost = 10
         else:
             cost = 40
+            # if weekly trial exhausted, Echo_of_War costs 0
+            if dungeon is not None:
+                if dungeon.is_Echo_of_War:
+                    cost = 0
+
         logger.warning(f'Get combat wave cost timeout, assume it costs {cost}')
         self.combat_wave_cost = cost
         return cost

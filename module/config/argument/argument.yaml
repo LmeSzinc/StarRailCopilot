@@ -108,6 +108,7 @@ Dungeon:
 TrailblazePower:
   ExtractReservedTrailblazePower: false
   UseFuel: false
+  FuelOnlyPlanner: false
   FuelReserve: 5
 DungeonSupport:
   Use:

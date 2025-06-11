@@ -50,6 +50,7 @@ class GeneratedConfig:
     # Group `TrailblazePower`
     TrailblazePower_ExtractReservedTrailblazePower = False
     TrailblazePower_UseFuel = False
+    TrailblazePower_FuelOnlyPlanner = False
     TrailblazePower_FuelReserve = 5
 
     # Group `DungeonSupport`

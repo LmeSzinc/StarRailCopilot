@@ -1806,6 +1806,18 @@
         "type": "checkbox",
         "value": true
       }
+    },
+    "GiftofOdyssey": {
+      "Collect": {
+        "type": "checkbox",
+        "value": true
+      },
+      "GiftofOdysseyClaimed": {
+        "type": "stored",
+        "value": {},
+        "display": "display",
+        "stored": "StoredInt"
+      }
     }
   },
   "Weekly": {

@@ -524,6 +524,20 @@
       "help": ""
     }
   },
+  "GiftofOdyssey": {
+    "_info": {
+      "name": "巡星之礼（版本十连）",
+      "help": ""
+    },
+    "Collect": {
+      "name": "领取巡星之礼",
+      "help": ""
+    },
+    "GiftofOdysseyClaimed": {
+      "name": "已领取 X 天",
+      "help": ""
+    }
+  },
   "Planner": {
     "_info": {
       "name": "养成规划进度",

@@ -7,10 +7,11 @@ from tasks.login.agreement import AgreementHandler
 from tasks.login.assets.assets_login import *
 from tasks.login.assets.assets_login_popup import ADVERTISE_Castorice, UNITY_ENGINE_ERROR
 from tasks.login.cloud import LoginAndroidCloud
+from tasks.login.uid import UIDHandler
 from tasks.rogue.blessing.ui import RogueUI
 
 
-class Login(LoginAndroidCloud, RogueUI, AgreementHandler):
+class Login(LoginAndroidCloud, RogueUI, AgreementHandler, UIDHandler):
     def _handle_app_login(self):
         """
         Pages:

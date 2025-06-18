@@ -272,9 +272,8 @@ class Combat(CombatInteract, CombatPrepare, CombatSupport, CombatTeam, CombatSki
 
     def _try_get_more_trablaize_power(self, cost):
         use_fuel_ = self.config.TrailblazePower_UseFuel
-        if use_fuel_:
-            if self.config.TrailblazePower_FuelOnlyPlanner and not self.is_doing_planner:
-                use_fuel_ = False
+        if self.config.TrailblazePower_FuelOnlyPlanner and not self.is_doing_planner:
+            use_fuel_ = False
         self.extract_stamina(
             update=False,
             use_reserved=self.config.TrailblazePower_ExtractReservedTrailblazePower,

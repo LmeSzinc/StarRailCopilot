@@ -1226,6 +1226,10 @@
         "type": "checkbox",
         "value": false
       },
+      "FuelOnlyPlanner": {
+        "type": "checkbox",
+        "value": false
+      },
       "FuelReserve": {
         "type": "input",
         "value": 5
@@ -1394,6 +1398,10 @@
         "value": false
       },
       "UseFuel": {
+        "type": "checkbox",
+        "value": false
+      },
+      "FuelOnlyPlanner": {
         "type": "checkbox",
         "value": false
       },

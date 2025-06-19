@@ -911,12 +911,16 @@ class ConfigUpdater:
             yield 'Ornament.TrailblazePower.UseFuel', value
         if key == 'Dungeon.TrailblazePower.FuelReserve':
             yield 'Ornament.TrailblazePower.FuelReserve', value
+        if key == 'Dungeon.TrailblazePower.FuelOnlyPlanner':
+            yield 'Ornament.TrailblazePower.FuelOnlyPlanner', value
         if key == 'Ornament.TrailblazePower.ExtractReservedTrailblazePower':
             yield 'Dungeon.TrailblazePower.ExtractReservedTrailblazePower', value
         if key == 'Ornament.TrailblazePower.UseFuel':
             yield 'Dungeon.TrailblazePower.UseFuel', value
         if key == 'Ornament.TrailblazePower.FuelReserve':
             yield 'Dungeon.TrailblazePower.FuelReserve', value
+        if key == 'Ornament.TrailblazePower.FuelOnlyPlanner':
+            yield 'Dungeon.TrailblazePower.FuelOnlyPlanner', value
 
     def iter_hidden_args(self, data) -> t.Iterator[str]:
         """
@@ -928,8 +932,12 @@ class ConfigUpdater:
         """
         if deep_get(data, 'Dungeon.TrailblazePower.UseFuel') == False:
             yield 'Dungeon.TrailblazePower.FuelReserve'
+        if deep_get(data, 'Dungeon.TrailblazePower.UseFuel') == False:
+            yield 'Dungeon.TrailblazePower.FuelOnlyPlanner'
         if deep_get(data, 'Ornament.TrailblazePower.UseFuel') == False:
             yield 'Ornament.TrailblazePower.FuelReserve'
+        if deep_get(data, 'Ornament.TrailblazePower.UseFuel') == False:
+            yield 'Ornament.TrailblazePower.FuelOnlyPlanner'
         if deep_get(data, 'Rogue.RogueBlessing.PresetBlessingFilter') != 'custom':
             yield 'Rogue.RogueBlessing.CustomBlessingFilter'
         if deep_get(data, 'Rogue.RogueBlessing.PresetResonanceFilter') != 'custom':

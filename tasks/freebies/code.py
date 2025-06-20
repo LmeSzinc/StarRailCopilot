@@ -22,7 +22,13 @@ class RedemptionCode(UI):
         if interval and not self.interval_is_reached(INPUT_CHECK, interval=interval):
             return False
 
-        appear = self.image_color_count(INPUT_CHECK, color=(255, 199, 89), count=400, threshold=221)
+        appear = False
+        # yellow confirm button
+        if self.image_color_count(INPUT_CHECK, color=(255, 199, 89), count=400, threshold=221):
+            appear = True
+        # pure white button at bottom
+        if self.image_color_count(INPUT_CHECK, color=(255, 255, 255), count=10000, threshold=221):
+            appear = True
 
         if appear and interval:
             self.interval_reset(INPUT_CHECK, interval=interval)

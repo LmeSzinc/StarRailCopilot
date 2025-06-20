@@ -1,10 +1,15 @@
-import requests
+import json
 import re
 from datetime import datetime, timedelta, timezone
-import json
+
+import requests
+from requests.adapters import HTTPAdapter
+
+from module.config.deep import deep_get
+
 
 class GameRedeemCode:
-    def __init__(self):
+    def __init__(self, proxy=None):
 
         self.uid = "80823548"
         self.act_id = None
@@ -13,24 +18,39 @@ class GameRedeemCode:
         self.headers = {
             "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36"
         }
+        self.proxy = proxy
+
+    def new_session(self):
+        session = requests.Session()
+        session.trust_env = False
+        if self.proxy:
+            proxies = {'http': self.proxy, 'https': self.proxy}
+            session.proxies = proxies
+        session.mount('http://', HTTPAdapter(max_retries=3))
+        session.mount('https://', HTTPAdapter(max_retries=3))
+        session.headers.update(self.headers)
+        session.headers['Content-Type'] = 'application/json'
+        session.headers['Accept'] = 'application/json'
+        return session
 
     def get_act_id(self):
         """获取活动ID"""
         url = f"https://bbs-api.mihoyo.com/painter/api/user_instant/list?offset=0&size=20&uid={self.uid}"
         print(url)
         try:
-            response = requests.get(url, headers=self.headers)
+            session = self.new_session()
+            response = session.get(url, headers=self.headers)
             data = response.json()
 
             if data.get("retcode") != 0:
                 return False
 
-            for post in data["data"]["list"]:
-                content = post.get("post", {}).get("post", {}).get("structured_content", "")
+            for post in deep_get(data, 'data.list', []):
+                content = deep_get(post, 'post.post.structured_content', '')
                 match = re.search(r'act_id=([^\\]+)', content)
                 if match:
                     self.act_id = match.group(1)
-                    self._calculate_deadline(post["post"]["post"]["created_at"])
+                    self._calculate_deadline(deep_get(post, 'post.post.created_at', ''))
                     return True
             return False
         except Exception as e:
@@ -51,14 +71,15 @@ class GameRedeemCode:
         print(url)
         print(headers)
         try:
-            response = requests.get(url, headers=headers)
+            session = self.new_session()
+            response = session.get(url, headers=headers)
             data = response.json()
 
             if data.get("retcode") != 0:
                 return None
 
-            self.code_ver = data["data"]["live"]["code_ver"]
-            return data["data"]["live"]
+            self.code_ver = deep_get(data, 'data.live.code_ver')
+            return deep_get(data, 'data.live')
         except Exception as e:
             print(f"获取直播信息失败: {str(e)}")
             return None
@@ -72,14 +93,16 @@ class GameRedeemCode:
         if not live_info or live_info["remain"] > 0:
             return None
 
-        url = f"https://api-takumi-static.mihoyo.com/event/miyolive/refreshCode?version={self.code_ver}&time={int(datetime.now().timestamp())}"
+        url = (f"https://api-takumi-static.mihoyo.com/event/miyolive/refreshCode?version={self.code_ver}&time="
+               f"{int(datetime.now().timestamp())}")
         headers = {**self.headers, "x-rpc-act_id": self.act_id}
         print(url)
         print(headers)
         try:
             response = requests.get(url, headers=headers)
             data = response.json()
-            return [code["code"] for code in data["data"]["code_list"]]
+            code_list = deep_get(data, 'data.code_list', [])
+            return [code["code"] for code in code_list]
         except Exception as e:
             print(f"获取兑换码失败: {str(e)}")
             return None

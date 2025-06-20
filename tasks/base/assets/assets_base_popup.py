@@ -136,3 +136,20 @@ POPUP_STORY_LATER = ButtonWrapper(
         button=(392, 534, 416, 558),
     ),
 )
+POPUP_TITLE_TIP = ButtonWrapper(
+    name='POPUP_TITLE_TIP',
+    cn=Button(
+        file='./assets/cn/base/popup/POPUP_TITLE_TIP.png',
+        area=(614, 243, 666, 267),
+        search=(594, 223, 686, 287),
+        color=(138, 137, 138),
+        button=(614, 243, 666, 267),
+    ),
+    en=Button(
+        file='./assets/en/base/popup/POPUP_TITLE_TIP.png',
+        area=(620, 245, 659, 272),
+        search=(600, 225, 679, 292),
+        color=(163, 162, 163),
+        button=(620, 245, 659, 272),
+    ),
+)

@@ -77,3 +77,13 @@ INPUT_CLICK = ButtonWrapper(
         button=(267, 336, 463, 365),
     ),
 )
+INPUT_PASTE = ButtonWrapper(
+    name='INPUT_PASTE',
+    share=Button(
+        file='./assets/share/freebies/code/INPUT_PASTE.png',
+        area=(996, 338, 1020, 362),
+        search=(976, 318, 1040, 382),
+        color=(193, 192, 194),
+        button=(996, 338, 1020, 362),
+    ),
+)

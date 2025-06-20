@@ -124,7 +124,7 @@ class DungeonEvent(UI):
         # 42 is double calyx on homecoming account
         # 4 is double rogue on homecoming account
         # 21 is double relic event that last one week
-        if total not in [3, 4, 6, 12, 21, 42]:
+        if total not in [3, 4, 6, 12, 21, 42, 84]:
             logger.warning(f'Invalid double event remain')
             remain = 0
         return remain
@@ -161,7 +161,7 @@ class DungeonEvent(UI):
             if not ocr.is_format_matched(row.ocr_text):
                 continue
             remain, _, total = ocr.format_result(row.ocr_text)
-            if total in [3, 4, 6, 12, 21, 42]:
+            if total in [3, 4, 6, 12, 21, 42, 84]:
                 logger.attr('Double event remain at combat', remain)
                 return remain
         logger.warning('Double event appears but failed to get remain')

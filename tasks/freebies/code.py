@@ -3,7 +3,7 @@ from module.base.timer import Timer
 from module.logger import logger
 from module.ocr.ocr import Ocr
 from tasks.base.assets.assets_base_page import MAIN_GOTO_MENU
-from tasks.base.assets.assets_base_popup import POPUP_CANCEL, POPUP_CONFIRM, POPUP_SINGLE
+from tasks.base.assets.assets_base_popup import POPUP_CANCEL, POPUP_CONFIRM, POPUP_SINGLE, POPUP_TITLE_TIP
 from tasks.base.page import page_menu
 from tasks.base.ui import UI
 from tasks.freebies.assets.assets_freebies_code import *
@@ -47,7 +47,7 @@ class RedemptionCode(UI):
 
         Pages:
             in: page_menu
-            out: is_in_code_input
+            out: CODE_CHECK
         """
         logger.hr('Code enter')
         self.interval_clear([
@@ -66,19 +66,6 @@ class RedemptionCode(UI):
                 self.device.click(MENU_TO_PROFILE)
                 continue
             if self.appear_then_click(CODE_ENTER, interval=3):
-                continue
-
-        trial = 0
-        for _ in self.loop():
-            if self.is_in_code_input():
-                break
-
-            if self.appear(CODE_CHECK, interval=3):
-                self.device.click(INPUT_CLICK)
-                trial += 1
-                if trial >= 3:
-                    logger.warning('Failed to enter input, assume entered')
-                    break
                 continue
 
     def _code_exit(self):
@@ -112,19 +99,28 @@ class RedemptionCode(UI):
         Input code into game using uiautomator2
         """
         logger.info(f'Code input: {code}')
+        self.interval_clear([
+            POPUP_CONFIRM
+        ])
         interval = Timer(2, count=6)
         for _ in self.loop():
-            if self.appear(POPUP_CONFIRM):
-                logger.info('Code inputted')
-                break
+            # might be both CODE_CHECK and POPUP_TITLE_TIP when POPUP_TITLE_TIP is transparent
+            if self.appear(CODE_CHECK) and not self.appear(POPUP_TITLE_TIP) and self.appear(POPUP_CONFIRM):
+                # check if POPUP_CONFIRM is white
+                area = POPUP_CONFIRM.button
+                area = (area[0] - 50, area[1] - 5, area[2] + 50, area[3] + 5)
+                if self.image_color_count(area, color=(225, 225, 225), count=500, threshold=221):
+                    logger.info('Code inputted')
+                    break
 
             if interval.reached():
+                logger.info('set_clipboard')
                 d = self.device.u2
-                d.send_keys(code)
-                interval.reset()
-                # after input, re-click INPUT_CLICK to close IME
+                d.set_clipboard(code)
                 # no need to retry this clicking because POPUP_CONFIRM will only appear when code is not empty
-                self.device.click(INPUT_CLICK)
+                self.device.click(INPUT_PASTE)
+                interval.reset()
+            if self.appear(POPUP_TITLE_TIP) and self.handle_popup_confirm():
                 continue
 
     def _code_redeem(self):

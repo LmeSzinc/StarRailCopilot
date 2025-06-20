@@ -1226,6 +1226,10 @@
         "type": "checkbox",
         "value": false
       },
+      "FuelOnlyPlanner": {
+        "type": "checkbox",
+        "value": false
+      },
       "FuelReserve": {
         "type": "input",
         "value": 5
@@ -1394,6 +1398,10 @@
         "value": false
       },
       "UseFuel": {
+        "type": "checkbox",
+        "value": false
+      },
+      "FuelOnlyPlanner": {
         "type": "checkbox",
         "value": false
       },
@@ -1801,10 +1809,23 @@
         "display": "hide"
       }
     },
-    "SupportReward": {
-      "Collect": {
+    "Freebies": {
+      "SupportReward": {
         "type": "checkbox",
         "value": true
+      },
+      "MailReward": {
+        "type": "checkbox",
+        "value": true
+      },
+      "RedemptionCode": {
+        "type": "checkbox",
+        "value": true
+      },
+      "UsedCode": {
+        "type": "dict",
+        "value": {},
+        "display": "hide"
       }
     }
   },

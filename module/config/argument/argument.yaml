@@ -108,6 +108,7 @@ Dungeon:
 TrailblazePower:
   ExtractReservedTrailblazePower: false
   UseFuel: false
+  FuelOnlyPlanner: false
   FuelReserve: 5
 DungeonSupport:
   Use:
@@ -140,8 +141,14 @@ DungeonStorage:
     stored: StoredRelic
     order: 3
     color: "#79dbc4"
-SupportReward:
-  Collect: true
+Freebies:
+  SupportReward: true
+  MailReward: true
+  RedemptionCode: true
+  UsedCode:
+    display: hide
+    type: dict
+    value: {}
 Planner:
   PlannerOverall:
     stored: StoredPlannerOverall

@@ -382,6 +382,10 @@
       "name": "使用燃料",
       "help": ""
     },
+    "FuelOnlyPlanner": {
+      "name": "僅在養成規劃時使用燃料",
+      "help": ""
+    },
     "FuelReserve": {
       "name": "保留 X 燃料",
       "help": ""
@@ -514,14 +518,26 @@
       "help": ""
     }
   },
-  "SupportReward": {
+  "Freebies": {
     "_info": {
-      "name": "支援獎勵",
+      "name": "白嫖獎勵設定",
       "help": ""
     },
-    "Collect": {
-      "name": "收取支援獎勵",
+    "SupportReward": {
+      "name": "領取支援獎勵",
       "help": ""
+    },
+    "MailReward": {
+      "name": "領取郵件獎勵",
+      "help": ""
+    },
+    "RedemptionCode": {
+      "name": "領取前瞻兌換碼",
+      "help": ""
+    },
+    "UsedCode": {
+      "name": "Freebies.UsedCode.name",
+      "help": "Freebies.UsedCode.help"
     }
   },
   "Planner": {

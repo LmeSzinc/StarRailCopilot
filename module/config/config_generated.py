@@ -50,6 +50,7 @@ class GeneratedConfig:
     # Group `TrailblazePower`
     TrailblazePower_ExtractReservedTrailblazePower = False
     TrailblazePower_UseFuel = False
+    TrailblazePower_FuelOnlyPlanner = False
     TrailblazePower_FuelReserve = 5
 
     # Group `DungeonSupport`
@@ -66,8 +67,11 @@ class GeneratedConfig:
     DungeonStorage_SimulatedUniverse = {}
     DungeonStorage_Relic = {}
 
-    # Group `SupportReward`
-    SupportReward_Collect = True
+    # Group `Freebies`
+    Freebies_SupportReward = True
+    Freebies_MailReward = True
+    Freebies_RedemptionCode = True
+    Freebies_UsedCode = {}
 
     # Group `Planner`
     Planner_PlannerOverall = {}

@@ -382,6 +382,10 @@
       "name": "使用燃料",
       "help": ""
     },
+    "FuelOnlyPlanner": {
+      "name": "仅在养成规划时使用燃料",
+      "help": ""
+    },
     "FuelReserve": {
       "name": "保留 X 燃料",
       "help": ""
@@ -514,14 +518,26 @@
       "help": ""
     }
   },
-  "SupportReward": {
+  "Freebies": {
     "_info": {
-      "name": "支援奖励",
+      "name": "白嫖奖励设置",
       "help": ""
     },
-    "Collect": {
+    "SupportReward": {
       "name": "领取支援奖励",
       "help": ""
+    },
+    "MailReward": {
+      "name": "领取邮件奖励",
+      "help": ""
+    },
+    "RedemptionCode": {
+      "name": "领取前瞻兑换码",
+      "help": ""
+    },
+    "UsedCode": {
+      "name": "Freebies.UsedCode.name",
+      "help": "Freebies.UsedCode.help"
     }
   },
   "Planner": {

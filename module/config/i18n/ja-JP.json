@@ -382,6 +382,10 @@
       "name": "TrailblazePower.UseFuel.name",
       "help": "TrailblazePower.UseFuel.help"
     },
+    "FuelOnlyPlanner": {
+      "name": "TrailblazePower.FuelOnlyPlanner.name",
+      "help": "TrailblazePower.FuelOnlyPlanner.help"
+    },
     "FuelReserve": {
       "name": "TrailblazePower.FuelReserve.name",
       "help": "TrailblazePower.FuelReserve.help"
@@ -514,14 +518,26 @@
       "help": "DungeonStorage.Relic.help"
     }
   },
-  "SupportReward": {
+  "Freebies": {
     "_info": {
-      "name": "サポートボーナス",
-      "help": ""
+      "name": "Freebies._info.name",
+      "help": "Freebies._info.help"
     },
-    "Collect": {
-      "name": "收取サポートボーナス",
-      "help": ""
+    "SupportReward": {
+      "name": "Freebies.SupportReward.name",
+      "help": "Freebies.SupportReward.help"
+    },
+    "MailReward": {
+      "name": "Freebies.MailReward.name",
+      "help": "Freebies.MailReward.help"
+    },
+    "RedemptionCode": {
+      "name": "Freebies.RedemptionCode.name",
+      "help": "Freebies.RedemptionCode.help"
+    },
+    "UsedCode": {
+      "name": "Freebies.UsedCode.name",
+      "help": "Freebies.UsedCode.help"
     }
   },
   "Planner": {

@@ -785,13 +785,15 @@ class ConfigUpdater:
             dict:
         """
         new = {}
+        type_lock = {'lock', 'state'}
+        type_stored = {'stored', 'dict'}
 
         for keys, data in deep_iter(self.args, depth=3):
             value = deep_get(old, keys=keys, default=data['value'])
             typ = data['type']
             display = data.get('display')
             if is_template or value is None or value == '' \
-                    or typ in ['lock', 'state'] or (display == 'hide' and typ != 'stored'):
+                    or typ in type_lock or (display == 'hide' and typ not in type_stored):
                 value = data['value']
             value = parse_value(value, data=data)
             deep_set(new, keys=keys, value=value)
@@ -911,12 +913,16 @@ class ConfigUpdater:
             yield 'Ornament.TrailblazePower.UseFuel', value
         if key == 'Dungeon.TrailblazePower.FuelReserve':
             yield 'Ornament.TrailblazePower.FuelReserve', value
+        if key == 'Dungeon.TrailblazePower.FuelOnlyPlanner':
+            yield 'Ornament.TrailblazePower.FuelOnlyPlanner', value
         if key == 'Ornament.TrailblazePower.ExtractReservedTrailblazePower':
             yield 'Dungeon.TrailblazePower.ExtractReservedTrailblazePower', value
         if key == 'Ornament.TrailblazePower.UseFuel':
             yield 'Dungeon.TrailblazePower.UseFuel', value
         if key == 'Ornament.TrailblazePower.FuelReserve':
             yield 'Dungeon.TrailblazePower.FuelReserve', value
+        if key == 'Ornament.TrailblazePower.FuelOnlyPlanner':
+            yield 'Dungeon.TrailblazePower.FuelOnlyPlanner', value
 
     def iter_hidden_args(self, data) -> t.Iterator[str]:
         """
@@ -928,8 +934,12 @@ class ConfigUpdater:
         """
         if deep_get(data, 'Dungeon.TrailblazePower.UseFuel') == False:
             yield 'Dungeon.TrailblazePower.FuelReserve'
+        if deep_get(data, 'Dungeon.TrailblazePower.UseFuel') == False:
+            yield 'Dungeon.TrailblazePower.FuelOnlyPlanner'
         if deep_get(data, 'Ornament.TrailblazePower.UseFuel') == False:
             yield 'Ornament.TrailblazePower.FuelReserve'
+        if deep_get(data, 'Ornament.TrailblazePower.UseFuel') == False:
+            yield 'Ornament.TrailblazePower.FuelOnlyPlanner'
         if deep_get(data, 'Rogue.RogueBlessing.PresetBlessingFilter') != 'custom':
             yield 'Rogue.RogueBlessing.CustomBlessingFilter'
         if deep_get(data, 'Rogue.RogueBlessing.PresetResonanceFilter') != 'custom':

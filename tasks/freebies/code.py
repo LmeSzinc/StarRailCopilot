@@ -1,3 +1,4 @@
+from module.base.decorator import cached_property
 from module.base.timer import Timer
 from module.logger import logger
 from module.ocr.ocr import Ocr
@@ -7,6 +8,7 @@ from tasks.base.page import page_menu
 from tasks.base.ui import UI
 from tasks.freebies.assets.assets_freebies_code import *
 from tasks.freebies.assets.assets_freebies_support_reward import MENU_TO_PROFILE
+from tasks.freebies.code_used import CodeManager
 
 
 class RedemptionCode(UI):
@@ -147,6 +149,10 @@ class RedemptionCode(UI):
 
         return True
 
+    @cached_property
+    def code_manager(self):
+        return CodeManager(self)
+
     def code_redeem(self, code):
         """
         Args:
@@ -167,4 +173,20 @@ class RedemptionCode(UI):
 
         self._code_enter()
         self._code_input(code)
-        return self._code_redeem()
+        if self._code_redeem():
+            self.code_manager.mark_used(code)
+            return True
+        else:
+            return False
+
+    def run(self):
+        self.ui_ensure(page_menu)
+
+        total = 0
+        codes = self.code_manager.get_codes()
+        logger.info(f'Redeem codes available: {codes}')
+        for code in codes:
+            if self.code_redeem(code):
+                total += 1
+
+        return total

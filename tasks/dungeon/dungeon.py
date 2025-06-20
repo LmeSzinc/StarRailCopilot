@@ -9,6 +9,7 @@ from tasks.daily.keywords import KEYWORDS_DAILY_QUEST
 from tasks.dungeon.event import DungeonEvent
 from tasks.dungeon.keywords import DungeonList, KEYWORDS_DUNGEON_LIST, KEYWORDS_DUNGEON_NAV, KEYWORDS_DUNGEON_TAB
 from tasks.dungeon.stamina import DungeonStamina
+from tasks.freebies.code_used import CodeManager
 from tasks.item.synthesize import Synthesize
 
 
@@ -391,6 +392,8 @@ class Dungeon(Combat, DungeonStamina, DungeonEvent):
 
             # Delay tasks
             self.dungeon_stamina_delay(dungeon)
+            # call redeem code
+            CodeManager(self).check_redeem_code()
 
     def require_compulsory_support(self) -> bool:
         require = False

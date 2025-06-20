@@ -18,7 +18,6 @@ class SupportReward(UI):
         """
         Run get support reward task
         """
-        logger.hr('Support reward', level=1)
         self.ui_ensure(page_menu)
 
         self._goto_profile()

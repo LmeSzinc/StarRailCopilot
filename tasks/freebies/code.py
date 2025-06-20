@@ -111,7 +111,7 @@ class RedemptionCode(UI):
     def _code_redeem(self):
         """
         Returns:
-            bool: If success
+            str: If having any error message
 
         Pages:
             in: POPUP_CONFIRM
@@ -130,10 +130,10 @@ class RedemptionCode(UI):
 
                 # show reason in log
                 ocr = Ocr(CODE_INVALID)
-                ocr.ocr_single_line(self.device.image)
+                error = ocr.ocr_single_line(self.device.image)
 
                 self._code_exit()
-                return False
+                return error
 
             if self.handle_popup_confirm():
                 # confirm redeem, start global cooldown
@@ -152,7 +152,7 @@ class RedemptionCode(UI):
             if self.handle_popup_single():
                 continue
 
-        return True
+        return ''
 
     @cached_property
     def code_manager(self):
@@ -178,11 +178,9 @@ class RedemptionCode(UI):
 
         self._code_enter()
         self._code_input(code)
-        if self._code_redeem():
-            self.code_manager.mark_used(code)
-            return True
-        else:
-            return False
+        error = self._code_redeem()
+        self.code_manager.mark_used(code, error)
+        return not error
 
     def run(self):
         self.ui_ensure(page_menu)

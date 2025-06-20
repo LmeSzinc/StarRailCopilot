@@ -1,7 +1,8 @@
+import copy
 import os.path
 from datetime import datetime
 
-from module.base.decorator import cached_property
+from module.base.decorator import cached_property, del_cached_property
 from module.config.deep import deep_get, deep_iter, deep_set
 from module.config.server import to_server
 from module.config.utils import read_file
@@ -51,7 +52,7 @@ class CodeManager:
             expires_at = deep_get(row, 'expires_at', '')
             try:
                 expires_at = datetime.fromisoformat(expires_at)
-            except ValueError:
+            except (ValueError, TypeError):
                 logger.warning(f'codes.{path}.expired_at is not a valid time: {expires_at}')
                 continue
             if expires_at.tzinfo is None:
@@ -86,7 +87,7 @@ class CodeManager:
             used_at = deep_get(row, 'used_at', '')
             try:
                 used_at = datetime.fromisoformat(used_at)
-            except ValueError:
+            except (ValueError, TypeError):
                 logger.warning(f'UsedCode.{code}.used_at is not a valid time: {used_at}')
                 continue
             if used_at.tzinfo is None:
@@ -100,26 +101,39 @@ class CodeManager:
                 logger.info(f'UsedCode.{code} is outdated')
                 continue
 
-            data[code] = {'used_at', used_at}
+            row['used_at'] = used_at
+            data[code] = row
 
         # save config if dropped any outdated record
         if len(data) != len(used):
-            self.main.config.cross_set('Freebies.Freebies.UsedCode', data)
+            new = self._to_isoformat(data)
+            self.main.config.cross_set('Freebies.Freebies.UsedCode', new)
 
         return data
 
-    def mark_used(self, code):
+    def _to_isoformat(self, data):
+        data = copy.deepcopy(data)
+        for row in data.values():
+            used_at = row.get('used_at')
+            if isinstance(used_at, datetime):
+                row['used_at'] = used_at.isoformat()
+        return data
+
+    def mark_used(self, code, error=''):
         # check if it's a known code
         current = self.code_current
         if code not in current:
             return
 
-        now = nowtz().isoformat()
-        row = {'used_at': now}
+        row = {'used_at': nowtz()}
+        if error:
+            row['error'] = error
         deep_set(self.code_used, [code], row)
 
         # save config
-        self.main.config.cross_set('Freebies.Freebies.UsedCode', self.code_used)
+        new = self._to_isoformat(self.code_used)
+        self.main.config.cross_set('Freebies.Freebies.UsedCode', new)
+        del_cached_property(self, 'code_used')
 
     def get_codes(self):
         """

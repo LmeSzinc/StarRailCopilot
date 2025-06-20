@@ -53,7 +53,7 @@ class RedemptionCode(UI):
             CODE_CHECK,
         ])
         for _ in self.loop():
-            if self.is_in_code_input():
+            if self.appear(CODE_CHECK):
                 break
 
             if self.is_in_main(interval=5):
@@ -64,8 +64,18 @@ class RedemptionCode(UI):
                 continue
             if self.appear_then_click(CODE_ENTER, interval=3):
                 continue
+
+        trial = 0
+        for _ in self.loop():
+            if self.is_in_code_input():
+                break
+
             if self.appear(CODE_CHECK, interval=3):
                 self.device.click(INPUT_CLICK)
+                trial += 1
+                if trial >= 3:
+                    logger.warning('Failed to enter input, assume entered')
+                    break
                 continue
 
     def _code_exit(self):

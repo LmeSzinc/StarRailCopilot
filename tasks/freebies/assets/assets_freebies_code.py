@@ -47,6 +47,16 @@ CODE_INVALID = ButtonWrapper(
         button=(172, 430, 1108, 460),
     ),
 )
+INPUT_BORDER = ButtonWrapper(
+    name='INPUT_BORDER',
+    share=Button(
+        file='./assets/share/freebies/code/INPUT_BORDER.png',
+        area=(242, 322, 1033, 379),
+        search=(222, 302, 1053, 399),
+        color=(206, 197, 192),
+        button=(242, 322, 1033, 379),
+    ),
+)
 INPUT_CHECK = ButtonWrapper(
     name='INPUT_CHECK',
     share=Button(

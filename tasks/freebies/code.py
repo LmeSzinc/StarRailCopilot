@@ -29,6 +29,9 @@ class RedemptionCode(UI):
         # pure white button at bottom
         if self.image_color_count(INPUT_CHECK, color=(255, 255, 255), count=10000, threshold=221):
             appear = True
+        # input border become orange
+        if self.image_color_count(INPUT_BORDER, color=(210, 119, 10), count=100, threshold=221):
+            appear = True
 
         if appear and interval:
             self.interval_reset(INPUT_CHECK, interval=interval)

@@ -62,13 +62,13 @@ class RedemptionCode(UI):
                 self.device.click(INPUT_CLICK)
                 continue
 
-    def _code_quit(self):
+    def _code_exit(self):
         """
         Pages:
             in: is_in_code_input
             out: page_menu
         """
-        logger.hr('Code quit')
+        logger.hr('Code exit')
         self.interval_clear([
             INPUT_CHECK,
             POPUP_CONFIRM,
@@ -82,6 +82,11 @@ class RedemptionCode(UI):
                 continue
             if self.handle_popup_single():
                 continue
+
+        # clear state
+        self.interval_clear([
+            page_menu.check_button
+        ])
 
     def _code_input(self, code):
         """
@@ -127,7 +132,7 @@ class RedemptionCode(UI):
                 ocr = Ocr(CODE_INVALID)
                 ocr.ocr_single_line(self.device.image)
 
-                self._code_quit()
+                self._code_exit()
                 return False
 
             if self.handle_popup_confirm():

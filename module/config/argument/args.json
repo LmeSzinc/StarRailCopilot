@@ -1809,10 +1809,23 @@
         "display": "hide"
       }
     },
-    "SupportReward": {
-      "Collect": {
+    "Freebies": {
+      "SupportReward": {
         "type": "checkbox",
         "value": true
+      },
+      "MailReward": {
+        "type": "checkbox",
+        "value": true
+      },
+      "RedemptionCode": {
+        "type": "checkbox",
+        "value": true
+      },
+      "UsedCode": {
+        "type": "input",
+        "value": {},
+        "display": "hide"
       }
     }
   },

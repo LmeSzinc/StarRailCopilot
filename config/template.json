@@ -246,8 +246,11 @@
       "Command": "Freebies",
       "ServerUpdate": "04:00"
     },
-    "SupportReward": {
-      "Collect": true
+    "Freebies": {
+      "SupportReward": true,
+      "MailReward": true,
+      "RedemptionCode": true,
+      "UsedCode": {}
     }
   },
   "Weekly": {

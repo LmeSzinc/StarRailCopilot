@@ -518,14 +518,26 @@
       "help": ""
     }
   },
-  "SupportReward": {
+  "Freebies": {
     "_info": {
-      "name": "Support Reward",
+      "name": "Freebies Reward Settings",
       "help": ""
     },
-    "Collect": {
-      "name": "Receive support reward",
+    "SupportReward": {
+      "name": "Receive support rewards",
       "help": ""
+    },
+    "MailReward": {
+      "name": "Receive mail rewards",
+      "help": ""
+    },
+    "RedemptionCode": {
+      "name": "Redeem codes of versioning special program",
+      "help": ""
+    },
+    "UsedCode": {
+      "name": "Freebies.UsedCode.name",
+      "help": "Freebies.UsedCode.help"
     }
   },
   "Planner": {

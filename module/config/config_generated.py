@@ -67,8 +67,11 @@ class GeneratedConfig:
     DungeonStorage_SimulatedUniverse = {}
     DungeonStorage_Relic = {}
 
-    # Group `SupportReward`
-    SupportReward_Collect = True
+    # Group `Freebies`
+    Freebies_SupportReward = True
+    Freebies_MailReward = True
+    Freebies_RedemptionCode = True
+    Freebies_UsedCode = {}
 
     # Group `Planner`
     Planner_PlannerOverall = {}

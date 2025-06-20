@@ -383,8 +383,8 @@
       "help": ""
     },
     "FuelOnlyPlanner": {
-      "name": "TrailblazePower.FuelOnlyPlanner.name",
-      "help": "TrailblazePower.FuelOnlyPlanner.help"
+      "name": "Usar combustible solo en el planificador de personajes",
+      "help": ""
     },
     "FuelReserve": {
       "name": "Reserva X Combustible",
@@ -518,14 +518,26 @@
       "help": ""
     }
   },
-  "SupportReward": {
+  "Freebies": {
     "_info": {
-      "name": "Support Reward",
+      "name": "Configuración de recompensas de obsequios",
       "help": ""
     },
-    "Collect": {
-      "name": "Receive support reward",
+    "SupportReward": {
+      "name": "Recibir recompensas de apoyo",
       "help": ""
+    },
+    "MailReward": {
+      "name": "Recibir recompensas por correo",
+      "help": ""
+    },
+    "RedemptionCode": {
+      "name": "Canjear códigos de programa especial de versiones",
+      "help": ""
+    },
+    "UsedCode": {
+      "name": "Freebies.UsedCode.name",
+      "help": "Freebies.UsedCode.help"
     }
   },
   "Planner": {

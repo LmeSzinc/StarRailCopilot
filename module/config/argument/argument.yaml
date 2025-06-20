@@ -141,8 +141,13 @@ DungeonStorage:
     stored: StoredRelic
     order: 3
     color: "#79dbc4"
-SupportReward:
-  Collect: true
+Freebies:
+  SupportReward: true
+  MailReward: true
+  RedemptionCode: true
+  UsedCode:
+    display: hide
+    value: {}
 Planner:
   PlannerOverall:
     stored: StoredPlannerOverall

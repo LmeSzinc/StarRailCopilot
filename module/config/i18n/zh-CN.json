@@ -533,7 +533,7 @@
     },
     "RedemptionCode": {
       "name": "领取前瞻兑换码",
-      "help": ""
+      "help": "自动获取兑换码，你不需要填写具体的兑换码"
     },
     "UsedCode": {
       "name": "Freebies.UsedCode.name",

@@ -1823,7 +1823,7 @@
         "value": true
       },
       "UsedCode": {
-        "type": "input",
+        "type": "dict",
         "value": {},
         "display": "hide"
       }

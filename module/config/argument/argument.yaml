@@ -147,6 +147,7 @@ Freebies:
   RedemptionCode: true
   UsedCode:
     display: hide
+    type: dict
     value: {}
 Planner:
   PlannerOverall:

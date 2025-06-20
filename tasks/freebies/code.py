@@ -29,6 +29,9 @@ class RedemptionCode(UI):
         # pure white button at bottom
         if self.image_color_count(INPUT_CHECK, color=(255, 255, 255), count=10000, threshold=221):
             appear = True
+        # input border become orange
+        if self.image_color_count(INPUT_BORDER, color=(210, 119, 10), count=100, threshold=221):
+            appear = True
 
         if appear and interval:
             self.interval_reset(INPUT_CHECK, interval=interval)
@@ -53,7 +56,7 @@ class RedemptionCode(UI):
             CODE_CHECK,
         ])
         for _ in self.loop():
-            if self.is_in_code_input():
+            if self.appear(CODE_CHECK):
                 break
 
             if self.is_in_main(interval=5):
@@ -64,8 +67,18 @@ class RedemptionCode(UI):
                 continue
             if self.appear_then_click(CODE_ENTER, interval=3):
                 continue
+
+        trial = 0
+        for _ in self.loop():
+            if self.is_in_code_input():
+                break
+
             if self.appear(CODE_CHECK, interval=3):
                 self.device.click(INPUT_CLICK)
+                trial += 1
+                if trial >= 3:
+                    logger.warning('Failed to enter input, assume entered')
+                    break
                 continue
 
     def _code_exit(self):

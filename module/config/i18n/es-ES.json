@@ -533,7 +533,7 @@
     },
     "RedemptionCode": {
       "name": "Canjear códigos de programa especial de versiones",
-      "help": ""
+      "help": "Obtenga automáticamente el código de canje, no es necesario que complete el código de canje específico"
     },
     "UsedCode": {
       "name": "Freebies.UsedCode.name",

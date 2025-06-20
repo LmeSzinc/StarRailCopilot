@@ -533,7 +533,7 @@
     },
     "RedemptionCode": {
       "name": "領取前瞻兌換碼",
-      "help": ""
+      "help": "自動取得兌換碼，你不需要填寫具體的兌換碼"
     },
     "UsedCode": {
       "name": "Freebies.UsedCode.name",

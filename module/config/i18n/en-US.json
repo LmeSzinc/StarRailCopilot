@@ -533,7 +533,7 @@
     },
     "RedemptionCode": {
       "name": "Redeem codes of versioning special program",
-      "help": ""
+      "help": "Automatically obtain the redemption code, you do not need to fill in the specific redemption code"
     },
     "UsedCode": {
       "name": "Freebies.UsedCode.name",

@@ -226,3 +226,8 @@ class GeneratedConfig:
 
     # Group `PlannerScan`
     PlannerScan_ResultAdd = False
+
+    # Group `RewardCollector`
+    RewardCollector_Enable = True  # True
+    RewardCollector_CollectAchievements = True
+    RewardCollector_CollectSimulatedUniverse = True

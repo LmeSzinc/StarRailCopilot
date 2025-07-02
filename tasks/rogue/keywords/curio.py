@@ -1992,3 +1992,12 @@ Quiz_With_No_Prize_Decrypted = RogueCurio(
     jp='報酬のないクイズブック（クラック版）',
     es='Cuestionario sin recompensa (versión pirateada)',
 )
+Medal_of_the_Gloryblood_Era_Collector_Edition = RogueCurio(
+    id=222,
+    name='Medal_of_the_Gloryblood_Era_Collector_Edition',
+    cn='血锦之纪徽章（典藏版）',
+    cht='血錦之紀徽章（典藏版）',
+    en="Medal of the Gloryblood Era (Collector's Edition)",
+    jp='血錦の徽章（コレクション版）',
+    es='Medalla de la Era Gloriasangrienta (edición de coleccionista)',
+)

@@ -828,6 +828,105 @@ Sweat_Now_Cry_Less = Cone(
     rarity='VeryRare',
     character_name='',
 )
+Journey_Forever_Peaceful = Cone(
+    id=21053,
+    name='Journey_Forever_Peaceful',
+    cn='愿旅途永远坦然',
+    cht='願旅途永遠坦然',
+    en='Journey, Forever Peaceful',
+    jp='旅が平穏であるように',
+    es='Que tu viaje sea siempre pacífico',
+    rarity='VeryRare',
+    character_name='',
+)
+The_Story_Next_Page = Cone(
+    id=21054,
+    name='The_Story_Next_Page',
+    cn='故事的下一页',
+    cht='故事的下一頁',
+    en="The Story's Next Page",
+    jp='物語をめくって',
+    es='La siguiente página de la historia',
+    rarity='VeryRare',
+    character_name='',
+)
+Unto_Tomorrow_Morrow = Cone(
+    id=21055,
+    name='Unto_Tomorrow_Morrow',
+    cn='直到明天的明天',
+    cht='直到明天的明天',
+    en="Unto Tomorrow's Morrow",
+    jp='明日の明日まで',
+    es='Hasta pasado mañana',
+    rarity='VeryRare',
+    character_name='',
+)
+In_Pursuit_of_the_Wind = Cone(
+    id=21056,
+    name='In_Pursuit_of_the_Wind',
+    cn='追逐风的时候',
+    cht='追逐風的時候',
+    en='In Pursuit of the Wind',
+    jp='風を追う時',
+    es='Al perseguir el viento',
+    rarity='VeryRare',
+    character_name='',
+)
+The_Flower_Remembers = Cone(
+    id=21057,
+    name='The_Flower_Remembers',
+    cn='花儿不会忘记',
+    cht='花兒不會忘記',
+    en='The Flower Remembers',
+    jp='花は忘れない',
+    es='Las flores nunca olvidan',
+    rarity='VeryRare',
+    character_name='',
+)
+A_Trail_of_Bygone_Blood = Cone(
+    id=21058,
+    name='A_Trail_of_Bygone_Blood',
+    cn='一行往日的血',
+    cht='一行往日的血',
+    en='A Trail of Bygone Blood',
+    jp='古より受け継がれる血',
+    es='Sangre del pasado',
+    rarity='VeryRare',
+    character_name='',
+)
+A_Dream_Scented_in_Wheat = Cone(
+    id=21060,
+    name='A_Dream_Scented_in_Wheat',
+    cn='氤氲麦香的梦',
+    cht='氤氳麥香的夢',
+    en='A Dream Scented in Wheat',
+    jp='麦の香り漂う夢',
+    es='Sueños de trigo fragante',
+    rarity='VeryRare',
+    character_name='',
+)
+Holiday_Thermae_Escapade = Cone(
+    id=21061,
+    name='Holiday_Thermae_Escapade',
+    cn='假日浴场大冒险',
+    cht='假日浴場大冒險',
+    en='Holiday Thermae Escapade',
+    jp='休日のバルネア大冒険',
+    es='Vacaciones en las termas',
+    rarity='VeryRare',
+    character_name='',
+)
+See_You_at_the_End = Cone(
+    id=21062,
+    name='See_You_at_the_End',
+    cn='于那终点再见',
+    cht='於那終點再見',
+    en='See You at the End',
+    jp='終点でまた会おう',
+    es='Nos vemos al final',
+    rarity='VeryRare',
+    character_name='',
+)
 Before_the_Tutorial_Mission_Starts = Cone(
     id=22000,
     name='Before_the_Tutorial_Mission_Starts',
@@ -1366,6 +1465,39 @@ Lies_Dance_on_the_Breeze = Cone(
     es='Mentiras que vuelan en el viento',
     rarity='SuperRare',
     character_name='Cipher',
+)
+Thus_Burns_the_Dawn = Cone(
+    id=23044,
+    name='Thus_Burns_the_Dawn',
+    cn='黎明恰如此燃烧',
+    cht='黎明恰如此燃燒',
+    en='Thus Burns the Dawn',
+    jp='燃え盛る黎明のように',
+    es='Que arda el alba',
+    rarity='SuperRare',
+    character_name='Phainon',
+)
+A_Thankless_Coronation = Cone(
+    id=23045,
+    name='A_Thankless_Coronation',
+    cn='没有回报的加冕',
+    cht='沒有回報的加冕',
+    en='A Thankless Coronation',
+    jp='報われぬ戴冠',
+    es='Coronación sin agradecimiento',
+    rarity='SuperRare',
+    character_name='',
+)
+The_Hell_Where_Ideals_Burn = Cone(
+    id=23046,
+    name='The_Hell_Where_Ideals_Burn',
+    cn='理想燃烧的地狱',
+    cht='理想燃燒的地獄',
+    en='The Hell Where Ideals Burn',
+    jp='理想を焼く奈落で',
+    es='Infierno donde arden los ideales',
+    rarity='SuperRare',
+    character_name='',
 )
 On_the_Fall_of_an_Aeon = Cone(
     id=24000,

@@ -289,8 +289,21 @@ Invasive_Clot = ItemAscension(
     item_group=1100,
     dungeon_id=1124,
 )
-Darkveil_Moonlight = ItemAscension(
+Charred_Bud_of_Twilight = ItemAscension(
     id=23,
+    name='Charred_Bud_of_Twilight',
+    cn='暮晖烬蕾',
+    cht='暮暉燼蕾',
+    en='Charred Bud of Twilight',
+    jp='夕焼けの蕾',
+    es='Brote del crepúsculo',
+    rarity='VeryRare',
+    item_id=110435,
+    item_group=1100,
+    dungeon_id=1125,
+)
+Darkveil_Moonlight = ItemAscension(
+    id=24,
     name='Darkveil_Moonlight',
     cn='暗帷月华',
     cht='暗帷月華',
@@ -303,7 +316,7 @@ Darkveil_Moonlight = ItemAscension(
     dungeon_id=1123,
 )
 Harbinger_of_Strife = ItemAscension(
-    id=24,
+    id=25,
     name='Harbinger_of_Strife',
     cn='纷争先兆',
     cht='紛爭先兆',

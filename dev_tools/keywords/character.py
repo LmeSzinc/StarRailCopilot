@@ -102,7 +102,11 @@ class GenerateCharacterHeight(GenerateKeyword):
                     continue
                 dict_height[character] = height
 
-        dict_height = {k: v for k, v in sorted(dict_height.items(), key=lambda item: height_index.index(item[1]))}
+        dict_height = {
+            k: v for k, v in sorted(
+                dict_height.items(), key=lambda item: (height_index.index(item[1]), item[0])
+            )
+        }
 
         from tasks.character.keywords.classes import CharacterList
         with self.gen.Dict('CHARACTER_HEIGHT'):

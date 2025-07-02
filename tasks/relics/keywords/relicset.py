@@ -463,3 +463,23 @@ GiantTreeofRaptBrooding = RelicSet(
     es='Árbol gigante en meditación profunda',
     setid=320,
 )
+ArcadiaofWovenDreams = RelicSet(
+    id=47,
+    name='ArcadiaofWovenDreams',
+    cn='妖精织梦的乐园',
+    cht='妖精織夢的樂園',
+    en='Arcadia of Woven Dreams',
+    jp='夢を紡ぐ妖精の楽園',
+    es='Paraíso de las hadas tejesueños',
+    setid=321,
+)
+RevelrybytheSea = RelicSet(
+    id=48,
+    name='RevelrybytheSea',
+    cn='沉欢醉饮的海隅',
+    cht='沉歡醉飲的海隅',
+    en='Revelry by the Sea',
+    jp='酩酊の海域',
+    es='Litoral embriagado',
+    setid=322,
+)

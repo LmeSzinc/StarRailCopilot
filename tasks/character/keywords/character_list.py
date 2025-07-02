@@ -597,6 +597,15 @@ Castorice = CharacterList(
     jp='キャストリス',
     es='Castorice',
 )
+Phainon = CharacterList(
+    id=1408,
+    name='Phainon',
+    cn='白厄',
+    cht='白厄',
+    en='Phainon',
+    jp='ファイノン',
+    es='Fainón',
+)
 Hyacine = CharacterList(
     id=1409,
     name='Hyacine',

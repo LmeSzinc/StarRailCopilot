@@ -1511,7 +1511,7 @@
     "Dungeon": {
       "name": "副本名称",
       "help": "",
-      "Divergent_Universe_Moonlit_Blood": "饰品：（月下朱殷）",
+      "Divergent_Universe_Moonlit_Blood": "饰品：妖精 & 沉醉（月下朱殷）",
       "Divergent_Universe_Unceasing_Strife": "饰品：拾骨地 & 巨树（纷争不休）",
       "Divergent_Universe_Famished_Worker": "饰品：海域 & 奇想（蠹役饥肠）",
       "Divergent_Universe_Eternal_Comedy": "饰品：奔狼 & 火宫（永恒笑剧）",
@@ -1521,7 +1521,7 @@
       "Divergent_Universe_Permafrost": "饰品：贝洛伯格 & 萨尔索图（百年冻土）",
       "Divergent_Universe_Gentle_Words": "饰品：商业公司 & 差分机（温柔话语）",
       "Divergent_Universe_Smelted_Heart": "饰品：盗贼 & 翁瓦克（浴火钢心）",
-      "Divergent_Universe_Untoppled_Walls": "饰品：太空 & 仙舟 & 妖精 & 沉醉（坚城不倒）"
+      "Divergent_Universe_Untoppled_Walls": "饰品：太空 & 仙舟（坚城不倒）"
     },
     "UseImmersifier": {
       "name": "使用沉浸器领取遗器",

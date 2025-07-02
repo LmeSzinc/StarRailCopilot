@@ -1511,7 +1511,7 @@
     "Dungeon": {
       "name": "Dungeon Name",
       "help": "",
-      "Divergent_Universe_Moonlit_Blood": "Ornament:  (Moonlit Blood)",
+      "Divergent_Universe_Moonlit_Blood": "Ornament: Arcadia & Revelry (Moonlit Blood)",
       "Divergent_Universe_Unceasing_Strife": "Ornament: Bone Collection & Giant Tree (Unceasing Strife)",
       "Divergent_Universe_Famished_Worker": "Ornament: Sunken Seas & Wondrous (Famished Worker)",
       "Divergent_Universe_Eternal_Comedy": "Ornament: Running Wolves & Lantern (Eternal Comedy)",
@@ -1521,7 +1521,7 @@
       "Divergent_Universe_Permafrost": "Ornament: Belobog & Salsotto (Permafrost)",
       "Divergent_Universe_Gentle_Words": "Ornament: Commercial Enterprise & Differentiator (Gentle Words)",
       "Divergent_Universe_Smelted_Heart": "Ornament: Banditry & Vonwacq (Smelted Heart)",
-      "Divergent_Universe_Untoppled_Walls": "Ornament: Space & Ageless Fleet & Arcadia & Revelry (Untoppled Walls)"
+      "Divergent_Universe_Untoppled_Walls": "Ornament: Space & Ageless Fleet (Untoppled Walls)"
     },
     "UseImmersifier": {
       "name": "Claim Planars Using Immersifiers",

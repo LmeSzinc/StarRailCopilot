@@ -1511,7 +1511,7 @@
     "Dungeon": {
       "name": "Ornament.Dungeon.name",
       "help": "Ornament.Dungeon.help",
-      "Divergent_Universe_Moonlit_Blood": "飾品：（月下朱殷）",
+      "Divergent_Universe_Moonlit_Blood": "飾品：妖精 & 酩酊（月下朱殷）",
       "Divergent_Universe_Unceasing_Strife": "飾品：拾骨地 & 巨樹（絶えぬ紛争）",
       "Divergent_Universe_Famished_Worker": "飾品：海に沈 & 奇想（飢えた虫卒）",
       "Divergent_Universe_Eternal_Comedy": "飾品：奔狼 & 蓮灯（永遠の喜劇）",
@@ -1521,7 +1521,7 @@
       "Divergent_Universe_Permafrost": "飾品：ベロブルグ & ったサルソット（永久凍土）",
       "Divergent_Universe_Gentle_Words": "飾品：商事会社 & 階差機関（優しい言葉）",
       "Divergent_Universe_Smelted_Heart": "飾品：盗賊 & ウェンワーク（鋼の意志）",
-      "Divergent_Universe_Untoppled_Walls": "飾品：宇宙 & 仙舟 & 妖精 & 酩酊（不動の砦）"
+      "Divergent_Universe_Untoppled_Walls": "飾品：宇宙 & 仙舟（不動の砦）"
     },
     "UseImmersifier": {
       "name": "Ornament.UseImmersifier.name",

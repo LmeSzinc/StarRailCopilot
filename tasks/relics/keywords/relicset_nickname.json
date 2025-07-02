@@ -645,7 +645,7 @@
   },
   "ArcadiaofWovenDreams": {
     "setid": 321,
-    "dungeon_id": 230,
+    "dungeon_id": 330,
     "cn_origin": "妖精织梦的乐园",
     "cht_origin": "妖精織夢的樂園",
     "en_origin": "Arcadia of Woven Dreams",
@@ -659,7 +659,7 @@
   },
   "RevelrybytheSea": {
     "setid": 322,
-    "dungeon_id": 230,
+    "dungeon_id": 330,
     "cn_origin": "沉醉饮的海隅",
     "cht_origin": "沉歡醉飲的海隅",
     "en_origin": "Revelry by the Sea",

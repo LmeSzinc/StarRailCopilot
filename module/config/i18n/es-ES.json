@@ -1511,7 +1511,7 @@
     "Dungeon": {
       "name": "Nombre de la Mazmorra",
       "help": "",
-      "Divergent_Universe_Moonlit_Blood": "Ornamentos:  (Rubor de la luna)",
+      "Divergent_Universe_Moonlit_Blood": "Ornamentos: Paraíso & Embriagado (Rubor de la luna)",
       "Divergent_Universe_Unceasing_Strife": "Ornamentos: Osario sereno & Árbol gigante (Conflicto interminable)",
       "Divergent_Universe_Famished_Worker": "Ornamentos: Bajo el mar & Platanolandia (Obrero famelico)",
       "Divergent_Universe_Eternal_Comedy": "Ornamentos: Lobos raudos & Linterna (Comedia eterna)",
@@ -1521,7 +1521,7 @@
       "Divergent_Universe_Permafrost": "Ornamentos: Belobog & Salsotto (Permafrost)",
       "Divergent_Universe_Gentle_Words": "Ornamentos: Entidad comercial & Diferenciador (Palabras amables)",
       "Divergent_Universe_Smelted_Heart": "Ornamentos: Forajidos & Vonwacq (Corazón de fundición)",
-      "Divergent_Universe_Untoppled_Walls": "Ornamentos: Espacios & Eternos Flota & Paraíso & Embriagado (Muros inquebrantables)"
+      "Divergent_Universe_Untoppled_Walls": "Ornamentos: Espacios & Eternos Flota (Muros inquebrantables)"
     },
     "UseImmersifier": {
       "name": "Reclamar de planars mediante inmersor",

@@ -81,6 +81,7 @@ dict_aired_version = {
     Anaxa: "3.2",
     Hyacine: "3.3",
     Cipher: "3.3",
+    Phainon: "3.4",
 }
 
 

@@ -286,6 +286,7 @@
       "Stagnant_Shadow_Spike": "Ascension: Físico (Natasha / Clara / Luka / Sushang)",
       "Stagnant_Shadow_Perdition": "Ascension: Físico (Hanya / Argenti)",
       "Stagnant_Shadow_Duty": "Ascension: Físico (Boothill / Robin / Yunli)",
+      "Stagnant_Shadow_Deepsheaf": "Ascension: Físico (Fainón)",
       "Stagnant_Shadow_Blaze": "Ascension: Fuego (Himeko / Asta / Hook)",
       "Stagnant_Shadow_Scorch": "Ascension: Fuego (Guinaifen / Topaz y Conti / Fugue)",
       "Stagnant_Shadow_Ire": "Ascension: Fuego (Luciérnaga / Gallagher / Jiaoqiu / Lingsha)",
@@ -407,6 +408,7 @@
       "name": "Personaje de apoyo",
       "help": "Selecciona qué personaje de apoyo de un amigo se usará. Si no se encuentra, se seleccionará al predeterminado.\nEl personaje de apoyo no debe ser el mismo que el personaje del equipo, se recomienda priorizar a los amigos.",
       "FirstCharacter": "Primer personaje",
+      "Phainon": "[3.4] Fainón",
       "Hyacine": "[3.3] Hyacine",
       "Cipher": "[3.3] Cífer",
       "Castorice": "[3.2] Castorice",
@@ -654,6 +656,10 @@
       "help": ""
     },
     "Item_Invasive_Clot": {
+      "name": "Ascension: Físico (Fainón)",
+      "help": ""
+    },
+    "Item_Charred_Bud_of_Twilight": {
       "name": "Unknown_Dungeon_Come_From",
       "help": ""
     },
@@ -811,6 +817,7 @@
       "name": "Character",
       "help": "",
       "_none_": "None",
+      "Phainon": "[3.4] Fainón",
       "Hyacine": "[3.3] Hyacine",
       "Cipher": "[3.3] Cífer",
       "Castorice": "[3.2] Castorice",
@@ -887,6 +894,7 @@
       "name": "Cone",
       "help": "",
       "_none_": "None",
+      "Thus_Burns_the_Dawn": "[3.4] Fainón | 5* Que arda el alba",
       "Lies_Dance_on_the_Breeze": "[3.3] Cífer | 5* Mentiras que vuelan en el viento",
       "Long_May_Rainbows_Adorn_the_Sky": "[3.3] Hyacine | 5* Que el arcoíris siempre este en el cielo",
       "Life_Should_Be_Cast_to_Flames": "[3.2] Anaxa | 5* La vida en llamas",
@@ -930,6 +938,8 @@
       "Texture_of_Memories": "5* La textura de los recuerdos",
       "Cruising_in_the_Stellar_Sea": "5* Crucero estelar",
       "On_the_Fall_of_an_Aeon": "5* Sobre la caída de un Eón",
+      "The_Hell_Where_Ideals_Burn": "5* Infierno donde arden los ideales",
+      "A_Thankless_Coronation": "5* Coronación sin agradecimiento",
       "Time_Waits_for_No_One": "5* El tiempo no espera",
       "Sleep_Like_the_Dead": "5* Dormir como un tronco",
       "Moment_of_Victory": "5* El momento de la victoria",
@@ -942,6 +952,15 @@
       "For_Tomorrow_Journey": "4* Para el viaje de mañana",
       "Hey_Over_Here": "4* Ey, estoy aquí",
       "Before_the_Tutorial_Mission_Starts": "4* Antes de que comience la misión del tutorial",
+      "See_You_at_the_End": "4* Nos vemos al final",
+      "Holiday_Thermae_Escapade": "4* Vacaciones en las termas",
+      "A_Dream_Scented_in_Wheat": "4* Sueños de trigo fragante",
+      "A_Trail_of_Bygone_Blood": "4* Sangre del pasado",
+      "The_Flower_Remembers": "4* Las flores nunca olvidan",
+      "In_Pursuit_of_the_Wind": "4* Al perseguir el viento",
+      "Unto_Tomorrow_Morrow": "4* Hasta pasado mañana",
+      "The_Story_Next_Page": "4* La siguiente página de la historia",
+      "Journey_Forever_Peaceful": "4* Que tu viaje sea siempre pacífico",
       "Sweat_Now_Cry_Less": "4* Más sudor y menos lágrimas",
       "Geniuse_Greetings": "4* Saludo entre genios",
       "Victory_In_a_Blink": "4* Victoria disputada",
@@ -1492,6 +1511,7 @@
     "Dungeon": {
       "name": "Nombre de la Mazmorra",
       "help": "",
+      "Divergent_Universe_Moonlit_Blood": "Ornamentos:  (Rubor de la luna)",
       "Divergent_Universe_Unceasing_Strife": "Ornamentos: Osario sereno & Árbol gigante (Conflicto interminable)",
       "Divergent_Universe_Famished_Worker": "Ornamentos: Bajo el mar & Platanolandia (Obrero famelico)",
       "Divergent_Universe_Eternal_Comedy": "Ornamentos: Lobos raudos & Linterna (Comedia eterna)",
@@ -1501,7 +1521,7 @@
       "Divergent_Universe_Permafrost": "Ornamentos: Belobog & Salsotto (Permafrost)",
       "Divergent_Universe_Gentle_Words": "Ornamentos: Entidad comercial & Diferenciador (Palabras amables)",
       "Divergent_Universe_Smelted_Heart": "Ornamentos: Forajidos & Vonwacq (Corazón de fundición)",
-      "Divergent_Universe_Untoppled_Walls": "Ornamentos: Espacios & Eternos Flota (Muros inquebrantables)"
+      "Divergent_Universe_Untoppled_Walls": "Ornamentos: Espacios & Eternos Flota & Paraíso & Embriagado (Muros inquebrantables)"
     },
     "UseImmersifier": {
       "name": "Reclamar de planars mediante inmersor",

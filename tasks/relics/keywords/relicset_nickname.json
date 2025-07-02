@@ -642,5 +642,33 @@
     "en": "Giant Tree",
     "jp": "巨樹",
     "es": "Árbol gigante"
+  },
+  "ArcadiaofWovenDreams": {
+    "setid": 321,
+    "dungeon_id": 230,
+    "cn_origin": "妖精织梦的乐园",
+    "cht_origin": "妖精織夢的樂園",
+    "en_origin": "Arcadia of Woven Dreams",
+    "jp_origin": "夢を紡ぐ妖精の楽園",
+    "es_origin": "Paraíso de las hadas tejesueños",
+    "cn": "妖精",
+    "cht": "妖精",
+    "en": "Arcadia",
+    "jp": "妖精",
+    "es": "Paraíso"
+  },
+  "RevelrybytheSea": {
+    "setid": 322,
+    "dungeon_id": 230,
+    "cn_origin": "沉醉饮的海隅",
+    "cht_origin": "沉歡醉飲的海隅",
+    "en_origin": "Revelry by the Sea",
+    "jp_origin": "酩酊の海域",
+    "es_origin": "Litoral embriagado",
+    "cn": "沉醉",
+    "cht": "沉醉",
+    "en": "Revelry",
+    "jp": "酩酊",
+    "es": "Embriagado"
   }
 }

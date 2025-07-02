@@ -374,6 +374,12 @@
         "display": "display",
         "stored": "StoredPlanner"
       },
+      "Item_Charred_Bud_of_Twilight": {
+        "type": "planner",
+        "value": {},
+        "display": "display",
+        "stored": "StoredPlanner"
+      },
       "Item_Darkveil_Moonlight": {
         "type": "planner",
         "value": {},
@@ -597,6 +603,7 @@
         "display": "hide",
         "option": [
           "_none_",
+          "Phainon",
           "Hyacine",
           "Cipher",
           "Castorice",
@@ -676,6 +683,7 @@
         "display": "hide",
         "option": [
           "_none_",
+          "Thus_Burns_the_Dawn",
           "Lies_Dance_on_the_Breeze",
           "Long_May_Rainbows_Adorn_the_Sky",
           "Life_Should_Be_Cast_to_Flames",
@@ -719,6 +727,8 @@
           "Texture_of_Memories",
           "Cruising_in_the_Stellar_Sea",
           "On_the_Fall_of_an_Aeon",
+          "The_Hell_Where_Ideals_Burn",
+          "A_Thankless_Coronation",
           "Time_Waits_for_No_One",
           "Sleep_Like_the_Dead",
           "Moment_of_Victory",
@@ -731,6 +741,15 @@
           "For_Tomorrow_Journey",
           "Hey_Over_Here",
           "Before_the_Tutorial_Mission_Starts",
+          "See_You_at_the_End",
+          "Holiday_Thermae_Escapade",
+          "A_Dream_Scented_in_Wheat",
+          "A_Trail_of_Bygone_Blood",
+          "The_Flower_Remembers",
+          "In_Pursuit_of_the_Wind",
+          "Unto_Tomorrow_Morrow",
+          "The_Story_Next_Page",
+          "Journey_Forever_Peaceful",
           "Sweat_Now_Cry_Less",
           "Geniuse_Greetings",
           "Victory_In_a_Blink",
@@ -983,6 +1002,7 @@
           "Stagnant_Shadow_Spike",
           "Stagnant_Shadow_Perdition",
           "Stagnant_Shadow_Duty",
+          "Stagnant_Shadow_Deepsheaf",
           "Stagnant_Shadow_Blaze",
           "Stagnant_Shadow_Scorch",
           "Stagnant_Shadow_Ire",
@@ -1087,6 +1107,7 @@
         "value": "FirstCharacter",
         "option": [
           "FirstCharacter",
+          "Phainon",
           "Hyacine",
           "Cipher",
           "Castorice",
@@ -1267,6 +1288,7 @@
         "type": "select",
         "value": "Divergent_Universe_Eternal_Comedy",
         "option": [
+          "Divergent_Universe_Moonlit_Blood",
           "Divergent_Universe_Unceasing_Strife",
           "Divergent_Universe_Famished_Worker",
           "Divergent_Universe_Eternal_Comedy",
@@ -1318,6 +1340,7 @@
         "value": "FirstCharacter",
         "option": [
           "FirstCharacter",
+          "Phainon",
           "Hyacine",
           "Cipher",
           "Castorice",
@@ -1900,6 +1923,7 @@
         "value": "FirstCharacter",
         "option": [
           "FirstCharacter",
+          "Phainon",
           "Hyacine",
           "Cipher",
           "Castorice",

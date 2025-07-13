@@ -395,13 +395,14 @@ class MapControl(Combat, AimDetectorMixin):
 
         return results
 
-    def clear_item(self, *waypoints):
+    def clear_item(self, *waypoints, poor_try=False):
         """
         Go along a list of position and clear destructive object at last.
 
         Args:
             waypoints: position (x, y), a list of position to go along.
                 or a list of Waypoint objects to go along.
+            poor_try: True to call combat_poor_try() if didn't clear an item
 
         Returns:
             list[str]: A list of walk result
@@ -414,7 +415,13 @@ class MapControl(Combat, AimDetectorMixin):
         end_point = waypoints[-1]
         end_point.expected_end.append('item')
 
-        return self.goto(*waypoints)
+        results = self.goto(*waypoints)
+
+        if poor_try and not results:
+            if self.is_in_main():
+                self.handle_map_A()
+
+        return results
 
     def clear_enemy(self, *waypoints, poor_try=False):
         """

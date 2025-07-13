@@ -93,6 +93,16 @@ STORY_OPTION = ButtonWrapper(
         button=(813, 453, 1069, 488),
     ),
 )
+STORY_SKIP = ButtonWrapper(
+    name='STORY_SKIP',
+    share=Button(
+        file='./assets/share/base/daemon/STORY_SKIP.png',
+        area=(985, 41, 1001, 59),
+        search=(965, 21, 1021, 79),
+        color=(74, 73, 82),
+        button=(985, 41, 1001, 59),
+    ),
+)
 TUTORIAL_CHECK = ButtonWrapper(
     name='TUTORIAL_CHECK',
     share=Button(

@@ -183,6 +183,11 @@ class InventoryManager:
                 yield rect
 
         area_item = list(iter_area(image_item))
+        if not area_item:
+            logger.warning('Empty area_item list')
+            self.items = {}
+            self.selected = None
+            return
 
         # Re-generate a correct xy array
         points = np.array(area_item)

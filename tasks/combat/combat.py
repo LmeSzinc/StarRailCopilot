@@ -1,4 +1,5 @@
 from module.base.decorator import run_once
+from module.base.timer import Timer
 from module.exception import RequestHumanTakeover
 from module.logger import logger
 from tasks.base.page import page_guide
@@ -111,7 +112,6 @@ class Combat(CombatInteract, CombatPrepare, CombatSupport, CombatTeam, CombatSki
             out: is_combat_executing
         """
         logger.hr('Combat prepare')
-        skip_first_screenshot = True
         if support_character:
             # Block COMBAT_TEAM_PREPARE before support set
             support_set = False
@@ -121,12 +121,7 @@ class Combat(CombatInteract, CombatPrepare, CombatSupport, CombatTeam, CombatSki
         logger.info([support_character, support_set])
         combat_trial = 0
         team_trial = 0
-        while 1:
-            if skip_first_screenshot:
-                skip_first_screenshot = False
-            else:
-                self.device.screenshot()
-
+        for _ in self.loop():
             # End
             if self.is_combat_executing():
                 return True
@@ -192,18 +187,13 @@ class Combat(CombatInteract, CombatPrepare, CombatSupport, CombatTeam, CombatSki
             out: COMBAT_AGAIN
         """
         logger.hr('Combat execute')
-        skip_first_screenshot = True
-        is_executing = True
         self.combat_state_reset()
         self.device.stuck_record_clear()
         self.device.click_record_clear()
         self.device.screenshot_interval_set('combat')
-        while 1:
-            if skip_first_screenshot:
-                skip_first_screenshot = False
-            else:
-                self.device.screenshot()
+        log_continue = Timer(10).start()
 
+        for _ in self.loop():
             # End
             if callable(expected_end) and expected_end():
                 logger.info(f'Combat execute ended at {expected_end.__name__}')
@@ -217,19 +207,18 @@ class Combat(CombatInteract, CombatPrepare, CombatSupport, CombatTeam, CombatSki
                 break
 
             # Daemon
-            if self.is_combat_executing():
-                if not is_executing:
+            if self.handle_combat_damage_change():
+                if log_continue.reached():
                     logger.info('Combat continues')
                     self.device.stuck_record_clear()
-                is_executing = True
-            else:
-                is_executing = False
+                    log_continue.reset()
             if self.handle_combat_state():
                 continue
             # Battle pass popup appears just after combat finished and before blessings
             if self.handle_battle_pass_notification():
                 continue
 
+        self.combat_state_reset()
         self.device.stuck_record_clear()
         self.device.click_record_clear()
         self.device.screenshot_interval_set()
@@ -342,14 +331,8 @@ class Combat(CombatInteract, CombatPrepare, CombatSupport, CombatTeam, CombatSki
             self.combat_wave_done += self.combat_waves
             logger.info(f'Done {self.combat_waves} waves at total')
 
-        skip_first_screenshot = True
         combat_can_again = None
-        while 1:
-            if skip_first_screenshot:
-                skip_first_screenshot = False
-            else:
-                self.device.screenshot()
-
+        for _ in self.loop():
             # End
             if self.is_in_main():
                 logger.info('Combat finishes at page_main')
@@ -388,7 +371,7 @@ class Combat(CombatInteract, CombatPrepare, CombatSupport, CombatTeam, CombatSki
             if self.handle_popup_confirm():
                 continue
 
-    def combat_exit(self, skip_first_screenshot=True):
+    def combat_exit(self):
         """
         Pages:
             in: Any page during combat
@@ -396,12 +379,8 @@ class Combat(CombatInteract, CombatPrepare, CombatSupport, CombatTeam, CombatSki
         """
         logger.info('Combat exit')
         self.interval_clear([COMBAT_PREPARE, COMBAT_TEAM_PREPARE, COMBAT_AGAIN])
-        while 1:
-            if skip_first_screenshot:
-                skip_first_screenshot = False
-            else:
-                self.device.screenshot()
 
+        for _ in self.loop():
             # End
             if self.is_in_main():
                 break

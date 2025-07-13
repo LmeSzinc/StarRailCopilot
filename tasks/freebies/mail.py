@@ -44,14 +44,15 @@ class MailReward(UI):
         for _ in self.loop():
             if self.ui_page_appear(page_menu):
                 break
+
+            if self.handle_reward():
+                self.interval_clear(MAIL_CHECK)
+                continue
+            if self.handle_popup_confirm():
+                continue
             if self.match_template_luma(MAIL_CHECK, interval=3):
                 logger.info(f'{MAIL_CHECK} -> {BACK}')
                 self.device.click(BACK)
-
-            # slow popups
-            if self.handle_popup_confirm():
-                continue
-            if self.handle_reward():
                 continue
 
         # clear state

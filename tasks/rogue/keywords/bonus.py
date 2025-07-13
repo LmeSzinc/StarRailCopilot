@@ -498,3 +498,39 @@ Mirage_In_The_Water = RogueBonus(
     jp='水中の影',
     es='Espejismo bajo el agua',
 )
+Gift_of_Creation = RogueBonus(
+    id=56,
+    name='Gift_of_Creation',
+    cn='创生之赐',
+    cht='創生之賜',
+    en='Gift of Creation',
+    jp='創生の賜物',
+    es='Bendición de la creación',
+)
+Final_Spear = RogueBonus(
+    id=57,
+    name='Final_Spear',
+    cn='最后的枪',
+    cht='最後的槍',
+    en='Final Spear',
+    jp='最後の銃',
+    es='La última lanza',
+)
+Poem_of_the_Stars = RogueBonus(
+    id=58,
+    name='Poem_of_the_Stars',
+    cn='星的诗篇',
+    cht='星的詩篇',
+    en='Poem of the Stars',
+    jp='星の詩篇',
+    es='Poema de las estrellas',
+)
+Data_Collection = RogueBonus(
+    id=59,
+    name='Data_Collection',
+    cn='集群数据',
+    cht='叢集資料',
+    en='Data Collection',
+    jp='クラスターデータ',
+    es='Datos colectivos',
+)

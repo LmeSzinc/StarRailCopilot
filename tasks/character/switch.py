@@ -104,8 +104,7 @@ class CharacterSwitch(UI):
                 TrailblazerHarmonyFemale,
             ],
             KEYWORDS_CHARACTER_LIST.TrailblazerRemembrance: [
-                # TODO: Add TrailblazerRemembranceMale
-                # TrailblazerRemembranceMale,
+                TrailblazerRemembranceMale,
                 TrailblazerRemembranceFemale,
             ],
             KEYWORDS_CHARACTER_LIST.Huohuo: [Huohuo],

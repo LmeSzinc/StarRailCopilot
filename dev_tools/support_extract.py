@@ -1,13 +1,14 @@
 from module.exception import ScriptError
 from module.logger import logger
+from tasks.combat.assets.assets_combat_prepare import COMBAT_PREPARE
 from tasks.combat.assets.assets_combat_support import COMBAT_SUPPORT_LIST
+from tasks.combat.assets.assets_combat_team import COMBAT_TEAM_SUPPORT
 from tasks.combat.support_dev import SupportDev
-from tasks.dungeon.keywords import DungeonList, KEYWORDS_DUNGEON_TAB
-from tasks.ornament.assets.assets_ornament_combat import SUPPORT_ADD
-from tasks.ornament.ornament import Ornament
+from tasks.dungeon.dungeon import Dungeon
+from tasks.dungeon.keywords import DungeonList, KEYWORDS_DUNGEON_LIST, KEYWORDS_DUNGEON_TAB
 
 
-class SupportExtract(Ornament, SupportDev):
+class SupportExtract(Dungeon, SupportDev):
     def get_first_ornament_dungeon(self) -> DungeonList:
         for dungeon in DungeonList.instances.values():
             if dungeon.is_Ornament_Extraction:
@@ -22,7 +23,7 @@ class SupportExtract(Ornament, SupportDev):
             out: COMBAT_SUPPORT_LIST
         """
         logger.info('Support enter')
-        self.interval_clear(SUPPORT_ADD)
+        self.interval_clear(COMBAT_TEAM_SUPPORT)
         while 1:
             if skip_first_screenshot:
                 skip_first_screenshot = False
@@ -30,9 +31,10 @@ class SupportExtract(Ornament, SupportDev):
                 self.device.screenshot()
             if self.appear(COMBAT_SUPPORT_LIST):
                 break
-            if self.appear(SUPPORT_ADD, interval=2):
-                self.device.click(SUPPORT_ADD)
-                self.interval_reset(SUPPORT_ADD)
+            if self.appear_then_click(COMBAT_TEAM_SUPPORT, interval=2):
+                self.interval_reset(COMBAT_PREPARE)
+                continue
+            if self.appear_then_click(COMBAT_PREPARE, interval=5):
                 continue
 
     def support_quit(self, skip_first_screenshot=True):
@@ -43,16 +45,16 @@ class SupportExtract(Ornament, SupportDev):
         """
         logger.info('Support quit')
         self.interval_clear(COMBAT_SUPPORT_LIST)
-        SUPPORT_ADD.clear_offset()
+        COMBAT_TEAM_SUPPORT.clear_offset()
         while 1:
             if skip_first_screenshot:
                 skip_first_screenshot = False
             else:
                 self.device.screenshot()
-            if self.appear(SUPPORT_ADD):
+            if self.appear(COMBAT_TEAM_SUPPORT):
                 break
             if self.appear(COMBAT_SUPPORT_LIST, interval=2):
-                self.device.click(SUPPORT_ADD)
+                self.device.click(COMBAT_TEAM_SUPPORT)
                 self.interval_reset(COMBAT_SUPPORT_LIST)
                 continue
 
@@ -72,23 +74,28 @@ class SupportExtract(Ornament, SupportDev):
     def goto_support_page(self):
         """
         Pages:
-            out: COMBAT_SUPPORT_LIST, in ornament extraction
-                because you can enter support without having enough stamina
+            out: COMBAT_SUPPORT_LIST
         """
         if self.appear(COMBAT_SUPPORT_LIST):
             logger.info('Already in support page')
             self._init_support_page()
             return
 
-        if self.appear(SUPPORT_ADD):
+        if self.appear(COMBAT_TEAM_SUPPORT):
             logger.info('At SUPPORT_ADD')
             self.support_enter()
             self._init_support_page()
             return
 
+        if self.appear(COMBAT_PREPARE):
+            logger.info('At COMBAT_PREPARE')
+            self.support_enter()
+            self._init_support_page()
+            return
+
         logger.info('Goto support page')
-        # Goto first ornament extraction
-        dungeon = self.get_first_ornament_dungeon()
+        # Goto first calyx golden
+        dungeon = KEYWORDS_DUNGEON_LIST.Calyx_Golden_Aether_Amphoreus
         self.dungeon_tab_goto(KEYWORDS_DUNGEON_TAB.Survival_Index)
         self.dungeon_goto(dungeon)
         self.support_enter()

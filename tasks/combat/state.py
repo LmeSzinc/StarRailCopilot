@@ -5,7 +5,7 @@ from module.base.timer import Timer
 from module.base.utils import rgb2luma
 from module.logger import logger
 from tasks.base.ui import UI
-from tasks.combat.assets.assets_combat_state import COMBAT_AUTO, COMBAT_PAUSE, COMBAT_SPEED_2X
+from tasks.combat.assets.assets_combat_state import *
 
 
 class CombatState(UI):
@@ -13,6 +13,8 @@ class CombatState(UI):
     _combat_enter_timer = Timer(1, count=3)
     _combat_auto_checked = False
     _combat_2x_checked = False
+    # gray scale image or None
+    _combat_damage_image = None
 
     def is_combat_executing(self) -> bool:
         appear = self.appear(COMBAT_PAUSE)
@@ -58,6 +60,8 @@ class CombatState(UI):
         self._combat_click_interval.clear()
         # Game client does not response to COMBAT_AUTO clicks at the very beginning
         self._combat_enter_timer.reset()
+        # clear cache
+        self._combat_damage_image = None
 
     def handle_combat_state(self, auto=True, speed_2x=True):
         """
@@ -117,3 +121,32 @@ class CombatState(UI):
                     self._combat_auto_checked = True
 
         return False
+
+    def handle_combat_damage_change(self):
+        """
+        Watch combat damage changes
+        If damage changed, we consider combat is still ongoing
+
+        Returns:
+            bool: If changed
+        """
+        # must have damage numbers
+        if not self.image_color_count(COMBAT_DAMAGE, color=(255, 255, 180), threshold=221, count=100):
+            return False
+
+        image = self.image_crop(COMBAT_DAMAGE, copy=False)
+        image = rgb2luma(image)
+        if self._combat_damage_image is None:
+            # new image
+            self._combat_damage_image = image
+            return True
+        else:
+            # existing image, try if changed
+            res = cv2.matchTemplate(self._combat_damage_image, image, cv2.TM_CCOEFF_NORMED)
+            _, sim, _, _ = cv2.minMaxLoc(res)
+            # logger.info(sim)
+            if sim <= 0.75:
+                self._combat_damage_image = image
+                return True
+            else:
+                return False

@@ -210,3 +210,12 @@ Stagnant_Shadow_Gelidmoon = DungeonDetailed(
     jp='昇格素材：量子（トリビー / キャストリス / サフェル）',
     es='Ascension: Cuántico (Tribbie / Castorice / Cífer)',
 )
+Stagnant_Shadow_Deepsheaf = DungeonDetailed(
+    id=24,
+    name='Stagnant_Shadow_Deepsheaf',
+    cn='晋阶材料：物理（白厄）',
+    cht='晉階材料：物理（白厄）',
+    en='Ascension: Physical (Phainon)',
+    jp='昇格素材：物理（ファイノン）',
+    es='Ascension: Físico (Fainón)',
+)

@@ -887,9 +887,20 @@ class Connection(ConnectionAttr):
             self.adb_connect()
             self.detect_device()
         else:
-            self.adb_disconnect()
-            self.adb_connect()
-            self.detect_device()
+            try:
+                self.adb_disconnect()
+                self.adb_connect()
+                self.detect_device()
+            except EmulatorNotRunningError:
+                if self.emulator_instance is not None:
+                    self.emulator_start()
+                else:
+                    logger.critical(
+                        f'No emulator with serial "{self.config.Emulator_Serial}" found, '
+                        f'please set a correct serial'
+                    )
+                    raise RequestHumanTakeover
+
 
     @Config.when(DEVICE_OVER_HTTP=True)
     def adb_reconnect(self):

@@ -232,7 +232,8 @@
       "help": "Cerrar Honkai: Star Rail cuando no haya tareas puede ayudar a reducir el consumo de CPU.",
       "stay_there": "Quedarse en el sitio",
       "goto_main": "Ir al lugar principal",
-      "close_game": "Cerrar el juego"
+      "close_game": "Cerrar el juego",
+      "close_emulator": "Cerrar el emulador"
     }
   },
   "Dungeon": {

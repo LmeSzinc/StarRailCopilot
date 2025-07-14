@@ -81,7 +81,6 @@ class Device(Screenshot, Control, AppControl):
                     raise RequestHumanTakeover
                 # Try to start emulator
                 if self.emulator_instance is not None:
-                    logger.info('Start emulator-------------------------------------------------------')
                     self.emulator_start()
                 else:
                     logger.critical(

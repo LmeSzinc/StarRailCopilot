@@ -246,11 +246,13 @@ class AzurLaneAutoScript:
                         logger.warning(f'Failed to stop emulator: {e}')
                     if not self.wait_until(task.next_run):
                         del_cached_property(self, 'config')
+                        del_cached_property(self, 'device')
                         continue
                     # 重新启动模拟器
                     if task.command != 'Restart':
                         self.config.task_call('Restart')
                         del_cached_property(self, 'config')
+                        del_cached_property(self, 'device')
                         continue
                 else:
                     logger.warning(f'Invalid Optimization_WhenTaskQueueEmpty: {method}, fallback to stay_there')

@@ -891,6 +891,8 @@ class Connection(ConnectionAttr):
             self.adb_connect()
             self.detect_device()
 
+
+
     @Config.when(DEVICE_OVER_HTTP=True)
     def adb_reconnect(self):
         logger.warning(

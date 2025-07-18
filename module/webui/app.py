@@ -88,7 +88,7 @@ from module.webui.widgets import (
     put_none,
     put_output,
 )
-
+from pywebio.pin import pin,put_checkbox
 patch_executor()
 task_handler = TaskHandler()
 
@@ -120,6 +120,41 @@ class AlasGUI(Frame):
         self.inst_cache = []
         self.load_home = False
         self.af_flag = False
+        self._register_pin_on_change()
+
+    def _register_pin_on_change(self):
+        for name in alas_instance():
+            pin_on_change(
+                f"batch_alas_{name}",
+                lambda value, n=name: self.toggle_checkbox(n, value)
+            )
+
+    def batch_stop_selected(self):
+        stopped = 0
+        for name in alas_instance():
+            checkbox_value = getattr(pin, f"batch_alas_{name}", [])
+            if name in checkbox_value:
+                manager = ProcessManager.get_manager(name)
+                if manager.alive:
+                    manager.stop()
+                    stopped += 1
+        toast(f"已停止 {stopped} 个调度器", color="warning")
+
+    def batch_start_selected(self):
+        started = 0
+        for name in alas_instance():
+            checkbox_value = getattr(pin,f"batch_alas_{name}", [])
+            if name in checkbox_value:
+                manager = ProcessManager.get_manager(name)
+                if not manager.alive:
+                    manager.start(None, updater.event)
+                    started += 1
+        toast(f"已启动 {started} 个调度器", color="success")
+
+    def toggle_checkbox(self, name, value):
+        is_checked = name in value
+        pin[f"batch_alas_{name}"] = [name] if is_checked else []
+        logger.info(f"toggle_checkbox {name}: {value}")
 
     @use_scope("aside", clear=True)
     def set_aside(self) -> None:
@@ -130,7 +165,7 @@ class AlasGUI(Frame):
                 {"label": t("Gui.Aside.Home"), "value": "Home", "color": "aside"}
             ],
             onclick=[self.ui_develop],
-        ),
+        ).style("justify-content: center;")
         put_scope("aside_instance",[
             put_scope(f"alas-instance-{i}",[])
             for i, _ in enumerate(alas_instance())
@@ -142,7 +177,11 @@ class AlasGUI(Frame):
                 {"label": t("Gui.Aside.AddAlas"), "value": "AddAlas", "color": "aside"}
             ],
             onclick=[self.ui_add_alas],
-        ),
+        ).style("justify-content: center;")
+        put_row([
+            put_button("启动", onclick=self.batch_start_selected, color="success"),
+            put_button("停止", onclick=self.batch_stop_selected, color="danger")
+        ])
 
         current_date = datetime.now().date()
         if current_date.month == 4 and current_date.day == 1:
@@ -154,14 +193,21 @@ class AlasGUI(Frame):
         def update(name, seq):
             with use_scope(f"alas-instance-{seq}", clear=True):
                 icon_html = Icon.RUN
-                rendered_state = ProcessManager.get_manager(inst).state
+                rendered_state = ProcessManager.get_manager(name).state
                 if rendered_state == 1 and self.af_flag:
                     icon_html = icon_html[:31] + ' anim-rotate' + icon_html[31:]
-                put_icon_buttons(
-                    icon_html,
-                    buttons=[{"label": name, "value": name, "color": "aside"}],
-                    onclick=self.ui_alas,
-                )
+                put_row([
+                    put_icon_buttons(
+                        icon_html,
+                        buttons=[{"label": name, "value": name, "color": "aside"}],
+                        onclick=self.ui_alas,
+                    ),
+                    put_checkbox(
+                        name=f"batch_alas_{name}",
+                        options=[{"label": "", "value": name}],
+                        value=[name] if getattr(pin, f"batch_alas_{name}", False) else []
+                    )
+                ])
             return rendered_state
 
         if not len(self.rendered_cache) or self.load_home:
@@ -457,7 +503,6 @@ class AlasGUI(Frame):
                     put_scope("waiting_tasks"),
                 ],
             )
-
         switch_scheduler = BinarySwitchButton(
             label_on=t("Gui.Button.Stop"),
             label_off=t("Gui.Button.Start"),

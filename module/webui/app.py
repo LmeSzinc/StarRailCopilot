@@ -179,8 +179,8 @@ class AlasGUI(Frame):
             onclick=[self.ui_add_alas],
         ).style("justify-content: center;")
         put_row([
-            put_button("启动", onclick=self.batch_start_selected, color="success"),
-            put_button("停止", onclick=self.batch_stop_selected, color="danger")
+            put_button(t("Gui.Button.Start"), onclick=self.batch_start_selected, color="success"),
+            put_button(t("Gui.Button.Stop"), onclick=self.batch_stop_selected, color="danger")
         ])
 
         current_date = datetime.now().date()

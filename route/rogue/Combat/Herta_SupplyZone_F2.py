@@ -47,19 +47,22 @@ class Route(RouteBase):
         )
         # 2
         # self.clear_item(item2)
+        # look north and a little east
+        self.rotation_set(20)
         self.clear_enemy(
             door2.set_threshold(3),
             door2end.set_threshold(3),
             # Go through door
             enemy2left,
-            enemy2right.straight_run(),
+            enemy2right,
         )
         # 3
-        self.clear_item(
-            item3.straight_run(),
-        )
+        self.rotation_set(90)
+        # self.clear_item(
+        #     item3,
+        # )
         self.clear_enemy(
-            enemy3.straight_run(),
+            enemy3,
         )
         # ('Combat_Herta_SupplyZone_F2_X45Y369', 0.243, (57.2, 351.6))
 

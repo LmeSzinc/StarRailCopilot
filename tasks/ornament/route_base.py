@@ -23,4 +23,4 @@ class RouteBase(RouteBase_):
         """
         end_point = waypoints[-1]
         end_point.expected_end = [self.is_combat_executing]
-        return super().clear_enemy(*waypoints, poor_try)
+        return super().clear_enemy(*waypoints, poor_try=poor_try)

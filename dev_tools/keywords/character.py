@@ -17,6 +17,15 @@ class GenerateCharacterList(GenerateKeyword):
         # Player profile avatar
         return self.read_file('./ExcelOutput/ItemConfigAvatarPlayerIcon.json')
 
+    @cached_property
+    def character_data(self):
+        # data = self.read_file('./ExcelOutput/AvatarConfig.json')
+        data = []
+        # collab characters
+        collab = self.read_file('./ExcelOutput/AvatarConfigLD.json')
+        data.extend(collab)
+        return data
+
     def convert_name(self, text: str, keyword: dict) -> str:
         text = REGEX_PUNCTUATION.sub('', text)
         return super().convert_name(text, keyword)
@@ -32,6 +41,17 @@ class GenerateCharacterList(GenerateKeyword):
             name_id = deep_get(row, 'ItemName.Hash')
             # 201313 -> 1313
             character_id = row.get('ID') % 10000
+            _, name_en = self.find_keyword(name_id, lang='en')
+            if name_en in names and not name_en.startswith('Trailblazer'):
+                logger.warning(f'Duplicate character name: id={name_id}, name={name_en}')
+            names[name_en] = {
+                'id': character_id,
+                'text_id': name_id,
+            }
+
+        for row in self.character_data:
+            character_id = row.get('AvatarID', 0)
+            name_id = deep_get(row, 'AvatarName.Hash')
             _, name_en = self.find_keyword(name_id, lang='en')
             if name_en in names and not name_en.startswith('Trailblazer'):
                 logger.warning(f'Duplicate character name: id={name_id}, name={name_en}')

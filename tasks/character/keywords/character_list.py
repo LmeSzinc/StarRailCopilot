@@ -84,6 +84,24 @@ Herta = CharacterList(
     jp='ヘルタ',
     es='Herta',
 )
+Saber = CharacterList(
+    id=1014,
+    name='Saber',
+    cn='Saber',
+    cht='Saber',
+    en='Saber',
+    jp='セイバー',
+    es='Saber',
+)
+Archer = CharacterList(
+    id=1015,
+    name='Archer',
+    cn='Archer',
+    cht='Archer',
+    en='Archer',
+    jp='アーチャー',
+    es='Archer',
+)
 Bronya = CharacterList(
     id=1101,
     name='Bronya',
@@ -614,6 +632,24 @@ Hyacine = CharacterList(
     en='Hyacine',
     jp='ヒアンシー',
     es='Hyacine',
+)
+Hysilens = CharacterList(
+    id=1410,
+    name='Hysilens',
+    cn='海瑟音',
+    cht='海瑟音',
+    en='Hysilens',
+    jp='セイレンス',
+    es='Hysilens',
+)
+Cerydra = CharacterList(
+    id=1412,
+    name='Cerydra',
+    cn='刻律德菈',
+    cht='刻律德菈',
+    en='Cerydra',
+    jp='ケリュドラ',
+    es='Ceridra',
 )
 TrailblazerDestruction = CharacterList(
     id=8002,

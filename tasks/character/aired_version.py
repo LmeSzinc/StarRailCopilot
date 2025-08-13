@@ -82,6 +82,10 @@ dict_aired_version = {
     Hyacine: "3.3",
     Cipher: "3.3",
     Phainon: "3.4",
+    Saber: "3.4",
+    Archer: "3.4",
+    Hysilens: "3.5",
+    Cerydra: "3.5",
 }
 
 

@@ -287,7 +287,7 @@
       "Stagnant_Shadow_Spike": "晋阶材料：物理（娜塔莎 / 克拉拉 / 卢卡 / 素裳）",
       "Stagnant_Shadow_Perdition": "晋阶材料：物理（寒鸦 / 银枝）",
       "Stagnant_Shadow_Duty": "晋阶材料：物理（波提欧 / 知更鸟 / 云璃）",
-      "Stagnant_Shadow_Deepsheaf": "晋阶材料：物理（白厄）",
+      "Stagnant_Shadow_Deepsheaf": "晋阶材料：物理（白厄 / 海瑟音）",
       "Stagnant_Shadow_Blaze": "晋阶材料：火（姬子 / 艾丝妲 / 虎克）",
       "Stagnant_Shadow_Scorch": "晋阶材料：火（桂乃芬 / 托帕&账账 / 忘归人）",
       "Stagnant_Shadow_Ire": "晋阶材料：火（流萤 / 加拉赫 / 椒丘 / 灵砂）",
@@ -299,11 +299,12 @@
       "Stagnant_Shadow_Mechwolf": "晋阶材料：雷（貊泽 / 阿格莱雅）",
       "Stagnant_Shadow_Gust": "晋阶材料：风（丹恒 / 布洛妮娅 / 桑博）",
       "Stagnant_Shadow_Celestial": "晋阶材料：风（刃 / 藿藿 / 黑天鹅）",
-      "Stagnant_Shadow_Gloam": "晋阶材料：风（飞霄 / 那刻夏 / 风堇）",
+      "Stagnant_Shadow_Gloam": "晋阶材料：风（飞霄 / 那刻夏 / 风堇 / Saber）",
+      "Stagnant_Shadow_Cinders": "晋阶材料：风（刻律德菈）",
       "Stagnant_Shadow_Quanta": "晋阶材料：量子（银狼 / 希儿 / 青雀）",
       "Stagnant_Shadow_Abomination": "晋阶材料：量子（玲可 / 符玄 / 雪衣）",
       "Stagnant_Shadow_Roast": "晋阶材料：量子（翡翠 / 花火）",
-      "Stagnant_Shadow_Gelidmoon": "晋阶材料：量子（缇宝 / 遐蝶 / 赛飞儿）",
+      "Stagnant_Shadow_Gelidmoon": "晋阶材料：量子（缇宝 / 遐蝶 / 赛飞儿 / Archer）",
       "Stagnant_Shadow_Mirage": "晋阶材料：虚数（瓦尔特 / 罗刹 / 驭空）",
       "Stagnant_Shadow_Puppetry": "晋阶材料：虚数（丹恒•饮月 / 砂金 / 真理医生）",
       "Stagnant_Shadow_Timbre": "晋阶材料：虚数（星期日 / 乱破）",
@@ -409,7 +410,11 @@
       "name": "好友支援角色",
       "help": "选择好友支援角色，未找到则选择默认（第一个）角色\n支援角色不要与队伍中的角色重复，建议置顶好友角色",
       "FirstCharacter": "支援列表第一个角色",
+      "Hysilens": "[3.5] 海瑟音",
+      "Cerydra": "[3.5] 刻律德菈",
       "Phainon": "[3.4] 白厄",
+      "Saber": "[3.4] Saber",
+      "Archer": "[3.4] Archer",
       "Hyacine": "[3.3] 风堇",
       "Cipher": "[3.3] 赛飞儿",
       "Castorice": "[3.2] 遐蝶",
@@ -645,7 +650,7 @@
       "help": ""
     },
     "Item_A_Glass_of_the_Besotted_Era": {
-      "name": "晋阶材料：风（飞霄 / 那刻夏 / 风堇）",
+      "name": "晋阶材料：风（飞霄 / 那刻夏 / 风堇 / Saber）",
       "help": ""
     },
     "Item_Dream_Flamer": {
@@ -657,15 +662,19 @@
       "help": ""
     },
     "Item_Invasive_Clot": {
-      "name": "晋阶材料：物理（白厄）",
+      "name": "晋阶材料：物理（白厄 / 海瑟音）",
       "help": ""
     },
-    "Item_Charred_Bud_of_Twilight": {
+    "Item_Sea_Siren_Torn_Fin": {
       "name": "Unknown_Dungeon_Come_From",
       "help": ""
     },
+    "Item_Charred_Bud_of_Twilight": {
+      "name": "晋阶材料：风（刻律德菈）",
+      "help": ""
+    },
     "Item_Darkveil_Moonlight": {
-      "name": "晋阶材料：量子（缇宝 / 遐蝶 / 赛飞儿）",
+      "name": "晋阶材料：量子（缇宝 / 遐蝶 / 赛飞儿 / Archer）",
       "help": ""
     },
     "Item_Harbinger_of_Strife": {
@@ -818,7 +827,11 @@
       "name": "养成角色",
       "help": "",
       "_none_": "无",
+      "Hysilens": "[3.5] 海瑟音",
+      "Cerydra": "[3.5] 刻律德菈",
       "Phainon": "[3.4] 白厄",
+      "Saber": "[3.4] Saber",
+      "Archer": "[3.4] Archer",
       "Hyacine": "[3.3] 风堇",
       "Cipher": "[3.3] 赛飞儿",
       "Castorice": "[3.2] 遐蝶",
@@ -895,6 +908,8 @@
       "name": "养成光锥",
       "help": "",
       "_none_": "无",
+      "Epoch_Etched_in_Golden_Blood": "[3.5] 刻律德菈 | 5* 金血铭刻的时代",
+      "Why_Does_the_Ocean_Sing": "[3.5] 海瑟音 | 5* 海洋为何而歌",
       "Thus_Burns_the_Dawn": "[3.4] 白厄 | 5* 黎明恰如此燃烧",
       "Lies_Dance_on_the_Breeze": "[3.3] 赛飞儿 | 5* 谎言在风中飘扬",
       "Long_May_Rainbows_Adorn_the_Sky": "[3.3] 风堇 | 5* 愿虹光永驻天空",
@@ -948,6 +963,7 @@
       "But_the_Battle_Isn_t_Over": "5* 但战斗还未结束",
       "Something_Irreplaceable": "5* 无可取代的东西",
       "Night_on_the_Milky_Way": "5* 银河铁道之夜",
+      "The_Forever_Victual": "4* 永远的迷境饭",
       "The_Great_Cosmic_Enterprise": "4* 宇宙大生意",
       "Ninja_Record_Sound_Hunt": "4* 忍事录•音律狩猎",
       "For_Tomorrow_Journey": "4* 为了明日的旅途",
@@ -1512,7 +1528,7 @@
     "Dungeon": {
       "name": "副本名称",
       "help": "",
-      "Divergent_Universe_Moonlit_Blood": "饰品：妖精 & 沉醉（月下朱殷）",
+      "Divergent_Universe_Moonlit_Blood": "饰品：（月下朱殷）",
       "Divergent_Universe_Unceasing_Strife": "饰品：拾骨地 & 巨树（纷争不休）",
       "Divergent_Universe_Famished_Worker": "饰品：海域 & 奇想（蠹役饥肠）",
       "Divergent_Universe_Eternal_Comedy": "饰品：奔狼 & 火宫（永恒笑剧）",
@@ -1522,7 +1538,7 @@
       "Divergent_Universe_Permafrost": "饰品：贝洛伯格 & 萨尔索图（百年冻土）",
       "Divergent_Universe_Gentle_Words": "饰品：商业公司 & 差分机（温柔话语）",
       "Divergent_Universe_Smelted_Heart": "饰品：盗贼 & 翁瓦克（浴火钢心）",
-      "Divergent_Universe_Untoppled_Walls": "饰品：太空 & 仙舟（坚城不倒）"
+      "Divergent_Universe_Untoppled_Walls": "饰品：太空 & 仙舟 & 妖精 & 沉醉（坚城不倒）"
     },
     "UseImmersifier": {
       "name": "使用沉浸器领取遗器",

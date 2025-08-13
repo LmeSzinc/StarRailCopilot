@@ -203,10 +203,17 @@ class KeywordExtract:
             damage_info[type_name] = deep_get(data, 'DamageTypeName.Hash')
         # Character id -> character hash & damage type
         character_info = dict()
-        for data in read_file(os.path.join(
+        character = []
+        character.extend(read_file(os.path.join(
                 TextMap.DATA_FOLDER, 'ExcelOutput',
                 'AvatarConfig.json'
-        )):
+        )))
+        character.extend(read_file(os.path.join(
+                TextMap.DATA_FOLDER, 'ExcelOutput',
+                'AvatarConfigLD.json'
+        )))
+
+        for data in character:
             voice = deep_get(data, 'AvatarVOTag', default='')
             if voice == 'test':
                 continue
@@ -217,17 +224,23 @@ class KeywordExtract:
         # Item id -> character id
         promotion_info = defaultdict(list)
 
-        def merge_same(data: list[dict], keyword) -> list:
+        def merge_same(data: list[dict], keyword) -> dict:
             mp = defaultdict(dict)
             for d in data:
                 length = len(mp[d[keyword]])
                 mp[d[keyword]][str(length)] = d
-            return mp.values()
+            return mp
 
-        for data in merge_same(read_file(os.path.join(
+        promotion = []
+        promotion.extend(read_file(os.path.join(
                 TextMap.DATA_FOLDER, 'ExcelOutput',
                 'AvatarPromotionConfig.json'
-        )), keyword='AvatarID'):
+        )))
+        promotion.extend(read_file(os.path.join(
+                TextMap.DATA_FOLDER, 'ExcelOutput',
+                'AvatarPromotionConfigLD.json'
+        )))
+        for data in merge_same(promotion, keyword='AvatarID').values():
             character_id = deep_get(data, '0.AvatarID')
             item_id = deep_get(data, '2.PromotionCostList')[-1]['ItemID']
             try:
@@ -239,7 +252,7 @@ class KeywordExtract:
         for data in merge_same(read_file(os.path.join(
                 TextMap.DATA_FOLDER, 'ExcelOutput',
                 'MappingInfo.json'
-        )), keyword='ID'):
+        )), keyword='ID').values():
             farm_type = deep_get(data, '0.FarmType')
             if farm_type != 'ELEMENT':
                 continue

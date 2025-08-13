@@ -2001,3 +2001,30 @@ Medal_of_the_Gloryblood_Era_Collector_Edition = RogueCurio(
     jp='血錦の徽章（コレクション版）',
     es='Medalla de la Era Gloriasangrienta (edición de coleccionista)',
 )
+Relatively_Successful_Prescription = RogueCurio(
+    id=223,
+    name='Relatively_Successful_Prescription',
+    cn='相对成功处方',
+    cht='相對成功處方',
+    en='Relatively Successful Prescription',
+    jp='相対的成功の処方箋',
+    es='Receta de éxito relativo',
+)
+Gold_Coin_of_Discord_Decrypted = RogueCurio(
+    id=224,
+    name='Gold_Coin_of_Discord_Decrypted',
+    cn='分裂金币（破解版）',
+    cht='分裂金幣（破解版）',
+    en='Gold Coin of Discord (Decrypted)',
+    jp='分裂金貨（クラック版）',
+    es='Moneda de oro del desacuerdo (versión pirateada)',
+)
+Peace_Box_Decrypted = RogueCurio(
+    id=225,
+    name='Peace_Box_Decrypted',
+    cn='和平箱（破解版）',
+    cht='和平箱（破解版）',
+    en='Peace Box (Decrypted)',
+    jp='平和の箱（クラック版）',
+    es='Caja de paz (versión pirateada)',
+)

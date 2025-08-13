@@ -62,6 +62,7 @@ class StoredGenerated:
     Item_Dream_Flamer = StoredPlanner("Dungeon.Planner.Item_Dream_Flamer")
     Item_Chordal_Mirage = StoredPlanner("Dungeon.Planner.Item_Chordal_Mirage")
     Item_Invasive_Clot = StoredPlanner("Dungeon.Planner.Item_Invasive_Clot")
+    Item_Sea_Siren_Torn_Fin = StoredPlanner("Dungeon.Planner.Item_Sea_Siren_Torn_Fin")
     Item_Charred_Bud_of_Twilight = StoredPlanner("Dungeon.Planner.Item_Charred_Bud_of_Twilight")
     Item_Darkveil_Moonlight = StoredPlanner("Dungeon.Planner.Item_Darkveil_Moonlight")
     Item_Harbinger_of_Strife = StoredPlanner("Dungeon.Planner.Item_Harbinger_of_Strife")

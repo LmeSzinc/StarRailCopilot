@@ -289,8 +289,21 @@ Invasive_Clot = ItemAscension(
     item_group=1100,
     dungeon_id=1124,
 )
-Charred_Bud_of_Twilight = ItemAscension(
+Sea_Siren_Torn_Fin = ItemAscension(
     id=23,
+    name='Sea_Siren_Torn_Fin',
+    cn='海妖残鳍',
+    cht='海妖殘鰭',
+    en="Sea Siren's Torn Fin",
+    jp='セイレーンのひれ',
+    es='Aleta rasgada de sirena',
+    rarity='VeryRare',
+    item_id=110433,
+    item_group=1100,
+    dungeon_id=1126,
+)
+Charred_Bud_of_Twilight = ItemAscension(
+    id=24,
     name='Charred_Bud_of_Twilight',
     cn='暮晖烬蕾',
     cht='暮暉燼蕾',
@@ -303,7 +316,7 @@ Charred_Bud_of_Twilight = ItemAscension(
     dungeon_id=1125,
 )
 Darkveil_Moonlight = ItemAscension(
-    id=24,
+    id=25,
     name='Darkveil_Moonlight',
     cn='暗帷月华',
     cht='暗帷月華',
@@ -316,7 +329,7 @@ Darkveil_Moonlight = ItemAscension(
     dungeon_id=1123,
 )
 Harbinger_of_Strife = ItemAscension(
-    id=25,
+    id=26,
     name='Harbinger_of_Strife',
     cn='纷争先兆',
     cht='紛爭先兆',

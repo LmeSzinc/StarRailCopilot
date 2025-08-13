@@ -762,8 +762,19 @@ Amphoreus_DragonboneCityStyxia = MapPlane(
     world_id=4,
     plane_id=2042301,
 )
-Amphoreus_CloudedgeBastionRuinsEyeofTwilight = MapPlane(
+Amphoreus_WarblingShoresStyxia = MapPlane(
     id=71,
+    name='Amphoreus_WarblingShoresStyxia',
+    cn='「酣歌海垠」斯缇科西亚',
+    cht='「酣歌海垠」斯緹科西亞',
+    en='"Warbling Shores" Styxia',
+    jp='「歌響く大海」スティコシア',
+    es='Estisia, Costa Melodiosa',
+    world_id=4,
+    plane_id=2045101,
+)
+Amphoreus_CloudedgeBastionRuinsEyeofTwilight = MapPlane(
+    id=72,
     name='Amphoreus_CloudedgeBastionRuinsEyeofTwilight',
     cn='「云端遗堡」晨昏之眼',
     cht='「雲端遺堡」晨昏之眼',
@@ -774,7 +785,7 @@ Amphoreus_CloudedgeBastionRuinsEyeofTwilight = MapPlane(
     plane_id=2043201,
 )
 Amphoreus_FortressofDomeEyeofTwilight = MapPlane(
-    id=72,
+    id=73,
     name='Amphoreus_FortressofDomeEyeofTwilight',
     cn='「穹顶关塞」晨昏之眼',
     cht='「穹頂關塞」晨昏之眼',

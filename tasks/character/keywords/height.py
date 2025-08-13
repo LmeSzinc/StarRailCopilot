@@ -2,6 +2,7 @@ CHARACTER_HEIGHT = {
     'Bailu': 'Kid',
     'Hook': 'Kid',
     'Tribbie': 'Kid',
+    'Cerydra': 'Girl',
     'FuXuan': 'Girl',
     'Herta': 'Girl',
     'Huohuo': 'Girl',

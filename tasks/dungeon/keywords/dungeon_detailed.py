@@ -213,9 +213,18 @@ Stagnant_Shadow_Gelidmoon = DungeonDetailed(
 Stagnant_Shadow_Deepsheaf = DungeonDetailed(
     id=24,
     name='Stagnant_Shadow_Deepsheaf',
-    cn='晋阶材料：物理（白厄）',
-    cht='晉階材料：物理（白厄）',
-    en='Ascension: Physical (Phainon)',
-    jp='昇格素材：物理（ファイノン）',
-    es='Ascension: Físico (Fainón)',
+    cn='晋阶材料：物理（白厄 / 海瑟音）',
+    cht='晉階材料：物理（白厄 / 海瑟音）',
+    en='Ascension: Physical (Phainon / Hysilens)',
+    jp='昇格素材：物理（ファイノン / セイレンス）',
+    es='Ascension: Físico (Fainón / Hysilens)',
+)
+Stagnant_Shadow_Cinders = DungeonDetailed(
+    id=25,
+    name='Stagnant_Shadow_Cinders',
+    cn='晋阶材料：风（刻律德菈）',
+    cht='晉階材料：風（刻律德菈）',
+    en='Ascension: Wind (Cerydra)',
+    jp='昇格素材：風（ケリュドラ）',
+    es='Ascension: Viento (Céridra)',
 )

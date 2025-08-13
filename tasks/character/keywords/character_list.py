@@ -615,6 +615,24 @@ Hyacine = CharacterList(
     jp='ヒアンシー',
     es='Hyacine',
 )
+Hysilens = CharacterList(
+    id=1410,
+    name='Hysilens',
+    cn='海瑟音',
+    cht='海瑟音',
+    en='Hysilens',
+    jp='セイレンス',
+    es='Hysilens',
+)
+Cerydra = CharacterList(
+    id=1412,
+    name='Cerydra',
+    cn='刻律德菈',
+    cht='刻律德菈',
+    en='Cerydra',
+    jp='ケリュドラ',
+    es='Ceridra',
+)
 TrailblazerDestruction = CharacterList(
     id=8002,
     name='TrailblazerDestruction',

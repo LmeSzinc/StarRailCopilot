@@ -84,6 +84,24 @@ Herta = CharacterList(
     jp='ヘルタ',
     es='Herta',
 )
+Saber = CharacterList(
+    id=1014,
+    name='Saber',
+    cn='Saber',
+    cht='Saber',
+    en='Saber',
+    jp='セイバー',
+    es='Saber',
+)
+Archer = CharacterList(
+    id=1015,
+    name='Archer',
+    cn='Archer',
+    cht='Archer',
+    en='Archer',
+    jp='アーチャー',
+    es='Archer',
+)
 Bronya = CharacterList(
     id=1101,
     name='Bronya',

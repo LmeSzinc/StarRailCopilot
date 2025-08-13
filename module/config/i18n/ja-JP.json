@@ -287,7 +287,7 @@
       "Stagnant_Shadow_Spike": "昇格素材：物理（ナターシャ / クラーラ / ルカ / 素裳）",
       "Stagnant_Shadow_Perdition": "昇格素材：物理（寒鴉 / アルジェンティ）",
       "Stagnant_Shadow_Duty": "昇格素材：物理（ブートヒル / ロビン / 雲璃）",
-      "Stagnant_Shadow_Deepsheaf": "昇格素材：物理（ファイノン）",
+      "Stagnant_Shadow_Deepsheaf": "昇格素材：物理（ファイノン / セイレンス）",
       "Stagnant_Shadow_Blaze": "昇格素材：炎（姫子 / アスター / フック）",
       "Stagnant_Shadow_Scorch": "昇格素材：炎（桂乃芬 / トパーズ&カブ / 帰忘の流離人）",
       "Stagnant_Shadow_Ire": "昇格素材：炎（ホタル / ギャラガー / 椒丘 / 霊砂）",
@@ -299,11 +299,12 @@
       "Stagnant_Shadow_Mechwolf": "昇格素材：雷（モゼ / アグライア）",
       "Stagnant_Shadow_Gust": "昇格素材：風（丹恒 / ブローニャ / サンポ）",
       "Stagnant_Shadow_Celestial": "昇格素材：風（刃 / フォフォ / ブラックスワン）",
-      "Stagnant_Shadow_Gloam": "昇格素材：風（飛霄 / アナイクス / ヒアンシー）",
+      "Stagnant_Shadow_Gloam": "昇格素材：風（飛霄 / アナイクス / ヒアンシー / セイバー）",
+      "Stagnant_Shadow_Cinders": "昇格素材：風（ケリュドラ）",
       "Stagnant_Shadow_Quanta": "昇格素材：量子（銀狼 / ゼーレ / 青雀）",
       "Stagnant_Shadow_Abomination": "昇格素材：量子（リンクス / 符玄 / 雪衣）",
       "Stagnant_Shadow_Roast": "昇格素材：量子（ジェイド / 花火）",
-      "Stagnant_Shadow_Gelidmoon": "昇格素材：量子（トリビー / キャストリス / サフェル）",
+      "Stagnant_Shadow_Gelidmoon": "昇格素材：量子（トリビー / キャストリス / サフェル / アーチャー）",
       "Stagnant_Shadow_Mirage": "昇格素材：虚数（ヴェルト / 羅刹 / 御空）",
       "Stagnant_Shadow_Puppetry": "昇格素材：虚数（丹恒・飲月 / アベンチュリン / Dr.レイシオ）",
       "Stagnant_Shadow_Timbre": "昇格素材：虚数（サンデー / 乱破）",
@@ -409,7 +410,11 @@
       "name": "DungeonSupport.Character.name",
       "help": "DungeonSupport.Character.help",
       "FirstCharacter": "FirstCharacter",
+      "Hysilens": "[3.5] セイレンス",
+      "Cerydra": "[3.5] ケリュドラ",
       "Phainon": "[3.4] ファイノン",
+      "Saber": "[3.4] セイバー",
+      "Archer": "[3.4] アーチャー",
       "Hyacine": "[3.3] ヒアンシー",
       "Cipher": "[3.3] サフェル",
       "Castorice": "[3.2] キャストリス",
@@ -645,7 +650,7 @@
       "help": ""
     },
     "Item_A_Glass_of_the_Besotted_Era": {
-      "name": "昇格素材：風（飛霄 / アナイクス / ヒアンシー）",
+      "name": "昇格素材：風（飛霄 / アナイクス / ヒアンシー / セイバー）",
       "help": ""
     },
     "Item_Dream_Flamer": {
@@ -657,15 +662,19 @@
       "help": ""
     },
     "Item_Invasive_Clot": {
-      "name": "昇格素材：物理（ファイノン）",
+      "name": "昇格素材：物理（ファイノン / セイレンス）",
       "help": ""
     },
-    "Item_Charred_Bud_of_Twilight": {
+    "Item_Sea_Siren_Torn_Fin": {
       "name": "Unknown_Dungeon_Come_From",
       "help": ""
     },
+    "Item_Charred_Bud_of_Twilight": {
+      "name": "昇格素材：風（ケリュドラ）",
+      "help": ""
+    },
     "Item_Darkveil_Moonlight": {
-      "name": "昇格素材：量子（トリビー / キャストリス / サフェル）",
+      "name": "昇格素材：量子（トリビー / キャストリス / サフェル / アーチャー）",
       "help": ""
     },
     "Item_Harbinger_of_Strife": {
@@ -818,7 +827,11 @@
       "name": "PlannerTarget.Character.name",
       "help": "PlannerTarget.Character.help",
       "_none_": "_none_",
+      "Hysilens": "[3.5] セイレンス",
+      "Cerydra": "[3.5] ケリュドラ",
       "Phainon": "[3.4] ファイノン",
+      "Saber": "[3.4] セイバー",
+      "Archer": "[3.4] アーチャー",
       "Hyacine": "[3.3] ヒアンシー",
       "Cipher": "[3.3] サフェル",
       "Castorice": "[3.2] キャストリス",
@@ -895,6 +908,8 @@
       "name": "PlannerTarget.Cone.name",
       "help": "PlannerTarget.Cone.help",
       "_none_": "_none_",
+      "Epoch_Etched_in_Golden_Blood": "[3.5] ケリュドラ | 5* 黄金の血で刻む時代",
+      "Why_Does_the_Ocean_Sing": "[3.5] セイレンス | 5* 海の歌は何がため",
       "Thus_Burns_the_Dawn": "[3.4] ファイノン | 5* 燃え盛る黎明のように",
       "Lies_Dance_on_the_Breeze": "[3.3] サフェル | 5* 風に揺蕩う虚言",
       "Long_May_Rainbows_Adorn_the_Sky": "[3.3] ヒアンシー | 5* 空の虹が消えぬように",
@@ -948,6 +963,7 @@
       "But_the_Battle_Isn_t_Over": "5* だが戦争は終わらない",
       "Something_Irreplaceable": "5* かけがえのないもの",
       "Night_on_the_Milky_Way": "5* 銀河鉄道の夜",
+      "The_Forever_Victual": "4* 永遠の迷境ごはん",
       "The_Great_Cosmic_Enterprise": "4* 宇宙一の大商い！",
       "Ninja_Record_Sound_Hunt": "4* 忍事録・音律狩猟",
       "For_Tomorrow_Journey": "4* 明日のための旅",
@@ -1512,7 +1528,7 @@
     "Dungeon": {
       "name": "Ornament.Dungeon.name",
       "help": "Ornament.Dungeon.help",
-      "Divergent_Universe_Moonlit_Blood": "飾品：妖精 & 酩酊（月下朱殷）",
+      "Divergent_Universe_Moonlit_Blood": "飾品：（月下朱殷）",
       "Divergent_Universe_Unceasing_Strife": "飾品：拾骨地 & 巨樹（絶えぬ紛争）",
       "Divergent_Universe_Famished_Worker": "飾品：海に沈 & 奇想（飢えた虫卒）",
       "Divergent_Universe_Eternal_Comedy": "飾品：奔狼 & 蓮灯（永遠の喜劇）",
@@ -1522,7 +1538,7 @@
       "Divergent_Universe_Permafrost": "飾品：ベロブルグ & ったサルソット（永久凍土）",
       "Divergent_Universe_Gentle_Words": "飾品：商事会社 & 階差機関（優しい言葉）",
       "Divergent_Universe_Smelted_Heart": "飾品：盗賊 & ウェンワーク（鋼の意志）",
-      "Divergent_Universe_Untoppled_Walls": "飾品：宇宙 & 仙舟（不動の砦）"
+      "Divergent_Universe_Untoppled_Walls": "飾品：宇宙 & 仙舟 & 妖精 & 酩酊（不動の砦）"
     },
     "UseImmersifier": {
       "name": "Ornament.UseImmersifier.name",

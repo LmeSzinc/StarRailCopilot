@@ -375,6 +375,12 @@
         "display": "display",
         "stored": "StoredPlanner"
       },
+      "Item_Sea_Siren_Torn_Fin": {
+        "type": "planner",
+        "value": {},
+        "display": "display",
+        "stored": "StoredPlanner"
+      },
       "Item_Charred_Bud_of_Twilight": {
         "type": "planner",
         "value": {},
@@ -604,7 +610,11 @@
         "display": "hide",
         "option": [
           "_none_",
+          "Hysilens",
+          "Cerydra",
           "Phainon",
+          "Saber",
+          "Archer",
           "Hyacine",
           "Cipher",
           "Castorice",
@@ -684,6 +694,8 @@
         "display": "hide",
         "option": [
           "_none_",
+          "Epoch_Etched_in_Golden_Blood",
+          "Why_Does_the_Ocean_Sing",
           "Thus_Burns_the_Dawn",
           "Lies_Dance_on_the_Breeze",
           "Long_May_Rainbows_Adorn_the_Sky",
@@ -737,6 +749,7 @@
           "But_the_Battle_Isn_t_Over",
           "Something_Irreplaceable",
           "Night_on_the_Milky_Way",
+          "The_Forever_Victual",
           "The_Great_Cosmic_Enterprise",
           "Ninja_Record_Sound_Hunt",
           "For_Tomorrow_Journey",
@@ -1016,6 +1029,7 @@
           "Stagnant_Shadow_Gust",
           "Stagnant_Shadow_Celestial",
           "Stagnant_Shadow_Gloam",
+          "Stagnant_Shadow_Cinders",
           "Stagnant_Shadow_Quanta",
           "Stagnant_Shadow_Abomination",
           "Stagnant_Shadow_Roast",
@@ -1108,7 +1122,11 @@
         "value": "FirstCharacter",
         "option": [
           "FirstCharacter",
+          "Hysilens",
+          "Cerydra",
           "Phainon",
+          "Saber",
+          "Archer",
           "Hyacine",
           "Cipher",
           "Castorice",
@@ -1341,7 +1359,11 @@
         "value": "FirstCharacter",
         "option": [
           "FirstCharacter",
+          "Hysilens",
+          "Cerydra",
           "Phainon",
+          "Saber",
+          "Archer",
           "Hyacine",
           "Cipher",
           "Castorice",
@@ -1924,7 +1946,11 @@
         "value": "FirstCharacter",
         "option": [
           "FirstCharacter",
+          "Hysilens",
+          "Cerydra",
           "Phainon",
+          "Saber",
+          "Archer",
           "Hyacine",
           "Cipher",
           "Castorice",

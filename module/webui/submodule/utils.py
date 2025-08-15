@@ -3,4 +3,5 @@ def get_available_func():
         'Daemon',
         'Benchmark',
         'PlannerScan',
+        'RewardCollector',
     )

@@ -294,6 +294,7 @@
       "Stagnant_Shadow_Rime": "晉階材料：冰（三月七 / 黑塔 / 傑帕德 / 佩拉）",
       "Stagnant_Shadow_Icicle": "晉階材料：冰（彥卿 / 鏡流 / 阮•梅）",
       "Stagnant_Shadow_Nectar": "晉階材料：冰（米沙 / 大黑塔）",
+      "Stagnant_Shadow_Sirens": "晉階材料：冰（塞壬之形•凝滯虛影）",
       "Stagnant_Shadow_Fulmination": "晉階材料：雷（阿蘭 / 希露瓦 / 停雲 / 白露）",
       "Stagnant_Shadow_Doom": "晉階材料：雷（卡芙卡 / 景元 / 黃泉）",
       "Stagnant_Shadow_Mechwolf": "晉階材料：雷（貊澤 / 阿格萊雅）",
@@ -666,7 +667,7 @@
       "help": ""
     },
     "Item_Sea_Siren_Torn_Fin": {
-      "name": "Unknown_Dungeon_Come_From",
+      "name": "晉階材料：冰（塞壬之形•凝滯虛影）",
       "help": ""
     },
     "Item_Charred_Bud_of_Twilight": {

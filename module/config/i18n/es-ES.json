@@ -294,6 +294,7 @@
       "Stagnant_Shadow_Rime": "Ascension: Hielo (Siete de Marzo / Herta / Gepard / Pela)",
       "Stagnant_Shadow_Icicle": "Ascension: Hielo (Yanqing / Jingliu / Ruan Mei)",
       "Stagnant_Shadow_Nectar": "Ascension: Hielo (Misha / Sra. Herta)",
+      "Stagnant_Shadow_Sirens": "Ascension: Hielo (Sombra paralizada: Forma de la marea)",
       "Stagnant_Shadow_Fulmination": "Ascension: Rayo (Arlan / Serval / Tingyun / Bailu)",
       "Stagnant_Shadow_Doom": "Ascension: Rayo (Kafka / Jing Yuan / Acheron)",
       "Stagnant_Shadow_Mechwolf": "Ascension: Rayo (Moze / Aglaea)",
@@ -666,7 +667,7 @@
       "help": ""
     },
     "Item_Sea_Siren_Torn_Fin": {
-      "name": "Unknown_Dungeon_Come_From",
+      "name": "Ascension: Hielo (Sombra paralizada: Forma de la marea)",
       "help": ""
     },
     "Item_Charred_Bud_of_Twilight": {

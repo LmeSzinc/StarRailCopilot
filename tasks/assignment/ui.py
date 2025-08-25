@@ -142,8 +142,8 @@ ASSIGNMENT_GROUP_SWITCH = AssignmentGroupSwitch(
 )
 ASSIGNMENT_GROUP_SWITCH.add_state(
     CURRENT_EVENT_GROUP,
-    check_button=SHADOW_OF_THE_RANGER_CHECK,
-    click_button=SHADOW_OF_THE_RANGER_CLICK
+    check_button=SPACE_STATION_TASK_FORCE_CHECK,
+    click_button=SPACE_STATION_TASK_FORCE_CLICK,
 )
 ASSIGNMENT_GROUP_SWITCH.add_state(
     KEYWORDS_ASSIGNMENT_GROUP.Character_Materials,
@@ -361,3 +361,10 @@ class AssignmentUI(UI):
             button.matched_keyword
             for button in ASSIGNMENT_ENTRY_LIST.cur_buttons
         ]
+
+
+if __name__ == '__main__':
+    self = AssignmentUI('src2')
+    self.device.screenshot()
+    for v in self._iter_groups():
+        print(v)

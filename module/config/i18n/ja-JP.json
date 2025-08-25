@@ -294,6 +294,7 @@
       "Stagnant_Shadow_Rime": "昇格素材：氷（三月なのか / ヘルタ / ジェパード / ペラ）",
       "Stagnant_Shadow_Icicle": "昇格素材：氷（彦卿 / 鏡流 / ルアン・メェイ）",
       "Stagnant_Shadow_Nectar": "昇格素材：氷（ミーシャ / マダム・ヘルタ）",
+      "Stagnant_Shadow_Sirens": "昇格素材：氷（凝結虚影・海妖の形）",
       "Stagnant_Shadow_Fulmination": "昇格素材：雷（アーラン / セーバル / 停雲 / 白露）",
       "Stagnant_Shadow_Doom": "昇格素材：雷（カフカ / 景元 / 黄泉）",
       "Stagnant_Shadow_Mechwolf": "昇格素材：雷（モゼ / アグライア）",
@@ -666,7 +667,7 @@
       "help": ""
     },
     "Item_Sea_Siren_Torn_Fin": {
-      "name": "Unknown_Dungeon_Come_From",
+      "name": "昇格素材：氷（凝結虚影・海妖の形）",
       "help": ""
     },
     "Item_Charred_Bud_of_Twilight": {

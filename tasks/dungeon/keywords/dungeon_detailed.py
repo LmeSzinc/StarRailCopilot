@@ -228,3 +228,12 @@ Stagnant_Shadow_Cinders = DungeonDetailed(
     jp='昇格素材：風（ケリュドラ）',
     es='Ascension: Viento (Céridra)',
 )
+Stagnant_Shadow_Sirens = DungeonDetailed(
+    id=26,
+    name='Stagnant_Shadow_Sirens',
+    cn='晋阶材料：冰（塞壬之形•凝滞虚影）',
+    cht='晉階材料：冰（塞壬之形•凝滯虛影）',
+    en='Ascension: Ice (Stagnant Shadow: Shape of Sirens)',
+    jp='昇格素材：氷（凝結虚影・海妖の形）',
+    es='Ascension: Hielo (Sombra paralizada: Forma de la marea)',
+)

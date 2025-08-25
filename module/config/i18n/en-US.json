@@ -294,6 +294,7 @@
       "Stagnant_Shadow_Rime": "Ascension: Ice (March 7th / Herta / Gepard / Pela)",
       "Stagnant_Shadow_Icicle": "Ascension: Ice (Yanqing / Jingliu / Ruan Mei)",
       "Stagnant_Shadow_Nectar": "Ascension: Ice (Misha / The Herta)",
+      "Stagnant_Shadow_Sirens": "Ascension: Ice (Stagnant Shadow: Shape of Sirens)",
       "Stagnant_Shadow_Fulmination": "Ascension: Lightning (Arlan / Serval / Tingyun / Bailu)",
       "Stagnant_Shadow_Doom": "Ascension: Lightning (Kafka / Jing Yuan / Acheron)",
       "Stagnant_Shadow_Mechwolf": "Ascension: Lightning (Moze / Aglaea)",
@@ -666,7 +667,7 @@
       "help": ""
     },
     "Item_Sea_Siren_Torn_Fin": {
-      "name": "Unknown_Dungeon_Come_From",
+      "name": "Ascension: Ice (Stagnant Shadow: Shape of Sirens)",
       "help": ""
     },
     "Item_Charred_Bud_of_Twilight": {
@@ -1528,7 +1529,7 @@
     "Dungeon": {
       "name": "Dungeon Name",
       "help": "",
-      "Divergent_Universe_Moonlit_Blood": "Ornament: Arcadia & Revelry (Moonlit Blood)",
+      "Divergent_Universe_Moonlit_Blood": "Ornament:  (Moonlit Blood)",
       "Divergent_Universe_Unceasing_Strife": "Ornament: Bone Collection & Giant Tree (Unceasing Strife)",
       "Divergent_Universe_Famished_Worker": "Ornament: Sunken Seas & Wondrous (Famished Worker)",
       "Divergent_Universe_Eternal_Comedy": "Ornament: Running Wolves & Lantern (Eternal Comedy)",
@@ -1538,7 +1539,7 @@
       "Divergent_Universe_Permafrost": "Ornament: Belobog & Salsotto (Permafrost)",
       "Divergent_Universe_Gentle_Words": "Ornament: Commercial Enterprise & Differentiator (Gentle Words)",
       "Divergent_Universe_Smelted_Heart": "Ornament: Banditry & Vonwacq (Smelted Heart)",
-      "Divergent_Universe_Untoppled_Walls": "Ornament: Space & Ageless Fleet (Untoppled Walls)"
+      "Divergent_Universe_Untoppled_Walls": "Ornament: Space & Ageless Fleet & Arcadia & Revelry (Untoppled Walls)"
     },
     "UseImmersifier": {
       "name": "Claim Planars Using Immersifiers",

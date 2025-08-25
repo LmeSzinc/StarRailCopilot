@@ -266,6 +266,9 @@ class KeywordExtract:
             'en': 'Ascension: ',
             'es': 'Ascension: '
         }
+        non_character_dungeon = {
+            8901618573986260416: 'Ice'
+        }
         keyword_class = 'DungeonDetailed'
         output_file = './tasks/dungeon/keywords/dungeon_detailed.py'
         gen = CodeGenerator()
@@ -274,8 +277,8 @@ class KeywordExtract:
         """)
         gen.CommentAutoGenerage('dev_tools.keyword_extract')
         for index, (keyword, characters) in enumerate(shadow_info.items()):
-            if not characters:
-                continue
+            # if not characters:
+            #     continue
             _, name = self.find_keyword(keyword, lang='en')
             name = text_to_variable(name).replace('Shape_of_', '')
             with gen.Object(key=name, object_class=keyword_class):
@@ -288,7 +291,16 @@ class KeywordExtract:
                     ]
                     character_names = list(dict.fromkeys(character_names))
                     character_names = ' / '.join(character_names)
-                    damage_type = self.find_keyword(characters[0][1], lang)[1]
+                    if character_names:
+                        damage_type = self.find_keyword(characters[0][1], lang)[1]
+                    elif keyword in non_character_dungeon:
+                        damage_id = self.find_keyword(non_character_dungeon[keyword], lang='en')[0]
+                        damage_type = self.find_keyword(damage_id, lang=lang)[1]
+                        # show dungeon name
+                        character_names = self.find_keyword(keyword, lang=lang)[1]
+                    else:
+                        print(f'WARNING: dungeon {keyword} has empty characters')
+                        continue
                     if lang in {'en', 'es'}:
                         value = f'{prefix_dict[lang]}{damage_type} ({character_names})'
                     else:

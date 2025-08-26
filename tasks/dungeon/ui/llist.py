@@ -56,6 +56,8 @@ class OcrDungeonName(Ocr):
             result = re.sub('^偶之形', '偃偶之形', result)
             # 嗔怒之形•凝滞虚影
             result = re.sub('^怒之形', '嗔怒之形', result)
+            # 烬日之形•凝滞虚影
+            result = re.sub('^日之形', '烬日之形', result)
             # 蛀星的旧·历战余响
             result = re.sub(r'蛀星的旧.?历战.+$', '蛀星的旧魇•历战的余响', result)
             result = re.sub(r'蛀星的旧.?历战?$', '蛀星的旧魇•历战', result)

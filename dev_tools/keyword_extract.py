@@ -203,10 +203,17 @@ class KeywordExtract:
             damage_info[type_name] = deep_get(data, 'DamageTypeName.Hash')
         # Character id -> character hash & damage type
         character_info = dict()
-        for data in read_file(os.path.join(
+        character = []
+        character.extend(read_file(os.path.join(
                 TextMap.DATA_FOLDER, 'ExcelOutput',
                 'AvatarConfig.json'
-        )):
+        )))
+        character.extend(read_file(os.path.join(
+                TextMap.DATA_FOLDER, 'ExcelOutput',
+                'AvatarConfigLD.json'
+        )))
+
+        for data in character:
             voice = deep_get(data, 'AvatarVOTag', default='')
             if voice == 'test':
                 continue
@@ -217,17 +224,23 @@ class KeywordExtract:
         # Item id -> character id
         promotion_info = defaultdict(list)
 
-        def merge_same(data: list[dict], keyword) -> list:
+        def merge_same(data: list[dict], keyword) -> dict:
             mp = defaultdict(dict)
             for d in data:
                 length = len(mp[d[keyword]])
                 mp[d[keyword]][str(length)] = d
-            return mp.values()
+            return mp
 
-        for data in merge_same(read_file(os.path.join(
+        promotion = []
+        promotion.extend(read_file(os.path.join(
                 TextMap.DATA_FOLDER, 'ExcelOutput',
                 'AvatarPromotionConfig.json'
-        )), keyword='AvatarID'):
+        )))
+        promotion.extend(read_file(os.path.join(
+                TextMap.DATA_FOLDER, 'ExcelOutput',
+                'AvatarPromotionConfigLD.json'
+        )))
+        for data in merge_same(promotion, keyword='AvatarID').values():
             character_id = deep_get(data, '0.AvatarID')
             item_id = deep_get(data, '2.PromotionCostList')[-1]['ItemID']
             try:
@@ -239,7 +252,7 @@ class KeywordExtract:
         for data in merge_same(read_file(os.path.join(
                 TextMap.DATA_FOLDER, 'ExcelOutput',
                 'MappingInfo.json'
-        )), keyword='ID'):
+        )), keyword='ID').values():
             farm_type = deep_get(data, '0.FarmType')
             if farm_type != 'ELEMENT':
                 continue
@@ -253,6 +266,9 @@ class KeywordExtract:
             'en': 'Ascension: ',
             'es': 'Ascension: '
         }
+        non_character_dungeon = {
+            8901618573986260416: 'Ice'
+        }
         keyword_class = 'DungeonDetailed'
         output_file = './tasks/dungeon/keywords/dungeon_detailed.py'
         gen = CodeGenerator()
@@ -261,8 +277,8 @@ class KeywordExtract:
         """)
         gen.CommentAutoGenerage('dev_tools.keyword_extract')
         for index, (keyword, characters) in enumerate(shadow_info.items()):
-            if not characters:
-                continue
+            # if not characters:
+            #     continue
             _, name = self.find_keyword(keyword, lang='en')
             name = text_to_variable(name).replace('Shape_of_', '')
             with gen.Object(key=name, object_class=keyword_class):
@@ -275,7 +291,16 @@ class KeywordExtract:
                     ]
                     character_names = list(dict.fromkeys(character_names))
                     character_names = ' / '.join(character_names)
-                    damage_type = self.find_keyword(characters[0][1], lang)[1]
+                    if character_names:
+                        damage_type = self.find_keyword(characters[0][1], lang)[1]
+                    elif keyword in non_character_dungeon:
+                        damage_id = self.find_keyword(non_character_dungeon[keyword], lang='en')[0]
+                        damage_type = self.find_keyword(damage_id, lang=lang)[1]
+                        # show dungeon name
+                        character_names = self.find_keyword(keyword, lang=lang)[1]
+                    else:
+                        print(f'WARNING: dungeon {keyword} has empty characters')
+                        continue
                     if lang in {'en', 'es'}:
                         value = f'{prefix_dict[lang]}{damage_type} ({character_names})'
                     else:

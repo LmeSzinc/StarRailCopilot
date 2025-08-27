@@ -982,6 +982,17 @@ The_Great_Cosmic_Enterprise = Cone(
     rarity='VeryRare',
     character_name='',
 )
+The_Forever_Victual = Cone(
+    id=22005,
+    name='The_Forever_Victual',
+    cn='永远的迷境饭',
+    cht='永遠的迷境飯',
+    en='The Forever Victual',
+    jp='永遠の迷境ごはん',
+    es='Viandas sin fin',
+    rarity='VeryRare',
+    character_name='',
+)
 Night_on_the_Milky_Way = Cone(
     id=23000,
     name='Night_on_the_Milky_Way',
@@ -1498,6 +1509,28 @@ The_Hell_Where_Ideals_Burn = Cone(
     es='Infierno donde arden los ideales',
     rarity='SuperRare',
     character_name='',
+)
+Why_Does_the_Ocean_Sing = Cone(
+    id=23047,
+    name='Why_Does_the_Ocean_Sing',
+    cn='海洋为何而歌',
+    cht='海洋為何而歌',
+    en='Why Does the Ocean Sing',
+    jp='海の歌は何がため',
+    es='Por que canta el oceano',
+    rarity='SuperRare',
+    character_name='Hysilens',
+)
+Epoch_Etched_in_Golden_Blood = Cone(
+    id=23048,
+    name='Epoch_Etched_in_Golden_Blood',
+    cn='金血铭刻的时代',
+    cht='金血銘刻的時代',
+    en='Epoch Etched in Golden Blood',
+    jp='黄金の血で刻む時代',
+    es='Era grabada en sangre dorada',
+    rarity='SuperRare',
+    character_name='Cerydra',
 )
 On_the_Fall_of_an_Aeon = Cone(
     id=24000,

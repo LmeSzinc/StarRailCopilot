@@ -349,6 +349,9 @@ class Synthesize(CombatObtain, ItemUI):
         - Iter first item of each row
         - If current item index > target item index, switch back to prev row and iter prev row
         - If item matches or item group matches, stop
+
+        Returns:
+            bool: If success
         """
         logger.hr('Synthesize select', level=1)
         logger.info(f'Synthesize select {item}')
@@ -574,7 +577,9 @@ class Synthesize(CombatObtain, ItemUI):
         for _ in range(3):
             logger.hr('Synthesize planner row', level=1)
             self.synthesize_tab_set(KEYWORDS_ITEM_TAB.UpgradeMaterials, reset=True)
-            self.synthesize_inventory_select(row.item)
+            success = self.synthesize_inventory_select(row.item)
+            if not success:
+                return None
 
             # Update obtain amount
             obtained = self.synthesize_obtain_get()

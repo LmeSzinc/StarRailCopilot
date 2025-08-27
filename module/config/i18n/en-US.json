@@ -287,23 +287,25 @@
       "Stagnant_Shadow_Spike": "Ascension: Physical (Natasha / Clara / Luka / Sushang)",
       "Stagnant_Shadow_Perdition": "Ascension: Physical (Hanya / Argenti)",
       "Stagnant_Shadow_Duty": "Ascension: Physical (Boothill / Robin / Yunli)",
-      "Stagnant_Shadow_Deepsheaf": "Ascension: Physical (Phainon)",
+      "Stagnant_Shadow_Deepsheaf": "Ascension: Physical (Phainon / Hysilens)",
       "Stagnant_Shadow_Blaze": "Ascension: Fire (Himeko / Asta / Hook)",
       "Stagnant_Shadow_Scorch": "Ascension: Fire (Guinaifen / Topaz & Numby / Fugue)",
       "Stagnant_Shadow_Ire": "Ascension: Fire (Firefly / Gallagher / Jiaoqiu / Lingsha)",
       "Stagnant_Shadow_Rime": "Ascension: Ice (March 7th / Herta / Gepard / Pela)",
       "Stagnant_Shadow_Icicle": "Ascension: Ice (Yanqing / Jingliu / Ruan Mei)",
       "Stagnant_Shadow_Nectar": "Ascension: Ice (Misha / The Herta)",
+      "Stagnant_Shadow_Sirens": "Ascension: Ice (Stagnant Shadow: Shape of Sirens)",
       "Stagnant_Shadow_Fulmination": "Ascension: Lightning (Arlan / Serval / Tingyun / Bailu)",
       "Stagnant_Shadow_Doom": "Ascension: Lightning (Kafka / Jing Yuan / Acheron)",
       "Stagnant_Shadow_Mechwolf": "Ascension: Lightning (Moze / Aglaea)",
       "Stagnant_Shadow_Gust": "Ascension: Wind (Dan Heng / Bronya / Sampo)",
       "Stagnant_Shadow_Celestial": "Ascension: Wind (Blade / Huohuo / Black Swan)",
-      "Stagnant_Shadow_Gloam": "Ascension: Wind (Feixiao / Anaxa / Hyacine)",
+      "Stagnant_Shadow_Gloam": "Ascension: Wind (Feixiao / Anaxa / Hyacine / Saber)",
+      "Stagnant_Shadow_Cinders": "Ascension: Wind (Cerydra)",
       "Stagnant_Shadow_Quanta": "Ascension: Quantum (Silver Wolf / Seele / Qingque)",
       "Stagnant_Shadow_Abomination": "Ascension: Quantum (Lynx / Fu Xuan / Xueyi)",
       "Stagnant_Shadow_Roast": "Ascension: Quantum (Jade / Sparkle)",
-      "Stagnant_Shadow_Gelidmoon": "Ascension: Quantum (Tribbie / Castorice / Cipher)",
+      "Stagnant_Shadow_Gelidmoon": "Ascension: Quantum (Tribbie / Castorice / Cipher / Archer)",
       "Stagnant_Shadow_Mirage": "Ascension: Imaginary (Welt / Luocha / Yukong)",
       "Stagnant_Shadow_Puppetry": "Ascension: Imaginary (Dan Heng • Imbibitor Lunae / Aventurine / Dr. Ratio)",
       "Stagnant_Shadow_Timbre": "Ascension: Imaginary (Sunday / Rappa)",
@@ -409,7 +411,11 @@
       "name": "Support Character",
       "help": "Select a friend support character, if not found, select the default (first) role\nSupport character should not be the same as the character in the team, recommended to prioritize friends.",
       "FirstCharacter": "First Character",
+      "Hysilens": "[3.5] Hysilens",
+      "Cerydra": "[3.5] Cerydra",
       "Phainon": "[3.4] Phainon",
+      "Saber": "[3.4] Saber",
+      "Archer": "[3.4] Archer",
       "Hyacine": "[3.3] Hyacine",
       "Cipher": "[3.3] Cipher",
       "Castorice": "[3.2] Castorice",
@@ -645,7 +651,7 @@
       "help": ""
     },
     "Item_A_Glass_of_the_Besotted_Era": {
-      "name": "Ascension: Wind (Feixiao / Anaxa / Hyacine)",
+      "name": "Ascension: Wind (Feixiao / Anaxa / Hyacine / Saber)",
       "help": ""
     },
     "Item_Dream_Flamer": {
@@ -657,15 +663,19 @@
       "help": ""
     },
     "Item_Invasive_Clot": {
-      "name": "Ascension: Physical (Phainon)",
+      "name": "Ascension: Physical (Phainon / Hysilens)",
+      "help": ""
+    },
+    "Item_Sea_Siren_Torn_Fin": {
+      "name": "Ascension: Ice (Stagnant Shadow: Shape of Sirens)",
       "help": ""
     },
     "Item_Charred_Bud_of_Twilight": {
-      "name": "Unknown_Dungeon_Come_From",
+      "name": "Ascension: Wind (Cerydra)",
       "help": ""
     },
     "Item_Darkveil_Moonlight": {
-      "name": "Ascension: Quantum (Tribbie / Castorice / Cipher)",
+      "name": "Ascension: Quantum (Tribbie / Castorice / Cipher / Archer)",
       "help": ""
     },
     "Item_Harbinger_of_Strife": {
@@ -818,7 +828,11 @@
       "name": "Character",
       "help": "",
       "_none_": "None",
+      "Hysilens": "[3.5] Hysilens",
+      "Cerydra": "[3.5] Cerydra",
       "Phainon": "[3.4] Phainon",
+      "Saber": "[3.4] Saber",
+      "Archer": "[3.4] Archer",
       "Hyacine": "[3.3] Hyacine",
       "Cipher": "[3.3] Cipher",
       "Castorice": "[3.2] Castorice",
@@ -895,6 +909,8 @@
       "name": "Cone",
       "help": "",
       "_none_": "None",
+      "Epoch_Etched_in_Golden_Blood": "[3.5] Cerydra | 5* Epoch Etched in Golden Blood",
+      "Why_Does_the_Ocean_Sing": "[3.5] Hysilens | 5* Why Does the Ocean Sing",
       "Thus_Burns_the_Dawn": "[3.4] Phainon | 5* Thus Burns the Dawn",
       "Lies_Dance_on_the_Breeze": "[3.3] Cipher | 5* Lies Dance on the Breeze",
       "Long_May_Rainbows_Adorn_the_Sky": "[3.3] Hyacine | 5* Long May Rainbows Adorn the Sky",
@@ -948,6 +964,7 @@
       "But_the_Battle_Isn_t_Over": "5* But the Battle Isn't Over",
       "Something_Irreplaceable": "5* Something Irreplaceable",
       "Night_on_the_Milky_Way": "5* Night on the Milky Way",
+      "The_Forever_Victual": "4* The Forever Victual",
       "The_Great_Cosmic_Enterprise": "4* The Great Cosmic Enterprise",
       "Ninja_Record_Sound_Hunt": "4* Ninja Record: Sound Hunt",
       "For_Tomorrow_Journey": "4* For Tomorrow's Journey",
@@ -1512,7 +1529,7 @@
     "Dungeon": {
       "name": "Dungeon Name",
       "help": "",
-      "Divergent_Universe_Moonlit_Blood": "Ornament: Arcadia & Revelry (Moonlit Blood)",
+      "Divergent_Universe_Moonlit_Blood": "Ornament:  (Moonlit Blood)",
       "Divergent_Universe_Unceasing_Strife": "Ornament: Bone Collection & Giant Tree (Unceasing Strife)",
       "Divergent_Universe_Famished_Worker": "Ornament: Sunken Seas & Wondrous (Famished Worker)",
       "Divergent_Universe_Eternal_Comedy": "Ornament: Running Wolves & Lantern (Eternal Comedy)",
@@ -1522,7 +1539,7 @@
       "Divergent_Universe_Permafrost": "Ornament: Belobog & Salsotto (Permafrost)",
       "Divergent_Universe_Gentle_Words": "Ornament: Commercial Enterprise & Differentiator (Gentle Words)",
       "Divergent_Universe_Smelted_Heart": "Ornament: Banditry & Vonwacq (Smelted Heart)",
-      "Divergent_Universe_Untoppled_Walls": "Ornament: Space & Ageless Fleet (Untoppled Walls)"
+      "Divergent_Universe_Untoppled_Walls": "Ornament: Space & Ageless Fleet & Arcadia & Revelry (Untoppled Walls)"
     },
     "UseImmersifier": {
       "name": "Claim Planars Using Immersifiers",

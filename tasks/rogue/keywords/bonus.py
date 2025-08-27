@@ -534,3 +534,30 @@ Data_Collection = RogueBonus(
     jp='クラスターデータ',
     es='Datos colectivos',
 )
+Recursion = RogueBonus(
+    id=60,
+    name='Recursion',
+    cn='递归',
+    cht='遞迴',
+    en='Recursion',
+    jp='再帰',
+    es='Recursión',
+)
+Dream_of_Flowers = RogueBonus(
+    id=61,
+    name='Dream_of_Flowers',
+    cn='花之梦',
+    cht='花之夢',
+    en='Dream of Flowers',
+    jp='花の夢',
+    es='El sueño de las flores',
+)
+Bedtime_Story = RogueBonus(
+    id=62,
+    name='Bedtime_Story',
+    cn='睡前故事',
+    cht='睡前故事',
+    en='Bedtime Story',
+    jp='寝物語',
+    es='Cuento para dormir',
+)

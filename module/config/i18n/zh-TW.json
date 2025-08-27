@@ -287,23 +287,25 @@
       "Stagnant_Shadow_Spike": "晉階材料：物理（娜塔莎 / 克拉拉 / 盧卡 / 素裳）",
       "Stagnant_Shadow_Perdition": "晉階材料：物理（寒鴉 / 銀枝）",
       "Stagnant_Shadow_Duty": "晉階材料：物理（波提歐 / 知更鳥 / 雲璃）",
-      "Stagnant_Shadow_Deepsheaf": "晉階材料：物理（白厄）",
+      "Stagnant_Shadow_Deepsheaf": "晉階材料：物理（白厄 / 海瑟音）",
       "Stagnant_Shadow_Blaze": "晉階材料：火（姬子 / 艾絲妲 / 虎克）",
       "Stagnant_Shadow_Scorch": "晉階材料：火（桂乃芬 / 托帕&帳帳 / 忘歸人）",
       "Stagnant_Shadow_Ire": "晉階材料：火（流螢 / 加拉赫 / 椒丘 / 靈砂）",
       "Stagnant_Shadow_Rime": "晉階材料：冰（三月七 / 黑塔 / 傑帕德 / 佩拉）",
       "Stagnant_Shadow_Icicle": "晉階材料：冰（彥卿 / 鏡流 / 阮•梅）",
       "Stagnant_Shadow_Nectar": "晉階材料：冰（米沙 / 大黑塔）",
+      "Stagnant_Shadow_Sirens": "晉階材料：冰（塞壬之形•凝滯虛影）",
       "Stagnant_Shadow_Fulmination": "晉階材料：雷（阿蘭 / 希露瓦 / 停雲 / 白露）",
       "Stagnant_Shadow_Doom": "晉階材料：雷（卡芙卡 / 景元 / 黃泉）",
       "Stagnant_Shadow_Mechwolf": "晉階材料：雷（貊澤 / 阿格萊雅）",
       "Stagnant_Shadow_Gust": "晉階材料：風（丹恆 / 布洛妮婭 / 桑博）",
       "Stagnant_Shadow_Celestial": "晉階材料：風（刃 / 藿藿 / 黑天鵝）",
-      "Stagnant_Shadow_Gloam": "晉階材料：風（飛霄 / 那刻夏 / 風堇）",
+      "Stagnant_Shadow_Gloam": "晉階材料：風（飛霄 / 那刻夏 / 風堇 / Saber）",
+      "Stagnant_Shadow_Cinders": "晉階材料：風（刻律德菈）",
       "Stagnant_Shadow_Quanta": "晉階材料：量子（銀狼 / 希兒 / 青雀）",
       "Stagnant_Shadow_Abomination": "晉階材料：量子（玲可 / 符玄 / 雪衣）",
       "Stagnant_Shadow_Roast": "晉階材料：量子（翡翠 / 花火）",
-      "Stagnant_Shadow_Gelidmoon": "晉階材料：量子（緹寶 / 遐蝶 / 賽飛兒）",
+      "Stagnant_Shadow_Gelidmoon": "晉階材料：量子（緹寶 / 遐蝶 / 賽飛兒 / Archer）",
       "Stagnant_Shadow_Mirage": "晉階材料：虛數（瓦爾特 / 羅剎 / 馭空）",
       "Stagnant_Shadow_Puppetry": "晉階材料：虛數（丹恆•飲月 / 砂金 / 真理醫生）",
       "Stagnant_Shadow_Timbre": "晉階材料：虛數（星期日 / 亂破）",
@@ -409,7 +411,11 @@
       "name": "好友支援角色",
       "help": "選擇好友支援角色，未找到則選擇默認（第一個）角色\n支援角色不要與隊伍中的角色重複，建議置頂好友角色",
       "FirstCharacter": "支援列表第一個角色",
+      "Hysilens": "[3.5] 海瑟音",
+      "Cerydra": "[3.5] 刻律德菈",
       "Phainon": "[3.4] 白厄",
+      "Saber": "[3.4] Saber",
+      "Archer": "[3.4] Archer",
       "Hyacine": "[3.3] 風堇",
       "Cipher": "[3.3] 賽飛兒",
       "Castorice": "[3.2] 遐蝶",
@@ -645,7 +651,7 @@
       "help": ""
     },
     "Item_A_Glass_of_the_Besotted_Era": {
-      "name": "晉階材料：風（飛霄 / 那刻夏 / 風堇）",
+      "name": "晉階材料：風（飛霄 / 那刻夏 / 風堇 / Saber）",
       "help": ""
     },
     "Item_Dream_Flamer": {
@@ -657,15 +663,19 @@
       "help": ""
     },
     "Item_Invasive_Clot": {
-      "name": "晉階材料：物理（白厄）",
+      "name": "晉階材料：物理（白厄 / 海瑟音）",
+      "help": ""
+    },
+    "Item_Sea_Siren_Torn_Fin": {
+      "name": "晉階材料：冰（塞壬之形•凝滯虛影）",
       "help": ""
     },
     "Item_Charred_Bud_of_Twilight": {
-      "name": "Unknown_Dungeon_Come_From",
+      "name": "晉階材料：風（刻律德菈）",
       "help": ""
     },
     "Item_Darkveil_Moonlight": {
-      "name": "晉階材料：量子（緹寶 / 遐蝶 / 賽飛兒）",
+      "name": "晉階材料：量子（緹寶 / 遐蝶 / 賽飛兒 / Archer）",
       "help": ""
     },
     "Item_Harbinger_of_Strife": {
@@ -818,7 +828,11 @@
       "name": "養成角色",
       "help": "",
       "_none_": "無",
+      "Hysilens": "[3.5] 海瑟音",
+      "Cerydra": "[3.5] 刻律德菈",
       "Phainon": "[3.4] 白厄",
+      "Saber": "[3.4] Saber",
+      "Archer": "[3.4] Archer",
       "Hyacine": "[3.3] 風堇",
       "Cipher": "[3.3] 賽飛兒",
       "Castorice": "[3.2] 遐蝶",
@@ -895,6 +909,8 @@
       "name": "養成光錐",
       "help": "",
       "_none_": "無",
+      "Epoch_Etched_in_Golden_Blood": "[3.5] 刻律德菈 | 5* 金血銘刻的時代",
+      "Why_Does_the_Ocean_Sing": "[3.5] 海瑟音 | 5* 海洋為何而歌",
       "Thus_Burns_the_Dawn": "[3.4] 白厄 | 5* 黎明恰如此燃燒",
       "Lies_Dance_on_the_Breeze": "[3.3] 賽飛兒 | 5* 謊言在風中飄揚",
       "Long_May_Rainbows_Adorn_the_Sky": "[3.3] 風堇 | 5* 願虹光永駐天空",
@@ -948,6 +964,7 @@
       "But_the_Battle_Isn_t_Over": "5* 但戰鬥還未結束",
       "Something_Irreplaceable": "5* 無可取代的東西",
       "Night_on_the_Milky_Way": "5* 銀河鐵道之夜",
+      "The_Forever_Victual": "4* 永遠的迷境飯",
       "The_Great_Cosmic_Enterprise": "4* 宇宙大生意",
       "Ninja_Record_Sound_Hunt": "4* 忍事錄•音律狩獵",
       "For_Tomorrow_Journey": "4* 為了明日的旅途",
@@ -1512,7 +1529,7 @@
     "Dungeon": {
       "name": "副本名稱",
       "help": "",
-      "Divergent_Universe_Moonlit_Blood": "飾品：妖精 & 沉醉（月下朱殷）",
+      "Divergent_Universe_Moonlit_Blood": "飾品：（月下朱殷）",
       "Divergent_Universe_Unceasing_Strife": "飾品：拾骨地 & 巨樹（紛爭不休）",
       "Divergent_Universe_Famished_Worker": "飾品：海域 & 奇想（蠹役飢腸）",
       "Divergent_Universe_Eternal_Comedy": "飾品：奔狼 & 火宮（永恆笑劇）",
@@ -1522,7 +1539,7 @@
       "Divergent_Universe_Permafrost": "飾品：貝洛伯格 & 薩爾索圖（百年凍土）",
       "Divergent_Universe_Gentle_Words": "飾品：商業公司 & 差分機（溫柔話語）",
       "Divergent_Universe_Smelted_Heart": "飾品：盜賊 & 翁瓦克（浴火鋼心）",
-      "Divergent_Universe_Untoppled_Walls": "飾品：太空 & 仙舟（堅城不倒）"
+      "Divergent_Universe_Untoppled_Walls": "飾品：太空 & 仙舟 & 妖精 & 沉醉（堅城不倒）"
     },
     "UseImmersifier": {
       "name": "使用沉浸器領取遺器",

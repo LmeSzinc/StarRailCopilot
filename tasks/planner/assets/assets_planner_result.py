@@ -15,13 +15,22 @@ CALCULATE_TITLE = ButtonWrapper(
 )
 DETAIL_TITLE = ButtonWrapper(
     name='DETAIL_TITLE',
-    share=Button(
-        file='./assets/share/planner/result/DETAIL_TITLE.png',
-        area=(263, 402, 346, 422),
-        search=(243, 382, 366, 442),
-        color=(144, 146, 164),
-        button=(263, 402, 346, 422),
-    ),
+    share=[
+        Button(
+            file='./assets/share/planner/result/DETAIL_TITLE.png',
+            area=(263, 402, 346, 422),
+            search=(243, 382, 366, 442),
+            color=(144, 146, 164),
+            button=(263, 402, 346, 422),
+        ),
+        Button(
+            file='./assets/share/planner/result/DETAIL_TITLE.2.png',
+            area=(263, 460, 345, 480),
+            search=(243, 440, 365, 500),
+            color=(117, 119, 147),
+            button=(263, 460, 345, 480),
+        ),
+    ],
 )
 MATERIAL_TITLE = ButtonWrapper(
     name='MATERIAL_TITLE',

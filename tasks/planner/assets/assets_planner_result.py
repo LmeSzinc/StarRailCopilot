@@ -53,6 +53,16 @@ RESULT_CHECK = ButtonWrapper(
         button=(263, 128, 324, 148),
     ),
 )
+RESULT_DRAG = ButtonWrapper(
+    name='RESULT_DRAG',
+    share=Button(
+        file='./assets/share/planner/result/RESULT_DRAG.png',
+        area=(220, 105, 255, 592),
+        search=(200, 85, 275, 612),
+        color=(35, 39, 72),
+        button=(220, 105, 255, 592),
+    ),
+)
 RESULT_SCROLL = ButtonWrapper(
     name='RESULT_SCROLL',
     share=Button(

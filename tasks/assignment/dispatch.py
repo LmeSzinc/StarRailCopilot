@@ -82,7 +82,7 @@ class AssignmentDispatch(AssignmentUI):
         logger.info('Select characters')
         skip_first_screenshot = True
         self.interval_clear(
-            (CHARACTER_LIST, CHARACTER_1_SELECTED, CHARACTER_2_SELECTED), interval=2)
+            (CHARACTER_LIST, CHARACTER_1_SELECTED, CHARACTER_2_SELECTED), interval=5)
         while 1:
             if skip_first_screenshot:
                 skip_first_screenshot = False
@@ -99,23 +99,23 @@ class AssignmentDispatch(AssignmentUI):
             # Ensure character list
             # Search EMPTY_SLOT to load offset
             if not self.appear(CHARACTER_LIST) and self.appear(EMPTY_SLOT):
-                if self.interval_is_reached(CHARACTER_LIST, interval=2):
+                if self.interval_is_reached(CHARACTER_LIST, interval=5):
                     self.device.click(EMPTY_SLOT)
-                    self.interval_reset(CHARACTER_LIST, interval=2)
+                    self.interval_reset(CHARACTER_LIST, interval=5)
                 continue
             # Select
-            if self.interval_is_reached(CHARACTER_1_SELECTED, interval=2):
+            if self.interval_is_reached(CHARACTER_1_SELECTED, interval=5):
                 if not self.image_color_count(CHARACTER_1_SELECTED, (240, 240, 240), threshold=221, count=160):
                     self.device.click(CHARACTER_1)
-                self.interval_reset(CHARACTER_1_SELECTED, interval=2)
-            if self.interval_is_reached(CHARACTER_2_SELECTED, interval=2):
+                self.interval_reset(CHARACTER_1_SELECTED, interval=5)
+            if self.interval_is_reached(CHARACTER_2_SELECTED, interval=5):
                 if not self.image_color_count(CHARACTER_2_SELECTED, (240, 240, 240), threshold=221, count=160):
                     self.device.click(CHARACTER_2)
-                self.interval_reset(CHARACTER_2_SELECTED, interval=2)
+                self.interval_reset(CHARACTER_2_SELECTED, interval=5)
 
         # CHARACTER_LIST -> CONFIRM_ASSIGNMENT
         logger.info('Close character list')
-        self.interval_clear([CHARACTER_LIST, EMPTY_SLOT], interval=2)
+        self.interval_clear([CHARACTER_LIST, EMPTY_SLOT], interval=5)
         skip_first_screenshot = True
         while 1:
             if skip_first_screenshot:
@@ -129,7 +129,7 @@ class AssignmentDispatch(AssignmentUI):
                         logger.info(
                             'Characters are all selected (light button)')
                         break
-                if self.appear(CHARACTER_LIST, interval=2):
+                if self.appear(CHARACTER_LIST, interval=5):
                     # EMPTY_SLOT appeared above
                     self.device.click(EMPTY_SLOT)
                     continue
@@ -137,7 +137,7 @@ class AssignmentDispatch(AssignmentUI):
     def _select_support(self):
         skip_first_screenshot = True
         self.interval_clear(
-            (CHARACTER_SUPPORT_LIST, CHARACTER_SUPPORT_SELECTED), interval=2)
+            (CHARACTER_SUPPORT_LIST, CHARACTER_SUPPORT_SELECTED), interval=5)
         while 1:
             if skip_first_screenshot:
                 skip_first_screenshot = False
@@ -149,14 +149,14 @@ class AssignmentDispatch(AssignmentUI):
                 break
             # Ensure support list
             if not self.appear(CHARACTER_SUPPORT_LIST):
-                if self.interval_is_reached(CHARACTER_SUPPORT_LIST, interval=2):
+                if self.interval_is_reached(CHARACTER_SUPPORT_LIST, interval=5):
                     self.device.click(EMPTY_SLOT_SUPPORT)
-                    self.interval_reset(CHARACTER_SUPPORT_LIST, interval=2)
+                    self.interval_reset(CHARACTER_SUPPORT_LIST, interval=5)
                 continue
             # Select
-            if self.interval_is_reached(CHARACTER_SUPPORT_SELECTED, interval=2):
+            if self.interval_is_reached(CHARACTER_SUPPORT_SELECTED, interval=5):
                 self.device.click(CHARACTER_SUPPORT)
-                self.interval_reset(CHARACTER_SUPPORT_SELECTED, interval=2)
+                self.interval_reset(CHARACTER_SUPPORT_SELECTED, interval=5)
 
     def _select_duration(self, duration: int):
         if duration not in {4, 8, 12, 20}:
@@ -182,7 +182,7 @@ class AssignmentDispatch(AssignmentUI):
                 logger.info(f'Assignment dispatched')
                 break
             # Click
-            if self.appear_then_click(CONFIRM_ASSIGNMENT, interval=2):
+            if self.appear_then_click(CONFIRM_ASSIGNMENT, interval=5):
                 continue
 
     def _wait_until_assignment_started(self):

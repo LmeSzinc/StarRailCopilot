@@ -4,7 +4,7 @@ import cv2
 from pponnxcr.predict_system import BoxedResult
 
 from module.base.decorator import cached_property
-from module.base.utils import area_center, area_in_area
+from module.base.utils import area_center, area_in_area, random_rectangle_vector_opted
 from module.exception import GamePageUnknownError
 from module.logger import logger
 from module.ocr.ocr import Ocr, OcrWhiteLetterOnComplexBackground
@@ -245,7 +245,12 @@ class PlannerScan(SynthesizeUI, PlannerMixin):
                 logger.info('Reached DETAIL_TITLE, stop')
                 break
             else:
-                scroll.next_page(main=self, page=0.8)
+                # DON'T drag scroll, ldplayer can't response
+                # scroll.next_page(main=self, page=0.8)
+                vector = (0, -300)
+                p1, p2 = random_rectangle_vector_opted(
+                    vector, box=RESULT_DRAG.area, random_range=(-10, -50, 10, 50), padding=0)
+                self.device.drag(p1, p2, name=RESULT_DRAG.name)
 
         logger.hr('Planner Result')
         for row in out:

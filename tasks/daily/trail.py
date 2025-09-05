@@ -1,4 +1,5 @@
 from module.base.timer import Timer
+from module.base.utils import random_rectangle_vector_opted
 from module.logger import logger
 from tasks.base.assets.assets_base_page import CLOSE, MAP_EXIT
 from tasks.base.page import page_gacha
@@ -31,6 +32,7 @@ class CharacterTrial(UI):
         info_closed = False
         info_timeout = Timer(2, count=4).start()
         first_gacha = switched
+        in_regular_gacha = False
         while 1:
             if skip_first_screenshot:
                 skip_first_screenshot = False
@@ -65,6 +67,18 @@ class CharacterTrial(UI):
             if self.match_template_color(REGULAR_GACHA_CHECK) \
                     and self.match_color(CHARACTER_TRIAL, interval=2):
                 self.device.click(CHARACTER_TRIAL)
+                in_regular_gacha = True
+                continue
+            # scroll down to regular gacha
+            if not in_regular_gacha and not self.match_template_color(REGULAR_GACHA_CLICK) \
+                    and self.ui_page_appear(page_gacha, interval=2):
+                if first_gacha:
+                    self.device.sleep(0.3)
+                    first_gacha = False
+                p1, p2 = random_rectangle_vector_opted(
+                    (0, -120), box=REGULAR_GACHA_CLICK.search, random_range=(-5, -10, 5, 10), padding=0)
+                self.device.drag(p1, p2, name=f'REGULAR_GACHA_DRAG')
+                self.interval_reset(page_gacha.check_button)
                 continue
             if self.match_template_color(REGULAR_GACHA_CLICK, interval=2):
                 # Poor sleep indeed, clicks won't be response unless other elements are loaded

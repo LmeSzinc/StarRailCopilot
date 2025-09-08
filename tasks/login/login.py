@@ -27,6 +27,8 @@ class Login(LoginAndroidCloud, RogueUI, AgreementHandler, UIDHandler):
         orientation_timer = Timer(5)
         startup_timer = Timer(5).start()
         app_timer = Timer(5).start()
+        start_success = False
+        start_timeout = Timer(30).start()
         login_success = False
         first_map_loading = True
         self.device.stuck_record_clear()
@@ -34,9 +36,16 @@ class Login(LoginAndroidCloud, RogueUI, AgreementHandler, UIDHandler):
         while 1:
             # Watch if game alive
             if app_timer.reached():
-                if not self.device.app_is_running():
-                    logger.error('Game died during launch')
-                    raise GameNotRunningError('Game not running')
+                if self.device.app_is_running():
+                    start_success = True
+                else:
+                    if start_success:
+                        logger.error('Game died during launch')
+                        raise GameNotRunningError('Game not running')
+                    else:
+                        if start_timeout.reached():
+                            logger.error('Game not started after 30s')
+                            raise GameNotRunningError('Game not running')
                 app_timer.reset()
             # Watch device rotation
             if not login_success and orientation_timer.reached():

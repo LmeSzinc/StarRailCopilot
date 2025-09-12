@@ -69,7 +69,7 @@ class GameRedeemCode:
             data = response.json()
 
             # 提取内容部分
-            content = deep_get(data, 'data.post.post.content')
+            content = deep_get(data, 'data.post.post.structured_content')
             create_at = deep_get(data, 'data.post.post.created_at')
 
             # 时间处理

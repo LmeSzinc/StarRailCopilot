@@ -25,13 +25,22 @@ EXP_CLAIM_ALL = ButtonWrapper(
 )
 MISSIONS_CHECK = ButtonWrapper(
     name='MISSIONS_CHECK',
-    share=Button(
-        file='./assets/share/battle_pass/MISSIONS_CHECK.png',
-        area=(44, 210, 74, 230),
-        search=(24, 190, 94, 250),
-        color=(68, 69, 68),
-        button=(44, 210, 74, 230),
-    ),
+    share=[
+        Button(
+            file='./assets/share/battle_pass/MISSIONS_CHECK.png',
+            area=(44, 210, 74, 230),
+            search=(24, 190, 94, 250),
+            color=(68, 69, 68),
+            button=(44, 210, 74, 230),
+        ),
+        Button(
+            file='./assets/share/battle_pass/MISSIONS_CHECK.2.png',
+            area=(44, 210, 74, 230),
+            search=(24, 190, 94, 250),
+            color=(74, 75, 74),
+            button=(44, 210, 74, 230),
+        ),
+    ],
 )
 MISSIONS_CLICK = ButtonWrapper(
     name='MISSIONS_CLICK',

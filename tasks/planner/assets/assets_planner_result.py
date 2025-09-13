@@ -15,13 +15,22 @@ CALCULATE_TITLE = ButtonWrapper(
 )
 DETAIL_TITLE = ButtonWrapper(
     name='DETAIL_TITLE',
-    share=Button(
-        file='./assets/share/planner/result/DETAIL_TITLE.png',
-        area=(263, 402, 346, 422),
-        search=(243, 382, 366, 442),
-        color=(144, 146, 164),
-        button=(263, 402, 346, 422),
-    ),
+    share=[
+        Button(
+            file='./assets/share/planner/result/DETAIL_TITLE.png',
+            area=(263, 402, 346, 422),
+            search=(243, 382, 366, 442),
+            color=(144, 146, 164),
+            button=(263, 402, 346, 422),
+        ),
+        Button(
+            file='./assets/share/planner/result/DETAIL_TITLE.2.png',
+            area=(263, 460, 345, 480),
+            search=(243, 440, 365, 500),
+            color=(117, 119, 147),
+            button=(263, 460, 345, 480),
+        ),
+    ],
 )
 MATERIAL_TITLE = ButtonWrapper(
     name='MATERIAL_TITLE',
@@ -51,6 +60,16 @@ RESULT_CHECK = ButtonWrapper(
         search=(255, 103, 355, 593),
         color=(132, 119, 92),
         button=(263, 128, 324, 148),
+    ),
+)
+RESULT_DRAG = ButtonWrapper(
+    name='RESULT_DRAG',
+    share=Button(
+        file='./assets/share/planner/result/RESULT_DRAG.png',
+        area=(220, 105, 255, 592),
+        search=(200, 85, 275, 612),
+        color=(35, 39, 72),
+        button=(220, 105, 255, 592),
     ),
 )
 RESULT_SCROLL = ButtonWrapper(

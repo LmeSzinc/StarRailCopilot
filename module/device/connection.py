@@ -324,7 +324,8 @@ class Connection(ConnectionAttr):
         # BlueStacks Air is the Mac version of BlueStacks
         if not IS_MACINTOSH:
             return False
-        if not self.is_ldplayer_bluestacks_family:
+        # 127.0.0.1:5555 + 10*n, assume 32 instances at max
+        if not (5555 <= self.port <= 5875):
             return False
         # [bst.installed_images]: [Tiramisu64]
         # [bst.instance]: [Tiramisu64]
@@ -829,6 +830,9 @@ class Connection(ConnectionAttr):
         instance = self.find_emulator_instance(
             serial=self.serial,
         )
+        if instance is None:
+            logger.warning(f'Failed to check check_mumu_bridge_network, emulator instance not found')
+            return False
         file = instance.mumu_vms_config('customer_config.json')
         try:
             with open(file, mode='r', encoding='utf-8') as f:

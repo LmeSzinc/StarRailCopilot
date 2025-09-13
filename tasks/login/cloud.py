@@ -24,6 +24,10 @@ class XPath:
     ACCOUNT_FORGET_PASSWORD = '//*[@text="忘记密码"]'
     # 登录后的弹窗，获得免费时长
     GET_REWARD = '//*[@text="点击空白区域关闭"]'
+    # 额外点击页面
+    # https://github.com/LmeSzinc/StarRailCopilot/issues/893
+    CLICK_TO_START_GAME = '//*[@text="点击任意处开始游戏"]'
+    CLICK_TO_LOGIN = '//*[@text="点击任意地方登录"]'
     # 用户协议和隐私政策更新提示
     # - 拒绝 - 接受
     AGREEMENT_ACCEPT = '//*[@text="接受"]'
@@ -130,6 +134,10 @@ class LoginAndroidCloud(ModuleBase):
 
             # Click
             if self.appear_then_click(XPath.GET_REWARD):
+                continue
+            if self.appear_then_click(XPath.CLICK_TO_START_GAME):
+                continue
+            if self.appear_then_click(XPath.CLICK_TO_LOGIN):
                 continue
             if self.appear_then_click(XPath.ACCOUNT_LOGIN):
                 continue

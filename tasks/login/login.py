@@ -5,7 +5,7 @@ from tasks.base.page import page_main
 from tasks.combat.assets.assets_combat_interact import MAP_LOADING
 from tasks.login.agreement import AgreementHandler
 from tasks.login.assets.assets_login import *
-from tasks.login.assets.assets_login_popup import ADVERTISE_Castorice, UNITY_ENGINE_ERROR
+from tasks.login.assets.assets_login_popup import *
 from tasks.login.cloud import LoginAndroidCloud
 from tasks.login.uid import UIDHandler
 from tasks.rogue.blessing.ui import RogueUI
@@ -128,6 +128,11 @@ class Login(LoginAndroidCloud, RogueUI, AgreementHandler, UIDHandler):
         """
         # 3.2 Castorice popup that advertise you go gacha, but no, close it
         if self.handle_ui_close(ADVERTISE_Castorice, interval=2):
+            return True
+        # 3.4 Every account gets Archer
+        if self.appear_then_click(CLAIM_ARCHER, interval=2):
+            return True
+        if self.handle_get_character():
             return True
         return False
 

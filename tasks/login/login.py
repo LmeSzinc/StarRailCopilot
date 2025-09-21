@@ -1,6 +1,7 @@
 from module.base.timer import Timer
 from module.exception import GameNotRunningError
 from module.logger import logger
+from tasks.base.assets.assets_base_page import CHARACTER_CHECK
 from tasks.base.page import page_main
 from tasks.combat.assets.assets_combat_interact import MAP_LOADING
 from tasks.login.agreement import AgreementHandler
@@ -133,6 +134,12 @@ class Login(LoginAndroidCloud, RogueUI, AgreementHandler, UIDHandler):
         if self.appear_then_click(CLAIM_ARCHER, interval=2):
             return True
         if self.handle_get_character():
+            return True
+        # homecoming popup
+        if self.handle_ui_close(HOMECOMING_TITLE, interval=2):
+            return True
+        # Might enter page_character while clicking CLOSE
+        if self.handle_ui_close(CHARACTER_CHECK, interval=2):
             return True
         return False
 

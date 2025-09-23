@@ -220,6 +220,11 @@ class RouteLoader(RouteLoader_, MinimapWrapper, CharacterSwitch):
             # [('Occurrence_Jarilo_SilvermaneGuardRestrictedZone_F1_X439Y237', 0.185, (440.8, 232.9)),
             # ('Occurrence_Luofu_Cloudford_F1_X283Y865', 0.081, (287.5, 864.8))]
             'Occurrence_Jarilo_SilvermaneGuardRestrictedZone_F1_X439Y237'
+            # Respite_Jarilo_RivetTown_F1_X157Y273 should prior Respite_Luofu_StargazerNavalia_F2Rogue_X569Y275
+            # [('Respite_Luofu_StargazerNavalia_F2Rogue_X569Y275', 0.126, (565.2, 273.2)),
+            # ('Respite_Jarilo_RivetTown_F1_X157Y273', 0.123, (155.2, 276.8)),
+            # ('Respite_Jarilo_CorridorofFadingEchoes_F1_X291Y653', 0.082, (292.0, 650.0))]
+            'Respite_Jarilo_RivetTown_F1_X157Y273',
         ] and similarity > 0.1:
             return True
         # Luofu_Cloudford_F1_X283Y865 and its equivalents

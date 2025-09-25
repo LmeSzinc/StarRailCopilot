@@ -48,6 +48,8 @@ class OcrItemName(Ocr):
         result = re.sub('[般殷]子', '骰子', result)
         # 暗帷月华
         result = result.replace('暗惟', '暗帷')
+        # 暮辉烬蕾
+        result = re.sub('暮晖.?蕾', '暮晖烬蕾', result)
         return result
 
 

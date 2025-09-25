@@ -8,7 +8,7 @@ BATTLE_PASS_NOTIFICATION = ButtonWrapper(
     share=Button(
         file='./assets/share/base/popup/BATTLE_PASS_NOTIFICATION.png',
         area=(922, 592, 944, 614),
-        search=(850, 589, 952, 618),
+        search=(850, 546, 952, 575),
         color=(122, 112, 93),
         button=(918, 587, 1079, 619),
     ),

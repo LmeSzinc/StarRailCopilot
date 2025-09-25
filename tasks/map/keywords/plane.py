@@ -729,8 +729,19 @@ Amphoreus_MurmuringWoodsGroveofEpiphany = MapPlane(
     world_id=4,
     plane_id=2042101,
 )
-Amphoreus_LightlessChapelDawncloud = MapPlane(
+Amphoreus_RadiantScarwoodGroveofEpiphany = MapPlane(
     id=68,
+    name='Amphoreus_RadiantScarwoodGroveofEpiphany',
+    cn='「辉痕圣林」神悟树庭',
+    cht='「輝痕聖林」神悟樹庭',
+    en='"Radiant Scarwood" Grove of Epiphany',
+    jp='「痕輝ける聖林」神悟の樹庭',
+    es='Soto de las Musas, Cicatriz Radiante',
+    world_id=4,
+    plane_id=2046101,
+)
+Amphoreus_LightlessChapelDawncloud = MapPlane(
+    id=69,
     name='Amphoreus_LightlessChapelDawncloud',
     cn='「无晖祈堂」黎明云崖',
     cht='「無暉祈堂」黎明雲崖',
@@ -741,7 +752,7 @@ Amphoreus_LightlessChapelDawncloud = MapPlane(
     plane_id=2043301,
 )
 Amphoreus_DemigodCouncilDawncloud = MapPlane(
-    id=69,
+    id=70,
     name='Amphoreus_DemigodCouncilDawncloud',
     cn='「半神议院」黎明云崖',
     cht='「半神議院」黎明雲崖',
@@ -752,7 +763,7 @@ Amphoreus_DemigodCouncilDawncloud = MapPlane(
     plane_id=1040301,
 )
 Amphoreus_DragonboneCityStyxia = MapPlane(
-    id=70,
+    id=71,
     name='Amphoreus_DragonboneCityStyxia',
     cn='「龙骸古城」斯缇科西亚',
     cht='「龍骸古城」斯緹科西亞',
@@ -763,7 +774,7 @@ Amphoreus_DragonboneCityStyxia = MapPlane(
     plane_id=2042301,
 )
 Amphoreus_WarblingShoresStyxia = MapPlane(
-    id=71,
+    id=72,
     name='Amphoreus_WarblingShoresStyxia',
     cn='「酣歌海垠」斯缇科西亚',
     cht='「酣歌海垠」斯緹科西亞',
@@ -774,7 +785,7 @@ Amphoreus_WarblingShoresStyxia = MapPlane(
     plane_id=2045101,
 )
 Amphoreus_CloudedgeBastionRuinsEyeofTwilight = MapPlane(
-    id=72,
+    id=73,
     name='Amphoreus_CloudedgeBastionRuinsEyeofTwilight',
     cn='「云端遗堡」晨昏之眼',
     cht='「雲端遺堡」晨昏之眼',
@@ -785,7 +796,7 @@ Amphoreus_CloudedgeBastionRuinsEyeofTwilight = MapPlane(
     plane_id=2043201,
 )
 Amphoreus_FortressofDomeEyeofTwilight = MapPlane(
-    id=73,
+    id=74,
     name='Amphoreus_FortressofDomeEyeofTwilight',
     cn='「穹顶关塞」晨昏之眼',
     cht='「穹頂關塞」晨昏之眼',
@@ -794,4 +805,15 @@ Amphoreus_FortressofDomeEyeofTwilight = MapPlane(
     es='Ojo Circadiano, Fortaleza de la Bóveda',
     world_id=4,
     plane_id=2043101,
+)
+Amphoreus_UniversalMatrixGreatTomboftheNamelessTitan = MapPlane(
+    id=75,
+    name='Amphoreus_UniversalMatrixGreatTomboftheNamelessTitan',
+    cn='「全世矩阵」无名泰坦大墓',
+    cht='「全世矩陣」無名泰坦大墓',
+    en='"Universal Matrix" Great Tomb of the Nameless Titan',
+    jp='「万象のマトリクス」無名のタイタンの大墓',
+    es='Gran Tumba del Titán Sin Nombre, Matriz Universal',
+    world_id=4,
+    plane_id=2046201,
 )

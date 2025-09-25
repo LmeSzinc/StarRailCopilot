@@ -248,6 +248,10 @@ class AzurLaneAutoScript:
                         del_cached_property(self, 'config')
                         del_cached_property(self, 'device')
                         continue
+                    if task.command == 'Restart':
+                        del_cached_property(self, 'config')
+                        del_cached_property(self, 'device')
+                        continue
                     # 重新启动模拟器
                     if task.command != 'Restart':
                         self.config.task_call('Restart')

@@ -4447,7 +4447,7 @@ A_cooking_Lordly_Trashcan = RogueEventOption(
     cht='下廚的王下一桶。',
     en='A cooking Lordly Trashcan.',
     jp='料理をする王のゴミ箱',
-    es='Un Cubo de basura señorial cocinillas.',
+    es='Un Cubo de Basura Señorial cocinillas.',
 )
 A_game_of_Rock_Paper_Scissors_with_the_calculator = RogueEventOption(
     id=495,

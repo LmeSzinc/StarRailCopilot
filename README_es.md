@@ -1,4 +1,4 @@
-**| [English](README_en.md) | [简体中文](README.md) | Español |**
+**| [English](README_en.md) | [简体中文](README.md) | Español | [日本語](README_ja.md) |**
 
 # StarRailCopilot
 Star Rail Copilot, un bot para Honkai: Star Rail, basado en la siguiente generación del framework ALAS.

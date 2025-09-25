@@ -244,6 +244,7 @@
     "Name": {
       "name": "Dungeon.Name.name",
       "help": "Dungeon.Name.help",
+      "Cavern_of_Corrosion_Path_of_Hidden_Salvation": "遺器：救世主 & 隠者（隠救の路）",
       "Cavern_of_Corrosion_Path_of_Thundersurge": "遺器：烈陽 & 船長（雷滾の路）",
       "Cavern_of_Corrosion_Path_of_Aria": "遺器：英雄 & 詩人（弦歌の路）",
       "Cavern_of_Corrosion_Path_of_Uncertainty": "遺器：司祭 & 学者（迷識の路）",
@@ -287,14 +288,14 @@
       "Stagnant_Shadow_Spike": "昇格素材：物理（ナターシャ / クラーラ / ルカ / 素裳）",
       "Stagnant_Shadow_Perdition": "昇格素材：物理（寒鴉 / アルジェンティ）",
       "Stagnant_Shadow_Duty": "昇格素材：物理（ブートヒル / ロビン / 雲璃）",
-      "Stagnant_Shadow_Deepsheaf": "昇格素材：物理（ファイノン / セイレンス）",
+      "Stagnant_Shadow_Deepsheaf": "昇格素材：物理（ファイノン / セイレンス / 丹恒・騰荒）",
       "Stagnant_Shadow_Blaze": "昇格素材：炎（姫子 / アスター / フック）",
       "Stagnant_Shadow_Scorch": "昇格素材：炎（桂乃芬 / トパーズ&カブ / 帰忘の流離人）",
       "Stagnant_Shadow_Ire": "昇格素材：炎（ホタル / ギャラガー / 椒丘 / 霊砂）",
       "Stagnant_Shadow_Rime": "昇格素材：氷（三月なのか / ヘルタ / ジェパード / ペラ）",
       "Stagnant_Shadow_Icicle": "昇格素材：氷（彦卿 / 鏡流 / ルアン・メェイ）",
       "Stagnant_Shadow_Nectar": "昇格素材：氷（ミーシャ / マダム・ヘルタ）",
-      "Stagnant_Shadow_Sirens": "昇格素材：氷（凝結虚影・海妖の形）",
+      "Stagnant_Shadow_Sirens": "昇格素材：氷（長夜月）",
       "Stagnant_Shadow_Fulmination": "昇格素材：雷（アーラン / セーバル / 停雲 / 白露）",
       "Stagnant_Shadow_Doom": "昇格素材：雷（カフカ / 景元 / 黄泉）",
       "Stagnant_Shadow_Mechwolf": "昇格素材：雷（モゼ / アグライア）",
@@ -345,6 +346,7 @@
     "NameAtDoubleRelic": {
       "name": "Dungeon.NameAtDoubleRelic.name",
       "help": "Dungeon.NameAtDoubleRelic.help",
+      "Cavern_of_Corrosion_Path_of_Hidden_Salvation": "遺器：救世主 & 隠者（隠救の路）",
       "Cavern_of_Corrosion_Path_of_Thundersurge": "遺器：烈陽 & 船長（雷滾の路）",
       "Cavern_of_Corrosion_Path_of_Aria": "遺器：英雄 & 詩人（弦歌の路）",
       "Cavern_of_Corrosion_Path_of_Uncertainty": "遺器：司祭 & 学者（迷識の路）",
@@ -411,6 +413,8 @@
       "name": "DungeonSupport.Character.name",
       "help": "DungeonSupport.Character.help",
       "FirstCharacter": "FirstCharacter",
+      "Evernight": "[3.6] 長夜月",
+      "DanHengPermansorTerrae": "[3.6] 丹恒・騰荒",
       "Hysilens": "[3.5] セイレンス",
       "Cerydra": "[3.5] ケリュドラ",
       "Phainon": "[3.4] ファイノン",
@@ -663,11 +667,11 @@
       "help": ""
     },
     "Item_Invasive_Clot": {
-      "name": "昇格素材：物理（ファイノン / セイレンス）",
+      "name": "昇格素材：物理（ファイノン / セイレンス / 丹恒・騰荒）",
       "help": ""
     },
     "Item_Sea_Siren_Torn_Fin": {
-      "name": "昇格素材：氷（凝結虚影・海妖の形）",
+      "name": "昇格素材：氷（長夜月）",
       "help": ""
     },
     "Item_Charred_Bud_of_Twilight": {
@@ -828,6 +832,8 @@
       "name": "PlannerTarget.Character.name",
       "help": "PlannerTarget.Character.help",
       "_none_": "_none_",
+      "Evernight": "[3.6] 長夜月",
+      "DanHengPermansorTerrae": "[3.6] 丹恒・騰荒",
       "Hysilens": "[3.5] セイレンス",
       "Cerydra": "[3.5] ケリュドラ",
       "Phainon": "[3.4] ファイノン",
@@ -909,6 +915,8 @@
       "name": "PlannerTarget.Cone.name",
       "help": "PlannerTarget.Cone.help",
       "_none_": "_none_",
+      "Though_Worlds_Apart": "[3.6] 丹恒・騰荒 | 5* 万里の山河を越えて",
+      "To_Evernight_Stars": "[3.6] 長夜月 | 5* 長き夜に輝く星へ",
       "Epoch_Etched_in_Golden_Blood": "[3.5] ケリュドラ | 5* 黄金の血で刻む時代",
       "Why_Does_the_Ocean_Sing": "[3.5] セイレンス | 5* 海の歌は何がため",
       "Thus_Burns_the_Dawn": "[3.4] ファイノン | 5* 燃え盛る黎明のように",
@@ -1529,7 +1537,7 @@
     "Dungeon": {
       "name": "Ornament.Dungeon.name",
       "help": "Ornament.Dungeon.help",
-      "Divergent_Universe_Moonlit_Blood": "飾品：（月下朱殷）",
+      "Divergent_Universe_Moonlit_Blood": "飾品：妖精 & 酩酊（月下朱殷）",
       "Divergent_Universe_Unceasing_Strife": "飾品：拾骨地 & 巨樹（絶えぬ紛争）",
       "Divergent_Universe_Famished_Worker": "飾品：海に沈 & 奇想（飢えた虫卒）",
       "Divergent_Universe_Eternal_Comedy": "飾品：奔狼 & 蓮灯（永遠の喜劇）",
@@ -1539,7 +1547,7 @@
       "Divergent_Universe_Permafrost": "飾品：ベロブルグ & ったサルソット（永久凍土）",
       "Divergent_Universe_Gentle_Words": "飾品：商事会社 & 階差機関（優しい言葉）",
       "Divergent_Universe_Smelted_Heart": "飾品：盗賊 & ウェンワーク（鋼の意志）",
-      "Divergent_Universe_Untoppled_Walls": "飾品：宇宙 & 仙舟 & 妖精 & 酩酊（不動の砦）"
+      "Divergent_Universe_Untoppled_Walls": "飾品：宇宙 & 仙舟（不動の砦）"
     },
     "UseImmersifier": {
       "name": "Ornament.UseImmersifier.name",

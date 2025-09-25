@@ -2028,3 +2028,75 @@ Peace_Box_Decrypted = RogueCurio(
     jp='平和の箱（クラック版）',
     es='Caja de paz (versión pirateada)',
 )
+Medal_of_the_Gloryblood_Era_Limited = RogueCurio(
+    id=226,
+    name='Medal_of_the_Gloryblood_Era_Limited',
+    cn='血锦之纪徽章（限量款）',
+    cht='血錦之紀徽章（限量款）',
+    en='Medal of the Gloryblood Era (Limited)',
+    jp='血錦の徽章（限定版）',
+    es='Medalla de la Era Gloriasangrienta (edición limitada)',
+)
+Jellyfish_on_the_Staircase_Decrypted = RogueCurio(
+    id=227,
+    name='Jellyfish_on_the_Staircase_Decrypted',
+    cn='楼梯上的水母（破解版）',
+    cht='樓梯上的水母（破解版）',
+    en='Jellyfish on the Staircase (Decrypted)',
+    jp='階段の上のクラゲ（クラック版）',
+    es='La medusa de las escaleras (versión pirateada)',
+)
+Tenebrous_Trapezohedron_Die = RogueCurio(
+    id=228,
+    name='Tenebrous_Trapezohedron_Die',
+    cn='漆黑的偏方三八面骰',
+    cht='漆黑的偏方三八面骰',
+    en='Tenebrous Trapezohedron Die',
+    jp='漆黒のトラペゾヘドロンサイコロ',
+    es='Dado trapezoedro negro',
+)
+Regular_A_Ruan_Pouch = RogueCurio(
+    id=229,
+    name='Regular_A_Ruan_Pouch',
+    cn='普通的阿阮袋',
+    cht='普通的阿阮袋',
+    en='Regular A-Ruan Pouch',
+    jp='普通のルアン袋',
+    es='Bolsa de Ruan Mei normal',
+)
+Stuffed_A_Ruan_Pouch = RogueCurio(
+    id=230,
+    name='Stuffed_A_Ruan_Pouch',
+    cn='膨胀的阿阮袋',
+    cht='膨脹的阿阮袋',
+    en='Stuffed A-Ruan Pouch',
+    jp='膨らんだルアン袋',
+    es='Bolsa de Ruan Mei repleta',
+)
+Bursting_A_Ruan_Pouch = RogueCurio(
+    id=231,
+    name='Bursting_A_Ruan_Pouch',
+    cn='失控的阿阮袋',
+    cht='失控的阿阮袋',
+    en='Bursting A-Ruan Pouch',
+    jp='暴走したルアン袋',
+    es='Bolsa de Ruan Mei reventona',
+)
+Lost_Golden_Claw_Anchor_Decrypted = RogueCurio(
+    id=232,
+    name='Lost_Golden_Claw_Anchor_Decrypted',
+    cn='失金爪锚（破解版）',
+    cht='失金爪錨（破解版）',
+    en='Lost Golden Claw Anchor (Decrypted)',
+    jp='金爪のアンカー（クラック版）',
+    es='Ancla de aurogarra perdida (versión pirateada)',
+)
+Arena_of_the_Strong_Decrypted = RogueCurio(
+    id=233,
+    name='Arena_of_the_Strong_Decrypted',
+    cn='强者竞技（破解版）',
+    cht='強者競技（破解版）',
+    en='Arena of the Strong (Decrypted)',
+    jp='強者のスポーツ（クラック版）',
+    es='Torneo de los fuertes (versión pirateada)',
+)

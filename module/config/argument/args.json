@@ -610,6 +610,8 @@
         "display": "hide",
         "option": [
           "_none_",
+          "Evernight",
+          "DanHengPermansorTerrae",
           "Hysilens",
           "Cerydra",
           "Phainon",
@@ -694,6 +696,8 @@
         "display": "hide",
         "option": [
           "_none_",
+          "Though_Worlds_Apart",
+          "To_Evernight_Stars",
           "Epoch_Etched_in_Golden_Blood",
           "Why_Does_the_Ocean_Sing",
           "Thus_Burns_the_Dawn",
@@ -973,6 +977,7 @@
         "type": "select",
         "value": "Calyx_Golden_Treasures_Jarilo_VI",
         "option": [
+          "Cavern_of_Corrosion_Path_of_Hidden_Salvation",
           "Cavern_of_Corrosion_Path_of_Thundersurge",
           "Cavern_of_Corrosion_Path_of_Aria",
           "Cavern_of_Corrosion_Path_of_Uncertainty",
@@ -1078,6 +1083,7 @@
         "type": "select",
         "value": "Cavern_of_Corrosion_Path_of_Providence",
         "option": [
+          "Cavern_of_Corrosion_Path_of_Hidden_Salvation",
           "Cavern_of_Corrosion_Path_of_Thundersurge",
           "Cavern_of_Corrosion_Path_of_Aria",
           "Cavern_of_Corrosion_Path_of_Uncertainty",
@@ -1123,6 +1129,8 @@
         "value": "FirstCharacter",
         "option": [
           "FirstCharacter",
+          "Evernight",
+          "DanHengPermansorTerrae",
           "Hysilens",
           "Cerydra",
           "Phainon",
@@ -1360,6 +1368,8 @@
         "value": "FirstCharacter",
         "option": [
           "FirstCharacter",
+          "Evernight",
+          "DanHengPermansorTerrae",
           "Hysilens",
           "Cerydra",
           "Phainon",
@@ -1947,6 +1957,8 @@
         "value": "FirstCharacter",
         "option": [
           "FirstCharacter",
+          "Evernight",
+          "DanHengPermansorTerrae",
           "Hysilens",
           "Cerydra",
           "Phainon",

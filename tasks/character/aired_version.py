@@ -86,6 +86,8 @@ dict_aired_version = {
     Archer: "3.4",
     Hysilens: "3.5",
     Cerydra: "3.5",
+    Evernight: "3.6",
+    DanHengPermansorTerrae: "3.6",
 }
 
 

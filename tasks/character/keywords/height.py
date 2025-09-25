@@ -21,6 +21,7 @@ CHARACTER_HEIGHT = {
     'Bronya': 'Maid',
     'Castorice': 'Maid',
     'Cipher': 'Maid',
+    'Evernight': 'Maid',
     'Firefly': 'Maid',
     'Fugue': 'Maid',
     'Guinaifen': 'Maid',

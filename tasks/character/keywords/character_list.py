@@ -651,6 +651,24 @@ Cerydra = CharacterList(
     jp='ケリュドラ',
     es='Ceridra',
 )
+Evernight = CharacterList(
+    id=1413,
+    name='Evernight',
+    cn='长夜月',
+    cht='長夜月',
+    en='Evernight',
+    jp='長夜月',
+    es='Larganoche',
+)
+DanHengPermansorTerrae = CharacterList(
+    id=1414,
+    name='DanHengPermansorTerrae',
+    cn='丹恒•腾荒',
+    cht='丹恆•騰荒',
+    en='Dan Heng • Permansor Terrae',
+    jp='丹恒・騰荒',
+    es='Dan Heng - Permansor Terrae',
+)
 TrailblazerDestruction = CharacterList(
     id=8002,
     name='TrailblazerDestruction',

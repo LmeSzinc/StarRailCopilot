@@ -1532,6 +1532,28 @@ Epoch_Etched_in_Golden_Blood = Cone(
     rarity='SuperRare',
     character_name='Cerydra',
 )
+To_Evernight_Stars = Cone(
+    id=23049,
+    name='To_Evernight_Stars',
+    cn='致长夜的星光',
+    cht='致長夜的星光',
+    en="To Evernight's Stars",
+    jp='長き夜に輝く星へ',
+    es='A la estrella de la larga noche',
+    rarity='SuperRare',
+    character_name='Evernight',
+)
+Though_Worlds_Apart = Cone(
+    id=23051,
+    name='Though_Worlds_Apart',
+    cn='纵然山河万程',
+    cht='縱然山河萬程',
+    en='Though Worlds Apart',
+    jp='万里の山河を越えて',
+    es='A traves de montañas y ríos',
+    rarity='SuperRare',
+    character_name='DanHengPermansorTerrae',
+)
 On_the_Fall_of_an_Aeon = Cone(
     id=24000,
     name='On_the_Fall_of_an_Aeon',

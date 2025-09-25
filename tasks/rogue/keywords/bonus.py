@@ -561,3 +561,21 @@ Bedtime_Story = RogueBonus(
     jp='寝物語',
     es='Cuento para dormir',
 )
+Happy_Heart = RogueBonus(
+    id=63,
+    name='Happy_Heart',
+    cn='快乐的心',
+    cht='快樂的心',
+    en='Happy Heart',
+    jp='ハッピーハート',
+    es='Corazón feliz',
+)
+Enkindled_Dreams = RogueBonus(
+    id=64,
+    name='Enkindled_Dreams',
+    cn='焚烧的梦',
+    cht='焚燒的夢',
+    en='Enkindled Dreams',
+    jp='燃える夢',
+    es='Sueños ardientes',
+)

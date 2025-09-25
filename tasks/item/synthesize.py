@@ -4,7 +4,7 @@ import numpy as np
 import module.config.server as server
 from module.base.decorator import cached_property
 from module.base.timer import Timer
-from module.base.utils import SelectedGrids, color_similarity_2d, crop, image_size
+from module.base.utils import SelectedGrids, color_similarity_2d, crop, image_size, rgb2luma
 from module.exception import ScriptError
 from module.logger import logger
 from module.ocr.ocr import Digit, Ocr
@@ -165,13 +165,30 @@ class Synthesize(CombatObtain, ItemUI):
             logger.attr('SynthesizeRarity', 'purple (MIDDLE)')
             return 'purple'
         elif rarity == 'green':
+            match_result = {}
+
+            def get_similarity(button_asset):
+                image = crop(self.device.image, button_asset.search, copy=False)
+                image = rgb2luma(image)
+                for b in button_asset.buttons:
+                    res = cv2.matchTemplate(b.image_luma, image, cv2.TM_CCOEFF_NORMED)
+                    _, sim, _, _ = cv2.minMaxLoc(res)
+                    if sim > 0.7:
+                        match_result[button_asset] = sim
+                        return sim
+
+            # match two buttons, return the one with greater similarity
+            # because ENTRY_ITEM_USE9 matches "/9" may have mis-detection on normal ammount letters
+            get_similarity(ENTRY_ITEM_USE9)
+            get_similarity(ENTRY_ITEM_USE3)
+            best_button = max(match_result, key=match_result.get) if match_result else None
             # If middle item is green, it could be purple or blue item being synthesized
             # USE9: cost of green to purple
-            if ENTRY_ITEM_USE9.match_template_luma(self.device.image, similarity=0.7):
+            if best_button == ENTRY_ITEM_USE9:
                 logger.attr('SynthesizeRarity', 'purple (USE9)')
                 return 'purple'
             # USE3: cost of green to blue
-            if ENTRY_ITEM_USE3.match_template_luma(self.device.image, similarity=0.7):
+            if best_button == ENTRY_ITEM_USE3:
                 logger.attr('SynthesizeRarity', 'blue (USE3)')
                 return 'blue'
 

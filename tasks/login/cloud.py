@@ -414,7 +414,7 @@ class LoginAndroidCloud(ModuleBase):
                 self.config.Emulator_GameClient = 'cloud_android'
             if self.config.Emulator_PackageName != 'CN-Official':
                 self.config.Emulator_PackageName = 'CN-Official'
-            if self.config.Optimization_WhenTaskQueueEmpty != 'close_game':
+            if self.config.Optimization_WhenTaskQueueEmpty not in ['close_game', 'close_emulator']:
                 self.config.Optimization_WhenTaskQueueEmpty = 'close_game'
 
         if self.appear(XPath.START_GAME):

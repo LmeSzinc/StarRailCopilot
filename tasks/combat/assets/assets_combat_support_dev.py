@@ -23,40 +23,6 @@ CHARACTER_OPERATE = ButtonWrapper(
         button=(411, 292, 434, 307),
     ),
 )
-FRIENDS_CHECK = ButtonWrapper(
-    name='FRIENDS_CHECK',
-    cn=Button(
-        file='./assets/cn/combat/support_dev/FRIENDS_CHECK.png',
-        area=(120, 84, 155, 100),
-        search=(100, 64, 175, 120),
-        color=(145, 144, 145),
-        button=(120, 84, 155, 100),
-    ),
-    en=Button(
-        file='./assets/en/combat/support_dev/FRIENDS_CHECK.png',
-        area=(103, 85, 159, 99),
-        search=(83, 65, 179, 119),
-        color=(159, 157, 159),
-        button=(103, 85, 159, 99),
-    ),
-)
-FRIENDS_CLICK = ButtonWrapper(
-    name='FRIENDS_CLICK',
-    cn=Button(
-        file='./assets/cn/combat/support_dev/FRIENDS_CLICK.png',
-        area=(121, 84, 155, 100),
-        search=(101, 64, 175, 120),
-        color=(134, 128, 125),
-        button=(121, 84, 155, 100),
-    ),
-    en=Button(
-        file='./assets/en/combat/support_dev/FRIENDS_CLICK.png',
-        area=(103, 85, 159, 100),
-        search=(83, 65, 179, 120),
-        color=(121, 115, 111),
-        button=(103, 85, 159, 100),
-    ),
-)
 LIST_REFRESH = ButtonWrapper(
     name='LIST_REFRESH',
     share=[
@@ -94,48 +60,4 @@ LIST_REFRESHED = ButtonWrapper(
             button=(300, 638, 331, 678),
         ),
     ],
-)
-STRANGER_CHECK = ButtonWrapper(
-    name='STRANGER_CHECK',
-    cn=Button(
-        file='./assets/cn/combat/support_dev/STRANGER_CHECK.png',
-        area=(332, 84, 383, 100),
-        search=(312, 64, 403, 120),
-        color=(159, 157, 159),
-        button=(332, 84, 383, 100),
-    ),
-    en=Button(
-        file='./assets/en/combat/support_dev/STRANGER_CHECK.png',
-        area=(311, 85, 388, 100),
-        search=(291, 65, 408, 120),
-        color=(163, 161, 163),
-        button=(311, 85, 388, 100),
-    ),
-)
-STRANGER_CLICK = ButtonWrapper(
-    name='STRANGER_CLICK',
-    cn=Button(
-        file='./assets/cn/combat/support_dev/STRANGER_CLICK.png',
-        area=(332, 84, 383, 100),
-        search=(312, 64, 403, 120),
-        color=(123, 116, 114),
-        button=(332, 84, 383, 100),
-    ),
-    en=Button(
-        file='./assets/en/combat/support_dev/STRANGER_CLICK.png',
-        area=(311, 85, 388, 100),
-        search=(291, 65, 408, 120),
-        color=(120, 113, 110),
-        button=(311, 85, 388, 100),
-    ),
-)
-TAB_SEARCH = ButtonWrapper(
-    name='TAB_SEARCH',
-    share=Button(
-        file='./assets/share/combat/support_dev/TAB_SEARCH.png',
-        area=(43, 74, 458, 139),
-        search=(23, 54, 478, 159),
-        color=(91, 87, 96),
-        button=(43, 74, 458, 139),
-    ),
 )

@@ -4,6 +4,7 @@ from tasks.combat.assets.assets_combat_prepare import COMBAT_PREPARE
 from tasks.combat.assets.assets_combat_support import COMBAT_SUPPORT_LIST
 from tasks.combat.assets.assets_combat_team import COMBAT_TEAM_SUPPORT
 from tasks.combat.support_dev import SupportDev
+from tasks.combat.support_tab import support_tab
 from tasks.dungeon.dungeon import Dungeon
 from tasks.dungeon.keywords import DungeonList, KEYWORDS_DUNGEON_LIST, KEYWORDS_DUNGEON_TAB
 
@@ -65,7 +66,7 @@ class SupportExtract(Dungeon, SupportDev):
         Pages:
             in: COMBAT_SUPPORT_LIST
         """
-        tab = self.support_tab()
+        tab = support_tab()
         tab.set('Strangers', main=self)
         scroll = self._support_scroll()
         scroll.set_bottom(main=self)
@@ -135,7 +136,7 @@ if __name__ == '__main__':
     4. Stop manually if you think missing templates are all gathered.
     
     """
-    self = SupportExtract('src')
+    self = SupportExtract('src2')
     self.device.screenshot()
     self.goto_support_page()
     self.gen_templates()

@@ -12,6 +12,22 @@ from tasks.forgotten_hall.assets.assets_forgotten_hall_ui import TELEPORT
 
 
 class DungeonRogueUI(DungeonUI):
+    def _is_oe_unlocked(self):
+        """
+        Check if Ornament Extraction unlocked
+
+        Returns:
+            bool:
+
+        Pages:
+            in: page_guide
+        """
+        for check_button in [SURVIVAL_INDEX_OE_LOADED, SIMULATED_UNIVERSE_CLICK, SIMULATED_UNIVERSE_CHECK]:
+            if self.appear(check_button):
+                logger.info(f'Having rogue tab ({check_button})')
+                return True
+        return False
+
     def dungeon_goto_rogue(self):
         """
         Goto Simulated Universe page but not pressing the TELEPORT button
@@ -32,26 +48,15 @@ class DungeonRogueUI(DungeonUI):
         # Wait until any SWITCH_DUNGEON_TAB appears
         # If Ornament Extraction unlocked, Simulated Universe moves to a separate tab
         timeout = Timer(5, count=15).start()
-        skip_first_screenshot = True
-        while 1:
-            if skip_first_screenshot:
-                skip_first_screenshot = False
-            else:
-                self.device.screenshot()
-
+        unlocked_oe = True
+        for _ in self.loop():
             # Timeout
             if timeout.reached():
                 logger.warning('Wait DungeonTab timeout, assume OE unlocked')
                 unlocked_oe = True
                 break
             # End with OE unlocked
-            matched = False
-            for check_button in [SURVIVAL_INDEX_OE_LOADED, SIMULATED_UNIVERSE_CLICK, SIMULATED_UNIVERSE_CHECK]:
-                if self.appear(check_button):
-                    logger.info(f'Having rogue tab ({check_button})')
-                    matched = True
-                    break
-            if matched:
+            if self._is_oe_unlocked():
                 unlocked_oe = True
                 break
             # End with other dungeon tabs
@@ -62,21 +67,7 @@ class DungeonRogueUI(DungeonUI):
                 unlocked_oe = False
                 break
 
-        if unlocked_oe:
-            state = KEYWORDS_DUNGEON_TAB.Simulated_Universe
-            # Switch tab
-            tab_switched = SWITCH_DUNGEON_TAB.set(state, main=self)
-            if ui_switched or tab_switched:
-                logger.info(f'Tab goto {state}, wait until loaded')
-                self._dungeon_wait_until_rogue_loaded()
-            # Switch nav
-            self.dungeon_nav_goto(KEYWORDS_DUNGEON_NAV.Simulated_Universe)
-            # No idea how to wait list loaded
-            # List is not able to swipe without fully loaded
-            self.wait_until_stable(LIST_LOADED_CHECK)
-            # Swipe
-            self._dungeon_rogue_swipe_down()
-        else:
+        if not unlocked_oe:
             state = KEYWORDS_DUNGEON_TAB.Survival_Index
             # Switch tab
             tab_switched = SWITCH_DUNGEON_TAB.set(state, main=self)
@@ -88,6 +79,27 @@ class DungeonRogueUI(DungeonUI):
                 logger.info('Already at nav Simulated_Universe')
             else:
                 self.dungeon_nav_goto(KEYWORDS_DUNGEON_NAV.Simulated_Universe)
+            # check oe again, probably some random mis-detection
+            if self._is_oe_unlocked():
+                # already unlocked, but mis-detected just now
+                pass
+            else:
+                return
+
+        # switch when OE unlocked
+        state = KEYWORDS_DUNGEON_TAB.Simulated_Universe
+        # Switch tab
+        tab_switched = SWITCH_DUNGEON_TAB.set(state, main=self)
+        if ui_switched or tab_switched:
+            logger.info(f'Tab goto {state}, wait until loaded')
+            self._dungeon_wait_until_rogue_loaded()
+        # Switch nav
+        self.dungeon_nav_goto(KEYWORDS_DUNGEON_NAV.Simulated_Universe)
+        # No idea how to wait list loaded
+        # List is not able to swipe without fully loaded
+        self.wait_until_stable(LIST_LOADED_CHECK)
+        # Swipe
+        self._dungeon_rogue_swipe_down()
 
     def _dungeon_wait_until_rogue_loaded(self, skip_first_screenshot=True):
         """

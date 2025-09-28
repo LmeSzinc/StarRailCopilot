@@ -9,8 +9,10 @@ from module.ui.scroll import AdaptiveScroll
 from tasks.base.assets.assets_base_popup import POPUP_CANCEL
 from tasks.character.keywords import CharacterList
 from tasks.combat.assets.assets_combat_support import *
+from tasks.combat.assets.assets_combat_support_tab import SUPPORT_EMPTY
 from tasks.combat.assets.assets_combat_team import COMBAT_TEAM_DISMISSSUPPORT, COMBAT_TEAM_SUPPORT
 from tasks.combat.state import CombatState
+from tasks.combat.support_tab import support_tab
 
 
 def get_position_in_original_image(position_in_croped_image, crop_area):
@@ -185,6 +187,12 @@ class CombatSupport(CombatState):
                     selected_support = True
                 self.device.click(COMBAT_SUPPORT_ADD)
                 self.interval_reset(COMBAT_SUPPORT_LIST)
+                continue
+            if self.match_template_luma(SUPPORT_EMPTY, interval=5):
+                logger.info('Support empty')
+                tab = support_tab()
+                tab.set('Strangers', main=self)
+                self.interval_reset(SUPPORT_EMPTY)
                 continue
 
     def _get_character(self, support_character_name: str) -> SupportCharacter:

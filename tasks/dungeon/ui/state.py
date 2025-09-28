@@ -68,16 +68,7 @@ class DungeonState(UI):
         """
         Delay tasks that use stamina
         """
-        if dungeon.is_Simulated_Universe or dungeon.is_Ornament_Extraction:
-            limit = 80
-        elif dungeon.is_Cavern_of_Corrosion:
-            limit = 80
-        elif dungeon.is_Echo_of_War:
-            limit = 30
-        else:
-            limit = 60
-        if self.config.is_cloud_game:
-            limit = 120
+        limit = 120
 
         # Double event is not yet finished, do it today as possible
         update = get_server_next_update(self.config.Scheduler_ServerUpdate)

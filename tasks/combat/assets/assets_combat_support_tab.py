@@ -143,6 +143,16 @@ STRANGER_CLICK = ButtonWrapper(
         ),
     ],
 )
+SUPPORT_EMPTY = ButtonWrapper(
+    name='SUPPORT_EMPTY',
+    share=Button(
+        file='./assets/share/combat/support_tab/SUPPORT_EMPTY.png',
+        area=(233, 362, 262, 399),
+        search=(213, 342, 282, 419),
+        color=(86, 93, 122),
+        button=(233, 362, 262, 399),
+    ),
+)
 TAB_SEARCH = ButtonWrapper(
     name='TAB_SEARCH',
     share=Button(

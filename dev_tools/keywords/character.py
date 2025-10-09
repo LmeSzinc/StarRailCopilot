@@ -144,6 +144,8 @@ def convert_inner_character_to_keyword(name):
         'Topaz': 'TopazNumby',
         'Dr_Ratio': 'DrRatio',
         'Mydeimos': 'Mydei',
+        'Harscyline': 'Hysilens',
+        'DanHengPT': 'DanHengPermansorTerrae',
     }
     return convert_dict.get(name, name)
 

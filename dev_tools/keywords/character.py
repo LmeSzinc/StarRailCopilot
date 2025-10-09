@@ -1,7 +1,7 @@
 import re
 import typing as t
 
-from dev_tools.keywords.base import GenerateKeyword
+from dev_tools.keywords.base import GenerateKeyword, text_to_variable
 from module.base.decorator import cached_property
 from module.config.deep import deep_get
 from module.exception import ScriptError
@@ -19,19 +19,57 @@ class GenerateCharacterList(GenerateKeyword):
 
     @cached_property
     def character_data(self):
-        # data = self.read_file('./ExcelOutput/AvatarConfig.json')
-        data = []
+        data = self.read_file('./ExcelOutput/AvatarConfig.json')
         # collab characters
         collab = self.read_file('./ExcelOutput/AvatarConfigLD.json')
         data.extend(collab)
         return data
+
+    @cached_property
+    def dict_internal_to_path(self):
+        """
+        Dict that convert internal path name to official path name
+        """
+        out = {}
+        data = self.read_file('./ExcelOutput/AvatarBaseType.json')
+        for row in data:
+            internal = row.get('ID', '')
+            path = row.get('FirstWordText', '')
+            if not internal or not path:
+                continue
+            out[internal] = text_to_variable(path)
+        return out
 
     def convert_name(self, text: str, keyword: dict) -> str:
         text = REGEX_PUNCTUATION.sub('', text)
         return super().convert_name(text, keyword)
 
     def iter_keywords(self) -> t.Iterable[dict]:
+        # key: character_id
+        # value: {'id': 1224, 'text_id': 16417870574330506928, 'combat_type': 'Imaginary', 'path': 'The_Hunt'}
+
+        # iter character config
         names = {}
+        for row in self.character_data:
+            character_id = row.get('AvatarID', 0)
+            name_id = deep_get(row, 'AvatarName.Hash')
+            _, name_en = self.find_keyword(name_id, lang='en')
+            if name_en in names and not name_en.startswith('Trailblazer'):
+                logger.warning(f'Duplicate character name: id={name_id}, name={name_en}')
+
+            base_type = row.get('AvatarBaseType', '')
+            path_name = self.dict_internal_to_path.get(base_type, '')
+            if not path_name:
+                logger.warning(f'Cannot convert character {character_id} base_type {base_type} to path')
+                continue
+            names[character_id] = {
+                'id': character_id,
+                'text_id': name_id,
+                'type_name': row.get('DamageType', ''),
+                'path_name': path_name,
+            }
+
+        # iter character icon to update name
         for row in self.data:
             icon = deep_get(row, ['ItemIconPath'], default='')
             # Must be a avatar icon
@@ -44,26 +82,19 @@ class GenerateCharacterList(GenerateKeyword):
             _, name_en = self.find_keyword(name_id, lang='en')
             if name_en in names and not name_en.startswith('Trailblazer'):
                 logger.warning(f'Duplicate character name: id={name_id}, name={name_en}')
-            names[name_en] = {
-                'id': character_id,
-                'text_id': name_id,
-            }
-
-        for row in self.character_data:
-            character_id = row.get('AvatarID', 0)
-            name_id = deep_get(row, 'AvatarName.Hash')
-            _, name_en = self.find_keyword(name_id, lang='en')
-            if name_en in names and not name_en.startswith('Trailblazer'):
-                logger.warning(f'Duplicate character name: id={name_id}, name={name_en}')
-            names[name_en] = {
-                'id': character_id,
-                'text_id': name_id,
-            }
+            row = names.get(character_id)
+            if not row:
+                logger.warning(f'Character {character_id} defined in AvatarPlayerIcon but not in AvatarConfig')
+                continue
+            row['text_id'] = name_id
 
         # Sort characters by character ID
         names = sorted(names.items(), key=lambda kv: kv[1]['id'])
 
-        for _, row in names:
+        for character_id, row in names:
+            # Keep only one trailblazer character per path
+            if character_id > 8000 and character_id % 2 == 1:
+                continue
             yield row
 
 
@@ -75,6 +106,23 @@ class GenerateCombatType(GenerateKeyword):
             ['物理', '火', '冰', '雷', '风', '量子', '虚数'],
             lang='cn',
         )
+
+
+class GenerateCharacterPath(GenerateKeyword):
+    output_file = './tasks/character/keywords/character_path.py'
+
+    def iter_keywords(self) -> t.Iterable[dict]:
+        data = self.read_file('./ExcelOutput/AvatarBaseType.json')
+        for row in data:
+            path_name = row.get('FirstWordText', '')
+            if not path_name:
+                continue
+            text_id = deep_get(row, 'BaseTypeText.Hash', '')
+            if not text_id:
+                continue
+            yield {
+                'text_id': text_id
+            }
 
 
 def convert_inner_character_to_keyword(name):

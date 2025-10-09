@@ -11,6 +11,8 @@ March7thPreservation = CharacterList(
     en='March 7th: Preservation',
     jp='三月なのか・存護',
     es='Siete de Marzo (Conservación)',
+    type_name='Ice',
+    path_name='Preservation',
 )
 DanHeng = CharacterList(
     id=1002,
@@ -20,6 +22,8 @@ DanHeng = CharacterList(
     en='Dan Heng',
     jp='丹恒',
     es='Dan Heng',
+    type_name='Wind',
+    path_name='The_Hunt',
 )
 Himeko = CharacterList(
     id=1003,
@@ -29,6 +33,8 @@ Himeko = CharacterList(
     en='Himeko',
     jp='姫子',
     es='Himeko',
+    type_name='Fire',
+    path_name='Erudition',
 )
 Welt = CharacterList(
     id=1004,
@@ -38,6 +44,8 @@ Welt = CharacterList(
     en='Welt',
     jp='ヴェルト',
     es='Welt',
+    type_name='Imaginary',
+    path_name='Nihility',
 )
 Kafka = CharacterList(
     id=1005,
@@ -47,6 +55,8 @@ Kafka = CharacterList(
     en='Kafka',
     jp='カフカ',
     es='Kafka',
+    type_name='Thunder',
+    path_name='Nihility',
 )
 SilverWolf = CharacterList(
     id=1006,
@@ -56,6 +66,8 @@ SilverWolf = CharacterList(
     en='Silver Wolf',
     jp='銀狼',
     es='Silver Wolf',
+    type_name='Quantum',
+    path_name='Nihility',
 )
 Arlan = CharacterList(
     id=1008,
@@ -65,6 +77,8 @@ Arlan = CharacterList(
     en='Arlan',
     jp='アーラン',
     es='Arlan',
+    type_name='Thunder',
+    path_name='Destruction',
 )
 Asta = CharacterList(
     id=1009,
@@ -74,6 +88,8 @@ Asta = CharacterList(
     en='Asta',
     jp='アスター',
     es='Asta',
+    type_name='Fire',
+    path_name='Harmony',
 )
 Herta = CharacterList(
     id=1013,
@@ -83,6 +99,8 @@ Herta = CharacterList(
     en='Herta',
     jp='ヘルタ',
     es='Herta',
+    type_name='Ice',
+    path_name='Erudition',
 )
 Saber = CharacterList(
     id=1014,
@@ -92,6 +110,8 @@ Saber = CharacterList(
     en='Saber',
     jp='セイバー',
     es='Saber',
+    type_name='Wind',
+    path_name='Destruction',
 )
 Archer = CharacterList(
     id=1015,
@@ -101,6 +121,8 @@ Archer = CharacterList(
     en='Archer',
     jp='アーチャー',
     es='Archer',
+    type_name='Quantum',
+    path_name='The_Hunt',
 )
 Bronya = CharacterList(
     id=1101,
@@ -110,6 +132,8 @@ Bronya = CharacterList(
     en='Bronya',
     jp='ブローニャ',
     es='Bronya',
+    type_name='Wind',
+    path_name='Harmony',
 )
 Seele = CharacterList(
     id=1102,
@@ -119,6 +143,8 @@ Seele = CharacterList(
     en='Seele',
     jp='ゼーレ',
     es='Seele',
+    type_name='Quantum',
+    path_name='The_Hunt',
 )
 Serval = CharacterList(
     id=1103,
@@ -128,6 +154,8 @@ Serval = CharacterList(
     en='Serval',
     jp='セーバル',
     es='Serval',
+    type_name='Thunder',
+    path_name='Erudition',
 )
 Gepard = CharacterList(
     id=1104,
@@ -137,6 +165,8 @@ Gepard = CharacterList(
     en='Gepard',
     jp='ジェパード',
     es='Gepard',
+    type_name='Ice',
+    path_name='Preservation',
 )
 Natasha = CharacterList(
     id=1105,
@@ -146,6 +176,8 @@ Natasha = CharacterList(
     en='Natasha',
     jp='ナターシャ',
     es='Natasha',
+    type_name='Physical',
+    path_name='Abundance',
 )
 Pela = CharacterList(
     id=1106,
@@ -155,6 +187,8 @@ Pela = CharacterList(
     en='Pela',
     jp='ペラ',
     es='Pela',
+    type_name='Ice',
+    path_name='Nihility',
 )
 Clara = CharacterList(
     id=1107,
@@ -164,6 +198,8 @@ Clara = CharacterList(
     en='Clara',
     jp='クラーラ',
     es='Clara',
+    type_name='Physical',
+    path_name='Destruction',
 )
 Sampo = CharacterList(
     id=1108,
@@ -173,6 +209,8 @@ Sampo = CharacterList(
     en='Sampo',
     jp='サンポ',
     es='Sampo',
+    type_name='Wind',
+    path_name='Nihility',
 )
 Hook = CharacterList(
     id=1109,
@@ -182,6 +220,8 @@ Hook = CharacterList(
     en='Hook',
     jp='フック',
     es='Hook',
+    type_name='Fire',
+    path_name='Destruction',
 )
 Lynx = CharacterList(
     id=1110,
@@ -191,6 +231,8 @@ Lynx = CharacterList(
     en='Lynx',
     jp='リンクス',
     es='Lynx',
+    type_name='Quantum',
+    path_name='Abundance',
 )
 Luka = CharacterList(
     id=1111,
@@ -200,6 +242,8 @@ Luka = CharacterList(
     en='Luka',
     jp='ルカ',
     es='Luka',
+    type_name='Physical',
+    path_name='Nihility',
 )
 TopazNumby = CharacterList(
     id=1112,
@@ -209,6 +253,8 @@ TopazNumby = CharacterList(
     en='Topaz & Numby',
     jp='トパーズ&カブ',
     es='Topaz y Conti',
+    type_name='Fire',
+    path_name='The_Hunt',
 )
 Qingque = CharacterList(
     id=1201,
@@ -218,6 +264,8 @@ Qingque = CharacterList(
     en='Qingque',
     jp='青雀',
     es='Qingque',
+    type_name='Quantum',
+    path_name='Erudition',
 )
 Tingyun = CharacterList(
     id=1202,
@@ -227,6 +275,8 @@ Tingyun = CharacterList(
     en='Tingyun',
     jp='停雲',
     es='Tingyun',
+    type_name='Thunder',
+    path_name='Harmony',
 )
 Luocha = CharacterList(
     id=1203,
@@ -236,6 +286,8 @@ Luocha = CharacterList(
     en='Luocha',
     jp='羅刹',
     es='Luocha',
+    type_name='Imaginary',
+    path_name='Abundance',
 )
 JingYuan = CharacterList(
     id=1204,
@@ -245,6 +297,8 @@ JingYuan = CharacterList(
     en='Jing Yuan',
     jp='景元',
     es='Jing Yuan',
+    type_name='Thunder',
+    path_name='Erudition',
 )
 Blade = CharacterList(
     id=1205,
@@ -254,6 +308,8 @@ Blade = CharacterList(
     en='Blade',
     jp='刃',
     es='Blade',
+    type_name='Wind',
+    path_name='Destruction',
 )
 Sushang = CharacterList(
     id=1206,
@@ -263,6 +319,8 @@ Sushang = CharacterList(
     en='Sushang',
     jp='素裳',
     es='Sushang',
+    type_name='Physical',
+    path_name='The_Hunt',
 )
 Yukong = CharacterList(
     id=1207,
@@ -272,6 +330,8 @@ Yukong = CharacterList(
     en='Yukong',
     jp='御空',
     es='Yukong',
+    type_name='Imaginary',
+    path_name='Harmony',
 )
 FuXuan = CharacterList(
     id=1208,
@@ -281,6 +341,8 @@ FuXuan = CharacterList(
     en='Fu Xuan',
     jp='符玄',
     es='Fu Xuan',
+    type_name='Quantum',
+    path_name='Preservation',
 )
 Yanqing = CharacterList(
     id=1209,
@@ -290,6 +352,8 @@ Yanqing = CharacterList(
     en='Yanqing',
     jp='彦卿',
     es='Yanqing',
+    type_name='Ice',
+    path_name='The_Hunt',
 )
 Guinaifen = CharacterList(
     id=1210,
@@ -299,6 +363,8 @@ Guinaifen = CharacterList(
     en='Guinaifen',
     jp='桂乃芬',
     es='Guinaifen',
+    type_name='Fire',
+    path_name='Nihility',
 )
 Bailu = CharacterList(
     id=1211,
@@ -308,6 +374,8 @@ Bailu = CharacterList(
     en='Bailu',
     jp='白露',
     es='Bailu',
+    type_name='Thunder',
+    path_name='Abundance',
 )
 Jingliu = CharacterList(
     id=1212,
@@ -317,6 +385,8 @@ Jingliu = CharacterList(
     en='Jingliu',
     jp='鏡流',
     es='Jingliu',
+    type_name='Ice',
+    path_name='Destruction',
 )
 DanHengImbibitorLunae = CharacterList(
     id=1213,
@@ -326,6 +396,8 @@ DanHengImbibitorLunae = CharacterList(
     en='Dan Heng • Imbibitor Lunae',
     jp='丹恒・飲月',
     es='Dan Heng - Imbibitor Lunae',
+    type_name='Imaginary',
+    path_name='Destruction',
 )
 Xueyi = CharacterList(
     id=1214,
@@ -335,6 +407,8 @@ Xueyi = CharacterList(
     en='Xueyi',
     jp='雪衣',
     es='Xueyi',
+    type_name='Quantum',
+    path_name='Destruction',
 )
 Hanya = CharacterList(
     id=1215,
@@ -344,6 +418,8 @@ Hanya = CharacterList(
     en='Hanya',
     jp='寒鴉',
     es='Hanya',
+    type_name='Physical',
+    path_name='Harmony',
 )
 Huohuo = CharacterList(
     id=1217,
@@ -353,6 +429,8 @@ Huohuo = CharacterList(
     en='Huohuo',
     jp='フォフォ',
     es='Huohuo',
+    type_name='Wind',
+    path_name='Abundance',
 )
 Jiaoqiu = CharacterList(
     id=1218,
@@ -362,6 +440,8 @@ Jiaoqiu = CharacterList(
     en='Jiaoqiu',
     jp='椒丘',
     es='Jiaoqiu',
+    type_name='Fire',
+    path_name='Nihility',
 )
 Feixiao = CharacterList(
     id=1220,
@@ -371,6 +451,8 @@ Feixiao = CharacterList(
     en='Feixiao',
     jp='飛霄',
     es='Feixiao',
+    type_name='Wind',
+    path_name='The_Hunt',
 )
 Yunli = CharacterList(
     id=1221,
@@ -380,6 +462,8 @@ Yunli = CharacterList(
     en='Yunli',
     jp='雲璃',
     es='Yunli',
+    type_name='Physical',
+    path_name='Destruction',
 )
 Lingsha = CharacterList(
     id=1222,
@@ -389,6 +473,8 @@ Lingsha = CharacterList(
     en='Lingsha',
     jp='霊砂',
     es='Lingsha',
+    type_name='Fire',
+    path_name='Abundance',
 )
 Moze = CharacterList(
     id=1223,
@@ -398,6 +484,8 @@ Moze = CharacterList(
     en='Moze',
     jp='モゼ',
     es='Moze',
+    type_name='Thunder',
+    path_name='The_Hunt',
 )
 March7thTheHunt = CharacterList(
     id=1224,
@@ -407,6 +495,8 @@ March7thTheHunt = CharacterList(
     en='March 7th: The Hunt',
     jp='三月なのか・巡狩',
     es='Siete de Marzo: Cacería',
+    type_name='Imaginary',
+    path_name='The_Hunt',
 )
 Fugue = CharacterList(
     id=1225,
@@ -416,6 +506,8 @@ Fugue = CharacterList(
     en='Fugue',
     jp='帰忘の流離人',
     es='Fugue',
+    type_name='Fire',
+    path_name='Nihility',
 )
 Gallagher = CharacterList(
     id=1301,
@@ -425,6 +517,8 @@ Gallagher = CharacterList(
     en='Gallagher',
     jp='ギャラガー',
     es='Gallagher',
+    type_name='Fire',
+    path_name='Abundance',
 )
 Argenti = CharacterList(
     id=1302,
@@ -434,6 +528,8 @@ Argenti = CharacterList(
     en='Argenti',
     jp='アルジェンティ',
     es='Argenti',
+    type_name='Physical',
+    path_name='Erudition',
 )
 RuanMei = CharacterList(
     id=1303,
@@ -443,6 +539,8 @@ RuanMei = CharacterList(
     en='Ruan Mei',
     jp='ルアン・メェイ',
     es='Ruan Mei',
+    type_name='Ice',
+    path_name='Harmony',
 )
 Aventurine = CharacterList(
     id=1304,
@@ -452,6 +550,8 @@ Aventurine = CharacterList(
     en='Aventurine',
     jp='アベンチュリン',
     es='Aventurino',
+    type_name='Imaginary',
+    path_name='Preservation',
 )
 DrRatio = CharacterList(
     id=1305,
@@ -461,6 +561,8 @@ DrRatio = CharacterList(
     en='Dr. Ratio',
     jp='Dr.レイシオ',
     es='Dr. Ratio',
+    type_name='Imaginary',
+    path_name='The_Hunt',
 )
 Sparkle = CharacterList(
     id=1306,
@@ -470,6 +572,8 @@ Sparkle = CharacterList(
     en='Sparkle',
     jp='花火',
     es='Sparkle',
+    type_name='Quantum',
+    path_name='Harmony',
 )
 BlackSwan = CharacterList(
     id=1307,
@@ -479,6 +583,8 @@ BlackSwan = CharacterList(
     en='Black Swan',
     jp='ブラックスワン',
     es='Cisne Negro',
+    type_name='Wind',
+    path_name='Nihility',
 )
 Acheron = CharacterList(
     id=1308,
@@ -488,6 +594,8 @@ Acheron = CharacterList(
     en='Acheron',
     jp='黄泉',
     es='Acheron',
+    type_name='Thunder',
+    path_name='Nihility',
 )
 Robin = CharacterList(
     id=1309,
@@ -497,6 +605,8 @@ Robin = CharacterList(
     en='Robin',
     jp='ロビン',
     es='Robin',
+    type_name='Physical',
+    path_name='Harmony',
 )
 Firefly = CharacterList(
     id=1310,
@@ -506,6 +616,8 @@ Firefly = CharacterList(
     en='Firefly',
     jp='ホタル',
     es='Luciernaga',
+    type_name='Fire',
+    path_name='Destruction',
 )
 Misha = CharacterList(
     id=1312,
@@ -515,6 +627,8 @@ Misha = CharacterList(
     en='Misha',
     jp='ミーシャ',
     es='Misha',
+    type_name='Ice',
+    path_name='Destruction',
 )
 Sunday = CharacterList(
     id=1313,
@@ -524,6 +638,8 @@ Sunday = CharacterList(
     en='Sunday',
     jp='サンデー',
     es='Sunday',
+    type_name='Imaginary',
+    path_name='Harmony',
 )
 Jade = CharacterList(
     id=1314,
@@ -533,6 +649,8 @@ Jade = CharacterList(
     en='Jade',
     jp='ジェイド',
     es='Jade',
+    type_name='Quantum',
+    path_name='Erudition',
 )
 Boothill = CharacterList(
     id=1315,
@@ -542,6 +660,8 @@ Boothill = CharacterList(
     en='Boothill',
     jp='ブートヒル',
     es='Boothill',
+    type_name='Physical',
+    path_name='The_Hunt',
 )
 Rappa = CharacterList(
     id=1317,
@@ -551,6 +671,8 @@ Rappa = CharacterList(
     en='Rappa',
     jp='乱破',
     es='Rappa',
+    type_name='Imaginary',
+    path_name='Erudition',
 )
 TheHerta = CharacterList(
     id=1401,
@@ -560,6 +682,8 @@ TheHerta = CharacterList(
     en='The Herta',
     jp='マダム・ヘルタ',
     es='Sra. Herta',
+    type_name='Ice',
+    path_name='Erudition',
 )
 Aglaea = CharacterList(
     id=1402,
@@ -569,6 +693,8 @@ Aglaea = CharacterList(
     en='Aglaea',
     jp='アグライア',
     es='Aglaea',
+    type_name='Thunder',
+    path_name='Remembrance',
 )
 Tribbie = CharacterList(
     id=1403,
@@ -578,6 +704,8 @@ Tribbie = CharacterList(
     en='Tribbie',
     jp='トリビー',
     es='Tribbie',
+    type_name='Quantum',
+    path_name='Harmony',
 )
 Mydei = CharacterList(
     id=1404,
@@ -587,6 +715,8 @@ Mydei = CharacterList(
     en='Mydei',
     jp='モーディス',
     es='Midei',
+    type_name='Imaginary',
+    path_name='Destruction',
 )
 Anaxa = CharacterList(
     id=1405,
@@ -596,6 +726,8 @@ Anaxa = CharacterList(
     en='Anaxa',
     jp='アナイクス',
     es='Anaxa',
+    type_name='Wind',
+    path_name='Erudition',
 )
 Cipher = CharacterList(
     id=1406,
@@ -605,6 +737,8 @@ Cipher = CharacterList(
     en='Cipher',
     jp='サフェル',
     es='Cífer',
+    type_name='Quantum',
+    path_name='Nihility',
 )
 Castorice = CharacterList(
     id=1407,
@@ -614,6 +748,8 @@ Castorice = CharacterList(
     en='Castorice',
     jp='キャストリス',
     es='Castorice',
+    type_name='Quantum',
+    path_name='Remembrance',
 )
 Phainon = CharacterList(
     id=1408,
@@ -623,6 +759,8 @@ Phainon = CharacterList(
     en='Phainon',
     jp='ファイノン',
     es='Fainón',
+    type_name='Physical',
+    path_name='Destruction',
 )
 Hyacine = CharacterList(
     id=1409,
@@ -632,6 +770,8 @@ Hyacine = CharacterList(
     en='Hyacine',
     jp='ヒアンシー',
     es='Hyacine',
+    type_name='Wind',
+    path_name='Remembrance',
 )
 Hysilens = CharacterList(
     id=1410,
@@ -641,6 +781,8 @@ Hysilens = CharacterList(
     en='Hysilens',
     jp='セイレンス',
     es='Hysilens',
+    type_name='Physical',
+    path_name='Nihility',
 )
 Cerydra = CharacterList(
     id=1412,
@@ -650,6 +792,8 @@ Cerydra = CharacterList(
     en='Cerydra',
     jp='ケリュドラ',
     es='Ceridra',
+    type_name='Wind',
+    path_name='Harmony',
 )
 Evernight = CharacterList(
     id=1413,
@@ -659,6 +803,8 @@ Evernight = CharacterList(
     en='Evernight',
     jp='長夜月',
     es='Larganoche',
+    type_name='Ice',
+    path_name='Remembrance',
 )
 DanHengPermansorTerrae = CharacterList(
     id=1414,
@@ -668,6 +814,8 @@ DanHengPermansorTerrae = CharacterList(
     en='Dan Heng • Permansor Terrae',
     jp='丹恒・騰荒',
     es='Dan Heng - Permansor Terrae',
+    type_name='Physical',
+    path_name='Preservation',
 )
 TrailblazerDestruction = CharacterList(
     id=8002,
@@ -677,6 +825,8 @@ TrailblazerDestruction = CharacterList(
     en='Trailblazer: Destruction',
     jp='Trailblazer・壊滅',
     es='Trailblazer: Destrucción',
+    type_name='Physical',
+    path_name='Destruction',
 )
 TrailblazerPreservation = CharacterList(
     id=8004,
@@ -686,6 +836,8 @@ TrailblazerPreservation = CharacterList(
     en='Trailblazer: Preservation',
     jp='Trailblazer・存護',
     es='Trailblazer: Conservación',
+    type_name='Fire',
+    path_name='Preservation',
 )
 TrailblazerHarmony = CharacterList(
     id=8006,
@@ -695,6 +847,8 @@ TrailblazerHarmony = CharacterList(
     en='Trailblazer: Harmony',
     jp='Trailblazer・調和',
     es='Trailblazer: Armonía',
+    type_name='Imaginary',
+    path_name='Harmony',
 )
 TrailblazerRemembrance = CharacterList(
     id=8008,
@@ -704,4 +858,6 @@ TrailblazerRemembrance = CharacterList(
     en='Trailblazer: Remembrance',
     jp='Trailblazer・記憶',
     es='Trailblazer (Reminiscencia)',
+    type_name='Ice',
+    path_name='Remembrance',
 )

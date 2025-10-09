@@ -1,7 +1,8 @@
 import re
 import typing as t
 
-from dev_tools.keywords.base import GenerateKeyword, text_to_variable
+from dev_tools.keywords.base import GenerateKeyword
+from dev_tools.keywords.base_type import BaseType
 from module.base.decorator import cached_property
 from module.config.deep import deep_get
 from module.exception import ScriptError
@@ -25,21 +26,6 @@ class GenerateCharacterList(GenerateKeyword):
         data.extend(collab)
         return data
 
-    @cached_property
-    def dict_internal_to_path(self):
-        """
-        Dict that convert internal path name to official path name
-        """
-        out = {}
-        data = self.read_file('./ExcelOutput/AvatarBaseType.json')
-        for row in data:
-            internal = row.get('ID', '')
-            path = row.get('FirstWordText', '')
-            if not internal or not path:
-                continue
-            out[internal] = text_to_variable(path)
-        return out
-
     def convert_name(self, text: str, keyword: dict) -> str:
         text = REGEX_PUNCTUATION.sub('', text)
         return super().convert_name(text, keyword)
@@ -47,6 +33,8 @@ class GenerateCharacterList(GenerateKeyword):
     def iter_keywords(self) -> t.Iterable[dict]:
         # key: character_id
         # value: {'id': 1224, 'text_id': 16417870574330506928, 'combat_type': 'Imaginary', 'path': 'The_Hunt'}
+
+        dict_internal_to_path = BaseType().dict_internal_to_path
 
         # iter character config
         names = {}
@@ -58,7 +46,7 @@ class GenerateCharacterList(GenerateKeyword):
                 logger.warning(f'Duplicate character name: id={name_id}, name={name_en}')
 
             base_type = row.get('AvatarBaseType', '')
-            path_name = self.dict_internal_to_path.get(base_type, '')
+            path_name = dict_internal_to_path.get(base_type, '')
             if not path_name:
                 logger.warning(f'Cannot convert character {character_id} base_type {base_type} to path')
                 continue

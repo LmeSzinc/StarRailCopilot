@@ -113,6 +113,8 @@
       "Enable": false,
       "Character": "_none_",
       "Cone": "_none_",
+      "Relic": "_none_",
+      "Ornament": "_none_",
       "LevelTarget": "max",
       "CharacterLevel": 80,
       "ConeLevel": 80,

@@ -845,6 +845,47 @@
           "Arrows"
         ]
       },
+      "Relic": {
+        "type": "select",
+        "value": "_none_",
+        "display": "hide",
+        "option": [
+          "_none_",
+          "Cavern_of_Corrosion_Path_of_Hidden_Salvation",
+          "Cavern_of_Corrosion_Path_of_Thundersurge",
+          "Cavern_of_Corrosion_Path_of_Aria",
+          "Cavern_of_Corrosion_Path_of_Uncertainty",
+          "Cavern_of_Corrosion_Path_of_Cavalier",
+          "Cavern_of_Corrosion_Path_of_Dreamdive",
+          "Cavern_of_Corrosion_Path_of_Darkness",
+          "Cavern_of_Corrosion_Path_of_Elixir_Seekers",
+          "Cavern_of_Corrosion_Path_of_Conflagration",
+          "Cavern_of_Corrosion_Path_of_Holy_Hymn",
+          "Cavern_of_Corrosion_Path_of_Providence",
+          "Cavern_of_Corrosion_Path_of_Drifting",
+          "Cavern_of_Corrosion_Path_of_Jabbing_Punch",
+          "Cavern_of_Corrosion_Path_of_Gelid_Wind"
+        ]
+      },
+      "Ornament": {
+        "type": "select",
+        "value": "_none_",
+        "display": "hide",
+        "option": [
+          "_none_",
+          "Divergent_Universe_Moonlit_Blood",
+          "Divergent_Universe_Unceasing_Strife",
+          "Divergent_Universe_Famished_Worker",
+          "Divergent_Universe_Eternal_Comedy",
+          "Divergent_Universe_To_Sweet_Dreams",
+          "Divergent_Universe_Pouring_Blades",
+          "Divergent_Universe_Fruit_of_Evil",
+          "Divergent_Universe_Permafrost",
+          "Divergent_Universe_Gentle_Words",
+          "Divergent_Universe_Smelted_Heart",
+          "Divergent_Universe_Untoppled_Walls"
+        ]
+      },
       "LevelTarget": {
         "type": "select",
         "value": "max",

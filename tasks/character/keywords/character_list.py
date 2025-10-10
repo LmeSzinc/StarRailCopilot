@@ -13,6 +13,8 @@ March7thPreservation = CharacterList(
     es='Siete de Marzo (Conservación)',
     type_name='Ice',
     path_name='Preservation',
+    relic_setid=103,
+    ornament_setid=304,
 )
 DanHeng = CharacterList(
     id=1002,
@@ -24,6 +26,8 @@ DanHeng = CharacterList(
     es='Dan Heng',
     type_name='Wind',
     path_name='The_Hunt',
+    relic_setid=110,
+    ornament_setid=311,
 )
 Himeko = CharacterList(
     id=1003,
@@ -35,6 +39,8 @@ Himeko = CharacterList(
     es='Himeko',
     type_name='Fire',
     path_name='Erudition',
+    relic_setid=115,
+    ornament_setid=306,
 )
 Welt = CharacterList(
     id=1004,
@@ -46,6 +52,8 @@ Welt = CharacterList(
     es='Welt',
     type_name='Imaginary',
     path_name='Nihility',
+    relic_setid=112,
+    ornament_setid=309,
 )
 Kafka = CharacterList(
     id=1005,
@@ -57,6 +65,8 @@ Kafka = CharacterList(
     es='Kafka',
     type_name='Thunder',
     path_name='Nihility',
+    relic_setid=116,
+    ornament_setid=322,
 )
 SilverWolf = CharacterList(
     id=1006,
@@ -68,6 +78,8 @@ SilverWolf = CharacterList(
     es='Silver Wolf',
     type_name='Quantum',
     path_name='Nihility',
+    relic_setid=108,
+    ornament_setid=312,
 )
 Arlan = CharacterList(
     id=1008,
@@ -79,6 +91,8 @@ Arlan = CharacterList(
     es='Arlan',
     type_name='Thunder',
     path_name='Destruction',
+    relic_setid=109,
+    ornament_setid=309,
 )
 Asta = CharacterList(
     id=1009,
@@ -90,6 +104,8 @@ Asta = CharacterList(
     es='Asta',
     type_name='Fire',
     path_name='Harmony',
+    relic_setid=114,
+    ornament_setid=302,
 )
 Herta = CharacterList(
     id=1013,
@@ -101,6 +117,8 @@ Herta = CharacterList(
     es='Herta',
     type_name='Ice',
     path_name='Erudition',
+    relic_setid=104,
+    ornament_setid=313,
 )
 Saber = CharacterList(
     id=1014,
@@ -112,6 +130,8 @@ Saber = CharacterList(
     es='Saber',
     type_name='Wind',
     path_name='Destruction',
+    relic_setid=126,
+    ornament_setid=306,
 )
 Archer = CharacterList(
     id=1015,
@@ -123,6 +143,8 @@ Archer = CharacterList(
     es='Archer',
     type_name='Quantum',
     path_name='The_Hunt',
+    relic_setid=108,
+    ornament_setid=309,
 )
 Bronya = CharacterList(
     id=1101,
@@ -134,6 +156,8 @@ Bronya = CharacterList(
     es='Bronya',
     type_name='Wind',
     path_name='Harmony',
+    relic_setid=114,
+    ornament_setid=317,
 )
 Seele = CharacterList(
     id=1102,
@@ -145,6 +169,8 @@ Seele = CharacterList(
     es='Seele',
     type_name='Quantum',
     path_name='The_Hunt',
+    relic_setid=108,
+    ornament_setid=311,
 )
 Serval = CharacterList(
     id=1103,
@@ -156,6 +182,8 @@ Serval = CharacterList(
     es='Serval',
     type_name='Thunder',
     path_name='Erudition',
+    relic_setid=109,
+    ornament_setid=301,
 )
 Gepard = CharacterList(
     id=1104,
@@ -167,6 +195,8 @@ Gepard = CharacterList(
     es='Gepard',
     type_name='Ice',
     path_name='Preservation',
+    relic_setid=103,
+    ornament_setid=304,
 )
 Natasha = CharacterList(
     id=1105,
@@ -178,6 +208,8 @@ Natasha = CharacterList(
     es='Natasha',
     type_name='Physical',
     path_name='Abundance',
+    relic_setid=101,
+    ornament_setid=302,
 )
 Pela = CharacterList(
     id=1106,
@@ -189,6 +221,8 @@ Pela = CharacterList(
     es='Pela',
     type_name='Ice',
     path_name='Nihility',
+    relic_setid=104,
+    ornament_setid=312,
 )
 Clara = CharacterList(
     id=1107,
@@ -200,6 +234,8 @@ Clara = CharacterList(
     es='Clara',
     type_name='Physical',
     path_name='Destruction',
+    relic_setid=105,
+    ornament_setid=306,
 )
 Sampo = CharacterList(
     id=1108,
@@ -211,6 +247,8 @@ Sampo = CharacterList(
     es='Sampo',
     type_name='Wind',
     path_name='Nihility',
+    relic_setid=110,
+    ornament_setid=301,
 )
 Hook = CharacterList(
     id=1109,
@@ -222,6 +260,8 @@ Hook = CharacterList(
     es='Hook',
     type_name='Fire',
     path_name='Destruction',
+    relic_setid=117,
+    ornament_setid=301,
 )
 Lynx = CharacterList(
     id=1110,
@@ -233,6 +273,8 @@ Lynx = CharacterList(
     es='Lynx',
     type_name='Quantum',
     path_name='Abundance',
+    relic_setid=101,
+    ornament_setid=302,
 )
 Luka = CharacterList(
     id=1111,
@@ -244,6 +286,8 @@ Luka = CharacterList(
     es='Luka',
     type_name='Physical',
     path_name='Nihility',
+    relic_setid=105,
+    ornament_setid=301,
 )
 TopazNumby = CharacterList(
     id=1112,
@@ -255,6 +299,8 @@ TopazNumby = CharacterList(
     es='Topaz y Conti',
     type_name='Fire',
     path_name='The_Hunt',
+    relic_setid=115,
+    ornament_setid=318,
 )
 Qingque = CharacterList(
     id=1201,
@@ -266,6 +312,8 @@ Qingque = CharacterList(
     es='Qingque',
     type_name='Quantum',
     path_name='Erudition',
+    relic_setid=108,
+    ornament_setid=309,
 )
 Tingyun = CharacterList(
     id=1202,
@@ -277,6 +325,8 @@ Tingyun = CharacterList(
     es='Tingyun',
     type_name='Thunder',
     path_name='Harmony',
+    relic_setid=121,
+    ornament_setid=308,
 )
 Luocha = CharacterList(
     id=1203,
@@ -288,6 +338,8 @@ Luocha = CharacterList(
     es='Luocha',
     type_name='Imaginary',
     path_name='Abundance',
+    relic_setid=101,
+    ornament_setid=301,
 )
 JingYuan = CharacterList(
     id=1204,
@@ -299,6 +351,8 @@ JingYuan = CharacterList(
     es='Jing Yuan',
     type_name='Thunder',
     path_name='Erudition',
+    relic_setid=115,
+    ornament_setid=318,
 )
 Blade = CharacterList(
     id=1205,
@@ -310,6 +364,8 @@ Blade = CharacterList(
     es='Blade',
     type_name='Wind',
     path_name='Destruction',
+    relic_setid=113,
+    ornament_setid=319,
 )
 Sushang = CharacterList(
     id=1206,
@@ -321,6 +377,8 @@ Sushang = CharacterList(
     es='Sushang',
     type_name='Physical',
     path_name='The_Hunt',
+    relic_setid=105,
+    ornament_setid=311,
 )
 Yukong = CharacterList(
     id=1207,
@@ -332,6 +390,8 @@ Yukong = CharacterList(
     es='Yukong',
     type_name='Imaginary',
     path_name='Harmony',
+    relic_setid=102,
+    ornament_setid=302,
 )
 FuXuan = CharacterList(
     id=1208,
@@ -343,6 +403,8 @@ FuXuan = CharacterList(
     es='Fu Xuan',
     type_name='Quantum',
     path_name='Preservation',
+    relic_setid=113,
+    ornament_setid=302,
 )
 Yanqing = CharacterList(
     id=1209,
@@ -354,6 +416,8 @@ Yanqing = CharacterList(
     es='Yanqing',
     type_name='Ice',
     path_name='The_Hunt',
+    relic_setid=104,
+    ornament_setid=311,
 )
 Guinaifen = CharacterList(
     id=1210,
@@ -365,6 +429,8 @@ Guinaifen = CharacterList(
     es='Guinaifen',
     type_name='Fire',
     path_name='Nihility',
+    relic_setid=116,
+    ornament_setid=301,
 )
 Bailu = CharacterList(
     id=1211,
@@ -376,6 +442,8 @@ Bailu = CharacterList(
     es='Bailu',
     type_name='Thunder',
     path_name='Abundance',
+    relic_setid=101,
+    ornament_setid=302,
 )
 Jingliu = CharacterList(
     id=1212,
@@ -387,6 +455,8 @@ Jingliu = CharacterList(
     es='Jingliu',
     type_name='Ice',
     path_name='Destruction',
+    relic_setid=122,
+    ornament_setid=319,
 )
 DanHengImbibitorLunae = CharacterList(
     id=1213,
@@ -398,6 +468,8 @@ DanHengImbibitorLunae = CharacterList(
     es='Dan Heng - Imbibitor Lunae',
     type_name='Imaginary',
     path_name='Destruction',
+    relic_setid=102,
+    ornament_setid=309,
 )
 Xueyi = CharacterList(
     id=1214,
@@ -409,6 +481,8 @@ Xueyi = CharacterList(
     es='Xueyi',
     type_name='Quantum',
     path_name='Destruction',
+    relic_setid=108,
+    ornament_setid=307,
 )
 Hanya = CharacterList(
     id=1215,
@@ -420,6 +494,8 @@ Hanya = CharacterList(
     es='Hanya',
     type_name='Physical',
     path_name='Harmony',
+    relic_setid=114,
+    ornament_setid=317,
 )
 Huohuo = CharacterList(
     id=1217,
@@ -431,6 +507,8 @@ Huohuo = CharacterList(
     es='Huohuo',
     type_name='Wind',
     path_name='Abundance',
+    relic_setid=101,
+    ornament_setid=302,
 )
 Jiaoqiu = CharacterList(
     id=1218,
@@ -442,6 +520,8 @@ Jiaoqiu = CharacterList(
     es='Jiaoqiu',
     type_name='Fire',
     path_name='Nihility',
+    relic_setid=116,
+    ornament_setid=303,
 )
 Feixiao = CharacterList(
     id=1220,
@@ -453,6 +533,8 @@ Feixiao = CharacterList(
     es='Feixiao',
     type_name='Wind',
     path_name='The_Hunt',
+    relic_setid=120,
+    ornament_setid=315,
 )
 Yunli = CharacterList(
     id=1221,
@@ -464,6 +546,8 @@ Yunli = CharacterList(
     es='Yunli',
     type_name='Physical',
     path_name='Destruction',
+    relic_setid=120,
+    ornament_setid=315,
 )
 Lingsha = CharacterList(
     id=1222,
@@ -475,6 +559,8 @@ Lingsha = CharacterList(
     es='Lingsha',
     type_name='Fire',
     path_name='Abundance',
+    relic_setid=119,
+    ornament_setid=316,
 )
 Moze = CharacterList(
     id=1223,
@@ -486,6 +572,8 @@ Moze = CharacterList(
     es='Moze',
     type_name='Thunder',
     path_name='The_Hunt',
+    relic_setid=117,
+    ornament_setid=315,
 )
 March7thTheHunt = CharacterList(
     id=1224,
@@ -497,6 +585,8 @@ March7thTheHunt = CharacterList(
     es='Siete de Marzo: Cacería',
     type_name='Imaginary',
     path_name='The_Hunt',
+    relic_setid=102,
+    ornament_setid=309,
 )
 Fugue = CharacterList(
     id=1225,
@@ -508,6 +598,8 @@ Fugue = CharacterList(
     es='Fugue',
     type_name='Fire',
     path_name='Nihility',
+    relic_setid=119,
+    ornament_setid=316,
 )
 Gallagher = CharacterList(
     id=1301,
@@ -519,6 +611,8 @@ Gallagher = CharacterList(
     es='Gallagher',
     type_name='Fire',
     path_name='Abundance',
+    relic_setid=119,
+    ornament_setid=316,
 )
 Argenti = CharacterList(
     id=1302,
@@ -530,6 +624,8 @@ Argenti = CharacterList(
     es='Argenti',
     type_name='Physical',
     path_name='Erudition',
+    relic_setid=122,
+    ornament_setid=306,
 )
 RuanMei = CharacterList(
     id=1303,
@@ -541,6 +637,8 @@ RuanMei = CharacterList(
     es='Ruan Mei',
     type_name='Ice',
     path_name='Harmony',
+    relic_setid=118,
+    ornament_setid=307,
 )
 Aventurine = CharacterList(
     id=1304,
@@ -552,6 +650,8 @@ Aventurine = CharacterList(
     es='Aventurino',
     type_name='Imaginary',
     path_name='Preservation',
+    relic_setid=103,
+    ornament_setid=306,
 )
 DrRatio = CharacterList(
     id=1305,
@@ -563,6 +663,8 @@ DrRatio = CharacterList(
     es='Dr. Ratio',
     type_name='Imaginary',
     path_name='The_Hunt',
+    relic_setid=117,
+    ornament_setid=315,
 )
 Sparkle = CharacterList(
     id=1306,
@@ -574,6 +676,8 @@ Sparkle = CharacterList(
     es='Sparkle',
     type_name='Quantum',
     path_name='Harmony',
+    relic_setid=121,
+    ornament_setid=317,
 )
 BlackSwan = CharacterList(
     id=1307,
@@ -585,6 +689,8 @@ BlackSwan = CharacterList(
     es='Cisne Negro',
     type_name='Wind',
     path_name='Nihility',
+    relic_setid=116,
+    ornament_setid=303,
 )
 Acheron = CharacterList(
     id=1308,
@@ -596,6 +702,8 @@ Acheron = CharacterList(
     es='Acheron',
     type_name='Thunder',
     path_name='Nihility',
+    relic_setid=117,
+    ornament_setid=314,
 )
 Robin = CharacterList(
     id=1309,
@@ -607,6 +715,8 @@ Robin = CharacterList(
     es='Robin',
     type_name='Physical',
     path_name='Harmony',
+    relic_setid=102,
+    ornament_setid=302,
 )
 Firefly = CharacterList(
     id=1310,
@@ -618,6 +728,8 @@ Firefly = CharacterList(
     es='Luciernaga',
     type_name='Fire',
     path_name='Destruction',
+    relic_setid=119,
+    ornament_setid=316,
 )
 Misha = CharacterList(
     id=1312,
@@ -629,6 +741,8 @@ Misha = CharacterList(
     es='Misha',
     type_name='Ice',
     path_name='Destruction',
+    relic_setid=104,
+    ornament_setid=306,
 )
 Sunday = CharacterList(
     id=1313,
@@ -640,6 +754,8 @@ Sunday = CharacterList(
     es='Sunday',
     type_name='Imaginary',
     path_name='Harmony',
+    relic_setid=121,
+    ornament_setid=317,
 )
 Jade = CharacterList(
     id=1314,
@@ -651,6 +767,8 @@ Jade = CharacterList(
     es='Jade',
     type_name='Quantum',
     path_name='Erudition',
+    relic_setid=108,
+    ornament_setid=313,
 )
 Boothill = CharacterList(
     id=1315,
@@ -662,6 +780,8 @@ Boothill = CharacterList(
     es='Boothill',
     type_name='Physical',
     path_name='The_Hunt',
+    relic_setid=111,
+    ornament_setid=307,
 )
 Rappa = CharacterList(
     id=1317,
@@ -673,6 +793,8 @@ Rappa = CharacterList(
     es='Rappa',
     type_name='Imaginary',
     path_name='Erudition',
+    relic_setid=119,
+    ornament_setid=307,
 )
 TheHerta = CharacterList(
     id=1401,
@@ -684,6 +806,8 @@ TheHerta = CharacterList(
     es='Sra. Herta',
     type_name='Ice',
     path_name='Erudition',
+    relic_setid=122,
+    ornament_setid=314,
 )
 Aglaea = CharacterList(
     id=1402,
@@ -695,6 +819,8 @@ Aglaea = CharacterList(
     es='Aglaea',
     type_name='Thunder',
     path_name='Remembrance',
+    relic_setid=123,
+    ornament_setid=318,
 )
 Tribbie = CharacterList(
     id=1403,
@@ -706,6 +832,8 @@ Tribbie = CharacterList(
     es='Tribbie',
     type_name='Quantum',
     path_name='Harmony',
+    relic_setid=124,
+    ornament_setid=319,
 )
 Mydei = CharacterList(
     id=1404,
@@ -717,6 +845,8 @@ Mydei = CharacterList(
     es='Midei',
     type_name='Imaginary',
     path_name='Destruction',
+    relic_setid=122,
+    ornament_setid=319,
 )
 Anaxa = CharacterList(
     id=1405,
@@ -728,6 +858,8 @@ Anaxa = CharacterList(
     es='Anaxa',
     type_name='Wind',
     path_name='Erudition',
+    relic_setid=110,
+    ornament_setid=309,
 )
 Cipher = CharacterList(
     id=1406,
@@ -739,6 +871,8 @@ Cipher = CharacterList(
     es='Cífer',
     type_name='Quantum',
     path_name='Nihility',
+    relic_setid=117,
+    ornament_setid=317,
 )
 Castorice = CharacterList(
     id=1407,
@@ -750,6 +884,8 @@ Castorice = CharacterList(
     es='Castorice',
     type_name='Quantum',
     path_name='Remembrance',
+    relic_setid=124,
+    ornament_setid=319,
 )
 Phainon = CharacterList(
     id=1408,
@@ -761,6 +897,8 @@ Phainon = CharacterList(
     es='Fainón',
     type_name='Physical',
     path_name='Destruction',
+    relic_setid=126,
+    ornament_setid=321,
 )
 Hyacine = CharacterList(
     id=1409,
@@ -772,6 +910,8 @@ Hyacine = CharacterList(
     es='Hyacine',
     type_name='Wind',
     path_name='Remembrance',
+    relic_setid=125,
+    ornament_setid=320,
 )
 Hysilens = CharacterList(
     id=1410,
@@ -783,6 +923,8 @@ Hysilens = CharacterList(
     es='Hysilens',
     type_name='Physical',
     path_name='Nihility',
+    relic_setid=116,
+    ornament_setid=322,
 )
 Cerydra = CharacterList(
     id=1412,
@@ -794,6 +936,8 @@ Cerydra = CharacterList(
     es='Ceridra',
     type_name='Wind',
     path_name='Harmony',
+    relic_setid=121,
+    ornament_setid=317,
 )
 Evernight = CharacterList(
     id=1413,
@@ -805,6 +949,8 @@ Evernight = CharacterList(
     es='Larganoche',
     type_name='Ice',
     path_name='Remembrance',
+    relic_setid=127,
+    ornament_setid=319,
 )
 DanHengPermansorTerrae = CharacterList(
     id=1414,
@@ -816,6 +962,8 @@ DanHengPermansorTerrae = CharacterList(
     es='Dan Heng - Permansor Terrae',
     type_name='Physical',
     path_name='Preservation',
+    relic_setid=128,
+    ornament_setid=317,
 )
 TrailblazerDestruction = CharacterList(
     id=8002,
@@ -827,6 +975,8 @@ TrailblazerDestruction = CharacterList(
     es='Trailblazer: Destrucción',
     type_name='Physical',
     path_name='Destruction',
+    relic_setid=105,
+    ornament_setid=309,
 )
 TrailblazerPreservation = CharacterList(
     id=8004,
@@ -838,6 +988,8 @@ TrailblazerPreservation = CharacterList(
     es='Trailblazer: Conservación',
     type_name='Fire',
     path_name='Preservation',
+    relic_setid=103,
+    ornament_setid=304,
 )
 TrailblazerHarmony = CharacterList(
     id=8006,
@@ -849,6 +1001,8 @@ TrailblazerHarmony = CharacterList(
     es='Trailblazer: Armonía',
     type_name='Imaginary',
     path_name='Harmony',
+    relic_setid=118,
+    ornament_setid=307,
 )
 TrailblazerRemembrance = CharacterList(
     id=8008,
@@ -860,4 +1014,6 @@ TrailblazerRemembrance = CharacterList(
     es='Trailblazer (Reminiscencia)',
     type_name='Ice',
     path_name='Remembrance',
+    relic_setid=123,
+    ornament_setid=317,
 )

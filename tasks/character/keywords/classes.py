@@ -27,6 +27,8 @@ class CharacterList(Keyword):
 
     type_name: str
     path_name: str
+    relic_setid: int
+    ornament_setid: int
 
     def __hash__(self) -> int:
         return super().__hash__()

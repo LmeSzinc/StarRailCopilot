@@ -26,6 +26,45 @@ class GenerateCharacterList(GenerateKeyword):
         data.extend(collab)
         return data
 
+    @cached_property
+    def dict_relic_recommend(self):
+        """
+        Returns:
+            dict[int, dict]:
+                key: character_id
+                value: {'relic_setid': 134, 'ornament_setid': 319}
+        """
+        data = self.read_file('./ExcelOutput/AvatarRelicRecommend.json')
+        collab = self.read_file('./ExcelOutput/AvatarRelicRecommendLD.json')
+        data.extend(collab)
+        # {
+        #   "AvatarID": 1407,
+        #   "Set4IDList": [
+        #     124,
+        #     108,
+        #     113
+        #   ],
+        #   "Set2IDList": [
+        #     319,
+        #     302,
+        #     318
+        #   ],
+        #   ...
+        # }
+        out = {}
+        for row in data:
+            character_id = row.get('AvatarID', 0)
+            try:
+                relic_setid = row.get('Set4IDList', 0)[0]
+                ornament_setid = row.get('Set2IDList', 0)[0]
+            except IndexError:
+                continue
+            if not character_id or not relic_setid or not ornament_setid:
+                continue
+            out[character_id] = {'relic_setid': relic_setid, 'ornament_setid': ornament_setid}
+
+        return out
+
     def convert_name(self, text: str, keyword: dict) -> str:
         text = REGEX_PUNCTUATION.sub('', text)
         return super().convert_name(text, keyword)
@@ -50,11 +89,17 @@ class GenerateCharacterList(GenerateKeyword):
             if not path_name:
                 logger.warning(f'Cannot convert character {character_id} base_type {base_type} to path')
                 continue
+            relics = self.dict_relic_recommend.get(character_id)
+            if not relics:
+                logger.warning(f'Missing character {character_id} in relic dict_relic_recommend')
+                relics = {'relic_setid': 0, 'ornament_setid': 0}
             names[character_id] = {
                 'id': character_id,
                 'text_id': name_id,
                 'type_name': row.get('DamageType', ''),
                 'path_name': path_name,
+                'relic_setid': relics['relic_setid'],
+                'ornament_setid': relics['ornament_setid'],
             }
 
         # iter character icon to update name

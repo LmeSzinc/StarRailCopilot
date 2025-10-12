@@ -244,6 +244,7 @@
     "Name": {
       "name": "副本名稱",
       "help": "默認打本設定",
+      "Cavern_of_Corrosion_Path_of_Hidden_Salvation": "遺器：救世主 & 隱士（隱救之徑）",
       "Cavern_of_Corrosion_Path_of_Thundersurge": "遺器：烈陽 & 船長（靂湧之徑）",
       "Cavern_of_Corrosion_Path_of_Aria": "遺器：英豪 & 詩人（絃歌之徑）",
       "Cavern_of_Corrosion_Path_of_Uncertainty": "遺器：司鐸 & 學者（迷識之徑）",
@@ -287,14 +288,14 @@
       "Stagnant_Shadow_Spike": "晉階材料：物理（娜塔莎 / 克拉拉 / 盧卡 / 素裳）",
       "Stagnant_Shadow_Perdition": "晉階材料：物理（寒鴉 / 銀枝）",
       "Stagnant_Shadow_Duty": "晉階材料：物理（波提歐 / 知更鳥 / 雲璃）",
-      "Stagnant_Shadow_Deepsheaf": "晉階材料：物理（白厄 / 海瑟音）",
+      "Stagnant_Shadow_Deepsheaf": "晉階材料：物理（白厄 / 海瑟音 / 丹恆•騰荒）",
       "Stagnant_Shadow_Blaze": "晉階材料：火（姬子 / 艾絲妲 / 虎克）",
       "Stagnant_Shadow_Scorch": "晉階材料：火（桂乃芬 / 托帕&帳帳 / 忘歸人）",
       "Stagnant_Shadow_Ire": "晉階材料：火（流螢 / 加拉赫 / 椒丘 / 靈砂）",
       "Stagnant_Shadow_Rime": "晉階材料：冰（三月七 / 黑塔 / 傑帕德 / 佩拉）",
       "Stagnant_Shadow_Icicle": "晉階材料：冰（彥卿 / 鏡流 / 阮•梅）",
       "Stagnant_Shadow_Nectar": "晉階材料：冰（米沙 / 大黑塔）",
-      "Stagnant_Shadow_Sirens": "晉階材料：冰（塞壬之形•凝滯虛影）",
+      "Stagnant_Shadow_Sirens": "晉階材料：冰（長夜月）",
       "Stagnant_Shadow_Fulmination": "晉階材料：雷（阿蘭 / 希露瓦 / 停雲 / 白露）",
       "Stagnant_Shadow_Doom": "晉階材料：雷（卡芙卡 / 景元 / 黃泉）",
       "Stagnant_Shadow_Mechwolf": "晉階材料：雷（貊澤 / 阿格萊雅）",
@@ -345,6 +346,7 @@
     "NameAtDoubleRelic": {
       "name": "有遺器活動時，選擇副本",
       "help": "次數耗儘後回退到默認打本設定",
+      "Cavern_of_Corrosion_Path_of_Hidden_Salvation": "遺器：救世主 & 隱士（隱救之徑）",
       "Cavern_of_Corrosion_Path_of_Thundersurge": "遺器：烈陽 & 船長（靂湧之徑）",
       "Cavern_of_Corrosion_Path_of_Aria": "遺器：英豪 & 詩人（絃歌之徑）",
       "Cavern_of_Corrosion_Path_of_Uncertainty": "遺器：司鐸 & 學者（迷識之徑）",
@@ -411,6 +413,8 @@
       "name": "好友支援角色",
       "help": "選擇好友支援角色，未找到則選擇默認（第一個）角色\n支援角色不要與隊伍中的角色重複，建議置頂好友角色",
       "FirstCharacter": "支援列表第一個角色",
+      "Evernight": "[3.6] 長夜月",
+      "DanHengPermansorTerrae": "[3.6] 丹恆•騰荒",
       "Hysilens": "[3.5] 海瑟音",
       "Cerydra": "[3.5] 刻律德菈",
       "Phainon": "[3.4] 白厄",
@@ -663,11 +667,11 @@
       "help": ""
     },
     "Item_Invasive_Clot": {
-      "name": "晉階材料：物理（白厄 / 海瑟音）",
+      "name": "晉階材料：物理（白厄 / 海瑟音 / 丹恆•騰荒）",
       "help": ""
     },
     "Item_Sea_Siren_Torn_Fin": {
-      "name": "晉階材料：冰（塞壬之形•凝滯虛影）",
+      "name": "晉階材料：冰（長夜月）",
       "help": ""
     },
     "Item_Charred_Bud_of_Twilight": {
@@ -828,6 +832,8 @@
       "name": "養成角色",
       "help": "",
       "_none_": "無",
+      "Evernight": "[3.6] 長夜月",
+      "DanHengPermansorTerrae": "[3.6] 丹恆•騰荒",
       "Hysilens": "[3.5] 海瑟音",
       "Cerydra": "[3.5] 刻律德菈",
       "Phainon": "[3.4] 白厄",
@@ -909,6 +915,8 @@
       "name": "養成光錐",
       "help": "",
       "_none_": "無",
+      "Though_Worlds_Apart": "[3.6] 丹恆•騰荒 | 5* 縱然山河萬程",
+      "To_Evernight_Stars": "[3.6] 長夜月 | 5* 致長夜的星光",
       "Epoch_Etched_in_Golden_Blood": "[3.5] 刻律德菈 | 5* 金血銘刻的時代",
       "Why_Does_the_Ocean_Sing": "[3.5] 海瑟音 | 5* 海洋為何而歌",
       "Thus_Burns_the_Dawn": "[3.4] 白厄 | 5* 黎明恰如此燃燒",
@@ -1529,7 +1537,7 @@
     "Dungeon": {
       "name": "副本名稱",
       "help": "",
-      "Divergent_Universe_Moonlit_Blood": "飾品：（月下朱殷）",
+      "Divergent_Universe_Moonlit_Blood": "飾品：妖精 & 沉醉（月下朱殷）",
       "Divergent_Universe_Unceasing_Strife": "飾品：拾骨地 & 巨樹（紛爭不休）",
       "Divergent_Universe_Famished_Worker": "飾品：海域 & 奇想（蠹役飢腸）",
       "Divergent_Universe_Eternal_Comedy": "飾品：奔狼 & 火宮（永恆笑劇）",
@@ -1539,7 +1547,7 @@
       "Divergent_Universe_Permafrost": "飾品：貝洛伯格 & 薩爾索圖（百年凍土）",
       "Divergent_Universe_Gentle_Words": "飾品：商業公司 & 差分機（溫柔話語）",
       "Divergent_Universe_Smelted_Heart": "飾品：盜賊 & 翁瓦克（浴火鋼心）",
-      "Divergent_Universe_Untoppled_Walls": "飾品：太空 & 仙舟 & 妖精 & 沉醉（堅城不倒）"
+      "Divergent_Universe_Untoppled_Walls": "飾品：太空 & 仙舟（堅城不倒）"
     },
     "UseImmersifier": {
       "name": "使用沉浸器領取遺器",

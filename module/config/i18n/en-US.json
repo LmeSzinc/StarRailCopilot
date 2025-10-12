@@ -244,6 +244,7 @@
     "Name": {
       "name": "Dungeon Name",
       "help": "Default dungeon setting",
+      "Cavern_of_Corrosion_Path_of_Hidden_Salvation": "Relics: Deliverer & Recluse (Path of Hidden Salvation)",
       "Cavern_of_Corrosion_Path_of_Thundersurge": "Relics: Warrior Goddess & Captain (Path of Thundersurge)",
       "Cavern_of_Corrosion_Path_of_Aria": "Relics: Hero & Poet (Path of Aria)",
       "Cavern_of_Corrosion_Path_of_Uncertainty": "Relics: Ordeal & Scholar (Path of Uncertainty)",
@@ -287,14 +288,14 @@
       "Stagnant_Shadow_Spike": "Ascension: Physical (Natasha / Clara / Luka / Sushang)",
       "Stagnant_Shadow_Perdition": "Ascension: Physical (Hanya / Argenti)",
       "Stagnant_Shadow_Duty": "Ascension: Physical (Boothill / Robin / Yunli)",
-      "Stagnant_Shadow_Deepsheaf": "Ascension: Physical (Phainon / Hysilens)",
+      "Stagnant_Shadow_Deepsheaf": "Ascension: Physical (Phainon / Hysilens / Dan Heng • Permansor Terrae)",
       "Stagnant_Shadow_Blaze": "Ascension: Fire (Himeko / Asta / Hook)",
       "Stagnant_Shadow_Scorch": "Ascension: Fire (Guinaifen / Topaz & Numby / Fugue)",
       "Stagnant_Shadow_Ire": "Ascension: Fire (Firefly / Gallagher / Jiaoqiu / Lingsha)",
       "Stagnant_Shadow_Rime": "Ascension: Ice (March 7th / Herta / Gepard / Pela)",
       "Stagnant_Shadow_Icicle": "Ascension: Ice (Yanqing / Jingliu / Ruan Mei)",
       "Stagnant_Shadow_Nectar": "Ascension: Ice (Misha / The Herta)",
-      "Stagnant_Shadow_Sirens": "Ascension: Ice (Stagnant Shadow: Shape of Sirens)",
+      "Stagnant_Shadow_Sirens": "Ascension: Ice (Evernight)",
       "Stagnant_Shadow_Fulmination": "Ascension: Lightning (Arlan / Serval / Tingyun / Bailu)",
       "Stagnant_Shadow_Doom": "Ascension: Lightning (Kafka / Jing Yuan / Acheron)",
       "Stagnant_Shadow_Mechwolf": "Ascension: Lightning (Moze / Aglaea)",
@@ -345,6 +346,7 @@
     "NameAtDoubleRelic": {
       "name": "At Double Relic Event, choose dungeon",
       "help": "Return to the default dungeon settings after double times exhausted",
+      "Cavern_of_Corrosion_Path_of_Hidden_Salvation": "Relics: Deliverer & Recluse (Path of Hidden Salvation)",
       "Cavern_of_Corrosion_Path_of_Thundersurge": "Relics: Warrior Goddess & Captain (Path of Thundersurge)",
       "Cavern_of_Corrosion_Path_of_Aria": "Relics: Hero & Poet (Path of Aria)",
       "Cavern_of_Corrosion_Path_of_Uncertainty": "Relics: Ordeal & Scholar (Path of Uncertainty)",
@@ -411,6 +413,8 @@
       "name": "Support Character",
       "help": "Select a friend support character, if not found, select the default (first) role\nSupport character should not be the same as the character in the team, recommended to prioritize friends.",
       "FirstCharacter": "First Character",
+      "Evernight": "[3.6] Evernight",
+      "DanHengPermansorTerrae": "[3.6] Dan Heng • Permansor Terrae",
       "Hysilens": "[3.5] Hysilens",
       "Cerydra": "[3.5] Cerydra",
       "Phainon": "[3.4] Phainon",
@@ -663,11 +667,11 @@
       "help": ""
     },
     "Item_Invasive_Clot": {
-      "name": "Ascension: Physical (Phainon / Hysilens)",
+      "name": "Ascension: Physical (Phainon / Hysilens / Dan Heng • Permansor Terrae)",
       "help": ""
     },
     "Item_Sea_Siren_Torn_Fin": {
-      "name": "Ascension: Ice (Stagnant Shadow: Shape of Sirens)",
+      "name": "Ascension: Ice (Evernight)",
       "help": ""
     },
     "Item_Charred_Bud_of_Twilight": {
@@ -828,6 +832,8 @@
       "name": "Character",
       "help": "",
       "_none_": "None",
+      "Evernight": "[3.6] Evernight",
+      "DanHengPermansorTerrae": "[3.6] Dan Heng • Permansor Terrae",
       "Hysilens": "[3.5] Hysilens",
       "Cerydra": "[3.5] Cerydra",
       "Phainon": "[3.4] Phainon",
@@ -909,6 +915,8 @@
       "name": "Cone",
       "help": "",
       "_none_": "None",
+      "Though_Worlds_Apart": "[3.6] Dan Heng • Permansor Terrae | 5* Though Worlds Apart",
+      "To_Evernight_Stars": "[3.6] Evernight | 5* To Evernight's Stars",
       "Epoch_Etched_in_Golden_Blood": "[3.5] Cerydra | 5* Epoch Etched in Golden Blood",
       "Why_Does_the_Ocean_Sing": "[3.5] Hysilens | 5* Why Does the Ocean Sing",
       "Thus_Burns_the_Dawn": "[3.4] Phainon | 5* Thus Burns the Dawn",
@@ -1529,7 +1537,7 @@
     "Dungeon": {
       "name": "Dungeon Name",
       "help": "",
-      "Divergent_Universe_Moonlit_Blood": "Ornament:  (Moonlit Blood)",
+      "Divergent_Universe_Moonlit_Blood": "Ornament: Arcadia & Revelry (Moonlit Blood)",
       "Divergent_Universe_Unceasing_Strife": "Ornament: Bone Collection & Giant Tree (Unceasing Strife)",
       "Divergent_Universe_Famished_Worker": "Ornament: Sunken Seas & Wondrous (Famished Worker)",
       "Divergent_Universe_Eternal_Comedy": "Ornament: Running Wolves & Lantern (Eternal Comedy)",
@@ -1539,7 +1547,7 @@
       "Divergent_Universe_Permafrost": "Ornament: Belobog & Salsotto (Permafrost)",
       "Divergent_Universe_Gentle_Words": "Ornament: Commercial Enterprise & Differentiator (Gentle Words)",
       "Divergent_Universe_Smelted_Heart": "Ornament: Banditry & Vonwacq (Smelted Heart)",
-      "Divergent_Universe_Untoppled_Walls": "Ornament: Space & Ageless Fleet & Arcadia & Revelry (Untoppled Walls)"
+      "Divergent_Universe_Untoppled_Walls": "Ornament: Space & Ageless Fleet (Untoppled Walls)"
     },
     "UseImmersifier": {
       "name": "Claim Planars Using Immersifiers",

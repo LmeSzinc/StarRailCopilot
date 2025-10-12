@@ -363,6 +363,34 @@
     "jp": "船長",
     "es": "Capitán"
   },
+  "WorldRemakingDeliverer": {
+    "setid": 127,
+    "dungeon_id": 1214,
+    "cn_origin": "再创天地的救世主",
+    "cht_origin": "再創天地的救世主",
+    "en_origin": "World-Remaking Deliverer",
+    "jp_origin": "天地再創の救世主",
+    "es_origin": "Salvado que reforja el mundo",
+    "cn": "救世主",
+    "cht": "救世主",
+    "en": "Deliverer",
+    "jp": "救世主",
+    "es": "Salvado"
+  },
+  "SelfEnshroudedRecluse": {
+    "setid": 128,
+    "dungeon_id": 1214,
+    "cn_origin": "自匿星芒的隐士",
+    "cht_origin": "自匿星芒的隱士",
+    "en_origin": "Self-Enshrouded Recluse",
+    "jp_origin": "星の光を隠した隠者",
+    "es_origin": "Eremita aislado en las estrellas",
+    "cn": "隐士",
+    "cht": "隱士",
+    "en": "Recluse",
+    "jp": "隠者",
+    "es": "Eremita"
+  },
   "SpaceSealingStation": {
     "setid": 301,
     "dungeon_id": 230,

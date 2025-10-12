@@ -8,39 +8,13 @@ from module.base.decorator import cached_property
 from module.base.utils import area_offset, area_pad
 from module.config.utils import iter_folder, random_id
 from module.logger import logger
-from module.ui.switch import Switch
 from tasks.base.ui import UI
 from tasks.combat.assets.assets_combat_support_dev import *
 from tasks.combat.support import SupportCharacter
-
-
-class SupportTab(Switch):
-    def add_state(self, state, check_button, click_button=None):
-        # Load search
-        if check_button is not None:
-            check_button.load_search(TAB_SEARCH.area)
-        if click_button is not None:
-            click_button.load_search(TAB_SEARCH.area)
-        return super().add_state(state, check_button, click_button)
-
-    def click(self, state, main):
-        """
-        Args:
-            state (str):
-            main (ModuleBase):
-        """
-        button = self.get_data(state)['click_button']
-        _ = button.match_template_luma(main.device.image)  # Search button to load offset
-        main.device.click(button)
+from tasks.combat.support_tab import support_tab
 
 
 class SupportDev(UI):
-    def support_tab(self) -> SupportTab:
-        tab = SupportTab('SupportTab', is_selector=True)
-        tab.add_state('Friends', check_button=FRIENDS_CHECK, click_button=FRIENDS_CLICK)
-        tab.add_state('Strangers', check_button=STRANGER_CHECK, click_button=STRANGER_CLICK)
-        return tab
-
     def support_refresh_list(self):
         """
         Pages:

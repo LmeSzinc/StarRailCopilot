@@ -244,6 +244,7 @@
     "Name": {
       "name": "Nombre de la Mazmorra",
       "help": "Ajustes predeterminados de las mazmorras",
+      "Cavern_of_Corrosion_Path_of_Hidden_Salvation": "Artefactos: Salvado & Eremita (Senda de la salvación oculta)",
       "Cavern_of_Corrosion_Path_of_Thundersurge": "Artefactos: Guerrera celestial & Capitán (Senda del estruendo)",
       "Cavern_of_Corrosion_Path_of_Aria": "Artefactos: Heroe & Poetisa (Senda de la canción)",
       "Cavern_of_Corrosion_Path_of_Uncertainty": "Artefactos: Calvario & Eruditos (Senda de la incertidumbre)",
@@ -287,14 +288,14 @@
       "Stagnant_Shadow_Spike": "Ascension: Físico (Natasha / Clara / Luka / Sushang)",
       "Stagnant_Shadow_Perdition": "Ascension: Físico (Hanya / Argenti)",
       "Stagnant_Shadow_Duty": "Ascension: Físico (Boothill / Robin / Yunli)",
-      "Stagnant_Shadow_Deepsheaf": "Ascension: Físico (Fainón / Hysilens)",
+      "Stagnant_Shadow_Deepsheaf": "Ascension: Físico (Fainón / Hysilens / Dan Heng - Permansor Terrae)",
       "Stagnant_Shadow_Blaze": "Ascension: Fuego (Himeko / Asta / Hook)",
       "Stagnant_Shadow_Scorch": "Ascension: Fuego (Guinaifen / Topaz y Conti / Fugue)",
       "Stagnant_Shadow_Ire": "Ascension: Fuego (Luciérnaga / Gallagher / Jiaoqiu / Lingsha)",
       "Stagnant_Shadow_Rime": "Ascension: Hielo (Siete de Marzo / Herta / Gepard / Pela)",
       "Stagnant_Shadow_Icicle": "Ascension: Hielo (Yanqing / Jingliu / Ruan Mei)",
       "Stagnant_Shadow_Nectar": "Ascension: Hielo (Misha / Sra. Herta)",
-      "Stagnant_Shadow_Sirens": "Ascension: Hielo (Sombra paralizada: Forma de la marea)",
+      "Stagnant_Shadow_Sirens": "Ascension: Hielo (Larganoche)",
       "Stagnant_Shadow_Fulmination": "Ascension: Rayo (Arlan / Serval / Tingyun / Bailu)",
       "Stagnant_Shadow_Doom": "Ascension: Rayo (Kafka / Jing Yuan / Acheron)",
       "Stagnant_Shadow_Mechwolf": "Ascension: Rayo (Moze / Aglaea)",
@@ -345,6 +346,7 @@
     "NameAtDoubleRelic": {
       "name": "En los eventos de x2 de Caverna de la corrosión",
       "help": "Se volverán a los ajustes predeterminados una vez se acaben los intentos del evento",
+      "Cavern_of_Corrosion_Path_of_Hidden_Salvation": "Artefactos: Salvado & Eremita (Senda de la salvación oculta)",
       "Cavern_of_Corrosion_Path_of_Thundersurge": "Artefactos: Guerrera celestial & Capitán (Senda del estruendo)",
       "Cavern_of_Corrosion_Path_of_Aria": "Artefactos: Heroe & Poetisa (Senda de la canción)",
       "Cavern_of_Corrosion_Path_of_Uncertainty": "Artefactos: Calvario & Eruditos (Senda de la incertidumbre)",
@@ -411,6 +413,8 @@
       "name": "Personaje de apoyo",
       "help": "Selecciona qué personaje de apoyo de un amigo se usará. Si no se encuentra, se seleccionará al predeterminado.\nEl personaje de apoyo no debe ser el mismo que el personaje del equipo, se recomienda priorizar a los amigos.",
       "FirstCharacter": "Primer personaje",
+      "Evernight": "[3.6] Larganoche",
+      "DanHengPermansorTerrae": "[3.6] Dan Heng - Permansor Terrae",
       "Hysilens": "[3.5] Hysilens",
       "Cerydra": "[3.5] Ceridra",
       "Phainon": "[3.4] Fainón",
@@ -663,11 +667,11 @@
       "help": ""
     },
     "Item_Invasive_Clot": {
-      "name": "Ascension: Físico (Fainón / Hysilens)",
+      "name": "Ascension: Físico (Fainón / Hysilens / Dan Heng - Permansor Terrae)",
       "help": ""
     },
     "Item_Sea_Siren_Torn_Fin": {
-      "name": "Ascension: Hielo (Sombra paralizada: Forma de la marea)",
+      "name": "Ascension: Hielo (Larganoche)",
       "help": ""
     },
     "Item_Charred_Bud_of_Twilight": {
@@ -828,6 +832,8 @@
       "name": "Character",
       "help": "",
       "_none_": "None",
+      "Evernight": "[3.6] Larganoche",
+      "DanHengPermansorTerrae": "[3.6] Dan Heng - Permansor Terrae",
       "Hysilens": "[3.5] Hysilens",
       "Cerydra": "[3.5] Ceridra",
       "Phainon": "[3.4] Fainón",
@@ -909,6 +915,8 @@
       "name": "Cone",
       "help": "",
       "_none_": "None",
+      "Though_Worlds_Apart": "[3.6] Dan Heng - Permansor Terrae | 5* A traves de montañas y ríos",
+      "To_Evernight_Stars": "[3.6] Larganoche | 5* A la estrella de la larga noche",
       "Epoch_Etched_in_Golden_Blood": "[3.5] Ceridra | 5* Era grabada en sangre dorada",
       "Why_Does_the_Ocean_Sing": "[3.5] Hysilens | 5* Por que canta el oceano",
       "Thus_Burns_the_Dawn": "[3.4] Fainón | 5* Que arda el alba",
@@ -1529,7 +1537,7 @@
     "Dungeon": {
       "name": "Nombre de la Mazmorra",
       "help": "",
-      "Divergent_Universe_Moonlit_Blood": "Ornamentos:  (Rubor de la luna)",
+      "Divergent_Universe_Moonlit_Blood": "Ornamentos: Paraíso & Embriagado (Rubor de la luna)",
       "Divergent_Universe_Unceasing_Strife": "Ornamentos: Osario sereno & Árbol gigante (Conflicto interminable)",
       "Divergent_Universe_Famished_Worker": "Ornamentos: Bajo el mar & Platanolandia (Obrero famelico)",
       "Divergent_Universe_Eternal_Comedy": "Ornamentos: Lobos raudos & Linterna (Comedia eterna)",
@@ -1539,7 +1547,7 @@
       "Divergent_Universe_Permafrost": "Ornamentos: Belobog & Salsotto (Permafrost)",
       "Divergent_Universe_Gentle_Words": "Ornamentos: Entidad comercial & Diferenciador (Palabras amables)",
       "Divergent_Universe_Smelted_Heart": "Ornamentos: Forajidos & Vonwacq (Corazón de fundición)",
-      "Divergent_Universe_Untoppled_Walls": "Ornamentos: Espacios & Eternos Flota & Paraíso & Embriagado (Muros inquebrantables)"
+      "Divergent_Universe_Untoppled_Walls": "Ornamentos: Espacios & Eternos Flota (Muros inquebrantables)"
     },
     "UseImmersifier": {
       "name": "Reclamar de planars mediante inmersor",

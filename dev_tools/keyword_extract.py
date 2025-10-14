@@ -341,10 +341,12 @@ class KeywordExtract:
         GenerateMapPlane()()
 
     def generate_character_keywords(self):
-        from dev_tools.keywords.character import GenerateCharacterList, GenerateCharacterHeight, GenerateCombatType
+        from dev_tools.keywords.character import (GenerateCharacterList, GenerateCharacterHeight,
+                                                  GenerateCombatType, GenerateCharacterPath)
         GenerateCharacterList()()
         GenerateCharacterHeight()()
         GenerateCombatType()()
+        GenerateCharacterPath()()
 
     def generate_battle_pass_quests(self):
         battle_pass_quests = read_file(os.path.join(TextMap.DATA_FOLDER, 'ExcelOutput', 'BattlePassConfig.json'))

@@ -193,6 +193,7 @@ class CombatSupport(CombatState):
                 tab = support_tab()
                 tab.set('Strangers', main=self)
                 self.interval_reset(SUPPORT_EMPTY)
+                self.interval_clear(COMBAT_SUPPORT_LIST)
                 continue
 
     def _get_character(self, support_character_name: str) -> SupportCharacter:

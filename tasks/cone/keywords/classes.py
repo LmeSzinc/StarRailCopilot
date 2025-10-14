@@ -13,6 +13,7 @@ class Cone(Keyword):
 
     # Rare, VeryRare, SuperRare
     rarity: str
+    path_name: str
     # Character name if this cone is a character specific cone
     # Usually only SuperRare characters has their character specific cones
     character_name: str = ''
@@ -34,6 +35,11 @@ class Cone(Keyword):
         except ScriptError as e:
             logger.error(e)
             return None
+
+    @cached_property
+    def character_path(self):
+        from tasks.character.keywords import CharacterPath
+        return CharacterPath.find_name(self.path_name)
 
     @property
     def star_string(self):

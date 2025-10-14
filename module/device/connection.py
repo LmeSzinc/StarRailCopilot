@@ -602,6 +602,22 @@ class Connection(ConnectionAttr):
             self.adb.forward(forward.local, forward.remote)
             return port
 
+    def _adb_reverse_transport(self, remote: str, local: str, norebind: bool = False):
+        """
+        Backport fixes from https://github.com/openatx/adbutils/pull/116
+        Don't use self.adb.reverse(), use this method.
+        """
+        args = ["reverse:forward"]
+        if norebind:
+            args.append("norebind")
+        args.append(remote + ";" + local)
+        cmd = ":".join(args)
+        with self.adb_client._connect() as c:
+            c.send_command(f'host:transport:{self.serial}')
+            c.check_okay()
+            c.send_command(cmd)
+            c.check_okay()
+
     def adb_reverse(self, remote):
         port = 0
         for reverse in self.adb.reverse_list():
@@ -611,16 +627,16 @@ class Connection(ConnectionAttr):
                     port = int(reverse.local[4:])
                 else:
                     logger.info(f'Remove redundant forward: {reverse}')
-                    self.adb_forward_remove(reverse.local)
+                    self.adb_reverse_remove(reverse.remote)
 
         if port:
             return port
         else:
             # Create new reverse
             port = random_port(self.config.FORWARD_PORT_RANGE)
-            reverse = ReverseItem(f'tcp:{port}', remote)
+            reverse = ReverseItem(remote, f'tcp:{port}')
             logger.info(f'Create reverse: {reverse}')
-            self.adb.reverse(reverse.local, reverse.remote)
+            self._adb_reverse_transport(reverse.remote, reverse.local)
             return port
 
     def adb_forward_remove(self, local):

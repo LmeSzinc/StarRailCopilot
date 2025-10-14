@@ -170,6 +170,15 @@ PlannerTarget:
     display: hide
     value: _none_
     option: [ _none_, ]
+  # relics and ornament will be injected in config updater
+  Relic:
+    display: hide
+    value: _none_
+    option: [ _none_, ]
+  Ornament:
+    display: hide
+    value: _none_
+    option: [ _none_, ]
   LevelTarget:
     # "max" for character level 80, cone level 80, skill level 6-10-10-10,
     # "699" for character level 80, cone level 80, skill level 6-9-9-9

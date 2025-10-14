@@ -31,3 +31,16 @@ class BaseType(GenerateKeyword, metaclass=Singleton):
                 continue
             out[internal] = text_to_variable(path)
         return out
+
+    @cached_property
+    def dict_internal_to_type(self):
+        return {
+            'Physical': 'Physical',
+            'Fire': 'Fire',
+            'Ice': 'Ice',
+            'Lightning': 'Lightning',
+            'Wind': 'Wind',
+            'Quantum': 'Quantum',
+            'Imaginary': 'Imaginary',
+            'Thunder': 'Lightning',
+        }

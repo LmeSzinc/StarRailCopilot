@@ -6,6 +6,8 @@ from tasks.base.page import page_planner, page_menu
 from tasks.base.ui import UI
 from tasks.planner.assets import assets_planner_selectpath as assets_path, assets_planner_selecttype as assets_type
 from tasks.planner.assets.assets_planner_enter import *
+from tasks.planner.assets.assets_planner_select import *
+from tasks.character.keywords import combat_type, character_path
 
 
 class SwitchPath(Switch):
@@ -107,14 +109,14 @@ class PlannerUI(UI):
     def planner_character_path(self):
         switch = SwitchPath('CharacterPath', is_selector=True)
         switch.add_state(assets_path.All_CHECK, check_button=assets_path.All_CHECK)
-        switch.add_state(assets_path.Destruction_CHECK, check_button=assets_path.Destruction_CHECK)
-        switch.add_state(assets_path.The_Hunt_CHECK, check_button=assets_path.The_Hunt_CHECK)
-        switch.add_state(assets_path.Erudition_CHECK, check_button=assets_path.Erudition_CHECK)
-        switch.add_state(assets_path.Harmony_CHECK, check_button=assets_path.Harmony_CHECK)
-        switch.add_state(assets_path.Nihility_CHECK, check_button=assets_path.Nihility_CHECK)
-        switch.add_state(assets_path.Preservation_CHECK, check_button=assets_path.Preservation_CHECK)
-        switch.add_state(assets_path.Abundance_CHECK, check_button=assets_path.Abundance_CHECK)
-        switch.add_state(assets_path.Remembrance_CHECK, check_button=assets_path.Remembrance_CHECK)
+        switch.add_state(character_path.Destruction, check_button=assets_path.Destruction_CHECK)
+        switch.add_state(character_path.The_Hunt, check_button=assets_path.The_Hunt_CHECK)
+        switch.add_state(character_path.Erudition, check_button=assets_path.Erudition_CHECK)
+        switch.add_state(character_path.Harmony, check_button=assets_path.Harmony_CHECK)
+        switch.add_state(character_path.Nihility, check_button=assets_path.Nihility_CHECK)
+        switch.add_state(character_path.Preservation, check_button=assets_path.Preservation_CHECK)
+        switch.add_state(character_path.Abundance, check_button=assets_path.Abundance_CHECK)
+        switch.add_state(character_path.Remembrance, check_button=assets_path.Remembrance_CHECK)
         return switch
 
     @cached_property
@@ -122,18 +124,52 @@ class PlannerUI(UI):
         switch = SwitchType('CharacterType', is_selector=True)
         switch.add_state(assets_type.All_CHECK,
                          check_button=assets_type.All_CHECK, click_button=assets_type.All_CLICK)
-        switch.add_state(assets_type.Physical_CHECK,
+        switch.add_state(combat_type.Physical,
                          check_button=assets_type.Physical_CHECK, click_button=assets_type.Physical_CLICK)
-        switch.add_state(assets_type.Fire_CHECK,
+        switch.add_state(combat_type.Fire,
                          check_button=assets_type.Fire_CHECK, click_button=assets_type.Fire_CLICK)
-        switch.add_state(assets_type.Ice_CHECK,
+        switch.add_state(combat_type.Ice,
                          check_button=assets_type.Ice_CHECK, click_button=assets_type.Ice_CLICK)
-        switch.add_state(assets_type.Lightning_CHECK,
+        switch.add_state(combat_type.Lightning,
                          check_button=assets_type.Lightning_CHECK, click_button=assets_type.Lightning_CLICK)
-        switch.add_state(assets_type.Wind_CHECK,
+        switch.add_state(combat_type.Wind,
                          check_button=assets_type.Wind_CHECK, click_button=assets_type.Wind_CLICK)
-        switch.add_state(assets_type.Quantum_CHECK,
+        switch.add_state(combat_type.Quantum,
                          check_button=assets_type.Quantum_CHECK, click_button=assets_type.Quantum_CLICK)
-        switch.add_state(assets_type.Imaginary_CHECK,
+        switch.add_state(combat_type.Imaginary,
                          check_button=assets_type.Imaginary_CHECK, click_button=assets_type.Imaginary_CLICK)
         return switch
+
+    def is_in_planner_select(self, interval=0):
+        if interval and not self.interval_is_reached(assets_path.All_CHECK, interval=interval):
+            return False
+
+        appear = False
+        if assets_path.All_CHECK.match_template_luma(self.device.image):
+            appear = True
+        if not appear:
+            if assets_path.All_CLICK.match_template_luma(self.device.image):
+                appear = True
+
+        if appear and interval:
+            self.interval_reset(assets_path.All_CHECK, interval=interval)
+
+        return appear
+
+    def planner_character_enter(self):
+        """
+        Page:
+            in: page_planner, MATERIAL_CALCULATION_CHECK, CHARACTER_MATERIAL_CHECK
+            out: is_in_planner_select
+        """
+        logger.info('Planner character enter')
+        for _ in self.loop():
+            if self.is_in_planner_select():
+                break
+            # enter might take long
+            if self.match_template_luma(SELECT_ENTER, interval=5):
+                self.device.click(SELECT_ENTER)
+                continue
+            if self.match_template_luma(CHARACTER_SWITCH, interval=5):
+                self.device.click(CHARACTER_SWITCH)
+                continue

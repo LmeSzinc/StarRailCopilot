@@ -23,6 +23,16 @@ All_CHECK = ButtonWrapper(
         button=(42, 116, 70, 144),
     ),
 )
+All_CLICK = ButtonWrapper(
+    name='All_CLICK',
+    share=Button(
+        file='./assets/share/planner/selectpath/All_CLICK.png',
+        area=(40, 115, 72, 147),
+        search=(20, 95, 92, 167),
+        color=(139, 139, 139),
+        button=(40, 115, 72, 147),
+    ),
+)
 Destruction_CHECK = ButtonWrapper(
     name='Destruction_CHECK',
     share=Button(

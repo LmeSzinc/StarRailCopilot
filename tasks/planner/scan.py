@@ -3,7 +3,6 @@ import re
 import cv2
 from pponnxcr.predict_system import BoxedResult
 
-from module.base.decorator import cached_property
 from module.base.utils import area_center, area_in_area, random_rectangle_vector_opted
 from module.exception import GamePageUnknownError
 from module.logger import logger
@@ -14,6 +13,7 @@ from tasks.daily.synthesize import SynthesizeUI
 from tasks.planner.assets.assets_planner_result import *
 from tasks.planner.keywords import ITEM_CLASSES
 from tasks.planner.keywords.classes import ItemCurrency
+from tasks.planner.lang import PlannerLang
 from tasks.planner.model import PlannerMixin, PlannerResultRow
 
 CALCULATE_TITLE.load_search(RESULT_CHECK.search)
@@ -97,7 +97,7 @@ class OcrPlannerResult(OcrWhiteLetterOnComplexBackground, OcrItemName):
         return image
 
 
-class PlannerScan(SynthesizeUI, PlannerMixin):
+class PlannerScan(SynthesizeUI, PlannerMixin, PlannerLang):
     def is_in_planner_result(self):
         if self.appear(RESULT_CHECK):
             return True
@@ -108,18 +108,6 @@ class PlannerScan(SynthesizeUI, PlannerMixin):
         if self.appear(DETAIL_TITLE):
             return True
         return False
-
-    @cached_property
-    def planner_lang(self) -> str:
-        if self.config.Emulator_PackageName in ['CN-Official', 'CN-Bilibili']:
-            lang = 'cn'
-        else:
-            lang = self.config.LANG
-        if lang == 'auto':
-            logger.error('Language was not set before planner scan, assume it is "cn"')
-            lang = 'cn'
-        logger.attr('PlannerLang', lang)
-        return lang
 
     def parse_planner_result_page(self) -> list[PlannerResultRow]:
         """

@@ -61,8 +61,8 @@ class PlannerUI(UI):
             self.ui_goto(page_menu)
 
         for _ in self.loop():
-            if self.match_template_color(MATERIAL_CALCULATION_CHECK, threshold=20):
-                logger.info('At MATERIAL_CALCULATION_CHECK')
+            if self.is_in_planner_material():
+                logger.info('is_in_planner_material')
                 break
 
             # switch to nav MATERIAL_CALCULATION_CHECK
@@ -140,6 +140,11 @@ class PlannerUI(UI):
                          check_button=assets_type.Imaginary_CHECK, click_button=assets_type.Imaginary_CLICK)
         return switch
 
+    def is_in_planner_material(self, interval=0):
+        if self.match_template_color(MATERIAL_CALCULATION_CHECK, threshold=20, interval=interval):
+            return True
+        return False
+
     def is_in_planner_select(self, interval=0):
         if interval and not self.interval_is_reached(assets_path.All_CHECK, interval=interval):
             return False
@@ -172,4 +177,45 @@ class PlannerUI(UI):
                 continue
             if self.match_template_luma(CHARACTER_SWITCH, interval=5):
                 self.device.click(CHARACTER_SWITCH)
+                continue
+
+    def planner_insight_character(self):
+        """
+        Swipe up to insight character
+        """
+        logger.info('Planner insight character')
+        for _ in self.loop():
+            if self.appear(SELECT_ENTER):
+                logger.info(f'Insight character at {SELECT_ENTER}')
+                break
+            if self.appear(CHARACTER_SWITCH):
+                logger.info(f'Insight character at {CHARACTER_SWITCH}')
+                break
+
+            if self.handle_planner_aside_close():
+                continue
+            if self.is_in_planner_material(interval=3):
+                self.device.swipe_vector((0, 200), box=SELECT_LIST_SWIPE_AREA, name='INSIGHT_CHARACTER_SWIPE')
+                continue
+
+    def planner_insight_cone(self):
+        """
+        Swipe up to insight cone
+        """
+        logger.info('Planner insight cone')
+        for _ in self.loop():
+            if self.appear(SELECT_ENTER):
+                logger.info(f'Insight character at {SELECT_ENTER}')
+                break
+            if self.appear(CONE_NOT_SELECTED):
+                logger.info(f'Insight character at {CONE_NOT_SELECTED}')
+                break
+            if self.appear(CONE_SELECTED):
+                logger.info(f'Insight character at {CONE_SELECTED}')
+                break
+
+            if self.handle_planner_aside_close():
+                continue
+            if self.is_in_planner_material(interval=3):
+                self.device.swipe_vector((0, -200), box=SELECT_LIST_SWIPE_AREA, name='INSIGHT_CHARACTER_SWIPE')
                 continue

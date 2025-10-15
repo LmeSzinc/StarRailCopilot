@@ -83,3 +83,13 @@ SELECT_ENTER = ButtonWrapper(
         button=(711, 253, 753, 294),
     ),
 )
+SELECT_LIST_SWIPE_AREA = ButtonWrapper(
+    name='SELECT_LIST_SWIPE_AREA',
+    share=Button(
+        file='./assets/share/planner/select/SELECT_LIST_SWIPE_AREA.png',
+        area=(367, 174, 450, 599),
+        search=(347, 154, 470, 619),
+        color=(154, 155, 167),
+        button=(367, 174, 450, 599),
+    ),
+)

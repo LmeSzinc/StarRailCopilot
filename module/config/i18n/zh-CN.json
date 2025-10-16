@@ -828,6 +828,10 @@
       "name": "启用养成规划",
       "help": ""
     },
+    "LastScan": {
+      "name": "上次扫描时间",
+      "help": ""
+    },
     "Character": {
       "name": "养成角色",
       "help": "",

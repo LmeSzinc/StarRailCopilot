@@ -828,6 +828,10 @@
       "name": "PlannerTarget.Enable.name",
       "help": "PlannerTarget.Enable.help"
     },
+    "LastScan": {
+      "name": "PlannerTarget.LastScan.name",
+      "help": "PlannerTarget.LastScan.help"
+    },
     "Character": {
       "name": "PlannerTarget.Character.name",
       "help": "PlannerTarget.Character.help",

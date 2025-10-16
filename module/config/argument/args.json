@@ -604,6 +604,12 @@
         "value": false,
         "display": "hide"
       },
+      "LastScan": {
+        "type": "datetime",
+        "value": "2020-01-01 00:00:00+00:00",
+        "validate": "datetime",
+        "display": "hide"
+      },
       "Character": {
         "type": "select",
         "value": "_none_",

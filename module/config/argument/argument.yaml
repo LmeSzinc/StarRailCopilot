@@ -160,6 +160,9 @@ PlannerTarget:
   Enable:
     display: hide
     value: false
+  LastScan:
+    display: hide
+    value: 2020-01-01T00:00:00+00:00
   # Character and cones will be injected in config updater
   # Default to "_none_" for empty
   Character:

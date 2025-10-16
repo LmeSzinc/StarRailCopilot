@@ -188,22 +188,3 @@ SELECT_LIST_SWIPE_AREA = ButtonWrapper(
         button=(367, 174, 450, 599),
     ),
 )
-TRACE_ENTER = ButtonWrapper(
-    name='TRACE_ENTER',
-    share=[
-        Button(
-            file='./assets/share/planner/select/TRACE_ENTER.png',
-            area=(1071, 330, 1163, 344),
-            search=(1012, 175, 1224, 363),
-            color=(179, 179, 179),
-            button=(1071, 330, 1163, 344),
-        ),
-        Button(
-            file='./assets/share/planner/select/TRACE_ENTER.2.png',
-            area=(1092, 328, 1163, 346),
-            search=(1012, 175, 1224, 363),
-            color=(188, 188, 188),
-            button=(1092, 328, 1163, 346),
-        ),
-    ],
-)

@@ -208,7 +208,7 @@ class PlannerSelect(PlannerUI, PlannerLang):
         """
         appear = self.match_template_luma(level_button)
         if not appear:
-            logger.warning(f'Cannot find {level_button}')
+            logger.warning(f'Cannot find level_button {level_button}')
             return False
         # handle CONE_LEVEL
         if level_button != CHARACTER_LEVEL:
@@ -220,14 +220,14 @@ class PlannerSelect(PlannerUI, PlannerLang):
             button.load_offset(level_button)
 
         # check start
-        ocr = Digit(ClickButton(LEVEL_VALUE_START.button), name=LEVEL_VALUE_START.name)
+        ocr = Digit(ClickButton(LEVEL_VALUE_START.button), name=f'{level_button}_START')
         start = ocr.ocr_single_line(self.device.image)
         if start > 0 and level < start:
             logger.info(f'Fixup level to level start: {start}')
             level = start
 
         # set target
-        ocr = Digit(ClickButton(LEVEL_VALUE_TARGET.button), name=LEVEL_VALUE_TARGET.name)
+        ocr = Digit(ClickButton(LEVEL_VALUE_TARGET.button), name=f'{level_button}_TARGET')
         self.ui_ensure_index(
             level, letter=ocr, prev_button=LEVEL_MINUS, next_button=LEVEL_PLUS, skip_first_screenshot=True)
         return True

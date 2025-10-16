@@ -7,9 +7,10 @@ from tasks.planner.assets.assets_planner_result import RESULT_CHECK, START_CALCU
 from tasks.planner.assets.assets_planner_select import CHARACTER_LEVEL, CONE_LEVEL
 from tasks.planner.character import PlannerSelect
 from tasks.planner.scan import PlannerScan
+from tasks.planner.trace import PlannerTrace
 
 
-class PlannerTarget(PlannerSelect, PlannerScan):
+class PlannerTarget(PlannerSelect, PlannerTrace, PlannerScan):
     def planner_start_calculate(self):
         """
         Pages:
@@ -63,6 +64,11 @@ class PlannerTarget(PlannerSelect, PlannerScan):
             self.select_planner_character(target=character)
             self.planner_insight_character()
             self.character_set_level(level=self.config.PlannerTarget_CharacterLevel, level_button=CHARACTER_LEVEL)
+            # set trace
+            logger.hr('Select planner trace', level=2)
+            self.planner_trace_enter()
+            self.planner_trace_set()
+            self.planner_trace_confirm()
             if cone:
                 logger.hr('Select planner cone', level=2)
                 self.planner_insight_cone()
@@ -83,6 +89,8 @@ class PlannerTarget(PlannerSelect, PlannerScan):
 
         # calculate
         self.planner_start_calculate()
+        # scan result, no add
+        self.config.override(PlannerScan_ResultAdd=False)
         self.parse_planner_result()
         return True
 

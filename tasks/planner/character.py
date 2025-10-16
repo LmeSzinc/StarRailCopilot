@@ -6,7 +6,7 @@ from module.base.button import ClickButton
 from module.base.utils import random_rectangle_vector_opted
 from module.exception import ScriptError
 from module.logger import logger
-from module.ocr.ocr import Ocr, OcrResultButton
+from module.ocr.ocr import Ocr, OcrResultButton, Digit
 from tasks.character.keywords import CharacterList
 from tasks.cone.keywords import Cone
 from tasks.planner.assets import assets_planner_selectpath as assets_path
@@ -140,6 +140,41 @@ class PlannerSelect(PlannerUI, PlannerLang):
                 self.device.click(result)
                 self.interval_reset(assets_path.All_CHECK)
                 continue
+
+    def character_set_level(self, level, level_button):
+        """
+        Returns:
+            bool: If success
+
+        Pages:
+            in: CHARACTER_LEVEL
+
+        Examples:
+            self.planner_insight_character()
+            self.character_set_level(80, level_button=CHARACTER_LEVEL)
+            self.planner_insight_cone()
+            self.character_set_level(80, level_button=CONE_LEVEL)
+        """
+        appear = self.match_template_luma(level_button)
+        if not appear:
+            logger.warning(f'Cannot find {level_button}')
+            return False
+        # move other buttons accordingly
+        for button in [LEVEL_MINUS, LEVEL_PLUS, LEVEL_VALUE_START, LEVEL_VALUE_TARGET]:
+            button.load_offset(level_button)
+
+        # check start
+        ocr = Digit(LEVEL_VALUE_START)
+        start = ocr.ocr_single_line(self.device.image)
+        if start > 0 and level < start:
+            logger.info(f'Fixup level to level start: {start}')
+            level = start
+
+        # set target
+        ocr = Digit(LEVEL_VALUE_TARGET)
+        self.ui_ensure_index(
+            level, letter=ocr, prev_button=LEVEL_MINUS, next_button=LEVEL_PLUS, skip_first_screenshot=True)
+        return True
 
 
 if __name__ == '__main__':

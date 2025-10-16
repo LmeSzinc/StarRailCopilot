@@ -25,13 +25,22 @@ CHARACTER_AREA_EN = ButtonWrapper(
 )
 CHARACTER_LEVEL = ButtonWrapper(
     name='CHARACTER_LEVEL',
-    share=Button(
-        file='./assets/share/planner/select/CHARACTER_LEVEL.png',
-        area=(425, 263, 477, 283),
-        search=(366, 175, 536, 301),
-        color=(172, 172, 172),
-        button=(425, 263, 477, 283),
-    ),
+    share=[
+        Button(
+            file='./assets/share/planner/select/CHARACTER_LEVEL.png',
+            area=(425, 263, 477, 283),
+            search=(366, 175, 536, 301),
+            color=(172, 172, 172),
+            button=(425, 263, 477, 283),
+        ),
+        Button(
+            file='./assets/share/planner/select/CHARACTER_LEVEL.2.png',
+            area=(425, 263, 477, 283),
+            search=(366, 175, 536, 301),
+            color=(163, 163, 163),
+            button=(425, 263, 477, 283),
+        ),
+    ],
 )
 CHARACTER_SWITCH = ButtonWrapper(
     name='CHARACTER_SWITCH',
@@ -71,6 +80,56 @@ CONE_SWITCH = ButtonWrapper(
         search=(927, 442, 1225, 600),
         color=(97, 98, 113),
         button=(972, 452, 1027, 467),
+    ),
+)
+LEVEL_MINUS = ButtonWrapper(
+    name='LEVEL_MINUS',
+    share=Button(
+        file='./assets/share/planner/select/LEVEL_MINUS.png',
+        area=(577, 265, 607, 285),
+        search=(557, 245, 627, 305),
+        color=(232, 232, 232),
+        button=(577, 265, 607, 285),
+    ),
+)
+LEVEL_OP_SEARCH = ButtonWrapper(
+    name='LEVEL_OP_SEARCH',
+    share=Button(
+        file='./assets/share/planner/select/LEVEL_OP_SEARCH.png',
+        area=(536, 251, 1224, 301),
+        search=(516, 231, 1244, 321),
+        color=(234, 229, 223),
+        button=(536, 251, 1224, 301),
+    ),
+)
+LEVEL_PLUS = ButtonWrapper(
+    name='LEVEL_PLUS',
+    share=Button(
+        file='./assets/share/planner/select/LEVEL_PLUS.png',
+        area=(1090, 265, 1120, 285),
+        search=(1070, 245, 1140, 305),
+        color=(220, 220, 220),
+        button=(1090, 265, 1120, 285),
+    ),
+)
+LEVEL_VALUE_START = ButtonWrapper(
+    name='LEVEL_VALUE_START',
+    share=Button(
+        file='./assets/share/planner/select/LEVEL_VALUE_START.png',
+        area=(626, 262, 680, 290),
+        search=(606, 242, 700, 310),
+        color=(232, 232, 232),
+        button=(626, 262, 680, 290),
+    ),
+)
+LEVEL_VALUE_TARGET = ButtonWrapper(
+    name='LEVEL_VALUE_TARGET',
+    share=Button(
+        file='./assets/share/planner/select/LEVEL_VALUE_TARGET.png',
+        area=(1021, 261, 1075, 289),
+        search=(1001, 241, 1095, 309),
+        color=(220, 220, 220),
+        button=(1021, 261, 1075, 289),
     ),
 )
 SELECT_ENTER = ButtonWrapper(

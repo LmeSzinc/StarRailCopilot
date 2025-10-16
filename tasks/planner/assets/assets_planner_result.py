@@ -30,6 +30,13 @@ DETAIL_TITLE = ButtonWrapper(
             color=(117, 119, 147),
             button=(263, 460, 345, 480),
         ),
+        Button(
+            file='./assets/share/planner/result/DETAIL_TITLE.3.png',
+            area=(263, 487, 332, 505),
+            search=(243, 467, 352, 525),
+            color=(135, 136, 162),
+            button=(263, 487, 332, 505),
+        ),
     ],
 )
 MATERIAL_TITLE = ButtonWrapper(
@@ -54,13 +61,22 @@ OCR_RESULT = ButtonWrapper(
 )
 RESULT_CHECK = ButtonWrapper(
     name='RESULT_CHECK',
-    share=Button(
-        file='./assets/share/planner/result/RESULT_CHECK.png',
-        area=(263, 128, 324, 148),
-        search=(255, 103, 355, 593),
-        color=(132, 119, 92),
-        button=(263, 128, 324, 148),
-    ),
+    share=[
+        Button(
+            file='./assets/share/planner/result/RESULT_CHECK.png',
+            area=(263, 128, 324, 148),
+            search=(219, 104, 354, 592),
+            color=(132, 119, 92),
+            button=(263, 128, 324, 148),
+        ),
+        Button(
+            file='./assets/share/planner/result/RESULT_CHECK.2.png',
+            area=(241, 128, 319, 145),
+            search=(219, 104, 354, 592),
+            color=(111, 103, 100),
+            button=(241, 128, 319, 145),
+        ),
+    ],
 )
 RESULT_DRAG = ButtonWrapper(
     name='RESULT_DRAG',

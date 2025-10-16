@@ -130,8 +130,8 @@ class PlannerSelect(PlannerUI, PlannerLang):
 
         # select
         for _ in self.loop():
-            if self.match_template_color(CHARACTER_SELECTED):
-                logger.info(f'Character selected ({CHARACTER_SELECTED})')
+            if self.match_template_color(CHARACTER_LEVEL):
+                logger.info(f'Character selected ({CHARACTER_LEVEL})')
                 return True
             if self.match_template_color(CHARACTER_SWITCH):
                 logger.info(f'Character selected ({CHARACTER_SWITCH})')

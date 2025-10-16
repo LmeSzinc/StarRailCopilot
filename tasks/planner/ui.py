@@ -205,13 +205,13 @@ class PlannerUI(UI):
         logger.info('Planner insight cone')
         for _ in self.loop():
             if self.appear(SELECT_ENTER):
-                logger.info(f'Insight character at {SELECT_ENTER}')
+                logger.info(f'Insight cone at {SELECT_ENTER}')
                 break
-            if self.appear(CONE_NOT_SELECTED):
-                logger.info(f'Insight character at {CONE_NOT_SELECTED}')
+            if self.appear(CONE_EMPTY):
+                logger.info(f'Insight cone at {CONE_EMPTY}')
                 break
-            if self.appear(CONE_SELECTED):
-                logger.info(f'Insight character at {CONE_SELECTED}')
+            if self.appear(CONE_LEVEL):
+                logger.info(f'Insight cone at {CONE_LEVEL}')
                 break
 
             if self.handle_planner_aside_close():

@@ -23,14 +23,14 @@ CHARACTER_AREA_EN = ButtonWrapper(
         button=(113, 120, 719, 692),
     ),
 )
-CHARACTER_SELECTED = ButtonWrapper(
-    name='CHARACTER_SELECTED',
+CHARACTER_LEVEL = ButtonWrapper(
+    name='CHARACTER_LEVEL',
     share=Button(
-        file='./assets/share/planner/select/CHARACTER_SELECTED.png',
-        area=(1071, 330, 1163, 344),
-        search=(1012, 175, 1224, 363),
-        color=(179, 179, 179),
-        button=(1071, 330, 1163, 344),
+        file='./assets/share/planner/select/CHARACTER_LEVEL.png',
+        area=(425, 263, 477, 283),
+        search=(366, 175, 536, 301),
+        color=(172, 172, 172),
+        button=(425, 263, 477, 283),
     ),
 )
 CHARACTER_SWITCH = ButtonWrapper(
@@ -43,20 +43,20 @@ CHARACTER_SWITCH = ButtonWrapper(
         button=(1066, 207, 1120, 220),
     ),
 )
-CONE_NOT_SELECTED = ButtonWrapper(
-    name='CONE_NOT_SELECTED',
+CONE_EMPTY = ButtonWrapper(
+    name='CONE_EMPTY',
     share=Button(
-        file='./assets/share/planner/select/CONE_NOT_SELECTED.png',
+        file='./assets/share/planner/select/CONE_EMPTY.png',
         area=(431, 540, 491, 556),
         search=(364, 507, 631, 600),
         color=(120, 121, 142),
         button=(431, 540, 491, 556),
     ),
 )
-CONE_SELECTED = ButtonWrapper(
-    name='CONE_SELECTED',
+CONE_LEVEL = ButtonWrapper(
+    name='CONE_LEVEL',
     share=Button(
-        file='./assets/share/planner/select/CONE_SELECTED.png',
+        file='./assets/share/planner/select/CONE_LEVEL.png',
         area=(426, 512, 475, 528),
         search=(366, 442, 538, 602),
         color=(158, 158, 158),
@@ -91,5 +91,15 @@ SELECT_LIST_SWIPE_AREA = ButtonWrapper(
         search=(347, 154, 470, 619),
         color=(154, 155, 167),
         button=(367, 174, 450, 599),
+    ),
+)
+TRACE_ENTER = ButtonWrapper(
+    name='TRACE_ENTER',
+    share=Button(
+        file='./assets/share/planner/select/TRACE_ENTER.png',
+        area=(1071, 330, 1163, 344),
+        search=(1012, 175, 1224, 363),
+        color=(179, 179, 179),
+        button=(1071, 330, 1163, 344),
     ),
 )

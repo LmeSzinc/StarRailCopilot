@@ -44,23 +44,41 @@ CHARACTER_LEVEL = ButtonWrapper(
 )
 CHARACTER_SWITCH = ButtonWrapper(
     name='CHARACTER_SWITCH',
-    share=Button(
-        file='./assets/share/planner/select/CHARACTER_SWITCH.png',
-        area=(1066, 207, 1120, 220),
-        search=(1019, 173, 1239, 250),
-        color=(108, 110, 124),
-        button=(1066, 207, 1120, 220),
-    ),
+    share=[
+        Button(
+            file='./assets/share/planner/select/CHARACTER_SWITCH.png',
+            area=(1066, 207, 1120, 220),
+            search=(1019, 173, 1239, 250),
+            color=(108, 110, 124),
+            button=(1066, 207, 1120, 220),
+        ),
+        Button(
+            file='./assets/share/planner/select/CHARACTER_SWITCH.2.png',
+            area=(1117, 205, 1189, 223),
+            search=(1019, 173, 1239, 250),
+            color=(86, 88, 104),
+            button=(1117, 205, 1189, 223),
+        ),
+    ],
 )
 CONE_EMPTY = ButtonWrapper(
     name='CONE_EMPTY',
-    share=Button(
-        file='./assets/share/planner/select/CONE_EMPTY.png',
-        area=(431, 540, 491, 556),
-        search=(364, 507, 631, 600),
-        color=(120, 121, 142),
-        button=(431, 540, 491, 556),
-    ),
+    share=[
+        Button(
+            file='./assets/share/planner/select/CONE_EMPTY.png',
+            area=(431, 540, 491, 556),
+            search=(364, 507, 631, 600),
+            color=(120, 121, 142),
+            button=(431, 540, 491, 556),
+        ),
+        Button(
+            file='./assets/share/planner/select/CONE_EMPTY.2.png',
+            area=(432, 538, 516, 558),
+            search=(364, 507, 631, 600),
+            color=(124, 126, 146),
+            button=(432, 538, 516, 558),
+        ),
+    ],
 )
 CONE_LEVEL = ButtonWrapper(
     name='CONE_LEVEL',
@@ -83,13 +101,22 @@ CONE_LEVEL = ButtonWrapper(
 )
 CONE_SWITCH = ButtonWrapper(
     name='CONE_SWITCH',
-    share=Button(
-        file='./assets/share/planner/select/CONE_SWITCH.png',
-        area=(972, 452, 1027, 467),
-        search=(927, 442, 1225, 600),
-        color=(97, 98, 113),
-        button=(972, 452, 1027, 467),
-    ),
+    share=[
+        Button(
+            file='./assets/share/planner/select/CONE_SWITCH.png',
+            area=(972, 452, 1027, 467),
+            search=(927, 442, 1225, 600),
+            color=(97, 98, 113),
+            button=(972, 452, 1027, 467),
+        ),
+        Button(
+            file='./assets/share/planner/select/CONE_SWITCH.2.png',
+            area=(1032, 451, 1104, 467),
+            search=(927, 442, 1225, 600),
+            color=(94, 96, 111),
+            button=(1032, 451, 1104, 467),
+        ),
+    ],
 )
 LEVEL_MINUS = ButtonWrapper(
     name='LEVEL_MINUS',
@@ -163,11 +190,20 @@ SELECT_LIST_SWIPE_AREA = ButtonWrapper(
 )
 TRACE_ENTER = ButtonWrapper(
     name='TRACE_ENTER',
-    share=Button(
-        file='./assets/share/planner/select/TRACE_ENTER.png',
-        area=(1071, 330, 1163, 344),
-        search=(1012, 175, 1224, 363),
-        color=(179, 179, 179),
-        button=(1071, 330, 1163, 344),
-    ),
+    share=[
+        Button(
+            file='./assets/share/planner/select/TRACE_ENTER.png',
+            area=(1071, 330, 1163, 344),
+            search=(1012, 175, 1224, 363),
+            color=(179, 179, 179),
+            button=(1071, 330, 1163, 344),
+        ),
+        Button(
+            file='./assets/share/planner/select/TRACE_ENTER.2.png',
+            area=(1092, 328, 1163, 346),
+            search=(1012, 175, 1224, 363),
+            color=(188, 188, 188),
+            button=(1092, 328, 1163, 346),
+        ),
+    ],
 )

@@ -15,63 +15,117 @@ ASIDE_CLOSE = ButtonWrapper(
 )
 CHARACTER_MATERIAL_CHECK = ButtonWrapper(
     name='CHARACTER_MATERIAL_CHECK',
-    share=Button(
-        file='./assets/share/planner/enter/CHARACTER_MATERIAL_CHECK.png',
-        area=(309, 119, 386, 132),
-        search=(289, 99, 406, 152),
-        color=(148, 148, 148),
-        button=(309, 119, 386, 132),
-    ),
+    share=[
+        Button(
+            file='./assets/share/planner/enter/CHARACTER_MATERIAL_CHECK.png',
+            area=(309, 119, 386, 132),
+            search=(289, 99, 406, 152),
+            color=(148, 148, 148),
+            button=(309, 119, 386, 132),
+        ),
+        Button(
+            file='./assets/share/planner/enter/CHARACTER_MATERIAL_CHECK.2.png',
+            area=(305, 115, 341, 136),
+            search=(285, 95, 361, 156),
+            color=(161, 161, 161),
+            button=(305, 115, 341, 136),
+        ),
+    ],
 )
 CHARACTER_MATERIAL_CLICK = ButtonWrapper(
     name='CHARACTER_MATERIAL_CLICK',
-    share=Button(
-        file='./assets/share/planner/enter/CHARACTER_MATERIAL_CLICK.png',
-        area=(309, 119, 386, 132),
-        search=(289, 99, 406, 152),
-        color=(94, 98, 118),
-        button=(309, 119, 386, 132),
-    ),
+    share=[
+        Button(
+            file='./assets/share/planner/enter/CHARACTER_MATERIAL_CLICK.png',
+            area=(309, 119, 386, 132),
+            search=(289, 99, 406, 152),
+            color=(94, 98, 118),
+            button=(309, 119, 386, 132),
+        ),
+        Button(
+            file='./assets/share/planner/enter/CHARACTER_MATERIAL_CLICK.2.png',
+            area=(304, 116, 342, 136),
+            search=(284, 96, 362, 156),
+            color=(82, 86, 109),
+            button=(304, 116, 342, 136),
+        ),
+    ],
 )
 CONE_MATERIAL_CHECK = ButtonWrapper(
     name='CONE_MATERIAL_CHECK',
-    share=Button(
-        file='./assets/share/planner/enter/CONE_MATERIAL_CHECK.png',
-        area=(701, 119, 779, 131),
-        search=(681, 99, 799, 151),
-        color=(152, 152, 152),
-        button=(701, 119, 779, 131),
-    ),
+    share=[
+        Button(
+            file='./assets/share/planner/enter/CONE_MATERIAL_CHECK.png',
+            area=(701, 119, 779, 131),
+            search=(681, 99, 799, 151),
+            color=(152, 152, 152),
+            button=(701, 119, 779, 131),
+        ),
+        Button(
+            file='./assets/share/planner/enter/CONE_MATERIAL_CHECK.2.png',
+            area=(552, 116, 589, 136),
+            search=(532, 96, 609, 156),
+            color=(161, 161, 161),
+            button=(552, 116, 589, 136),
+        ),
+    ],
 )
 CONE_MATERIAL_CLICK = ButtonWrapper(
     name='CONE_MATERIAL_CLICK',
-    share=Button(
-        file='./assets/share/planner/enter/CONE_MATERIAL_CLICK.png',
-        area=(701, 119, 779, 131),
-        search=(681, 99, 799, 151),
-        color=(83, 85, 99),
-        button=(701, 119, 779, 131),
-    ),
+    share=[
+        Button(
+            file='./assets/share/planner/enter/CONE_MATERIAL_CLICK.png',
+            area=(701, 119, 779, 131),
+            search=(681, 99, 799, 151),
+            color=(83, 85, 99),
+            button=(701, 119, 779, 131),
+        ),
+        Button(
+            file='./assets/share/planner/enter/CONE_MATERIAL_CLICK.2.png',
+            area=(552, 116, 589, 136),
+            search=(532, 96, 609, 156),
+            color=(80, 81, 98),
+            button=(552, 116, 589, 136),
+        ),
+    ],
 )
 MATERIAL_CALCULATION_CHECK = ButtonWrapper(
     name='MATERIAL_CALCULATION_CHECK',
-    share=Button(
-        file='./assets/share/planner/enter/MATERIAL_CALCULATION_CHECK.png',
-        area=(72, 253, 95, 287),
-        search=(52, 233, 115, 307),
-        color=(89, 82, 89),
-        button=(72, 253, 95, 287),
-    ),
+    share=[
+        Button(
+            file='./assets/share/planner/enter/MATERIAL_CALCULATION_CHECK.png',
+            area=(72, 253, 95, 287),
+            search=(52, 233, 115, 307),
+            color=(89, 82, 89),
+            button=(72, 253, 95, 287),
+        ),
+        Button(
+            file='./assets/share/planner/enter/MATERIAL_CALCULATION_CHECK.2.png',
+            area=(85, 260, 168, 280),
+            search=(65, 240, 188, 300),
+            color=(121, 110, 100),
+            button=(85, 260, 168, 280),
+        ),
+    ],
 )
 MATERIAL_CALCULATION_CLICK = ButtonWrapper(
     name='MATERIAL_CALCULATION_CLICK',
-    share=Button(
-        file='./assets/share/planner/enter/MATERIAL_CALCULATION_CLICK.png',
-        area=(67, 253, 90, 287),
-        search=(47, 233, 110, 307),
-        color=(81, 83, 112),
-        button=(67, 253, 90, 287),
-    ),
+    share=[
+        Button(
+            file='./assets/share/planner/enter/MATERIAL_CALCULATION_CLICK.png',
+            area=(67, 253, 90, 287),
+            search=(47, 233, 110, 307),
+            color=(81, 83, 112),
+            button=(67, 253, 90, 287),
+        ),
+        Button(
+            file='./assets/share/planner/enter/MATERIAL_CALCULATION_CLICK.2.png',
+            area=(83, 260, 163, 280),
+            search=(63, 240, 183, 300),
+            color=(77, 80, 107),
+            button=(83, 260, 163, 280),
+        ),
+    ],
 )
 MENU_GOTO_PLANNER = ButtonWrapper(
     name='MENU_GOTO_PLANNER',

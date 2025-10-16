@@ -13,12 +13,12 @@ ADVERTISE_Castorice = ButtonWrapper(
         button=(478, 615, 500, 637),
     ),
 )
-CLAIM_ARCHER = ButtonWrapper(
-    name='CLAIM_ARCHER',
+CLAIM_CHARACTER = ButtonWrapper(
+    name='CLAIM_CHARACTER',
     share=Button(
-        file='./assets/share/login/popup/CLAIM_ARCHER.png',
+        file='./assets/share/login/popup/CLAIM_CHARACTER.png',
         area=(946, 579, 966, 599),
-        search=(891, 574, 982, 606),
+        search=(891, 574, 982, 641),
         color=(107, 90, 56),
         button=(946, 579, 966, 599),
     ),

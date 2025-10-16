@@ -15,6 +15,7 @@ from tasks.combat.assets.assets_combat_prepare import COMBAT_PREPARE
 from tasks.daily.assets.assets_daily_trial import INFO_CLOSE, START_TRIAL
 from tasks.forgotten_hall.assets.assets_forgotten_hall_ui import EFFECT_NOTIFICATION
 from tasks.login.assets.assets_login import LOGIN_CONFIRM
+from tasks.login.assets.assets_login_popup import CLAIM_CHARACTER
 from tasks.map.assets.assets_map_control import RUN_BUTTON
 
 
@@ -400,6 +401,11 @@ class UI(MainPage):
             return True
         # Popup story that advice you watch it, but no, later
         if self.appear_then_click(POPUP_STORY_LATER, interval=5):
+            return True
+        # Get free character at login
+        if self.appear_then_click(CLAIM_CHARACTER, interval=2):
+            return True
+        if self.handle_get_character():
             return True
 
         return False

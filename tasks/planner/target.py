@@ -1,3 +1,6 @@
+from datetime import datetime
+
+from module.config.utils import get_server_last_update
 from module.exception import ScriptError
 from module.logger import logger
 from tasks.character.keywords import CharacterList
@@ -24,7 +27,7 @@ class PlannerTarget(PlannerSelect, PlannerTrace, PlannerScan):
                 self.device.click(START_CALCULATE)
                 continue
 
-    def planner_calculate(self):
+    def planner_calculate_run(self):
         """
         Returns:
             bool: If success
@@ -94,9 +97,24 @@ class PlannerTarget(PlannerSelect, PlannerTrace, PlannerScan):
         self.parse_planner_result()
         return True
 
+    def planner_calculate(self):
+        logger.attr('PlannerTarget_Enable', self.config.PlannerTarget_Enable)
+        if not self.config.PlannerTarget_Enable:
+            return False
+        # rescan once a day
+        update = get_server_last_update('04:00').astimezone()
+        last = self.config.PlannerTarget_LastScan
+        logger.info(f'Last planner scan {last}, server update {update}')
+        if last < update:
+            self.planner_calculate_run()
+            self.planner_exit()
+            self.config.PlannerTarget_LastScan = datetime.now().replace(microsecond=0).astimezone()
+        else:
+            logger.info('Already scan today, no need to rescan')
+
 
 if __name__ == '__main__':
-    self = PlannerTarget('oversea')
+    self = PlannerTarget('oversea', task='Dungeon')
     self.config.override(PlannerTarget_Character='Evernight')
     self.config.override(PlannerTarget_Cone='To_Evernight_Stars')
-    self.planner_calculate()
+    self.planner_calculate_run()

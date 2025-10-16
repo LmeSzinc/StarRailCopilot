@@ -1,7 +1,7 @@
 from module.base.decorator import cached_property
 from module.logger import logger
 from module.ui.switch import Switch
-from tasks.base.assets.assets_base_page import MENU_SCROLL
+from tasks.base.assets.assets_base_page import MENU_SCROLL, CLOSE
 from tasks.base.page import page_planner, page_menu
 from tasks.base.ui import UI
 from tasks.character.keywords import combat_type, character_path
@@ -107,6 +107,22 @@ class PlannerUI(UI):
                 if self.match_template_luma(button, interval=2):
                     self.device.click(button)
                     continue
+            if self.handle_planner_aside_close():
+                continue
+
+    def planner_exit(self):
+        """
+        Pages:
+            in: page_planner
+            out: page_menu
+        """
+        logger.info('Planner exit')
+        CLOSE.clear_offset()
+        for _ in self.loop():
+            if self.ui_page_appear(page_menu):
+                break
+            if self.handle_ui_close(page_planner):
+                continue
             if self.handle_planner_aside_close():
                 continue
 

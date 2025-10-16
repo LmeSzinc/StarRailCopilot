@@ -11,6 +11,7 @@ from tasks.dungeon.keywords import DungeonList, KEYWORDS_DUNGEON_LIST, KEYWORDS_
 from tasks.dungeon.stamina import DungeonStamina
 from tasks.freebies.code_used import CodeManager
 from tasks.item.synthesize import Synthesize
+from tasks.planner.target import PlannerTarget
 
 
 class Dungeon(Combat, DungeonStamina, DungeonEvent):
@@ -284,6 +285,11 @@ class Dungeon(Combat, DungeonStamina, DungeonEvent):
             self.config.stored.DailyQuest.write_quests(self.daily_quests)
 
     def run(self):
+        # rescan planner
+        if self.config.PlannerTarget_Enable:
+            main = PlannerTarget(config=self.config, device=self.device, task=self.config.task.command)
+            main.planner_calculate()
+
         self.sync_config_traiblaze_power('Ornament')
         self.config.update_battle_pass_quests()
         self.config.update_daily_quests()

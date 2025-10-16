@@ -4,11 +4,12 @@ from module.ui.switch import Switch
 from tasks.base.assets.assets_base_page import MENU_SCROLL
 from tasks.base.page import page_planner, page_menu
 from tasks.base.ui import UI
+from tasks.character.keywords import combat_type, character_path
 from tasks.planner.assets import assets_planner_selectpath as assets_path, assets_planner_selecttype as assets_type
 from tasks.planner.assets.assets_planner_enter import *
 from tasks.planner.assets.assets_planner_result import RECALCULATE
 from tasks.planner.assets.assets_planner_select import *
-from tasks.character.keywords import combat_type, character_path
+from tasks.planner.assets.assets_planner_tutorial import *
 
 
 class SwitchTarget(Switch):

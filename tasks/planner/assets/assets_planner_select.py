@@ -64,13 +64,22 @@ CONE_EMPTY = ButtonWrapper(
 )
 CONE_LEVEL = ButtonWrapper(
     name='CONE_LEVEL',
-    share=Button(
-        file='./assets/share/planner/select/CONE_LEVEL.png',
-        area=(426, 512, 475, 528),
-        search=(366, 442, 538, 602),
-        color=(158, 158, 158),
-        button=(426, 512, 475, 528),
-    ),
+    share=[
+        Button(
+            file='./assets/share/planner/select/CONE_LEVEL.png',
+            area=(425, 509, 477, 529),
+            search=(366, 442, 538, 602),
+            color=(172, 172, 172),
+            button=(425, 509, 477, 529),
+        ),
+        Button(
+            file='./assets/share/planner/select/CONE_LEVEL.2.png',
+            area=(425, 509, 477, 529),
+            search=(366, 442, 538, 602),
+            color=(163, 163, 163),
+            button=(425, 509, 477, 529),
+        ),
+    ],
 )
 CONE_SWITCH = ButtonWrapper(
     name='CONE_SWITCH',

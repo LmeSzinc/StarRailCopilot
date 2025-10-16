@@ -10,6 +10,8 @@ from module.ocr.ocr import Ocr, OcrResultButton, Digit
 from tasks.character.keywords import CharacterList
 from tasks.cone.keywords import Cone
 from tasks.planner.assets import assets_planner_selectpath as assets_path
+from tasks.planner.assets.assets_planner_enter import CONE_MATERIAL_CHECK
+from tasks.planner.assets.assets_planner_result import START_CALCULATE
 from tasks.planner.assets.assets_planner_select import *
 from tasks.planner.lang import PlannerLang
 from tasks.planner.ui import PlannerUI
@@ -101,11 +103,10 @@ class PlannerSelect(PlannerUI, PlannerLang):
     def select_planner_character(self, target: CharacterList):
         """
         Pages:
-            in: page_planner, MATERIAL_CALCULATION_CHECK, CHARACTER_MATERIAL_CHECK
+            in: is_in_planner_select
             out: page_planner, MATERIAL_CALCULATION_CHECK, CHARACTER_MATERIAL_CHECK, with character selected
         """
-        logger.hr('Find planner character', level=2)
-        self.planner_character_enter()
+        logger.hr('Select planner character')
         self.planner_character_path.set(target.character_path, main=self)
         self.planner_character_type.set(target.combat_type, main=self)
         area = self.ocr_planner_select_area().area
@@ -130,12 +131,59 @@ class PlannerSelect(PlannerUI, PlannerLang):
 
         # select
         for _ in self.loop():
-            if self.match_template_color(CHARACTER_LEVEL):
-                logger.info(f'Character selected ({CHARACTER_LEVEL})')
-                return True
-            if self.match_template_color(CHARACTER_SWITCH):
-                logger.info(f'Character selected ({CHARACTER_SWITCH})')
-                return True
+            if self.match_template_color(START_CALCULATE):
+                if self.match_template_color(CHARACTER_LEVEL):
+                    logger.info(f'Character selected ({CHARACTER_LEVEL})')
+                    return True
+                if self.match_template_color(CHARACTER_SWITCH):
+                    logger.info(f'Character selected ({CHARACTER_SWITCH})')
+                    return True
+            if self.is_in_planner_select(interval=5):
+                self.device.click(result)
+                self.interval_reset(assets_path.All_CHECK)
+                continue
+
+    def select_planner_cone(self, target: Cone):
+        """
+        Pages:
+            in: is_in_planner_select
+            out: page_planner, MATERIAL_CALCULATION_CHECK, CHARACTER_MATERIAL_CHECK, with cone selected
+        """
+        logger.hr('Select planner Cone')
+        self.planner_character_path.set(target.character_path, main=self)
+        area = self.ocr_planner_select_area().area
+
+        self.device.stuck_record_clear()
+        self.device.click_record_clear()
+        result = None
+        for _ in range(10):
+            r = self.get_planner_cone(target)
+            if r:
+                result = r
+                break
+            p1, p2 = random_rectangle_vector_opted(
+                (0, -300), box=area, random_range=(-20, -20, 20, 20))
+            self.device.drag(p1, p2, name=f'PLANNER_SELECT_DRAG')
+            self.device.screenshot()
+
+        if result is None:
+            logger.warning('Failed to select after 7 trail')
+            self.ui_ensure_planner()
+            return False
+
+        # select
+        for _ in self.loop():
+            if self.match_template_color(START_CALCULATE):
+                # Note that cone select endswith CONE_SWITCH
+                # because it needs scrolling to see CONE_LEVEL
+                if self.match_template_color(CONE_SWITCH):
+                    logger.info(f'Cone selected ({CONE_SWITCH})')
+                    return True
+                # calculate cone only
+                if self.planner_calculate_target.get(main=self) == CONE_MATERIAL_CHECK:
+                    if self.match_template_color(CHARACTER_SWITCH):
+                        logger.info(f'Cone selected ({CONE_MATERIAL_CHECK}, {CHARACTER_SWITCH})')
+                        return True
             if self.is_in_planner_select(interval=5):
                 self.device.click(result)
                 self.interval_reset(assets_path.All_CHECK)
@@ -143,6 +191,9 @@ class PlannerSelect(PlannerUI, PlannerLang):
 
     def character_set_level(self, level, level_button):
         """
+        Args:
+            level_button (ButtonWrapper)
+
         Returns:
             bool: If success
 
@@ -159,19 +210,24 @@ class PlannerSelect(PlannerUI, PlannerLang):
         if not appear:
             logger.warning(f'Cannot find {level_button}')
             return False
+        # handle CONE_LEVEL
+        if level_button != CHARACTER_LEVEL:
+            y = level_button.area[1] - CHARACTER_LEVEL.area[1]
+            offset = level_button.matched_button._button_offset
+            level_button.matched_button._button_offset = (offset[0], offset[1] + y)
         # move other buttons accordingly
         for button in [LEVEL_MINUS, LEVEL_PLUS, LEVEL_VALUE_START, LEVEL_VALUE_TARGET]:
             button.load_offset(level_button)
 
         # check start
-        ocr = Digit(LEVEL_VALUE_START)
+        ocr = Digit(ClickButton(LEVEL_VALUE_START.button), name=LEVEL_VALUE_START.name)
         start = ocr.ocr_single_line(self.device.image)
         if start > 0 and level < start:
             logger.info(f'Fixup level to level start: {start}')
             level = start
 
         # set target
-        ocr = Digit(LEVEL_VALUE_TARGET)
+        ocr = Digit(ClickButton(LEVEL_VALUE_TARGET.button), name=LEVEL_VALUE_TARGET.name)
         self.ui_ensure_index(
             level, letter=ocr, prev_button=LEVEL_MINUS, next_button=LEVEL_PLUS, skip_first_screenshot=True)
         return True

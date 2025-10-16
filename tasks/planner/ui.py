@@ -6,8 +6,16 @@ from tasks.base.page import page_planner, page_menu
 from tasks.base.ui import UI
 from tasks.planner.assets import assets_planner_selectpath as assets_path, assets_planner_selecttype as assets_type
 from tasks.planner.assets.assets_planner_enter import *
+from tasks.planner.assets.assets_planner_result import RECALCULATE
 from tasks.planner.assets.assets_planner_select import *
 from tasks.character.keywords import combat_type, character_path
+
+
+class SwitchTarget(Switch):
+    def handle_additional(self, main):
+        if main.appear_then_click(RECALCULATE, interval=3):
+            return True
+        return False
 
 
 class SwitchPath(Switch):
@@ -72,14 +80,19 @@ class PlannerUI(UI):
             # from page_menu to page_planner
             if self.match_template_luma(MENU_GOTO_PLANNER, interval=3):
                 self.device.click(MENU_GOTO_PLANNER)
+                self.interval_reset(page_menu.check_button)
                 continue
-            # swipe down page_menu
+            # from result page to calculate
+            if self.appear_then_click(RECALCULATE, interval=3):
+                continue
+            # swipe down page_menu, no swipe if MENU_GOTO_PLANNER is already insight
             if self.ui_page_appear(page_menu, interval=3):
-                # swipe directly, as player might have random menu skin
-                self.device.swipe_vector(
-                    vector=(0, 200), box=MENU_SCROLL.area, random_range=(0, -20, 0, 20), padding=0)
-                self.interval_reset(page_menu, interval=3)
-                continue
+                if not self.match_template_luma(MENU_GOTO_PLANNER):
+                    # swipe directly, as player might have random menu skin
+                    self.device.swipe_vector(
+                        vector=(0, 200), box=MENU_SCROLL.area, random_range=(0, -20, 0, 20), padding=0)
+                    self.interval_reset(page_menu, interval=3)
+                    continue
             # skip tons of tutorials
             for button in [
                 TUTOTIAL_CHARACTER,
@@ -98,7 +111,7 @@ class PlannerUI(UI):
 
     @cached_property
     def planner_calculate_target(self):
-        switch = Switch('CalculateTarget', is_selector=True)
+        switch = SwitchTarget('CalculateTarget', is_selector=True)
         switch.add_state(CHARACTER_MATERIAL_CHECK,
                          check_button=CHARACTER_MATERIAL_CHECK, click_button=CHARACTER_MATERIAL_CLICK)
         switch.add_state(CONE_MATERIAL_CHECK,
@@ -179,6 +192,24 @@ class PlannerUI(UI):
                 self.device.click(CHARACTER_SWITCH)
                 continue
 
+    def planner_cone_enter(self):
+        """
+        Page:
+            in: page_planner, MATERIAL_CALCULATION_CHECK, CHARACTER_MATERIAL_CHECK
+            out: is_in_planner_select
+        """
+        logger.info('Planner cone enter')
+        for _ in self.loop():
+            if self.is_in_planner_select():
+                break
+            # enter might take long
+            if self.match_template_luma(CONE_EMPTY, interval=5):
+                self.device.click(CONE_EMPTY)
+                continue
+            if self.match_template_luma(CONE_SWITCH, interval=5):
+                self.device.click(CONE_SWITCH)
+                continue
+
     def planner_insight_character(self):
         """
         Swipe up to insight character
@@ -195,7 +226,8 @@ class PlannerUI(UI):
             if self.handle_planner_aside_close():
                 continue
             if self.is_in_planner_material(interval=3):
-                self.device.swipe_vector((0, 200), box=SELECT_LIST_SWIPE_AREA, name='INSIGHT_CHARACTER_SWIPE')
+                self.device.swipe_vector(
+                    (0, 200), box=SELECT_LIST_SWIPE_AREA.area, name='INSIGHT_CHARACTER_SWIPE')
                 continue
 
     def planner_insight_cone(self):
@@ -217,5 +249,6 @@ class PlannerUI(UI):
             if self.handle_planner_aside_close():
                 continue
             if self.is_in_planner_material(interval=3):
-                self.device.swipe_vector((0, -200), box=SELECT_LIST_SWIPE_AREA, name='INSIGHT_CHARACTER_SWIPE')
+                self.device.swipe_vector(
+                    (0, -200), box=SELECT_LIST_SWIPE_AREA.area, name='INSIGHT_CHARACTER_SWIPE')
                 continue

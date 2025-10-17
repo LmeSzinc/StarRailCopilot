@@ -102,7 +102,7 @@ class PlannerTarget(PlannerSelect, PlannerTrace, PlannerScan):
         if not self.config.PlannerTarget_Enable:
             return False
         # rescan once a day
-        update = get_server_last_update('04:00').astimezone()
+        update = get_server_last_update('04:00')
         last = self.config.PlannerTarget_LastScan
         logger.info(f'Last planner scan {last}, server update {update}')
         if last < update:

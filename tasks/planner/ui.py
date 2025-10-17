@@ -121,7 +121,7 @@ class PlannerUI(UI):
         for _ in self.loop():
             if self.ui_page_appear(page_menu):
                 break
-            if self.handle_ui_close(page_planner):
+            if self.handle_ui_close(page_planner.check_button):
                 continue
             if self.handle_planner_aside_close():
                 continue

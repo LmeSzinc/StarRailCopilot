@@ -111,6 +111,7 @@
     },
     "PlannerTarget": {
       "Enable": false,
+      "LastScan": "2020-01-01 00:00:00+00:00",
       "Character": "_none_",
       "Cone": "_none_",
       "Relic": "_none_",

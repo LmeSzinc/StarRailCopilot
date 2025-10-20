@@ -100,7 +100,8 @@ class DungeonState(UI):
         logger.info(f'Currently has {current} need {cover} minutes to reach {limit}')
 
         # Align server update
-        if not run_double and update - future < timedelta(hours=2):
+        # 4 hour is a magic number to recover 40 stamina
+        if not run_double and update - future < timedelta(hours=4):
             logger.info('Approaching next day, delay to server update instead')
             future = update
 

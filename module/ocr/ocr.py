@@ -302,11 +302,20 @@ class Ocr:
         button = OcrResultButton(boxed_result, matched_keyword)
         return button
 
-    def matched_ocr(self, image, keyword_classes, direct_ocr=False) -> list[OcrResultButton]:
+    def matched_ocr(
+            self,
+            image,
+            keyword_classes,
+            lang=None,
+            ignore_punctuation=True,
+            direct_ocr=False,
+    ) -> list[OcrResultButton]:
+
         """
         Args:
             image: Screenshot
             keyword_classes: `Keyword` class or classes inherited `Keyword`, or a list of them.
+            lang (str):
             direct_ocr: True to ignore `button` attribute and feed the image to OCR model without cropping.
 
         Returns:
@@ -315,7 +324,9 @@ class Ocr:
         """
         results = self.detect_and_ocr(image, direct_ocr=direct_ocr)
 
-        results = [self._product_button(result, keyword_classes) for result in results]
+        results = [self._product_button(
+            result, keyword_classes=keyword_classes, lang=lang, ignore_punctuation=ignore_punctuation
+        ) for result in results]
         results = [result for result in results if result.is_keyword_matched]
 
         logger.attr(name=f'{self.name} matched',

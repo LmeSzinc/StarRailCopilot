@@ -828,6 +828,10 @@
       "name": "啟用養成規劃",
       "help": ""
     },
+    "LastScan": {
+      "name": "上次掃描時間",
+      "help": ""
+    },
     "Character": {
       "name": "養成角色",
       "help": "",

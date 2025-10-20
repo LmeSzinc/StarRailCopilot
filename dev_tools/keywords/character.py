@@ -74,6 +74,7 @@ class GenerateCharacterList(GenerateKeyword):
         # value: {'id': 1224, 'text_id': 16417870574330506928, 'combat_type': 'Imaginary', 'path': 'The_Hunt'}
 
         dict_internal_to_path = BaseType().dict_internal_to_path
+        dict_internal_to_type = BaseType().dict_internal_to_type
 
         # iter character config
         names = {}
@@ -84,11 +85,19 @@ class GenerateCharacterList(GenerateKeyword):
             if name_en in names and not name_en.startswith('Trailblazer'):
                 logger.warning(f'Duplicate character name: id={name_id}, name={name_en}')
 
+            # path
             base_type = row.get('AvatarBaseType', '')
             path_name = dict_internal_to_path.get(base_type, '')
             if not path_name:
                 logger.warning(f'Cannot convert character {character_id} base_type {base_type} to path')
                 continue
+            # type
+            damage_type = row.get('DamageType', '')
+            type_name = dict_internal_to_type.get(damage_type, '')
+            if not type_name:
+                logger.warning(f'Cannot convert character {character_id} DamageType {damage_type} to type')
+                continue
+            # relics
             relics = self.dict_relic_recommend.get(character_id)
             if not relics:
                 logger.warning(f'Missing character {character_id} in relic dict_relic_recommend')
@@ -96,7 +105,7 @@ class GenerateCharacterList(GenerateKeyword):
             names[character_id] = {
                 'id': character_id,
                 'text_id': name_id,
-                'type_name': row.get('DamageType', ''),
+                'type_name': type_name,
                 'path_name': path_name,
                 'relic_setid': relics['relic_setid'],
                 'ornament_setid': relics['ornament_setid'],

@@ -130,11 +130,6 @@ class Login(LoginAndroidCloud, RogueUI, AgreementHandler, UIDHandler):
         # 3.2 Castorice popup that advertise you go gacha, but no, close it
         if self.handle_ui_close(ADVERTISE_Castorice, interval=2):
             return True
-        # 3.4 Every account gets Archer
-        if self.appear_then_click(CLAIM_ARCHER, interval=2):
-            return True
-        if self.handle_get_character():
-            return True
         # homecoming popup
         if self.handle_ui_close(HOMECOMING_TITLE, interval=2):
             return True

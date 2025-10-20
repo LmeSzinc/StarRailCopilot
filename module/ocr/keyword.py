@@ -182,6 +182,44 @@ class Keyword:
         raise ScriptError(f'Cannot find a {cls.__name__} instance that matches "{name}"')
 
     @classmethod
+    def find_startswith(cls, name, lang: str = None, ignore_punctuation=True):
+        """
+        Args:
+            name: Name in any server or instance id.
+            lang: Lang to find from
+                None to search the names from current server only.
+            ignore_punctuation: True to remove punctuations and turn into lowercase before searching.
+
+        Returns:
+            Keyword instance.
+
+        Raises:
+            ScriptError: If nothing found.
+        """
+        # Already a keyword
+        if isinstance(name, Keyword):
+            return name
+        # Probably a variable name
+        if isinstance(name, str) and '_' in name:
+            for instance in cls.instances.values():
+                if name == instance.name:
+                    return instance
+        # Probably an in-game name
+        if ignore_punctuation:
+            name = parse_name(name)
+        else:
+            name = str(name)
+        instance: Keyword
+        for instance in cls.instances.values():
+            for keyword in instance._keywords_to_find(
+                    lang=lang, ignore_punctuation=ignore_punctuation):
+                if keyword.startswith(name):
+                    return instance
+
+        # Not found
+        raise ScriptError(f'Cannot find a {cls.__name__} instance that matches "{name}"')
+
+    @classmethod
     def find_name(cls, name):
         """
         Args:

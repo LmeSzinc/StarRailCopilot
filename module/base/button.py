@@ -29,8 +29,27 @@ class Button(Resource):
     def button(self):
         return area_offset(self._button, self._button_offset)
 
-    def load_offset(self, button):
-        self._button_offset = button._button_offset
+    def load_offset(self, offset):
+        """
+        Args:
+            offset (Button | ButtonWrapper | tuple[int, int]):
+        """
+        if isinstance(offset, ButtonWrapper):
+            offset = offset.matched_button._button_offset
+        elif isinstance(offset, Button):
+            offset = offset._button_offset
+        self._button_offset = offset
+
+    def load_search(self, search):
+        """
+        Args:
+            search (Button | ButtonWrapper | tuple[int, int]):
+        """
+        if isinstance(search, ButtonWrapper):
+            search = search.search
+        elif isinstance(search, Button):
+            search = search.search
+        self.search = search
 
     def clear_offset(self):
         self._button_offset = (0, 0)
@@ -337,10 +356,8 @@ class ButtonWrapper(Resource):
         Load offset from another button.
 
         Args:
-            button (Button, ButtonWrapper):
+            button (Button | ButtonWrapper | tuple[int, int]):
         """
-        if isinstance(button, ButtonWrapper):
-            button = button.matched_button
         for b in self.iter_buttons():
             b.load_offset(button)
 
@@ -359,16 +376,16 @@ class ButtonWrapper(Resource):
         """
         return self.matched_button.is_offset_in(x=x, y=y)
 
-    def load_search(self, area):
+    def load_search(self, search):
         """
         Set `search` attribute.
         Note that this method is irreversible.
 
         Args:
-            area:
+            search (Button | ButtonWrapper | tuple[int, int, int, int]):
         """
         for b in self.iter_buttons():
-            b.search = area
+            b.load_search(search)
 
     def set_search_offset(self, offset):
         """

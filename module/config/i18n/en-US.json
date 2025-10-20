@@ -828,6 +828,10 @@
       "name": "Enable Planner",
       "help": ""
     },
+    "LastScan": {
+      "name": "Last Scan Time",
+      "help": ""
+    },
     "Character": {
       "name": "Character",
       "help": "",

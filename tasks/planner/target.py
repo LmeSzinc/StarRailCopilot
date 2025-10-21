@@ -104,11 +104,12 @@ class PlannerTarget(PlannerSelect, PlannerTrace, PlannerScan):
         # rescan once a day
         update = get_server_last_update('04:00')
         last = self.config.PlannerTarget_LastScan
+        last = last.replace(tzinfo=None)
         logger.info(f'Last planner scan {last}, server update {update}')
         if last < update:
             self.planner_calculate_run()
             self.planner_exit()
-            self.config.PlannerTarget_LastScan = datetime.now().replace(microsecond=0).astimezone()
+            self.config.PlannerTarget_LastScan = datetime.now().replace(microsecond=0)
         else:
             logger.info('Already scan today, no need to rescan')
 

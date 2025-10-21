@@ -37,6 +37,10 @@ class PlannerTrace(PlannerUI):
         logger.info('Trace enable all')
         for _ in self.loop():
             if self.image_color_count(TRACE_TOGGLE, color=(219, 194, 145), threshold=221, count=100):
+                logger.info('All enabled')
+                break
+            if self.image_color_count(TRACE_TOGGLE, color=(77, 74, 91), threshold=235, count=100):
+                logger.info('All full')
                 break
             if self.appear(TRACE_CONFIRM, interval=3):
                 self.device.click(TRACE_TOGGLE)

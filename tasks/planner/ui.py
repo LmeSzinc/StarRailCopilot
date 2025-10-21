@@ -120,6 +120,10 @@ class PlannerUI(UI):
         CLOSE.clear_offset()
         for _ in self.loop():
             if self.ui_page_appear(page_menu):
+                logger.info('At page_menu')
+                break
+            if self.is_in_main():
+                logger.info('At is_in_main')
                 break
             if self.handle_ui_close(page_planner.check_button):
                 continue

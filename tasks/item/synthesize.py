@@ -11,6 +11,7 @@ from module.ocr.ocr import Digit, Ocr
 from tasks.base.page import page_menu, page_synthesize
 from tasks.combat.assets.assets_combat_obtain import ITEM_CLOSE
 from tasks.combat.obtain import CombatObtain
+from tasks.daily.synthesize import SynthesizeUI
 from tasks.item.assets.assets_item_synthesize import *
 from tasks.item.inventory import InventoryManager
 from tasks.item.keywords import KEYWORDS_ITEM_TAB
@@ -112,7 +113,7 @@ class SynthesizeInventoryManager(InventoryManager):
         return id2 > id1
 
 
-class Synthesize(CombatObtain, ItemUI):
+class Synthesize(CombatObtain, ItemUI, SynthesizeUI):
     def _item_get_rarity_from_button(self, button) -> str | None:
         """
         Args:
@@ -634,7 +635,9 @@ class Synthesize(CombatObtain, ItemUI):
             out: page_main
         """
         logger.hr('Synthesize planner', level=1)
-        self.ui_ensure(page_synthesize)
+        self.ui_ensure(page_menu)
+        self.ensure_scroll_top(page_menu, skip_first_screenshot=True)
+        self.ui_goto(page_synthesize)
 
         # Cache things to iter
         rows = list(self.planner.rows.values())

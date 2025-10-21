@@ -33,9 +33,8 @@ class Assignment(AssignmentClaim, SynthesizeUI):
         if join_event is None:
             join_event = self.config.Assignment_Event
 
-        switched = self.ui_ensure(page_menu)
-        if not switched:
-            self.ensure_scroll_top(page_menu, skip_first_screenshot=True)
+        self.ui_ensure(page_menu)
+        self.ensure_scroll_top(page_menu, skip_first_screenshot=True)
         self.ui_goto(page_assignment)
 
         self.dispatched = dict()

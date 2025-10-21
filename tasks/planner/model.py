@@ -159,27 +159,30 @@ class StoredPlannerProxy(BaseModelWithFallback):
             green = self.value.green - self.total.green
             blue = self.value.blue - self.total.blue
             purple = self.value.purple - self.total.purple
-            syn_blue = 0
-            syn_purple = 0
-            if green >= 3 and blue < 0:
-                syn = min(green // 3, -blue)
-                syn_blue += syn
-                green -= syn * 3
-                # blue += syn
-            if blue >= 3 and purple < 0:
-                syn = min(blue // 3, -purple)
-                syn_purple += syn
-                blue -= syn * 3
-                purple += syn
-            if green >= 9 and purple < 0:
-                syn = min(green // 9, -purple)
-                syn_purple += syn
-                syn_blue += syn * 3
-                green -= syn * 9
-                # purple += syn
+            # syn_blue = 0
+            # syn_purple = 0
+            # if green >= 3 and blue < 0:
+            #     syn = min(green // 3, -blue)
+            #     syn_blue += syn
+            #     green -= syn * 3
+            #     # blue += syn
+            # if blue >= 3 and purple < 0:
+            #     syn = min(blue // 3, -purple)
+            #     syn_purple += syn
+            #     blue -= syn * 3
+            #     purple += syn
+            # if green >= 9 and purple < 0:
+            #     syn = min(green // 9, -purple)
+            #     syn_purple += syn
+            #     syn_blue += syn * 3
+            #     green -= syn * 9
+            #     # purple += syn
+
+            # 2025.10.21 donno starting from when, now can auto synthesize from green to purple
+            # so no need to calculate ourselves
             self.synthesize.green = 0
-            self.synthesize.blue = syn_blue
-            self.synthesize.purple = syn_purple
+            self.synthesize.blue = blue
+            self.synthesize.purple = purple
         else:
             self.synthesize = 0
 

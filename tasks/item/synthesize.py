@@ -650,21 +650,21 @@ class Synthesize(CombatObtain, ItemUI, SynthesizeUI):
                 continue
 
             logger.info(f'Synthesize row: {row}')
+            # blue -> purple
+            value = row.synthesize.purple
+            total = int(row.total.blue // 3)
+            if value:
+                logger.info(f'Synthesize blue to purple: {value}/{total}')
+                self.synthesize_rarity_set('purple')
+                self.synthesize_amount_set(value, total)
+                self.synthesize_confirm()
             # green -> blue
+            # note that row.value.green might not be accurate after synthesize purple, but it's ok
             value = row.synthesize.blue
             total = int(row.value.green // 3)
             if value:
                 logger.info(f'Synthesize green to blue: {value}/{total}')
                 self.synthesize_rarity_set('blue')
-                self.synthesize_amount_set(value, total)
-                self.synthesize_confirm()
-            # blue -> purple
-            synthesized_blue = value
-            value = row.synthesize.purple
-            total = int((row.value.blue + synthesized_blue) // 3)
-            if value:
-                logger.info(f'Synthesize blue to purple: {value}/{total}')
-                self.synthesize_rarity_set('purple')
                 self.synthesize_amount_set(value, total)
                 self.synthesize_confirm()
 

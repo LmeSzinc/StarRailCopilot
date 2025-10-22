@@ -40,6 +40,36 @@ COMBAT_TEAM_SUPPORT = ButtonWrapper(
         button=(1123, 477, 1158, 503),
     ),
 )
+TEAM_10_CHECK = ButtonWrapper(
+    name='TEAM_10_CHECK',
+    share=Button(
+        file='./assets/share/combat/team/TEAM_10_CHECK.png',
+        area=(853, 29, 889, 58),
+        search=(833, 9, 909, 78),
+        color=(130, 120, 113),
+        button=(853, 29, 889, 58),
+    ),
+)
+TEAM_11_CHECK = ButtonWrapper(
+    name='TEAM_11_CHECK',
+    share=Button(
+        file='./assets/share/combat/team/TEAM_11_CHECK.png',
+        area=(854, 29, 885, 58),
+        search=(834, 9, 905, 78),
+        color=(113, 106, 103),
+        button=(854, 29, 885, 58),
+    ),
+)
+TEAM_12_CHECK = ButtonWrapper(
+    name='TEAM_12_CHECK',
+    share=Button(
+        file='./assets/share/combat/team/TEAM_12_CHECK.png',
+        area=(853, 29, 888, 57),
+        search=(833, 9, 908, 77),
+        color=(121, 113, 109),
+        button=(853, 29, 888, 57),
+    ),
+)
 TEAM_1_CHECK = ButtonWrapper(
     name='TEAM_1_CHECK',
     share=[

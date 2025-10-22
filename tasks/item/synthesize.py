@@ -635,9 +635,7 @@ class Synthesize(CombatObtain, ItemUI, SynthesizeUI):
             out: page_main
         """
         logger.hr('Synthesize planner', level=1)
-        self.ui_ensure(page_menu)
-        self.ensure_scroll_top(page_menu, skip_first_screenshot=True)
-        self.ui_goto(page_synthesize)
+        self.menu_enter_top(page_synthesize)
 
         # Cache things to iter
         rows = list(self.planner.rows.values())

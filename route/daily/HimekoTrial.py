@@ -34,18 +34,21 @@ class Route(RouteBase, Combat, CharacterTrial):
     def combat_execute(self, expected_end=None):
         # Battle 1/3
         # Enemy cleared by follow up
-        self.wait_next_skill()
+        if not self.wait_next_skill():
+            return
 
         # Battle 2/3
         # Himeko E
         # Rest are cleared by follow up
         self.use_E()
-        self.wait_next_skill()
+        if not self.wait_next_skill():
+            return
 
         # Battle 3/3
         # Himeko A
         self.use_A()
-        self.wait_next_skill()
+        if not self.wait_next_skill():
+            return
         # Herta A, or Natasha A, depends on who wasn't being attacked
         self.use_A()
         if not self.wait_next_skill():
@@ -62,13 +65,15 @@ class Route(RouteBase, Combat, CharacterTrial):
         # Himeko Q
         # To achieve Use_an_Ultimate_to_deal_the_final_blow_1_time
         # May kill the enemy
-        self.use_Q(1)
+        if not self.use_Q(1):
+            return
         if not self.wait_next_skill():
             return
         # Herta Q
         # To achieve Use_an_Ultimate_to_deal_the_final_blow_1_time
         # May kill the enemy
-        self.use_Q(2)
+        if not self.use_Q(2):
+            return
         if not self.wait_next_skill():
             return
 

@@ -156,33 +156,41 @@ class StoredPlannerProxy(BaseModelWithFallback):
 
     def update_synthesize(self):
         if self.item.has_group_base:
-            blue = max(self.total.blue - self.value.blue, 0)
-            purple = max(self.total.purple - self.value.purple, 0)
-
-            # syn_blue = 0
-            # syn_purple = 0
-            # if green >= 3 and blue < 0:
-            #     syn = min(green // 3, -blue)
-            #     syn_blue += syn
-            #     green -= syn * 3
-            #     # blue += syn
-            # if blue >= 3 and purple < 0:
-            #     syn = min(blue // 3, -purple)
-            #     syn_purple += syn
-            #     blue -= syn * 3
-            #     purple += syn
-            # if green >= 9 and purple < 0:
-            #     syn = min(green // 9, -purple)
-            #     syn_purple += syn
-            #     syn_blue += syn * 3
-            #     green -= syn * 9
-            #     # purple += syn
+            green = self.value.green - self.total.green
+            blue = self.value.blue - self.total.blue
+            purple = self.value.purple - self.total.purple
+            syn_blue = 0
+            syn_purple = 0
 
             # 2025.10.21 donno starting from when, now can auto synthesize from green to purple
-            # so no need to calculate ourselves
+            if purple < 0 and blue >= 3:
+                syn = min(blue // 3, -purple)
+                syn_purple += syn
+                blue -= syn * 3
+                purple += syn
+            if purple < 0 and green >= 9:
+                syn = min(green // 9, -purple)
+                syn_purple += syn
+                green -= syn * 9
+                purple += syn
+            if purple < 0 and blue > 0 and green > 0:
+                # mix synthesize, blue+green=>purple
+                middle_blue = green // 3
+                syn = min((blue + middle_blue) // 3, -purple)
+                if syn > 0:
+                    syn_purple += syn
+                    middle_blue = syn * 3 - blue
+                    blue = 0
+                    green -= middle_blue * 3
+            if blue < 0 and green >= 3:
+                syn = min(green // 3, -blue)
+                syn_blue += syn
+                green -= syn * 3
+                blue += syn
+
             self.synthesize.green = 0
-            self.synthesize.blue = blue
-            self.synthesize.purple = purple
+            self.synthesize.blue = syn_blue
+            self.synthesize.purple = syn_purple
         else:
             self.synthesize = 0
 

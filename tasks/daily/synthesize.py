@@ -12,6 +12,31 @@ class SynthesizeUI(UI):
     # Default list of candidate items
     default_candidate_items = {}
 
+    def menu_enter_top(self, page):
+        logger.info(f'Menu enter top: {page}')
+        if self.ui_get_current_page() == page:
+            logger.info(f'Already at {page}')
+            return
+
+        self.ui_ensure(page_menu)
+        click_button = page_menu.links[page]
+        for _ in self.loop():
+            if self.ui_page_appear(page):
+                logger.info(f'At {page}')
+                break
+
+            if self.match_template_luma(click_button, interval=3):
+                self.device.click(click_button)
+                continue
+            # swipe down page_menu, no swipe if MENU_GOTO_PLANNER is already insight
+            if self.ui_page_appear(page_menu, interval=3):
+                if not self.match_template_luma(click_button):
+                    # swipe directly, as player might have random menu skin
+                    self.device.swipe_vector(
+                        vector=(0, -200), box=MENU_SCROLL.area, random_range=(0, -20, 0, 20), padding=0)
+                    self.interval_reset(page_menu, interval=3)
+                    continue
+
     def ensure_scroll_top(self, page: str | Page, skip_first_screenshot=False) -> None:
         """
         Args:
@@ -59,13 +84,6 @@ class SynthesizeUI(UI):
                 logger.info(f'Pull the {page} scroll bar to the top')
                 scroll.set_top(main=self)
                 continue
-
-    def _ensure_synthesize_page(self):
-        # If the current page is not the menu page,
-        # the menu scroll bar must be at the top when opening the menu page from other page,
-        # so first step is determine whether the scroll bar is at the top
-        self.ensure_scroll_top(page=page_menu)
-        self.ui_ensure(page_synthesize)
 
     # Default subpage is consumables
     def _switch_subpage(self, skip_first_screenshot=True, subpage: ButtonWrapper = SYNTHESIZE_GOTO_CONSUMABLES,
@@ -215,7 +233,7 @@ class SynthesizeConsumablesUI(SynthesizeUI):
         """
 
         logger.hr('Synthesize consumables', level=2)
-        self._ensure_synthesize_page()
+        self.menu_enter_top(page_synthesize)
         self._switch_subpage(subpage=SYNTHESIZE_GOTO_CONSUMABLES, subpage_check=SYNTHESIZE_CONSUMABLES_CHECK)
         return self._synthesize(target_button, target_button_check)
 
@@ -245,6 +263,6 @@ class SynthesizeMaterialUI(SynthesizeUI):
         """
 
         logger.hr('Synthesize material', level=2)
-        self._ensure_synthesize_page()
+        self.menu_enter_top(page_synthesize)
         self._switch_subpage(subpage=SYNTHESIZE_GOTO_MATERIAL, subpage_check=SYNTHESIZE_MATERIAL_CHECK)
         return self._synthesize(target_button, target_button_check)

@@ -8,7 +8,7 @@ from tasks.combat.combat import Combat
 from tasks.daily.keywords import KEYWORDS_DAILY_QUEST
 from tasks.dungeon.event import DungeonEvent
 from tasks.dungeon.keywords import DungeonList, KEYWORDS_DUNGEON_LIST, KEYWORDS_DUNGEON_NAV, KEYWORDS_DUNGEON_TAB
-from tasks.dungeon.stamina import DungeonStamina
+from tasks.dungeon.stamina import DungeonStamina, ImmersifierNotAvailable
 from tasks.freebies.code_used import CodeManager
 from tasks.item.synthesize import Synthesize
 from tasks.planner.target import PlannerTarget
@@ -353,25 +353,29 @@ class Dungeon(Combat, DungeonStamina, DungeonEvent):
                     and self.config.cross_get('Rogue.RogueWorld.DoubleEvent') \
                     and self.config.stored.DungeonDouble.rogue > 0:
                 amount = self.config.stored.DungeonDouble.rogue
-            stored = self.immersifier_store(max_store=amount)
-            self.check_stamina_quest(stored * 40)
-            # call rogue task if accumulated to 4
-            with self.config.multi_set():
-                if self.config.stored.Immersifier.value >= 4:
-                    # Schedule behind rogue
-                    self.config.task_delay(minute=5)
-                    self.config.task_call('Rogue')
-                # Scheduler
-                self.delay_dungeon_task(KEYWORDS_DUNGEON_LIST.Simulated_Universe_World_1)
-                self.config.task_stop()
-        else:
-            # Combat
-            self.dungeon_run(final)
-            self.is_doing_planner = False
-            # Scheduler
-            self.delay_dungeon_task(final)
-            self.check_synthesize()
-            self.config.task_stop()
+            try:
+                stored = self.immersifier_store(max_store=amount)
+            except ImmersifierNotAvailable:
+                pass
+            else:
+                self.check_stamina_quest(stored * 40)
+                # call rogue task if accumulated to 4
+                with self.config.multi_set():
+                    if self.config.stored.Immersifier.value >= 4:
+                        # Schedule behind rogue
+                        self.config.task_delay(minute=5)
+                        self.config.task_call('Rogue')
+                    # Scheduler
+                    self.delay_dungeon_task(KEYWORDS_DUNGEON_LIST.Simulated_Universe_World_1)
+                    self.config.task_stop()
+
+        # Combat
+        self.dungeon_run(final)
+        self.is_doing_planner = False
+        # Scheduler
+        self.delay_dungeon_task(final)
+        self.check_synthesize()
+        self.config.task_stop()
 
     def check_synthesize(self):
         logger.info('Check synthesize')

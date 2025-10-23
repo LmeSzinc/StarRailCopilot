@@ -7,7 +7,7 @@ from tasks.combat.assets.assets_combat_team import *
 
 
 def button_to_index(button: ButtonWrapper) -> int:
-    res = re.search(r'(\d)', button.name)
+    res = re.search(r'(\d+)', button.name)
     if res:
         return int(res.group(1))
     else:
@@ -24,21 +24,21 @@ class CombatTeam(UI):
         team = 0
         for button in [
             TEAM_1_CHECK, TEAM_2_CHECK, TEAM_3_CHECK, TEAM_4_CHECK, TEAM_5_CHECK,
-            TEAM_6_CHECK, TEAM_7_CHECK, TEAM_8_CHECK, TEAM_9_CHECK
+            TEAM_6_CHECK, TEAM_7_CHECK, TEAM_8_CHECK, TEAM_9_CHECK, TEAM_10_CHECK,
+            TEAM_11_CHECK, TEAM_12_CHECK,
         ]:
             button.load_search(TEAM_SEARCH.area)
-            if self.appear(button, similarity=0.92):
+            if self.match_template_luma(button, similarity=0.92):
                 if self.image_color_count(button.button, color=(255, 234, 191), threshold=180, count=50):
                     team = button_to_index(button)
                     break
 
         return team
 
-    def team_set(self, index: int = 1, skip_first_screenshot=True) -> bool:
+    def team_set(self, index: int = 1) -> bool:
         """
         Args:
-            index: Team index, 1 to 9.
-            skip_first_screenshot:
+            index: Team index, 1 to 12.
 
         Returns:
             bool: If clicked
@@ -49,12 +49,7 @@ class CombatTeam(UI):
         logger.info(f'Team set: {index}')
         # Wait teams show up
         timeout = Timer(1, count=5).start()
-        while 1:
-            if skip_first_screenshot:
-                skip_first_screenshot = False
-            else:
-                self.device.screenshot()
-
+        for _ in self.loop():
             # End
             if timeout.reached():
                 logger.warning('Wait current team timeout')
@@ -87,13 +82,13 @@ class CombatTeam(UI):
             # Click
             if retry.reached():
                 diff = index - current
-                right = diff % 9
-                left = -diff % 9
+                right = diff % 12
+                left = -diff % 12
                 if right <= left:
-                    self.device.multi_click(TEAM_NEXT, right)
+                    self.device.multi_click(TEAM_NEXT, right, interval=(0.2, 0.3))
                     clicked = True
                 else:
-                    self.device.multi_click(TEAM_PREV, left)
+                    self.device.multi_click(TEAM_PREV, left, interval=(0.2, 0.3))
                     clicked = True
                 retry.reset()
                 continue
@@ -105,7 +100,7 @@ class CombatTeam(UI):
         Set team and click prepare before dungeon combat.
 
         Args:
-            team: Team index, 1 to 9.
+            team: Team index, 1 to 12.
 
         Returns:
             int: If clicked

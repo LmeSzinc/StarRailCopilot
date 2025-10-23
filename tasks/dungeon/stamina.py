@@ -9,6 +9,12 @@ from tasks.dungeon.keywords import KEYWORDS_DUNGEON_TAB
 from tasks.dungeon.ui.ui import DungeonUI
 
 
+class ImmersifierNotAvailable(Exception):
+    # raise if account not unlock immersifier
+    # typically beginner account that never finished simulated universe tutotial
+    pass
+
+
 class DungeonStamina(DungeonUI):
     def _immersifier_enter(self, skip_first_screenshot=True):
         """
@@ -135,6 +141,9 @@ class DungeonStamina(DungeonUI):
         Returns:
             int: Amount stored
 
+        Raises:
+            ImmersifierNotAvailable:
+
         Pages:
             in: Any
             out: page_guide, Survival_Index, Simulated_Universe
@@ -158,6 +167,9 @@ class DungeonStamina(DungeonUI):
             logger.info('Not enough stamina to store 1 immersifier')
             return 0
 
+        if not self.appear(IMMERSIFIER_ICON):
+            logger.warning(f'Cannot find {IMMERSIFIER_ICON}, unable to do immersifier store')
+            raise ImmersifierNotAvailable
         self._immersifier_enter()
         self._item_amount_set(amount, ocr_button=OCR_IMMERSIFIER_AMOUNT)
         self._item_confirm()

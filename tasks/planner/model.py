@@ -156,8 +156,8 @@ class StoredPlannerProxy(BaseModelWithFallback):
 
     def update_synthesize(self):
         if self.item.has_group_base:
-            blue = max(self.value.blue - self.total.blue, 0)
-            purple = max(self.value.purple - self.total.purple, 0)
+            blue = max(self.total.blue - self.value.blue, 0)
+            purple = max(self.total.purple - self.value.purple, 0)
 
             # syn_blue = 0
             # syn_purple = 0

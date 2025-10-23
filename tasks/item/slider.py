@@ -114,15 +114,18 @@ class Slider:
             bool: If success
         """
         logger.info(f'Slider set {value}/{total}')
-        if value > total:
-            raise ScriptError(f'Slider.set value {value} > total {total}')
         if total <= 0:
-            raise ScriptError(f'Slider.set total {total} <= 0')
+            logger.warning(f'Slider.set total {total} <= 0, cannot set slider')
+            return False
         if value <= 0:
-            raise ScriptError(f'Slider.set value {value} <= 0')
+            logger.warning(f'Slider.set value {value} <= 0, cannot set slider')
+            return False
         if value == total == 1:
             logger.info('Slider set total==1, no need to set')
             return True
+        if value > total:
+            logger.warning(f'Slider.set value {value} > total {total}')
+            value = total
         # if value == 1:
         #     logger.info('Slider set value==1, no need to set')
         #     return True

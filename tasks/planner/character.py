@@ -107,6 +107,7 @@ class PlannerSelect(PlannerUI, PlannerLang):
             out: page_planner, MATERIAL_CALCULATION_CHECK, CHARACTER_MATERIAL_CHECK, with character selected
         """
         logger.hr('Select planner character')
+        logger.info(f'Select character: {target}')
         self.planner_character_path.set(target.character_path, main=self)
         self.planner_character_type.set(target.combat_type, main=self)
         area = self.ocr_planner_select_area().area
@@ -126,6 +127,7 @@ class PlannerSelect(PlannerUI, PlannerLang):
 
         if result is None:
             logger.warning('Failed to select after 7 trail')
+            self.planner_aside_close()
             self.ui_ensure_planner()
             return False
 
@@ -149,7 +151,8 @@ class PlannerSelect(PlannerUI, PlannerLang):
             in: is_in_planner_select
             out: page_planner, MATERIAL_CALCULATION_CHECK, CHARACTER_MATERIAL_CHECK, with cone selected
         """
-        logger.hr('Select planner Cone')
+        logger.hr('Select planner cone')
+        logger.info(f'Select cone: {target}')
         self.planner_character_path.set(target.character_path, main=self)
         area = self.ocr_planner_select_area().area
 
@@ -168,6 +171,7 @@ class PlannerSelect(PlannerUI, PlannerLang):
 
         if result is None:
             logger.warning('Failed to select after 7 trail')
+            self.planner_aside_close()
             self.ui_ensure_planner()
             return False
 

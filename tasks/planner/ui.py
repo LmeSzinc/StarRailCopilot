@@ -231,6 +231,15 @@ class PlannerUI(UI):
                 self.device.click(CONE_SWITCH)
                 continue
 
+    def planner_aside_close(self):
+        logger.info('Planner aside close')
+        for _ in self.loop():
+            if self.ui_page_appear(page_planner):
+                logger.info(f'At {page_planner}')
+                break
+            if self.handle_planner_aside_close():
+                continue
+
     def planner_insight_character(self):
         """
         Swipe up to insight character

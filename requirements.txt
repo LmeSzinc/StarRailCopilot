@@ -37,7 +37,7 @@ markdown-it-py==2.2.0     # via rich
 mdurl==0.1.2              # via markdown-it-py
 mpmath==1.3.0             # via sympy
 numpy==1.24.3             # via -r requirements-in.txt, onnxruntime, opencv-python, pponnxcr, scipy, shapely
-onepush==1.3.0            # via -r requirements-in.txt
+onepush==1.7.0            # via -r requirements-in.txt
 onnxruntime==1.14.1       # via pponnxcr
 opencv-python==4.7.0.72   # via -r requirements-in.txt, pponnxcr
 packaging==20.9           # via deprecation, onnxruntime, uiautomator2

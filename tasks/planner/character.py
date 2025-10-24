@@ -35,6 +35,17 @@ class SelectOcr(Ocr):
             return False
         return True
 
+    def after_process(self, result):
+        # TheUnreachabl...As
+        result, _,  _ = result.partition('...')
+        # Thus Burnsthe DawnAS
+        lower = result.lower()
+        if lower.endswith('as'):
+            result = result[:-2]
+        elif lower.endswith('a'):
+            result = result[:-1]
+        return result
+
     def _match_result(
             self,
             result: str,

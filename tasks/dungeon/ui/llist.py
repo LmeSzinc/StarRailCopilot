@@ -71,7 +71,7 @@ class OcrDungeonName(Ocr):
                 result = result.removeprefix(word)
         elif self.lang == 'en':
             # O Supply Zone
-            result = re.sub(r'$[Oo0] S', 'S', result)
+            result = re.sub(r'^[Oo0] S', 'S', result)
         return result
 
 

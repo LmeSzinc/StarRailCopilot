@@ -33,7 +33,8 @@
     "page": "tool",
     "tasks": [
       "Daemon",
-      "PlannerScan"
+      "PlannerScan",
+      "RewardCollector"
     ]
   }
 }

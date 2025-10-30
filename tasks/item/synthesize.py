@@ -157,8 +157,12 @@ class Synthesize(CombatObtain, ItemUI, SynthesizeUI):
         rarity = self._item_get_rarity_from_button(ENTRY_ITEM_FROM_LEFT)
         # When having 2 items, left is blue and right is green. This indicates synthesizing purple.
         if rarity == 'blue':
-            logger.attr('SynthesizeRarity', 'purple (LEFT)')
-            return 'purple'
+            # must have white letter below to avoid mis-detection on blue background
+            area = ENTRY_ITEM_FROM_LEFT.area
+            area = (area[0], area[3], area[2], area[3] + 30)
+            if self.image_color_count(area, color=(255, 255, 255), threshold=221, count=30):
+                logger.attr('SynthesizeRarity', 'purple (LEFT)')
+                return 'purple'
         # Check item in the middle
         rarity = self._item_get_rarity_from_button(ENTRY_ITEM_FROM)
         if rarity == 'blue':

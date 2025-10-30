@@ -53,6 +53,8 @@ class PlannerTarget(PlannerSelect, PlannerTrace, PlannerScan):
         cone: "Cone | None" = cone
         if not character and not cone:
             logger.info('Empty character and cone, no need to calculate')
+            if self.config.PlannerTarget_Enable:
+                self.config.PlannerTarget_Enable = False
             return False
 
         # set target
@@ -95,6 +97,7 @@ class PlannerTarget(PlannerSelect, PlannerTrace, PlannerScan):
         # scan result, no add
         self.config.override(PlannerScan_ResultAdd=False)
         self.parse_planner_result()
+        self.planner_exit()
         return True
 
     def planner_calculate(self):
@@ -108,7 +111,6 @@ class PlannerTarget(PlannerSelect, PlannerTrace, PlannerScan):
         logger.info(f'Last planner scan {last}, server update {update}')
         if last < update:
             self.planner_calculate_run()
-            self.planner_exit()
             self.config.PlannerTarget_LastScan = datetime.now().replace(microsecond=0)
         else:
             logger.info('Already scan today, no need to rescan')

@@ -157,6 +157,11 @@ class Combat(CombatInteract, CombatPrepare, CombatSupport, CombatTeam, CombatSki
                         # Update stamina so task can be delayed if both obtained_is_full and stamina exhausted
                         self.combat_get_trailblaze_power()
                         return False
+                    if self.combat_wave_limit:
+                        if self.combat_wave_done >= self.combat_wave_limit:
+                            logger.info(f'Combat wave limit: {self.combat_wave_done}/{self.combat_wave_limit}, '
+                                        f'can not run again')
+                            return False
                     if not self.handle_combat_prepare():
                         return False
                     if self.is_doing_planner and self.combat_wave_cost == 0:
@@ -236,7 +241,7 @@ class Combat(CombatInteract, CombatPrepare, CombatSupport, CombatTeam, CombatSki
             return False
         # Wave limit
         if self.combat_wave_limit:
-            if self.combat_wave_done + self.combat_waves > self.combat_wave_limit:
+            if self.combat_wave_done >= self.combat_wave_limit:
                 logger.info(f'Combat wave limit: {self.combat_wave_done}/{self.combat_wave_limit}, '
                             f'can not run again')
                 return False

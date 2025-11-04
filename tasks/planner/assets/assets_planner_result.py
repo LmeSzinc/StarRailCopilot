@@ -37,6 +37,13 @@ DETAIL_TITLE = ButtonWrapper(
             color=(135, 136, 162),
             button=(263, 487, 332, 505),
         ),
+        Button(
+            file='./assets/share/planner/result/DETAIL_TITLE.4.png',
+            area=(262, 389, 346, 409),
+            search=(242, 369, 366, 429),
+            color=(155, 157, 177),
+            button=(262, 389, 346, 409),
+        ),
     ],
 )
 MATERIAL_TITLE = ButtonWrapper(
@@ -78,24 +85,35 @@ RECALCULATE = ButtonWrapper(
         ),
     ],
 )
-RESULT_CHECK = ButtonWrapper(
-    name='RESULT_CHECK',
-    share=[
-        Button(
-            file='./assets/share/planner/result/RESULT_CHECK.png',
-            area=(263, 128, 324, 148),
-            search=(219, 104, 354, 592),
-            color=(132, 119, 92),
-            button=(263, 128, 324, 148),
-        ),
-        Button(
-            file='./assets/share/planner/result/RESULT_CHECK.2.png',
-            area=(241, 128, 319, 145),
-            search=(219, 104, 354, 592),
-            color=(111, 103, 100),
-            button=(241, 128, 319, 145),
-        ),
-    ],
+RESULT_CHECK_CN = ButtonWrapper(
+    name='RESULT_CHECK_CN',
+    share=Button(
+        file='./assets/share/planner/result/RESULT_CHECK_CN.png',
+        area=(263, 128, 324, 148),
+        search=(243, 108, 344, 168),
+        color=(132, 119, 92),
+        button=(263, 128, 324, 148),
+    ),
+)
+RESULT_CHECK_EN = ButtonWrapper(
+    name='RESULT_CHECK_EN',
+    share=Button(
+        file='./assets/share/planner/result/RESULT_CHECK_EN.png',
+        area=(241, 128, 319, 145),
+        search=(221, 108, 339, 165),
+        color=(111, 103, 100),
+        button=(241, 128, 319, 145),
+    ),
+)
+RESULT_CHECK_SEARCH = ButtonWrapper(
+    name='RESULT_CHECK_SEARCH',
+    share=Button(
+        file='./assets/share/planner/result/RESULT_CHECK_SEARCH.png',
+        area=(219, 104, 354, 592),
+        search=(199, 84, 374, 612),
+        color=(255, 255, 255),
+        button=(219, 104, 354, 592),
+    ),
 )
 RESULT_DRAG = ButtonWrapper(
     name='RESULT_DRAG',

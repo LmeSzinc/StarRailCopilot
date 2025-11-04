@@ -273,8 +273,10 @@ class PlannerUI(UI):
                 logger.info(f'Insight cone at {CONE_EMPTY}')
                 break
             if self.appear(CONE_LEVEL):
-                logger.info(f'Insight cone at {CONE_LEVEL}')
-                break
+                # wait until swipe end and CONE_LEVEL at its position
+                if CONE_LEVEL.matched_button._button_offset[1] <= 7:
+                    logger.info(f'Insight cone at {CONE_LEVEL}')
+                    break
 
             if self.handle_planner_aside_close():
                 continue

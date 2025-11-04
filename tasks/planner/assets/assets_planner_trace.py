@@ -204,6 +204,13 @@ TRACE_CONFIRM = ButtonWrapper(
             color=(186, 186, 186),
             button=(1095, 610, 1137, 633),
         ),
+        Button(
+            file='./assets/share/planner/trace/TRACE_CONFIRM.3.png',
+            area=(1096, 612, 1138, 635),
+            search=(1076, 592, 1158, 655),
+            color=(177, 177, 177),
+            button=(1096, 612, 1138, 635),
+        ),
     ],
 )
 TRACE_ENTER = ButtonWrapper(

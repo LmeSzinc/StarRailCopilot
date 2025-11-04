@@ -6,7 +6,7 @@ from module.logger import logger
 from tasks.character.keywords import CharacterList
 from tasks.cone.keywords import Cone
 from tasks.planner.assets.assets_planner_enter import CHARACTER_MATERIAL_CHECK, CONE_MATERIAL_CHECK
-from tasks.planner.assets.assets_planner_result import RESULT_CHECK, START_CALCULATE
+from tasks.planner.assets.assets_planner_result import RESULT_CHECK_CN, RESULT_CHECK_EN, START_CALCULATE
 from tasks.planner.assets.assets_planner_select import CHARACTER_LEVEL, CONE_LEVEL
 from tasks.planner.character import PlannerSelect
 from tasks.planner.scan import PlannerScan
@@ -21,7 +21,9 @@ class PlannerTarget(PlannerSelect, PlannerTrace, PlannerScan):
         """
         logger.info('Planner start calculate')
         for _ in self.loop():
-            if self.appear(RESULT_CHECK):
+            if self.appear(RESULT_CHECK_CN):
+                break
+            if self.appear(RESULT_CHECK_EN):
                 break
             if self.match_template_color(START_CALCULATE, interval=3):
                 self.device.click(START_CALCULATE)

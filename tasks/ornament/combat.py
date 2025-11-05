@@ -1,7 +1,9 @@
 from module.base.decorator import run_once
+from module.config.server import server
 from module.device.platform.utils import cached_property
 from module.exception import RequestHumanTakeover
 from module.logger import logger
+from module.ocr.ocr import Digit
 from module.ui.scroll import AdaptiveScroll
 from tasks.base.assets.assets_base_page import MAP_EXIT
 from tasks.base.assets.assets_base_popup import POPUP_CANCEL
@@ -9,8 +11,10 @@ from tasks.character.keywords import CharacterList
 from tasks.combat.assets.assets_combat_prepare import COMBAT_PREPARE
 from tasks.combat.assets.assets_combat_support import COMBAT_SUPPORT_LIST, COMBAT_SUPPORT_LIST_SCROLL_OE
 from tasks.dungeon.dungeon import Dungeon
+from tasks.item.slider import Slider
 from tasks.map.keywords import MapPlane
 from tasks.ornament.assets.assets_ornament_combat import *
+from tasks.ornament.assets.assets_ornament_prepare import *
 from tasks.ornament.assets.assets_ornament_special import *
 from tasks.ornament.assets.assets_ornament_ui import *
 from tasks.rogue.route.loader import RouteLoader, model_from_json
@@ -110,11 +114,12 @@ class OrnamentCombat(Dungeon, RouteLoader):
                 self.device.screenshot()
 
             # End
-            if self.appear(SUPPORT_DISMISS):
+            if self.match_template_luma(SUPPORT_DISMISS):
                 return True
 
             # Click
-            if self.appear(SUPPORT_ADD, interval=2):
+            # small icon, use match_template_luma
+            if self.match_template_luma(SUPPORT_ADD, interval=2):
                 self.device.click(SUPPORT_ADD)
                 self.interval_reset(SUPPORT_ADD)
                 continue
@@ -193,6 +198,24 @@ class OrnamentCombat(Dungeon, RouteLoader):
         logger.attr('TeamSlotsPrepared', slots)
         return slots > 0
 
+    def combat_set_wave(self, count=6, total=6):
+        """
+        Args:
+            count: 1 to 6
+            total: 3 or 6 or 24
+
+        Pages:
+            in: COMBAT_PREPARE
+        """
+        slider = Slider(main=self, slider=WAVE_SLIDER_OE)
+        # fixed total at 6
+        slider.set(count, 6)
+        self.ui_ensure_index(
+            count, letter=Digit(OCR_WAVE_COUNT_OE, lang=server.lang),
+            next_button=WAVE_PLUS_OE, prev_button=WAVE_MINUS_OE,
+            skip_first_screenshot=True
+        )
+
     def combat_prepare(self, team=1, support_character: str = None):
         """
         Args:
@@ -242,11 +265,11 @@ class OrnamentCombat(Dungeon, RouteLoader):
             if trial > 5:
                 logger.critical('Failed to enter dungeon after 5 trial, probably because relics are full')
                 raise RequestHumanTakeover
-            if self.appear(SUPPORT_ADD):
+            if self.match_template_luma(SUPPORT_ADD):
                 check_team_prepare()
 
             # Click
-            if support_character and self.appear(SUPPORT_ADD, interval=2):
+            if support_character and self.match_template_luma(SUPPORT_ADD, interval=2):
                 self.support_set(support_character)
                 self.interval_reset(SUPPORT_ADD)
                 support_set = True

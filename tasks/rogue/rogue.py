@@ -115,6 +115,9 @@ class Rogue(RouteLoader, RogueEntry):
             self.config.task_call('Dungeon')
             self.config.task_stop()
 
+        self.config.task_delay(server_update=True)
+        self.config.task_stop()
+
         # Run
         success = self.rogue_once()
 

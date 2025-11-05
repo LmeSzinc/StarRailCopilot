@@ -75,7 +75,6 @@ class DungeonNavSwitch(DungeonTabSwitch):
             for below in [
                 KEYWORDS_DUNGEON_NAV.Echo_of_War,
                 KEYWORDS_DUNGEON_NAV.Cavern_of_Corrosion,
-                KEYWORDS_DUNGEON_NAV.Calyx_Crimson,
             ]:
                 if self.state_appear(below, main=main):
                     main.device.swipe_vector((0, 200), box=OCR_DUNGEON_NAV.area)
@@ -173,7 +172,7 @@ class DungeonUINav(UI):
         nav.add_state(
             KEYWORDS_DUNGEON_NAV.Stagnant_Shadow,
             check_button=STAGNANT_SHADOW_CHECK,
-            click_button=SURVIVAL_INDEX_CLICK
+            click_button=STAGNANT_SHADOW_CLICK
         )
         nav.add_state(
             KEYWORDS_DUNGEON_NAV.Cavern_of_Corrosion,

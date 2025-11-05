@@ -295,7 +295,7 @@
       "Stagnant_Shadow_Rime": "晉階材料：冰（三月七 / 黑塔 / 傑帕德 / 佩拉）",
       "Stagnant_Shadow_Icicle": "晉階材料：冰（彥卿 / 鏡流 / 阮•梅）",
       "Stagnant_Shadow_Nectar": "晉階材料：冰（米沙 / 大黑塔）",
-      "Stagnant_Shadow_Sirens": "晉階材料：冰（長夜月）",
+      "Stagnant_Shadow_Sirens": "晉階材料：冰（昔漣 / 長夜月）",
       "Stagnant_Shadow_Fulmination": "晉階材料：雷（阿蘭 / 希露瓦 / 停雲 / 白露）",
       "Stagnant_Shadow_Doom": "晉階材料：雷（卡芙卡 / 景元 / 黃泉）",
       "Stagnant_Shadow_Mechwolf": "晉階材料：雷（貊澤 / 阿格萊雅）",
@@ -493,7 +493,8 @@
       "Sampo": "桑博",
       "Tingyun": "停雲",
       "Pela": "佩拉",
-      "Natasha": "娜塔莎"
+      "Natasha": "娜塔莎",
+      "Cyrene": "昔漣"
     }
   },
   "DungeonStorage": {
@@ -673,8 +674,12 @@
       "name": "晉階材料：物理（白厄 / 海瑟音 / 丹恆•騰荒）",
       "help": ""
     },
+    "Item_Radiant_Prominence": {
+      "name": "Unknown_Dungeon_Come_From",
+      "help": ""
+    },
     "Item_Sea_Siren_Torn_Fin": {
-      "name": "晉階材料：冰（長夜月）",
+      "name": "晉階材料：冰（昔漣 / 長夜月）",
       "help": ""
     },
     "Item_Charred_Bud_of_Twilight": {
@@ -779,6 +784,10 @@
     },
     "Item_Daythunder_Anamnesis": {
       "name": "晨昏的回眸 (翁法羅斯)",
+      "help": ""
+    },
+    "Item_Vanquished_Flow_Reticence": {
+      "name": "Unknown_Dungeon_Come_From",
       "help": ""
     },
     "Item_Squirming_Core": {
@@ -916,12 +925,14 @@
       "Sampo": "桑博",
       "Tingyun": "停雲",
       "Pela": "佩拉",
-      "Natasha": "娜塔莎"
+      "Natasha": "娜塔莎",
+      "Cyrene": "昔漣"
     },
     "Cone": {
       "name": "養成光錐",
       "help": "",
       "_none_": "無",
+      "This_Love_Forever": "昔漣 | 5* 愛如此刻永恆",
       "Though_Worlds_Apart": "[3.6] 丹恆•騰荒 | 5* 縱然山河萬程",
       "To_Evernight_Stars": "[3.6] 長夜月 | 5* 致長夜的星光",
       "Epoch_Etched_in_Golden_Blood": "[3.5] 刻律德菈 | 5* 金血銘刻的時代",
@@ -979,6 +990,7 @@
       "But_the_Battle_Isn_t_Over": "5* 但戰鬥還未結束",
       "Something_Irreplaceable": "5* 無可取代的東西",
       "Night_on_the_Milky_Way": "5* 銀河鐵道之夜",
+      "Fly_Into_a_Pink_Tomorrow": "4* 飛向粉紅色的明天",
       "The_Forever_Victual": "4* 永遠的迷境飯",
       "The_Great_Cosmic_Enterprise": "4* 宇宙大生意",
       "Ninja_Record_Sound_Hunt": "4* 忍事錄•音律狩獵",
@@ -1093,6 +1105,7 @@
       "name": "養成內圈遺器",
       "help": "",
       "_none_": "無",
+      "Divergent_Universe_Within_the_West_Wind": "飾品：翁法羅斯 & 天國（西風叢中）",
       "Divergent_Universe_Moonlit_Blood": "飾品：妖精 & 沉醉（月下朱殷）",
       "Divergent_Universe_Unceasing_Strife": "飾品：拾骨地 & 巨樹（紛爭不休）",
       "Divergent_Universe_Famished_Worker": "飾品：海域 & 奇想（蠹役飢腸）",
@@ -1583,6 +1596,7 @@
     "Dungeon": {
       "name": "副本名稱",
       "help": "",
+      "Divergent_Universe_Within_the_West_Wind": "飾品：翁法羅斯 & 天國（西風叢中）",
       "Divergent_Universe_Moonlit_Blood": "飾品：妖精 & 沉醉（月下朱殷）",
       "Divergent_Universe_Unceasing_Strife": "飾品：拾骨地 & 巨樹（紛爭不休）",
       "Divergent_Universe_Famished_Worker": "飾品：海域 & 奇想（蠹役飢腸）",

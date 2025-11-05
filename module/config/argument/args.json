@@ -375,6 +375,12 @@
         "display": "display",
         "stored": "StoredPlanner"
       },
+      "Item_Radiant_Prominence": {
+        "type": "planner",
+        "value": {},
+        "display": "display",
+        "stored": "StoredPlanner"
+      },
       "Item_Sea_Siren_Torn_Fin": {
         "type": "planner",
         "value": {},
@@ -532,6 +538,12 @@
         "stored": "StoredPlanner"
       },
       "Item_Daythunder_Anamnesis": {
+        "type": "planner",
+        "value": {},
+        "display": "display",
+        "stored": "StoredPlanner"
+      },
+      "Item_Vanquished_Flow_Reticence": {
         "type": "planner",
         "value": {},
         "display": "display",
@@ -696,7 +708,8 @@
           "Sampo",
           "Tingyun",
           "Pela",
-          "Natasha"
+          "Natasha",
+          "Cyrene"
         ]
       },
       "Cone": {
@@ -706,6 +719,7 @@
         "display": "hide",
         "option": [
           "_none_",
+          "This_Love_Forever",
           "Though_Worlds_Apart",
           "To_Evernight_Stars",
           "Epoch_Etched_in_Golden_Blood",
@@ -763,6 +777,7 @@
           "But_the_Battle_Isn_t_Over",
           "Something_Irreplaceable",
           "Night_on_the_Milky_Way",
+          "Fly_Into_a_Pink_Tomorrow",
           "The_Forever_Victual",
           "The_Great_Cosmic_Enterprise",
           "Ninja_Record_Sound_Hunt",
@@ -885,6 +900,7 @@
         "display": "hide",
         "option": [
           "_none_",
+          "Divergent_Universe_Within_the_West_Wind",
           "Divergent_Universe_Moonlit_Blood",
           "Divergent_Universe_Unceasing_Strife",
           "Divergent_Universe_Famished_Worker",
@@ -1271,7 +1287,8 @@
           "Sampo",
           "Tingyun",
           "Pela",
-          "Natasha"
+          "Natasha",
+          "Cyrene"
         ]
       }
     },
@@ -1381,6 +1398,7 @@
         "type": "select",
         "value": "Divergent_Universe_Eternal_Comedy",
         "option": [
+          "Divergent_Universe_Within_the_West_Wind",
           "Divergent_Universe_Moonlit_Blood",
           "Divergent_Universe_Unceasing_Strife",
           "Divergent_Universe_Famished_Worker",
@@ -1530,7 +1548,8 @@
           "Sampo",
           "Tingyun",
           "Pela",
-          "Natasha"
+          "Natasha",
+          "Cyrene"
         ]
       }
     },
@@ -2119,7 +2138,8 @@
           "Sampo",
           "Tingyun",
           "Pela",
-          "Natasha"
+          "Natasha",
+          "Cyrene"
         ]
       }
     }

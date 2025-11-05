@@ -39,8 +39,11 @@ class DungeonTabSwitch(Switch):
             main (ModuleBase):
         """
         button = self.get_data(state)['click_button']
-        _ = main.appear(button)  # Search button to load offset
-        main.device.click(button)
+        if main.appear(button):  # Search button to load offset
+            main.device.click(button)
+            return True
+        return False
+
 
 
 SWITCH_DUNGEON_TAB = DungeonTabSwitch('DungeonTab', is_selector=True)

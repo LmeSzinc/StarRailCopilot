@@ -1083,6 +1083,18 @@ The_Forever_Victual = Cone(
     path_name='Harmony',
     character_name='',
 )
+Fly_Into_a_Pink_Tomorrow = Cone(
+    id=22006,
+    name='Fly_Into_a_Pink_Tomorrow',
+    cn='飞向粉色的明天',
+    cht='飛向粉紅色的明天',
+    en='Fly Into a Pink Tomorrow',
+    jp='ピンク色の明日へ',
+    es='Volando hacia un mañana rosado',
+    rarity='VeryRare',
+    path_name='Remembrance',
+    character_name='',
+)
 Night_on_the_Milky_Way = Cone(
     id=23000,
     name='Night_on_the_Milky_Way',
@@ -1694,6 +1706,18 @@ Though_Worlds_Apart = Cone(
     rarity='SuperRare',
     path_name='Preservation',
     character_name='DanHengPermansorTerrae',
+)
+This_Love_Forever = Cone(
+    id=23052,
+    name='This_Love_Forever',
+    cn='爱如此刻永恒',
+    cht='愛如此刻永恆',
+    en='This Love, Forever',
+    jp='愛はいま永遠に',
+    es='Amor eterno como este momento',
+    rarity='SuperRare',
+    path_name='Remembrance',
+    character_name='Cyrene',
 )
 On_the_Fall_of_an_Aeon = Cone(
     id=24000,

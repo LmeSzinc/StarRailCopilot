@@ -698,5 +698,33 @@
     "en": "Revelry",
     "jp": "酩酊",
     "es": "Embriagado"
+  },
+  "AmphoreusTheEternalLand": {
+    "setid": 323,
+    "dungeon_id": 340,
+    "cn_origin": "永恒之地翁法罗斯",
+    "cht_origin": "永恆之地翁法羅斯",
+    "en_origin": "Amphoreus, The Eternal Land",
+    "jp_origin": "永遠の地オンパロス",
+    "es_origin": "Amphoreus, la tierra eterna",
+    "cn": "永恒之地翁法罗斯",
+    "cht": "永恆之地翁法羅斯",
+    "en": "Amphoreus, The Eternal Land",
+    "jp": "永遠の地オンパロス",
+    "es": "Amphoreus, la tierra eterna"
+  },
+  "TengokuLivestream": {
+    "setid": 324,
+    "dungeon_id": 340,
+    "cn_origin": "天国@直播间",
+    "cht_origin": "天國@直播頻道",
+    "en_origin": "Tengoku@Livestream",
+    "jp_origin": "天国@配信ルーム",
+    "es_origin": "Tengoku@sala de chat",
+    "cn": "天国@直播间",
+    "cht": "天國@直播頻道",
+    "en": "Tengoku@Livestream",
+    "jp": "天国@配信ルーム",
+    "es": "Tengoku@sala de chat"
   }
 }

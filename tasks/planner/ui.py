@@ -246,7 +246,7 @@ class PlannerUI(UI):
         """
         logger.info('Planner insight character')
         for _ in self.loop():
-            if self.appear(SELECT_ENTER):
+            if self.match_template_luma(SELECT_ENTER):
                 logger.info(f'Insight character at {SELECT_ENTER}')
                 break
             if self.appear(CHARACTER_SWITCH):
@@ -266,15 +266,17 @@ class PlannerUI(UI):
         """
         logger.info('Planner insight cone')
         for _ in self.loop():
-            if self.appear(SELECT_ENTER):
+            if self.match_template_luma(SELECT_ENTER):
                 logger.info(f'Insight cone at {SELECT_ENTER}')
                 break
-            if self.appear(CONE_EMPTY):
+            if self.match_template_luma(CONE_EMPTY):
                 logger.info(f'Insight cone at {CONE_EMPTY}')
                 break
             if self.appear(CONE_LEVEL):
-                logger.info(f'Insight cone at {CONE_LEVEL}')
-                break
+                # wait until swipe end and CONE_LEVEL at its position
+                if CONE_LEVEL.matched_button._button_offset[1] <= 7:
+                    logger.info(f'Insight cone at {CONE_LEVEL}')
+                    break
 
             if self.handle_planner_aside_close():
                 continue

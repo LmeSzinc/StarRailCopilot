@@ -965,6 +965,19 @@ DanHengPermansorTerrae = CharacterList(
     relic_setid=128,
     ornament_setid=317,
 )
+Cyrene = CharacterList(
+    id=1415,
+    name='Cyrene',
+    cn='昔涟',
+    cht='昔漣',
+    en='Cyrene',
+    jp='キュレネ',
+    es='Cirene',
+    type_name='Ice',
+    path_name='Remembrance',
+    relic_setid=127,
+    ornament_setid=323,
+)
 TrailblazerDestruction = CharacterList(
     id=8002,
     name='TrailblazerDestruction',

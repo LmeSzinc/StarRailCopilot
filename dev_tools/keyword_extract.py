@@ -127,7 +127,7 @@ class KeywordExtract:
             "Go_on_assignment_1_time",  # -> Dispatch_1_assignments
             "Complete_Simulated_Universe_1_times",  # same
             "Complete_1_stage_in_Simulated_Universe_Any_world",
-            # -> Complete_Divergent_Universe_or_Simulated_Universe_1_times
+            # -> Complete_Divergent_Universe_or_Currency_Wars_1_times
             "Complete_Calyx_Crimson_1_time",  # -> Clear_Calyx_Crimson_1_times
             "Enter_combat_by_attacking_enemy_Weakness_and_win_3_times",
             # -> Enter_combat_by_attacking_enemie_Weakness_and_win_1_times
@@ -145,7 +145,7 @@ class KeywordExtract:
 
         correct_times = {
             #    "Dispatch_1_assignments":  1,
-            #    "Complete_Divergent_Universe_or_Simulated_Universe_1_times": 1,
+            #    "Complete_Divergent_Universe_or_Currency_Wars_1_times": 1,
             #    "Clear_Calyx_Crimson_1_times": 1,
             "Enter_combat_by_attacking_enemie_Weakness_and_win_1_times": 3,
             "Use_Technique_1_times": 2,
@@ -277,8 +277,8 @@ class KeywordExtract:
         """)
         gen.CommentAutoGenerage('dev_tools.keyword_extract')
         for index, (keyword, characters) in enumerate(shadow_info.items()):
-            # if not characters:
-            #     continue
+            if not characters:
+                continue
             _, name = self.find_keyword(keyword, lang='en')
             name = text_to_variable(name).replace('Shape_of_', '')
             with gen.Object(key=name, object_class=keyword_class):
@@ -563,11 +563,12 @@ class KeywordExtract:
             yield hash_
 
     def generate(self):
-        self.load_keywords(['饰品提取', '差分宇宙', '模拟宇宙',
-                            '拟造花萼（金）', '拟造花萼（赤）', '凝滞虚影', '侵蚀隧洞', '历战余响',
-                            '最近更新', '忘却之庭', '虚构叙事', '末日幻影'])
+        self.load_keywords([
+            '培养目标', '饰品提取', '拟造花萼（金）', '拟造花萼（赤）', '凝滞虚影', '侵蚀隧洞', '历战余响',
+            '货币战争', '差分宇宙', '模拟宇宙',
+            '异相仲裁', '最近更新', '忘却之庭', '虚构叙事', '末日幻影'])
         self.write_keywords(keyword_class='DungeonNav', output_file='./tasks/dungeon/keywords/nav.py')
-        self.load_keywords(['行动摘要', '生存索引', '每日实训', '模拟宇宙', '逐光捡金', '战术训练'])
+        self.load_keywords(['行动摘要', '生存索引', '每日实训', '模拟宇宙', '逐光捡金', '战术训练', '开拓历程'])
         self.write_keywords(keyword_class='DungeonTab', output_file='./tasks/dungeon/keywords/tab.py')
         self.load_keywords(['前往', '领取', '进行中', '已领取', '本日活跃度已满'])
         self.write_keywords(keyword_class='DailyQuestState', output_file='./tasks/daily/keywords/daily_quest_state.py')

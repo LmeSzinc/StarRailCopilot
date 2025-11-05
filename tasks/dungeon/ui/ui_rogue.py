@@ -6,7 +6,6 @@ from tasks.dungeon.assets.assets_dungeon_ui import *
 from tasks.dungeon.assets.assets_dungeon_ui_list import OCR_DUNGEON_LIST
 from tasks.dungeon.assets.assets_dungeon_ui_rogue import *
 from tasks.dungeon.keywords import KEYWORDS_DUNGEON_NAV, KEYWORDS_DUNGEON_TAB
-from tasks.dungeon.ui.nav import SWITCH_DUNGEON_TAB
 from tasks.dungeon.ui.ui import DungeonUI
 from tasks.forgotten_hall.assets.assets_forgotten_hall_ui import TELEPORT
 
@@ -60,8 +59,8 @@ class DungeonRogueUI(DungeonUI):
                 unlocked_oe = True
                 break
             # End with other dungeon tabs
-            current = SWITCH_DUNGEON_TAB.get(main=self)
-            logger.attr(SWITCH_DUNGEON_TAB.name, current)
+            current = self.dungeon_tab.get(main=self)
+            logger.attr(self.dungeon_tab.name, current)
             if current != 'unknown':
                 logger.info('No rogue tab')
                 unlocked_oe = False
@@ -70,7 +69,7 @@ class DungeonRogueUI(DungeonUI):
         if not unlocked_oe:
             state = KEYWORDS_DUNGEON_TAB.Survival_Index
             # Switch tab
-            tab_switched = SWITCH_DUNGEON_TAB.set(state, main=self)
+            tab_switched = self.dungeon_tab.set(state, main=self)
             if ui_switched or tab_switched:
                 logger.info(f'Tab goto {state}, wait until loaded')
                 self._dungeon_wait_survival_index_loaded()
@@ -89,7 +88,7 @@ class DungeonRogueUI(DungeonUI):
         # switch when OE unlocked
         state = KEYWORDS_DUNGEON_TAB.Simulated_Universe
         # Switch tab
-        tab_switched = SWITCH_DUNGEON_TAB.set(state, main=self)
+        tab_switched = self.dungeon_tab.set(state, main=self)
         if ui_switched or tab_switched:
             logger.info(f'Tab goto {state}, wait until loaded')
             self._dungeon_wait_until_rogue_loaded()

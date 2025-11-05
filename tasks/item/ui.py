@@ -27,8 +27,10 @@ class SwitchItemTab(Switch):
             main (ModuleBase):
         """
         button = self.get_data(state)['click_button']
-        _ = button.match_template_luma(main.device.image)  # Search button to load offset
-        main.device.click(button)
+        if button.match_template_luma(main.device.image):  # Search button to load offset
+            main.device.click(button)
+            return True
+        return False
 
     def is_state_insight(self, state, main):
         data = self.get_data(state)

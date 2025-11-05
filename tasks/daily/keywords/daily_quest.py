@@ -129,14 +129,14 @@ Dispatch_1_assignments = DailyQuest(
     jp='依頼を1回派遣する',
     es='Asigna 1 encargo',
 )
-Complete_Divergent_Universe_or_Simulated_Universe_1_times = DailyQuest(
+Complete_Divergent_Universe_or_Currency_Wars_1_times = DailyQuest(
     id=29,
-    name='Complete_Divergent_Universe_or_Simulated_Universe_1_times',
-    cn='完成1次「差分宇宙」或「模拟宇宙」',
-    cht='完成1次「差分宇宙」或「模擬宇宙」',
-    en='Complete Divergent Universe or Simulated Universe 1 time(s)',
-    jp='「階差宇宙」または「模擬宇宙」を合計1回クリアする',
-    es='Completa el Universo Simulado o el Universo Diferenciado 1 vez',
+    name='Complete_Divergent_Universe_or_Currency_Wars_1_times',
+    cn='完成1次「差分宇宙」或「货币战争」',
+    cht='完成1次「差分宇宙」或「貨幣戰爭」',
+    en='Complete Divergent Universe or Currency Wars 1 time(s)',
+    jp='「階差宇宙」または「マネーウォーズ」を合計1回クリアする',
+    es='Completa 1 vez el Universo Diferenciado o la Guerra de Divisas',
 )
 Clear_Calyx_Crimson_1_times = DailyQuest(
     id=30,

@@ -398,6 +398,17 @@
     "order": 0,
     "color": "#777777"
   },
+  "Item_Radiant_Prominence": {
+    "name": "Item_Radiant_Prominence",
+    "path": "Dungeon.Planner.Item_Radiant_Prominence",
+    "i18n": "Planner.Item_Radiant_Prominence.name",
+    "stored": "StoredPlanner",
+    "attrs": {
+      "time": "2020-01-01 00:00:00"
+    },
+    "order": 0,
+    "color": "#777777"
+  },
   "Item_Sea_Siren_Torn_Fin": {
     "name": "Item_Sea_Siren_Torn_Fin",
     "path": "Dungeon.Planner.Item_Sea_Siren_Torn_Fin",
@@ -688,6 +699,17 @@
     "name": "Item_Daythunder_Anamnesis",
     "path": "Dungeon.Planner.Item_Daythunder_Anamnesis",
     "i18n": "Planner.Item_Daythunder_Anamnesis.name",
+    "stored": "StoredPlanner",
+    "attrs": {
+      "time": "2020-01-01 00:00:00"
+    },
+    "order": 0,
+    "color": "#777777"
+  },
+  "Item_Vanquished_Flow_Reticence": {
+    "name": "Item_Vanquished_Flow_Reticence",
+    "path": "Dungeon.Planner.Item_Vanquished_Flow_Reticence",
+    "i18n": "Planner.Item_Vanquished_Flow_Reticence.name",
     "stored": "StoredPlanner",
     "attrs": {
       "time": "2020-01-01 00:00:00"

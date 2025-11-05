@@ -165,6 +165,27 @@ class PopupHandler(ModuleBase):
 
         return False
 
+    def handle_forgotten_hall_buff(self, interval=2):
+        """
+        Handle buff popups when entering forgotten hall
+
+        Returns:
+            bool: If handled.
+        """
+        if self.match_template_luma(BUFF_Forgotten_Hall, interval=interval):
+            logger.info(f'{BUFF_Forgotten_Hall} -> {BUFF_CLICK}')
+            self.device.click(BUFF_CLICK)
+            return True
+        if self.match_template_luma(BUFF_Pure_Fiction, interval=interval):
+            logger.info(f'{BUFF_Pure_Fiction} -> {BUFF_CLICK}')
+            self.device.click(BUFF_CLICK)
+            return True
+        if self.match_template_luma(BUFF_Apocalyptic_Shadow, interval=interval):
+            logger.info(f'{BUFF_Apocalyptic_Shadow} -> {BUFF_CLICK}')
+            self.device.click(BUFF_CLICK)
+            return True
+        return False
+
     def handle_ui_close(self, appear_button: ButtonWrapper | Callable, interval=2) -> bool:
         """
         Args:

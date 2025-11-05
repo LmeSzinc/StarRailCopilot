@@ -3,6 +3,7 @@ from typing import Optional
 from pponnxcr.predict_system import BoxedResult
 
 from module.base.button import ClickButton
+from module.base.decorator import cached_property
 from module.base.utils import random_rectangle_vector_opted
 from module.exception import ScriptError
 from module.logger import logger
@@ -10,10 +11,9 @@ from module.ocr.ocr import Ocr, OcrResultButton, Digit
 from tasks.character.keywords import CharacterList
 from tasks.cone.keywords import Cone
 from tasks.planner.assets import assets_planner_selectpath as assets_path
-from tasks.planner.assets.assets_planner_enter import CONE_MATERIAL_CHECK
+from tasks.planner.assets.assets_planner_enter import CONE_MATERIAL_CHECK, CHARACTER_MATERIAL_CHECK
 from tasks.planner.assets.assets_planner_result import START_CALCULATE
 from tasks.planner.assets.assets_planner_select import *
-from tasks.planner.lang import PlannerLang
 from tasks.planner.ui import PlannerUI
 
 
@@ -37,7 +37,7 @@ class SelectOcr(Ocr):
 
     def after_process(self, result):
         # TheUnreachabl...As
-        result, _,  _ = result.partition('...')
+        result, _, _ = result.partition('...')
         # Thus Burnsthe DawnAS
         lower = result.lower()
         if lower.endswith('as'):
@@ -71,14 +71,46 @@ class SelectOcr(Ocr):
         return None
 
 
-class PlannerSelect(PlannerUI, PlannerLang):
+class PlannerSelect(PlannerUI):
+    @cached_property
+    def planner_select_lang(self):
+        """
+        Returns:
+            str: 'cn' for CN package that has extra letters to the right of trace icons
+                'en' for OVERSEA package and lang='cn' on oversea package that has just bare trace icons
+        """
+        if self.config.Emulator_PackageName in ['CN-Official', 'CN-Bilibili']:
+            lang = 'cn'
+        elif self.config.Emulator_PackageName in [
+            'OVERSEA-America', 'OVERSEA-Asia', 'OVERSEA-Europe', 'OVERSEA-TWHKMO']:
+            lang = 'en'
+        else:
+            lang = self.config.LANG
+            if lang == 'auto':
+                logger.error('Language was not set before planner scan, assume it is "cn"')
+                lang = 'cn'
+        logger.attr('PlannerSelectLang', lang)
+        return lang
+
+    @cached_property
+    def planner_lang(self):
+        lang = self.config.Emulator_GameLanguage
+        if lang != 'auto':
+            logger.attr('PlannerLang', lang)
+            return lang
+        # predict from package name
+        logger.warning('Failed to predict planner lang, convert from package name')
+        lang = self.planner_select_lang
+        logger.attr('PlannerLang', lang)
+        return lang
+
     def ocr_planner_select_area(self):
-        if self.planner_lang == 'cn':
+        if self.planner_select_lang == 'cn':
             area = CHARACTER_AREA_CN.area
-        elif self.planner_lang == 'en':
+        elif self.planner_select_lang == 'en':
             area = CHARACTER_AREA_EN.area
         else:
-            logger.warning(f'Cannot convert planner lang {self.planner_lang} to select area, use cn instead')
+            logger.warning(f'Cannot convert planner lang {self.planner_select_lang} to select area, use cn instead')
             area = CHARACTER_AREA_CN.area
         return ClickButton(area)
 
@@ -252,5 +284,8 @@ if __name__ == '__main__':
     self = PlannerSelect('oversea')
     self.device.screenshot()
     self.ui_ensure_planner()
+    self.planner_calculate_target.set(CHARACTER_MATERIAL_CHECK, main=self)
+    self.planner_insight_character()
+    self.planner_character_enter()
     c = CharacterList.find_name('DanHengImbibitorLunae')
     self.select_planner_character(c)

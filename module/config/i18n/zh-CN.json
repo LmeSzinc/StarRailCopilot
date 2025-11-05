@@ -295,7 +295,7 @@
       "Stagnant_Shadow_Rime": "晋阶材料：冰（三月七 / 黑塔 / 杰帕德 / 佩拉）",
       "Stagnant_Shadow_Icicle": "晋阶材料：冰（彦卿 / 镜流 / 阮•梅）",
       "Stagnant_Shadow_Nectar": "晋阶材料：冰（米沙 / 大黑塔）",
-      "Stagnant_Shadow_Sirens": "晋阶材料：冰（长夜月）",
+      "Stagnant_Shadow_Sirens": "晋阶材料：冰（昔涟 / 长夜月）",
       "Stagnant_Shadow_Fulmination": "晋阶材料：雷（阿兰 / 希露瓦 / 停云 / 白露）",
       "Stagnant_Shadow_Doom": "晋阶材料：雷（卡芙卡 / 景元 / 黄泉）",
       "Stagnant_Shadow_Mechwolf": "晋阶材料：雷（貊泽 / 阿格莱雅）",
@@ -372,7 +372,10 @@
       "6": "6",
       "7": "7",
       "8": "8",
-      "9": "9"
+      "9": "9",
+      "10": "10",
+      "11": "11",
+      "12": "12"
     }
   },
   "TrailblazePower": {
@@ -490,7 +493,8 @@
       "Sampo": "桑博",
       "Tingyun": "停云",
       "Pela": "佩拉",
-      "Natasha": "娜塔莎"
+      "Natasha": "娜塔莎",
+      "Cyrene": "昔涟"
     }
   },
   "DungeonStorage": {
@@ -670,8 +674,12 @@
       "name": "晋阶材料：物理（白厄 / 海瑟音 / 丹恒•腾荒）",
       "help": ""
     },
+    "Item_Radiant_Prominence": {
+      "name": "Unknown_Dungeon_Come_From",
+      "help": ""
+    },
     "Item_Sea_Siren_Torn_Fin": {
-      "name": "晋阶材料：冰（长夜月）",
+      "name": "晋阶材料：冰（昔涟 / 长夜月）",
       "help": ""
     },
     "Item_Charred_Bud_of_Twilight": {
@@ -776,6 +784,10 @@
     },
     "Item_Daythunder_Anamnesis": {
       "name": "晨昏的回眸 (翁法罗斯)",
+      "help": ""
+    },
+    "Item_Vanquished_Flow_Reticence": {
+      "name": "Unknown_Dungeon_Come_From",
       "help": ""
     },
     "Item_Squirming_Core": {
@@ -913,12 +925,14 @@
       "Sampo": "桑博",
       "Tingyun": "停云",
       "Pela": "佩拉",
-      "Natasha": "娜塔莎"
+      "Natasha": "娜塔莎",
+      "Cyrene": "昔涟"
     },
     "Cone": {
       "name": "养成光锥",
       "help": "",
       "_none_": "无",
+      "This_Love_Forever": "昔涟 | 5* 爱如此刻永恒",
       "Though_Worlds_Apart": "[3.6] 丹恒•腾荒 | 5* 纵然山河万程",
       "To_Evernight_Stars": "[3.6] 长夜月 | 5* 致长夜的星光",
       "Epoch_Etched_in_Golden_Blood": "[3.5] 刻律德菈 | 5* 金血铭刻的时代",
@@ -976,6 +990,7 @@
       "But_the_Battle_Isn_t_Over": "5* 但战斗还未结束",
       "Something_Irreplaceable": "5* 无可取代的东西",
       "Night_on_the_Milky_Way": "5* 银河铁道之夜",
+      "Fly_Into_a_Pink_Tomorrow": "4* 飞向粉色的明天",
       "The_Forever_Victual": "4* 永远的迷境饭",
       "The_Great_Cosmic_Enterprise": "4* 宇宙大生意",
       "Ninja_Record_Sound_Hunt": "4* 忍事录•音律狩猎",
@@ -1090,6 +1105,7 @@
       "name": "养成内圈遗器",
       "help": "",
       "_none_": "无",
+      "Divergent_Universe_Within_the_West_Wind": "饰品：翁法罗斯 & 天国（西风丛中）",
       "Divergent_Universe_Moonlit_Blood": "饰品：妖精 & 沉醉（月下朱殷）",
       "Divergent_Universe_Unceasing_Strife": "饰品：拾骨地 & 巨树（纷争不休）",
       "Divergent_Universe_Famished_Worker": "饰品：海域 & 奇想（蠹役饥肠）",
@@ -1513,6 +1529,10 @@
     "SimulatedUniverseFarm": {
       "name": "刷精英怪进度",
       "help": ""
+    },
+    "Team": {
+      "name": "模拟宇宙队伍",
+      "help": ""
     }
   },
   "RogueBlessing": {
@@ -1576,6 +1596,7 @@
     "Dungeon": {
       "name": "副本名称",
       "help": "",
+      "Divergent_Universe_Within_the_West_Wind": "饰品：翁法罗斯 & 天国（西风丛中）",
       "Divergent_Universe_Moonlit_Blood": "饰品：妖精 & 沉醉（月下朱殷）",
       "Divergent_Universe_Unceasing_Strife": "饰品：拾骨地 & 巨树（纷争不休）",
       "Divergent_Universe_Famished_Worker": "饰品：海域 & 奇想（蠹役饥肠）",
@@ -1587,6 +1608,22 @@
       "Divergent_Universe_Gentle_Words": "饰品：商业公司 & 差分机（温柔话语）",
       "Divergent_Universe_Smelted_Heart": "饰品：盗贼 & 翁瓦克（浴火钢心）",
       "Divergent_Universe_Untoppled_Walls": "饰品：太空 & 仙舟（坚城不倒）"
+    },
+    "Team": {
+      "name": "打本队伍",
+      "help": "指定的队伍需要使用默认名称，不能使用自定义队伍名称",
+      "1": "1",
+      "2": "2",
+      "3": "3",
+      "4": "4",
+      "5": "5",
+      "6": "6",
+      "7": "7",
+      "8": "8",
+      "9": "9",
+      "10": "10",
+      "11": "11",
+      "12": "12"
     },
     "UseImmersifier": {
       "name": "使用沉浸器领取遗器",

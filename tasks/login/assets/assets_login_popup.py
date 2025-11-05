@@ -13,6 +13,25 @@ ADVERTISE_Castorice = ButtonWrapper(
         button=(478, 615, 500, 637),
     ),
 )
+ADVERTISE_Cyrene = ButtonWrapper(
+    name='ADVERTISE_Cyrene',
+    share=[
+        Button(
+            file='./assets/share/login/popup/ADVERTISE_Cyrene.png',
+            area=(582, 646, 612, 667),
+            search=(562, 626, 632, 687),
+            color=(143, 128, 160),
+            button=(582, 646, 612, 667),
+        ),
+        Button(
+            file='./assets/share/login/popup/ADVERTISE_Cyrene.2.png',
+            area=(579, 646, 620, 667),
+            search=(559, 626, 640, 687),
+            color=(150, 132, 165),
+            button=(579, 646, 620, 667),
+        ),
+    ],
+)
 CLAIM_CHARACTER = ButtonWrapper(
     name='CLAIM_CHARACTER',
     share=Button(
@@ -31,6 +50,16 @@ HOMECOMING_TITLE = ButtonWrapper(
         search=(598, 131, 683, 198),
         color=(203, 200, 197),
         button=(618, 151, 663, 178),
+    ),
+)
+MAIL_Cyrene = ButtonWrapper(
+    name='MAIL_Cyrene',
+    share=Button(
+        file='./assets/share/login/popup/MAIL_Cyrene.png',
+        area=(448, 550, 559, 578),
+        search=(428, 530, 579, 598),
+        color=(234, 139, 200),
+        button=(348, 549, 373, 580),
     ),
 )
 UNITY_ENGINE_ERROR = ButtonWrapper(

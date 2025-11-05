@@ -78,6 +78,13 @@ CONE_EMPTY = ButtonWrapper(
             color=(124, 126, 146),
             button=(432, 538, 516, 558),
         ),
+        Button(
+            file='./assets/share/planner/select/CONE_EMPTY.3.png',
+            area=(432, 538, 516, 558),
+            search=(364, 507, 631, 600),
+            color=(125, 126, 146),
+            button=(432, 538, 516, 558),
+        ),
     ],
 )
 CONE_LEVEL = ButtonWrapper(

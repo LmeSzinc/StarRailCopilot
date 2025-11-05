@@ -18,10 +18,7 @@ class Ornament(OrnamentCombat):
         result = super()._dungeon_wait_until_dungeon_list_loaded(skip_first_screenshot)
 
         # Check save file before entering
-        if self.image_color_count(
-                DIVERGENT_UNIVERSE_SAVE_UNAVAILABLE,
-                color=(140, 19, 26), threshold=221, count=1000,
-        ):
+        if self.match_template_luma(DIVERGENT_UNIVERSE_SAVE_UNAVAILABLE):
             logger.error(
                 'Divergent Universe save unavailable, '
                 'please clear Divergent Universe once before running Ornament Extraction'

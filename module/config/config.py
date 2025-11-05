@@ -524,7 +524,7 @@ class AzurLaneConfig(ConfigUpdater, ManualConfig, GeneratedConfig, ConfigWatcher
                     'Complete_1_Daily_Mission',
                     'Log_in_to_the_game',
                     'Dispatch_1_assignments',
-                    'Complete_Divergent_Universe_or_Simulated_Universe_1_times',
+                    'Complete_Divergent_Universe_or_Currency_Wars_1_times',
                     'Obtain_victory_in_combat_with_Support_Characters_1_times',
                     'Consume_120_Trailblaze_Power',
                 ])

@@ -579,3 +579,21 @@ Enkindled_Dreams = RogueBonus(
     jp='燃える夢',
     es='Sueños ardientes',
 )
+A_New_Beginning = RogueBonus(
+    id=65,
+    name='A_New_Beginning',
+    cn='新的开始',
+    cht='新的開始',
+    en='A New Beginning',
+    jp='新たな始まり',
+    es='Un nuevo comienzo',
+)
+Melodious_Strings = RogueBonus(
+    id=66,
+    name='Melodious_Strings',
+    cn='袅袅弦音',
+    cht='嫋嫋絃音',
+    en='Melodious Strings',
+    jp='たなびく弦の音',
+    es='Cuerdas melodiosas',
+)

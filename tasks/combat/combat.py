@@ -58,9 +58,22 @@ class Combat(CombatInteract, CombatPrepare, CombatSupport, CombatTeam, CombatSki
                 else:
                     return False
 
-        if cost == 10:
+        if cost > 0:
+            if cost == 10:
+                total = 24
+            elif cost == 40:
+                total = 6
+            elif cost == 30:
+                if self.dungeon is not None and self.dungeon.is_Stagnant_Shadow:
+                    total = 8
+                else:
+                    total = 3
+            else:
+                logger.warning(f'Cannot predict wave total from cost {cost}')
+                total = 6
+            logger.attr('CombatWaveTotal', total)
             # Calyx
-            self.combat_waves = min(current // cost, 6)
+            self.combat_waves = min(current // cost, total)
             if self.combat_wave_limit:
                 self.combat_waves = min(self.combat_waves, self.combat_wave_limit - self.combat_wave_done)
                 logger.info(
@@ -71,7 +84,7 @@ class Combat(CombatInteract, CombatPrepare, CombatSupport, CombatTeam, CombatSki
                 logger.info(f'Current has {current}, combat costs {cost}, '
                             f'able to do {self.combat_waves} waves')
             if self.combat_waves > 0:
-                self.combat_set_wave(self.combat_waves)
+                self.combat_set_wave(self.combat_waves, total)
         else:
             # Others
             logger.info(f'Current has {current}, combat costs {cost}, '
@@ -157,6 +170,11 @@ class Combat(CombatInteract, CombatPrepare, CombatSupport, CombatTeam, CombatSki
                         # Update stamina so task can be delayed if both obtained_is_full and stamina exhausted
                         self.combat_get_trailblaze_power()
                         return False
+                    if self.combat_wave_limit:
+                        if self.combat_wave_done >= self.combat_wave_limit:
+                            logger.info(f'Combat wave limit: {self.combat_wave_done}/{self.combat_wave_limit}, '
+                                        f'can not run again')
+                            return False
                     if not self.handle_combat_prepare():
                         return False
                     if self.is_doing_planner and self.combat_wave_cost == 0:
@@ -236,7 +254,7 @@ class Combat(CombatInteract, CombatPrepare, CombatSupport, CombatTeam, CombatSki
             return False
         # Wave limit
         if self.combat_wave_limit:
-            if self.combat_wave_done + self.combat_waves > self.combat_wave_limit:
+            if self.combat_wave_done >= self.combat_wave_limit:
                 logger.info(f'Combat wave limit: {self.combat_wave_done}/{self.combat_wave_limit}, '
                             f'can not run again')
                 return False

@@ -2,6 +2,7 @@ import cv2
 import numpy as np
 
 from module.base.base import ModuleBase
+from module.base.decorator import cached_property
 from module.base.timer import Timer
 from module.base.utils import get_color
 from module.logger import logger
@@ -10,6 +11,7 @@ from module.ui.draggable_list import DraggableList
 from module.ui.switch import Switch
 from tasks.base.page import page_guide
 from tasks.base.ui import UI
+from tasks.dungeon.assets.assets_dungeon_nav import *
 from tasks.dungeon.assets.assets_dungeon_ui import *
 from tasks.dungeon.assets.assets_dungeon_ui_rogue import *
 from tasks.dungeon.keywords import (
@@ -39,36 +41,58 @@ class DungeonTabSwitch(Switch):
             main (ModuleBase):
         """
         button = self.get_data(state)['click_button']
-        _ = main.appear(button)  # Search button to load offset
-        main.device.click(button)
+        if main.match_template_luma(button):  # Search button to load offset
+            main.device.click(button)
+            return True
+        return False
 
 
-SWITCH_DUNGEON_TAB = DungeonTabSwitch('DungeonTab', is_selector=True)
-SWITCH_DUNGEON_TAB.add_state(
-    KEYWORDS_DUNGEON_TAB.Operation_Briefing,
-    check_button=OPERATION_BRIEFING_CHECK,
-    click_button=OPERATION_BRIEFING_CLICK
-)
-SWITCH_DUNGEON_TAB.add_state(
-    KEYWORDS_DUNGEON_TAB.Daily_Training,
-    check_button=DAILY_TRAINING_CHECK,
-    click_button=DAILY_TRAINING_CLICK
-)
-SWITCH_DUNGEON_TAB.add_state(
-    KEYWORDS_DUNGEON_TAB.Survival_Index,
-    check_button=SURVIVAL_INDEX_CHECK,
-    click_button=SURVIVAL_INDEX_CLICK
-)
-SWITCH_DUNGEON_TAB.add_state(
-    KEYWORDS_DUNGEON_TAB.Simulated_Universe,
-    check_button=SIMULATED_UNIVERSE_CHECK,
-    click_button=SIMULATED_UNIVERSE_CLICK
-)
-SWITCH_DUNGEON_TAB.add_state(
-    KEYWORDS_DUNGEON_TAB.Treasures_Lightward,
-    check_button=TREASURES_LIGHTWARD_CHECK,
-    click_button=TREASURES_LIGHTWARD_CLICK
-)
+class DungeonNavSwitch(DungeonTabSwitch):
+    SEARCH_BUTTON = OCR_DUNGEON_NAV
+
+    def state_appear(self, state, main):
+        """
+        Args:
+            state:
+            main (ModuleBase):
+
+        Returns:
+            bool:
+        """
+        data = self.get_data(state)
+        if main.match_template_luma(data['check_button']):
+            return True
+        if main.match_template_luma(data['click_button']):
+            return True
+        return False
+
+    def handle_swipe(self, state, main):
+        if state in [
+            KEYWORDS_DUNGEON_NAV.Build_Target,
+            KEYWORDS_DUNGEON_NAV.Ornament_Extraction,
+            KEYWORDS_DUNGEON_NAV.Calyx_Golden,
+        ]:
+            for below in [
+                KEYWORDS_DUNGEON_NAV.Echo_of_War,
+                KEYWORDS_DUNGEON_NAV.Cavern_of_Corrosion,
+            ]:
+                if self.state_appear(below, main=main):
+                    main.device.swipe_vector((0, 200), box=OCR_DUNGEON_NAV.area)
+                    main.device.sleep(0.3)  # poor sleep indeed
+                    return True
+        elif state in [
+            KEYWORDS_DUNGEON_NAV.Cavern_of_Corrosion,
+            KEYWORDS_DUNGEON_NAV.Echo_of_War,
+        ]:
+            for up in [
+                KEYWORDS_DUNGEON_NAV.Build_Target,
+                KEYWORDS_DUNGEON_NAV.Ornament_Extraction,
+            ]:
+                if self.state_appear(up, main=main):
+                    main.device.swipe_vector((0, -200), box=OCR_DUNGEON_NAV.area)
+                    main.device.sleep(0.3)  # poor sleep indeed
+                    return True
+        return False
 
 
 class OcrDungeonNav(Ocr):
@@ -92,6 +116,76 @@ DUNGEON_NAV_LIST = DraggableDungeonNav(
 
 
 class DungeonUINav(UI):
+    @cached_property
+    def dungeon_tab(self):
+        tab = DungeonTabSwitch('DungeonTab', is_selector=True)
+        tab.add_state(
+            KEYWORDS_DUNGEON_TAB.Operation_Briefing,
+            check_button=OPERATION_BRIEFING_CHECK,
+            click_button=OPERATION_BRIEFING_CLICK
+        )
+        tab.add_state(
+            KEYWORDS_DUNGEON_TAB.Daily_Training,
+            check_button=DAILY_TRAINING_CHECK,
+            click_button=DAILY_TRAINING_CLICK
+        )
+        tab.add_state(
+            KEYWORDS_DUNGEON_TAB.Survival_Index,
+            check_button=SURVIVAL_INDEX_CHECK,
+            click_button=SURVIVAL_INDEX_CLICK
+        )
+        tab.add_state(
+            KEYWORDS_DUNGEON_TAB.Simulated_Universe,
+            check_button=SIMULATED_UNIVERSE_CHECK,
+            click_button=SIMULATED_UNIVERSE_CLICK
+        )
+        tab.add_state(
+            KEYWORDS_DUNGEON_TAB.Trailblaze_Experience,
+            check_button=TRAILBLAZE_EXPERIENCE_CHECK,
+            click_button=TRAILBLAZE_EXPERIENCE_CLICK
+        )
+        return tab
+
+    @cached_property
+    def dungeon_nav(self):
+        nav = DungeonNavSwitch('DungeonNav', is_selector=True)
+        nav.add_state(
+            KEYWORDS_DUNGEON_NAV.Build_Target,
+            check_button=BUILD_TARGET_CHECK,
+            click_button=BUILD_TARGET_CLICK
+        )
+        nav.add_state(
+            KEYWORDS_DUNGEON_NAV.Ornament_Extraction,
+            check_button=ORNAMENT_EXTRACTION_CHECK,
+            click_button=ORNAMENT_EXTRACTION_CLICK
+        )
+        nav.add_state(
+            KEYWORDS_DUNGEON_NAV.Calyx_Golden,
+            check_button=CALYX_GOLDEN_CHECK,
+            click_button=CALYX_GOLDEN_CLICK
+        )
+        nav.add_state(
+            KEYWORDS_DUNGEON_NAV.Calyx_Crimson,
+            check_button=CALYX_CRIMSON_CHECK,
+            click_button=CALYX_CRIMSON_CLICK
+        )
+        nav.add_state(
+            KEYWORDS_DUNGEON_NAV.Stagnant_Shadow,
+            check_button=STAGNANT_SHADOW_CHECK,
+            click_button=STAGNANT_SHADOW_CLICK
+        )
+        nav.add_state(
+            KEYWORDS_DUNGEON_NAV.Cavern_of_Corrosion,
+            check_button=CAVERN_OF_CORROSION_CHECK,
+            click_button=CAVERN_OF_CORROSION_CLICK
+        )
+        nav.add_state(
+            KEYWORDS_DUNGEON_NAV.Echo_of_War,
+            check_button=ECHO_OF_WAR_CHECK,
+            click_button=ECHO_OF_WAR_CLICK
+        )
+        return nav
+
     def dungeon_tab_goto(self, state: DungeonTab):
         """
         Args:
@@ -109,18 +203,12 @@ class DungeonUINav(UI):
         """
         logger.hr('Dungeon tab goto', level=2)
         ui_switched = self.ui_ensure(page_guide)
-        tab_switched = SWITCH_DUNGEON_TAB.set(state, main=self)
+        tab_switched = self.dungeon_tab.set(state, main=self)
 
         if ui_switched or tab_switched:
             if state == KEYWORDS_DUNGEON_TAB.Daily_Training:
                 logger.info(f'Tab goto {state}, wait until loaded')
                 self._dungeon_wait_daily_training_loaded()
-            elif state == KEYWORDS_DUNGEON_TAB.Survival_Index:
-                logger.info(f'Tab goto {state}, wait until loaded')
-                self._dungeon_wait_survival_index_loaded()
-            elif state == KEYWORDS_DUNGEON_TAB.Treasures_Lightward:
-                logger.info(f'Tab goto {state}, wait until loaded')
-                self._dungeon_wait_treasures_lightward_loaded()
             return True
         else:
             return False
@@ -185,33 +273,6 @@ class DungeonUINav(UI):
             return True
         return False
 
-    def _dungeon_wait_treasures_lightward_loaded(self, skip_first_screenshot=True):
-        """
-        Returns:
-            bool: True if wait success, False if wait timeout.
-
-        Pages:
-            in: page_guide, Survival_Index
-        """
-        timeout = Timer(2, count=4).start()
-        TREASURES_LIGHTWARD_LOADED.set_search_offset((5, 5))
-        TREASURES_LIGHTWARD_LOCKED.set_search_offset((5, 5))
-        while 1:
-            if skip_first_screenshot:
-                skip_first_screenshot = False
-            else:
-                self.device.screenshot()
-
-            if timeout.reached():
-                logger.warning('Wait treasures lightward loaded timeout')
-                return False
-            if self.appear(TREASURES_LIGHTWARD_LOADED):
-                logger.info('Treasures lightward loaded (event unlocked)')
-                return True
-            if self.appear(TREASURES_LIGHTWARD_LOCKED):
-                logger.info('Treasures lightward loaded (event locked)')
-                return True
-
     def _dungeon_list_button_has_content(self):
         # Check if having any content
         # List background: 254, guild border: 225
@@ -274,83 +335,15 @@ class DungeonUINav(UI):
                 logger.info('No Echo_of_War in list skip waiting')
                 return False
 
-    def dungeon_nav_goto(self, nav: DungeonNav, skip_first_screenshot=True):
+    def dungeon_nav_goto(self, nav: DungeonNav):
         """
         Equivalent to `DUNGEON_NAV_LIST.select_row(dungeon.dungeon_nav, main=self)`
         but with tricks to be faster
 
         Args:
             nav:
-            skip_first_screenshot:
         """
         logger.hr('Dungeon nav goto', level=2)
         logger.info(f'Dungeon nav goto {nav}')
 
-        # Wait rows
-        while 1:
-            if skip_first_screenshot:
-                skip_first_screenshot = False
-            else:
-                self.device.screenshot()
-            DUNGEON_NAV_LIST.load_rows(main=self)
-            if DUNGEON_NAV_LIST.cur_buttons:
-                break
-
-        # Wait first row selected
-        timeout = Timer(0.5, count=2).start()
-        skip_first_screenshot = True
-        while 1:
-            if skip_first_screenshot:
-                skip_first_screenshot = False
-            else:
-                self.device.screenshot()
-            if timeout.reached():
-                logger.info('DUNGEON_NAV_LIST not selected')
-                break
-            if button := DUNGEON_NAV_LIST.get_selected_row(main=self):
-                logger.info(f'DUNGEON_NAV_LIST selected at {button}')
-                break
-
-        # Check if it's at the first page.
-        if DUNGEON_NAV_LIST.keyword2button(KEYWORDS_DUNGEON_NAV.Simulated_Universe, show_warning=False) \
-                or DUNGEON_NAV_LIST.keyword2button(KEYWORDS_DUNGEON_NAV.Ornament_Extraction, show_warning=False):
-            # Going to use a faster method to navigate but can only start from list top
-            logger.info('DUNGEON_NAV_LIST at top')
-            # Update points if possible
-            # 2.3, No longer weekly points after Divergent Universe unlocked
-            # if DUNGEON_NAV_LIST.is_row_selected(button, main=self):
-            #     self.dungeon_update_simuni()
-        # Treasures lightward is always at top
-        elif DUNGEON_NAV_LIST.keyword2button(KEYWORDS_DUNGEON_NAV.Forgotten_Hall, show_warning=False) \
-                or DUNGEON_NAV_LIST.keyword2button(KEYWORDS_DUNGEON_NAV.Pure_Fiction, show_warning=False):
-            logger.info('DUNGEON_NAV_LIST at top')
-        else:
-            # To start from any list states.
-            logger.info('DUNGEON_NAV_LIST not at top')
-            DUNGEON_NAV_LIST.select_row(nav, main=self)
-            return True
-
-        # Check the first page
-        if nav in [
-            KEYWORDS_DUNGEON_NAV.Simulated_Universe,
-            KEYWORDS_DUNGEON_NAV.Divergent_Universe,
-            KEYWORDS_DUNGEON_NAV.Ornament_Extraction,
-            KEYWORDS_DUNGEON_NAV.Calyx_Golden,
-            KEYWORDS_DUNGEON_NAV.Calyx_Crimson,
-            KEYWORDS_DUNGEON_NAV.Stagnant_Shadow,
-            KEYWORDS_DUNGEON_NAV.Cavern_of_Corrosion,
-            KEYWORDS_DUNGEON_NAV.Forgotten_Hall,
-            KEYWORDS_DUNGEON_NAV.Pure_Fiction,
-        ]:
-            button = DUNGEON_NAV_LIST.keyword2button(nav)
-            if button:
-                DUNGEON_NAV_LIST.select_row(nav, main=self, insight=False)
-                return True
-
-        # Check the second page
-        while 1:
-            DUNGEON_NAV_LIST.drag_page('down', main=self)
-            # No skip_first_screenshot since drag_page is just called
-            if self._dungeon_wait_until_echo_or_war_stabled(skip_first_screenshot=False):
-                DUNGEON_NAV_LIST.select_row(nav, main=self, insight=False)
-                return True
+        self.dungeon_nav.set(nav, main=self)

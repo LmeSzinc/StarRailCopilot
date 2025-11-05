@@ -12,6 +12,7 @@ Arrows = Cone(
     jp='矢じり',
     es='Flechas',
     rarity='Rare',
+    path_name='The_Hunt',
     character_name='',
 )
 Cornucopia = Cone(
@@ -23,6 +24,7 @@ Cornucopia = Cone(
     jp='物穣',
     es='Cornucopia',
     rarity='Rare',
+    path_name='Abundance',
     character_name='',
 )
 Collapsing_Sky = Cone(
@@ -34,6 +36,7 @@ Collapsing_Sky = Cone(
     jp='天傾',
     es='Colapso celeste',
     rarity='Rare',
+    path_name='Destruction',
     character_name='',
 )
 Amber = Cone(
@@ -45,6 +48,7 @@ Amber = Cone(
     jp='琥珀',
     es='Ámbar',
     rarity='Rare',
+    path_name='Preservation',
     character_name='',
 )
 Void = Cone(
@@ -56,6 +60,7 @@ Void = Cone(
     jp='幽邃',
     es='Vacío',
     rarity='Rare',
+    path_name='Nihility',
     character_name='',
 )
 Chorus = Cone(
@@ -67,6 +72,7 @@ Chorus = Cone(
     jp='斉頌',
     es='Coro',
     rarity='Rare',
+    path_name='Harmony',
     character_name='',
 )
 Data_Bank = Cone(
@@ -78,6 +84,7 @@ Data_Bank = Cone(
     jp='アーカイブ',
     es='Archivos',
     rarity='Rare',
+    path_name='Erudition',
     character_name='',
 )
 Darting_Arrow = Cone(
@@ -89,6 +96,7 @@ Darting_Arrow = Cone(
     jp='離弦',
     es='Flecha voladora',
     rarity='Rare',
+    path_name='The_Hunt',
     character_name='',
 )
 Fine_Fruit = Cone(
@@ -100,6 +108,7 @@ Fine_Fruit = Cone(
     jp='嘉果',
     es='Fruto excelente',
     rarity='Rare',
+    path_name='Abundance',
     character_name='',
 )
 Shattered_Home = Cone(
@@ -111,6 +120,7 @@ Shattered_Home = Cone(
     jp='楽壊',
     es='Hogar destrozado',
     rarity='Rare',
+    path_name='Destruction',
     character_name='',
 )
 Defense = Cone(
@@ -122,6 +132,7 @@ Defense = Cone(
     jp='防衛',
     es='Blindaje',
     rarity='Rare',
+    path_name='Preservation',
     character_name='',
 )
 Loop = Cone(
@@ -133,6 +144,7 @@ Loop = Cone(
     jp='淵環',
     es='Bucle',
     rarity='Rare',
+    path_name='Nihility',
     character_name='',
 )
 Meshing_Cogs = Cone(
@@ -144,6 +156,7 @@ Meshing_Cogs = Cone(
     jp='輪契',
     es='Rueda mecánica',
     rarity='Rare',
+    path_name='Harmony',
     character_name='',
 )
 Passkey = Cone(
@@ -155,6 +168,7 @@ Passkey = Cone(
     jp='霊鍵',
     es='Llave maestra',
     rarity='Rare',
+    path_name='Erudition',
     character_name='',
 )
 Adversarial = Cone(
@@ -166,6 +180,7 @@ Adversarial = Cone(
     jp='相抗',
     es='Antagonista',
     rarity='Rare',
+    path_name='The_Hunt',
     character_name='',
 )
 Multiplication = Cone(
@@ -177,6 +192,7 @@ Multiplication = Cone(
     jp='蕃殖',
     es='Multiplicación',
     rarity='Rare',
+    path_name='Abundance',
     character_name='',
 )
 Mutual_Demise = Cone(
@@ -188,6 +204,7 @@ Mutual_Demise = Cone(
     jp='倶歿',
     es='Final mutuo',
     rarity='Rare',
+    path_name='Destruction',
     character_name='',
 )
 Pioneering = Cone(
@@ -199,6 +216,7 @@ Pioneering = Cone(
     jp='新天地',
     es='Colonización',
     rarity='Rare',
+    path_name='Preservation',
     character_name='',
 )
 Hidden_Shadow = Cone(
@@ -210,6 +228,7 @@ Hidden_Shadow = Cone(
     jp='匿影',
     es='Sombra oculta',
     rarity='Rare',
+    path_name='Nihility',
     character_name='',
 )
 Mediation = Cone(
@@ -221,6 +240,7 @@ Mediation = Cone(
     jp='同調',
     es='Mediación',
     rarity='Rare',
+    path_name='Harmony',
     character_name='',
 )
 Sagacity = Cone(
@@ -232,6 +252,7 @@ Sagacity = Cone(
     jp='見識',
     es='Sagacidad',
     rarity='Rare',
+    path_name='Erudition',
     character_name='',
 )
 Shadowburn = Cone(
@@ -243,6 +264,7 @@ Shadowburn = Cone(
     jp='燃ゆる影',
     es='Imágenes quemadas',
     rarity='Rare',
+    path_name='Remembrance',
     character_name='',
 )
 Reminiscence = Cone(
@@ -254,6 +276,7 @@ Reminiscence = Cone(
     jp='辿る記憶',
     es='Retrospección',
     rarity='Rare',
+    path_name='Remembrance',
     character_name='',
 )
 Post_Op_Conversation = Cone(
@@ -265,6 +288,7 @@ Post_Op_Conversation = Cone(
     jp='手術後の会話',
     es='Conversación en el postoperatorio',
     rarity='VeryRare',
+    path_name='Abundance',
     character_name='',
 )
 Good_Night_and_Sleep_Well = Cone(
@@ -276,6 +300,7 @@ Good_Night_and_Sleep_Well = Cone(
     jp='おやすみなさいと寝顔',
     es='Buenas noches, que duermas bien',
     rarity='VeryRare',
+    path_name='Nihility',
     character_name='',
 )
 Day_One_of_My_New_Life = Cone(
@@ -287,6 +312,7 @@ Day_One_of_My_New_Life = Cone(
     jp='余生の初日',
     es='El primer día del resto de mi vida',
     rarity='VeryRare',
+    path_name='Preservation',
     character_name='',
 )
 Only_Silence_Remains = Cone(
@@ -298,6 +324,7 @@ Only_Silence_Remains = Cone(
     jp='沈黙のみ',
     es='Solo queda silencio',
     rarity='VeryRare',
+    path_name='The_Hunt',
     character_name='',
 )
 Memories_of_the_Past = Cone(
@@ -309,6 +336,7 @@ Memories_of_the_Past = Cone(
     jp='記憶の中の姿',
     es='Imagen en el recuerdo',
     rarity='VeryRare',
+    path_name='Harmony',
     character_name='',
 )
 The_Moles_Welcome_You = Cone(
@@ -320,6 +348,7 @@ The_Moles_Welcome_You = Cone(
     jp='モグラ党へようこそ',
     es='Los Topos te dan la bienvenida',
     rarity='VeryRare',
+    path_name='Destruction',
     character_name='',
 )
 The_Birth_of_the_Self = Cone(
@@ -331,6 +360,7 @@ The_Birth_of_the_Self = Cone(
     jp='「私」の誕生',
     es='El nacimiento del yo',
     rarity='VeryRare',
+    path_name='Erudition',
     character_name='',
 )
 Shared_Feeling = Cone(
@@ -342,6 +372,7 @@ Shared_Feeling = Cone(
     jp='同じ気持ち',
     es='Sentimiento compartido',
     rarity='VeryRare',
+    path_name='Abundance',
     character_name='',
 )
 Eyes_of_the_Prey = Cone(
@@ -353,6 +384,7 @@ Eyes_of_the_Prey = Cone(
     jp='獲物の視線',
     es='Visión de presa',
     rarity='VeryRare',
+    path_name='Nihility',
     character_name='',
 )
 Landau_Choice = Cone(
@@ -364,6 +396,7 @@ Landau_Choice = Cone(
     jp='ランドゥーの選択',
     es='La elección de Landau',
     rarity='VeryRare',
+    path_name='Preservation',
     character_name='',
 )
 Swordplay = Cone(
@@ -375,6 +408,7 @@ Swordplay = Cone(
     jp='論剣',
     es='Juego de espadas',
     rarity='VeryRare',
+    path_name='The_Hunt',
     character_name='',
 )
 Planetary_Rendezvous = Cone(
@@ -386,6 +420,7 @@ Planetary_Rendezvous = Cone(
     jp='惑星との出会い',
     es='Encuentro planetario',
     rarity='VeryRare',
+    path_name='Harmony',
     character_name='',
 )
 A_Secret_Vow = Cone(
@@ -397,6 +432,7 @@ A_Secret_Vow = Cone(
     jp='秘密の誓い',
     es='Juramento secreto',
     rarity='VeryRare',
+    path_name='Destruction',
     character_name='',
 )
 Make_the_World_Clamor = Cone(
@@ -408,6 +444,7 @@ Make_the_World_Clamor = Cone(
     jp='この世界に喧噪を',
     es='Que el mundo clame',
     rarity='VeryRare',
+    path_name='Erudition',
     character_name='',
 )
 Perfect_Timing = Cone(
@@ -419,6 +456,7 @@ Perfect_Timing = Cone(
     jp='今が丁度',
     es='El momento oportuno',
     rarity='VeryRare',
+    path_name='Abundance',
     character_name='',
 )
 Resolution_Shines_As_Pearls_of_Sweat = Cone(
@@ -430,6 +468,7 @@ Resolution_Shines_As_Pearls_of_Sweat = Cone(
     jp='決意は汗のように輝く',
     es='Determinación reluciente',
     rarity='VeryRare',
+    path_name='Nihility',
     character_name='',
 )
 Trend_of_the_Universal_Market = Cone(
@@ -441,6 +480,7 @@ Trend_of_the_Universal_Market = Cone(
     jp='星間市場のトレンド',
     es='Tendencias del mercado universal',
     rarity='VeryRare',
+    path_name='Preservation',
     character_name='',
 )
 Subscribe_for_More = Cone(
@@ -452,6 +492,7 @@ Subscribe_for_More = Cone(
     jp='フォローして！',
     es='¡Suscríbanse a mi canal!',
     rarity='VeryRare',
+    path_name='The_Hunt',
     character_name='',
 )
 Dance_Dance_Dance = Cone(
@@ -463,6 +504,7 @@ Dance_Dance_Dance = Cone(
     jp='ダンス！ダンス！ダンス！',
     es='¡A bailar!',
     rarity='VeryRare',
+    path_name='Harmony',
     character_name='',
 )
 Under_the_Blue_Sky = Cone(
@@ -474,6 +516,7 @@ Under_the_Blue_Sky = Cone(
     jp='青空の下で',
     es='Bajo el cielo azul',
     rarity='VeryRare',
+    path_name='Destruction',
     character_name='',
 )
 Geniuse_Repose = Cone(
@@ -485,6 +528,7 @@ Geniuse_Repose = Cone(
     jp='天才たちの休息',
     es='El reposo de los genios',
     rarity='VeryRare',
+    path_name='Erudition',
     character_name='',
 )
 Quid_Pro_Quo = Cone(
@@ -496,6 +540,7 @@ Quid_Pro_Quo = Cone(
     jp='等価交換',
     es='Intercambio equivalente',
     rarity='VeryRare',
+    path_name='Abundance',
     character_name='',
 )
 Fermata = Cone(
@@ -507,6 +552,7 @@ Fermata = Cone(
     jp='フェルマータ',
     es='Calderón',
     rarity='VeryRare',
+    path_name='Nihility',
     character_name='',
 )
 We_Are_Wildfire = Cone(
@@ -518,6 +564,7 @@ We_Are_Wildfire = Cone(
     jp='我ら地炎',
     es='Somos Llamarada',
     rarity='VeryRare',
+    path_name='Preservation',
     character_name='',
 )
 River_Flows_in_Spring = Cone(
@@ -529,6 +576,7 @@ River_Flows_in_Spring = Cone(
     jp='春水に初生する',
     es='El río nace en primavera',
     rarity='VeryRare',
+    path_name='The_Hunt',
     character_name='',
 )
 Past_and_Future = Cone(
@@ -540,6 +588,7 @@ Past_and_Future = Cone(
     jp='過去と未来',
     es='El pasado y el futuro',
     rarity='VeryRare',
+    path_name='Harmony',
     character_name='',
 )
 Woof_Walk_Time = Cone(
@@ -551,6 +600,7 @@ Woof_Walk_Time = Cone(
     jp='ワン！散歩の時間！',
     es='¡Guau! ¡Hora de pasear!',
     rarity='VeryRare',
+    path_name='Destruction',
     character_name='',
 )
 The_Seriousness_of_Breakfast = Cone(
@@ -562,6 +612,7 @@ The_Seriousness_of_Breakfast = Cone(
     jp='朝食の儀式感',
     es='La solemnidad del desayuno',
     rarity='VeryRare',
+    path_name='Erudition',
     character_name='',
 )
 Warmth_Shortens_Cold_Nights = Cone(
@@ -573,6 +624,7 @@ Warmth_Shortens_Cold_Nights = Cone(
     jp='暖かい夜は長くない',
     es='Las noches cálidas no duran',
     rarity='VeryRare',
+    path_name='Abundance',
     character_name='',
 )
 We_Will_Meet_Again = Cone(
@@ -584,6 +636,7 @@ We_Will_Meet_Again = Cone(
     jp='またお会いしましょう',
     es='Volveremos a encontrarnos',
     rarity='VeryRare',
+    path_name='Nihility',
     character_name='',
 )
 This_Is_Me = Cone(
@@ -595,6 +648,7 @@ This_Is_Me = Cone(
     jp='これがウチだよ！',
     es='¡Así soy yo!',
     rarity='VeryRare',
+    path_name='Preservation',
     character_name='',
 )
 Return_to_Darkness = Cone(
@@ -606,6 +660,7 @@ Return_to_Darkness = Cone(
     jp='幽冥に帰す',
     es='Regreso a la oscuridad',
     rarity='VeryRare',
+    path_name='The_Hunt',
     character_name='',
 )
 Carve_the_Moon_Weave_the_Clouds = Cone(
@@ -617,6 +672,7 @@ Carve_the_Moon_Weave_the_Clouds = Cone(
     jp='彫月裁雲の意',
     es='Esculpir la luna y tejer las nubes',
     rarity='VeryRare',
+    path_name='Harmony',
     character_name='',
 )
 Nowhere_to_Run = Cone(
@@ -628,6 +684,7 @@ Nowhere_to_Run = Cone(
     jp='逃げ場なし',
     es='Sin escapatoria',
     rarity='VeryRare',
+    path_name='Destruction',
     character_name='',
 )
 Today_Is_Another_Peaceful_Day = Cone(
@@ -639,6 +696,7 @@ Today_Is_Another_Peaceful_Day = Cone(
     jp='今日も平和な一日',
     es='Hoy es otro día tranquilo',
     rarity='VeryRare',
+    path_name='Erudition',
     character_name='',
 )
 What_Is_Real = Cone(
@@ -650,6 +708,7 @@ What_Is_Real = Cone(
     jp='何が真か',
     es='Cuestión de verdad',
     rarity='VeryRare',
+    path_name='Abundance',
     character_name='',
 )
 Dreamville_Adventure = Cone(
@@ -661,6 +720,7 @@ Dreamville_Adventure = Cone(
     jp='ドリームタウンの大冒険',
     es='Aventuras en Villa Ensueño',
     rarity='VeryRare',
+    path_name='Harmony',
     character_name='',
 )
 Final_Victor = Cone(
@@ -672,6 +732,7 @@ Final_Victor = Cone(
     jp='最後の勝者',
     es='Ganador final',
     rarity='VeryRare',
+    path_name='The_Hunt',
     character_name='',
 )
 Flames_Afar = Cone(
@@ -683,6 +744,7 @@ Flames_Afar = Cone(
     jp='烈火の彼方',
     es='Lejos del fuego',
     rarity='VeryRare',
+    path_name='Destruction',
     character_name='',
 )
 Destiny_Threads_Forewoven = Cone(
@@ -694,6 +756,7 @@ Destiny_Threads_Forewoven = Cone(
     jp='運命を紡ぐ糸',
     es='Los hilos del destino',
     rarity='VeryRare',
+    path_name='Preservation',
     character_name='',
 )
 The_Day_The_Cosmos_Fell = Cone(
@@ -705,6 +768,7 @@ The_Day_The_Cosmos_Fell = Cone(
     jp='銀河が陥落した日',
     es='Día del colapso cósmico',
     rarity='VeryRare',
+    path_name='Erudition',
     character_name='',
 )
 It_Showtime = Cone(
@@ -716,6 +780,7 @@ It_Showtime = Cone(
     jp='ショーの始まり',
     es='Arriba el telón',
     rarity='VeryRare',
+    path_name='Nihility',
     character_name='',
 )
 Indelible_Promise = Cone(
@@ -727,6 +792,7 @@ Indelible_Promise = Cone(
     jp='心に刻まれた約束',
     es='Promesa grabada',
     rarity='VeryRare',
+    path_name='Destruction',
     character_name='',
 )
 Concert_for_Two = Cone(
@@ -738,6 +804,7 @@ Concert_for_Two = Cone(
     jp='二人だけのコンサート',
     es='Concierto para dos',
     rarity='VeryRare',
+    path_name='Preservation',
     character_name='',
 )
 Boundless_Choreo = Cone(
@@ -749,6 +816,7 @@ Boundless_Choreo = Cone(
     jp='終わりなき舞踏',
     es='Tango ilimitado',
     rarity='VeryRare',
+    path_name='Nihility',
     character_name='',
 )
 After_the_Charmony_Fall = Cone(
@@ -760,6 +828,7 @@ After_the_Charmony_Fall = Cone(
     jp='調和が沈黙した後',
     es='Tras el silencio de La Armonía',
     rarity='VeryRare',
+    path_name='Erudition',
     character_name='',
 )
 Poised_to_Bloom = Cone(
@@ -771,6 +840,7 @@ Poised_to_Bloom = Cone(
     jp='美しき華よ今咲かん',
     es='Juventud por florecer',
     rarity='VeryRare',
+    path_name='Harmony',
     character_name='',
 )
 Shadowed_by_Night = Cone(
@@ -782,6 +852,7 @@ Shadowed_by_Night = Cone(
     jp='夜は影のように付き纏う',
     es='La sombra de la noche',
     rarity='VeryRare',
+    path_name='The_Hunt',
     character_name='',
 )
 Dream_Montage = Cone(
@@ -793,6 +864,7 @@ Dream_Montage = Cone(
     jp='夢のモンタージュ',
     es='Montaje de sueños',
     rarity='VeryRare',
+    path_name='Abundance',
     character_name='',
 )
 Victory_In_a_Blink = Cone(
@@ -804,6 +876,7 @@ Victory_In_a_Blink = Cone(
     jp='瞬刻の勝機',
     es='Victoria disputada',
     rarity='VeryRare',
+    path_name='Remembrance',
     character_name='',
 )
 Geniuse_Greetings = Cone(
@@ -815,6 +888,7 @@ Geniuse_Greetings = Cone(
     jp='天才たちの「挨拶」',
     es='Saludo entre genios',
     rarity='VeryRare',
+    path_name='Remembrance',
     character_name='',
 )
 Sweat_Now_Cry_Less = Cone(
@@ -826,6 +900,7 @@ Sweat_Now_Cry_Less = Cone(
     jp='流すなら涙より汗',
     es='Más sudor y menos lágrimas',
     rarity='VeryRare',
+    path_name='Remembrance',
     character_name='',
 )
 Journey_Forever_Peaceful = Cone(
@@ -837,6 +912,7 @@ Journey_Forever_Peaceful = Cone(
     jp='旅が平穏であるように',
     es='Que tu viaje sea siempre pacífico',
     rarity='VeryRare',
+    path_name='Preservation',
     character_name='',
 )
 The_Story_Next_Page = Cone(
@@ -848,6 +924,7 @@ The_Story_Next_Page = Cone(
     jp='物語をめくって',
     es='La siguiente página de la historia',
     rarity='VeryRare',
+    path_name='Remembrance',
     character_name='',
 )
 Unto_Tomorrow_Morrow = Cone(
@@ -859,6 +936,7 @@ Unto_Tomorrow_Morrow = Cone(
     jp='明日の明日まで',
     es='Hasta pasado mañana',
     rarity='VeryRare',
+    path_name='Abundance',
     character_name='',
 )
 In_Pursuit_of_the_Wind = Cone(
@@ -870,6 +948,7 @@ In_Pursuit_of_the_Wind = Cone(
     jp='風を追う時',
     es='Al perseguir el viento',
     rarity='VeryRare',
+    path_name='Harmony',
     character_name='',
 )
 The_Flower_Remembers = Cone(
@@ -881,6 +960,7 @@ The_Flower_Remembers = Cone(
     jp='花は忘れない',
     es='Las flores nunca olvidan',
     rarity='VeryRare',
+    path_name='Remembrance',
     character_name='',
 )
 A_Trail_of_Bygone_Blood = Cone(
@@ -892,6 +972,7 @@ A_Trail_of_Bygone_Blood = Cone(
     jp='古より受け継がれる血',
     es='Sangre del pasado',
     rarity='VeryRare',
+    path_name='Destruction',
     character_name='',
 )
 A_Dream_Scented_in_Wheat = Cone(
@@ -903,6 +984,7 @@ A_Dream_Scented_in_Wheat = Cone(
     jp='麦の香り漂う夢',
     es='Sueños de trigo fragante',
     rarity='VeryRare',
+    path_name='Erudition',
     character_name='',
 )
 Holiday_Thermae_Escapade = Cone(
@@ -914,6 +996,7 @@ Holiday_Thermae_Escapade = Cone(
     jp='休日のバルネア大冒険',
     es='Vacaciones en las termas',
     rarity='VeryRare',
+    path_name='Nihility',
     character_name='',
 )
 See_You_at_the_End = Cone(
@@ -925,6 +1008,7 @@ See_You_at_the_End = Cone(
     jp='終点でまた会おう',
     es='Nos vemos al final',
     rarity='VeryRare',
+    path_name='The_Hunt',
     character_name='',
 )
 Before_the_Tutorial_Mission_Starts = Cone(
@@ -936,6 +1020,7 @@ Before_the_Tutorial_Mission_Starts = Cone(
     jp='初めてのクエストの前に',
     es='Antes de que comience la misión del tutorial',
     rarity='VeryRare',
+    path_name='Nihility',
     character_name='',
 )
 Hey_Over_Here = Cone(
@@ -947,6 +1032,7 @@ Hey_Over_Here = Cone(
     jp='よぉ、ここにいるぜ',
     es='Ey, estoy aquí',
     rarity='VeryRare',
+    path_name='Abundance',
     character_name='',
 )
 For_Tomorrow_Journey = Cone(
@@ -958,6 +1044,7 @@ For_Tomorrow_Journey = Cone(
     jp='明日のための旅',
     es='Para el viaje de mañana',
     rarity='VeryRare',
+    path_name='Harmony',
     character_name='',
 )
 Ninja_Record_Sound_Hunt = Cone(
@@ -969,6 +1056,7 @@ Ninja_Record_Sound_Hunt = Cone(
     jp='忍事録・音律狩猟',
     es='Grabación ninja: Cacería del Sonido',
     rarity='VeryRare',
+    path_name='Destruction',
     character_name='',
 )
 The_Great_Cosmic_Enterprise = Cone(
@@ -980,6 +1068,7 @@ The_Great_Cosmic_Enterprise = Cone(
     jp='宇宙一の大商い！',
     es='El gran negocio cósmico',
     rarity='VeryRare',
+    path_name='Erudition',
     character_name='',
 )
 The_Forever_Victual = Cone(
@@ -991,6 +1080,19 @@ The_Forever_Victual = Cone(
     jp='永遠の迷境ごはん',
     es='Viandas sin fin',
     rarity='VeryRare',
+    path_name='Harmony',
+    character_name='',
+)
+Fly_Into_a_Pink_Tomorrow = Cone(
+    id=22006,
+    name='Fly_Into_a_Pink_Tomorrow',
+    cn='飞向粉色的明天',
+    cht='飛向粉紅色的明天',
+    en='Fly Into a Pink Tomorrow',
+    jp='ピンク色の明日へ',
+    es='Volando hacia un mañana rosado',
+    rarity='VeryRare',
+    path_name='Remembrance',
     character_name='',
 )
 Night_on_the_Milky_Way = Cone(
@@ -1002,6 +1104,7 @@ Night_on_the_Milky_Way = Cone(
     jp='銀河鉄道の夜',
     es='Noche en la Vía Láctea',
     rarity='SuperRare',
+    path_name='Erudition',
     character_name='',
 )
 In_the_Night = Cone(
@@ -1013,6 +1116,7 @@ In_the_Night = Cone(
     jp='夜の帳の中で',
     es='En la noche',
     rarity='SuperRare',
+    path_name='The_Hunt',
     character_name='Seele',
 )
 Something_Irreplaceable = Cone(
@@ -1024,6 +1128,7 @@ Something_Irreplaceable = Cone(
     jp='かけがえのないもの',
     es='Algo insustituible',
     rarity='SuperRare',
+    path_name='Destruction',
     character_name='',
 )
 But_the_Battle_Isn_t_Over = Cone(
@@ -1035,6 +1140,7 @@ But_the_Battle_Isn_t_Over = Cone(
     jp='だが戦争は終わらない',
     es='La batalla no ha terminado',
     rarity='SuperRare',
+    path_name='Harmony',
     character_name='',
 )
 In_the_Name_of_the_World = Cone(
@@ -1046,6 +1152,7 @@ In_the_Name_of_the_World = Cone(
     jp='世界の名を以て',
     es='En nombre del mundo',
     rarity='SuperRare',
+    path_name='Nihility',
     character_name='',
 )
 Moment_of_Victory = Cone(
@@ -1057,6 +1164,7 @@ Moment_of_Victory = Cone(
     jp='勝利の刹那',
     es='El momento de la victoria',
     rarity='SuperRare',
+    path_name='Preservation',
     character_name='',
 )
 Patience_Is_All_You_Need = Cone(
@@ -1068,6 +1176,7 @@ Patience_Is_All_You_Need = Cone(
     jp='待つのみ',
     es='Solo hay que esperar',
     rarity='SuperRare',
+    path_name='Nihility',
     character_name='Kafka',
 )
 Incessant_Rain = Cone(
@@ -1079,6 +1188,7 @@ Incessant_Rain = Cone(
     jp='降りやまぬ雨',
     es='Lluvia incesante',
     rarity='SuperRare',
+    path_name='Nihility',
     character_name='SilverWolf',
 )
 Echoes_of_the_Coffin = Cone(
@@ -1090,6 +1200,7 @@ Echoes_of_the_Coffin = Cone(
     jp='棺のこだま',
     es='Ecos del ataúd',
     rarity='SuperRare',
+    path_name='Abundance',
     character_name='Luocha',
 )
 The_Unreachable_Side = Cone(
@@ -1101,6 +1212,7 @@ The_Unreachable_Side = Cone(
     jp='着かない彼岸',
     es='Orilla inalcanzable',
     rarity='SuperRare',
+    path_name='Destruction',
     character_name='Blade',
 )
 Before_Dawn = Cone(
@@ -1112,6 +1224,7 @@ Before_Dawn = Cone(
     jp='夜明け前',
     es='Antes del amanecer',
     rarity='SuperRare',
+    path_name='Erudition',
     character_name='JingYuan',
 )
 She_Already_Shut_Her_Eyes = Cone(
@@ -1123,6 +1236,7 @@ She_Already_Shut_Her_Eyes = Cone(
     jp='閉ざした瞳',
     es='Ya ha cerrado los ojos',
     rarity='SuperRare',
+    path_name='Preservation',
     character_name='FuXuan',
 )
 Sleep_Like_the_Dead = Cone(
@@ -1134,6 +1248,7 @@ Sleep_Like_the_Dead = Cone(
     jp='泥の如き眠り',
     es='Dormir como un tronco',
     rarity='SuperRare',
+    path_name='The_Hunt',
     character_name='',
 )
 Time_Waits_for_No_One = Cone(
@@ -1145,6 +1260,7 @@ Time_Waits_for_No_One = Cone(
     jp='時節は居らず',
     es='El tiempo no espera',
     rarity='SuperRare',
+    path_name='Abundance',
     character_name='',
 )
 I_Shall_Be_My_Own_Sword = Cone(
@@ -1156,6 +1272,7 @@ I_Shall_Be_My_Own_Sword = Cone(
     jp='この身は剣なり',
     es='Yo sere mi propia espada',
     rarity='SuperRare',
+    path_name='Destruction',
     character_name='Jingliu',
 )
 Brighter_Than_the_Sun = Cone(
@@ -1167,6 +1284,7 @@ Brighter_Than_the_Sun = Cone(
     jp='陽光より輝くもの',
     es='Más brillante que el sol',
     rarity='SuperRare',
+    path_name='Destruction',
     character_name='DanHengImbibitorLunae',
 )
 Worrisome_Blissful = Cone(
@@ -1178,6 +1296,7 @@ Worrisome_Blissful = Cone(
     jp='悩んで笑って',
     es='Preocupaciones y felicidad',
     rarity='SuperRare',
+    path_name='The_Hunt',
     character_name='TopazNumby',
 )
 Night_of_Fright = Cone(
@@ -1189,6 +1308,7 @@ Night_of_Fright = Cone(
     jp='驚魂の夜',
     es='Noche terrorífica',
     rarity='SuperRare',
+    path_name='Abundance',
     character_name='Huohuo',
 )
 An_Instant_Before_A_Gaze = Cone(
@@ -1200,6 +1320,7 @@ An_Instant_Before_A_Gaze = Cone(
     jp='その一刻、目に焼き付けて',
     es='Instante grabado a fuego',
     rarity='SuperRare',
+    path_name='Erudition',
     character_name='Argenti',
 )
 Past_Self_in_Mirror = Cone(
@@ -1211,6 +1332,7 @@ Past_Self_in_Mirror = Cone(
     jp='鏡の中の私',
     es='Mi pasado en el espejo',
     rarity='SuperRare',
+    path_name='Harmony',
     character_name='RuanMei',
 )
 Baptism_of_Pure_Thought = Cone(
@@ -1222,6 +1344,7 @@ Baptism_of_Pure_Thought = Cone(
     jp='純粋なる思惟の洗礼',
     es='El bautismo del pensamiento puro',
     rarity='SuperRare',
+    path_name='The_Hunt',
     character_name='DrRatio',
 )
 Earthly_Escapade = Cone(
@@ -1233,6 +1356,7 @@ Earthly_Escapade = Cone(
     jp='人生は遊び',
     es='Mundo de juegos',
     rarity='SuperRare',
+    path_name='Harmony',
     character_name='Sparkle',
 )
 Reforged_Remembrance = Cone(
@@ -1244,6 +1368,7 @@ Reforged_Remembrance = Cone(
     jp='時間の記憶を再構築して',
     es='Recuerdos reconstruidos',
     rarity='SuperRare',
+    path_name='Nihility',
     character_name='BlackSwan',
 )
 Inherently_Unjust_Destiny = Cone(
@@ -1255,6 +1380,7 @@ Inherently_Unjust_Destiny = Cone(
     jp='運命は常に不公平',
     es='El destino nunca es justo',
     rarity='SuperRare',
+    path_name='Preservation',
     character_name='Aventurine',
 )
 Along_the_Passing_Shore = Cone(
@@ -1266,6 +1392,7 @@ Along_the_Passing_Shore = Cone(
     jp='流れ逝く岸を歩いて',
     es='En las orillas transitorias',
     rarity='SuperRare',
+    path_name='Nihility',
     character_name='Acheron',
 )
 Whereabouts_Should_Dreams_Rest = Cone(
@@ -1277,6 +1404,7 @@ Whereabouts_Should_Dreams_Rest = Cone(
     jp='夢が帰り着く場所',
     es='A donde regresan los sueños',
     rarity='SuperRare',
+    path_name='Destruction',
     character_name='Firefly',
 )
 Flowing_Nightglow = Cone(
@@ -1288,6 +1416,7 @@ Flowing_Nightglow = Cone(
     jp='光あふれる夜',
     es='Luces de la noche',
     rarity='SuperRare',
+    path_name='Harmony',
     character_name='Robin',
 )
 Sailing_Towards_a_Second_Life = Cone(
@@ -1299,6 +1428,7 @@ Sailing_Towards_a_Second_Life = Cone(
     jp='二度目の生に向かって',
     es='Hacia una segunda vida',
     rarity='SuperRare',
+    path_name='The_Hunt',
     character_name='Boothill',
 )
 Yet_Hope_Is_Priceless = Cone(
@@ -1310,6 +1440,7 @@ Yet_Hope_Is_Priceless = Cone(
     jp='されど希望の銘は無価',
     es='La esperanza no tiene precio',
     rarity='SuperRare',
+    path_name='Erudition',
     character_name='Jade',
 )
 Those_Many_Springs = Cone(
@@ -1321,6 +1452,7 @@ Those_Many_Springs = Cone(
     jp='幾度目かの春',
     es='Esas incontables primaveras',
     rarity='SuperRare',
+    path_name='Nihility',
     character_name='Jiaoqiu',
 )
 Dance_at_Sunset = Cone(
@@ -1332,6 +1464,7 @@ Dance_at_Sunset = Cone(
     jp='夕日に舞う',
     es='Danza crepuscular',
     rarity='SuperRare',
+    path_name='Destruction',
     character_name='Yunli',
 )
 I_Venture_Forth_to_Hunt = Cone(
@@ -1343,6 +1476,7 @@ I_Venture_Forth_to_Hunt = Cone(
     jp='我が征く巡狩の道',
     es='Me voy de caza',
     rarity='SuperRare',
+    path_name='The_Hunt',
     character_name='Feixiao',
 )
 Scent_Alone_Stays_True = Cone(
@@ -1354,6 +1488,7 @@ Scent_Alone_Stays_True = Cone(
     jp='昔日の香りは今も猶',
     es='Solo la fragancia perdura',
     rarity='SuperRare',
+    path_name='Abundance',
     character_name='Lingsha',
 )
 Ninjutsu_Inscription_Dazzling_Evilbreaker = Cone(
@@ -1365,6 +1500,7 @@ Ninjutsu_Inscription_Dazzling_Evilbreaker = Cone(
     jp='忍法帖・繚乱破魔',
     es='Pergamino ninja: Azote deslumbrante del mal',
     rarity='SuperRare',
+    path_name='Erudition',
     character_name='Rappa',
 )
 A_Grounded_Ascent = Cone(
@@ -1376,6 +1512,7 @@ A_Grounded_Ascent = Cone(
     jp='大地より天を目指して',
     es='De vuelta a la tierra',
     rarity='SuperRare',
+    path_name='Harmony',
     character_name='Sunday',
 )
 Long_Road_Leads_Home = Cone(
@@ -1387,6 +1524,7 @@ Long_Road_Leads_Home = Cone(
     jp='長途はやがて帰途へと続く',
     es='El largo camino a casa',
     rarity='SuperRare',
+    path_name='Nihility',
     character_name='Fugue',
 )
 Time_Woven_Into_Gold = Cone(
@@ -1398,6 +1536,7 @@ Time_Woven_Into_Gold = Cone(
     jp='光陰を織り黄金と成す',
     es='Tiempo urdido en oro',
     rarity='SuperRare',
+    path_name='Remembrance',
     character_name='Aglaea',
 )
 Into_the_Unreachable_Veil = Cone(
@@ -1409,6 +1548,7 @@ Into_the_Unreachable_Veil = Cone(
     jp='触れてはならぬ領域へ',
     es='Hacia lo inescrutable',
     rarity='SuperRare',
+    path_name='Erudition',
     character_name='TheHerta',
 )
 If_Time_Were_a_Flower = Cone(
@@ -1420,6 +1560,7 @@ If_Time_Were_a_Flower = Cone(
     jp='もしも時が花だったら',
     es='Si el tiempo fuera una flor',
     rarity='SuperRare',
+    path_name='Harmony',
     character_name='Tribbie',
 )
 Flame_of_Blood_Blaze_My_Path = Cone(
@@ -1431,6 +1572,7 @@ Flame_of_Blood_Blaze_My_Path = Cone(
     jp='前途燃やす血の如き炎',
     es='Sangre y fuego, abran camino',
     rarity='SuperRare',
+    path_name='Destruction',
     character_name='Mydei',
 )
 Make_Farewells_More_Beautiful = Cone(
@@ -1442,6 +1584,7 @@ Make_Farewells_More_Beautiful = Cone(
     jp='永訣よ美しくあれ',
     es='Despedidas más bellas',
     rarity='SuperRare',
+    path_name='Remembrance',
     character_name='Castorice',
 )
 Life_Should_Be_Cast_to_Flames = Cone(
@@ -1453,6 +1596,7 @@ Life_Should_Be_Cast_to_Flames = Cone(
     jp='生命、焼滅すべし',
     es='La vida en llamas',
     rarity='SuperRare',
+    path_name='Erudition',
     character_name='Anaxa',
 )
 Long_May_Rainbows_Adorn_the_Sky = Cone(
@@ -1464,6 +1608,7 @@ Long_May_Rainbows_Adorn_the_Sky = Cone(
     jp='空の虹が消えぬように',
     es='Que el arcoíris siempre este en el cielo',
     rarity='SuperRare',
+    path_name='Remembrance',
     character_name='Hyacine',
 )
 Lies_Dance_on_the_Breeze = Cone(
@@ -1475,6 +1620,7 @@ Lies_Dance_on_the_Breeze = Cone(
     jp='風に揺蕩う虚言',
     es='Mentiras que vuelan en el viento',
     rarity='SuperRare',
+    path_name='Nihility',
     character_name='Cipher',
 )
 Thus_Burns_the_Dawn = Cone(
@@ -1486,6 +1632,7 @@ Thus_Burns_the_Dawn = Cone(
     jp='燃え盛る黎明のように',
     es='Que arda el alba',
     rarity='SuperRare',
+    path_name='Destruction',
     character_name='Phainon',
 )
 A_Thankless_Coronation = Cone(
@@ -1497,6 +1644,7 @@ A_Thankless_Coronation = Cone(
     jp='報われぬ戴冠',
     es='Coronación sin agradecimiento',
     rarity='SuperRare',
+    path_name='Destruction',
     character_name='',
 )
 The_Hell_Where_Ideals_Burn = Cone(
@@ -1508,6 +1656,7 @@ The_Hell_Where_Ideals_Burn = Cone(
     jp='理想を焼く奈落で',
     es='Infierno donde arden los ideales',
     rarity='SuperRare',
+    path_name='The_Hunt',
     character_name='',
 )
 Why_Does_the_Ocean_Sing = Cone(
@@ -1519,6 +1668,7 @@ Why_Does_the_Ocean_Sing = Cone(
     jp='海の歌は何がため',
     es='Por que canta el oceano',
     rarity='SuperRare',
+    path_name='Nihility',
     character_name='Hysilens',
 )
 Epoch_Etched_in_Golden_Blood = Cone(
@@ -1530,6 +1680,7 @@ Epoch_Etched_in_Golden_Blood = Cone(
     jp='黄金の血で刻む時代',
     es='Era grabada en sangre dorada',
     rarity='SuperRare',
+    path_name='Harmony',
     character_name='Cerydra',
 )
 To_Evernight_Stars = Cone(
@@ -1541,6 +1692,7 @@ To_Evernight_Stars = Cone(
     jp='長き夜に輝く星へ',
     es='A la estrella de la larga noche',
     rarity='SuperRare',
+    path_name='Remembrance',
     character_name='Evernight',
 )
 Though_Worlds_Apart = Cone(
@@ -1552,7 +1704,20 @@ Though_Worlds_Apart = Cone(
     jp='万里の山河を越えて',
     es='A traves de montañas y ríos',
     rarity='SuperRare',
+    path_name='Preservation',
     character_name='DanHengPermansorTerrae',
+)
+This_Love_Forever = Cone(
+    id=23052,
+    name='This_Love_Forever',
+    cn='爱如此刻永恒',
+    cht='愛如此刻永恆',
+    en='This Love, Forever',
+    jp='愛はいま永遠に',
+    es='Amor eterno como este momento',
+    rarity='SuperRare',
+    path_name='Remembrance',
+    character_name='Cyrene',
 )
 On_the_Fall_of_an_Aeon = Cone(
     id=24000,
@@ -1563,6 +1728,7 @@ On_the_Fall_of_an_Aeon = Cone(
     jp='とある星神の殞落を記す',
     es='Sobre la caída de un Eón',
     rarity='SuperRare',
+    path_name='Destruction',
     character_name='',
 )
 Cruising_in_the_Stellar_Sea = Cone(
@@ -1574,6 +1740,7 @@ Cruising_in_the_Stellar_Sea = Cone(
     jp='星海巡航',
     es='Crucero estelar',
     rarity='SuperRare',
+    path_name='The_Hunt',
     character_name='',
 )
 Texture_of_Memories = Cone(
@@ -1585,6 +1752,7 @@ Texture_of_Memories = Cone(
     jp='記憶の素材',
     es='La textura de los recuerdos',
     rarity='SuperRare',
+    path_name='Preservation',
     character_name='',
 )
 Solitary_Healing = Cone(
@@ -1596,6 +1764,7 @@ Solitary_Healing = Cone(
     jp='孤独の癒し',
     es='Sanación solitaria',
     rarity='SuperRare',
+    path_name='Nihility',
     character_name='',
 )
 Eternal_Calculus = Cone(
@@ -1607,6 +1776,7 @@ Eternal_Calculus = Cone(
     jp='絶え間ない演算',
     es='Cálculo interminable',
     rarity='SuperRare',
+    path_name='Erudition',
     character_name='',
 )
 Memory_Curtain_Never_Falls = Cone(
@@ -1618,5 +1788,6 @@ Memory_Curtain_Never_Falls = Cone(
     jp='尽きぬ追憶',
     es='Sobre los recuerdos nunca cae el telón',
     rarity='SuperRare',
+    path_name='Remembrance',
     character_name='',
 )

@@ -66,10 +66,12 @@ class OcrDungeonName(Ocr):
             result = re.sub('[鑫蠢]役', '蠹役', result)
             # 「呓语密林」神悟树庭
             result = re.sub('[艺吃]语', '呓语', result)
-
-        # 9支援仓段
-        for word in 'Q9α':
-            result = result.removeprefix(word)
+            # 9支援仓段
+            for word in 'Q9α':
+                result = result.removeprefix(word)
+        elif self.lang == 'en':
+            # O Supply Zone
+            result = re.sub(r'^[Oo0] S', 'S', result)
         return result
 
 
@@ -133,6 +135,9 @@ class OcrDungeonList(OcrDungeonName):
         merge_result_button(results, 'Audition', 'Venue', 'SoulGladScorchsandAuditionVenue')
         merge_result_button(results, 'Sanctum', 'Janusopo', 'SanctumofProphecyJanusopolis')
         merge_result_button(results, 'Murmuring', 'Epiphany', 'MurmuringWoodsGroveofEpiphany')
+        merge_result_button(results, 'Sanctumo', 'Janusopoli', 'SanctumofProphecyJanusopolis')
+        merge_result_button(results, 'Castrum', 'Kremno', 'StrifeRuinsCastrumKremnos')
+
         if results != before:
             logger.attr(name=self.name,
                         text=str([result.ocr_text for result in results]))

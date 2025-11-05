@@ -13,6 +13,64 @@ BATTLE_PASS_NOTIFICATION = ButtonWrapper(
         button=(918, 587, 1079, 619),
     ),
 )
+BUFF_Apocalyptic_Shadow = ButtonWrapper(
+    name='BUFF_Apocalyptic_Shadow',
+    share=[
+        Button(
+            file='./assets/share/base/popup/BUFF_Apocalyptic_Shadow.png',
+            area=(619, 278, 694, 298),
+            search=(599, 258, 714, 318),
+            color=(91, 82, 67),
+            button=(619, 278, 694, 298),
+        ),
+        Button(
+            file='./assets/share/base/popup/BUFF_Apocalyptic_Shadow.2.png',
+            area=(618, 277, 713, 298),
+            search=(598, 257, 733, 318),
+            color=(63, 56, 48),
+            button=(618, 277, 713, 298),
+        ),
+    ],
+)
+BUFF_CLICK = ButtonWrapper(
+    name='BUFF_CLICK',
+    share=Button(
+        file='./assets/share/base/popup/BUFF_CLICK.png',
+        area=(529, 621, 748, 689),
+        search=(509, 601, 768, 709),
+        color=(47, 36, 77),
+        button=(529, 621, 748, 689),
+    ),
+)
+BUFF_Forgotten_Hall = ButtonWrapper(
+    name='BUFF_Forgotten_Hall',
+    share=Button(
+        file='./assets/share/base/popup/BUFF_Forgotten_Hall.png',
+        area=(265, 342, 301, 378),
+        search=(245, 322, 321, 398),
+        color=(160, 141, 103),
+        button=(265, 342, 301, 378),
+    ),
+)
+BUFF_Pure_Fiction = ButtonWrapper(
+    name='BUFF_Pure_Fiction',
+    share=[
+        Button(
+            file='./assets/share/base/popup/BUFF_Pure_Fiction.png',
+            area=(720, 205, 794, 226),
+            search=(700, 185, 814, 246),
+            color=(87, 82, 69),
+            button=(720, 205, 794, 226),
+        ),
+        Button(
+            file='./assets/share/base/popup/BUFF_Pure_Fiction.2.png',
+            area=(757, 204, 853, 225),
+            search=(737, 184, 873, 245),
+            color=(69, 67, 58),
+            button=(757, 204, 853, 225),
+        ),
+    ],
+)
 GET_CHARACTER = ButtonWrapper(
     name='GET_CHARACTER',
     cn=Button(

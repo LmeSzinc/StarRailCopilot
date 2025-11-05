@@ -1,7 +1,7 @@
 from module.base.timer import Timer
 from module.exception import GameNotRunningError
 from module.logger import logger
-from tasks.base.assets.assets_base_page import CHARACTER_CHECK
+from tasks.base.assets.assets_base_page import CHARACTER_CHECK, CLOSE
 from tasks.base.page import page_main
 from tasks.combat.assets.assets_combat_interact import MAP_LOADING
 from tasks.login.agreement import AgreementHandler
@@ -127,13 +127,17 @@ class Login(LoginAndroidCloud, RogueUI, AgreementHandler, UIDHandler):
         Returns:
             bool: If clicked
         """
+        # 3.7 ADVERTISE_Cyrene popup
+        if self.match_template_luma(ADVERTISE_Cyrene, interval=2):
+            logger.info(f'{ADVERTISE_Cyrene} -> {CLOSE}')
+            self.device.click(CLOSE)
+            return True
+        if self.match_template_luma(MAIL_Cyrene, interval=2):
+            logger.info(f'{MAIL_Cyrene} -> {CLOSE}')
+            self.device.click(CLOSE)
+            return True
         # 3.2 Castorice popup that advertise you go gacha, but no, close it
         if self.handle_ui_close(ADVERTISE_Castorice, interval=2):
-            return True
-        # 3.4 Every account gets Archer
-        if self.appear_then_click(CLAIM_ARCHER, interval=2):
-            return True
-        if self.handle_get_character():
             return True
         # homecoming popup
         if self.handle_ui_close(HOMECOMING_TITLE, interval=2):

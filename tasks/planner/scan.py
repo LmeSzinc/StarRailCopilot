@@ -16,9 +16,11 @@ from tasks.planner.keywords import ITEM_CLASSES
 from tasks.planner.keywords.classes import ItemCurrency
 from tasks.planner.model import PlannerMixin, PlannerResultRow
 
-CALCULATE_TITLE.load_search(RESULT_CHECK.search)
-MATERIAL_TITLE.load_search(RESULT_CHECK.search)
-DETAIL_TITLE.load_search(RESULT_CHECK.search)
+CALCULATE_TITLE.load_search(RESULT_CHECK_SEARCH)
+MATERIAL_TITLE.load_search(RESULT_CHECK_SEARCH)
+DETAIL_TITLE.load_search(RESULT_CHECK_SEARCH)
+RESULT_CHECK_CN.load_search(RESULT_CHECK_SEARCH)
+RESULT_CHECK_EN.load_search(RESULT_CHECK_SEARCH)
 
 
 class OcrItemName(Ocr):
@@ -99,25 +101,46 @@ class OcrPlannerResult(OcrWhiteLetterOnComplexBackground, OcrItemName):
 
 class PlannerScan(SynthesizeUI, PlannerMixin):
     def is_in_planner_result(self):
-        if self.appear(RESULT_CHECK):
+        if self.match_template_luma(RESULT_CHECK_CN):
             return True
-        if self.appear(CALCULATE_TITLE):
+        if self.match_template_luma(RESULT_CHECK_EN):
             return True
-        if self.appear(MATERIAL_TITLE):
+        if self.match_template_luma(CALCULATE_TITLE):
             return True
-        if self.appear(DETAIL_TITLE):
+        if self.match_template_luma(MATERIAL_TITLE):
+            return True
+        if self.match_template_luma(DETAIL_TITLE):
             return True
         return False
 
     @cached_property
-    def planner_lang(self) -> str:
+    def planner_lang(self):
+        # predict on screenshot
+        if self.match_template_luma(RESULT_CHECK_CN):
+            logger.attr('PlannerLang', 'cn')
+            return 'cn'
+        if self.match_template_luma(RESULT_CHECK_EN):
+            logger.attr('PlannerLang', 'en')
+            return 'en'
+
+        # predict from user setting
+        logger.warning('Failed to predict planner result lang, fallback to user setting')
+        lang = self.config.Emulator_GameLanguage
+        if lang != 'auto':
+            logger.attr('PlannerLang', lang)
+            return lang
+
+        logger.warning('Failed to predict planner result lang, fallback to package name')
         if self.config.Emulator_PackageName in ['CN-Official', 'CN-Bilibili']:
             lang = 'cn'
+        elif self.config.Emulator_PackageName in [
+            'OVERSEA-America', 'OVERSEA-Asia', 'OVERSEA-Europe', 'OVERSEA-TWHKMO']:
+            lang = 'en'
         else:
             lang = self.config.LANG
-        if lang == 'auto':
-            logger.error('Language was not set before planner scan, assume it is "cn"')
-            lang = 'cn'
+            if lang == 'auto':
+                logger.error('Language was not set before planner scan, assume it is "cn"')
+                lang = 'cn'
         logger.attr('PlannerLang', lang)
         return lang
 
@@ -203,6 +226,8 @@ class PlannerScan(SynthesizeUI, PlannerMixin):
         if not self.ui_page_appear(page_planner):
             logger.error('Not in page_planner, game must in the planner result page before scanning')
             raise GamePageUnknownError
+        # cache planner_lang at result top
+        _ = self.planner_lang
 
         scroll = AdaptiveScroll(RESULT_SCROLL.button, name=RESULT_SCROLL.name)
         scroll.drag_threshold = 0.1

@@ -295,7 +295,7 @@
       "Stagnant_Shadow_Rime": "Ascension: Ice (March 7th / Herta / Gepard / Pela)",
       "Stagnant_Shadow_Icicle": "Ascension: Ice (Yanqing / Jingliu / Ruan Mei)",
       "Stagnant_Shadow_Nectar": "Ascension: Ice (Misha / The Herta)",
-      "Stagnant_Shadow_Sirens": "Ascension: Ice (Evernight)",
+      "Stagnant_Shadow_Sirens": "Ascension: Ice (Cyrene / Evernight)",
       "Stagnant_Shadow_Fulmination": "Ascension: Lightning (Arlan / Serval / Tingyun / Bailu)",
       "Stagnant_Shadow_Doom": "Ascension: Lightning (Kafka / Jing Yuan / Acheron)",
       "Stagnant_Shadow_Mechwolf": "Ascension: Lightning (Moze / Aglaea)",
@@ -372,7 +372,10 @@
       "6": "6",
       "7": "7",
       "8": "8",
-      "9": "9"
+      "9": "9",
+      "10": "10",
+      "11": "11",
+      "12": "12"
     }
   },
   "TrailblazePower": {
@@ -490,7 +493,8 @@
       "Sampo": "Sampo",
       "Tingyun": "Tingyun",
       "Pela": "Pela",
-      "Natasha": "Natasha"
+      "Natasha": "Natasha",
+      "Cyrene": "Cyrene"
     }
   },
   "DungeonStorage": {
@@ -670,8 +674,12 @@
       "name": "Ascension: Physical (Phainon / Hysilens / Dan Heng • Permansor Terrae)",
       "help": ""
     },
+    "Item_Radiant_Prominence": {
+      "name": "Unknown_Dungeon_Come_From",
+      "help": ""
+    },
     "Item_Sea_Siren_Torn_Fin": {
-      "name": "Ascension: Ice (Evernight)",
+      "name": "Ascension: Ice (Cyrene / Evernight)",
       "help": ""
     },
     "Item_Charred_Bud_of_Twilight": {
@@ -778,6 +786,10 @@
       "name": "Glance of Twilight (Amphoreus)",
       "help": ""
     },
+    "Item_Vanquished_Flow_Reticence": {
+      "name": "Unknown_Dungeon_Come_From",
+      "help": ""
+    },
     "Item_Squirming_Core": {
       "name": "Squirming Core",
       "help": ""
@@ -826,6 +838,10 @@
     },
     "Enable": {
       "name": "Enable Planner",
+      "help": ""
+    },
+    "LastScan": {
+      "name": "Last Scan Time",
       "help": ""
     },
     "Character": {
@@ -909,12 +925,14 @@
       "Sampo": "Sampo",
       "Tingyun": "Tingyun",
       "Pela": "Pela",
-      "Natasha": "Natasha"
+      "Natasha": "Natasha",
+      "Cyrene": "Cyrene"
     },
     "Cone": {
       "name": "Cone",
       "help": "",
       "_none_": "None",
+      "This_Love_Forever": "Cyrene | 5* This Love, Forever",
       "Though_Worlds_Apart": "[3.6] Dan Heng • Permansor Terrae | 5* Though Worlds Apart",
       "To_Evernight_Stars": "[3.6] Evernight | 5* To Evernight's Stars",
       "Epoch_Etched_in_Golden_Blood": "[3.5] Cerydra | 5* Epoch Etched in Golden Blood",
@@ -972,6 +990,7 @@
       "But_the_Battle_Isn_t_Over": "5* But the Battle Isn't Over",
       "Something_Irreplaceable": "5* Something Irreplaceable",
       "Night_on_the_Milky_Way": "5* Night on the Milky Way",
+      "Fly_Into_a_Pink_Tomorrow": "4* Fly Into a Pink Tomorrow",
       "The_Forever_Victual": "4* The Forever Victual",
       "The_Great_Cosmic_Enterprise": "4* The Great Cosmic Enterprise",
       "Ninja_Record_Sound_Hunt": "4* Ninja Record: Sound Hunt",
@@ -1062,6 +1081,42 @@
       "Collapsing_Sky": "3* Collapsing Sky",
       "Cornucopia": "3* Cornucopia",
       "Arrows": "3* Arrows"
+    },
+    "Relic": {
+      "name": "Relic",
+      "help": "",
+      "_none_": "None",
+      "Cavern_of_Corrosion_Path_of_Hidden_Salvation": "Relics: Deliverer & Recluse (Path of Hidden Salvation)",
+      "Cavern_of_Corrosion_Path_of_Thundersurge": "Relics: Warrior Goddess & Captain (Path of Thundersurge)",
+      "Cavern_of_Corrosion_Path_of_Aria": "Relics: Hero & Poet (Path of Aria)",
+      "Cavern_of_Corrosion_Path_of_Uncertainty": "Relics: Ordeal & Scholar (Path of Uncertainty)",
+      "Cavern_of_Corrosion_Path_of_Cavalier": "Relics: Iron Cavalry & Valorous (Path of Cavalier)",
+      "Cavern_of_Corrosion_Path_of_Dreamdive": "Relics: Dead Waters & Watchmaker (Path of Dreamdive)",
+      "Cavern_of_Corrosion_Path_of_Darkness": "Relics: Grand Duke & DoT set (Path of Darkness)",
+      "Cavern_of_Corrosion_Path_of_Elixir_Seekers": "Relics: Disciple & Messenger (Path of Elixir Seekers)",
+      "Cavern_of_Corrosion_Path_of_Conflagration": "Relics: Fire set & Imaginary set (Path of Conflagration)",
+      "Cavern_of_Corrosion_Path_of_Holy_Hymn": "Relics: DEF set & Lighting set (Path of Holy Hymn)",
+      "Cavern_of_Corrosion_Path_of_Providence": "Relics: Guard & Quantum set (Path of Providence)",
+      "Cavern_of_Corrosion_Path_of_Drifting": "Relics: Healing set & Musketeer (Path of Drifting)",
+      "Cavern_of_Corrosion_Path_of_Jabbing_Punch": "Relics: Physical set & Thief (Path of Jabbing Punch)",
+      "Cavern_of_Corrosion_Path_of_Gelid_Wind": "Relics: Ice set & Wind set (Path of Gelid Wind)"
+    },
+    "Ornament": {
+      "name": "Ornament",
+      "help": "",
+      "_none_": "None",
+      "Divergent_Universe_Within_the_West_Wind": "Ornament: Amphoreus & Tengoku (Within the West Wind)",
+      "Divergent_Universe_Moonlit_Blood": "Ornament: Arcadia & Revelry (Moonlit Blood)",
+      "Divergent_Universe_Unceasing_Strife": "Ornament: Bone Collection & Giant Tree (Unceasing Strife)",
+      "Divergent_Universe_Famished_Worker": "Ornament: Sunken Seas & Wondrous (Famished Worker)",
+      "Divergent_Universe_Eternal_Comedy": "Ornament: Running Wolves & Lantern (Eternal Comedy)",
+      "Divergent_Universe_To_Sweet_Dreams": "Ornament: Sigonia & Izumo (To Sweet Dreams)",
+      "Divergent_Universe_Pouring_Blades": "Ornament: Firmament & Penacony (Pouring Blades)",
+      "Divergent_Universe_Fruit_of_Evil": "Ornament: Rutilant Arena & Keel (Fruit of Evil)",
+      "Divergent_Universe_Permafrost": "Ornament: Belobog & Salsotto (Permafrost)",
+      "Divergent_Universe_Gentle_Words": "Ornament: Commercial Enterprise & Differentiator (Gentle Words)",
+      "Divergent_Universe_Smelted_Heart": "Ornament: Banditry & Vonwacq (Smelted Heart)",
+      "Divergent_Universe_Untoppled_Walls": "Ornament: Space & Ageless Fleet (Untoppled Walls)"
     },
     "LevelTarget": {
       "name": "Target Level",
@@ -1474,6 +1529,10 @@
     "SimulatedUniverseFarm": {
       "name": "Elites/bosses Farmed",
       "help": ""
+    },
+    "Team": {
+      "name": "Simulated Universe Team",
+      "help": ""
     }
   },
   "RogueBlessing": {
@@ -1537,6 +1596,7 @@
     "Dungeon": {
       "name": "Dungeon Name",
       "help": "",
+      "Divergent_Universe_Within_the_West_Wind": "Ornament: Amphoreus & Tengoku (Within the West Wind)",
       "Divergent_Universe_Moonlit_Blood": "Ornament: Arcadia & Revelry (Moonlit Blood)",
       "Divergent_Universe_Unceasing_Strife": "Ornament: Bone Collection & Giant Tree (Unceasing Strife)",
       "Divergent_Universe_Famished_Worker": "Ornament: Sunken Seas & Wondrous (Famished Worker)",
@@ -1548,6 +1608,22 @@
       "Divergent_Universe_Gentle_Words": "Ornament: Commercial Enterprise & Differentiator (Gentle Words)",
       "Divergent_Universe_Smelted_Heart": "Ornament: Banditry & Vonwacq (Smelted Heart)",
       "Divergent_Universe_Untoppled_Walls": "Ornament: Space & Ageless Fleet (Untoppled Walls)"
+    },
+    "Team": {
+      "name": "Dungeon Team",
+      "help": "The specified team must use the default name; custom team names are not allowed.",
+      "1": "1",
+      "2": "2",
+      "3": "3",
+      "4": "4",
+      "5": "5",
+      "6": "6",
+      "7": "7",
+      "8": "8",
+      "9": "9",
+      "10": "10",
+      "11": "11",
+      "12": "12"
     },
     "UseImmersifier": {
       "name": "Claim Planars Using Immersifiers",

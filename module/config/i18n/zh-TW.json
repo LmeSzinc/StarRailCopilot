@@ -295,7 +295,7 @@
       "Stagnant_Shadow_Rime": "晉階材料：冰（三月七 / 黑塔 / 傑帕德 / 佩拉）",
       "Stagnant_Shadow_Icicle": "晉階材料：冰（彥卿 / 鏡流 / 阮•梅）",
       "Stagnant_Shadow_Nectar": "晉階材料：冰（米沙 / 大黑塔）",
-      "Stagnant_Shadow_Sirens": "晉階材料：冰（長夜月）",
+      "Stagnant_Shadow_Sirens": "晉階材料：冰（昔漣 / 長夜月）",
       "Stagnant_Shadow_Fulmination": "晉階材料：雷（阿蘭 / 希露瓦 / 停雲 / 白露）",
       "Stagnant_Shadow_Doom": "晉階材料：雷（卡芙卡 / 景元 / 黃泉）",
       "Stagnant_Shadow_Mechwolf": "晉階材料：雷（貊澤 / 阿格萊雅）",
@@ -372,7 +372,10 @@
       "6": "6",
       "7": "7",
       "8": "8",
-      "9": "9"
+      "9": "9",
+      "10": "10",
+      "11": "11",
+      "12": "12"
     }
   },
   "TrailblazePower": {
@@ -490,7 +493,8 @@
       "Sampo": "桑博",
       "Tingyun": "停雲",
       "Pela": "佩拉",
-      "Natasha": "娜塔莎"
+      "Natasha": "娜塔莎",
+      "Cyrene": "昔漣"
     }
   },
   "DungeonStorage": {
@@ -670,8 +674,12 @@
       "name": "晉階材料：物理（白厄 / 海瑟音 / 丹恆•騰荒）",
       "help": ""
     },
+    "Item_Radiant_Prominence": {
+      "name": "Unknown_Dungeon_Come_From",
+      "help": ""
+    },
     "Item_Sea_Siren_Torn_Fin": {
-      "name": "晉階材料：冰（長夜月）",
+      "name": "晉階材料：冰（昔漣 / 長夜月）",
       "help": ""
     },
     "Item_Charred_Bud_of_Twilight": {
@@ -778,6 +786,10 @@
       "name": "晨昏的回眸 (翁法羅斯)",
       "help": ""
     },
+    "Item_Vanquished_Flow_Reticence": {
+      "name": "Unknown_Dungeon_Come_From",
+      "help": ""
+    },
     "Item_Squirming_Core": {
       "name": "蠢動原核",
       "help": ""
@@ -826,6 +838,10 @@
     },
     "Enable": {
       "name": "啟用養成規劃",
+      "help": ""
+    },
+    "LastScan": {
+      "name": "上次掃描時間",
       "help": ""
     },
     "Character": {
@@ -909,12 +925,14 @@
       "Sampo": "桑博",
       "Tingyun": "停雲",
       "Pela": "佩拉",
-      "Natasha": "娜塔莎"
+      "Natasha": "娜塔莎",
+      "Cyrene": "昔漣"
     },
     "Cone": {
       "name": "養成光錐",
       "help": "",
       "_none_": "無",
+      "This_Love_Forever": "昔漣 | 5* 愛如此刻永恆",
       "Though_Worlds_Apart": "[3.6] 丹恆•騰荒 | 5* 縱然山河萬程",
       "To_Evernight_Stars": "[3.6] 長夜月 | 5* 致長夜的星光",
       "Epoch_Etched_in_Golden_Blood": "[3.5] 刻律德菈 | 5* 金血銘刻的時代",
@@ -972,6 +990,7 @@
       "But_the_Battle_Isn_t_Over": "5* 但戰鬥還未結束",
       "Something_Irreplaceable": "5* 無可取代的東西",
       "Night_on_the_Milky_Way": "5* 銀河鐵道之夜",
+      "Fly_Into_a_Pink_Tomorrow": "4* 飛向粉紅色的明天",
       "The_Forever_Victual": "4* 永遠的迷境飯",
       "The_Great_Cosmic_Enterprise": "4* 宇宙大生意",
       "Ninja_Record_Sound_Hunt": "4* 忍事錄•音律狩獵",
@@ -1062,6 +1081,42 @@
       "Collapsing_Sky": "3* 天傾",
       "Cornucopia": "3* 物穰",
       "Arrows": "3* 鋒鏑"
+    },
+    "Relic": {
+      "name": "養成外圈遺器",
+      "help": "",
+      "_none_": "無",
+      "Cavern_of_Corrosion_Path_of_Hidden_Salvation": "遺器：救世主 & 隱士（隱救之徑）",
+      "Cavern_of_Corrosion_Path_of_Thundersurge": "遺器：烈陽 & 船長（靂湧之徑）",
+      "Cavern_of_Corrosion_Path_of_Aria": "遺器：英豪 & 詩人（絃歌之徑）",
+      "Cavern_of_Corrosion_Path_of_Uncertainty": "遺器：司鐸 & 學者（迷識之徑）",
+      "Cavern_of_Corrosion_Path_of_Cavalier": "遺器：鐵騎 & 勇烈（勇騎之徑）",
+      "Cavern_of_Corrosion_Path_of_Dreamdive": "遺器：死水 & 鐘錶匠（夢潛之徑）",
+      "Cavern_of_Corrosion_Path_of_Darkness": "遺器：大公 & DoT套（幽冥之徑）",
+      "Cavern_of_Corrosion_Path_of_Elixir_Seekers": "遺器：蒔者 & 信使（藥使之徑）",
+      "Cavern_of_Corrosion_Path_of_Conflagration": "遺器：火套 & 虛數套（野焰之徑）",
+      "Cavern_of_Corrosion_Path_of_Holy_Hymn": "遺器：防禦套 & 雷套（聖頌之徑）",
+      "Cavern_of_Corrosion_Path_of_Providence": "遺器：鐵衛 & 量子套（睿治之徑）",
+      "Cavern_of_Corrosion_Path_of_Drifting": "遺器：治療套 & 快槍手（漂泊之徑）",
+      "Cavern_of_Corrosion_Path_of_Jabbing_Punch": "遺器：物理套 & 怪盜（迅拳之徑）",
+      "Cavern_of_Corrosion_Path_of_Gelid_Wind": "遺器：冰套 & 風套（霜風之徑）"
+    },
+    "Ornament": {
+      "name": "養成內圈遺器",
+      "help": "",
+      "_none_": "無",
+      "Divergent_Universe_Within_the_West_Wind": "飾品：翁法羅斯 & 天國（西風叢中）",
+      "Divergent_Universe_Moonlit_Blood": "飾品：妖精 & 沉醉（月下朱殷）",
+      "Divergent_Universe_Unceasing_Strife": "飾品：拾骨地 & 巨樹（紛爭不休）",
+      "Divergent_Universe_Famished_Worker": "飾品：海域 & 奇想（蠹役飢腸）",
+      "Divergent_Universe_Eternal_Comedy": "飾品：奔狼 & 火宮（永恆笑劇）",
+      "Divergent_Universe_To_Sweet_Dreams": "飾品：茨岡尼亞 & 出雲（伴你入眠）",
+      "Divergent_Universe_Pouring_Blades": "飾品：蒼穹 & 匹諾康尼（天劍如雨）",
+      "Divergent_Universe_Fruit_of_Evil": "飾品：繁星 & 龍骨（孽果盤生）",
+      "Divergent_Universe_Permafrost": "飾品：貝洛伯格 & 薩爾索圖（百年凍土）",
+      "Divergent_Universe_Gentle_Words": "飾品：商業公司 & 差分機（溫柔話語）",
+      "Divergent_Universe_Smelted_Heart": "飾品：盜賊 & 翁瓦克（浴火鋼心）",
+      "Divergent_Universe_Untoppled_Walls": "飾品：太空 & 仙舟（堅城不倒）"
     },
     "LevelTarget": {
       "name": "目標等級",
@@ -1474,6 +1529,10 @@
     "SimulatedUniverseFarm": {
       "name": "農精英怪進度",
       "help": ""
+    },
+    "Team": {
+      "name": "模拟宇宙隊伍",
+      "help": ""
     }
   },
   "RogueBlessing": {
@@ -1537,6 +1596,7 @@
     "Dungeon": {
       "name": "副本名稱",
       "help": "",
+      "Divergent_Universe_Within_the_West_Wind": "飾品：翁法羅斯 & 天國（西風叢中）",
       "Divergent_Universe_Moonlit_Blood": "飾品：妖精 & 沉醉（月下朱殷）",
       "Divergent_Universe_Unceasing_Strife": "飾品：拾骨地 & 巨樹（紛爭不休）",
       "Divergent_Universe_Famished_Worker": "飾品：海域 & 奇想（蠹役飢腸）",
@@ -1548,6 +1608,22 @@
       "Divergent_Universe_Gentle_Words": "飾品：商業公司 & 差分機（溫柔話語）",
       "Divergent_Universe_Smelted_Heart": "飾品：盜賊 & 翁瓦克（浴火鋼心）",
       "Divergent_Universe_Untoppled_Walls": "飾品：太空 & 仙舟（堅城不倒）"
+    },
+    "Team": {
+      "name": "打本隊伍",
+      "help": "指定的隊伍需要使用預設名稱，不能使用自訂隊伍名稱",
+      "1": "1",
+      "2": "2",
+      "3": "3",
+      "4": "4",
+      "5": "5",
+      "6": "6",
+      "7": "7",
+      "8": "8",
+      "9": "9",
+      "10": "10",
+      "11": "11",
+      "12": "12"
     },
     "UseImmersifier": {
       "name": "使用沉浸器領取遺器",

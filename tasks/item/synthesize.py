@@ -11,6 +11,7 @@ from module.ocr.ocr import Digit, Ocr
 from tasks.base.page import page_menu, page_synthesize
 from tasks.combat.assets.assets_combat_obtain import ITEM_CLOSE
 from tasks.combat.obtain import CombatObtain
+from tasks.daily.synthesize import SynthesizeUI
 from tasks.item.assets.assets_item_synthesize import *
 from tasks.item.inventory import InventoryManager
 from tasks.item.keywords import KEYWORDS_ITEM_TAB
@@ -112,7 +113,7 @@ class SynthesizeInventoryManager(InventoryManager):
         return id2 > id1
 
 
-class Synthesize(CombatObtain, ItemUI):
+class Synthesize(CombatObtain, ItemUI, SynthesizeUI):
     def _item_get_rarity_from_button(self, button) -> str | None:
         """
         Args:
@@ -156,8 +157,12 @@ class Synthesize(CombatObtain, ItemUI):
         rarity = self._item_get_rarity_from_button(ENTRY_ITEM_FROM_LEFT)
         # When having 2 items, left is blue and right is green. This indicates synthesizing purple.
         if rarity == 'blue':
-            logger.attr('SynthesizeRarity', 'purple (LEFT)')
-            return 'purple'
+            # must have white letter below to avoid mis-detection on blue background
+            area = ENTRY_ITEM_FROM_LEFT.area
+            area = (area[0], area[3], area[2], area[3] + 30)
+            if self.image_color_count(area, color=(255, 255, 255), threshold=221, count=30):
+                logger.attr('SynthesizeRarity', 'purple (LEFT)')
+                return 'purple'
         # Check item in the middle
         rarity = self._item_get_rarity_from_button(ENTRY_ITEM_FROM)
         if rarity == 'blue':
@@ -634,7 +639,7 @@ class Synthesize(CombatObtain, ItemUI):
             out: page_main
         """
         logger.hr('Synthesize planner', level=1)
-        self.ui_ensure(page_synthesize)
+        self.menu_enter_top(page_synthesize)
 
         # Cache things to iter
         rows = list(self.planner.rows.values())
@@ -647,21 +652,21 @@ class Synthesize(CombatObtain, ItemUI):
                 continue
 
             logger.info(f'Synthesize row: {row}')
+            # blue -> purple
+            value = row.synthesize.purple
+            total = int(row.total.blue // 3)
+            if value:
+                logger.info(f'Synthesize blue to purple: {value}/{total}')
+                self.synthesize_rarity_set('purple')
+                self.synthesize_amount_set(value, total)
+                self.synthesize_confirm()
             # green -> blue
+            # note that row.value.green might not be accurate after synthesize purple, but it's ok
             value = row.synthesize.blue
             total = int(row.value.green // 3)
             if value:
                 logger.info(f'Synthesize green to blue: {value}/{total}')
                 self.synthesize_rarity_set('blue')
-                self.synthesize_amount_set(value, total)
-                self.synthesize_confirm()
-            # blue -> purple
-            synthesized_blue = value
-            value = row.synthesize.purple
-            total = int((row.value.blue + synthesized_blue) // 3)
-            if value:
-                logger.info(f'Synthesize blue to purple: {value}/{total}')
-                self.synthesize_rarity_set('purple')
                 self.synthesize_amount_set(value, total)
                 self.synthesize_confirm()
 

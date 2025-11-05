@@ -30,6 +30,20 @@ DETAIL_TITLE = ButtonWrapper(
             color=(117, 119, 147),
             button=(263, 460, 345, 480),
         ),
+        Button(
+            file='./assets/share/planner/result/DETAIL_TITLE.3.png',
+            area=(263, 487, 332, 505),
+            search=(243, 467, 352, 525),
+            color=(135, 136, 162),
+            button=(263, 487, 332, 505),
+        ),
+        Button(
+            file='./assets/share/planner/result/DETAIL_TITLE.4.png',
+            area=(262, 389, 346, 409),
+            search=(242, 369, 366, 429),
+            color=(155, 157, 177),
+            button=(262, 389, 346, 409),
+        ),
     ],
 )
 MATERIAL_TITLE = ButtonWrapper(
@@ -52,14 +66,53 @@ OCR_RESULT = ButtonWrapper(
         button=(331, 104, 1201, 592),
     ),
 )
-RESULT_CHECK = ButtonWrapper(
-    name='RESULT_CHECK',
+RECALCULATE = ButtonWrapper(
+    name='RECALCULATE',
+    share=[
+        Button(
+            file='./assets/share/planner/result/RECALCULATE.png',
+            area=(1084, 628, 1169, 645),
+            search=(1064, 608, 1189, 665),
+            color=(121, 125, 146),
+            button=(1084, 628, 1169, 645),
+        ),
+        Button(
+            file='./assets/share/planner/result/RECALCULATE.2.png',
+            area=(1103, 627, 1175, 646),
+            search=(1083, 607, 1195, 666),
+            color=(134, 137, 157),
+            button=(1103, 627, 1175, 646),
+        ),
+    ],
+)
+RESULT_CHECK_CN = ButtonWrapper(
+    name='RESULT_CHECK_CN',
     share=Button(
-        file='./assets/share/planner/result/RESULT_CHECK.png',
+        file='./assets/share/planner/result/RESULT_CHECK_CN.png',
         area=(263, 128, 324, 148),
-        search=(255, 103, 355, 593),
+        search=(243, 108, 344, 168),
         color=(132, 119, 92),
         button=(263, 128, 324, 148),
+    ),
+)
+RESULT_CHECK_EN = ButtonWrapper(
+    name='RESULT_CHECK_EN',
+    share=Button(
+        file='./assets/share/planner/result/RESULT_CHECK_EN.png',
+        area=(241, 128, 319, 145),
+        search=(221, 108, 339, 165),
+        color=(111, 103, 100),
+        button=(241, 128, 319, 145),
+    ),
+)
+RESULT_CHECK_SEARCH = ButtonWrapper(
+    name='RESULT_CHECK_SEARCH',
+    share=Button(
+        file='./assets/share/planner/result/RESULT_CHECK_SEARCH.png',
+        area=(219, 104, 354, 592),
+        search=(199, 84, 374, 612),
+        color=(255, 255, 255),
+        button=(219, 104, 354, 592),
     ),
 )
 RESULT_DRAG = ButtonWrapper(
@@ -80,5 +133,15 @@ RESULT_SCROLL = ButtonWrapper(
         search=(1218, 84, 1265, 612),
         color=(33, 44, 62),
         button=(1238, 104, 1245, 592),
+    ),
+)
+START_CALCULATE = ButtonWrapper(
+    name='START_CALCULATE',
+    share=Button(
+        file='./assets/share/planner/result/START_CALCULATE.png',
+        area=(994, 630, 1024, 661),
+        search=(950, 626, 1091, 668),
+        color=(168, 136, 83),
+        button=(994, 630, 1024, 661),
     ),
 )

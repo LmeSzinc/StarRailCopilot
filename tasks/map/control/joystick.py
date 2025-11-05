@@ -168,7 +168,7 @@ class JoystickContact:
             # Character starts moving, RUN button is still unavailable in a short time.
             # Assume available in 0.3s
             # We still have reties if 0.3s is incorrect.
-            self.main.map_run_2x_timer.set_current(0.7)
+            self.main.map_run_2x_timer.set(0.7, count=2)
             self.main.joystick_lost_timer.reset()
 
         self.prev_point = point

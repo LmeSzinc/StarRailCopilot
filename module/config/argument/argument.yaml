@@ -104,7 +104,7 @@ Dungeon:
     option: [ ]
   Team:
     value: 1
-    option: [ 1, 2, 3, 4, 5, 6, 7, 8, 9 ]
+    option: [ 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12 ]
 TrailblazePower:
   ExtractReservedTrailblazePower: false
   UseFuel: false
@@ -158,15 +158,33 @@ Planner:
   # Items will be injected in config updater
 PlannerTarget:
   Enable:
+    keepvalue: true
     display: hide
     value: false
+  LastScan:
+    keepvalue: true
+    display: hide
+    value: 2020-01-01T00:00:00
   # Character and cones will be injected in config updater
   # Default to "_none_" for empty
   Character:
+    keepvalue: true
     display: hide
     value: _none_
     option: [ _none_, ]
   Cone:
+    keepvalue: true
+    display: hide
+    value: _none_
+    option: [ _none_, ]
+  # relics and ornament will be injected in config updater
+  Relic:
+    keepvalue: true
+    display: hide
+    value: _none_
+    option: [ _none_, ]
+  Ornament:
+    keepvalue: true
     display: hide
     value: _none_
     option: [ _none_, ]
@@ -174,38 +192,47 @@ PlannerTarget:
     # "max" for character level 80, cone level 80, skill level 6-10-10-10,
     # "699" for character level 80, cone level 80, skill level 6-9-9-9
     # "custom" to customize all levels
+    keepvalue: true
     display: hide
     value: max
     option: [ max, "699", custom ]
   CharacterLevel:
+    keepvalue: true
     display: hide
     value: 80
     option: [ 80, 70, 60, 50, 40, 20 ]
   ConeLevel:
+    keepvalue: true
     display: hide
     value: 80
     option: [ 80, 70, 60, 50, 40, 20 ]
   AttackLevel:
+    keepvalue: true
     display: hide
     value: 6
     option: [ 6, 5, 4, 3, 2, 1]
   SkillLevel:
+    keepvalue: true
     display: hide
     value: 10
     option: [ 10, 9, 8, 7, 6, 5, 4, 3, 2, 1 ]
   UltimateLevel:
+    keepvalue: true
     display: hide
     value: 10
     option: [ 10, 9, 8, 7, 6, 5, 4, 3, 2, 1 ]
   TalentLevel:
+    keepvalue: true
     display: hide
     value: 10
     option: [ 10, 9, 8, 7, 6, 5, 4, 3, 2, 1 ]
   MemoSkillLevel:
+    keepvalue: true
     display: hide
     value: 6
     option: [ 6, 5, 4, 3, 2, 1 ]
   MemoTalentLevel:
+    keepvalue: true
     display: hide
     value: 6
     option: [ 6, 5, 4, 3, 2, 1 ]
@@ -338,6 +365,12 @@ RogueWorld:
   SimulatedUniverseFarm:
     stored: StoredSimulatedUniverseElite
     display: disabled
+  Team:
+    keepvalue: true
+    display: hide
+    # list of character ID join with "," e.g. "1306,1221,1309,1217"
+    # <string name="User_{uid}_RogueTeamRecords">%7B%228%22%3A%5B1306%2C1221%2C1309%2C1217%5D%7D</string>
+    value: ""
 
 RogueBlessing:
   PresetBlessingFilter:
@@ -375,6 +408,11 @@ Ornament:
     value: Divergent_Universe_Eternal_Comedy
     # OrnamentExtraction will be injected in config updater
     option: [ ]
+  Team:
+    keepvalue: true
+    display: hide
+    value: 1
+    option: [ 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12 ]
   UseImmersifier:
     type: state
     value: true

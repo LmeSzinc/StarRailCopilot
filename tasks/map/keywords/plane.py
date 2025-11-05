@@ -806,8 +806,19 @@ Amphoreus_FortressofDomeEyeofTwilight = MapPlane(
     world_id=4,
     plane_id=2043101,
 )
-Amphoreus_UniversalMatrixGreatTomboftheNamelessTitan = MapPlane(
+Amphoreus_NightmareEchoGreatTomboftheNamelessTitan = MapPlane(
     id=75,
+    name='Amphoreus_NightmareEchoGreatTomboftheNamelessTitan',
+    cn='「灾梦余温」无名泰坦大墓',
+    cht='「災夢餘溫」無名泰坦大墓',
+    en='"Nightmare\'s Echo" Great Tomb of the Nameless Titan',
+    jp='「悪夢の余熱」無名のタイタンの大墓',
+    es='Gran Tumba del Titán Sin Nombre, Vestigios del Desastre',
+    world_id=4,
+    plane_id=2048201,
+)
+Amphoreus_UniversalMatrixGreatTomboftheNamelessTitan = MapPlane(
+    id=76,
     name='Amphoreus_UniversalMatrixGreatTomboftheNamelessTitan',
     cn='「全世矩阵」无名泰坦大墓',
     cht='「全世矩陣」無名泰坦大墓',
@@ -816,4 +827,26 @@ Amphoreus_UniversalMatrixGreatTomboftheNamelessTitan = MapPlane(
     es='Gran Tumba del Titán Sin Nombre, Matriz Universal',
     world_id=4,
     plane_id=2046201,
+)
+Amphoreus_MemortisShoreRuinsofTime = MapPlane(
+    id=77,
+    name='Amphoreus_MemortisShoreRuinsofTime',
+    cn='「葬忆彼岸」时光归墟',
+    cht='「葬憶彼岸」時光歸墟',
+    en='"Memortis Shore" Ruins of Time',
+    jp='「葬られし記憶の彼岸」時の果て',
+    es='Ruinas del Tiempo, Orilla de los Recuerdos Enterrados',
+    world_id=4,
+    plane_id=2048101,
+)
+Amphoreus_BeyondTimeAnEternalPage = MapPlane(
+    id=78,
+    name='Amphoreus_BeyondTimeAnEternalPage',
+    cn='「岁月彼岸」一页永恒',
+    cht='「歲月彼岸」一頁永恆',
+    en='Beyond Time: An Eternal Page',
+    jp='「歳月の彼方」永遠の1ページ',
+    es='Más allá del tiempo: Página eterna',
+    world_id=4,
+    plane_id=1040501,
 )

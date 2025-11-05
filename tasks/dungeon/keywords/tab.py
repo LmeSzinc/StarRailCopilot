@@ -57,3 +57,12 @@ Strategic_Training = DungeonTab(
     jp='戦術訓練',
     es='Entrenamiento estratégico',
 )
+Trailblaze_Experience = DungeonTab(
+    id=7,
+    name='Trailblaze_Experience',
+    cn='开拓历程',
+    cht='開拓歷程',
+    en='Trailblaze Experience',
+    jp='開拓の足跡',
+    es='Experiencia trazacaminos',
+)

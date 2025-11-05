@@ -86,6 +86,7 @@ class ConfigGenerator:
                                 if dungeon.Stagnant_Shadow_Combat_Type == type_]
         cavern_of_corrosion = [dungeon.name for dungeon in DungeonList.instances.values() if
                                dungeon.is_Cavern_of_Corrosion]
+        ornament = [dungeon.name for dungeon in DungeonList.instances.values() if dungeon.is_Ornament_Extraction]
         option_add(
             keys='Dungeon.Name.option',
             options=cavern_of_corrosion + calyx_golden + calyx_crimson + stagnant_shadow
@@ -96,8 +97,10 @@ class ConfigGenerator:
         option_add(
             keys='Weekly.Name.option',
             options=[dungeon.name for dungeon in DungeonList.instances.values() if dungeon.is_Echo_of_War])
+        # PlannerTarget
+        option_add(keys='PlannerTarget.Relic.option', options=cavern_of_corrosion)
+        option_add(keys='PlannerTarget.Ornament.option', options=ornament)
         # OrnamentExtraction
-        ornament = [dungeon.name for dungeon in DungeonList.instances.values() if dungeon.is_Ornament_Extraction]
         option_add(keys='Ornament.Dungeon.option', options=ornament)
         # Insert characters
         from tasks.character.aired_version import list_support_characters
@@ -486,8 +489,16 @@ class ConfigGenerator:
                 if value:
                     deep_set(new, keys=f'{keys}.{dungeon}', value=value)
 
+        def update_ornament_names(keys):
+            for dungeon in deep_get(self.argument, keys=f'{keys}.option', default=[]):
+                value = deep_get(new, keys=['Ornament', 'Dungeon', dungeon])
+                if value:
+                    deep_set(new, keys=f'{keys}.{dungeon}', value=value)
+
         update_dungeon_names('Dungeon.NameAtDoubleCalyx')
         update_dungeon_names('Dungeon.NameAtDoubleRelic')
+        update_dungeon_names('PlannerTarget.Relic')
+        update_ornament_names('PlannerTarget.Ornament')
 
         # Character names
         i18n_trailblazer = {
@@ -792,9 +803,11 @@ class ConfigUpdater:
             value = deep_get(old, keys=keys, default=data['value'])
             typ = data['type']
             display = data.get('display')
+            keepvalue = bool(data.get('keepvalue'))
             if is_template or value is None or value == '' \
                     or typ in type_lock or (display == 'hide' and typ not in type_stored):
-                value = data['value']
+                if not keepvalue:
+                    value = data['value']
             value = parse_value(value, data=data)
             deep_set(new, keys=keys, value=value)
 

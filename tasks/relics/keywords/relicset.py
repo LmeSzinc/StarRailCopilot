@@ -503,3 +503,23 @@ RevelrybytheSea = RelicSet(
     es='Litoral embriagado',
     setid=322,
 )
+AmphoreusTheEternalLand = RelicSet(
+    id=51,
+    name='AmphoreusTheEternalLand',
+    cn='永恒之地翁法罗斯',
+    cht='永恆之地翁法羅斯',
+    en='Amphoreus, The Eternal Land',
+    jp='永遠の地オンパロス',
+    es='Amphoreus, la tierra eterna',
+    setid=323,
+)
+TengokuLivestream = RelicSet(
+    id=52,
+    name='TengokuLivestream',
+    cn='天国@直播间',
+    cht='天國@直播頻道',
+    en='Tengoku@Livestream',
+    jp='天国@配信ルーム',
+    es='Tengoku@sala de chat',
+    setid=324,
+)

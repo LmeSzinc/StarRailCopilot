@@ -71,6 +71,7 @@
       "Item_Dream_Flamer": {},
       "Item_Chordal_Mirage": {},
       "Item_Invasive_Clot": {},
+      "Item_Radiant_Prominence": {},
       "Item_Sea_Siren_Torn_Fin": {},
       "Item_Charred_Bud_of_Twilight": {},
       "Item_Darkveil_Moonlight": {},
@@ -98,6 +99,7 @@
       "Item_Lost_Echo_of_the_Shared_Wish": {},
       "Item_Auspice_Sliver": {},
       "Item_Daythunder_Anamnesis": {},
+      "Item_Vanquished_Flow_Reticence": {},
       "Item_Squirming_Core": {},
       "Item_Conqueror_Will": {},
       "Item_Silvermane_Medal": {},
@@ -111,8 +113,11 @@
     },
     "PlannerTarget": {
       "Enable": false,
+      "LastScan": "2020-01-01 00:00:00+00:00",
       "Character": "_none_",
       "Cone": "_none_",
+      "Relic": "_none_",
+      "Ornament": "_none_",
       "LevelTarget": "max",
       "CharacterLevel": 80,
       "ConeLevel": 80,
@@ -159,6 +164,7 @@
     },
     "Ornament": {
       "Dungeon": "Divergent_Universe_Eternal_Comedy",
+      "Team": 1,
       "UseImmersifier": true,
       "DoubleEvent": true,
       "UseStamina": false
@@ -287,7 +293,8 @@
       "DoubleEvent": true,
       "WeeklyFarming": false,
       "UseStamina": false,
-      "SimulatedUniverseFarm": {}
+      "SimulatedUniverseFarm": {},
+      "Team": null
     },
     "RogueBlessing": {
       "PresetBlessingFilter": "preset",

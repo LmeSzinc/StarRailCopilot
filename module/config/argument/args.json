@@ -375,6 +375,12 @@
         "display": "display",
         "stored": "StoredPlanner"
       },
+      "Item_Radiant_Prominence": {
+        "type": "planner",
+        "value": {},
+        "display": "display",
+        "stored": "StoredPlanner"
+      },
       "Item_Sea_Siren_Torn_Fin": {
         "type": "planner",
         "value": {},
@@ -537,6 +543,12 @@
         "display": "display",
         "stored": "StoredPlanner"
       },
+      "Item_Vanquished_Flow_Reticence": {
+        "type": "planner",
+        "value": {},
+        "display": "display",
+        "stored": "StoredPlanner"
+      },
       "Item_Squirming_Core": {
         "type": "planner",
         "value": {},
@@ -602,11 +614,20 @@
       "Enable": {
         "type": "checkbox",
         "value": false,
+        "keepvalue": true,
+        "display": "hide"
+      },
+      "LastScan": {
+        "type": "datetime",
+        "value": "2020-01-01 00:00:00",
+        "validate": "datetime",
+        "keepvalue": true,
         "display": "hide"
       },
       "Character": {
         "type": "select",
         "value": "_none_",
+        "keepvalue": true,
         "display": "hide",
         "option": [
           "_none_",
@@ -687,15 +708,18 @@
           "Sampo",
           "Tingyun",
           "Pela",
-          "Natasha"
+          "Natasha",
+          "Cyrene"
         ]
       },
       "Cone": {
         "type": "select",
         "value": "_none_",
+        "keepvalue": true,
         "display": "hide",
         "option": [
           "_none_",
+          "This_Love_Forever",
           "Though_Worlds_Apart",
           "To_Evernight_Stars",
           "Epoch_Etched_in_Golden_Blood",
@@ -753,6 +777,7 @@
           "But_the_Battle_Isn_t_Over",
           "Something_Irreplaceable",
           "Night_on_the_Milky_Way",
+          "Fly_Into_a_Pink_Tomorrow",
           "The_Forever_Victual",
           "The_Great_Cosmic_Enterprise",
           "Ninja_Record_Sound_Hunt",
@@ -845,9 +870,54 @@
           "Arrows"
         ]
       },
+      "Relic": {
+        "type": "select",
+        "value": "_none_",
+        "keepvalue": true,
+        "display": "hide",
+        "option": [
+          "_none_",
+          "Cavern_of_Corrosion_Path_of_Hidden_Salvation",
+          "Cavern_of_Corrosion_Path_of_Thundersurge",
+          "Cavern_of_Corrosion_Path_of_Aria",
+          "Cavern_of_Corrosion_Path_of_Uncertainty",
+          "Cavern_of_Corrosion_Path_of_Cavalier",
+          "Cavern_of_Corrosion_Path_of_Dreamdive",
+          "Cavern_of_Corrosion_Path_of_Darkness",
+          "Cavern_of_Corrosion_Path_of_Elixir_Seekers",
+          "Cavern_of_Corrosion_Path_of_Conflagration",
+          "Cavern_of_Corrosion_Path_of_Holy_Hymn",
+          "Cavern_of_Corrosion_Path_of_Providence",
+          "Cavern_of_Corrosion_Path_of_Drifting",
+          "Cavern_of_Corrosion_Path_of_Jabbing_Punch",
+          "Cavern_of_Corrosion_Path_of_Gelid_Wind"
+        ]
+      },
+      "Ornament": {
+        "type": "select",
+        "value": "_none_",
+        "keepvalue": true,
+        "display": "hide",
+        "option": [
+          "_none_",
+          "Divergent_Universe_Within_the_West_Wind",
+          "Divergent_Universe_Moonlit_Blood",
+          "Divergent_Universe_Unceasing_Strife",
+          "Divergent_Universe_Famished_Worker",
+          "Divergent_Universe_Eternal_Comedy",
+          "Divergent_Universe_To_Sweet_Dreams",
+          "Divergent_Universe_Pouring_Blades",
+          "Divergent_Universe_Fruit_of_Evil",
+          "Divergent_Universe_Permafrost",
+          "Divergent_Universe_Gentle_Words",
+          "Divergent_Universe_Smelted_Heart",
+          "Divergent_Universe_Untoppled_Walls"
+        ]
+      },
       "LevelTarget": {
         "type": "select",
         "value": "max",
+        "keepvalue": true,
         "display": "hide",
         "option": [
           "max",
@@ -858,6 +928,7 @@
       "CharacterLevel": {
         "type": "select",
         "value": 80,
+        "keepvalue": true,
         "display": "hide",
         "option": [
           80,
@@ -871,6 +942,7 @@
       "ConeLevel": {
         "type": "select",
         "value": 80,
+        "keepvalue": true,
         "display": "hide",
         "option": [
           80,
@@ -884,6 +956,7 @@
       "AttackLevel": {
         "type": "select",
         "value": 6,
+        "keepvalue": true,
         "display": "hide",
         "option": [
           6,
@@ -897,6 +970,7 @@
       "SkillLevel": {
         "type": "select",
         "value": 10,
+        "keepvalue": true,
         "display": "hide",
         "option": [
           10,
@@ -914,6 +988,7 @@
       "UltimateLevel": {
         "type": "select",
         "value": 10,
+        "keepvalue": true,
         "display": "hide",
         "option": [
           10,
@@ -931,6 +1006,7 @@
       "TalentLevel": {
         "type": "select",
         "value": 10,
+        "keepvalue": true,
         "display": "hide",
         "option": [
           10,
@@ -948,6 +1024,7 @@
       "MemoSkillLevel": {
         "type": "select",
         "value": 6,
+        "keepvalue": true,
         "display": "hide",
         "option": [
           6,
@@ -961,6 +1038,7 @@
       "MemoTalentLevel": {
         "type": "select",
         "value": 6,
+        "keepvalue": true,
         "display": "hide",
         "option": [
           6,
@@ -1111,7 +1189,10 @@
           6,
           7,
           8,
-          9
+          9,
+          10,
+          11,
+          12
         ]
       }
     },
@@ -1206,7 +1287,8 @@
           "Sampo",
           "Tingyun",
           "Pela",
-          "Natasha"
+          "Natasha",
+          "Cyrene"
         ]
       }
     },
@@ -1316,6 +1398,7 @@
         "type": "select",
         "value": "Divergent_Universe_Eternal_Comedy",
         "option": [
+          "Divergent_Universe_Within_the_West_Wind",
           "Divergent_Universe_Moonlit_Blood",
           "Divergent_Universe_Unceasing_Strife",
           "Divergent_Universe_Famished_Worker",
@@ -1327,6 +1410,26 @@
           "Divergent_Universe_Gentle_Words",
           "Divergent_Universe_Smelted_Heart",
           "Divergent_Universe_Untoppled_Walls"
+        ]
+      },
+      "Team": {
+        "type": "select",
+        "value": 1,
+        "keepvalue": true,
+        "display": "hide",
+        "option": [
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9,
+          10,
+          11,
+          12
         ]
       },
       "UseImmersifier": {
@@ -1445,7 +1548,8 @@
           "Sampo",
           "Tingyun",
           "Pela",
-          "Natasha"
+          "Natasha",
+          "Cyrene"
         ]
       }
     },
@@ -2034,7 +2138,8 @@
           "Sampo",
           "Tingyun",
           "Pela",
-          "Natasha"
+          "Natasha",
+          "Cyrene"
         ]
       }
     }
@@ -2130,6 +2235,12 @@
         "value": {},
         "display": "disabled",
         "stored": "StoredSimulatedUniverseElite"
+      },
+      "Team": {
+        "type": "input",
+        "value": "",
+        "keepvalue": true,
+        "display": "hide"
       }
     },
     "RogueBlessing": {

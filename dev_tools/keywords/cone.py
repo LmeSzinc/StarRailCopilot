@@ -1,10 +1,12 @@
 import typing as t
 
-from dev_tools.keywords.base import GenerateKeyword, TextMap
+from dev_tools.keywords.base import GenerateKeyword
+from dev_tools.keywords.base_type import BaseType
 from dev_tools.keywords.character import convert_inner_character_to_keyword
 from module.base.decorator import cached_property
 from module.config.deep import deep_get, deep_set
 from module.exception import ScriptError
+from module.logger import logger
 
 
 class GenerateCone(GenerateKeyword):
@@ -13,7 +15,7 @@ class GenerateCone(GenerateKeyword):
     @cached_property
     def data(self):
         # cones
-        return self.read_file('./ExcelOutput/ItemConfigEquipment.json')
+        return self.read_file('./ExcelOutput/EquipmentConfig.json')
 
     def icon_to_name(self, name: str) -> "str | int":
         """
@@ -87,21 +89,39 @@ class GenerateCone(GenerateKeyword):
 
         return out
 
+    @staticmethod
+    def convert_rarity(rarity):
+        if rarity == 'CombatPowerLightconeRarity5':
+            return 'SuperRare'
+        if rarity == 'CombatPowerLightconeRarity4':
+            return 'VeryRare'
+        if rarity == 'CombatPowerLightconeRarity3':
+            return 'Rare'
+        return 'Unknown'
+
     def iter_keywords(self) -> t.Iterable[dict]:
+        dict_internal_to_path = BaseType().dict_internal_to_path
+
         cone_to_character = self.cone_to_character
         cones = {}
         for row in self.data:
-            cone_id = row.get('ID', 0)
+            cone_id = row.get('EquipmentID', 0)
             rarity = row.get('Rarity', 'Unknown')
-            visible = row.get('isVisible')
-            if not visible:
+            rarity = self.convert_rarity(rarity)
+
+            text_id = deep_get(row, ['EquipmentName', 'Hash'])
+            base_type = row.get('AvatarBaseType', '')
+            path_name = dict_internal_to_path.get(base_type)
+            if not path_name:
+                logger.warning(f'Cannot convert character {cone_id} base_type {base_type} to path')
                 continue
-            text_id = deep_get(row, ['ItemName', 'Hash'])
+
             character = cone_to_character.get(cone_id, '')
             cones[cone_id] = {
                 'id': cone_id,
                 'text_id': text_id,
                 'rarity': rarity,
+                'path_name': path_name,
                 'character_name': character,
             }
 

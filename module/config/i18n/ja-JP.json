@@ -295,7 +295,7 @@
       "Stagnant_Shadow_Rime": "昇格素材：氷（三月なのか / ヘルタ / ジェパード / ペラ）",
       "Stagnant_Shadow_Icicle": "昇格素材：氷（彦卿 / 鏡流 / ルアン・メェイ）",
       "Stagnant_Shadow_Nectar": "昇格素材：氷（ミーシャ / マダム・ヘルタ）",
-      "Stagnant_Shadow_Sirens": "昇格素材：氷（長夜月）",
+      "Stagnant_Shadow_Sirens": "昇格素材：氷（キュレネ / 長夜月）",
       "Stagnant_Shadow_Fulmination": "昇格素材：雷（アーラン / セーバル / 停雲 / 白露）",
       "Stagnant_Shadow_Doom": "昇格素材：雷（カフカ / 景元 / 黄泉）",
       "Stagnant_Shadow_Mechwolf": "昇格素材：雷（モゼ / アグライア）",
@@ -372,7 +372,10 @@
       "6": "6",
       "7": "7",
       "8": "8",
-      "9": "9"
+      "9": "9",
+      "10": "10",
+      "11": "11",
+      "12": "12"
     }
   },
   "TrailblazePower": {
@@ -490,7 +493,8 @@
       "Sampo": "サンポ",
       "Tingyun": "停雲",
       "Pela": "ペラ",
-      "Natasha": "ナターシャ"
+      "Natasha": "ナターシャ",
+      "Cyrene": "キュレネ"
     }
   },
   "DungeonStorage": {
@@ -670,8 +674,12 @@
       "name": "昇格素材：物理（ファイノン / セイレンス / 丹恒・騰荒）",
       "help": ""
     },
+    "Item_Radiant_Prominence": {
+      "name": "Unknown_Dungeon_Come_From",
+      "help": ""
+    },
     "Item_Sea_Siren_Torn_Fin": {
-      "name": "昇格素材：氷（長夜月）",
+      "name": "昇格素材：氷（キュレネ / 長夜月）",
       "help": ""
     },
     "Item_Charred_Bud_of_Twilight": {
@@ -778,6 +786,10 @@
       "name": "晨昏の回顧 (オンパロス)",
       "help": ""
     },
+    "Item_Vanquished_Flow_Reticence": {
+      "name": "Unknown_Dungeon_Come_From",
+      "help": ""
+    },
     "Item_Squirming_Core": {
       "name": "脈動する原核",
       "help": ""
@@ -827,6 +839,10 @@
     "Enable": {
       "name": "PlannerTarget.Enable.name",
       "help": "PlannerTarget.Enable.help"
+    },
+    "LastScan": {
+      "name": "PlannerTarget.LastScan.name",
+      "help": "PlannerTarget.LastScan.help"
     },
     "Character": {
       "name": "PlannerTarget.Character.name",
@@ -909,12 +925,14 @@
       "Sampo": "サンポ",
       "Tingyun": "停雲",
       "Pela": "ペラ",
-      "Natasha": "ナターシャ"
+      "Natasha": "ナターシャ",
+      "Cyrene": "キュレネ"
     },
     "Cone": {
       "name": "PlannerTarget.Cone.name",
       "help": "PlannerTarget.Cone.help",
       "_none_": "_none_",
+      "This_Love_Forever": "キュレネ | 5* 愛はいま永遠に",
       "Though_Worlds_Apart": "[3.6] 丹恒・騰荒 | 5* 万里の山河を越えて",
       "To_Evernight_Stars": "[3.6] 長夜月 | 5* 長き夜に輝く星へ",
       "Epoch_Etched_in_Golden_Blood": "[3.5] ケリュドラ | 5* 黄金の血で刻む時代",
@@ -972,6 +990,7 @@
       "But_the_Battle_Isn_t_Over": "5* だが戦争は終わらない",
       "Something_Irreplaceable": "5* かけがえのないもの",
       "Night_on_the_Milky_Way": "5* 銀河鉄道の夜",
+      "Fly_Into_a_Pink_Tomorrow": "4* ピンク色の明日へ",
       "The_Forever_Victual": "4* 永遠の迷境ごはん",
       "The_Great_Cosmic_Enterprise": "4* 宇宙一の大商い！",
       "Ninja_Record_Sound_Hunt": "4* 忍事録・音律狩猟",
@@ -1062,6 +1081,42 @@
       "Collapsing_Sky": "3* 天傾",
       "Cornucopia": "3* 物穣",
       "Arrows": "3* 矢じり"
+    },
+    "Relic": {
+      "name": "PlannerTarget.Relic.name",
+      "help": "PlannerTarget.Relic.help",
+      "_none_": "_none_",
+      "Cavern_of_Corrosion_Path_of_Hidden_Salvation": "遺器：救世主 & 隠者（隠救の路）",
+      "Cavern_of_Corrosion_Path_of_Thundersurge": "遺器：烈陽 & 船長（雷滾の路）",
+      "Cavern_of_Corrosion_Path_of_Aria": "遺器：英雄 & 詩人（弦歌の路）",
+      "Cavern_of_Corrosion_Path_of_Uncertainty": "遺器：司祭 & 学者（迷識の路）",
+      "Cavern_of_Corrosion_Path_of_Cavalier": "遺器：鉄騎 & 勇烈（勇騎の路）",
+      "Cavern_of_Corrosion_Path_of_Dreamdive": "遺器：死水 & 時計屋（夢潜の路）",
+      "Cavern_of_Corrosion_Path_of_Darkness": "遺器：大公 & DoT set（幽冥の路）",
+      "Cavern_of_Corrosion_Path_of_Elixir_Seekers": "遺器：蒔者 & メッセンジャー（薬使の路）",
+      "Cavern_of_Corrosion_Path_of_Conflagration": "遺器：炎套 & 虛數套（野焔の路）",
+      "Cavern_of_Corrosion_Path_of_Holy_Hymn": "遺器：防禦套 & 雷套（聖頌の路）",
+      "Cavern_of_Corrosion_Path_of_Providence": "遺器：兵士 & 量子套（睿治の路）",
+      "Cavern_of_Corrosion_Path_of_Drifting": "遺器：治療套 & ガンマン（漂泊の路）",
+      "Cavern_of_Corrosion_Path_of_Jabbing_Punch": "遺器：物理套 & 怪盗（迅拳の路）",
+      "Cavern_of_Corrosion_Path_of_Gelid_Wind": "遺器：氷套 & 風套（霜風の路）"
+    },
+    "Ornament": {
+      "name": "PlannerTarget.Ornament.name",
+      "help": "PlannerTarget.Ornament.help",
+      "_none_": "_none_",
+      "Divergent_Universe_Within_the_West_Wind": "飾品：オンパロス & 天国（西風の中で）",
+      "Divergent_Universe_Moonlit_Blood": "飾品：妖精 & 酩酊（月下朱殷）",
+      "Divergent_Universe_Unceasing_Strife": "飾品：拾骨地 & 巨樹（絶えぬ紛争）",
+      "Divergent_Universe_Famished_Worker": "飾品：海に沈 & 奇想（飢えた虫卒）",
+      "Divergent_Universe_Eternal_Comedy": "飾品：奔狼 & 蓮灯（永遠の喜劇）",
+      "Divergent_Universe_To_Sweet_Dreams": "飾品：ツガンニヤ & 出雲（寄り添い眠る）",
+      "Divergent_Universe_Pouring_Blades": "飾品：蒼穹 & ピノコニー（剣の雨）",
+      "Divergent_Universe_Fruit_of_Evil": "飾品：星々 & 竜骨（渦巻く罪）",
+      "Divergent_Universe_Permafrost": "飾品：ベロブルグ & ったサルソット（永久凍土）",
+      "Divergent_Universe_Gentle_Words": "飾品：商事会社 & 階差機関（優しい言葉）",
+      "Divergent_Universe_Smelted_Heart": "飾品：盗賊 & ウェンワーク（鋼の意志）",
+      "Divergent_Universe_Untoppled_Walls": "飾品：宇宙 & 仙舟（不動の砦）"
     },
     "LevelTarget": {
       "name": "PlannerTarget.LevelTarget.name",
@@ -1474,6 +1529,10 @@
     "SimulatedUniverseFarm": {
       "name": "RogueWorld.SimulatedUniverseFarm.name",
       "help": "RogueWorld.SimulatedUniverseFarm.help"
+    },
+    "Team": {
+      "name": "RogueWorld.Team.name",
+      "help": "RogueWorld.Team.help"
     }
   },
   "RogueBlessing": {
@@ -1537,6 +1596,7 @@
     "Dungeon": {
       "name": "Ornament.Dungeon.name",
       "help": "Ornament.Dungeon.help",
+      "Divergent_Universe_Within_the_West_Wind": "飾品：オンパロス & 天国（西風の中で）",
       "Divergent_Universe_Moonlit_Blood": "飾品：妖精 & 酩酊（月下朱殷）",
       "Divergent_Universe_Unceasing_Strife": "飾品：拾骨地 & 巨樹（絶えぬ紛争）",
       "Divergent_Universe_Famished_Worker": "飾品：海に沈 & 奇想（飢えた虫卒）",
@@ -1548,6 +1608,22 @@
       "Divergent_Universe_Gentle_Words": "飾品：商事会社 & 階差機関（優しい言葉）",
       "Divergent_Universe_Smelted_Heart": "飾品：盗賊 & ウェンワーク（鋼の意志）",
       "Divergent_Universe_Untoppled_Walls": "飾品：宇宙 & 仙舟（不動の砦）"
+    },
+    "Team": {
+      "name": "Ornament.Team.name",
+      "help": "Ornament.Team.help",
+      "1": "1",
+      "2": "2",
+      "3": "3",
+      "4": "4",
+      "5": "5",
+      "6": "6",
+      "7": "7",
+      "8": "8",
+      "9": "9",
+      "10": "10",
+      "11": "11",
+      "12": "12"
     },
     "UseImmersifier": {
       "name": "Ornament.UseImmersifier.name",

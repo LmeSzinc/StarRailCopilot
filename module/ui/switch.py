@@ -153,6 +153,8 @@ class Switch:
             if swipe_timer.reached():
                 if self.handle_swipe(state, main=main):
                     swipe_timer.reset()
+                    # swipe out, may get unknown state
+                    allow_unknown = True
                     continue
 
             # Warning

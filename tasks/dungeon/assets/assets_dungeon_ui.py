@@ -87,20 +87,20 @@ SIMULATED_UNIVERSE_CHECK = ButtonWrapper(
     name='SIMULATED_UNIVERSE_CHECK',
     share=Button(
         file='./assets/share/dungeon/ui/SIMULATED_UNIVERSE_CHECK.png',
-        area=(352, 113, 386, 133),
-        search=(332, 93, 406, 153),
-        color=(89, 89, 89),
-        button=(352, 113, 386, 133),
+        area=(345, 116, 388, 133),
+        search=(325, 96, 408, 153),
+        color=(81, 80, 81),
+        button=(345, 116, 388, 133),
     ),
 )
 SIMULATED_UNIVERSE_CLICK = ButtonWrapper(
     name='SIMULATED_UNIVERSE_CLICK',
     share=Button(
         file='./assets/share/dungeon/ui/SIMULATED_UNIVERSE_CLICK.png',
-        area=(352, 113, 386, 133),
-        search=(332, 93, 406, 153),
-        color=(127, 125, 125),
-        button=(352, 113, 386, 133),
+        area=(345, 117, 388, 133),
+        search=(325, 97, 408, 153),
+        color=(132, 129, 132),
+        button=(345, 117, 388, 133),
     ),
 )
 SURVIVAL_INDEX_CHECK = ButtonWrapper(
@@ -133,43 +133,23 @@ TAB_SEARCH = ButtonWrapper(
         button=(139, 84, 599, 144),
     ),
 )
-TREASURES_LIGHTWARD_CHECK = ButtonWrapper(
-    name='TREASURES_LIGHTWARD_CHECK',
+TRAILBLAZE_EXPERIENCE_CHECK = ButtonWrapper(
+    name='TRAILBLAZE_EXPERIENCE_CHECK',
     share=Button(
-        file='./assets/share/dungeon/ui/TREASURES_LIGHTWARD_CHECK.png',
-        area=(437, 96, 459, 132),
-        search=(417, 76, 479, 152),
-        color=(120, 120, 120),
-        button=(437, 96, 459, 132),
+        file='./assets/share/dungeon/ui/TRAILBLAZE_EXPERIENCE_CHECK.png',
+        area=(530, 95, 546, 133),
+        search=(510, 75, 566, 153),
+        color=(140, 139, 140),
+        button=(530, 95, 546, 133),
     ),
 )
-TREASURES_LIGHTWARD_CLICK = ButtonWrapper(
-    name='TREASURES_LIGHTWARD_CLICK',
+TRAILBLAZE_EXPERIENCE_CLICK = ButtonWrapper(
+    name='TRAILBLAZE_EXPERIENCE_CLICK',
     share=Button(
-        file='./assets/share/dungeon/ui/TREASURES_LIGHTWARD_CLICK.png',
-        area=(438, 96, 459, 132),
-        search=(418, 76, 479, 152),
-        color=(108, 106, 106),
-        button=(438, 96, 459, 132),
-    ),
-)
-TREASURES_LIGHTWARD_LOADED = ButtonWrapper(
-    name='TREASURES_LIGHTWARD_LOADED',
-    share=Button(
-        file='./assets/share/dungeon/ui/TREASURES_LIGHTWARD_LOADED.png',
-        area=(1028, 288, 1048, 308),
-        search=(1008, 268, 1068, 328),
-        color=(82, 80, 80),
-        button=(1028, 288, 1048, 308),
-    ),
-)
-TREASURES_LIGHTWARD_LOCKED = ButtonWrapper(
-    name='TREASURES_LIGHTWARD_LOCKED',
-    share=Button(
-        file='./assets/share/dungeon/ui/TREASURES_LIGHTWARD_LOCKED.png',
-        area=(789, 423, 817, 457),
-        search=(769, 403, 837, 477),
-        color=(112, 112, 112),
-        button=(789, 423, 817, 457),
+        file='./assets/share/dungeon/ui/TRAILBLAZE_EXPERIENCE_CLICK.png',
+        area=(530, 95, 548, 133),
+        search=(510, 75, 568, 153),
+        color=(93, 91, 92),
+        button=(530, 95, 548, 133),
     ),
 )

@@ -1,15 +1,9 @@
 import module.config.server as server
+from module.base.button import ClickButton
 from module.base.timer import Timer
 from module.logger import logger
 from module.ocr.ocr import Digit
-from tasks.combat.assets.assets_combat_prepare import (
-    OCR_WAVE_COST,
-    OCR_WAVE_COUNT,
-    WAVE_COST_CHECK,
-    WAVE_MINUS,
-    WAVE_PLUS,
-    WAVE_SLIDER
-)
+from tasks.combat.assets.assets_combat_prepare import *
 from tasks.combat.assets.assets_combat_relics import COMBAT_RELIC_ENTER
 from tasks.combat.stamina_status import StaminaStatus
 from tasks.item.slider import Slider
@@ -25,18 +19,34 @@ class CombatPrepare(StaminaStatus):
     combat_wave_cost = 10
     dungeon: "DungeonList | None" = None
 
-    def combat_set_wave(self, count=6):
+    def combat_set_wave(self, count=6, total=6):
         """
         Args:
             count: 1 to 6
+            total: 3 or 6 or 24
 
         Pages:
             in: COMBAT_PREPARE
         """
-        slider = Slider(main=self, slider=WAVE_SLIDER)
-        slider.set(count, 6)
+        # try to catch WAVE_SLIDER, OCR_WAVE_COUNT moves
+        WAVE_CHECK.load_search(WAVE_CHECK_SEARCH)
+        if self.match_template_luma(WAVE_CHECK):
+            # good
+            area = WAVE_CHECK.matched_button._button_offset
+            WAVE_CHECK.matched_button._button_offset = (0, area[1])
+            logger.attr('WAVE_CHECK offset', area)
+        else:
+            logger.warning('Cannot find WAVE_CHECK using default position')
+            WAVE_CHECK.clear_offset()
+
+        WAVE_CHECK.load_offset(WAVE_CHECK)
+        area = ClickButton(WAVE_SLIDER.button, name=WAVE_SLIDER.name)
+        slider = Slider(main=self, slider=area)
+        slider.set(count, total)
+        WAVE_CHECK.load_offset(WAVE_CHECK)
+        area = ClickButton(OCR_WAVE_COUNT.button, name=OCR_WAVE_COUNT.name)
         self.ui_ensure_index(
-            count, letter=Digit(OCR_WAVE_COUNT, lang=server.lang),
+            count, letter=Digit(area, lang=server.lang),
             next_button=WAVE_PLUS, prev_button=WAVE_MINUS,
             skip_first_screenshot=True
         )

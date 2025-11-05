@@ -44,10 +44,37 @@ OCR_WAVE_COUNT = ButtonWrapper(
     name='OCR_WAVE_COUNT',
     share=Button(
         file='./assets/share/combat/prepare/OCR_WAVE_COUNT.png',
-        area=(911, 533, 1151, 559),
-        search=(891, 513, 1171, 579),
-        color=(32, 34, 37),
-        button=(911, 533, 1151, 559),
+        area=(920, 549, 1120, 573),
+        search=(900, 529, 1140, 593),
+        color=(32, 35, 39),
+        button=(920, 549, 1120, 573),
+    ),
+)
+WAVE_CHECK = ButtonWrapper(
+    name='WAVE_CHECK',
+    cn=Button(
+        file='./assets/cn/combat/prepare/WAVE_CHECK.png',
+        area=(986, 550, 1056, 566),
+        search=(966, 530, 1076, 586),
+        color=(85, 86, 87),
+        button=(986, 550, 1056, 566),
+    ),
+    en=Button(
+        file='./assets/en/combat/prepare/WAVE_CHECK.png',
+        area=(975, 551, 1054, 565),
+        search=(955, 531, 1074, 585),
+        color=(76, 78, 79),
+        button=(975, 551, 1054, 565),
+    ),
+)
+WAVE_CHECK_SEARCH = ButtonWrapper(
+    name='WAVE_CHECK_SEARCH',
+    share=Button(
+        file='./assets/share/combat/prepare/WAVE_CHECK_SEARCH.png',
+        area=(905, 456, 1178, 628),
+        search=(885, 436, 1198, 648),
+        color=(26, 26, 28),
+        button=(905, 456, 1178, 628),
     ),
 )
 WAVE_COST_CHECK = ButtonWrapper(
@@ -73,29 +100,29 @@ WAVE_MINUS = ButtonWrapper(
     name='WAVE_MINUS',
     share=Button(
         file='./assets/share/combat/prepare/WAVE_MINUS.png',
-        area=(825, 555, 858, 577),
-        search=(805, 535, 878, 597),
-        color=(239, 239, 239),
-        button=(825, 555, 858, 577),
+        area=(831, 566, 863, 590),
+        search=(811, 546, 883, 610),
+        color=(238, 237, 239),
+        button=(831, 566, 863, 590),
     ),
 )
 WAVE_PLUS = ButtonWrapper(
     name='WAVE_PLUS',
     share=Button(
         file='./assets/share/combat/prepare/WAVE_PLUS.png',
-        area=(1204, 556, 1236, 576),
-        search=(1184, 536, 1256, 596),
-        color=(229, 229, 229),
-        button=(1204, 556, 1236, 576),
+        area=(1196, 567, 1232, 589),
+        search=(1176, 547, 1252, 609),
+        color=(24, 24, 26),
+        button=(1196, 567, 1232, 589),
     ),
 )
 WAVE_SLIDER = ButtonWrapper(
     name='WAVE_SLIDER',
     share=Button(
         file='./assets/share/combat/prepare/WAVE_SLIDER.png',
-        area=(911, 563, 1150, 569),
-        search=(891, 543, 1170, 589),
-        color=(167, 118, 68),
-        button=(911, 563, 1150, 569),
+        area=(917, 575, 1144, 581),
+        search=(897, 555, 1164, 601),
+        color=(157, 118, 80),
+        button=(917, 575, 1144, 581),
     ),
 )

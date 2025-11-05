@@ -1173,7 +1173,10 @@
           6,
           7,
           8,
-          9
+          9,
+          10,
+          11,
+          12
         ]
       }
     },
@@ -1389,6 +1392,26 @@
           "Divergent_Universe_Gentle_Words",
           "Divergent_Universe_Smelted_Heart",
           "Divergent_Universe_Untoppled_Walls"
+        ]
+      },
+      "Team": {
+        "type": "select",
+        "value": 1,
+        "keepvalue": true,
+        "display": "hide",
+        "option": [
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9,
+          10,
+          11,
+          12
         ]
       },
       "UseImmersifier": {
@@ -2192,6 +2215,12 @@
         "value": {},
         "display": "disabled",
         "stored": "StoredSimulatedUniverseElite"
+      },
+      "Team": {
+        "type": "input",
+        "value": "",
+        "keepvalue": true,
+        "display": "hide"
       }
     },
     "RogueBlessing": {

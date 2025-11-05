@@ -104,7 +104,7 @@ Dungeon:
     option: [ ]
   Team:
     value: 1
-    option: [ 1, 2, 3, 4, 5, 6, 7, 8, 9 ]
+    option: [ 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12 ]
 TrailblazePower:
   ExtractReservedTrailblazePower: false
   UseFuel: false
@@ -365,6 +365,12 @@ RogueWorld:
   SimulatedUniverseFarm:
     stored: StoredSimulatedUniverseElite
     display: disabled
+  Team:
+    keepvalue: true
+    display: hide
+    # list of character ID join with "," e.g. "1306,1221,1309,1217"
+    # <string name="User_{uid}_RogueTeamRecords">%7B%228%22%3A%5B1306%2C1221%2C1309%2C1217%5D%7D</string>
+    value: ""
 
 RogueBlessing:
   PresetBlessingFilter:
@@ -402,6 +408,11 @@ Ornament:
     value: Divergent_Universe_Eternal_Comedy
     # OrnamentExtraction will be injected in config updater
     option: [ ]
+  Team:
+    keepvalue: true
+    display: hide
+    value: 1
+    option: [ 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12 ]
   UseImmersifier:
     type: state
     value: true

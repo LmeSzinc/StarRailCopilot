@@ -372,7 +372,10 @@
       "6": "6",
       "7": "7",
       "8": "8",
-      "9": "9"
+      "9": "9",
+      "10": "10",
+      "11": "11",
+      "12": "12"
     }
   },
   "TrailblazePower": {
@@ -1513,6 +1516,10 @@
     "SimulatedUniverseFarm": {
       "name": "Elites/bosses Farmed",
       "help": ""
+    },
+    "Team": {
+      "name": "Simulated Universe Team",
+      "help": ""
     }
   },
   "RogueBlessing": {
@@ -1587,6 +1594,22 @@
       "Divergent_Universe_Gentle_Words": "Ornament: Commercial Enterprise & Differentiator (Gentle Words)",
       "Divergent_Universe_Smelted_Heart": "Ornament: Banditry & Vonwacq (Smelted Heart)",
       "Divergent_Universe_Untoppled_Walls": "Ornament: Space & Ageless Fleet (Untoppled Walls)"
+    },
+    "Team": {
+      "name": "Dungeon Team",
+      "help": "The specified team must use the default name; custom team names are not allowed.",
+      "1": "1",
+      "2": "2",
+      "3": "3",
+      "4": "4",
+      "5": "5",
+      "6": "6",
+      "7": "7",
+      "8": "8",
+      "9": "9",
+      "10": "10",
+      "11": "11",
+      "12": "12"
     },
     "UseImmersifier": {
       "name": "Claim Planars Using Immersifiers",

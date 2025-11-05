@@ -372,7 +372,10 @@
       "6": "6",
       "7": "7",
       "8": "8",
-      "9": "9"
+      "9": "9",
+      "10": "10",
+      "11": "11",
+      "12": "12"
     }
   },
   "TrailblazePower": {
@@ -1513,6 +1516,10 @@
     "SimulatedUniverseFarm": {
       "name": "Progreso de élites derrotadas",
       "help": ""
+    },
+    "Team": {
+      "name": "Equipo de Universo Simulado",
+      "help": ""
     }
   },
   "RogueBlessing": {
@@ -1587,6 +1594,22 @@
       "Divergent_Universe_Gentle_Words": "Ornamentos: Entidad comercial & Diferenciador (Palabras amables)",
       "Divergent_Universe_Smelted_Heart": "Ornamentos: Forajidos & Vonwacq (Corazón de fundición)",
       "Divergent_Universe_Untoppled_Walls": "Ornamentos: Espacios & Eternos Flota (Muros inquebrantables)"
+    },
+    "Team": {
+      "name": "Equipo de mazmorra",
+      "help": "El equipo especificado debe usar el nombre predeterminado; no se permiten nombres de equipo personalizados.",
+      "1": "1",
+      "2": "2",
+      "3": "3",
+      "4": "4",
+      "5": "5",
+      "6": "6",
+      "7": "7",
+      "8": "8",
+      "9": "9",
+      "10": "10",
+      "11": "11",
+      "12": "12"
     },
     "UseImmersifier": {
       "name": "Reclamar de planars mediante inmersor",

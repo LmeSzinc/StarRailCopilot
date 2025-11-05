@@ -372,7 +372,10 @@
       "6": "6",
       "7": "7",
       "8": "8",
-      "9": "9"
+      "9": "9",
+      "10": "10",
+      "11": "11",
+      "12": "12"
     }
   },
   "TrailblazePower": {
@@ -1513,6 +1516,10 @@
     "SimulatedUniverseFarm": {
       "name": "RogueWorld.SimulatedUniverseFarm.name",
       "help": "RogueWorld.SimulatedUniverseFarm.help"
+    },
+    "Team": {
+      "name": "RogueWorld.Team.name",
+      "help": "RogueWorld.Team.help"
     }
   },
   "RogueBlessing": {
@@ -1587,6 +1594,22 @@
       "Divergent_Universe_Gentle_Words": "飾品：商事会社 & 階差機関（優しい言葉）",
       "Divergent_Universe_Smelted_Heart": "飾品：盗賊 & ウェンワーク（鋼の意志）",
       "Divergent_Universe_Untoppled_Walls": "飾品：宇宙 & 仙舟（不動の砦）"
+    },
+    "Team": {
+      "name": "Ornament.Team.name",
+      "help": "Ornament.Team.help",
+      "1": "1",
+      "2": "2",
+      "3": "3",
+      "4": "4",
+      "5": "5",
+      "6": "6",
+      "7": "7",
+      "8": "8",
+      "9": "9",
+      "10": "10",
+      "11": "11",
+      "12": "12"
     },
     "UseImmersifier": {
       "name": "Ornament.UseImmersifier.name",

@@ -162,6 +162,7 @@
     },
     "Ornament": {
       "Dungeon": "Divergent_Universe_Eternal_Comedy",
+      "Team": 1,
       "UseImmersifier": true,
       "DoubleEvent": true,
       "UseStamina": false
@@ -290,7 +291,8 @@
       "DoubleEvent": true,
       "WeeklyFarming": false,
       "UseStamina": false,
-      "SimulatedUniverseFarm": {}
+      "SimulatedUniverseFarm": {},
+      "Team": null
     },
     "RogueBlessing": {
       "PresetBlessingFilter": "preset",

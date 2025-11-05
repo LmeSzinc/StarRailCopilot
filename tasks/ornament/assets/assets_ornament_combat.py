@@ -27,19 +27,19 @@ SUPPORT_ADD = ButtonWrapper(
     name='SUPPORT_ADD',
     share=Button(
         file='./assets/share/ornament/combat/SUPPORT_ADD.png',
-        area=(848, 518, 876, 537),
-        search=(828, 498, 896, 557),
-        color=(167, 200, 176),
-        button=(848, 518, 876, 537),
+        area=(736, 569, 766, 599),
+        search=(708, 557, 857, 612),
+        color=(168, 183, 171),
+        button=(736, 569, 766, 599),
     ),
 )
 SUPPORT_DISMISS = ButtonWrapper(
     name='SUPPORT_DISMISS',
     share=Button(
         file='./assets/share/ornament/combat/SUPPORT_DISMISS.png',
-        area=(853, 513, 872, 538),
-        search=(833, 493, 892, 558),
-        color=(135, 135, 135),
-        button=(853, 513, 872, 538),
+        area=(738, 571, 764, 597),
+        search=(708, 557, 857, 612),
+        color=(72, 72, 72),
+        button=(738, 571, 764, 597),
     ),
 )

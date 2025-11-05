@@ -110,11 +110,12 @@ class OrnamentCombat(Dungeon, RouteLoader):
                 self.device.screenshot()
 
             # End
-            if self.appear(SUPPORT_DISMISS):
+            if self.match_template_luma(SUPPORT_DISMISS):
                 return True
 
             # Click
-            if self.appear(SUPPORT_ADD, interval=2):
+            # small icon, use match_template_luma
+            if self.match_template_luma(SUPPORT_ADD, interval=2):
                 self.device.click(SUPPORT_ADD)
                 self.interval_reset(SUPPORT_ADD)
                 continue
@@ -242,11 +243,11 @@ class OrnamentCombat(Dungeon, RouteLoader):
             if trial > 5:
                 logger.critical('Failed to enter dungeon after 5 trial, probably because relics are full')
                 raise RequestHumanTakeover
-            if self.appear(SUPPORT_ADD):
+            if self.match_template_luma(SUPPORT_ADD):
                 check_team_prepare()
 
             # Click
-            if support_character and self.appear(SUPPORT_ADD, interval=2):
+            if support_character and self.match_template_luma(SUPPORT_ADD, interval=2):
                 self.support_set(support_character)
                 self.interval_reset(SUPPORT_ADD)
                 support_set = True

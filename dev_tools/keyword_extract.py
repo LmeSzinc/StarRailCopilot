@@ -127,7 +127,7 @@ class KeywordExtract:
             "Go_on_assignment_1_time",  # -> Dispatch_1_assignments
             "Complete_Simulated_Universe_1_times",  # same
             "Complete_1_stage_in_Simulated_Universe_Any_world",
-            # -> Complete_Divergent_Universe_or_Simulated_Universe_1_times
+            # -> Complete_Divergent_Universe_or_Currency_Wars_1_times
             "Complete_Calyx_Crimson_1_time",  # -> Clear_Calyx_Crimson_1_times
             "Enter_combat_by_attacking_enemy_Weakness_and_win_3_times",
             # -> Enter_combat_by_attacking_enemie_Weakness_and_win_1_times
@@ -145,7 +145,7 @@ class KeywordExtract:
 
         correct_times = {
             #    "Dispatch_1_assignments":  1,
-            #    "Complete_Divergent_Universe_or_Simulated_Universe_1_times": 1,
+            #    "Complete_Divergent_Universe_or_Currency_Wars_1_times": 1,
             #    "Clear_Calyx_Crimson_1_times": 1,
             "Enter_combat_by_attacking_enemie_Weakness_and_win_1_times": 3,
             "Use_Technique_1_times": 2,

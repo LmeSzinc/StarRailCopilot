@@ -12,7 +12,13 @@ BUILD_TARGET_CHECK = ButtonWrapper(
         color=(156, 139, 107),
         button=(148, 202, 242, 224),
     ),
-    en=None,
+    en=Button(
+        file='./assets/en/dungeon/nav/BUILD_TARGET_CHECK.png',
+        area=(149, 203, 206, 224),
+        search=(129, 183, 226, 244),
+        color=(161, 143, 110),
+        button=(149, 203, 206, 224),
+    ),
 )
 BUILD_TARGET_CLICK = ButtonWrapper(
     name='BUILD_TARGET_CLICK',
@@ -23,7 +29,13 @@ BUILD_TARGET_CLICK = ButtonWrapper(
         color=(155, 154, 155),
         button=(148, 202, 243, 225),
     ),
-    en=None,
+    en=Button(
+        file='./assets/en/dungeon/nav/BUILD_TARGET_CLICK.png',
+        area=(149, 204, 206, 223),
+        search=(129, 184, 226, 243),
+        color=(142, 141, 142),
+        button=(149, 204, 206, 223),
+    ),
 )
 CALYX_CRIMSON_CHECK = ButtonWrapper(
     name='CALYX_CRIMSON_CHECK',
@@ -34,7 +46,13 @@ CALYX_CRIMSON_CHECK = ButtonWrapper(
         color=(79, 71, 61),
         button=(252, 486, 298, 509),
     ),
-    en=None,
+    en=Button(
+        file='./assets/en/dungeon/nav/CALYX_CRIMSON_CHECK.png',
+        area=(218, 486, 329, 509),
+        search=(198, 466, 349, 529),
+        color=(77, 69, 59),
+        button=(218, 486, 329, 509),
+    ),
 )
 CALYX_CRIMSON_CLICK = ButtonWrapper(
     name='CALYX_CRIMSON_CLICK',
@@ -45,7 +63,13 @@ CALYX_CRIMSON_CLICK = ButtonWrapper(
         color=(175, 173, 174),
         button=(252, 248, 298, 271),
     ),
-    en=None,
+    en=Button(
+        file='./assets/en/dungeon/nav/CALYX_CRIMSON_CLICK.png',
+        area=(217, 486, 330, 509),
+        search=(197, 466, 350, 529),
+        color=(179, 178, 179),
+        button=(217, 486, 330, 509),
+    ),
 )
 CALYX_GOLDEN_CHECK = ButtonWrapper(
     name='CALYX_GOLDEN_CHECK',
@@ -56,7 +80,13 @@ CALYX_GOLDEN_CHECK = ButtonWrapper(
         color=(80, 72, 61),
         button=(252, 385, 298, 409),
     ),
-    en=None,
+    en=Button(
+        file='./assets/en/dungeon/nav/CALYX_GOLDEN_CHECK.png',
+        area=(217, 386, 313, 409),
+        search=(197, 366, 333, 429),
+        color=(82, 73, 62),
+        button=(217, 386, 313, 409),
+    ),
 )
 CALYX_GOLDEN_CLICK = ButtonWrapper(
     name='CALYX_GOLDEN_CLICK',
@@ -67,7 +97,13 @@ CALYX_GOLDEN_CLICK = ButtonWrapper(
         color=(171, 170, 171),
         button=(252, 386, 298, 409),
     ),
-    en=None,
+    en=Button(
+        file='./assets/en/dungeon/nav/CALYX_GOLDEN_CLICK.png',
+        area=(217, 386, 313, 409),
+        search=(197, 366, 333, 429),
+        color=(170, 169, 170),
+        button=(217, 386, 313, 409),
+    ),
 )
 CAVERN_OF_CORROSION_CHECK = ButtonWrapper(
     name='CAVERN_OF_CORROSION_CHECK',
@@ -78,7 +114,13 @@ CAVERN_OF_CORROSION_CHECK = ButtonWrapper(
         color=(102, 91, 74),
         button=(144, 448, 237, 470),
     ),
-    en=None,
+    en=Button(
+        file='./assets/en/dungeon/nav/CAVERN_OF_CORROSION_CHECK.png',
+        area=(145, 450, 224, 469),
+        search=(125, 430, 244, 489),
+        color=(84, 76, 64),
+        button=(145, 450, 224, 469),
+    ),
 )
 CAVERN_OF_CORROSION_CLICK = ButtonWrapper(
     name='CAVERN_OF_CORROSION_CLICK',
@@ -89,7 +131,13 @@ CAVERN_OF_CORROSION_CLICK = ButtonWrapper(
         color=(138, 137, 138),
         button=(144, 448, 237, 470),
     ),
-    en=None,
+    en=Button(
+        file='./assets/en/dungeon/nav/CAVERN_OF_CORROSION_CLICK.png',
+        area=(144, 450, 224, 469),
+        search=(124, 430, 244, 489),
+        color=(166, 165, 166),
+        button=(144, 450, 224, 469),
+    ),
 )
 ECHO_OF_WAR_CHECK = ButtonWrapper(
     name='ECHO_OF_WAR_CHECK',
@@ -100,7 +148,13 @@ ECHO_OF_WAR_CHECK = ButtonWrapper(
         color=(96, 87, 71),
         button=(144, 548, 237, 570),
     ),
-    en=None,
+    en=Button(
+        file='./assets/en/dungeon/nav/ECHO_OF_WAR_CHECK.png',
+        area=(145, 550, 199, 569),
+        search=(125, 530, 219, 589),
+        color=(92, 83, 69),
+        button=(145, 550, 199, 569),
+    ),
 )
 ECHO_OF_WAR_CLICK = ButtonWrapper(
     name='ECHO_OF_WAR_CLICK',
@@ -111,7 +165,13 @@ ECHO_OF_WAR_CLICK = ButtonWrapper(
         color=(148, 147, 148),
         button=(144, 548, 237, 570),
     ),
-    en=None,
+    en=Button(
+        file='./assets/en/dungeon/nav/ECHO_OF_WAR_CLICK.png',
+        area=(145, 550, 199, 569),
+        search=(125, 530, 219, 589),
+        color=(155, 153, 154),
+        button=(145, 550, 199, 569),
+    ),
 )
 ORNAMENT_EXTRACTION_CHECK = ButtonWrapper(
     name='ORNAMENT_EXTRACTION_CHECK',
@@ -122,7 +182,13 @@ ORNAMENT_EXTRACTION_CHECK = ButtonWrapper(
         color=(100, 90, 73),
         button=(144, 286, 238, 308),
     ),
-    en=None,
+    en=Button(
+        file='./assets/en/dungeon/nav/ORNAMENT_EXTRACTION_CHECK.png',
+        area=(145, 288, 259, 307),
+        search=(125, 268, 279, 327),
+        color=(87, 78, 65),
+        button=(145, 288, 259, 307),
+    ),
 )
 ORNAMENT_EXTRACTION_CLICK = ButtonWrapper(
     name='ORNAMENT_EXTRACTION_CLICK',
@@ -133,7 +199,13 @@ ORNAMENT_EXTRACTION_CLICK = ButtonWrapper(
         color=(149, 147, 148),
         button=(143, 285, 238, 308),
     ),
-    en=None,
+    en=Button(
+        file='./assets/en/dungeon/nav/ORNAMENT_EXTRACTION_CLICK.png',
+        area=(144, 288, 260, 307),
+        search=(124, 268, 280, 327),
+        color=(163, 162, 163),
+        button=(144, 288, 260, 307),
+    ),
 )
 STAGNANT_SHADOW_CHECK = ButtonWrapper(
     name='STAGNANT_SHADOW_CHECK',
@@ -144,7 +216,13 @@ STAGNANT_SHADOW_CHECK = ButtonWrapper(
         color=(100, 90, 73),
         button=(144, 348, 238, 370),
     ),
-    en=None,
+    en=Button(
+        file='./assets/en/dungeon/nav/STAGNANT_SHADOW_CHECK.png',
+        area=(144, 588, 247, 607),
+        search=(124, 568, 267, 627),
+        color=(89, 80, 67),
+        button=(144, 588, 247, 607),
+    ),
 )
 STAGNANT_SHADOW_CLICK = ButtonWrapper(
     name='STAGNANT_SHADOW_CLICK',
@@ -155,5 +233,11 @@ STAGNANT_SHADOW_CLICK = ButtonWrapper(
         color=(142, 141, 142),
         button=(144, 348, 238, 370),
     ),
-    en=None,
+    en=Button(
+        file='./assets/en/dungeon/nav/STAGNANT_SHADOW_CLICK.png',
+        area=(144, 350, 247, 369),
+        search=(124, 330, 267, 389),
+        color=(159, 157, 159),
+        button=(144, 350, 247, 369),
+    ),
 )

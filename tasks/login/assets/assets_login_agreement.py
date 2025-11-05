@@ -5,13 +5,22 @@ from module.base.button import Button, ButtonWrapper
 
 TOS_ACCEPT = ButtonWrapper(
     name='TOS_ACCEPT',
-    share=Button(
-        file='./assets/share/login/agreement/TOS_ACCEPT.png',
-        area=(815, 469, 895, 485),
-        search=(795, 449, 915, 505),
-        color=(163, 137, 85),
-        button=(815, 469, 895, 485),
-    ),
+    share=[
+        Button(
+            file='./assets/share/login/agreement/TOS_ACCEPT.png',
+            area=(815, 469, 895, 485),
+            search=(795, 449, 915, 505),
+            color=(163, 137, 85),
+            button=(815, 469, 895, 485),
+        ),
+        Button(
+            file='./assets/share/login/agreement/TOS_ACCEPT.2.png',
+            area=(835, 467, 875, 486),
+            search=(815, 447, 895, 506),
+            color=(162, 136, 85),
+            button=(835, 467, 875, 486),
+        ),
+    ],
 )
 TOS_AGREE_CHECKBOX = ButtonWrapper(
     name='TOS_AGREE_CHECKBOX',
@@ -25,13 +34,22 @@ TOS_AGREE_CHECKBOX = ButtonWrapper(
 )
 TOS_AGREE_TEXT = ButtonWrapper(
     name='TOS_AGREE_TEXT',
-    share=Button(
-        file='./assets/share/login/agreement/TOS_AGREE_TEXT.png',
-        area=(253, 308, 306, 318),
-        search=(233, 288, 326, 338),
-        color=(196, 196, 199),
-        button=(253, 308, 306, 318),
-    ),
+    share=[
+        Button(
+            file='./assets/share/login/agreement/TOS_AGREE_TEXT.png',
+            area=(253, 308, 306, 318),
+            search=(233, 288, 326, 338),
+            color=(196, 196, 199),
+            button=(253, 308, 306, 318),
+        ),
+        Button(
+            file='./assets/share/login/agreement/TOS_AGREE_TEXT.2.png',
+            area=(253, 302, 323, 319),
+            search=(233, 282, 343, 339),
+            color=(204, 205, 207),
+            button=(253, 302, 323, 319),
+        ),
+    ],
 )
 USER_AGREEMENT_ACCEPT = ButtonWrapper(
     name='USER_AGREEMENT_ACCEPT',

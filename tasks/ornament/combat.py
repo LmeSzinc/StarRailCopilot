@@ -1,7 +1,9 @@
 from module.base.decorator import run_once
+from module.config.server import server
 from module.device.platform.utils import cached_property
 from module.exception import RequestHumanTakeover
 from module.logger import logger
+from module.ocr.ocr import Digit
 from module.ui.scroll import AdaptiveScroll
 from tasks.base.assets.assets_base_page import MAP_EXIT
 from tasks.base.assets.assets_base_popup import POPUP_CANCEL
@@ -9,8 +11,10 @@ from tasks.character.keywords import CharacterList
 from tasks.combat.assets.assets_combat_prepare import COMBAT_PREPARE
 from tasks.combat.assets.assets_combat_support import COMBAT_SUPPORT_LIST, COMBAT_SUPPORT_LIST_SCROLL_OE
 from tasks.dungeon.dungeon import Dungeon
+from tasks.item.slider import Slider
 from tasks.map.keywords import MapPlane
 from tasks.ornament.assets.assets_ornament_combat import *
+from tasks.ornament.assets.assets_ornament_prepare import *
 from tasks.ornament.assets.assets_ornament_special import *
 from tasks.ornament.assets.assets_ornament_ui import *
 from tasks.rogue.route.loader import RouteLoader, model_from_json
@@ -193,6 +197,24 @@ class OrnamentCombat(Dungeon, RouteLoader):
         slots = 4 - len(slots)
         logger.attr('TeamSlotsPrepared', slots)
         return slots > 0
+
+    def combat_set_wave(self, count=6, total=6):
+        """
+        Args:
+            count: 1 to 6
+            total: 3 or 6 or 24
+
+        Pages:
+            in: COMBAT_PREPARE
+        """
+        slider = Slider(main=self, slider=WAVE_SLIDER_OE)
+        # fixed total at 6
+        slider.set(count, 6)
+        self.ui_ensure_index(
+            count, letter=Digit(OCR_WAVE_COUNT_OE, lang=server.lang),
+            next_button=WAVE_PLUS_OE, prev_button=WAVE_MINUS_OE,
+            skip_first_screenshot=True
+        )
 
     def combat_prepare(self, team=1, support_character: str = None):
         """

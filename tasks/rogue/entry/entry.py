@@ -11,12 +11,11 @@ from module.logger import logger
 from module.ocr.ocr import Ocr
 from tasks.base.assets.assets_base_main_page import ROGUE_LEAVE_FOR_NOW
 from tasks.base.assets.assets_base_page import MAP_EXIT
-from tasks.base.page import page_guide, page_item, page_main, page_rogue
+from tasks.base.page import page_item, page_main, page_rogue
 from tasks.dungeon.keywords import DungeonList
 from tasks.dungeon.keywords.dungeon import Simulated_Universe_World_1
 from tasks.dungeon.ui.state import OcrSimUniPoint
 from tasks.dungeon.ui.ui_rogue import DungeonRogueUI
-from tasks.forgotten_hall.assets.assets_forgotten_hall_ui import TELEPORT
 from tasks.rogue.assets.assets_rogue_entry import (
     LEVEL_CONFIRM,
     OCR_WEEKLY_POINT,
@@ -345,9 +344,9 @@ class RogueEntry(RouteBase, RogueRewardHandler, RoguePathHandler, DungeonRogueUI
                     'Reached weekly point limit but still continue to farm materials')
                 logger.attr(
                     "Farming Counter", self.config.stored.SimulatedUniverseFarm.to_counter())
-                # if self.config.is_cloud_game and not self.config.stored.CloudRemainSeasonPass.value:
-                #     logger.warning('Running WeeklyFarming on cloud game without season pass may cause fee, skip')
-                #     raise RogueReachedWeeklyPointLimit
+                if self.config.is_cloud_game and not self.config.stored.CloudRemainSeasonPass.value:
+                    logger.warning('Running WeeklyFarming on cloud game without season pass may cause fee, skip')
+                    raise RogueReachedWeeklyPointLimit
             elif self.config.RogueWorld_UseImmersifier and self.config.stored.Immersifier.value > 0:
                 logger.info(
                     'Reached weekly point limit but still have immersifiers left, continue to use them')

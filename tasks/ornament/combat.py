@@ -11,6 +11,7 @@ from tasks.character.keywords import CharacterList
 from tasks.combat.assets.assets_combat_prepare import COMBAT_PREPARE
 from tasks.combat.assets.assets_combat_support import COMBAT_SUPPORT_LIST, COMBAT_SUPPORT_LIST_SCROLL_OE
 from tasks.dungeon.dungeon import Dungeon
+from tasks.dungeon.keywords import DungeonList
 from tasks.item.slider import Slider
 from tasks.map.keywords import MapPlane
 from tasks.ornament.assets.assets_ornament_combat import *
@@ -30,6 +31,16 @@ class OrnamentCombat(Dungeon, RouteLoader):
     def _combat_should_reenter(self):
         # Never re-enter, can only enter from Survival_Index
         return False
+
+    def _dungeon_run(self, dungeon: DungeonList, team: int = None, wave_limit: int = 0, support_character: str = None,
+                     skip_ui_switch: bool = False):
+
+        # Always skip_ui_switch = False
+        # because you can't easily enter ornament from map, it's better enter from page_quest
+        skip_ui_switch = False
+        return super()._dungeon_run(
+            dungeon=dungeon, team=team, wave_limit=wave_limit,
+            support_character=support_character, skip_ui_switch=skip_ui_switch)
 
     def get_double_event_remain_at_combat(self, button=OCR_DOUBLE_EVENT_REMAIN_AT_OE):
         # Different position to OCR

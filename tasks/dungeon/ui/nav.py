@@ -184,6 +184,21 @@ class DungeonUINav(UI):
             check_button=ECHO_OF_WAR_CHECK,
             click_button=ECHO_OF_WAR_CLICK
         )
+        nav.add_state(
+            KEYWORDS_DUNGEON_NAV.Currency_Wars,
+            check_button=CURRENCY_WAR_CHECK,
+            click_button=CURRENCY_WAR_CLICK
+        )
+        nav.add_state(
+            KEYWORDS_DUNGEON_NAV.Divergent_Universe,
+            check_button=DIVERGENT_UNIVERSE_CHECK,
+            click_button=DIVERGENT_UNIVERSE_CLICK
+        )
+        nav.add_state(
+            KEYWORDS_DUNGEON_NAV.Simulated_Universe,
+            check_button=SIMULATED_UNIVERSE_CHECK,
+            click_button=SIMULATED_UNIVERSE_CLICK
+        )
         return nav
 
     def dungeon_tab_goto(self, state: DungeonTab):

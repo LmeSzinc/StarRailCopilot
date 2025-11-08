@@ -751,8 +751,19 @@ Cavern_of_Corrosion_Path_of_Gelid_Wind = DungeonList(
     dungeon_id=1201,
     plane_id=2000201,
 )
-Echo_of_War_Glance_of_Twilight = DungeonList(
+Echo_of_War_Rusted_Crypt_of_the_Iron_Carcass = DungeonList(
     id=69,
+    name='Echo_of_War_Rusted_Crypt_of_the_Iron_Carcass',
+    cn='铁骸的锈冢',
+    cht='鐵骸的鏽塚',
+    en='Rusted Crypt of the Iron Carcass',
+    jp='鉄骸の錆び塚',
+    es='Tumba oxidada del cadáver de hierro',
+    dungeon_id=1308,
+    plane_id=2048101,
+)
+Echo_of_War_Glance_of_Twilight = DungeonList(
+    id=70,
     name='Echo_of_War_Glance_of_Twilight',
     cn='晨昏的回眸',
     cht='晨昏的回眸',
@@ -763,7 +774,7 @@ Echo_of_War_Glance_of_Twilight = DungeonList(
     plane_id=2043101,
 )
 Echo_of_War_Inner_Beast_Battlefield = DungeonList(
-    id=70,
+    id=71,
     name='Echo_of_War_Inner_Beast_Battlefield',
     cn='心兽的战场',
     cht='心獸的戰場',
@@ -774,7 +785,7 @@ Echo_of_War_Inner_Beast_Battlefield = DungeonList(
     plane_id=2024201,
 )
 Echo_of_War_Salutations_of_Ashen_Dreams = DungeonList(
-    id=71,
+    id=72,
     name='Echo_of_War_Salutations_of_Ashen_Dreams',
     cn='尘梦的赞礼',
     cht='塵夢的贊禮',
@@ -785,7 +796,7 @@ Echo_of_War_Salutations_of_Ashen_Dreams = DungeonList(
     plane_id=2033201,
 )
 Echo_of_War_Borehole_Planet_Past_Nightmares = DungeonList(
-    id=72,
+    id=73,
     name='Echo_of_War_Borehole_Planet_Past_Nightmares',
     cn='蛀星的旧魇',
     cht='蛀星的舊魘',
@@ -796,7 +807,7 @@ Echo_of_War_Borehole_Planet_Past_Nightmares = DungeonList(
     plane_id=2000401,
 )
 Echo_of_War_Divine_Seed = DungeonList(
-    id=73,
+    id=74,
     name='Echo_of_War_Divine_Seed',
     cn='不死的神实',
     cht='不死的神實',
@@ -807,7 +818,7 @@ Echo_of_War_Divine_Seed = DungeonList(
     plane_id=2023201,
 )
 Echo_of_War_End_of_the_Eternal_Freeze = DungeonList(
-    id=74,
+    id=75,
     name='Echo_of_War_End_of_the_Eternal_Freeze',
     cn='寒潮的落幕',
     cht='寒潮的落幕',
@@ -818,7 +829,7 @@ Echo_of_War_End_of_the_Eternal_Freeze = DungeonList(
     plane_id=2013401,
 )
 Echo_of_War_Destruction_Beginning = DungeonList(
-    id=75,
+    id=76,
     name='Echo_of_War_Destruction_Beginning',
     cn='毁灭的开端',
     cht='毀滅的開端',
@@ -827,17 +838,6 @@ Echo_of_War_Destruction_Beginning = DungeonList(
     es='El principio de la Destrucción',
     dungeon_id=1301,
     plane_id=2000301,
-)
-Rusted_Crypt_of_the_Iron_Carcass = DungeonList(
-    id=76,
-    name='Rusted_Crypt_of_the_Iron_Carcass',
-    cn='铁骸的锈冢',
-    cht='鐵骸的鏽塚',
-    en='Rusted Crypt of the Iron Carcass',
-    jp='鉄骸の錆び塚',
-    es='Tumba oxidada del cadáver de hierro',
-    dungeon_id=1308,
-    plane_id=2048101,
 )
 Simulated_Universe_World_1 = DungeonList(
     id=77,

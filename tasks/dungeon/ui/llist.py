@@ -69,9 +69,14 @@ class OcrDungeonName(Ocr):
             # 9支援仓段
             for word in 'Q9α':
                 result = result.removeprefix(word)
+            # 铁的锈家 -> 铁骸的锈冢
+            result = result.replace('锈家', '锈冢')
+            result = result.replace('铁的', '铁骸的')
         elif self.lang == 'en':
             # O Supply Zone
             result = re.sub(r'^[Oo0] S', 'S', result)
+        # ①收容舱段
+        result = re.sub(r'[①②③④⑤⑥⑦⑧⑨⑩]', '', result)
         return result
 
 

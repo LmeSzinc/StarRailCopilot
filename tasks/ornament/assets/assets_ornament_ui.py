@@ -3,6 +3,16 @@ from module.base.button import Button, ButtonWrapper
 # This file was auto-generated, do not modify it manually. To generate:
 # ``` python -m dev_tools.button_extract ```
 
+DU_CHECK = ButtonWrapper(
+    name='DU_CHECK',
+    share=Button(
+        file='./assets/share/ornament/ui/DU_CHECK.png',
+        area=(39, 20, 75, 53),
+        search=(19, 0, 95, 73),
+        color=(143, 123, 87),
+        button=(39, 20, 75, 53),
+    ),
+)
 DU_MAIN_CHECK = ButtonWrapper(
     name='DU_MAIN_CHECK',
     share=Button(

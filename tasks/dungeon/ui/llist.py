@@ -72,6 +72,8 @@ class OcrDungeonName(Ocr):
         elif self.lang == 'en':
             # O Supply Zone
             result = re.sub(r'^[Oo0] S', 'S', result)
+        # ①收容舱段
+        result = re.sub(r'[①②③④⑤⑥⑦⑧⑨⑩]', '', result)
         return result
 
 

@@ -28,7 +28,7 @@ DU_OE_SELECT_CHECK = ButtonWrapper(
     share=Button(
         file='./assets/share/ornament/ui/DU_OE_SELECT_CHECK.png',
         area=(1058, 24, 1084, 50),
-        search=(1038, 4, 1104, 70),
+        search=(1005, 19, 1115, 56),
         color=(196, 195, 193),
         button=(1058, 24, 1084, 50),
     ),

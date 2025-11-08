@@ -75,6 +75,8 @@ class OrnamentCombat(Dungeon, RouteLoader):
                 continue
             if self.handle_popup_confirm():
                 continue
+            if self.ui_additional():
+                continue
 
     def route_error_postprocess(self):
         """

@@ -3,6 +3,16 @@ from module.base.button import Button, ButtonWrapper
 # This file was auto-generated, do not modify it manually. To generate:
 # ``` python -m dev_tools.button_extract ```
 
+DIVERGENT_GOTO_SIMULATED = ButtonWrapper(
+    name='DIVERGENT_GOTO_SIMULATED',
+    share=Button(
+        file='./assets/share/dungeon/ui_rogue/DIVERGENT_GOTO_SIMULATED.png',
+        area=(595, 224, 611, 244),
+        search=(575, 204, 631, 264),
+        color=(51, 50, 69),
+        button=(595, 224, 611, 244),
+    ),
+)
 DIVERGENT_UNIVERSE_LOADED = ButtonWrapper(
     name='DIVERGENT_UNIVERSE_LOADED',
     share=Button(

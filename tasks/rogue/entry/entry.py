@@ -308,41 +308,6 @@ class RogueEntry(RouteBase, RogueRewardHandler, RoguePathHandler, DungeonRogueUI
             if self.appear_then_click(ROGUE_LEAVE_FOR_NOW, interval=2):
                 continue
 
-    def _rogue_teleport(self, skip_first_screenshot=True):
-        """
-        Pages:
-            in: page_guide, Simulated_Universe, Simulated_Universe
-            out: page_rogue, is_page_rogue_main()
-        """
-        logger.info('Rogue teleport')
-        self.interval_clear(page_guide.check_button)
-        while 1:
-            if skip_first_screenshot:
-                skip_first_screenshot = False
-            else:
-                self.device.screenshot()
-
-            # End
-            if self.ui_page_appear(page_rogue):
-                break
-
-            # Additional
-            if self.appear_then_click(REWARD_CLOSE, interval=2):
-                continue
-            # Popup that confirm character switch
-            if self.handle_popup_confirm():
-                continue
-            # Click
-            if self.appear(page_guide.check_button, interval=2):
-                buttons = TELEPORT.match_multi_template(self.device.image)
-                if len(buttons):
-                    # 2.3, classic rogue is always at bottom
-                    buttons = sorted(buttons, key=lambda x: x.area[1], reverse=True)
-                    self.device.click(buttons[0])
-                    continue
-
-        self.interval_clear(page_guide.check_button)
-
     def check_stop_condition(self):
         """
         Raises:
@@ -380,9 +345,9 @@ class RogueEntry(RouteBase, RogueRewardHandler, RoguePathHandler, DungeonRogueUI
                     'Reached weekly point limit but still continue to farm materials')
                 logger.attr(
                     "Farming Counter", self.config.stored.SimulatedUniverseFarm.to_counter())
-                if self.config.is_cloud_game and not self.config.stored.CloudRemainSeasonPass.value:
-                    logger.warning('Running WeeklyFarming on cloud game without season pass may cause fee, skip')
-                    raise RogueReachedWeeklyPointLimit
+                # if self.config.is_cloud_game and not self.config.stored.CloudRemainSeasonPass.value:
+                #     logger.warning('Running WeeklyFarming on cloud game without season pass may cause fee, skip')
+                #     raise RogueReachedWeeklyPointLimit
             elif self.config.RogueWorld_UseImmersifier and self.config.stored.Immersifier.value > 0:
                 logger.info(
                     'Reached weekly point limit but still have immersifiers left, continue to use them')
@@ -457,7 +422,6 @@ class RogueEntry(RouteBase, RogueRewardHandler, RoguePathHandler, DungeonRogueUI
         # Not in page_rogue, goto
         if not is_rogue_entry():
             self.dungeon_goto_rogue()
-            self._rogue_teleport()
 
         # is_page_rogue_main()
         self._rogue_theme_set(world)

@@ -1,0 +1,115 @@
+from module.base.button import Button, ButtonWrapper
+
+# This file was auto-generated, do not modify it manually. To generate:
+# ``` python -m dev_tools.button_extract ```
+
+TAB_DAILY_TRAINING_CHECK = ButtonWrapper(
+    name='TAB_DAILY_TRAINING_CHECK',
+    share=Button(
+        file='./assets/share/dungeon/tab/TAB_DAILY_TRAINING_CHECK.png',
+        area=(241, 114, 281, 134),
+        search=(221, 94, 301, 154),
+        color=(138, 138, 138),
+        button=(241, 114, 281, 134),
+    ),
+)
+TAB_DAILY_TRAINING_CLICK = ButtonWrapper(
+    name='TAB_DAILY_TRAINING_CLICK',
+    share=Button(
+        file='./assets/share/dungeon/tab/TAB_DAILY_TRAINING_CLICK.png',
+        area=(241, 114, 281, 134),
+        search=(221, 94, 301, 154),
+        color=(90, 89, 87),
+        button=(241, 114, 281, 134),
+    ),
+)
+TAB_OPERATION_BRIEFING_CHECK = ButtonWrapper(
+    name='TAB_OPERATION_BRIEFING_CHECK',
+    share=Button(
+        file='./assets/share/dungeon/tab/TAB_OPERATION_BRIEFING_CHECK.png',
+        area=(149, 113, 193, 136),
+        search=(129, 93, 213, 156),
+        color=(148, 148, 148),
+        button=(149, 113, 193, 136),
+    ),
+)
+TAB_OPERATION_BRIEFING_CLICK = ButtonWrapper(
+    name='TAB_OPERATION_BRIEFING_CLICK',
+    share=Button(
+        file='./assets/share/dungeon/tab/TAB_OPERATION_BRIEFING_CLICK.png',
+        area=(149, 113, 193, 136),
+        search=(129, 93, 213, 156),
+        color=(83, 82, 80),
+        button=(149, 113, 193, 136),
+    ),
+)
+TAB_SEARCH = ButtonWrapper(
+    name='TAB_SEARCH',
+    share=Button(
+        file='./assets/share/dungeon/tab/TAB_SEARCH.png',
+        area=(139, 84, 599, 144),
+        search=(119, 64, 619, 164),
+        color=(92, 87, 83),
+        button=(139, 84, 599, 144),
+    ),
+)
+TAB_SIMULATED_UNIVERSE_CHECK = ButtonWrapper(
+    name='TAB_SIMULATED_UNIVERSE_CHECK',
+    share=Button(
+        file='./assets/share/dungeon/tab/TAB_SIMULATED_UNIVERSE_CHECK.png',
+        area=(345, 116, 388, 133),
+        search=(325, 96, 408, 153),
+        color=(81, 80, 81),
+        button=(345, 116, 388, 133),
+    ),
+)
+TAB_SIMULATED_UNIVERSE_CLICK = ButtonWrapper(
+    name='TAB_SIMULATED_UNIVERSE_CLICK',
+    share=Button(
+        file='./assets/share/dungeon/tab/TAB_SIMULATED_UNIVERSE_CLICK.png',
+        area=(345, 117, 388, 133),
+        search=(325, 97, 408, 153),
+        color=(132, 129, 132),
+        button=(345, 117, 388, 133),
+    ),
+)
+TAB_SURVIVAL_INDEX_CHECK = ButtonWrapper(
+    name='TAB_SURVIVAL_INDEX_CHECK',
+    share=Button(
+        file='./assets/share/dungeon/tab/TAB_SURVIVAL_INDEX_CHECK.png',
+        area=(332, 113, 370, 133),
+        search=(312, 93, 390, 153),
+        color=(127, 127, 127),
+        button=(332, 113, 370, 133),
+    ),
+)
+TAB_SURVIVAL_INDEX_CLICK = ButtonWrapper(
+    name='TAB_SURVIVAL_INDEX_CLICK',
+    share=Button(
+        file='./assets/share/dungeon/tab/TAB_SURVIVAL_INDEX_CLICK.png',
+        area=(332, 113, 370, 133),
+        search=(312, 93, 390, 153),
+        color=(98, 97, 94),
+        button=(332, 113, 370, 133),
+    ),
+)
+TAB_TRAILBLAZE_EXPERIENCE_CHECK = ButtonWrapper(
+    name='TAB_TRAILBLAZE_EXPERIENCE_CHECK',
+    share=Button(
+        file='./assets/share/dungeon/tab/TAB_TRAILBLAZE_EXPERIENCE_CHECK.png',
+        area=(530, 95, 546, 133),
+        search=(510, 75, 566, 153),
+        color=(140, 139, 140),
+        button=(530, 95, 546, 133),
+    ),
+)
+TAB_TRAILBLAZE_EXPERIENCE_CLICK = ButtonWrapper(
+    name='TAB_TRAILBLAZE_EXPERIENCE_CLICK',
+    share=Button(
+        file='./assets/share/dungeon/tab/TAB_TRAILBLAZE_EXPERIENCE_CLICK.png',
+        area=(530, 95, 548, 133),
+        search=(510, 75, 568, 153),
+        color=(93, 91, 92),
+        button=(530, 95, 548, 133),
+    ),
+)

@@ -102,7 +102,12 @@ class MailReward(UI):
         Pages:
             in: page_menu
         """
-        return self.image_color_count(MAIL_RED_DOT, color=(202, 24, 48), count=30, threshold=221)
+        if self.image_color_count(MAIL_RED_DOT, color=(202, 24, 48), count=30, threshold=221):
+            return True
+        # lighter red color when still in blur after closing support reward
+        if self.image_color_count(MAIL_RED_DOT, color=(171, 44, 44), count=30, threshold=221):
+            return True
+        return False
 
     def mail_claim_all(self):
         """

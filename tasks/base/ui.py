@@ -15,6 +15,7 @@ from tasks.combat.assets.assets_combat_prepare import COMBAT_PREPARE
 from tasks.daily.assets.assets_daily_trial import INFO_CLOSE, START_TRIAL
 from tasks.login.assets.assets_login import LOGIN_CONFIRM
 from tasks.login.assets.assets_login_popup import CLAIM_CHARACTER
+from tasks.ornament.assets.assets_ornament_ui import DU_OE_SELECT_CHECK
 
 
 class UI(MainPage):
@@ -392,6 +393,9 @@ class UI(MainPage):
         if self.handle_get_light_cone():
             return True
         if self.handle_ui_close(COMBAT_PREPARE, interval=5):
+            return True
+        # additional page when leaving ornament combat preparation
+        if self.handle_ui_back(DU_OE_SELECT_CHECK, interval=2):
             return True
         if self.appear_then_click(COMBAT_EXIT, interval=5):
             return True

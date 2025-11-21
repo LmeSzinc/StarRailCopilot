@@ -56,10 +56,10 @@ MAIL_Cyrene = ButtonWrapper(
     name='MAIL_Cyrene',
     share=Button(
         file='./assets/share/login/popup/MAIL_Cyrene.png',
-        area=(448, 550, 559, 578),
-        search=(428, 530, 579, 598),
-        color=(234, 139, 200),
-        button=(348, 549, 373, 580),
+        area=(348, 549, 373, 580),
+        search=(328, 529, 393, 600),
+        color=(240, 197, 217),
+        button=(448, 550, 559, 578),
     ),
 )
 UNITY_ENGINE_ERROR = ButtonWrapper(

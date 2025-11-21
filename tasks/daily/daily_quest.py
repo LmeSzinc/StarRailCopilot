@@ -20,7 +20,7 @@ from tasks.daily.keywords import (
     KEYWORDS_DAILY_QUEST_STATE,
 )
 from tasks.daily.synthesize import SynthesizeMaterialUI
-from tasks.dungeon.assets.assets_dungeon_ui import DAILY_TRAINING_CHECK
+from tasks.dungeon.assets.assets_dungeon_tab import TAB_DAILY_TRAINING_CHECK
 from tasks.dungeon.keywords import KEYWORDS_DUNGEON_TAB
 from tasks.dungeon.ui.ui import DungeonUI
 from tasks.item.consumable_usage import ConsumableUsageUI
@@ -95,7 +95,7 @@ class DailyQuestUI(DungeonUI, RouteLoader):
 
             # Might be a screenshot mixed with daily_training and get_reward
             # Swipe at daily training page only
-            if interval.reached() and self.match_template_color(DAILY_TRAINING_CHECK):
+            if interval.reached() and self.match_template_color(TAB_DAILY_TRAINING_CHECK):
                 self._daily_quests_swipe(direction)
                 interval.reset()
                 continue

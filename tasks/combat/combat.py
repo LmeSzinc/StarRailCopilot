@@ -259,21 +259,16 @@ class Combat(CombatInteract, CombatPrepare, CombatSupport, CombatTeam, CombatSki
                             f'can not run again')
                 return False
         # Cost limit
-        if self.combat_wave_cost == 10:
-            if current >= self.combat_wave_cost * self.combat_waves:
-                logger.info(f'Current has {current}, combat costs {self.combat_wave_cost}, can run again')
+        if self.combat_wave_cost > 0:
+            cost = self.combat_wave_cost * self.combat_waves
+            if current >= cost:
+                logger.info(f'Current has {current}, re-run costs {cost}, can run again')
                 return True
             else:
-                return self._try_get_more_trablaize_power(self.combat_wave_cost * self.combat_waves)
+                return self._try_get_more_trablaize_power(cost)
         elif self.combat_wave_cost <= 0:
             logger.info(f'Free combat, combat costs {self.combat_wave_cost}, can not run again')
             return False
-        else:
-            if current >= self.combat_wave_cost:
-                logger.info(f'Current has {current}, combat costs {self.combat_wave_cost}, can run again')
-                return True
-            else:
-                return self._try_get_more_trablaize_power(self.combat_wave_cost * self.combat_waves)
 
     def _try_get_more_trablaize_power(self, cost):
         use_fuel_ = self.config.TrailblazePower_UseFuel

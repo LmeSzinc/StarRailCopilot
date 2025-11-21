@@ -12,6 +12,7 @@ from module.ui.switch import Switch
 from tasks.base.page import page_guide
 from tasks.base.ui import UI
 from tasks.dungeon.assets.assets_dungeon_nav import *
+from tasks.dungeon.assets.assets_dungeon_tab import *
 from tasks.dungeon.assets.assets_dungeon_ui import *
 from tasks.dungeon.assets.assets_dungeon_ui_rogue import *
 from tasks.dungeon.keywords import (
@@ -121,28 +122,28 @@ class DungeonUINav(UI):
         tab = DungeonTabSwitch('DungeonTab', is_selector=True)
         tab.add_state(
             KEYWORDS_DUNGEON_TAB.Operation_Briefing,
-            check_button=OPERATION_BRIEFING_CHECK,
-            click_button=OPERATION_BRIEFING_CLICK
+            check_button=TAB_OPERATION_BRIEFING_CHECK,
+            click_button=TAB_OPERATION_BRIEFING_CLICK
         )
         tab.add_state(
             KEYWORDS_DUNGEON_TAB.Daily_Training,
-            check_button=DAILY_TRAINING_CHECK,
-            click_button=DAILY_TRAINING_CLICK
+            check_button=TAB_DAILY_TRAINING_CHECK,
+            click_button=TAB_DAILY_TRAINING_CLICK
         )
         tab.add_state(
             KEYWORDS_DUNGEON_TAB.Survival_Index,
-            check_button=SURVIVAL_INDEX_CHECK,
-            click_button=SURVIVAL_INDEX_CLICK
+            check_button=TAB_SURVIVAL_INDEX_CHECK,
+            click_button=TAB_SURVIVAL_INDEX_CLICK
         )
         tab.add_state(
             KEYWORDS_DUNGEON_TAB.Simulated_Universe,
-            check_button=SIMULATED_UNIVERSE_CHECK,
-            click_button=SIMULATED_UNIVERSE_CLICK
+            check_button=TAB_SIMULATED_UNIVERSE_CHECK,
+            click_button=TAB_SIMULATED_UNIVERSE_CLICK
         )
         tab.add_state(
             KEYWORDS_DUNGEON_TAB.Trailblaze_Experience,
-            check_button=TRAILBLAZE_EXPERIENCE_CHECK,
-            click_button=TRAILBLAZE_EXPERIENCE_CLICK
+            check_button=TAB_TRAILBLAZE_EXPERIENCE_CHECK,
+            click_button=TAB_TRAILBLAZE_EXPERIENCE_CLICK
         )
         return tab
 
@@ -183,6 +184,21 @@ class DungeonUINav(UI):
             KEYWORDS_DUNGEON_NAV.Echo_of_War,
             check_button=ECHO_OF_WAR_CHECK,
             click_button=ECHO_OF_WAR_CLICK
+        )
+        nav.add_state(
+            KEYWORDS_DUNGEON_NAV.Currency_Wars,
+            check_button=CURRENCY_WAR_CHECK,
+            click_button=CURRENCY_WAR_CLICK
+        )
+        nav.add_state(
+            KEYWORDS_DUNGEON_NAV.Divergent_Universe,
+            check_button=DIVERGENT_UNIVERSE_CHECK,
+            click_button=DIVERGENT_UNIVERSE_CLICK
+        )
+        nav.add_state(
+            KEYWORDS_DUNGEON_NAV.Simulated_Universe,
+            check_button=SIMULATED_UNIVERSE_CHECK,
+            click_button=SIMULATED_UNIVERSE_CLICK
         )
         return nav
 

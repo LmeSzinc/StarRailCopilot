@@ -139,6 +139,50 @@ CAVERN_OF_CORROSION_CLICK = ButtonWrapper(
         button=(144, 450, 224, 469),
     ),
 )
+CURRENCY_WAR_CHECK = ButtonWrapper(
+    name='CURRENCY_WAR_CHECK',
+    cn=Button(
+        file='./assets/cn/dungeon/nav/CURRENCY_WAR_CHECK.png',
+        area=(144, 186, 235, 208),
+        search=(124, 166, 255, 228),
+        color=(95, 85, 67),
+        button=(144, 186, 235, 208),
+    ),
+    en=None,
+)
+CURRENCY_WAR_CLICK = ButtonWrapper(
+    name='CURRENCY_WAR_CLICK',
+    cn=Button(
+        file='./assets/cn/dungeon/nav/CURRENCY_WAR_CLICK.png',
+        area=(144, 186, 235, 208),
+        search=(124, 166, 255, 228),
+        color=(150, 150, 150),
+        button=(144, 186, 235, 208),
+    ),
+    en=None,
+)
+DIVERGENT_UNIVERSE_CHECK = ButtonWrapper(
+    name='DIVERGENT_UNIVERSE_CHECK',
+    cn=Button(
+        file='./assets/cn/dungeon/nav/DIVERGENT_UNIVERSE_CHECK.png',
+        area=(144, 286, 237, 308),
+        search=(124, 266, 257, 328),
+        color=(91, 82, 68),
+        button=(144, 286, 237, 308),
+    ),
+    en=None,
+)
+DIVERGENT_UNIVERSE_CLICK = ButtonWrapper(
+    name='DIVERGENT_UNIVERSE_CLICK',
+    cn=Button(
+        file='./assets/cn/dungeon/nav/DIVERGENT_UNIVERSE_CLICK.png',
+        area=(144, 286, 237, 308),
+        search=(124, 266, 257, 328),
+        color=(155, 155, 155),
+        button=(144, 286, 237, 308),
+    ),
+    en=None,
+)
 ECHO_OF_WAR_CHECK = ButtonWrapper(
     name='ECHO_OF_WAR_CHECK',
     cn=Button(
@@ -206,6 +250,28 @@ ORNAMENT_EXTRACTION_CLICK = ButtonWrapper(
         color=(163, 162, 163),
         button=(144, 288, 260, 307),
     ),
+)
+SIMULATED_UNIVERSE_CHECK = ButtonWrapper(
+    name='SIMULATED_UNIVERSE_CHECK',
+    cn=Button(
+        file='./assets/cn/dungeon/nav/SIMULATED_UNIVERSE_CHECK.png',
+        area=(143, 386, 237, 408),
+        search=(123, 366, 257, 428),
+        color=(96, 87, 68),
+        button=(143, 386, 237, 408),
+    ),
+    en=None,
+)
+SIMULATED_UNIVERSE_CLICK = ButtonWrapper(
+    name='SIMULATED_UNIVERSE_CLICK',
+    cn=Button(
+        file='./assets/cn/dungeon/nav/SIMULATED_UNIVERSE_CLICK.png',
+        area=(144, 386, 237, 408),
+        search=(124, 366, 257, 428),
+        color=(147, 147, 147),
+        button=(144, 386, 237, 408),
+    ),
+    en=None,
 )
 STAGNANT_SHADOW_CHECK = ButtonWrapper(
     name='STAGNANT_SHADOW_CHECK',

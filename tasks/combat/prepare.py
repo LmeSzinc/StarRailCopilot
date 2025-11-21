@@ -9,6 +9,16 @@ from tasks.combat.stamina_status import StaminaStatus
 from tasks.item.slider import Slider
 
 
+class WaveDigit(Digit):
+    def format_result(self, result):
+        result = super().format_result(result)
+        # OCR error with double digits "挑战次数 ６6"
+        # but combat waves is 24 at max
+        if result in [33, 44, 55, 66, 77, 88, 99]:
+            result = result // 10
+        return result
+
+
 class CombatPrepare(StaminaStatus):
     # Current combat waves,
     combat_waves = 1
@@ -46,7 +56,7 @@ class CombatPrepare(StaminaStatus):
         WAVE_CHECK.load_offset(WAVE_CHECK)
         area = ClickButton(OCR_WAVE_COUNT.button, name=OCR_WAVE_COUNT.name)
         self.ui_ensure_index(
-            count, letter=Digit(area, lang=server.lang),
+            count, letter=WaveDigit(area, lang=server.lang),
             next_button=WAVE_PLUS, prev_button=WAVE_MINUS,
             skip_first_screenshot=True
         )

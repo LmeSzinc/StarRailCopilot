@@ -133,8 +133,7 @@ class Login(LoginAndroidCloud, RogueUI, AgreementHandler, UIDHandler):
             self.device.click(CLOSE)
             return True
         if self.match_template_luma(MAIL_Cyrene, interval=2):
-            logger.info(f'{MAIL_Cyrene} -> {CLOSE}')
-            self.device.click(CLOSE)
+            self.device.click(MAIL_Cyrene)
             return True
         # 3.2 Castorice popup that advertise you go gacha, but no, close it
         if self.handle_ui_close(ADVERTISE_Castorice, interval=2):

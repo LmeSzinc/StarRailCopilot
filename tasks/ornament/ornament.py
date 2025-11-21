@@ -90,9 +90,13 @@ class Ornament(OrnamentCombat):
         self.dungeon = dungeon
         if self.config.Ornament_UseStamina:
             # No limit
-            self.dungeon_run(dungeon, wave_limit=0)
+            while 1:
+                self.dungeon_run(dungeon, wave_limit=0)
+                if self.get_equivalent_stamina() > 40:
+                    continue
+                else:
+                    break
             # Stamina should have exhausted in dungeon_run
-            raise ScriptError('Ornament finished but stamina was not exhausted')
         elif self.config.stored.DungeonDouble.rogue > 0:
             # Limited in double events
             self.running_double = True

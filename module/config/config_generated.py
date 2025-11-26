@@ -160,7 +160,7 @@ class GeneratedConfig:
     PlannerTarget_MemoTalentLevel = 6  # 6, 5, 4, 3, 2, 1
 
     # Group `Weekly`
-    Weekly_Name = 'Echo_of_War_Divine_Seed'  # Echo_of_War_Glance_of_Twilight, Echo_of_War_Inner_Beast_Battlefield, Echo_of_War_Salutations_of_Ashen_Dreams, Echo_of_War_Borehole_Planet_Past_Nightmares, Echo_of_War_Divine_Seed, Echo_of_War_End_of_the_Eternal_Freeze, Echo_of_War_Destruction_Beginning
+    Weekly_Name = 'Echo_of_War_Divine_Seed'  # Echo_of_War_Rusted_Crypt_of_the_Iron_Carcass, Echo_of_War_Glance_of_Twilight, Echo_of_War_Inner_Beast_Battlefield, Echo_of_War_Salutations_of_Ashen_Dreams, Echo_of_War_Borehole_Planet_Past_Nightmares, Echo_of_War_Divine_Seed, Echo_of_War_End_of_the_Eternal_Freeze, Echo_of_War_Destruction_Beginning
     Weekly_Team = 1  # 1, 2, 3, 4, 5, 6, 7, 8, 9
 
     # Group `DailyStorage`

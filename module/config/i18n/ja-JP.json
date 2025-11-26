@@ -787,7 +787,7 @@
       "help": ""
     },
     "Item_Vanquished_Flow_Reticence": {
-      "name": "Unknown_Dungeon_Come_From",
+      "name": "鉄骸の錆び塚 (オンパロス)",
       "help": ""
     },
     "Item_Squirming_Core": {
@@ -1105,8 +1105,8 @@
       "name": "PlannerTarget.Ornament.name",
       "help": "PlannerTarget.Ornament.help",
       "_none_": "_none_",
-      "Divergent_Universe_Within_the_West_Wind": "飾品：オンパロス & 天国（西風の中で）",
-      "Divergent_Universe_Moonlit_Blood": "飾品：妖精 & 酩酊（月下朱殷）",
+      "Divergent_Universe_Within_the_West_Wind": "飾品：（西風の中で）",
+      "Divergent_Universe_Moonlit_Blood": "飾品：（月下朱殷）",
       "Divergent_Universe_Unceasing_Strife": "飾品：拾骨地 & 巨樹（絶えぬ紛争）",
       "Divergent_Universe_Famished_Worker": "飾品：海に沈 & 奇想（飢えた虫卒）",
       "Divergent_Universe_Eternal_Comedy": "飾品：奔狼 & 蓮灯（永遠の喜劇）",
@@ -1116,7 +1116,7 @@
       "Divergent_Universe_Permafrost": "飾品：ベロブルグ & ったサルソット（永久凍土）",
       "Divergent_Universe_Gentle_Words": "飾品：商事会社 & 階差機関（優しい言葉）",
       "Divergent_Universe_Smelted_Heart": "飾品：盗賊 & ウェンワーク（鋼の意志）",
-      "Divergent_Universe_Untoppled_Walls": "飾品：宇宙 & 仙舟（不動の砦）"
+      "Divergent_Universe_Untoppled_Walls": "飾品：宇宙 & 仙舟 & 妖精 & 酩酊 & オンパロス & 天国（不動の砦）"
     },
     "LevelTarget": {
       "name": "PlannerTarget.LevelTarget.name",
@@ -1226,6 +1226,7 @@
     "Name": {
       "name": "Weekly.Name.name",
       "help": "Weekly.Name.help",
+      "Echo_of_War_Rusted_Crypt_of_the_Iron_Carcass": "鉄骸の錆び塚 (オンパロス)",
       "Echo_of_War_Glance_of_Twilight": "晨昏の回顧 (オンパロス)",
       "Echo_of_War_Inner_Beast_Battlefield": "心獣の戦場 (仙舟「羅浮」)",
       "Echo_of_War_Salutations_of_Ashen_Dreams": "現世の夢の礼賛 (ピノコニー)",
@@ -1596,8 +1597,8 @@
     "Dungeon": {
       "name": "Ornament.Dungeon.name",
       "help": "Ornament.Dungeon.help",
-      "Divergent_Universe_Within_the_West_Wind": "飾品：オンパロス & 天国（西風の中で）",
-      "Divergent_Universe_Moonlit_Blood": "飾品：妖精 & 酩酊（月下朱殷）",
+      "Divergent_Universe_Within_the_West_Wind": "飾品：（西風の中で）",
+      "Divergent_Universe_Moonlit_Blood": "飾品：（月下朱殷）",
       "Divergent_Universe_Unceasing_Strife": "飾品：拾骨地 & 巨樹（絶えぬ紛争）",
       "Divergent_Universe_Famished_Worker": "飾品：海に沈 & 奇想（飢えた虫卒）",
       "Divergent_Universe_Eternal_Comedy": "飾品：奔狼 & 蓮灯（永遠の喜劇）",
@@ -1607,7 +1608,7 @@
       "Divergent_Universe_Permafrost": "飾品：ベロブルグ & ったサルソット（永久凍土）",
       "Divergent_Universe_Gentle_Words": "飾品：商事会社 & 階差機関（優しい言葉）",
       "Divergent_Universe_Smelted_Heart": "飾品：盗賊 & ウェンワーク（鋼の意志）",
-      "Divergent_Universe_Untoppled_Walls": "飾品：宇宙 & 仙舟（不動の砦）"
+      "Divergent_Universe_Untoppled_Walls": "飾品：宇宙 & 仙舟 & 妖精 & 酩酊 & オンパロス & 天国（不動の砦）"
     },
     "Team": {
       "name": "Ornament.Team.name",

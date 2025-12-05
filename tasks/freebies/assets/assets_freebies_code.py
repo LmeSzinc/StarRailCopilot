@@ -25,14 +25,14 @@ CODE_ENTER = ButtonWrapper(
     cn=Button(
         file='./assets/cn/freebies/code/CODE_ENTER.png',
         area=(972, 228, 1010, 246),
-        search=(952, 208, 1030, 266),
+        search=(865, 93, 1140, 318),
         color=(140, 139, 140),
         button=(972, 228, 1010, 246),
     ),
     en=Button(
         file='./assets/en/freebies/code/CODE_ENTER.png',
         area=(915, 228, 962, 245),
-        search=(895, 208, 982, 265),
+        search=(865, 93, 1140, 318),
         color=(146, 145, 147),
         button=(915, 228, 962, 245),
     ),

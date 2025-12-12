@@ -1105,8 +1105,8 @@
       "name": "養成內圈遺器",
       "help": "",
       "_none_": "無",
-      "Divergent_Universe_Within_the_West_Wind": "飾品：（西風叢中）",
-      "Divergent_Universe_Moonlit_Blood": "飾品：（月下朱殷）",
+      "Divergent_Universe_Within_the_West_Wind": "飾品：翁法羅斯 & 天國（西風叢中）",
+      "Divergent_Universe_Moonlit_Blood": "飾品：妖精 & 沉醉（月下朱殷）",
       "Divergent_Universe_Unceasing_Strife": "飾品：拾骨地 & 巨樹（紛爭不休）",
       "Divergent_Universe_Famished_Worker": "飾品：海域 & 奇想（蠹役飢腸）",
       "Divergent_Universe_Eternal_Comedy": "飾品：奔狼 & 火宮（永恆笑劇）",
@@ -1116,7 +1116,7 @@
       "Divergent_Universe_Permafrost": "飾品：貝洛伯格 & 薩爾索圖（百年凍土）",
       "Divergent_Universe_Gentle_Words": "飾品：商業公司 & 差分機（溫柔話語）",
       "Divergent_Universe_Smelted_Heart": "飾品：盜賊 & 翁瓦克（浴火鋼心）",
-      "Divergent_Universe_Untoppled_Walls": "飾品：太空 & 仙舟 & 妖精 & 沉醉 & 翁法羅斯 & 天國（堅城不倒）"
+      "Divergent_Universe_Untoppled_Walls": "飾品：太空 & 仙舟（堅城不倒）"
     },
     "LevelTarget": {
       "name": "目標等級",
@@ -1597,8 +1597,8 @@
     "Dungeon": {
       "name": "副本名稱",
       "help": "",
-      "Divergent_Universe_Within_the_West_Wind": "飾品：（西風叢中）",
-      "Divergent_Universe_Moonlit_Blood": "飾品：（月下朱殷）",
+      "Divergent_Universe_Within_the_West_Wind": "飾品：翁法羅斯 & 天國（西風叢中）",
+      "Divergent_Universe_Moonlit_Blood": "飾品：妖精 & 沉醉（月下朱殷）",
       "Divergent_Universe_Unceasing_Strife": "飾品：拾骨地 & 巨樹（紛爭不休）",
       "Divergent_Universe_Famished_Worker": "飾品：海域 & 奇想（蠹役飢腸）",
       "Divergent_Universe_Eternal_Comedy": "飾品：奔狼 & 火宮（永恆笑劇）",
@@ -1608,7 +1608,7 @@
       "Divergent_Universe_Permafrost": "飾品：貝洛伯格 & 薩爾索圖（百年凍土）",
       "Divergent_Universe_Gentle_Words": "飾品：商業公司 & 差分機（溫柔話語）",
       "Divergent_Universe_Smelted_Heart": "飾品：盜賊 & 翁瓦克（浴火鋼心）",
-      "Divergent_Universe_Untoppled_Walls": "飾品：太空 & 仙舟 & 妖精 & 沉醉 & 翁法羅斯 & 天國（堅城不倒）"
+      "Divergent_Universe_Untoppled_Walls": "飾品：太空 & 仙舟（堅城不倒）"
     },
     "Team": {
       "name": "打本隊伍",

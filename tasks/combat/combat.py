@@ -67,6 +67,7 @@ class Combat(CombatInteract, CombatPrepare, CombatSupport, CombatTeam, CombatSki
                 if self.dungeon is not None and self.dungeon.is_Stagnant_Shadow:
                     total = 8
                 else:
+                    # Echo of war
                     total = 3
             else:
                 logger.warning(f'Cannot predict wave total from cost {cost}')
@@ -84,7 +85,11 @@ class Combat(CombatInteract, CombatPrepare, CombatSupport, CombatTeam, CombatSki
                 logger.info(f'Current has {current}, combat costs {cost}, '
                             f'able to do {self.combat_waves} waves')
             if self.combat_waves > 0:
-                self.combat_set_wave(self.combat_waves, total)
+                if self.combat_waves <= 1 and total == 3:
+                    # Echo of war does not have wave slider when 1/3
+                    pass
+                else:
+                    self.combat_set_wave(self.combat_waves, total)
         else:
             # Others
             logger.info(f'Current has {current}, combat costs {cost}, '

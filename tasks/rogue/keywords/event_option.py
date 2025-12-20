@@ -5826,3 +5826,93 @@ Leave_373b = RogueEventOption(
     jp='離れる。',
     es='Te marchas.',
 )
+Sealing_Wax_Prayer = RogueEventOption(
+    id=648,
+    name='Sealing_Wax_Prayer',
+    cn='祈求火漆。',
+    cht='祈求火漆。',
+    en='Sealing Wax Prayer.',
+    jp='封蝋の祈願',
+    es='Súplica de Lacre.',
+)
+Sealing_Wax_Discussion = RogueEventOption(
+    id=649,
+    name='Sealing_Wax_Discussion',
+    cn='谈论火漆。',
+    cht='談論火漆。',
+    en='Sealing Wax Discussion.',
+    jp='封蝋の談話',
+    es='Discusión de Lacre.',
+)
+Gladly_accept = RogueEventOption(
+    id=650,
+    name='Gladly_accept',
+    cn='欣然收下。',
+    cht='欣然收下。',
+    en='Gladly accept.',
+    jp='ありがたく受け取る。',
+    es='Lo aceptas con gusto.',
+)
+Get_some_travel_money_and_venture_out_into_the_world_again = RogueEventOption(
+    id=651,
+    name='Get_some_travel_money_and_venture_out_into_the_world_again',
+    cn='讨要盘缠，再到外面闯一闯。',
+    cht='討要盤纏，再到外面闖一闖。',
+    en='Get some travel money and venture out into the world again.',
+    jp='旅費をねだり、もう少し外の世界を冒険する。',
+    es='Pides algo de dinero y sales a probar suerte afuera.',
+)
+A_robe_of_leaves_imbued_with_wisdom = RogueEventOption(
+    id=652,
+    name='A_robe_of_leaves_imbued_with_wisdom',
+    cn='一套蕴含智慧的叶片袍。',
+    cht='一套蘊含智慧的葉片袍。',
+    en='A robe of leaves imbued with wisdom.',
+    jp='知性が宿るキトーン。',
+    es='Una túnica de hojas que contiene sabiduría.',
+)
+A_bottle_of_panacea_that_heals_all_wounds = RogueEventOption(
+    id=653,
+    name='A_bottle_of_panacea_that_heals_all_wounds',
+    cn='一瓶治愈伤痛的万灵药。',
+    cht='一瓶治癒傷痛的萬靈藥。',
+    en='A bottle of panacea that heals all wounds.',
+    jp='傷を癒やすためのエリクサー。',
+    es='Una botella de Elixir total que cura todas las heridas.',
+)
+A_talisman_blessed_by_destiny = RogueEventOption(
+    id=654,
+    name='A_talisman_blessed_by_destiny',
+    cn='一条命运赐福的护身符。',
+    cht='一條命運賜福的護身符。',
+    en='A talisman blessed by destiny.',
+    jp='運命の祝福が宿るお守り。',
+    es='Un amuleto bendecido por el destino.',
+)
+Accept_this_power = RogueEventOption(
+    id=655,
+    name='Accept_this_power',
+    cn='接受这股力量。',
+    cht='接受這股力量。',
+    en='Accept this power.',
+    jp='この力を受け入れる。',
+    es='Aceptas este poder.',
+)
+Request_other_rewards = RogueEventOption(
+    id=656,
+    name='Request_other_rewards',
+    cn='请求其他奖励。',
+    cht='請求其他獎勵。',
+    en='Request other rewards.',
+    jp='他の報酬を要求する。',
+    es='Solicitas otras recompensas.',
+)
+Others_need_it_more_than_I_do = RogueEventOption(
+    id=657,
+    name='Others_need_it_more_than_I_do',
+    cn='其他人比我更需要它。',
+    cht='其他人比我更需要它。',
+    en='Others need it more than I do.',
+    jp='よりも、他の人のほうが必要としている。',
+    es='Otros lo necesitan más que yo.',
+)

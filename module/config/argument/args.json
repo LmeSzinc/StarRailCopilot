@@ -631,6 +631,8 @@
         "display": "hide",
         "option": [
           "_none_",
+          "TheDahlia",
+          "Cyrene",
           "Evernight",
           "DanHengPermansorTerrae",
           "Hysilens",
@@ -708,8 +710,7 @@
           "Sampo",
           "Tingyun",
           "Pela",
-          "Natasha",
-          "Cyrene"
+          "Natasha"
         ]
       },
       "Cone": {
@@ -721,6 +722,7 @@
           "_none_",
           "This_Love_Forever",
           "Though_Worlds_Apart",
+          "Never_Forget_Her_Flame",
           "To_Evernight_Stars",
           "Epoch_Etched_in_Golden_Blood",
           "Why_Does_the_Ocean_Sing",
@@ -1103,6 +1105,7 @@
           "Stagnant_Shadow_Blaze",
           "Stagnant_Shadow_Scorch",
           "Stagnant_Shadow_Ire",
+          "Stagnant_Shadow_Ashes",
           "Stagnant_Shadow_Rime",
           "Stagnant_Shadow_Icicle",
           "Stagnant_Shadow_Nectar",
@@ -1210,6 +1213,8 @@
         "value": "FirstCharacter",
         "option": [
           "FirstCharacter",
+          "TheDahlia",
+          "Cyrene",
           "Evernight",
           "DanHengPermansorTerrae",
           "Hysilens",
@@ -1287,8 +1292,7 @@
           "Sampo",
           "Tingyun",
           "Pela",
-          "Natasha",
-          "Cyrene"
+          "Natasha"
         ]
       }
     },
@@ -1471,6 +1475,8 @@
         "value": "FirstCharacter",
         "option": [
           "FirstCharacter",
+          "TheDahlia",
+          "Cyrene",
           "Evernight",
           "DanHengPermansorTerrae",
           "Hysilens",
@@ -1548,8 +1554,7 @@
           "Sampo",
           "Tingyun",
           "Pela",
-          "Natasha",
-          "Cyrene"
+          "Natasha"
         ]
       }
     },
@@ -2062,6 +2067,8 @@
         "value": "FirstCharacter",
         "option": [
           "FirstCharacter",
+          "TheDahlia",
+          "Cyrene",
           "Evernight",
           "DanHengPermansorTerrae",
           "Hysilens",
@@ -2139,8 +2146,7 @@
           "Sampo",
           "Tingyun",
           "Pela",
-          "Natasha",
-          "Cyrene"
+          "Natasha"
         ]
       }
     }

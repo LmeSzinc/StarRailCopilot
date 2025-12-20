@@ -292,6 +292,7 @@
       "Stagnant_Shadow_Blaze": "Ascension: Fire (Himeko / Asta / Hook)",
       "Stagnant_Shadow_Scorch": "Ascension: Fire (Guinaifen / Topaz & Numby / Fugue)",
       "Stagnant_Shadow_Ire": "Ascension: Fire (Firefly / Gallagher / Jiaoqiu / Lingsha)",
+      "Stagnant_Shadow_Ashes": "Ascension: Fire (The Dahlia)",
       "Stagnant_Shadow_Rime": "Ascension: Ice (March 7th / Herta / Gepard / Pela)",
       "Stagnant_Shadow_Icicle": "Ascension: Ice (Yanqing / Jingliu / Ruan Mei)",
       "Stagnant_Shadow_Nectar": "Ascension: Ice (Misha / The Herta)",
@@ -416,6 +417,8 @@
       "name": "Support Character",
       "help": "Select a friend support character, if not found, select the default (first) role\nSupport character should not be the same as the character in the team, recommended to prioritize friends.",
       "FirstCharacter": "First Character",
+      "TheDahlia": "[3.8] The Dahlia",
+      "Cyrene": "[3.7] Cyrene",
       "Evernight": "[3.6] Evernight",
       "DanHengPermansorTerrae": "[3.6] Dan Heng • Permansor Terrae",
       "Hysilens": "[3.5] Hysilens",
@@ -493,8 +496,7 @@
       "Sampo": "Sampo",
       "Tingyun": "Tingyun",
       "Pela": "Pela",
-      "Natasha": "Natasha",
-      "Cyrene": "Cyrene"
+      "Natasha": "Natasha"
     }
   },
   "DungeonStorage": {
@@ -675,7 +677,7 @@
       "help": ""
     },
     "Item_Radiant_Prominence": {
-      "name": "Unknown_Dungeon_Come_From",
+      "name": "Ascension: Fire (The Dahlia)",
       "help": ""
     },
     "Item_Sea_Siren_Torn_Fin": {
@@ -848,6 +850,8 @@
       "name": "Character",
       "help": "",
       "_none_": "None",
+      "TheDahlia": "[3.8] The Dahlia",
+      "Cyrene": "[3.7] Cyrene",
       "Evernight": "[3.6] Evernight",
       "DanHengPermansorTerrae": "[3.6] Dan Heng • Permansor Terrae",
       "Hysilens": "[3.5] Hysilens",
@@ -925,15 +929,15 @@
       "Sampo": "Sampo",
       "Tingyun": "Tingyun",
       "Pela": "Pela",
-      "Natasha": "Natasha",
-      "Cyrene": "Cyrene"
+      "Natasha": "Natasha"
     },
     "Cone": {
       "name": "Cone",
       "help": "",
       "_none_": "None",
-      "This_Love_Forever": "Cyrene | 5* This Love, Forever",
+      "This_Love_Forever": "[3.7] Cyrene | 5* This Love, Forever",
       "Though_Worlds_Apart": "[3.6] Dan Heng • Permansor Terrae | 5* Though Worlds Apart",
+      "Never_Forget_Her_Flame": "[3.8] The Dahlia | 5* Never Forget Her Flame",
       "To_Evernight_Stars": "[3.6] Evernight | 5* To Evernight's Stars",
       "Epoch_Etched_in_Golden_Blood": "[3.5] Cerydra | 5* Epoch Etched in Golden Blood",
       "Why_Does_the_Ocean_Sing": "[3.5] Hysilens | 5* Why Does the Ocean Sing",

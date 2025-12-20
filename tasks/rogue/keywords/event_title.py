@@ -1883,3 +1883,33 @@ Boardtop_Theater = RogueEventTitle(
     es='Juego de tablero',
     option_ids=[635, 636, 637, 638, 639, 640, 641, 642, 643, 644, 645, 646, 647],
 )
+Sealing_Wax_Merchant_II = RogueEventTitle(
+    id=189,
+    name='Sealing_Wax_Merchant_II',
+    cn='火漆商人（其二）',
+    cht='火漆商人（其二）',
+    en='Sealing Wax Merchant (II)',
+    jp='封蝋の商人（その2）',
+    es='Comerciante de lacreII',
+    option_ids=[378, 379, 648, 649, 650, 651],
+)
+Divine_Treasures_II = RogueEventTitle(
+    id=190,
+    name='Divine_Treasures_II',
+    cn='神赐珍宝（其二）',
+    cht='神賜珍寶（其二）',
+    en='Divine Treasures (II)',
+    jp='神の贈り物（その2）',
+    es='Tesoro divinoII',
+    option_ids=[652, 653, 654, 655, 656, 657],
+)
+Divine_Treasures_III = RogueEventTitle(
+    id=191,
+    name='Divine_Treasures_III',
+    cn='神赐珍宝（其三）',
+    cht='神賜珍寶（其三）',
+    en='Divine Treasures (III)',
+    jp='神の贈り物（その3）',
+    es='Tesoro divinoIII',
+    option_ids=[653, 654, 655, 656, 657],
+)

@@ -292,6 +292,7 @@
       "Stagnant_Shadow_Blaze": "Ascension: Fuego (Himeko / Asta / Hook)",
       "Stagnant_Shadow_Scorch": "Ascension: Fuego (Guinaifen / Topaz y Conti / Fugue)",
       "Stagnant_Shadow_Ire": "Ascension: Fuego (Luciérnaga / Gallagher / Jiaoqiu / Lingsha)",
+      "Stagnant_Shadow_Ashes": "Ascension: Fuego (La Dalia)",
       "Stagnant_Shadow_Rime": "Ascension: Hielo (Siete de Marzo / Herta / Gepard / Pela)",
       "Stagnant_Shadow_Icicle": "Ascension: Hielo (Yanqing / Jingliu / Ruan Mei)",
       "Stagnant_Shadow_Nectar": "Ascension: Hielo (Misha / Sra. Herta)",
@@ -416,6 +417,8 @@
       "name": "Personaje de apoyo",
       "help": "Selecciona qué personaje de apoyo de un amigo se usará. Si no se encuentra, se seleccionará al predeterminado.\nEl personaje de apoyo no debe ser el mismo que el personaje del equipo, se recomienda priorizar a los amigos.",
       "FirstCharacter": "Primer personaje",
+      "TheDahlia": "[3.8] La Dalia",
+      "Cyrene": "[3.7] Cirene",
       "Evernight": "[3.6] Larganoche",
       "DanHengPermansorTerrae": "[3.6] Dan Heng - Permansor Terrae",
       "Hysilens": "[3.5] Hysilens",
@@ -493,8 +496,7 @@
       "Sampo": "Sampo",
       "Tingyun": "Tingyun",
       "Pela": "Pela",
-      "Natasha": "Natasha",
-      "Cyrene": "Cirene"
+      "Natasha": "Natasha"
     }
   },
   "DungeonStorage": {
@@ -675,7 +677,7 @@
       "help": ""
     },
     "Item_Radiant_Prominence": {
-      "name": "Unknown_Dungeon_Come_From",
+      "name": "Ascension: Fuego (La Dalia)",
       "help": ""
     },
     "Item_Sea_Siren_Torn_Fin": {
@@ -848,6 +850,8 @@
       "name": "Character",
       "help": "",
       "_none_": "None",
+      "TheDahlia": "[3.8] La Dalia",
+      "Cyrene": "[3.7] Cirene",
       "Evernight": "[3.6] Larganoche",
       "DanHengPermansorTerrae": "[3.6] Dan Heng - Permansor Terrae",
       "Hysilens": "[3.5] Hysilens",
@@ -925,15 +929,15 @@
       "Sampo": "Sampo",
       "Tingyun": "Tingyun",
       "Pela": "Pela",
-      "Natasha": "Natasha",
-      "Cyrene": "Cirene"
+      "Natasha": "Natasha"
     },
     "Cone": {
       "name": "Cone",
       "help": "",
       "_none_": "None",
-      "This_Love_Forever": "Cirene | 5* Amor eterno como este momento",
+      "This_Love_Forever": "[3.7] Cirene | 5* Amor eterno como este momento",
       "Though_Worlds_Apart": "[3.6] Dan Heng - Permansor Terrae | 5* A traves de montañas y ríos",
+      "Never_Forget_Her_Flame": "[3.8] La Dalia | 5* No olvides su fuego",
       "To_Evernight_Stars": "[3.6] Larganoche | 5* A la estrella de la larga noche",
       "Epoch_Etched_in_Golden_Blood": "[3.5] Ceridra | 5* Era grabada en sangre dorada",
       "Why_Does_the_Ocean_Sing": "[3.5] Hysilens | 5* Por que canta el oceano",

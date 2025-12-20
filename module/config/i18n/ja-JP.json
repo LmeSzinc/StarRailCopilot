@@ -292,6 +292,7 @@
       "Stagnant_Shadow_Blaze": "昇格素材：炎（姫子 / アスター / フック）",
       "Stagnant_Shadow_Scorch": "昇格素材：炎（桂乃芬 / トパーズ&カブ / 帰忘の流離人）",
       "Stagnant_Shadow_Ire": "昇格素材：炎（ホタル / ギャラガー / 椒丘 / 霊砂）",
+      "Stagnant_Shadow_Ashes": "昇格素材：炎（ダリア）",
       "Stagnant_Shadow_Rime": "昇格素材：氷（三月なのか / ヘルタ / ジェパード / ペラ）",
       "Stagnant_Shadow_Icicle": "昇格素材：氷（彦卿 / 鏡流 / ルアン・メェイ）",
       "Stagnant_Shadow_Nectar": "昇格素材：氷（ミーシャ / マダム・ヘルタ）",
@@ -416,6 +417,8 @@
       "name": "DungeonSupport.Character.name",
       "help": "DungeonSupport.Character.help",
       "FirstCharacter": "FirstCharacter",
+      "TheDahlia": "[3.8] ダリア",
+      "Cyrene": "[3.7] キュレネ",
       "Evernight": "[3.6] 長夜月",
       "DanHengPermansorTerrae": "[3.6] 丹恒・騰荒",
       "Hysilens": "[3.5] セイレンス",
@@ -493,8 +496,7 @@
       "Sampo": "サンポ",
       "Tingyun": "停雲",
       "Pela": "ペラ",
-      "Natasha": "ナターシャ",
-      "Cyrene": "キュレネ"
+      "Natasha": "ナターシャ"
     }
   },
   "DungeonStorage": {
@@ -675,7 +677,7 @@
       "help": ""
     },
     "Item_Radiant_Prominence": {
-      "name": "Unknown_Dungeon_Come_From",
+      "name": "昇格素材：炎（ダリア）",
       "help": ""
     },
     "Item_Sea_Siren_Torn_Fin": {
@@ -848,6 +850,8 @@
       "name": "PlannerTarget.Character.name",
       "help": "PlannerTarget.Character.help",
       "_none_": "_none_",
+      "TheDahlia": "[3.8] ダリア",
+      "Cyrene": "[3.7] キュレネ",
       "Evernight": "[3.6] 長夜月",
       "DanHengPermansorTerrae": "[3.6] 丹恒・騰荒",
       "Hysilens": "[3.5] セイレンス",
@@ -925,15 +929,15 @@
       "Sampo": "サンポ",
       "Tingyun": "停雲",
       "Pela": "ペラ",
-      "Natasha": "ナターシャ",
-      "Cyrene": "キュレネ"
+      "Natasha": "ナターシャ"
     },
     "Cone": {
       "name": "PlannerTarget.Cone.name",
       "help": "PlannerTarget.Cone.help",
       "_none_": "_none_",
-      "This_Love_Forever": "キュレネ | 5* 愛はいま永遠に",
+      "This_Love_Forever": "[3.7] キュレネ | 5* 愛はいま永遠に",
       "Though_Worlds_Apart": "[3.6] 丹恒・騰荒 | 5* 万里の山河を越えて",
+      "Never_Forget_Her_Flame": "[3.8] ダリア | 5* 彼女の炎を忘れずに",
       "To_Evernight_Stars": "[3.6] 長夜月 | 5* 長き夜に輝く星へ",
       "Epoch_Etched_in_Golden_Blood": "[3.5] ケリュドラ | 5* 黄金の血で刻む時代",
       "Why_Does_the_Ocean_Sing": "[3.5] セイレンス | 5* 海の歌は何がため",

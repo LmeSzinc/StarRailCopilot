@@ -597,3 +597,21 @@ Melodious_Strings = RogueBonus(
     jp='たなびく弦の音',
     es='Cuerdas melodiosas',
 )
+Rousing_War_Song = RogueBonus(
+    id=67,
+    name='Rousing_War_Song',
+    cn='昂扬战歌',
+    cht='昂揚戰歌',
+    en='Rousing War Song',
+    jp='高揚たる戦歌',
+    es='Cántico de batalla exaltado',
+)
+Condensed_Heart = RogueBonus(
+    id=68,
+    name='Condensed_Heart',
+    cn='凝结的心',
+    cht='凝結的心',
+    en='Condensed Heart',
+    jp='凝結する心',
+    es='Corazón coagulado',
+)

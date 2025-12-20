@@ -292,6 +292,7 @@
       "Stagnant_Shadow_Blaze": "晉階材料：火（姬子 / 艾絲妲 / 虎克）",
       "Stagnant_Shadow_Scorch": "晉階材料：火（桂乃芬 / 托帕&帳帳 / 忘歸人）",
       "Stagnant_Shadow_Ire": "晉階材料：火（流螢 / 加拉赫 / 椒丘 / 靈砂）",
+      "Stagnant_Shadow_Ashes": "晉階材料：火（大理花）",
       "Stagnant_Shadow_Rime": "晉階材料：冰（三月七 / 黑塔 / 傑帕德 / 佩拉）",
       "Stagnant_Shadow_Icicle": "晉階材料：冰（彥卿 / 鏡流 / 阮•梅）",
       "Stagnant_Shadow_Nectar": "晉階材料：冰（米沙 / 大黑塔）",
@@ -416,6 +417,8 @@
       "name": "好友支援角色",
       "help": "選擇好友支援角色，未找到則選擇默認（第一個）角色\n支援角色不要與隊伍中的角色重複，建議置頂好友角色",
       "FirstCharacter": "支援列表第一個角色",
+      "TheDahlia": "[3.8] 大理花",
+      "Cyrene": "[3.7] 昔漣",
       "Evernight": "[3.6] 長夜月",
       "DanHengPermansorTerrae": "[3.6] 丹恆•騰荒",
       "Hysilens": "[3.5] 海瑟音",
@@ -493,8 +496,7 @@
       "Sampo": "桑博",
       "Tingyun": "停雲",
       "Pela": "佩拉",
-      "Natasha": "娜塔莎",
-      "Cyrene": "昔漣"
+      "Natasha": "娜塔莎"
     }
   },
   "DungeonStorage": {
@@ -675,7 +677,7 @@
       "help": ""
     },
     "Item_Radiant_Prominence": {
-      "name": "Unknown_Dungeon_Come_From",
+      "name": "晉階材料：火（大理花）",
       "help": ""
     },
     "Item_Sea_Siren_Torn_Fin": {
@@ -848,6 +850,8 @@
       "name": "養成角色",
       "help": "",
       "_none_": "無",
+      "TheDahlia": "[3.8] 大理花",
+      "Cyrene": "[3.7] 昔漣",
       "Evernight": "[3.6] 長夜月",
       "DanHengPermansorTerrae": "[3.6] 丹恆•騰荒",
       "Hysilens": "[3.5] 海瑟音",
@@ -925,15 +929,15 @@
       "Sampo": "桑博",
       "Tingyun": "停雲",
       "Pela": "佩拉",
-      "Natasha": "娜塔莎",
-      "Cyrene": "昔漣"
+      "Natasha": "娜塔莎"
     },
     "Cone": {
       "name": "養成光錐",
       "help": "",
       "_none_": "無",
-      "This_Love_Forever": "昔漣 | 5* 愛如此刻永恆",
+      "This_Love_Forever": "[3.7] 昔漣 | 5* 愛如此刻永恆",
       "Though_Worlds_Apart": "[3.6] 丹恆•騰荒 | 5* 縱然山河萬程",
+      "Never_Forget_Her_Flame": "[3.8] 大理花 | 5* 勿忘她的火焰",
       "To_Evernight_Stars": "[3.6] 長夜月 | 5* 致長夜的星光",
       "Epoch_Etched_in_Golden_Blood": "[3.5] 刻律德菈 | 5* 金血銘刻的時代",
       "Why_Does_the_Ocean_Sing": "[3.5] 海瑟音 | 5* 海洋為何而歌",

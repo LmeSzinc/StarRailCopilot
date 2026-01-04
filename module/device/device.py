@@ -68,7 +68,7 @@ class Device(Screenshot, Control, AppControl):
     _screen_size_checked = False
     detect_record = set()
     click_record = collections.deque(maxlen=30)
-    stuck_timer = Timer(60, count=60).start()
+    stuck_timer = Timer(120, count=120).start()
 
     def __init__(self, *args, **kwargs):
         for trial in range(4):

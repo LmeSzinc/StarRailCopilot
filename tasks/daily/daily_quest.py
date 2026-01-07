@@ -20,8 +20,7 @@ from tasks.daily.keywords import (
     KEYWORDS_DAILY_QUEST_STATE,
 )
 from tasks.daily.synthesize import SynthesizeMaterialUI
-from tasks.daily.use_technique import UseTechniqueUI
-from tasks.dungeon.assets.assets_dungeon_ui import DAILY_TRAINING_CHECK
+from tasks.dungeon.assets.assets_dungeon_tab import TAB_DAILY_TRAINING_CHECK
 from tasks.dungeon.keywords import KEYWORDS_DUNGEON_TAB
 from tasks.dungeon.ui.ui import DungeonUI
 from tasks.item.consumable_usage import ConsumableUsageUI
@@ -96,7 +95,7 @@ class DailyQuestUI(DungeonUI, RouteLoader):
 
             # Might be a screenshot mixed with daily_training and get_reward
             # Swipe at daily training page only
-            if interval.reached() and self.match_template_color(DAILY_TRAINING_CHECK):
+            if interval.reached() and self.match_template_color(TAB_DAILY_TRAINING_CHECK):
                 self._daily_quests_swipe(direction)
                 interval.reset()
                 continue
@@ -302,15 +301,15 @@ class DailyQuestUI(DungeonUI, RouteLoader):
         if KEYWORDS_DAILY_QUEST.Use_Consumables_1_time in quests:
             if ConsumableUsageUI(self.config, self.device).use_consumable():
                 done += 1
-        if KEYWORDS_DAILY_QUEST.Use_Technique_2_times in quests:
-            UseTechniqueUI(self.config, self.device).use_technique(2)
-            done += 1
+        # if KEYWORDS_DAILY_QUEST.Use_Technique_2_times in quests:
+        #     UseTechniqueUI(self.config, self.device).use_technique(2)
+        #     done += 1
         if KEYWORDS_DAILY_QUEST.Salvage_any_Relic in quests:
             if RelicsUI(self.config, self.device).salvage_relic():
                 done += 1
-        if KEYWORDS_DAILY_QUEST.Complete_Forgotten_Hall_1_time in quests:
-            self.route_run(ROUTE_DAILY.ForgottenHallStage1__route)
-            done += 1
+        # if KEYWORDS_DAILY_QUEST.Complete_Forgotten_Hall_1_time in quests:
+        #     self.route_run(ROUTE_DAILY.ForgottenHallStage1__route)
+        #     done += 1
 
         """
         enemy x1 In_a_single_battle_inflict_3_Weakness_Break_of_different_Types

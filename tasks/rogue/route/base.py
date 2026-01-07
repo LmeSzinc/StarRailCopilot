@@ -131,7 +131,13 @@ class RouteBase(RouteBase_, RogueExit, RogueEvent, RogueReward):
         end_point = waypoints[-1]
         if self.plane.is_rogue_combat or self.plane.is_rogue_occurrence:
             end_point.unexpected_confirm = Timer(1, count=5)
-        return super().clear_item(*waypoints)
+
+        poor_try = False
+        if self.plane.is_rogue_respite:
+            # poor try clearing items in Respite zones
+            poor_try = True
+
+        return super().clear_item(*waypoints, poor_try=poor_try)
 
     """
     Additional rogue methods

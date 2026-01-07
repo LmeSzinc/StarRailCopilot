@@ -1,3 +1,4 @@
+import module.config.server as server
 from module.base.decorator import run_once
 from module.device.platform.utils import cached_property
 from module.exception import RequestHumanTakeover
@@ -6,15 +7,23 @@ from module.ui.scroll import AdaptiveScroll
 from tasks.base.assets.assets_base_page import MAP_EXIT
 from tasks.base.assets.assets_base_popup import POPUP_CANCEL
 from tasks.character.keywords import CharacterList
-from tasks.combat.assets.assets_combat_prepare import COMBAT_PREPARE
+from tasks.combat.assets.assets_combat_prepare import COMBAT_PREPARE, WAVE_CHECK, WAVE_CHECK_SEARCH
 from tasks.combat.assets.assets_combat_support import COMBAT_SUPPORT_LIST, COMBAT_SUPPORT_LIST_SCROLL_OE
+from tasks.combat.prepare import WaveDigit
 from tasks.dungeon.dungeon import Dungeon
+from tasks.dungeon.keywords import DungeonList
+from tasks.item.slider import Slider
 from tasks.map.keywords import MapPlane
 from tasks.ornament.assets.assets_ornament_combat import *
+from tasks.ornament.assets.assets_ornament_prepare import *
 from tasks.ornament.assets.assets_ornament_special import *
 from tasks.ornament.assets.assets_ornament_ui import *
 from tasks.rogue.route.loader import RouteLoader, model_from_json
 from tasks.rogue.route.model import RogueRouteListModel, RogueRouteModel
+
+
+class OrnamentTeamNotPrepared(Exception):
+    pass
 
 
 class OrnamentCombat(Dungeon, RouteLoader):
@@ -26,6 +35,16 @@ class OrnamentCombat(Dungeon, RouteLoader):
     def _combat_should_reenter(self):
         # Never re-enter, can only enter from Survival_Index
         return False
+
+    def _dungeon_run(self, dungeon: DungeonList, team: int = None, wave_limit: int = 0, support_character: str = None,
+                     skip_ui_switch: bool = False):
+
+        # Always skip_ui_switch = False
+        # because you can't easily enter ornament from map, it's better enter from page_quest
+        skip_ui_switch = False
+        return super()._dungeon_run(
+            dungeon=dungeon, team=team, wave_limit=wave_limit,
+            support_character=support_character, skip_ui_switch=skip_ui_switch)
 
     def get_double_event_remain_at_combat(self, button=OCR_DOUBLE_EVENT_REMAIN_AT_OE):
         # Different position to OCR
@@ -59,6 +78,8 @@ class OrnamentCombat(Dungeon, RouteLoader):
                 self.device.click(MAP_EXIT)
                 continue
             if self.handle_popup_confirm():
+                continue
+            if self.ui_additional():
                 continue
 
     def route_error_postprocess(self):
@@ -110,11 +131,12 @@ class OrnamentCombat(Dungeon, RouteLoader):
                 self.device.screenshot()
 
             # End
-            if self.appear(SUPPORT_DISMISS):
+            if self.match_template_luma(SUPPORT_DISMISS):
                 return True
 
             # Click
-            if self.appear(SUPPORT_ADD, interval=2):
+            # small icon, use match_template_luma
+            if self.match_template_luma(SUPPORT_ADD, interval=2):
                 self.device.click(SUPPORT_ADD)
                 self.interval_reset(SUPPORT_ADD)
                 continue
@@ -193,6 +215,24 @@ class OrnamentCombat(Dungeon, RouteLoader):
         logger.attr('TeamSlotsPrepared', slots)
         return slots > 0
 
+    def combat_set_wave(self, count=6, total=6):
+        """
+        Args:
+            count: 1 to 6
+            total: 3 or 6 or 24
+
+        Pages:
+            in: COMBAT_PREPARE
+        """
+        slider = Slider(main=self, slider=WAVE_SLIDER_OE)
+        # fixed total at 6
+        slider.set(count, 6)
+        self.ui_ensure_index(
+            count, letter=WaveDigit(OCR_WAVE_COUNT_OE, lang=server.lang),
+            next_button=WAVE_PLUS_OE, prev_button=WAVE_MINUS_OE,
+            skip_first_screenshot=True
+        )
+
     def combat_prepare(self, team=1, support_character: str = None):
         """
         Args:
@@ -212,23 +252,60 @@ class OrnamentCombat(Dungeon, RouteLoader):
         def check_team_prepare():
             if not self.is_team_prepared():
                 logger.error(f'Please prepare your team in Ornament Extraction')
-                raise RequestHumanTakeover
+                raise OrnamentTeamNotPrepared
 
         logger.hr('Combat prepare')
-        skip_first_screenshot = True
+
+        # wait WAVE_SLIDER_OE
+        WAVE_CHECK.load_search(WAVE_CHECK_SEARCH)
+        for _ in self.loop():
+            check_team_prepare()
+            if self.match_template_luma(WAVE_CHECK):
+                break
+
+        # set wave, a simplified handle_combat_prepare()
+        self.combat_get_trailblaze_power()
+        current = self.get_equivalent_stamina()
+        total = 6
+        cost = 40
+        logger.attr('CombatWaveTotal', total)
+        self.combat_waves = min(current // cost, total)
+        if self.combat_wave_limit:
+            self.combat_waves = min(self.combat_waves, self.combat_wave_limit - self.combat_wave_done)
+            logger.info(
+                f'Current has {current}, combat costs {cost}, '
+                f'wave={self.combat_wave_done}/{self.combat_wave_limit}, '
+                f'able to do {self.combat_waves} waves')
+        else:
+            logger.info(f'Current has {current}, combat costs {cost}, '
+                        f'able to do {self.combat_waves} waves')
+        if self.combat_waves > 0:
+            self.combat_set_wave(self.combat_waves, total)
+        else:
+            logger.error('Not enough stamina to run ornament, we should not enter ornament at the first place')
+            self.oe_leave()
+            return False
+
+        # select support
         if support_character:
             # Block COMBAT_TEAM_PREPARE before support set
             support_set = False
         else:
             support_set = True
         logger.info([support_character, support_set])
-        trial = 0
-        while 1:
-            if skip_first_screenshot:
-                skip_first_screenshot = False
+        if support_character:
+            self.support_set(support_character)
+            # wait until support aside closed
+            for _ in self.loop(timeout=1):
+                if self.match_template_color(DU_CHECK):
+                    logger.info('Support aside closed')
+                    break
             else:
-                self.device.screenshot()
+                logger.warning('Wait support aside closed timeout')
 
+        # enter combat
+        trial = 0
+        for _ in self.loop():
             # End
             if self.is_in_main():
                 logger.info('Combat map entered')
@@ -242,16 +319,11 @@ class OrnamentCombat(Dungeon, RouteLoader):
             if trial > 5:
                 logger.critical('Failed to enter dungeon after 5 trial, probably because relics are full')
                 raise RequestHumanTakeover
-            if self.appear(SUPPORT_ADD):
+            if self.match_template_luma(SUPPORT_ADD):
                 check_team_prepare()
 
             # Click
-            if support_character and self.appear(SUPPORT_ADD, interval=2):
-                self.support_set(support_character)
-                self.interval_reset(SUPPORT_ADD)
-                support_set = True
-                continue
-            if support_set and self.appear(COMBAT_PREPARE, interval=5):
+            if self.appear(COMBAT_PREPARE, interval=5):
                 # Long loading after COMBAT_PREPARE
                 self.device.click(COMBAT_PREPARE)
                 self.device.screenshot_interval_set('combat')

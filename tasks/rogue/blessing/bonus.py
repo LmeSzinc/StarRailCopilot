@@ -95,6 +95,7 @@ class RogueBonusSelector(RogueSelector):
         self.recognition()
         if not self.ocr_results:
             self.ui_select(None)
+            return
         options = {result.matched_keyword.en: result for result in self.ocr_results}
         if self.main.config.RogueWorld_Bonus not in options.keys():
             logger.warning(f"Can not find option: {self.main.config.RogueWorld_Bonus}, randomly choose one")

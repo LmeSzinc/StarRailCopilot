@@ -56,6 +56,8 @@ class OcrDungeonName(Ocr):
             result = re.sub('^偶之形', '偃偶之形', result)
             # 嗔怒之形•凝滞虚影
             result = re.sub('^怒之形', '嗔怒之形', result)
+            # 烬日之形•凝滞虚影
+            result = re.sub('^日之形', '烬日之形', result)
             # 蛀星的旧·历战余响
             result = re.sub(r'蛀星的旧.?历战.+$', '蛀星的旧魇•历战的余响', result)
             result = re.sub(r'蛀星的旧.?历战?$', '蛀星的旧魇•历战', result)
@@ -64,10 +66,17 @@ class OcrDungeonName(Ocr):
             result = re.sub('[鑫蠢]役', '蠹役', result)
             # 「呓语密林」神悟树庭
             result = re.sub('[艺吃]语', '呓语', result)
-
-        # 9支援仓段
-        for word in 'Q9α':
-            result = result.removeprefix(word)
+            # 9支援仓段
+            for word in 'Q9α':
+                result = result.removeprefix(word)
+            # 铁的锈家 -> 铁骸的锈冢
+            result = result.replace('锈家', '锈冢')
+            result = result.replace('铁的', '铁骸的')
+        elif self.lang == 'en':
+            # O Supply Zone
+            result = re.sub(r'^[Oo0] S', 'S', result)
+        # ①收容舱段
+        result = re.sub(r'[①②③④⑤⑥⑦⑧⑨⑩]', '', result)
         return result
 
 
@@ -131,6 +140,9 @@ class OcrDungeonList(OcrDungeonName):
         merge_result_button(results, 'Audition', 'Venue', 'SoulGladScorchsandAuditionVenue')
         merge_result_button(results, 'Sanctum', 'Janusopo', 'SanctumofProphecyJanusopolis')
         merge_result_button(results, 'Murmuring', 'Epiphany', 'MurmuringWoodsGroveofEpiphany')
+        merge_result_button(results, 'Sanctumo', 'Janusopoli', 'SanctumofProphecyJanusopolis')
+        merge_result_button(results, 'Castrum', 'Kremno', 'StrifeRuinsCastrumKremnos')
+
         if results != before:
             logger.attr(name=self.name,
                         text=str([result.ocr_text for result in results]))

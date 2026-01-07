@@ -8,23 +8,18 @@ from tasks.map.route.base import RouteBase
 
 
 class Route(RouteBase, Combat, CharacterTrial):
-    def handle_combat_state(self, auto=True, speed_2x=True):
-        # No auto in character trial
-        auto = False
-        return super().handle_combat_state(auto=auto, speed_2x=speed_2x)
+    def trial_combat_end(self):
+        # Ended at START_TRIAL
+        if self.match_template_color(START_TRIAL):
+            logger.info('Trial ended at START_TRIAL')
+            return True
+        if self.is_in_main():
+            logger.warning('Trial ended at is_in_main()')
+            return True
+        return False
 
     def wait_next_skill(self, expected_end=None, skip_first_screenshot=True):
-        # Ended at START_TRIAL
-        def combat_end():
-            if self.match_template_color(START_TRIAL):
-                logger.info('Trial ended at START_TRIAL')
-                return True
-            if self.is_in_main():
-                logger.warning('Trial ended at is_in_main()')
-                return True
-            return False
-
-        return super().wait_next_skill(expected_end=combat_end, skip_first_screenshot=skip_first_screenshot)
+        return super().wait_next_skill(expected_end=self.trial_combat_end, skip_first_screenshot=skip_first_screenshot)
 
     def walk_additional(self) -> bool:
         if self.appear_then_click(INFO_CLOSE, interval=2):
@@ -32,56 +27,7 @@ class Route(RouteBase, Combat, CharacterTrial):
         return super().walk_additional()
 
     def combat_execute(self, expected_end=None):
-        # Battle 1/3
-        # Enemy cleared by follow up
-        self.wait_next_skill()
-
-        # Battle 2/3
-        # Himeko E
-        # Rest are cleared by follow up
-        self.use_E()
-        self.wait_next_skill()
-
-        # Battle 3/3
-        # Himeko A
-        self.use_A()
-        self.wait_next_skill()
-        # Herta A, or Natasha A, depends on who wasn't being attacked
-        self.use_A()
-        if not self.wait_next_skill():
-            return
-        # Natasha A, this will also cause weakness break
-        # To achieve In_a_single_battle_inflict_3_Weakness_Break_of_different_Types
-        self.use_A()
-        if not self.wait_next_skill():
-            return
-        # Just whoever user A, in case Himeko Q didn't kill it, usually to be Herta
-        self.use_A()
-        if not self.wait_next_skill():
-            return
-        # Himeko Q
-        # To achieve Use_an_Ultimate_to_deal_the_final_blow_1_time
-        # May kill the enemy
-        self.use_Q(1)
-        if not self.wait_next_skill():
-            return
-        # Herta Q
-        # To achieve Use_an_Ultimate_to_deal_the_final_blow_1_time
-        # May kill the enemy
-        self.use_Q(2)
-        if not self.wait_next_skill():
-            return
-
-        # Combat should end here, just incase
-        logger.warning(f'Himeko trial is not going as expected')
-        for _ in range(2):
-            self.use_E()
-            if not self.wait_next_skill():
-                return
-        for _ in range(10):
-            self.use_A()
-            if not self.wait_next_skill():
-                return
+        return super().combat_execute(expected_end=self.trial_combat_end)
 
     def route_item_enemy(self):
         self.enter_himeko_trial()

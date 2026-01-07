@@ -462,3 +462,156 @@ Lingering_Whispers_of_Love = RogueBonus(
     jp='愛の残響',
     es='Susurros de amor',
 )
+Scattered_Poems = RogueBonus(
+    id=52,
+    name='Scattered_Poems',
+    cn='零落诗篇',
+    cht='零落詩篇',
+    en='Scattered Poems',
+    jp='散逸した詩篇',
+    es='Un poema fragmentado',
+)
+Rusted_Gold_Coin = RogueBonus(
+    id=53,
+    name='Rusted_Gold_Coin',
+    cn='锈蚀金币',
+    cht='鏽蝕金幣',
+    en='Rusted Gold Coin',
+    jp='錆びたコイン',
+    es='Moneda de oro oxidada',
+)
+Golden_Short_Sword = RogueBonus(
+    id=54,
+    name='Golden_Short_Sword',
+    cn='黄金短剑',
+    cht='黃金短劍',
+    en='Golden Short Sword',
+    jp='黄金の短剣',
+    es='Espada corta dorada',
+)
+Mirage_In_The_Water = RogueBonus(
+    id=55,
+    name='Mirage_In_The_Water',
+    cn='水中影',
+    cht='水中影',
+    en='Mirage In The Water',
+    jp='水中の影',
+    es='Espejismo bajo el agua',
+)
+Gift_of_Creation = RogueBonus(
+    id=56,
+    name='Gift_of_Creation',
+    cn='创生之赐',
+    cht='創生之賜',
+    en='Gift of Creation',
+    jp='創生の賜物',
+    es='Bendición de la creación',
+)
+Final_Spear = RogueBonus(
+    id=57,
+    name='Final_Spear',
+    cn='最后的枪',
+    cht='最後的槍',
+    en='Final Spear',
+    jp='最後の銃',
+    es='La última lanza',
+)
+Poem_of_the_Stars = RogueBonus(
+    id=58,
+    name='Poem_of_the_Stars',
+    cn='星的诗篇',
+    cht='星的詩篇',
+    en='Poem of the Stars',
+    jp='星の詩篇',
+    es='Poema de las estrellas',
+)
+Data_Collection = RogueBonus(
+    id=59,
+    name='Data_Collection',
+    cn='集群数据',
+    cht='叢集資料',
+    en='Data Collection',
+    jp='クラスターデータ',
+    es='Datos colectivos',
+)
+Recursion = RogueBonus(
+    id=60,
+    name='Recursion',
+    cn='递归',
+    cht='遞迴',
+    en='Recursion',
+    jp='再帰',
+    es='Recursión',
+)
+Dream_of_Flowers = RogueBonus(
+    id=61,
+    name='Dream_of_Flowers',
+    cn='花之梦',
+    cht='花之夢',
+    en='Dream of Flowers',
+    jp='花の夢',
+    es='El sueño de las flores',
+)
+Bedtime_Story = RogueBonus(
+    id=62,
+    name='Bedtime_Story',
+    cn='睡前故事',
+    cht='睡前故事',
+    en='Bedtime Story',
+    jp='寝物語',
+    es='Cuento para dormir',
+)
+Happy_Heart = RogueBonus(
+    id=63,
+    name='Happy_Heart',
+    cn='快乐的心',
+    cht='快樂的心',
+    en='Happy Heart',
+    jp='ハッピーハート',
+    es='Corazón feliz',
+)
+Enkindled_Dreams = RogueBonus(
+    id=64,
+    name='Enkindled_Dreams',
+    cn='焚烧的梦',
+    cht='焚燒的夢',
+    en='Enkindled Dreams',
+    jp='燃える夢',
+    es='Sueños ardientes',
+)
+A_New_Beginning = RogueBonus(
+    id=65,
+    name='A_New_Beginning',
+    cn='新的开始',
+    cht='新的開始',
+    en='A New Beginning',
+    jp='新たな始まり',
+    es='Un nuevo comienzo',
+)
+Melodious_Strings = RogueBonus(
+    id=66,
+    name='Melodious_Strings',
+    cn='袅袅弦音',
+    cht='嫋嫋絃音',
+    en='Melodious Strings',
+    jp='たなびく弦の音',
+    es='Cuerdas melodiosas',
+)
+Rousing_War_Song = RogueBonus(
+    id=67,
+    name='Rousing_War_Song',
+    cn='昂扬战歌',
+    cht='昂揚戰歌',
+    en='Rousing War Song',
+    jp='高揚たる戦歌',
+    es='Cántico de batalla exaltado',
+)
+Condensed_Heart = RogueBonus(
+    id=68,
+    name='Condensed_Heart',
+    cn='凝结的心',
+    cht='凝結的心',
+    en='Condensed Heart',
+    jp='凝結する心',
+    es='Corazón coagulado',
+)

@@ -127,7 +127,7 @@ class KeywordExtract:
             "Go_on_assignment_1_time",  # -> Dispatch_1_assignments
             "Complete_Simulated_Universe_1_times",  # same
             "Complete_1_stage_in_Simulated_Universe_Any_world",
-            # -> Complete_Divergent_Universe_or_Simulated_Universe_1_times
+            # -> Complete_Divergent_Universe_or_Currency_Wars_1_times
             "Complete_Calyx_Crimson_1_time",  # -> Clear_Calyx_Crimson_1_times
             "Enter_combat_by_attacking_enemy_Weakness_and_win_3_times",
             # -> Enter_combat_by_attacking_enemie_Weakness_and_win_1_times
@@ -145,7 +145,7 @@ class KeywordExtract:
 
         correct_times = {
             #    "Dispatch_1_assignments":  1,
-            #    "Complete_Divergent_Universe_or_Simulated_Universe_1_times": 1,
+            #    "Complete_Divergent_Universe_or_Currency_Wars_1_times": 1,
             #    "Clear_Calyx_Crimson_1_times": 1,
             "Enter_combat_by_attacking_enemie_Weakness_and_win_1_times": 3,
             "Use_Technique_1_times": 2,
@@ -203,10 +203,17 @@ class KeywordExtract:
             damage_info[type_name] = deep_get(data, 'DamageTypeName.Hash')
         # Character id -> character hash & damage type
         character_info = dict()
-        for data in read_file(os.path.join(
+        character = []
+        character.extend(read_file(os.path.join(
                 TextMap.DATA_FOLDER, 'ExcelOutput',
                 'AvatarConfig.json'
-        )):
+        )))
+        character.extend(read_file(os.path.join(
+                TextMap.DATA_FOLDER, 'ExcelOutput',
+                'AvatarConfigLD.json'
+        )))
+
+        for data in character:
             voice = deep_get(data, 'AvatarVOTag', default='')
             if voice == 'test':
                 continue
@@ -217,17 +224,23 @@ class KeywordExtract:
         # Item id -> character id
         promotion_info = defaultdict(list)
 
-        def merge_same(data: list[dict], keyword) -> list:
+        def merge_same(data: list[dict], keyword) -> dict:
             mp = defaultdict(dict)
             for d in data:
                 length = len(mp[d[keyword]])
                 mp[d[keyword]][str(length)] = d
-            return mp.values()
+            return mp
 
-        for data in merge_same(read_file(os.path.join(
+        promotion = []
+        promotion.extend(read_file(os.path.join(
                 TextMap.DATA_FOLDER, 'ExcelOutput',
                 'AvatarPromotionConfig.json'
-        )), keyword='AvatarID'):
+        )))
+        promotion.extend(read_file(os.path.join(
+                TextMap.DATA_FOLDER, 'ExcelOutput',
+                'AvatarPromotionConfigLD.json'
+        )))
+        for data in merge_same(promotion, keyword='AvatarID').values():
             character_id = deep_get(data, '0.AvatarID')
             item_id = deep_get(data, '2.PromotionCostList')[-1]['ItemID']
             try:
@@ -239,7 +252,7 @@ class KeywordExtract:
         for data in merge_same(read_file(os.path.join(
                 TextMap.DATA_FOLDER, 'ExcelOutput',
                 'MappingInfo.json'
-        )), keyword='ID'):
+        )), keyword='ID').values():
             farm_type = deep_get(data, '0.FarmType')
             if farm_type != 'ELEMENT':
                 continue
@@ -247,11 +260,14 @@ class KeywordExtract:
             item_id = deep_get(data, '5.DisplayItemList')[-1]['ItemID']
             shadow_info[shadow_hash] = promotion_info[item_id]
         prefix_dict = {
-            'cn': '角色晋阶材料：',
-            'cht': '角色晉階材料：',
-            'jp': 'キャラクター昇格素材：',
+            'cn': '晋阶材料：',
+            'cht': '晉階材料：',
+            'jp': '昇格素材：',
             'en': 'Ascension: ',
             'es': 'Ascension: '
+        }
+        non_character_dungeon = {
+            8901618573986260416: 'Ice'
         }
         keyword_class = 'DungeonDetailed'
         output_file = './tasks/dungeon/keywords/dungeon_detailed.py'
@@ -261,6 +277,8 @@ class KeywordExtract:
         """)
         gen.CommentAutoGenerage('dev_tools.keyword_extract')
         for index, (keyword, characters) in enumerate(shadow_info.items()):
+            if not characters:
+                continue
             _, name = self.find_keyword(keyword, lang='en')
             name = text_to_variable(name).replace('Shape_of_', '')
             with gen.Object(key=name, object_class=keyword_class):
@@ -273,7 +291,16 @@ class KeywordExtract:
                     ]
                     character_names = list(dict.fromkeys(character_names))
                     character_names = ' / '.join(character_names)
-                    damage_type = self.find_keyword(characters[0][1], lang)[1]
+                    if character_names:
+                        damage_type = self.find_keyword(characters[0][1], lang)[1]
+                    elif keyword in non_character_dungeon:
+                        damage_id = self.find_keyword(non_character_dungeon[keyword], lang='en')[0]
+                        damage_type = self.find_keyword(damage_id, lang=lang)[1]
+                        # show dungeon name
+                        character_names = self.find_keyword(keyword, lang=lang)[1]
+                    else:
+                        print(f'WARNING: dungeon {keyword} has empty characters')
+                        continue
                     if lang in {'en', 'es'}:
                         value = f'{prefix_dict[lang]}{damage_type} ({character_names})'
                     else:
@@ -314,10 +341,12 @@ class KeywordExtract:
         GenerateMapPlane()()
 
     def generate_character_keywords(self):
-        from dev_tools.keywords.character import GenerateCharacterList, GenerateCharacterHeight, GenerateCombatType
+        from dev_tools.keywords.character import (GenerateCharacterList, GenerateCharacterHeight,
+                                                  GenerateCombatType, GenerateCharacterPath)
+        GenerateCombatType()()
+        GenerateCharacterPath()()
         GenerateCharacterList()()
         GenerateCharacterHeight()()
-        GenerateCombatType()()
 
     def generate_battle_pass_quests(self):
         battle_pass_quests = read_file(os.path.join(TextMap.DATA_FOLDER, 'ExcelOutput', 'BattlePassConfig.json'))
@@ -534,11 +563,12 @@ class KeywordExtract:
             yield hash_
 
     def generate(self):
-        self.load_keywords(['饰品提取', '差分宇宙', '模拟宇宙',
-                            '拟造花萼（金）', '拟造花萼（赤）', '凝滞虚影', '侵蚀隧洞', '历战余响',
-                            '最近更新', '忘却之庭', '虚构叙事', '末日幻影'])
+        self.load_keywords([
+            '培养目标', '饰品提取', '拟造花萼（金）', '拟造花萼（赤）', '凝滞虚影', '侵蚀隧洞', '历战余响',
+            '货币战争', '差分宇宙', '模拟宇宙',
+            '异相仲裁', '最近更新', '忘却之庭', '虚构叙事', '末日幻影'])
         self.write_keywords(keyword_class='DungeonNav', output_file='./tasks/dungeon/keywords/nav.py')
-        self.load_keywords(['行动摘要', '生存索引', '每日实训', '模拟宇宙', '逐光捡金', '战术训练'])
+        self.load_keywords(['行动摘要', '生存索引', '每日实训', '模拟宇宙', '逐光捡金', '战术训练', '开拓历程'])
         self.write_keywords(keyword_class='DungeonTab', output_file='./tasks/dungeon/keywords/tab.py')
         self.load_keywords(['前往', '领取', '进行中', '已领取', '本日活跃度已满'])
         self.write_keywords(keyword_class='DailyQuestState', output_file='./tasks/daily/keywords/daily_quest_state.py')
@@ -547,6 +577,8 @@ class KeywordExtract:
                             output_file='./tasks/battle_pass/keywords/quest_state.py')
         self.generate_map_planes()
         self.generate_character_keywords()
+        from dev_tools.keywords.cone import generate_cone
+        generate_cone()
         from dev_tools.keywords.dungeon_list import GenerateDungeonList
         GenerateDungeonList()()
         self.load_keywords(['进入', '传送', '追踪'])
@@ -567,6 +599,8 @@ class KeywordExtract:
                             output_file='./tasks/item/keywords/tab.py')
         from dev_tools.keywords.item import generate_items
         generate_items()
+        from dev_tools.keywords.relics import generate_relics
+        generate_relics()
         self.generate_rogue_buff()
         self.load_keywords(['已强化'])
         self.write_keywords(keyword_class='RogueEnhancement', output_file='./tasks/rogue/keywords/enhancement.py')

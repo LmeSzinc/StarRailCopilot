@@ -115,7 +115,8 @@ class MainPage(PopupHandler):
             lang_list = VALID_LANG
         else:
             # Try current lang first
-            lang_list = [server.lang] + [lang for lang in VALID_LANG if lang != server.lang]
+            lang_list = [server.lang] if server.lang != 'auto' else []
+            lang_list += [lang for lang in VALID_LANG if lang != server.lang]
 
         for lang in lang_list:
             logger.info(f'Try ocr in lang {lang}')

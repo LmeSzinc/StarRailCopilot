@@ -11,12 +11,11 @@ from module.logger import logger
 from module.ocr.ocr import Ocr
 from tasks.base.assets.assets_base_main_page import ROGUE_LEAVE_FOR_NOW
 from tasks.base.assets.assets_base_page import MAP_EXIT
-from tasks.base.page import page_guide, page_item, page_main, page_rogue
+from tasks.base.page import page_item, page_main, page_rogue
 from tasks.dungeon.keywords import DungeonList
 from tasks.dungeon.keywords.dungeon import Simulated_Universe_World_1
 from tasks.dungeon.ui.state import OcrSimUniPoint
 from tasks.dungeon.ui.ui_rogue import DungeonRogueUI
-from tasks.forgotten_hall.assets.assets_forgotten_hall_ui import TELEPORT
 from tasks.rogue.assets.assets_rogue_entry import (
     LEVEL_CONFIRM,
     OCR_WEEKLY_POINT,
@@ -308,41 +307,6 @@ class RogueEntry(RouteBase, RogueRewardHandler, RoguePathHandler, DungeonRogueUI
             if self.appear_then_click(ROGUE_LEAVE_FOR_NOW, interval=2):
                 continue
 
-    def _rogue_teleport(self, skip_first_screenshot=True):
-        """
-        Pages:
-            in: page_guide, Simulated_Universe, Simulated_Universe
-            out: page_rogue, is_page_rogue_main()
-        """
-        logger.info('Rogue teleport')
-        self.interval_clear(page_guide.check_button)
-        while 1:
-            if skip_first_screenshot:
-                skip_first_screenshot = False
-            else:
-                self.device.screenshot()
-
-            # End
-            if self.ui_page_appear(page_rogue):
-                break
-
-            # Additional
-            if self.appear_then_click(REWARD_CLOSE, interval=2):
-                continue
-            # Popup that confirm character switch
-            if self.handle_popup_confirm():
-                continue
-            # Click
-            if self.appear(page_guide.check_button, interval=2):
-                buttons = TELEPORT.match_multi_template(self.device.image)
-                if len(buttons):
-                    # 2.3, classic rogue is always at bottom
-                    buttons = sorted(buttons, key=lambda x: x.area[1], reverse=True)
-                    self.device.click(buttons[0])
-                    continue
-
-        self.interval_clear(page_guide.check_button)
-
     def check_stop_condition(self):
         """
         Raises:
@@ -457,7 +421,6 @@ class RogueEntry(RouteBase, RogueRewardHandler, RoguePathHandler, DungeonRogueUI
         # Not in page_rogue, goto
         if not is_rogue_entry():
             self.dungeon_goto_rogue()
-            self._rogue_teleport()
 
         # is_page_rogue_main()
         self._rogue_theme_set(world)

@@ -1,18 +1,22 @@
 import module.config.server as server
+from module.base.button import ClickButton
 from module.base.timer import Timer
 from module.logger import logger
 from module.ocr.ocr import Digit
-from tasks.combat.assets.assets_combat_prepare import (
-    OCR_WAVE_COST,
-    OCR_WAVE_COUNT,
-    WAVE_COST_CHECK,
-    WAVE_MINUS,
-    WAVE_PLUS,
-    WAVE_SLIDER
-)
+from tasks.combat.assets.assets_combat_prepare import *
 from tasks.combat.assets.assets_combat_relics import COMBAT_RELIC_ENTER
 from tasks.combat.stamina_status import StaminaStatus
 from tasks.item.slider import Slider
+
+
+class WaveDigit(Digit):
+    def format_result(self, result):
+        result = super().format_result(result)
+        # OCR error with double digits "挑战次数 ６6"
+        # but combat waves is 24 at max
+        if result in [33, 44, 55, 66, 77, 88, 99]:
+            result = result // 10
+        return result
 
 
 class CombatPrepare(StaminaStatus):
@@ -23,19 +27,36 @@ class CombatPrepare(StaminaStatus):
     combat_wave_done = 0
     # E.g. 10, 30, 40
     combat_wave_cost = 10
+    dungeon: "DungeonList | None" = None
 
-    def combat_set_wave(self, count=6):
+    def combat_set_wave(self, count=6, total=6):
         """
         Args:
             count: 1 to 6
+            total: 3 or 6 or 24
 
         Pages:
             in: COMBAT_PREPARE
         """
-        slider = Slider(main=self, slider=WAVE_SLIDER)
-        slider.set(count, 6)
+        # try to catch WAVE_SLIDER, OCR_WAVE_COUNT moves
+        WAVE_CHECK.load_search(WAVE_CHECK_SEARCH)
+        if self.match_template_luma(WAVE_CHECK):
+            # good
+            area = WAVE_CHECK.matched_button._button_offset
+            WAVE_CHECK.matched_button._button_offset = (0, area[1])
+            logger.attr('WAVE_CHECK offset', area)
+        else:
+            logger.warning('Cannot find WAVE_CHECK using default position')
+            WAVE_CHECK.clear_offset()
+
+        WAVE_CHECK.load_offset(WAVE_CHECK)
+        area = ClickButton(WAVE_SLIDER.button, name=WAVE_SLIDER.name)
+        slider = Slider(main=self, slider=area)
+        slider.set(count, total)
+        WAVE_CHECK.load_offset(WAVE_CHECK)
+        area = ClickButton(OCR_WAVE_COUNT.button, name=OCR_WAVE_COUNT.name)
         self.ui_ensure_index(
-            count, letter=Digit(OCR_WAVE_COUNT, lang=server.lang),
+            count, letter=WaveDigit(area, lang=server.lang),
             next_button=WAVE_PLUS, prev_button=WAVE_MINUS,
             skip_first_screenshot=True
         )
@@ -91,6 +112,7 @@ class CombatPrepare(StaminaStatus):
 
         Returns:
             int: E.g. 10, 30, 40
+                or 0 if failed to recognise
 
         Pages:
             in: COMBAT_PREPARE
@@ -102,13 +124,11 @@ class CombatPrepare(StaminaStatus):
             cost = Digit(OCR_WAVE_COST).ocr_single_line(image, direct_ocr=True)
             return cost
 
-        # No stamina cost, this should be Echo_of_War
         OCR_WAVE_COST.clear_offset()
         if self.appear(COMBAT_RELIC_ENTER):
+            logger.warning(f'{WAVE_COST_CHECK} not appear but {COMBAT_RELIC_ENTER} appears')
             return 0
 
-        # But we have COMBAT_RELIC_ENTER, this may be Cavern_of_Corrosion or Echo_of_War
-        logger.warning(f'{WAVE_COST_CHECK} not appear but {COMBAT_RELIC_ENTER} appears, assume wave_cost is 0')
         return 0
 
     def combat_get_wave_cost(self, skip_first_screenshot=True):
@@ -121,6 +141,18 @@ class CombatPrepare(StaminaStatus):
         Pages:
             in: COMBAT_PREPARE
         """
+        # try get from current state
+        dungeon = self.dungeon
+        if dungeon is not None:
+            # dungeon: DungeonList
+            cost = dungeon.combat_wave_cost
+            if cost and not dungeon.is_Echo_of_War:
+                logger.info(f'Static dungeon costs {cost}: {dungeon.name}')
+                logger.attr('CombatMultiWave', self.combat_has_multi_wave())
+                self.combat_wave_cost = cost
+                return cost
+
+        # get from ocr
         timeout = Timer(1.5, count=6).start()
         while 1:
             if skip_first_screenshot:
@@ -130,9 +162,8 @@ class CombatPrepare(StaminaStatus):
 
             cost = self._combat_get_wave_cost_value()
             if cost == 0:
-                logger.info(f'Combat is trailblaze power free')
-                self.combat_wave_cost = 0
-                return 0
+                logger.warning('No WAVE_COST_CHECK icon')
+                continue
             elif cost == 10:
                 logger.attr('CombatMultiWave', self.combat_has_multi_wave())
                 if self.combat_has_multi_wave():
@@ -164,6 +195,11 @@ class CombatPrepare(StaminaStatus):
             cost = 10
         else:
             cost = 40
+            # if weekly trial exhausted, Echo_of_War costs 0
+            if dungeon is not None:
+                if dungeon.is_Echo_of_War:
+                    cost = 0
+
         logger.warning(f'Get combat wave cost timeout, assume it costs {cost}')
         self.combat_wave_cost = cost
         return cost

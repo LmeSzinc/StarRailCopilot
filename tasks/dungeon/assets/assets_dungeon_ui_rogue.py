@@ -3,6 +3,16 @@ from module.base.button import Button, ButtonWrapper
 # This file was auto-generated, do not modify it manually. To generate:
 # ``` python -m dev_tools.button_extract ```
 
+DIVERGENT_GOTO_SIMULATED = ButtonWrapper(
+    name='DIVERGENT_GOTO_SIMULATED',
+    share=Button(
+        file='./assets/share/dungeon/ui_rogue/DIVERGENT_GOTO_SIMULATED.png',
+        area=(595, 224, 611, 244),
+        search=(575, 204, 631, 264),
+        color=(51, 50, 69),
+        button=(595, 224, 611, 244),
+    ),
+)
 DIVERGENT_UNIVERSE_LOADED = ButtonWrapper(
     name='DIVERGENT_UNIVERSE_LOADED',
     share=Button(
@@ -17,10 +27,10 @@ DIVERGENT_UNIVERSE_SAVE_UNAVAILABLE = ButtonWrapper(
     name='DIVERGENT_UNIVERSE_SAVE_UNAVAILABLE',
     share=Button(
         file='./assets/share/dungeon/ui_rogue/DIVERGENT_UNIVERSE_SAVE_UNAVAILABLE.png',
-        area=(592, 174, 636, 331),
-        search=(572, 154, 656, 351),
-        color=(140, 82, 83),
-        button=(592, 174, 636, 331),
+        area=(454, 183, 490, 218),
+        search=(435, 171, 502, 292),
+        color=(80, 24, 29),
+        button=(454, 183, 490, 218),
     ),
 )
 LAST_TELEPORT = ButtonWrapper(

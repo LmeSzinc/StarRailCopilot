@@ -1,16 +1,18 @@
 from module.base.timer import Timer
 from module.exception import GameNotRunningError
 from module.logger import logger
+from tasks.base.assets.assets_base_page import CHARACTER_CHECK, CLOSE
 from tasks.base.page import page_main
 from tasks.combat.assets.assets_combat_interact import MAP_LOADING
 from tasks.login.agreement import AgreementHandler
 from tasks.login.assets.assets_login import *
-from tasks.login.assets.assets_login_popup import ADVERTISE_Castorice, UNITY_ENGINE_ERROR
+from tasks.login.assets.assets_login_popup import *
 from tasks.login.cloud import LoginAndroidCloud
+from tasks.login.uid import UIDHandler
 from tasks.rogue.blessing.ui import RogueUI
 
 
-class Login(LoginAndroidCloud, RogueUI, AgreementHandler):
+class Login(LoginAndroidCloud, RogueUI, AgreementHandler, UIDHandler):
     def _handle_app_login(self):
         """
         Pages:
@@ -26,6 +28,8 @@ class Login(LoginAndroidCloud, RogueUI, AgreementHandler):
         orientation_timer = Timer(5)
         startup_timer = Timer(5).start()
         app_timer = Timer(5).start()
+        start_success = False
+        start_timeout = Timer(30).start()
         login_success = False
         first_map_loading = True
         self.device.stuck_record_clear()
@@ -33,9 +37,16 @@ class Login(LoginAndroidCloud, RogueUI, AgreementHandler):
         while 1:
             # Watch if game alive
             if app_timer.reached():
-                if not self.device.app_is_running():
-                    logger.error('Game died during launch')
-                    raise GameNotRunningError('Game not running')
+                if self.device.app_is_running():
+                    start_success = True
+                else:
+                    if start_success:
+                        logger.error('Game died during launch')
+                        raise GameNotRunningError('Game not running')
+                    else:
+                        if start_timeout.reached():
+                            logger.error('Game not started after 30s')
+                            raise GameNotRunningError('Game not running')
                 app_timer.reset()
             # Watch device rotation
             if not login_success and orientation_timer.reached():
@@ -116,8 +127,22 @@ class Login(LoginAndroidCloud, RogueUI, AgreementHandler):
         Returns:
             bool: If clicked
         """
+        # 3.7 ADVERTISE_Cyrene popup
+        if self.match_template_luma(ADVERTISE_Cyrene, interval=2):
+            logger.info(f'{ADVERTISE_Cyrene} -> {CLOSE}')
+            self.device.click(CLOSE)
+            return True
+        if self.match_template_luma(MAIL_Cyrene, interval=2):
+            self.device.click(MAIL_Cyrene)
+            return True
         # 3.2 Castorice popup that advertise you go gacha, but no, close it
         if self.handle_ui_close(ADVERTISE_Castorice, interval=2):
+            return True
+        # homecoming popup
+        if self.handle_ui_close(HOMECOMING_TITLE, interval=2):
+            return True
+        # Might enter page_character while clicking CLOSE
+        if self.handle_ui_close(CHARACTER_CHECK, interval=2):
             return True
         return False
 

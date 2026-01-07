@@ -3,6 +3,7 @@ from module.daemon.daemon_base import DaemonBase
 from module.device.method import maatouch
 from module.logger import logger
 from tasks.base.assets.assets_base_daemon import *
+from tasks.base.assets.assets_base_popup import POPUP_CONFIRM
 from tasks.base.main_page import MainPage
 from tasks.base.page import page_main, page_rogue
 from tasks.combat.assets.assets_combat_interact import DUNGEON_COMBAT_INTERACT
@@ -68,7 +69,8 @@ class Daemon(RouteBase, RadarMixin, DaemonBase, AimDetectorMixin):
         INTERACT_INVESTIGATE.set_search_offset((-5, -5, 32, 5))
         INTERACT_TREASURE.set_search_offset((-5, -5, 32, 5))
 
-        teleport_confirm = Timer(1, count=5)
+        teleport_confirm = Timer(2, count=6)
+        skip_confirm = Timer(2, count=6)
         in_story_timeout = Timer(2, count=5)
         while 1:
             self.device.screenshot()
@@ -83,11 +85,24 @@ class Daemon(RouteBase, RadarMixin, DaemonBase, AimDetectorMixin):
             in_page_main = self.ui_page_appear(page_main)
             if in_page_main:
                 in_story_timeout.clear()
-            if self.appear_then_click(STORY_NEXT, interval=0.7):
-                self.interval_reset(STORY_OPTION)
-                in_story_timeout.reset()
-                # self.interval_reset(INTERACT_INVESTIGATE)
+            # story skip
+            if self.match_template_luma(STORY_SKIP, similarity=0.7, interval=2):
+                self.device.click(STORY_SKIP)
+                self.interval_clear(POPUP_CONFIRM)
+                skip_confirm.reset()
                 continue
+            if skip_confirm.started() and not skip_confirm.reached():
+                # waiting popup
+                if self.handle_popup_confirm():
+                    logger.info(f'{STORY_SKIP} -> popup')
+                    continue
+            else:
+                # story next
+                if self.appear_then_click(STORY_NEXT, interval=0.7):
+                    self.interval_reset(STORY_OPTION)
+                    in_story_timeout.reset()
+                    # self.interval_reset(INTERACT_INVESTIGATE)
+                    continue
             if self.appear_then_click(STORY_OPTION, interval=1):
                 in_story_timeout.reset()
                 # self.interval_reset(INTERACT_INVESTIGATE)

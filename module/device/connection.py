@@ -1,4 +1,5 @@
 import ipaddress
+import json
 import logging
 import re
 import socket
@@ -14,8 +15,10 @@ import module.config.server as server_
 from module.base.decorator import Config, cached_property, del_cached_property, run_once
 from module.base.timer import Timer
 from module.base.utils import SelectedGrids, ensure_time
+from module.config.deep import deep_get
 from module.device.connection_attr import ConnectionAttr
 from module.device.env import IS_LINUX, IS_MACINTOSH, IS_WINDOWS
+from module.device.method.pool import WORKER_POOL
 from module.device.method.utils import (PackageNotInstalled, RETRY_TRIES, get_serial_pair, handle_adb_error,
                                         handle_unknown_host_service, possible_reasons, random_port, recv_all,
                                         remove_shell_warning, retry_sleep)
@@ -321,7 +324,8 @@ class Connection(ConnectionAttr):
         # BlueStacks Air is the Mac version of BlueStacks
         if not IS_MACINTOSH:
             return False
-        if not self.is_ldplayer_bluestacks_family:
+        # 127.0.0.1:5555 + 10*n, assume 32 instances at max
+        if not (5555 <= self.port <= 5875):
             return False
         # [bst.installed_images]: [Tiramisu64]
         # [bst.instance]: [Tiramisu64]
@@ -598,6 +602,22 @@ class Connection(ConnectionAttr):
             self.adb.forward(forward.local, forward.remote)
             return port
 
+    def _adb_reverse_transport(self, remote: str, local: str, norebind: bool = False):
+        """
+        Backport fixes from https://github.com/openatx/adbutils/pull/116
+        Don't use self.adb.reverse(), use this method.
+        """
+        args = ["reverse:forward"]
+        if norebind:
+            args.append("norebind")
+        args.append(remote + ";" + local)
+        cmd = ":".join(args)
+        with self.adb_client._connect() as c:
+            c.send_command(f'host:transport:{self.serial}')
+            c.check_okay()
+            c.send_command(cmd)
+            c.check_okay()
+
     def adb_reverse(self, remote):
         port = 0
         for reverse in self.adb.reverse_list():
@@ -607,16 +627,16 @@ class Connection(ConnectionAttr):
                     port = int(reverse.local[4:])
                 else:
                     logger.info(f'Remove redundant forward: {reverse}')
-                    self.adb_forward_remove(reverse.local)
+                    self.adb_reverse_remove(reverse.remote)
 
         if port:
             return port
         else:
             # Create new reverse
             port = random_port(self.config.FORWARD_PORT_RANGE)
-            reverse = ReverseItem(f'tcp:{port}', remote)
+            reverse = ReverseItem(remote, f'tcp:{port}')
             logger.info(f'Create reverse: {reverse}')
-            self.adb.reverse(reverse.local, reverse.remote)
+            self._adb_reverse_transport(reverse.remote, reverse.local)
             return port
 
     def adb_forward_remove(self, local):
@@ -786,6 +806,7 @@ class Connection(ConnectionAttr):
                     self.detect_device()
                     if self.serial != before:
                         return True
+                run_once(self.check_mumu_bridge_network)()
                 # No such device
                 logger.warning('No such device exists, please restart the emulator or set a correct serial')
                 raise EmulatorNotRunningError
@@ -800,26 +821,49 @@ class Connection(ConnectionAttr):
         Args:
             serial_list (list[str]):
         """
-        import asyncio
-        from concurrent.futures import ThreadPoolExecutor
-        ev = asyncio.new_event_loop()
-        pool = ThreadPoolExecutor(
-            max_workers=len(serial_list),
-            thread_name_prefix='adb_brute_force_connect',
-        )
-
-        def _connect(serial):
-            msg = self.adb_client.connect(serial)
+        def connect(s):
+            try:
+                msg = self.adb_client.connect(s)
+            except Exception:
+                return ''
             logger.info(msg)
             return msg
 
-        async def connect():
-            tasks = [ev.run_in_executor(pool, _connect, serial) for serial in serial_list]
-            await asyncio.gather(*tasks)
+        with WORKER_POOL.wait_jobs() as pool:
+            for serial in serial_list:
+                pool.start_thread_soon(connect, serial)
 
-        ev.run_until_complete(connect())
-        pool.shutdown(wait=False)
-        ev.close()
+    def check_mumu_bridge_network(self):
+        """
+        Returns:
+            bool: True if success to check, False if check is skipped
+        """
+        if not self.is_mumu12_family:
+            return True
+        if not hasattr(self, 'find_emulator_instance'):
+            return False
+        # Assume PlatformBase inherited this class
+        instance = self.find_emulator_instance(
+            serial=self.serial,
+        )
+        if instance is None:
+            logger.warning(f'Failed to check check_mumu_bridge_network, emulator instance not found')
+            return False
+        file = instance.mumu_vms_config('customer_config.json')
+        try:
+            with open(file, mode='r', encoding='utf-8') as f:
+                s = f.read()
+                data = json.loads(s)
+        except FileNotFoundError:
+            logger.warning(f'Failed to check check_mumu_bridge_network, file {file} not exists')
+            return False
+        value = deep_get(data, keys='customer.network_bridge_opened', default=None)
+        logger.attr('customer.network_bridge_opened', value)
+        if str(value).lower() == 'true':
+            logger.critical('Please turn off "Network Bridging" in the settings of MuMuPlayer')
+            logger.critical('请在MuMU模拟器设置中关闭 网络桥接')
+            raise RequestHumanTakeover
+        return True
 
     @Config.when(DEVICE_OVER_HTTP=True)
     def adb_connect(self, wait_device=True):
@@ -866,6 +910,8 @@ class Connection(ConnectionAttr):
             self.adb_disconnect()
             self.adb_connect()
             self.detect_device()
+
+
 
     @Config.when(DEVICE_OVER_HTTP=True)
     def adb_reconnect(self):
@@ -1203,7 +1249,8 @@ class Connection(ConnectionAttr):
             # Set config
             if set_config:
                 with self.config.multi_set():
-                    self.config.Emulator_PackageName = server_.to_server(self.package)
+                    self.config.Emulator_PackageName = server_.to_server(
+                        self.package, before=self.config.Emulator_PackageName)
                     if self.package in server_.VALID_CLOUD_PACKAGE:
                         if self.config.Emulator_GameClient != 'cloud_android':
                             self.config.Emulator_GameClient = 'cloud_android'
@@ -1221,7 +1268,8 @@ class Connection(ConnectionAttr):
                     logger.info('Auto package detection found only one package, using it')
                     self.package = packages[0]
                     if set_config:
-                        self.config.Emulator_PackageName = server_.to_server(self.package)
+                        self.config.Emulator_PackageName = server_.to_server(
+                            self.package, before=self.config.Emulator_PackageName)
                     return
             else:
                 packages = [p for p in packages if p in server_.VALID_PACKAGE]
@@ -1229,7 +1277,8 @@ class Connection(ConnectionAttr):
                     logger.info('Auto package detection found only one package, using it')
                     self.package = packages[0]
                     if set_config:
-                        self.config.Emulator_PackageName = server_.to_server(self.package)
+                        self.config.Emulator_PackageName = server_.to_server(
+                            self.package, before=self.config.Emulator_PackageName)
                     return
             logger.critical(
                 f'Multiple Star Rail packages found, auto package detection cannot decide which to choose, '

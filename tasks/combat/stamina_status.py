@@ -55,7 +55,7 @@ class StaminaStatus(UI):
             button.load_search(ICON_SEARCH.area)
 
         stamina = None
-        if STAMINA_ICON.match_template(image):
+        if STAMINA_ICON.match_template(image, similarity=0.75):
             STAMINA_OCR.load_offset(STAMINA_ICON)
             im = crop(image, STAMINA_OCR.button, copy=False)
             stamina, _, total = StaminaOcr(STAMINA_OCR).ocr_single_line(im, direct_ocr=True)
@@ -65,7 +65,7 @@ class StaminaStatus(UI):
                 stamina = None
 
         reserved = None
-        if RESERVED_ICON.match_template(image):
+        if RESERVED_ICON.match_template(image, similarity=0.75):
             RESERVED_OCR.load_offset(RESERVED_ICON)
             im = crop(image, RESERVED_OCR.button, copy=False)
             reserved = ReservedOcr(RESERVED_OCR).ocr_single_line(im, direct_ocr=True)
@@ -75,7 +75,7 @@ class StaminaStatus(UI):
                 reserved = None
 
         immersifier = None
-        if IMMERSIFIER_ICON.match_template(image):
+        if IMMERSIFIER_ICON.match_template(image, similarity=0.75):
             IMMERSIFIER_OCR.load_offset(IMMERSIFIER_ICON)
             im = crop(image, IMMERSIFIER_OCR.button, copy=False)
             immersifier, _, total = StaminaOcr(IMMERSIFIER_OCR).ocr_single_line(im, direct_ocr=True)

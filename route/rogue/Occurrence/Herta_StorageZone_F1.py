@@ -44,3 +44,38 @@ class Route(RouteBase):
 
         self.clear_event(event)
         # ===== End of generated waypoints =====
+
+    @locked_position
+    def Herta_StorageZone_F1_X274Y171(self):
+        """
+        | Waypoint       | Position                  | Direction | Rotation |
+        | -------------- | ------------------------- | --------- | -------- |
+        | spawn          | Waypoint((281.1, 164.2)), | 282.3     | 274      |
+        | event          | Waypoint((236.6, 159.2)), | 282.9     | 269      |
+        | exit_          | Waypoint((231.5, 165.6)), | 281.8     | 274      |
+        | exit1_X225Y170 | Waypoint((225.3, 169.8)), | 281.8     | 274      |
+        | exit2          | Waypoint((223.5, 159.4)), | 275.8     | 269      |
+        """
+        self.map_init(plane=Herta_StorageZone, floor="F1", position=(274.2, 171.2))
+        self.register_domain_exit(
+            Waypoint((231.5, 165.6)), end_rotation=274,
+            left_door=Waypoint((225.3, 169.8)), right_door=Waypoint((223.5, 159.4)))
+        event = Waypoint((236.6, 159.2))
+
+        self.clear_event(event)
+        # ===== End of generated waypoints =====
+
+        """
+        Notes
+        Herta_StorageZone_F1_X274Y171 is the same as Herta_StorageZone_F1_X281Y164
+        but for wrong spawn point detected
+        """
+
+        # Best 3 predictions: [
+        # ('Occurrence_Herta_StorageZone_F1_X281Y164', 0.146, (274.2, 171.2)),
+        # ('Occurrence_Luofu_Cloudford_F1_X537Y373', 0.117, (511.0, 413.0)),
+        # ('Occurrence_Luofu_ArtisanshipCommission_F1_X521Y63', 0.115, (569.2, 43.2))
+        # ]
+        # Best 3 nearby predictions: [
+        # ('Occurrence_Jarilo_BackwaterPass_F1_X611Y761', 0.092, (609.7, 763.2))
+        # ]

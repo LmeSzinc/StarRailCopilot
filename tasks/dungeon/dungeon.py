@@ -8,8 +8,10 @@ from tasks.combat.combat import Combat
 from tasks.daily.keywords import KEYWORDS_DAILY_QUEST
 from tasks.dungeon.event import DungeonEvent
 from tasks.dungeon.keywords import DungeonList, KEYWORDS_DUNGEON_LIST, KEYWORDS_DUNGEON_NAV, KEYWORDS_DUNGEON_TAB
-from tasks.dungeon.stamina import DungeonStamina
+from tasks.dungeon.stamina import DungeonStamina, ImmersifierNotAvailable
+from tasks.freebies.code_used import CodeManager
 from tasks.item.synthesize import Synthesize
+from tasks.planner.target import PlannerTarget
 
 
 class Dungeon(Combat, DungeonStamina, DungeonEvent):
@@ -158,8 +160,8 @@ class Dungeon(Combat, DungeonStamina, DungeonEvent):
                         self.achieved_weekly_quest = True
             # Ornament_Extraction
             if dungeon.is_Ornament_Extraction:
-                if KEYWORDS_BATTLE_PASS_QUEST.Complete_Divergent_Universe_or_Simulated_Universe_1_times in self.weekly_quests:
-                    logger.info('Achieved weekly quest Complete_Divergent_Universe_or_Simulated_Universe_1_times')
+                if KEYWORDS_BATTLE_PASS_QUEST.Complete_Divergent_Universe_or_Currency_Wars_1_times in self.weekly_quests:
+                    logger.info('Achieved weekly quest Complete_Divergent_Universe_or_Currency_Wars_1_times')
                     # No need to add since it's 0/1
                     self.achieved_weekly_quest = True
             # Support quest
@@ -283,6 +285,11 @@ class Dungeon(Combat, DungeonStamina, DungeonEvent):
             self.config.stored.DailyQuest.write_quests(self.daily_quests)
 
     def run(self):
+        # rescan planner
+        if self.config.PlannerTarget_Enable:
+            main = PlannerTarget(config=self.config, device=self.device, task=self.config.task.command)
+            main.planner_calculate()
+
         self.sync_config_traiblaze_power('Ornament')
         self.config.update_battle_pass_quests()
         self.config.update_daily_quests()
@@ -346,25 +353,29 @@ class Dungeon(Combat, DungeonStamina, DungeonEvent):
                     and self.config.cross_get('Rogue.RogueWorld.DoubleEvent') \
                     and self.config.stored.DungeonDouble.rogue > 0:
                 amount = self.config.stored.DungeonDouble.rogue
-            stored = self.immersifier_store(max_store=amount)
-            self.check_stamina_quest(stored * 40)
-            # call rogue task if accumulated to 4
-            with self.config.multi_set():
-                if self.config.stored.Immersifier.value >= 4:
-                    # Schedule behind rogue
-                    self.config.task_delay(minute=5)
-                    self.config.task_call('Rogue')
-                # Scheduler
-                self.delay_dungeon_task(KEYWORDS_DUNGEON_LIST.Simulated_Universe_World_1)
-                self.config.task_stop()
-        else:
-            # Combat
-            self.dungeon_run(final)
-            self.is_doing_planner = False
-            # Scheduler
-            self.delay_dungeon_task(final)
-            self.check_synthesize()
-            self.config.task_stop()
+            try:
+                stored = self.immersifier_store(max_store=amount)
+            except ImmersifierNotAvailable:
+                pass
+            else:
+                self.check_stamina_quest(stored * 40)
+                # call rogue task if accumulated to 4
+                with self.config.multi_set():
+                    if self.config.stored.Immersifier.value >= 4:
+                        # Schedule behind rogue
+                        self.config.task_delay(minute=5)
+                        self.config.task_call('Rogue')
+                    # Scheduler
+                    self.delay_dungeon_task(KEYWORDS_DUNGEON_LIST.Simulated_Universe_World_1)
+                    self.config.task_stop()
+
+        # Combat
+        self.dungeon_run(final)
+        self.is_doing_planner = False
+        # Scheduler
+        self.delay_dungeon_task(final)
+        self.check_synthesize()
+        self.config.task_stop()
 
     def check_synthesize(self):
         logger.info('Check synthesize')
@@ -391,6 +402,8 @@ class Dungeon(Combat, DungeonStamina, DungeonEvent):
 
             # Delay tasks
             self.dungeon_stamina_delay(dungeon)
+            # call redeem code
+            CodeManager(self).check_redeem_code()
 
     def require_compulsory_support(self) -> bool:
         require = False

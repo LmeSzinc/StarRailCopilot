@@ -94,3 +94,29 @@ Auspice_Sliver = ItemWeekly(
     item_group=1310,
     dungeon_id=1306,
 )
+Daythunder_Anamnesis = ItemWeekly(
+    id=8,
+    name='Daythunder_Anamnesis',
+    cn='阳雷的遥想',
+    cht='陽雷的遙想',
+    en='Daythunder Anamnesis',
+    jp='遥かなる陽雷の想い',
+    es='Recuerdos del Trueno Solar',
+    rarity='VeryRare',
+    item_id=110507,
+    item_group=1310,
+    dungeon_id=1307,
+)
+Vanquished_Flow_Reticence = ItemWeekly(
+    id=9,
+    name='Vanquished_Flow_Reticence',
+    cn='灭流绝溢的缄默',
+    cht='滅流絕溢的緘默',
+    en="Vanquished Flow's Reticence",
+    jp='滅流の沈黙',
+    es='Silencio taponador',
+    rarity='VeryRare',
+    item_id=110508,
+    item_group=1310,
+    dungeon_id=1308,
+)

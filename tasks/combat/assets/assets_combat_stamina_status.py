@@ -79,6 +79,13 @@ STAMINA_ICON = ButtonWrapper(
             color=(186, 180, 223),
             button=(873, 26, 894, 48),
         ),
+        Button(
+            file='./assets/share/combat/stamina/status/STAMINA_ICON.3.png',
+            area=(873, 26, 894, 48),
+            search=(853, 6, 914, 68),
+            color=(184, 176, 214),
+            button=(873, 26, 894, 48),
+        ),
     ],
 )
 STAMINA_OCR = ButtonWrapper(

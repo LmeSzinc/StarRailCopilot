@@ -3,8 +3,17 @@ from .classes import DungeonNav
 # This file was auto-generated, do not modify it manually. To generate:
 # ``` python -m dev_tools.keyword_extract ```
 
-Ornament_Extraction = DungeonNav(
+Build_Target = DungeonNav(
     id=1,
+    name='Build_Target',
+    cn='培养目标',
+    cht='培養目標',
+    en='Build Target',
+    jp='育成対象',
+    es='Objetivo de mejora',
+)
+Ornament_Extraction = DungeonNav(
+    id=2,
     name='Ornament_Extraction',
     cn='饰品提取',
     cht='飾品提取',
@@ -12,26 +21,8 @@ Ornament_Extraction = DungeonNav(
     jp='オーナメント抽出',
     es='Extracción de ornamentos',
 )
-Divergent_Universe = DungeonNav(
-    id=2,
-    name='Divergent_Universe',
-    cn='差分宇宙',
-    cht='差分宇宙',
-    en='Divergent Universe',
-    jp='階差宇宙',
-    es='Universo Diferenciado',
-)
-Simulated_Universe = DungeonNav(
-    id=3,
-    name='Simulated_Universe',
-    cn='模拟宇宙',
-    cht='模擬宇宙',
-    en='Simulated Universe',
-    jp='模擬宇宙',
-    es='Universo Simulado',
-)
 Calyx_Golden = DungeonNav(
-    id=4,
+    id=3,
     name='Calyx_Golden',
     cn='拟造花萼（金）',
     cht='擬造花萼（金）',
@@ -40,7 +31,7 @@ Calyx_Golden = DungeonNav(
     es='Cáliz (oro)',
 )
 Calyx_Crimson = DungeonNav(
-    id=5,
+    id=4,
     name='Calyx_Crimson',
     cn='拟造花萼（赤）',
     cht='擬造花萼（赤）',
@@ -49,7 +40,7 @@ Calyx_Crimson = DungeonNav(
     es='Cáliz (carmesí)',
 )
 Stagnant_Shadow = DungeonNav(
-    id=6,
+    id=5,
     name='Stagnant_Shadow',
     cn='凝滞虚影',
     cht='凝滯虛影',
@@ -58,7 +49,7 @@ Stagnant_Shadow = DungeonNav(
     es='Sombra paralizada',
 )
 Cavern_of_Corrosion = DungeonNav(
-    id=7,
+    id=6,
     name='Cavern_of_Corrosion',
     cn='侵蚀隧洞',
     cht='侵蝕隧洞',
@@ -67,7 +58,7 @@ Cavern_of_Corrosion = DungeonNav(
     es='Caverna de la corrosión',
 )
 Echo_of_War = DungeonNav(
-    id=8,
+    id=7,
     name='Echo_of_War',
     cn='历战余响',
     cht='歷戰餘響',
@@ -75,8 +66,44 @@ Echo_of_War = DungeonNav(
     jp='歴戦余韻',
     es='Ecos de la guerra',
 )
-Latest_Update = DungeonNav(
+Currency_Wars = DungeonNav(
+    id=8,
+    name='Currency_Wars',
+    cn='货币战争',
+    cht='貨幣戰爭',
+    en='Currency Wars',
+    jp='マネーウォーズ',
+    es='Guerra de Divisas',
+)
+Divergent_Universe = DungeonNav(
     id=9,
+    name='Divergent_Universe',
+    cn='差分宇宙',
+    cht='差分宇宙',
+    en='Divergent Universe',
+    jp='階差宇宙',
+    es='Universo Diferenciado',
+)
+Simulated_Universe = DungeonNav(
+    id=10,
+    name='Simulated_Universe',
+    cn='模拟宇宙',
+    cht='模擬宇宙',
+    en='Simulated Universe',
+    jp='模擬宇宙',
+    es='Universo Simulado',
+)
+Anomaly_Arbitration = DungeonNav(
+    id=11,
+    name='Anomaly_Arbitration',
+    cn='异相仲裁',
+    cht='異相仲裁',
+    en='Anomaly Arbitration',
+    jp='異相の仲裁',
+    es='Arbitraje atípico',
+)
+Latest_Update = DungeonNav(
+    id=12,
     name='Latest_Update',
     cn='最近更新',
     cht='最近更新',
@@ -85,7 +112,7 @@ Latest_Update = DungeonNav(
     es='Actualización reciente',
 )
 Forgotten_Hall = DungeonNav(
-    id=10,
+    id=13,
     name='Forgotten_Hall',
     cn='忘却之庭',
     cht='忘卻之庭',
@@ -94,7 +121,7 @@ Forgotten_Hall = DungeonNav(
     es='Salón olvidado',
 )
 Pure_Fiction = DungeonNav(
-    id=11,
+    id=14,
     name='Pure_Fiction',
     cn='虚构叙事',
     cht='虛構敘事',
@@ -103,7 +130,7 @@ Pure_Fiction = DungeonNav(
     es='Pura ficción',
 )
 Apocalyptic_Shadow = DungeonNav(
-    id=12,
+    id=15,
     name='Apocalyptic_Shadow',
     cn='末日幻影',
     cht='末日幻影',

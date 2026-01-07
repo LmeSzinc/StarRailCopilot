@@ -52,13 +52,9 @@ class Switch:
             main (ModuleBase):
 
         Returns:
-            bool
+            bool:
         """
-        for data in self.state_list:
-            if main.appear(data['check_button']):
-                return True
-
-        return False
+        return self.get(main=main) != 'unknown'
 
     def get(self, main):
         """
@@ -82,6 +78,7 @@ class Switch:
         """
         button = self.get_data(state)['click_button']
         main.device.click(button)
+        return True
 
     def get_data(self, state):
         """
@@ -110,6 +107,17 @@ class Switch:
         """
         return False
 
+    def handle_swipe(self, state, main):
+        """
+        Args:
+            state:
+            main (ModuleBase):
+
+        Returns:
+            bool: If swiped
+        """
+        return False
+
     def set(self, state, main, skip_first_screenshot=True):
         """
         Args:
@@ -124,14 +132,12 @@ class Switch:
         self.get_data(state)
 
         changed = False
-        has_unknown = False
+        allow_unknown = False
         unknown_timer = Timer(5, count=10).start()
         click_timer = Timer(1, count=3)
-        while 1:
-            if skip_first_screenshot:
-                skip_first_screenshot = False
-            else:
-                main.device.screenshot()
+        swipe_timer = Timer(2, count=6)
+
+        for _ in main.loop(skip_first=skip_first_screenshot):
 
             # Detect
             current = self.get(main=main)
@@ -144,20 +150,26 @@ class Switch:
             # Handle additional popups
             if self.handle_additional(main=main):
                 continue
+            if swipe_timer.reached():
+                if self.handle_swipe(state, main=main):
+                    swipe_timer.reset()
+                    # swipe out, may get unknown state
+                    allow_unknown = True
+                    continue
 
             # Warning
             if current == 'unknown':
                 if unknown_timer.reached():
                     logger.warning(f'Switch {self.name} has states evaluated to unknown, '
                                    f'asset should be re-verified')
-                    has_unknown = True
+                    allow_unknown = True
                     unknown_timer.reset()
                 # If unknown_timer never reached, don't click when having an unknown state,
                 # the unknown state is probably the switching animation.
                 # If unknown_timer reached once, click target state ignoring whether state is unknown or not,
                 # the unknown state is probably a new state not yet added.
                 # By ignoring new states, Switch.set() can still switch among known states.
-                if not has_unknown:
+                if not allow_unknown:
                     continue
             else:
                 # Known state, reset timer
@@ -176,10 +188,11 @@ class Switch:
                         click_state = state
                     else:
                         click_state = current
-                self.click(click_state, main=main)
-                changed = True
-                click_timer.reset()
-                unknown_timer.reset()
+                if self.click(click_state, main=main):
+                    changed = True
+                    click_timer.reset()
+                    unknown_timer.reset()
+                    continue
 
         return changed
 

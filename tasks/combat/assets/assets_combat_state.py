@@ -13,6 +13,16 @@ COMBAT_AUTO = ButtonWrapper(
         button=(1136, 31, 1161, 49),
     ),
 )
+COMBAT_DAMAGE = ButtonWrapper(
+    name='COMBAT_DAMAGE',
+    share=Button(
+        file='./assets/share/combat/state/COMBAT_DAMAGE.png',
+        area=(1147, 148, 1252, 186),
+        search=(1127, 128, 1272, 206),
+        color=(154, 150, 104),
+        button=(1147, 148, 1252, 186),
+    ),
+)
 COMBAT_PAUSE = ButtonWrapper(
     name='COMBAT_PAUSE',
     share=Button(

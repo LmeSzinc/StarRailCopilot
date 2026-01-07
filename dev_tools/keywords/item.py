@@ -14,7 +14,7 @@ class GenerateItemBase(GenerateKeyword):
         for data in SHARE_DATA.ItemConfig:
             item_id = data.get('ID', 0)
             text_id = deep_get(data, keys='ItemName.Hash')
-            subtype = data.get('ItemSubType', 0)
+            maintype = data.get('ItemMainType', 0)
             rarity = data.get('Rarity', 0)
             purpose = data.get('PurposeType', 0)
             item_group = data.get('ItemGroup', 0)
@@ -24,13 +24,13 @@ class GenerateItemBase(GenerateKeyword):
                 item_id=item_id,
                 item_group=item_group,
                 dungeon_id=-1,
-                subtype=subtype,
+                maintype=maintype,
                 purpose=purpose,
             )
 
     def iter_keywords(self) -> t.Iterable[dict]:
         for data in self.iter_items():
-            if data['subtype'] == 'Material' and data['purpose'] in self.purpose_type:
+            if data['maintype'] == 'Material' and data['purpose'] in self.purpose_type:
                 if data['item_id'] in self.blacklist:
                     continue
                 data['dungeon_id'] = self.dict_itemid_to_dungeonid.get(data['item_id'], -1)
@@ -38,7 +38,7 @@ class GenerateItemBase(GenerateKeyword):
 
     def iter_rows(self) -> t.Iterable[dict]:
         for data in super().iter_rows():
-            data.pop('subtype')
+            data.pop('maintype')
             data.pop('purpose')
             yield data
 
@@ -78,7 +78,7 @@ class GenerateItemCurrency(GenerateItemBase):
 
     def iter_keywords(self) -> t.Iterable[dict]:
         for data in self.iter_items():
-            if data['subtype'] == 'Virtual' and data['item_id'] < 100:
+            if data['maintype'] == 'Virtual' and data['item_id'] < 100:
                 if data['item_id'] not in self.whitelist:
                     continue
                 data['dungeon_id'] = self.dict_itemid_to_dungeonid.get(data['item_id'], -1)

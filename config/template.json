@@ -70,6 +70,10 @@
       "Item_A_Glass_of_the_Besotted_Era": {},
       "Item_Dream_Flamer": {},
       "Item_Chordal_Mirage": {},
+      "Item_Invasive_Clot": {},
+      "Item_Radiant_Prominence": {},
+      "Item_Sea_Siren_Torn_Fin": {},
+      "Item_Charred_Bud_of_Twilight": {},
       "Item_Darkveil_Moonlight": {},
       "Item_Harbinger_of_Strife": {},
       "Item_Worldbreaker_Blade": {},
@@ -94,6 +98,8 @@
       "Item_Past_Evils_of_the_Borehole_Planet_Disaster": {},
       "Item_Lost_Echo_of_the_Shared_Wish": {},
       "Item_Auspice_Sliver": {},
+      "Item_Daythunder_Anamnesis": {},
+      "Item_Vanquished_Flow_Reticence": {},
       "Item_Squirming_Core": {},
       "Item_Conqueror_Will": {},
       "Item_Silvermane_Medal": {},
@@ -104,6 +110,23 @@
       "Item_Shards_of_Desires": {},
       "Item_Glory_Aspersed_Torso": {},
       "Item_Eternal_Lament": {}
+    },
+    "PlannerTarget": {
+      "Enable": false,
+      "LastScan": "2020-01-01 00:00:00+00:00",
+      "Character": "_none_",
+      "Cone": "_none_",
+      "Relic": "_none_",
+      "Ornament": "_none_",
+      "LevelTarget": "max",
+      "CharacterLevel": 80,
+      "ConeLevel": 80,
+      "AttackLevel": 6,
+      "SkillLevel": 10,
+      "UltimateLevel": 10,
+      "TalentLevel": 10,
+      "MemoSkillLevel": 6,
+      "MemoTalentLevel": 6
     },
     "Dungeon": {
       "Name": "Calyx_Golden_Treasures_Jarilo_VI",
@@ -128,6 +151,7 @@
     "TrailblazePower": {
       "ExtractReservedTrailblazePower": false,
       "UseFuel": false,
+      "FuelOnlyPlanner": false,
       "FuelReserve": 5
     }
   },
@@ -140,6 +164,7 @@
     },
     "Ornament": {
       "Dungeon": "Divergent_Universe_Eternal_Comedy",
+      "Team": 1,
       "UseImmersifier": true,
       "DoubleEvent": true,
       "UseStamina": false
@@ -151,6 +176,7 @@
     "TrailblazePower": {
       "ExtractReservedTrailblazePower": false,
       "UseFuel": false,
+      "FuelOnlyPlanner": false,
       "FuelReserve": 5
     }
   },
@@ -228,8 +254,11 @@
       "Command": "Freebies",
       "ServerUpdate": "04:00"
     },
-    "SupportReward": {
-      "Collect": true
+    "Freebies": {
+      "SupportReward": true,
+      "MailReward": true,
+      "RedemptionCode": true,
+      "UsedCode": {}
     }
   },
   "Weekly": {
@@ -264,7 +293,8 @@
       "DoubleEvent": true,
       "WeeklyFarming": false,
       "UseStamina": false,
-      "SimulatedUniverseFarm": {}
+      "SimulatedUniverseFarm": {},
+      "Team": null
     },
     "RogueBlessing": {
       "PresetBlessingFilter": "preset",

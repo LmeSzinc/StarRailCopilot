@@ -96,7 +96,10 @@ class DungeonList(Keyword):
         if not self.is_Stagnant_Shadow:
             return None
         from tasks.dungeon.keywords import DungeonDetailed
-        detail = DungeonDetailed.find_name(self.name)
+        try:
+            detail = DungeonDetailed.find_name(self.name)
+        except ScriptError:
+            return None
         if detail is None:
             return None
         from tasks.character.keywords import CombatType
@@ -121,6 +124,26 @@ class DungeonList(Keyword):
     def is_Ornament_Extraction(self):
         # Farm Ornament_Extraction from Ornament_Extraction_xxx
         return 'Divergent_Universe' in self.name
+
+    @cached_property
+    def combat_wave_cost(self):
+        """
+        Note that Echo_of_War costs 0 when weekly trial exhausted
+
+        Returns:
+            int:
+        """
+        if self.is_Calyx:
+            return 10
+        if self.is_Stagnant_Shadow:
+            return 30
+        if self.is_Echo_of_War:
+            return 30
+        if self.is_Cavern_of_Corrosion:
+            return 40
+        if self.is_Ornament_Extraction:
+            return 40
+        return 0
 
     @cached_property
     def is_Forgotten_Hall(self):

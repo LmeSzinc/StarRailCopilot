@@ -130,6 +130,7 @@ class CombatSkill(UI):
             return False
 
         self._skill_click(button)
-        self.wait_next_skill()
+        if not self.wait_next_skill():
+            return False
         self._skill_click(USE_Q_AIM)
         return True

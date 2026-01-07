@@ -10,8 +10,9 @@ from module.ocr.keyword import Keyword
 from module.ocr.ocr import Ocr, OcrResultButton
 from module.ui.draggable_list import DraggableList
 from tasks.base.assets.assets_base_page import FORGOTTEN_HALL_CHECK, MAP_EXIT
-from tasks.dungeon.ui.ui import DungeonUI
+from tasks.base.assets.assets_base_popup import BUFF_Forgotten_Hall
 from tasks.dungeon.keywords import DungeonList, KEYWORDS_DUNGEON_LIST, KEYWORDS_DUNGEON_NAV, KEYWORDS_DUNGEON_TAB
+from tasks.dungeon.ui.ui import DungeonUI
 from tasks.forgotten_hall.assets.assets_forgotten_hall_nav import *
 from tasks.forgotten_hall.assets.assets_forgotten_hall_ui import *
 from tasks.forgotten_hall.keywords import ForgottenHallStage, KEYWORDS_FORGOTTEN_HALL_STAGE
@@ -111,19 +112,6 @@ STAGE_LIST = DraggableStageList("ForgottenHallStageList", keyword_class=Forgotte
 
 
 class ForgottenHallUI(DungeonUI, ForgottenHallTeam):
-    def handle_effect_popup(self):
-        if self.appear(EFFECT_NOTIFICATION, interval=2):
-            if self.appear_then_click(MEMORY_OF_CHAOS_CHECK):
-                return True
-            if self.appear_then_click(MEMORY_OF_CHAOS_CLICK):
-                return True
-            # No match, click whatever
-            MEMORY_OF_CHAOS_CHECK.clear_offset()
-            self.device.click(MEMORY_OF_CHAOS_CHECK)
-            return True
-
-        return False
-
     def stage_choose(self, dungeon: DungeonList, skip_first_screenshot=True):
         """
         Pages:
@@ -154,7 +142,7 @@ class ForgottenHallUI(DungeonUI, ForgottenHallTeam):
             if self.match_template_color(check_button, interval=0.3):
                 logger.info(f'Stage chose at {dungeon}')
                 break
-            if self.handle_effect_popup():
+            if self.handle_forgotten_hall_buff():
                 continue
             if self.appear_then_click(TELEPORT, interval=2):
                 continue
@@ -234,11 +222,11 @@ class ForgottenHallUI(DungeonUI, ForgottenHallTeam):
             else:
                 self.device.screenshot()
 
-            if self.appear(EFFECT_NOTIFICATION):
+            if self.appear(BUFF_Forgotten_Hall):
                 break
             if self.match_template_color(DUNGEON_ENTER_CHECKED):
                 if timeout.reached():
-                    logger.info('Wait dungeon EFFECT_NOTIFICATION timeout')
+                    logger.info('Wait dungeon BUFF_Forgotten_Hall timeout')
                     break
             else:
                 timeout.reset()

@@ -25,6 +25,7 @@ Daily:
     Dungeon:
       - Scheduler
       - Planner
+      - PlannerTarget
       - Dungeon
       - DungeonSupport
       - DungeonStorage
@@ -49,7 +50,7 @@ Daily:
       - CloudStorage
     Freebies:
       - Scheduler
-      - SupportReward
+      - Freebies
 
 # ==================== Weekly ====================
 

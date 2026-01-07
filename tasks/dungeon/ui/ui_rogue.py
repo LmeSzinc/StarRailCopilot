@@ -1,14 +1,15 @@
 from module.base.timer import Timer
 from module.base.utils import area_in_area, random_rectangle_vector
 from module.logger import logger
-from tasks.base.page import page_guide
+from tasks.base.page import page_guide, page_rogue
+from tasks.dungeon.assets.assets_dungeon_nav import *
 from tasks.dungeon.assets.assets_dungeon_ui import *
 from tasks.dungeon.assets.assets_dungeon_ui_list import OCR_DUNGEON_LIST
 from tasks.dungeon.assets.assets_dungeon_ui_rogue import *
-from tasks.dungeon.keywords import KEYWORDS_DUNGEON_NAV, KEYWORDS_DUNGEON_TAB
-from tasks.dungeon.ui.nav import SWITCH_DUNGEON_TAB
+from tasks.dungeon.keywords import KEYWORDS_DUNGEON_TAB
 from tasks.dungeon.ui.ui import DungeonUI
 from tasks.forgotten_hall.assets.assets_forgotten_hall_ui import TELEPORT
+from tasks.rogue.assets.assets_rogue_weekly import REWARD_CLOSE
 
 
 class DungeonRogueUI(DungeonUI):
@@ -26,94 +27,72 @@ class DungeonRogueUI(DungeonUI):
             self.dungeon_goto_rogue()
             self._rogue_teleport()
         """
-        logger.hr('Dungeon tab goto', level=2)
-        ui_switched = self.ui_ensure(page_guide)
+        logger.hr('Dungeon goto rogue', level=1)
+        self.dungeon_tab_goto(KEYWORDS_DUNGEON_TAB.Simulated_Universe)
+        self._dungeon_wait_until_dungeon_list_loaded()
 
-        # Wait until any SWITCH_DUNGEON_TAB appears
-        # If Ornament Extraction unlocked, Simulated Universe moves to a separate tab
-        timeout = Timer(5, count=15).start()
-        skip_first_screenshot = True
-        while 1:
-            if skip_first_screenshot:
-                skip_first_screenshot = False
-            else:
-                self.device.screenshot()
-
-            # Timeout
-            if timeout.reached():
-                logger.warning('Wait DungeonTab timeout, assume OE unlocked')
+        # wait DIVERGENT_GOTO_SIMULATED or SIMULATED_UNIVERSE nav
+        unlocked_oe = True
+        for _ in self.loop():
+            if self.match_template_luma(DIVERGENT_GOTO_SIMULATED):
                 unlocked_oe = True
                 break
-            # End with OE unlocked
-            matched = False
-            for check_button in [SURVIVAL_INDEX_OE_LOADED, SIMULATED_UNIVERSE_CLICK, SIMULATED_UNIVERSE_CHECK]:
-                if self.appear(check_button):
-                    logger.info(f'Having rogue tab ({check_button})')
-                    matched = True
-                    break
-            if matched:
-                unlocked_oe = True
-                break
-            # End with other dungeon tabs
-            current = SWITCH_DUNGEON_TAB.get(main=self)
-            logger.attr(SWITCH_DUNGEON_TAB.name, current)
-            if current != 'unknown':
-                logger.info('No rogue tab')
+            if self.appear(SIMULATED_UNIVERSE_CHECK):
                 unlocked_oe = False
                 break
+            if self.appear_then_click(DIVERGENT_UNIVERSE_CLICK, interval=2):
+                continue
+            if self.appear_then_click(SIMULATED_UNIVERSE_CLICK, interval=2):
+                continue
+        logger.attr('unlocked_oe', True)
 
         if unlocked_oe:
-            state = KEYWORDS_DUNGEON_TAB.Simulated_Universe
-            # Switch tab
-            tab_switched = SWITCH_DUNGEON_TAB.set(state, main=self)
-            if ui_switched or tab_switched:
-                logger.info(f'Tab goto {state}, wait until loaded')
-                self._dungeon_wait_until_rogue_loaded()
-            # Switch nav
-            self.dungeon_nav_goto(KEYWORDS_DUNGEON_NAV.Simulated_Universe)
+            self._rogue_teleport()
+        else:
             # No idea how to wait list loaded
             # List is not able to swipe without fully loaded
             self.wait_until_stable(LIST_LOADED_CHECK)
             # Swipe
             self._dungeon_rogue_swipe_down()
-        else:
-            state = KEYWORDS_DUNGEON_TAB.Survival_Index
-            # Switch tab
-            tab_switched = SWITCH_DUNGEON_TAB.set(state, main=self)
-            if ui_switched or tab_switched:
-                logger.info(f'Tab goto {state}, wait until loaded')
-                self._dungeon_wait_survival_index_loaded()
-            # Switch nav
-            if self.appear(SURVIVAL_INDEX_SU_LOADED):
-                logger.info('Already at nav Simulated_Universe')
-            else:
-                self.dungeon_nav_goto(KEYWORDS_DUNGEON_NAV.Simulated_Universe)
+            self._rogue_teleport()
 
-    def _dungeon_wait_until_rogue_loaded(self, skip_first_screenshot=True):
+    def _rogue_teleport(self, skip_first_screenshot=True):
         """
-        Returns:
-            bool: True if wait success, False if wait timeout.
-
         Pages:
-            in: page_guide, Simulated_Universe
+            in: page_guide, Simulated_Universe, Simulated_Universe
+            out: page_rogue, is_page_rogue_main()
         """
-        timeout = Timer(2, count=4).start()
+        logger.info('Rogue teleport')
+        self.interval_clear(page_guide.check_button)
         while 1:
             if skip_first_screenshot:
                 skip_first_screenshot = False
             else:
                 self.device.screenshot()
 
-            if timeout.reached():
-                logger.warning('Wait rogue tab loaded timeout')
-                return False
-            if self.appear(DIVERGENT_UNIVERSE_LOADED):
-                logger.info('Rogue tab loaded, DIVERGENT_UNIVERSE_LOADED')
-                return True
-            # No LAST_TELEPORT, may hit teleport button of old screenshots from Ornament Extraction
-            # if self.appear(LAST_TELEPORT):
-            #     logger.info('Rogue tab loaded, LAST_TELEPORT')
-            #     return True
+            # End
+            if self.ui_page_appear(page_rogue):
+                break
+
+            # Additional
+            if self.appear_then_click(REWARD_CLOSE, interval=2):
+                continue
+            # Popup that confirm character switch
+            if self.handle_popup_confirm():
+                continue
+            # Click
+            if self.match_template_luma(DIVERGENT_GOTO_SIMULATED, interval=2):
+                self.device.click(DIVERGENT_GOTO_SIMULATED)
+                continue
+            if self.appear(page_guide.check_button, interval=2):
+                buttons = TELEPORT.match_multi_template(self.device.image)
+                if len(buttons):
+                    # 2.3, classic rogue is always at bottom
+                    buttons = sorted(buttons, key=lambda x: x.area[1], reverse=True)
+                    self.device.click(buttons[0])
+                    continue
+
+        self.interval_clear(page_guide.check_button)
 
     def _dungeon_rogue_swipe_down(self, skip_first_screenshot=True):
         """

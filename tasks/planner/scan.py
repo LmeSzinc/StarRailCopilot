@@ -4,7 +4,7 @@ import cv2
 from pponnxcr.predict_system import BoxedResult
 
 from module.base.decorator import cached_property
-from module.base.utils import area_center, area_in_area
+from module.base.utils import area_center, area_in_area, random_rectangle_vector_opted
 from module.exception import GamePageUnknownError
 from module.logger import logger
 from module.ocr.ocr import Ocr, OcrWhiteLetterOnComplexBackground
@@ -16,9 +16,11 @@ from tasks.planner.keywords import ITEM_CLASSES
 from tasks.planner.keywords.classes import ItemCurrency
 from tasks.planner.model import PlannerMixin, PlannerResultRow
 
-CALCULATE_TITLE.load_search(RESULT_CHECK.search)
-MATERIAL_TITLE.load_search(RESULT_CHECK.search)
-DETAIL_TITLE.load_search(RESULT_CHECK.search)
+CALCULATE_TITLE.load_search(RESULT_CHECK_SEARCH)
+MATERIAL_TITLE.load_search(RESULT_CHECK_SEARCH)
+DETAIL_TITLE.load_search(RESULT_CHECK_SEARCH)
+RESULT_CHECK_CN.load_search(RESULT_CHECK_SEARCH)
+RESULT_CHECK_EN.load_search(RESULT_CHECK_SEARCH)
 
 
 class OcrItemName(Ocr):
@@ -48,6 +50,12 @@ class OcrItemName(Ocr):
         result = re.sub('[般殷]子', '骰子', result)
         # 暗帷月华
         result = result.replace('暗惟', '暗帷')
+        # 暮辉烬蕾
+        result = re.sub('暮晖.?蕾', '暮晖烬蕾', result)
+        # 明辉日珥
+        result = re.sub('明辉日.?', '明辉日珥', result)
+        # 灭流绝溢的缄默
+        result = re.sub('灭流绝溢的.?默', '灭流绝溢的缄默', result)
         return result
 
 
@@ -97,25 +105,46 @@ class OcrPlannerResult(OcrWhiteLetterOnComplexBackground, OcrItemName):
 
 class PlannerScan(SynthesizeUI, PlannerMixin):
     def is_in_planner_result(self):
-        if self.appear(RESULT_CHECK):
+        if self.match_template_luma(RESULT_CHECK_CN):
             return True
-        if self.appear(CALCULATE_TITLE):
+        if self.match_template_luma(RESULT_CHECK_EN):
             return True
-        if self.appear(MATERIAL_TITLE):
+        if self.match_template_luma(CALCULATE_TITLE):
             return True
-        if self.appear(DETAIL_TITLE):
+        if self.match_template_luma(MATERIAL_TITLE):
+            return True
+        if self.match_template_luma(DETAIL_TITLE):
             return True
         return False
 
     @cached_property
-    def planner_lang(self) -> str:
+    def planner_lang(self):
+        # predict on screenshot
+        if self.match_template_luma(RESULT_CHECK_CN):
+            logger.attr('PlannerLang', 'cn')
+            return 'cn'
+        if self.match_template_luma(RESULT_CHECK_EN):
+            logger.attr('PlannerLang', 'en')
+            return 'en'
+
+        # predict from user setting
+        logger.warning('Failed to predict planner result lang, fallback to user setting')
+        lang = self.config.Emulator_GameLanguage
+        if lang != 'auto':
+            logger.attr('PlannerLang', lang)
+            return lang
+
+        logger.warning('Failed to predict planner result lang, fallback to package name')
         if self.config.Emulator_PackageName in ['CN-Official', 'CN-Bilibili']:
             lang = 'cn'
+        elif self.config.Emulator_PackageName in [
+            'OVERSEA-America', 'OVERSEA-Asia', 'OVERSEA-Europe', 'OVERSEA-TWHKMO']:
+            lang = 'en'
         else:
             lang = self.config.LANG
-        if lang == 'auto':
-            logger.error('Language was not set before planner scan, assume it is "cn"')
-            lang = 'cn'
+            if lang == 'auto':
+                logger.error('Language was not set before planner scan, assume it is "cn"')
+                lang = 'cn'
         logger.attr('PlannerLang', lang)
         return lang
 
@@ -201,6 +230,8 @@ class PlannerScan(SynthesizeUI, PlannerMixin):
         if not self.ui_page_appear(page_planner):
             logger.error('Not in page_planner, game must in the planner result page before scanning')
             raise GamePageUnknownError
+        # cache planner_lang at result top
+        _ = self.planner_lang
 
         scroll = AdaptiveScroll(RESULT_SCROLL.button, name=RESULT_SCROLL.name)
         scroll.drag_threshold = 0.1
@@ -243,7 +274,12 @@ class PlannerScan(SynthesizeUI, PlannerMixin):
                 logger.info('Reached DETAIL_TITLE, stop')
                 break
             else:
-                scroll.next_page(main=self, page=0.8)
+                # DON'T drag scroll, ldplayer can't response
+                # scroll.next_page(main=self, page=0.8)
+                vector = (0, -300)
+                p1, p2 = random_rectangle_vector_opted(
+                    vector, box=RESULT_DRAG.area, random_range=(-10, -50, 10, 50), padding=0)
+                self.device.drag(p1, p2, name=RESULT_DRAG.name)
 
         logger.hr('Planner Result')
         for row in out:

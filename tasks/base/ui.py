@@ -13,9 +13,9 @@ from tasks.combat.assets.assets_combat_finish import COMBAT_EXIT
 from tasks.combat.assets.assets_combat_interact import MAP_LOADING
 from tasks.combat.assets.assets_combat_prepare import COMBAT_PREPARE
 from tasks.daily.assets.assets_daily_trial import INFO_CLOSE, START_TRIAL
-from tasks.forgotten_hall.assets.assets_forgotten_hall_ui import EFFECT_NOTIFICATION
 from tasks.login.assets.assets_login import LOGIN_CONFIRM
-from tasks.map.assets.assets_map_control import RUN_BUTTON
+from tasks.login.assets.assets_login_popup import CLAIM_CHARACTER
+from tasks.ornament.assets.assets_ornament_ui import DU_OE_SELECT_CHECK
 
 
 class UI(MainPage):
@@ -394,12 +394,22 @@ class UI(MainPage):
             return True
         if self.handle_ui_close(COMBAT_PREPARE, interval=5):
             return True
+        # additional page when leaving ornament combat preparation
+        if self.handle_ui_back(DU_OE_SELECT_CHECK, interval=2):
+            return True
         if self.appear_then_click(COMBAT_EXIT, interval=5):
             return True
         if self.appear_then_click(INFO_CLOSE, interval=5):
             return True
         # Popup story that advice you watch it, but no, later
         if self.appear_then_click(POPUP_STORY_LATER, interval=5):
+            return True
+        # Get free character at login
+        if self.appear_then_click(CLAIM_CHARACTER, interval=2):
+            return True
+        if self.handle_get_character():
+            return True
+        if self.handle_forgotten_hall_buff():
             return True
 
         return False
@@ -502,7 +512,5 @@ class UI(MainPage):
             if self.appear_then_click(ROGUE_LEAVE_FOR_NOW_OE, interval=2):
                 clicked = True
                 continue
-            if self.appear(EFFECT_NOTIFICATION, interval=2):
-                logger.info(f'{EFFECT_NOTIFICATION} -> {RUN_BUTTON}')
-                self.device.click(RUN_BUTTON)
+            if self.handle_forgotten_hall_buff():
                 continue

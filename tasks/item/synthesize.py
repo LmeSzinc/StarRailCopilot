@@ -4,13 +4,14 @@ import numpy as np
 import module.config.server as server
 from module.base.decorator import cached_property
 from module.base.timer import Timer
-from module.base.utils import SelectedGrids, color_similarity_2d, crop, image_size
+from module.base.utils import SelectedGrids, color_similarity_2d, crop, image_size, rgb2luma
 from module.exception import ScriptError
 from module.logger import logger
 from module.ocr.ocr import Digit, Ocr
 from tasks.base.page import page_menu, page_synthesize
 from tasks.combat.assets.assets_combat_obtain import ITEM_CLOSE
 from tasks.combat.obtain import CombatObtain
+from tasks.daily.synthesize import SynthesizeUI
 from tasks.item.assets.assets_item_synthesize import *
 from tasks.item.inventory import InventoryManager
 from tasks.item.keywords import KEYWORDS_ITEM_TAB
@@ -112,7 +113,7 @@ class SynthesizeInventoryManager(InventoryManager):
         return id2 > id1
 
 
-class Synthesize(CombatObtain, ItemUI):
+class Synthesize(CombatObtain, ItemUI, SynthesizeUI):
     def _item_get_rarity_from_button(self, button) -> str | None:
         """
         Args:
@@ -145,32 +146,56 @@ class Synthesize(CombatObtain, ItemUI):
     def item_get_rarity(self) -> str | None:
         """
         Returns:
-            str: Rarity color of the required material or None if no match
+            str: Rarity color of the synthesized (obtained) material or None if no match.
+                 Synthesis path: green -> blue -> purple, green can also synthesize purple in one step.
 
         Pages:
             in: page_synthesize
         """
         # 2025.02.26, Since 3.1 purple items can be auto synthesized from blue and green at one time
-        # Having two items -> purple is selected
+        # Having two items -> synthesizing purple item
         rarity = self._item_get_rarity_from_button(ENTRY_ITEM_FROM_LEFT)
-        # When having 2 items, left is blue and right is green
+        # When having 2 items, left is blue and right is green. This indicates synthesizing purple.
         if rarity == 'blue':
-            logger.attr('SynthesizeRarity', 'blue (LEFT)')
-            return rarity
+            # must have white letter below to avoid mis-detection on blue background
+            area = ENTRY_ITEM_FROM_LEFT.area
+            area = (area[0], area[3], area[2], area[3] + 30)
+            if self.image_color_count(area, color=(255, 255, 255), threshold=221, count=30):
+                logger.attr('SynthesizeRarity', 'purple (LEFT)')
+                return 'purple'
         # Check item in the middle
         rarity = self._item_get_rarity_from_button(ENTRY_ITEM_FROM)
         if rarity == 'blue':
-            # Blue item appears -> purple is selected
-            logger.attr('SynthesizeRarity', 'blue (MIDDLE)')
-            return rarity
+            # Blue material appears -> synthesizing purple
+            logger.attr('SynthesizeRarity', 'purple (MIDDLE)')
+            return 'purple'
         elif rarity == 'green':
-            # If middle item is green, it could be purple or blue item selected
-            if ENTRY_ITEM_USE9.match_template_luma(self.device.image, similarity=0.7):
-                logger.attr('SynthesizeRarity', 'blue (USE9)')
+            match_result = {}
+
+            def get_similarity(button_asset):
+                image = crop(self.device.image, button_asset.search, copy=False)
+                image = rgb2luma(image)
+                for b in button_asset.buttons:
+                    res = cv2.matchTemplate(b.image_luma, image, cv2.TM_CCOEFF_NORMED)
+                    _, sim, _, _ = cv2.minMaxLoc(res)
+                    if sim > 0.7:
+                        match_result[button_asset] = sim
+                        return sim
+
+            # match two buttons, return the one with greater similarity
+            # because ENTRY_ITEM_USE9 matches "/9" may have mis-detection on normal ammount letters
+            get_similarity(ENTRY_ITEM_USE9)
+            get_similarity(ENTRY_ITEM_USE3)
+            best_button = max(match_result, key=match_result.get) if match_result else None
+            # If middle item is green, it could be purple or blue item being synthesized
+            # USE9: cost of green to purple
+            if best_button == ENTRY_ITEM_USE9:
+                logger.attr('SynthesizeRarity', 'purple (USE9)')
+                return 'purple'
+            # USE3: cost of green to blue
+            if best_button == ENTRY_ITEM_USE3:
+                logger.attr('SynthesizeRarity', 'blue (USE3)')
                 return 'blue'
-            if ENTRY_ITEM_USE3.match_template_luma(self.device.image, similarity=0.7):
-                logger.attr('SynthesizeRarity', 'green (USE3)')
-                return 'green'
 
         logger.attr('SynthesizeRarity', None)
         return None
@@ -194,8 +219,8 @@ class Synthesize(CombatObtain, ItemUI):
     def synthesize_rarity_set(self, rarity: str, skip_first_screenshot=True) -> bool:
         """
         Args:
-            rarity: "green" or "blue"
-                note that rarity is the one you consume to synthesize
+            rarity: "blue" or "purple"
+                note that rarity is the one you get after synthesizing
             skip_first_screenshot:
 
         Returns:
@@ -245,10 +270,10 @@ class Synthesize(CombatObtain, ItemUI):
         for _ in range(3):
             logger.hr('synthesize rarity reset')
             current = self.item_get_rarity_retry()
-            if current == 'blue':
-                r1, r2 = 'green', 'blue'
-            elif current == 'green':
-                r1, r2 = 'blue', 'green'
+            if current == 'purple':
+                r1, r2 = 'blue', 'purple'
+            elif current == 'blue':
+                r1, r2 = 'purple', 'blue'
             else:
                 logger.error(f'item_synthesize_rarity_reset: Unknown current rarity {current}')
                 return False
@@ -279,7 +304,7 @@ class Synthesize(CombatObtain, ItemUI):
             return self.ui_page_appear(page_synthesize) and self.item_get_rarity() is not None
 
         # Purple
-        self.synthesize_rarity_set('blue')
+        self.synthesize_rarity_set('purple')
         self._obtain_enter(ENTRY_ITEM_TO, appear_button=page_synthesize.check_button)
         item = self.obtain_parse()
         if item is not None:
@@ -287,8 +312,8 @@ class Synthesize(CombatObtain, ItemUI):
         self._obtain_close(check_button=obtain_end)
         # Blue
         # 2025.02.26, Since 3.1 purple items can be auto synthesized from blue and green at one time
-        # In case there are two items in ENTRY_ITEM_FROM, set to green first as blue only has one in ENTRY_ITEM_FROM
-        self.synthesize_rarity_set('green')
+        # In case there are two items in ENTRY_ITEM_FROM, set to blue first as purple only has one in ENTRY_ITEM_FROM
+        self.synthesize_rarity_set('blue')
         self._obtain_enter(ENTRY_ITEM_TO, appear_button=page_synthesize.check_button)
         item = self.obtain_parse()
         if item is not None:
@@ -349,6 +374,9 @@ class Synthesize(CombatObtain, ItemUI):
         - Iter first item of each row
         - If current item index > target item index, switch back to prev row and iter prev row
         - If item matches or item group matches, stop
+
+        Returns:
+            bool: If success
         """
         logger.hr('Synthesize select', level=1)
         logger.info(f'Synthesize select {item}')
@@ -574,7 +602,9 @@ class Synthesize(CombatObtain, ItemUI):
         for _ in range(3):
             logger.hr('Synthesize planner row', level=1)
             self.synthesize_tab_set(KEYWORDS_ITEM_TAB.UpgradeMaterials, reset=True)
-            self.synthesize_inventory_select(row.item)
+            success = self.synthesize_inventory_select(row.item)
+            if not success:
+                return None
 
             # Update obtain amount
             obtained = self.synthesize_obtain_get()
@@ -609,7 +639,7 @@ class Synthesize(CombatObtain, ItemUI):
             out: page_main
         """
         logger.hr('Synthesize planner', level=1)
-        self.ui_ensure(page_synthesize)
+        self.menu_enter_top(page_synthesize)
 
         # Cache things to iter
         rows = list(self.planner.rows.values())
@@ -622,20 +652,20 @@ class Synthesize(CombatObtain, ItemUI):
                 continue
 
             logger.info(f'Synthesize row: {row}')
+            # blue -> purple
+            value = row.synthesize.purple
+            total = int(row.total.blue // 3)
+            if value:
+                logger.info(f'Synthesize blue to purple: {value}/{total}')
+                self.synthesize_rarity_set('purple')
+                self.synthesize_amount_set(value, total)
+                self.synthesize_confirm()
             # green -> blue
+            # note that row.value.green might not be accurate after synthesize purple, but it's ok
             value = row.synthesize.blue
             total = int(row.value.green // 3)
             if value:
                 logger.info(f'Synthesize green to blue: {value}/{total}')
-                self.synthesize_rarity_set('green')
-                self.synthesize_amount_set(value, total)
-                self.synthesize_confirm()
-            # blue -> purple
-            synthesized_blue = value
-            value = row.synthesize.purple
-            total = int((row.value.blue + synthesized_blue) // 3)
-            if value:
-                logger.info(f'Synthesize blue to purple: {value}/{total}')
                 self.synthesize_rarity_set('blue')
                 self.synthesize_amount_set(value, total)
                 self.synthesize_confirm()

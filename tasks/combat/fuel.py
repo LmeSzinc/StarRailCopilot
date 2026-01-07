@@ -85,9 +85,9 @@ class Fuel(StaminaStatus):
         # so there's a short period of time that COMBAT_AGAIN is unclickable
         # This is equivalent to poor sleep
         timer = self.get_interval_timer(COMBAT_AGAIN, interval=5, renew=True)
-        timer.set_current(4.4)
+        timer.set(4.4, count=10)
         timer = self.get_interval_timer(COMBAT_EXIT, interval=5, renew=True)
-        timer.set_current(4.4)
+        timer.set(4.4, count=10)
 
     def extract_reserved_trailblaze_power(self, skip_first_screenshot=True):
         """

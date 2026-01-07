@@ -71,7 +71,7 @@ class TextMap:
 
 def text_to_variable(text):
     text = re.sub("'s |s' ", '_', text)
-    text = re.sub(r'[ \-—–:\'/•.™]+', '_', text)
+    text = re.sub(r'[ \-—–:\'/•.™@]+', '_', text)
     text = re.sub(r'[█]+', '', text)
     text = re.sub(r'[(),#"?!&%*]|</?\w+>', '', text)
     # text = re.sub(r'[#_]?\d+(_times?)?', '', text)

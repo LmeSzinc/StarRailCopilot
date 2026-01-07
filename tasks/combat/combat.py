@@ -1,4 +1,5 @@
 from module.base.decorator import run_once
+from module.base.timer import Timer
 from module.exception import RequestHumanTakeover
 from module.logger import logger
 from tasks.base.page import page_guide
@@ -11,16 +12,13 @@ from tasks.combat.interact import CombatInteract
 from tasks.combat.obtain import CombatObtain
 from tasks.combat.prepare import CombatPrepare
 from tasks.combat.skill import CombatSkill
-from tasks.combat.state import CombatState
 from tasks.combat.support import CombatSupport
 from tasks.combat.team import CombatTeam
-from tasks.dungeon.keywords import DungeonList
 from tasks.map.control.joystick import MapControlJoystick
 
 
-class Combat(CombatInteract, CombatPrepare, CombatState, CombatTeam, CombatSupport, CombatSkill, CombatObtain,
+class Combat(CombatInteract, CombatPrepare, CombatSupport, CombatTeam, CombatSkill, CombatObtain,
              MapControlJoystick, Fuel):
-    dungeon: DungeonList | None = None
     is_doing_planner: bool = False
 
     def handle_combat_prepare(self):
@@ -60,9 +58,23 @@ class Combat(CombatInteract, CombatPrepare, CombatState, CombatTeam, CombatSuppo
                 else:
                     return False
 
-        if cost == 10:
+        if cost > 0:
+            if cost == 10:
+                total = 24
+            elif cost == 40:
+                total = 6
+            elif cost == 30:
+                if self.dungeon is not None and self.dungeon.is_Stagnant_Shadow:
+                    total = 8
+                else:
+                    # Echo of war
+                    total = 3
+            else:
+                logger.warning(f'Cannot predict wave total from cost {cost}')
+                total = 6
+            logger.attr('CombatWaveTotal', total)
             # Calyx
-            self.combat_waves = min(current // cost, 6)
+            self.combat_waves = min(current // cost, total)
             if self.combat_wave_limit:
                 self.combat_waves = min(self.combat_waves, self.combat_wave_limit - self.combat_wave_done)
                 logger.info(
@@ -73,7 +85,11 @@ class Combat(CombatInteract, CombatPrepare, CombatState, CombatTeam, CombatSuppo
                 logger.info(f'Current has {current}, combat costs {cost}, '
                             f'able to do {self.combat_waves} waves')
             if self.combat_waves > 0:
-                self.combat_set_wave(self.combat_waves)
+                if self.combat_waves <= 1 and total == 3:
+                    # Echo of war does not have wave slider when 1/3
+                    pass
+                else:
+                    self.combat_set_wave(self.combat_waves, total)
         else:
             # Others
             logger.info(f'Current has {current}, combat costs {cost}, '
@@ -114,21 +130,16 @@ class Combat(CombatInteract, CombatPrepare, CombatState, CombatTeam, CombatSuppo
             out: is_combat_executing
         """
         logger.hr('Combat prepare')
-        skip_first_screenshot = True
         if support_character:
             # Block COMBAT_TEAM_PREPARE before support set
             support_set = False
         else:
             support_set = True
+        combat_prepared = False
         logger.info([support_character, support_set])
         combat_trial = 0
         team_trial = 0
-        while 1:
-            if skip_first_screenshot:
-                skip_first_screenshot = False
-            else:
-                self.device.screenshot()
-
+        for _ in self.loop():
             # End
             if self.is_combat_executing():
                 return True
@@ -158,16 +169,23 @@ class Combat(CombatInteract, CombatPrepare, CombatState, CombatTeam, CombatSuppo
             if self.appear(COMBAT_TEAM_PREPARE):
                 self.interval_reset(COMBAT_PREPARE)
                 self.map_A_timer.reset()
-            if self.appear(COMBAT_PREPARE, interval=2):
-                if self.is_doing_planner and self.obtained_is_full(self.dungeon, wave_done=self.combat_wave_done):
-                    # Update stamina so task can be delayed if both obtained_is_full and stamina exhausted
-                    self.combat_get_trailblaze_power()
-                    return False
-                if not self.handle_combat_prepare():
-                    return False
-                if self.is_doing_planner and self.combat_wave_cost == 0:
-                    logger.info('Free combat gets nothing cannot meet planner needs')
-                    return False
+            if self.appear(COMBAT_PREPARE, interval=5):
+                if not combat_prepared:
+                    if self.is_doing_planner and self.obtained_is_full(self.dungeon, wave_done=self.combat_wave_done):
+                        # Update stamina so task can be delayed if both obtained_is_full and stamina exhausted
+                        self.combat_get_trailblaze_power()
+                        return False
+                    if self.combat_wave_limit:
+                        if self.combat_wave_done >= self.combat_wave_limit:
+                            logger.info(f'Combat wave limit: {self.combat_wave_done}/{self.combat_wave_limit}, '
+                                        f'can not run again')
+                            return False
+                    if not self.handle_combat_prepare():
+                        return False
+                    if self.is_doing_planner and self.combat_wave_cost == 0:
+                        logger.info('Free combat gets nothing cannot meet planner needs')
+                        return False
+                combat_prepared = True
                 self.device.click(COMBAT_PREPARE)
                 self.interval_reset(COMBAT_PREPARE)
                 combat_trial += 1
@@ -192,18 +210,13 @@ class Combat(CombatInteract, CombatPrepare, CombatState, CombatTeam, CombatSuppo
             out: COMBAT_AGAIN
         """
         logger.hr('Combat execute')
-        skip_first_screenshot = True
-        is_executing = True
         self.combat_state_reset()
         self.device.stuck_record_clear()
         self.device.click_record_clear()
         self.device.screenshot_interval_set('combat')
-        while 1:
-            if skip_first_screenshot:
-                skip_first_screenshot = False
-            else:
-                self.device.screenshot()
+        log_continue = Timer(10).start()
 
+        for _ in self.loop():
             # End
             if callable(expected_end) and expected_end():
                 logger.info(f'Combat execute ended at {expected_end.__name__}')
@@ -217,19 +230,18 @@ class Combat(CombatInteract, CombatPrepare, CombatState, CombatTeam, CombatSuppo
                 break
 
             # Daemon
-            if self.is_combat_executing():
-                if not is_executing:
+            if self.handle_combat_damage_change():
+                if log_continue.reached():
                     logger.info('Combat continues')
                     self.device.stuck_record_clear()
-                is_executing = True
-            else:
-                is_executing = False
+                    log_continue.reset()
             if self.handle_combat_state():
                 continue
             # Battle pass popup appears just after combat finished and before blessings
             if self.handle_battle_pass_notification():
                 continue
 
+        self.combat_state_reset()
         self.device.stuck_record_clear()
         self.device.click_record_clear()
         self.device.screenshot_interval_set()
@@ -247,38 +259,37 @@ class Combat(CombatInteract, CombatPrepare, CombatState, CombatTeam, CombatSuppo
             return False
         # Wave limit
         if self.combat_wave_limit:
-            if self.combat_wave_done + self.combat_waves > self.combat_wave_limit:
+            if self.combat_wave_done >= self.combat_wave_limit:
                 logger.info(f'Combat wave limit: {self.combat_wave_done}/{self.combat_wave_limit}, '
                             f'can not run again')
                 return False
         # Cost limit
-        if self.combat_wave_cost == 10:
-            if current >= self.combat_wave_cost * self.combat_waves:
-                logger.info(f'Current has {current}, combat costs {self.combat_wave_cost}, can run again')
+        if self.combat_wave_cost > 0:
+            cost = self.combat_wave_cost * self.combat_waves
+            if current >= cost:
+                logger.info(f'Current has {current}, re-run costs {cost}, can run again')
                 return True
             else:
-                return self._try_get_more_trablaize_power(self.combat_wave_cost * self.combat_waves)
+                return self._try_get_more_trablaize_power(cost)
         elif self.combat_wave_cost <= 0:
             logger.info(f'Free combat, combat costs {self.combat_wave_cost}, can not run again')
             return False
-        else:
-            if current >= self.combat_wave_cost:
-                logger.info(f'Current has {current}, combat costs {self.combat_wave_cost}, can run again')
-                return True
-            else:
-                return self._try_get_more_trablaize_power(self.combat_wave_cost * self.combat_waves)
 
     def _try_get_more_trablaize_power(self, cost):
+        use_fuel_ = self.config.TrailblazePower_UseFuel
+        if self.config.TrailblazePower_FuelOnlyPlanner and not self.is_doing_planner:
+            use_fuel_ = False
         self.extract_stamina(
             update=False,
             use_reserved=self.config.TrailblazePower_ExtractReservedTrailblazePower,
-            use_fuel=self.config.TrailblazePower_UseFuel
+            use_fuel=use_fuel_
         )
         current = self.config.stored.TrailblazePower.value
         if current >= cost:
             return True
         else:
-            logger.info(f'Current has {current}, combat costs {self.combat_wave_cost}, can not run again')
+            logger.info(
+                f'Current has {current}, combat costs {self.combat_wave_cost}, can not run again')
             return False
 
     def _combat_should_reenter(self):
@@ -338,14 +349,8 @@ class Combat(CombatInteract, CombatPrepare, CombatState, CombatTeam, CombatSuppo
             self.combat_wave_done += self.combat_waves
             logger.info(f'Done {self.combat_waves} waves at total')
 
-        skip_first_screenshot = True
         combat_can_again = None
-        while 1:
-            if skip_first_screenshot:
-                skip_first_screenshot = False
-            else:
-                self.device.screenshot()
-
+        for _ in self.loop():
             # End
             if self.is_in_main():
                 logger.info('Combat finishes at page_main')
@@ -384,7 +389,7 @@ class Combat(CombatInteract, CombatPrepare, CombatState, CombatTeam, CombatSuppo
             if self.handle_popup_confirm():
                 continue
 
-    def combat_exit(self, skip_first_screenshot=True):
+    def combat_exit(self):
         """
         Pages:
             in: Any page during combat
@@ -392,12 +397,8 @@ class Combat(CombatInteract, CombatPrepare, CombatState, CombatTeam, CombatSuppo
         """
         logger.info('Combat exit')
         self.interval_clear([COMBAT_PREPARE, COMBAT_TEAM_PREPARE, COMBAT_AGAIN])
-        while 1:
-            if skip_first_screenshot:
-                skip_first_screenshot = False
-            else:
-                self.device.screenshot()
 
+        for _ in self.loop():
             # End
             if self.is_in_main():
                 break

@@ -2,11 +2,10 @@ from datetime import timedelta
 
 from module.config.stored.classes import now
 from module.config.utils import DEFAULT_TIME
-from module.exception import ScriptError
 from module.logger import logger
 from tasks.dungeon.assets.assets_dungeon_ui_rogue import DIVERGENT_UNIVERSE_SAVE_UNAVAILABLE
 from tasks.dungeon.keywords import DungeonList
-from tasks.ornament.combat import OrnamentCombat
+from tasks.ornament.combat import OrnamentCombat, OrnamentTeamNotPrepared
 
 
 class Ornament(OrnamentCombat):
@@ -18,10 +17,7 @@ class Ornament(OrnamentCombat):
         result = super()._dungeon_wait_until_dungeon_list_loaded(skip_first_screenshot)
 
         # Check save file before entering
-        if self.image_color_count(
-                DIVERGENT_UNIVERSE_SAVE_UNAVAILABLE,
-                color=(140, 19, 26), threshold=221, count=1000,
-        ):
+        if self.match_template_luma(DIVERGENT_UNIVERSE_SAVE_UNAVAILABLE):
             logger.error(
                 'Divergent Universe save unavailable, '
                 'please clear Divergent Universe once before running Ornament Extraction'
@@ -91,18 +87,26 @@ class Ornament(OrnamentCombat):
         self.support_once = False
         self.combat_wave_cost = 40
         self.dungeon = dungeon
-        if self.config.Ornament_UseStamina:
-            # No limit
-            self.dungeon_run(dungeon, wave_limit=0)
-            # Stamina should have exhausted in dungeon_run
-            raise ScriptError('Ornament finished but stamina was not exhausted')
-        elif self.config.stored.DungeonDouble.rogue > 0:
-            # Limited in double events
-            self.running_double = True
-            self.dungeon_run(dungeon, wave_limit=self.config.stored.DungeonDouble.rogue)
-            self.running_double = False
-            self.dungeon_stamina_delay(dungeon)
-        else:
-            # Use immersifier only, wave limited in _dungeon_wait_until_dungeon_list_loaded
-            self.dungeon_run(dungeon, wave_limit=0)
-            self.dungeon_stamina_delay(dungeon)
+        try:
+            if self.config.Ornament_UseStamina:
+                # No limit
+                while 1:
+                    self.dungeon_run(dungeon, wave_limit=0)
+                    if self.get_equivalent_stamina() > 40:
+                        continue
+                    else:
+                        break
+                # Stamina should have exhausted in dungeon_run
+            elif self.config.stored.DungeonDouble.rogue > 0:
+                # Limited in double events
+                self.running_double = True
+                self.dungeon_run(dungeon, wave_limit=self.config.stored.DungeonDouble.rogue)
+                self.running_double = False
+                self.dungeon_stamina_delay(dungeon)
+            else:
+                # Use immersifier only, wave limited in _dungeon_wait_until_dungeon_list_loaded
+                self.dungeon_run(dungeon, wave_limit=0)
+                self.dungeon_stamina_delay(dungeon)
+        except OrnamentTeamNotPrepared:
+            self.oe_leave()
+            self.config.task_delay(server_update=True)

@@ -220,7 +220,7 @@ class StoredSimulatedUniverse(StoredCounter, StoredExpiredAtMonday0400):
 
 
 class StoredRelic(StoredCounter):
-    FIXED_TOTAL = 2000
+    FIXED_TOTAL = 3000
 
 
 class StoredSimulatedUniverseElite(StoredCounter, StoredExpiredAtMonday0400):

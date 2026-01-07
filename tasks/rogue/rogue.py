@@ -2,8 +2,6 @@ from module.exception import RequestHumanTakeover
 from module.logger import logger
 from tasks.base.assets.assets_base_main_page import ROGUE_LEAVE_FOR_NOW
 from tasks.base.assets.assets_base_page import MAP_EXIT
-from tasks.battle_pass.keywords import KEYWORDS_BATTLE_PASS_QUEST
-from tasks.daily.keywords import KEYWORDS_DAILY_QUEST
 from tasks.rogue.assets.assets_rogue_ui import BLESSING_CONFIRM
 from tasks.rogue.assets.assets_rogue_weekly import ROGUE_REPORT
 from tasks.rogue.entry.entry import RogueEntry
@@ -126,17 +124,18 @@ class Rogue(RouteLoader, RogueEntry):
             if self.config.task_switched():
                 self.config.task_stop()
             # Archived daily quest
-            if success:
-                quests = self.config.stored.DailyQuest.load_quests()
-                if KEYWORDS_DAILY_QUEST.Complete_Divergent_Universe_or_Simulated_Universe_1_times in quests:
-                    logger.info('Achieve daily quest Complete_Divergent_Universe_or_Simulated_Universe_1_times')
-                    self.config.task_call('DailyQuest')
-                    self.config.task_stop()
-                quests = self.config.stored.BattlePassWeeklyQuest.load_quests()
-                if KEYWORDS_BATTLE_PASS_QUEST.Complete_Divergent_Universe_or_Simulated_Universe_1_times in quests:
-                    logger.info('Achieve battle pass quest Complete_Divergent_Universe_or_Simulated_Universe_1_times')
-                    self.config.task_call('BattlePass')
-                    self.config.task_stop()
+            # Since 3.7, finishing rogue dones not consider as daily quest
+            # if success:
+            #     quests = self.config.stored.DailyQuest.load_quests()
+            #     if KEYWORDS_DAILY_QUEST.Complete_Divergent_Universe_or_Currency_Wars_1_times in quests:
+            #         logger.info('Achieve daily quest Complete_Divergent_Universe_or_Currency_Wars_1_times')
+            #         self.config.task_call('DailyQuest')
+            #         self.config.task_stop()
+            #     quests = self.config.stored.BattlePassWeeklyQuest.load_quests()
+            #     if KEYWORDS_BATTLE_PASS_QUEST.Complete_Divergent_Universe_or_Currency_Wars_1_times in quests:
+            #         logger.info('Achieve battle pass quest Complete_Divergent_Universe_or_Currency_Wars_1_times')
+            #         self.config.task_call('BattlePass')
+            #         self.config.task_stop()
             # End
             if success:
                 logger.info('Rogue run success')

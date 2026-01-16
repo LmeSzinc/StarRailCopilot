@@ -210,7 +210,8 @@ class CombatSupport(CombatState):
                 return character
             # Search skin also
             dict_skin: "dict[str, list[str]]" = {
-                'March7thPreservation': ['March7thPreservation.2']
+                'March7thPreservation': ['March7thPreservation.2'],
+                'Firefly': ['Firefly.2'],
             }
             if support_character_name in dict_skin:
                 for skin in dict_skin[support_character_name]:

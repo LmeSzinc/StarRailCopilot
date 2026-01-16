@@ -277,31 +277,32 @@ class CombatSupport(CombatState):
         self.device.click_record_clear()
 
         logger.info("Searching support")
-        skip_first_screenshot = True
-        while 1:
-            if skip_first_screenshot:
-                skip_first_screenshot = False
-            else:
-                self.device.screenshot()
-
+        self.interval_clear(COMBAT_SUPPORT_LIST, interval=2)
+        for _ in self.loop():
             character = self._get_character(support_character_name)
             if character:
-                logger.info("Support found")
-                if self._select_support(character):
+                # End
+                area = character.selected_icon_search()
+                image = self.image_crop(area, copy=False)
+                if SUPPORT_SELECTED.match_template(image, similarity=0.75, direct_match=True):
+                    logger.info('Character support selected')
                     self.device.click_record_clear()
                     return True
+
+                # click
+                if self.match_template_color(COMBAT_SUPPORT_LIST, interval=2):
+                    self.device.click(character)
+                    continue
+
+            # scroll, but don't scroll if just clicking character
+            if self.interval_is_reached(COMBAT_SUPPORT_LIST, interval=2):
+                if not scroll.at_bottom(main=self):
+                    scroll.next_page(main=self)
+                    continue
                 else:
-                    logger.warning("Support not selected")
+                    logger.info("Support not found")
                     self.device.click_record_clear()
                     return False
-
-            if not scroll.at_bottom(main=self):
-                scroll.next_page(main=self)
-                continue
-            else:
-                logger.info("Support not found")
-                self.device.click_record_clear()
-                return False
 
     def _search_support_with_fallback(self, support_character_name: str = "JingYuan"):
         """

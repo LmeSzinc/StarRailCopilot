@@ -94,9 +94,12 @@ class ConfigGenerator:
         # Double events
         option_add(keys='Dungeon.NameAtDoubleCalyx.option', options=calyx_golden + calyx_crimson)
         option_add(keys='Dungeon.NameAtDoubleRelic.option', options=cavern_of_corrosion)
-        option_add(
-            keys='Weekly.Name.option',
-            options=[dungeon.name for dungeon in DungeonList.instances.values() if dungeon.is_Echo_of_War])
+        # Echo_of_War
+        echo_of_war = [dungeon.name for dungeon in DungeonList.instances.values() if dungeon.is_Echo_of_War]
+        option_add(keys='Weekly.Name.option', options=echo_of_war)
+        if echo_of_war:
+            # default to latest
+            deep_set(raw, keys='Weekly.Name.value', value=echo_of_war[0])
         # PlannerTarget
         option_add(keys='PlannerTarget.Relic.option', options=cavern_of_corrosion)
         option_add(keys='PlannerTarget.Ornament.option', options=ornament)

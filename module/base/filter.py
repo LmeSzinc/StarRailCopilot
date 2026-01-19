@@ -41,34 +41,48 @@ class Filter:
     def is_preset(self, filter):
         return len(filter) and filter.lower() in self.preset
 
-    def apply(self, objs, func=None):
+    def apply(self, objs, sort_fn=None, filter_fn=None):
         """
         Args:
-            objs (list): List of objects and strings
-            func (callable): A function to filter object.
+            objs (list): List of objects
+            filter_fn (callable): A function to filter object.
                 Function should receive an object as arguments, and return a bool.
                 True means add it to output.
+
+            sort_fn (callable): A function to sort object.
+                Function should receive an object as arguments, and return a float/int, the larger the better.
+
 
         Returns:
             list: A list of objects and preset strings, such as [object, object, object, 'reset']
         """
         out = []
         for raw, filter in zip(self.filter_raw, self.filter):
-            if self.is_preset(raw):
+            if raw.lower() == 'random':
+                candidates = objs
+                if sort_fn is not None:
+                    candidates = list(sorted(candidates, key=sort_fn, reverse=True))
+                for c in candidates:
+                    if c not in out:
+                        out.append(c)
+            elif self.is_preset(raw):
                 raw = raw.lower()
                 if raw not in out:
                     out.append(raw)
             else:
-                for index, obj in enumerate(objs):
-                    if self.apply_filter_to_obj(obj=obj, filter=filter) and obj not in out:
-                        out.append(obj)
+                candidates = [o for o in objs if self.apply_filter_to_obj(o, filter)]
+                if sort_fn is not None:
+                    candidates = list(sorted(candidates, key=sort_fn, reverse=True))
+                for c in candidates:
+                    if c not in out:
+                        out.append(c)
 
-        if func is not None:
+        if filter_fn is not None:
             objs, out = out, []
             for obj in objs:
                 if isinstance(obj, str):
                     out.append(obj)
-                elif func(obj):
+                elif filter_fn(obj):
                     out.append(obj)
                 else:
                     # Drop this object

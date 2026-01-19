@@ -377,12 +377,15 @@ class DailyQuestUI(DungeonUI, RouteLoader):
         # Calculate quests to be done in the future
         future = 0
         if KEYWORDS_DAILY_QUEST.Obtain_victory_in_combat_with_Support_Characters_1_times in quests:
-            # 10min in advance to do quests
-            if dungeon < reset - timedelta(minutes=10):
-                logger.info('Daily support can be achieved in the future')
-                future += 200
+            if self.config.DungeonSupport_Use == 'do_not_use':
+                logger.info('Daily support quest ignored, DungeonSupport_Use=do_not_use')
             else:
-                logger.info('Daily support cannot achieved, dungeon task is scheduled tomorrow')
+                # 10min in advance to do quests
+                if dungeon < reset - timedelta(minutes=10):
+                    logger.info('Daily support can be achieved in the future')
+                    future += 200
+                else:
+                    logger.info('Daily support cannot achieved, dungeon task is scheduled tomorrow')
         if KEYWORDS_DAILY_QUEST.Consume_120_Trailblaze_Power in quests:
             # 6h in advance, waiting for stamina
             if dungeon < reset - timedelta(hours=6, minutes=0):

@@ -1205,7 +1205,8 @@
         "value": "when_daily",
         "option": [
           "when_daily",
-          "always_use"
+          "always_use",
+          "do_not_use"
         ]
       },
       "Character": {
@@ -1467,7 +1468,8 @@
         "value": "when_daily",
         "option": [
           "when_daily",
-          "always_use"
+          "always_use",
+          "do_not_use"
         ]
       },
       "Character": {

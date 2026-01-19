@@ -31,7 +31,7 @@ Dungeon:
       option_bold: [ true, ]
   DungeonSupport:
     Use:
-      option: [ when_daily, always_use ]
+      option: [ when_daily, always_use, do_not_use ]
 DailyQuest:
   Scheduler:
     Enable:
@@ -70,4 +70,4 @@ Weekly:
 Ornament:
   DungeonSupport:
     Use:
-      option: [ when_daily, always_use ]
+      option: [ when_daily, always_use, do_not_use ]

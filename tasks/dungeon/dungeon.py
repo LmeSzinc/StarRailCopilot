@@ -53,7 +53,9 @@ class Dungeon(Combat, DungeonStamina, DungeonEvent):
         """
         if team is None:
             team = self.config.Dungeon_Team
-        if support_character is None and self.config.DungeonSupport_Use == 'always_use':
+        if self.config.DungeonSupport_Use == 'do_not_use':
+            support_character = None
+        elif support_character is None and self.config.DungeonSupport_Use == 'always_use':
             support_character = self.config.DungeonSupport_Character
 
         logger.hr('Dungeon run', level=1)
@@ -397,8 +399,11 @@ class Dungeon(Combat, DungeonStamina, DungeonEvent):
             else:
                 # Check future daily
                 if KEYWORDS_DAILY_QUEST.Obtain_victory_in_combat_with_Support_Characters_1_times in self.daily_quests:
-                    logger.error("Dungeon ran but support daily haven't been finished yet")
-                    self.config.task_call('DailyQuest')
+                    if self.config.DungeonSupport_Use == 'do_not_use':
+                        logger.info('Support daily quest pending, but DungeonSupport_Use=do_not_use, skip')
+                    else:
+                        logger.error("Dungeon ran but support daily haven't been finished yet")
+                        self.config.task_call('DailyQuest')
 
             # Delay tasks
             self.dungeon_stamina_delay(dungeon)
@@ -419,7 +424,7 @@ class Dungeon(Combat, DungeonStamina, DungeonEvent):
 
         # Not required, cause any dungeon run will achieve the quest
         logger.attr('DungeonSupport_Use', self.config.DungeonSupport_Use)
-        if self.config.DungeonSupport_Use == 'always_use':
+        if self.config.DungeonSupport_Use in ('always_use', 'do_not_use'):
             require = False
 
         logger.attr('Require compulsory support', require)

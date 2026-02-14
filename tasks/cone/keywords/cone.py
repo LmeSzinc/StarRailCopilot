@@ -1695,6 +1695,18 @@ To_Evernight_Stars = Cone(
     path_name='Remembrance',
     character_name='Evernight',
 )
+Never_Forget_Her_Flame = Cone(
+    id=23050,
+    name='Never_Forget_Her_Flame',
+    cn='勿忘她的火焰',
+    cht='勿忘她的火焰',
+    en='Never Forget Her Flame',
+    jp='彼女の炎を忘れずに',
+    es='No olvides su fuego',
+    rarity='SuperRare',
+    path_name='Nihility',
+    character_name='TheDahlia',
+)
 Though_Worlds_Apart = Cone(
     id=23051,
     name='Though_Worlds_Apart',

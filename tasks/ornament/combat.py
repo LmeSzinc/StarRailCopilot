@@ -22,6 +22,10 @@ from tasks.rogue.route.loader import RouteLoader, model_from_json
 from tasks.rogue.route.model import RogueRouteListModel, RogueRouteModel
 
 
+class OrnamentTeamNotPrepared(Exception):
+    pass
+
+
 class OrnamentCombat(Dungeon, RouteLoader):
     def combat_enter_from_map(self, skip_first_screenshot=True):
         # Don't enter from map, UI too deep inside
@@ -248,7 +252,7 @@ class OrnamentCombat(Dungeon, RouteLoader):
         def check_team_prepare():
             if not self.is_team_prepared():
                 logger.error(f'Please prepare your team in Ornament Extraction')
-                raise RequestHumanTakeover
+                raise OrnamentTeamNotPrepared
 
         logger.hr('Combat prepare')
 

@@ -82,7 +82,7 @@ class PlannerSelect(PlannerUI):
         if self.config.Emulator_PackageName in ['CN-Official', 'CN-Bilibili']:
             lang = 'cn'
         elif self.config.Emulator_PackageName in [
-            'OVERSEA-America', 'OVERSEA-Asia', 'OVERSEA-Europe', 'OVERSEA-TWHKMO']:
+            'OVERSEA-America', 'OVERSEA-Asia', 'OVERSEA-Europe', 'OVERSEA-TWHKMO', 'VN-Official']:
             lang = 'en'
         else:
             lang = self.config.LANG

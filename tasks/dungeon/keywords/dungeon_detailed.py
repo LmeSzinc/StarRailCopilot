@@ -237,3 +237,12 @@ Stagnant_Shadow_Sirens = DungeonDetailed(
     jp='昇格素材：氷（キュレネ / 長夜月）',
     es='Ascension: Hielo (Cirene / Larganoche)',
 )
+Stagnant_Shadow_Ashes = DungeonDetailed(
+    id=27,
+    name='Stagnant_Shadow_Ashes',
+    cn='晋阶材料：火（大丽花）',
+    cht='晉階材料：火（大理花）',
+    en='Ascension: Fire (The Dahlia)',
+    jp='昇格素材：炎（ダリア）',
+    es='Ascension: Fuego (La Dalia)',
+)

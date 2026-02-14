@@ -52,6 +52,10 @@ class OcrItemName(Ocr):
         result = result.replace('暗惟', '暗帷')
         # 暮辉烬蕾
         result = re.sub('暮晖.?蕾', '暮晖烬蕾', result)
+        # 明辉日珥
+        result = re.sub('明辉日.?', '明辉日珥', result)
+        # 灭流绝溢的缄默
+        result = re.sub('灭流绝溢的.?默', '灭流绝溢的缄默', result)
         return result
 
 
@@ -134,7 +138,7 @@ class PlannerScan(SynthesizeUI, PlannerMixin):
         if self.config.Emulator_PackageName in ['CN-Official', 'CN-Bilibili']:
             lang = 'cn'
         elif self.config.Emulator_PackageName in [
-            'OVERSEA-America', 'OVERSEA-Asia', 'OVERSEA-Europe', 'OVERSEA-TWHKMO']:
+            'OVERSEA-America', 'OVERSEA-Asia', 'OVERSEA-Europe', 'OVERSEA-TWHKMO', 'VN-Official']:
             lang = 'en'
         else:
             lang = self.config.LANG

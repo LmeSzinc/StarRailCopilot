@@ -114,8 +114,8 @@ class Slider:
             bool: If success
         """
         logger.info(f'Slider set {value}/{total}')
-        if total <= 0:
-            logger.warning(f'Slider.set total {total} <= 0, cannot set slider')
+        if total <= 1:
+            logger.warning(f'Slider.set total {total} <= 1, cannot set slider')
             return False
         if value <= 0:
             logger.warning(f'Slider.set value {value} <= 0, cannot set slider')

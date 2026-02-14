@@ -1,4 +1,3 @@
-import module.config.server as server
 from module.base.button import ClickButton
 from module.base.timer import Timer
 from module.logger import logger
@@ -49,14 +48,19 @@ class CombatPrepare(StaminaStatus):
             logger.warning('Cannot find WAVE_CHECK using default position')
             WAVE_CHECK.clear_offset()
 
+        # slide
         WAVE_CHECK.load_offset(WAVE_CHECK)
         area = ClickButton(WAVE_SLIDER.button, name=WAVE_SLIDER.name)
         slider = Slider(main=self, slider=area)
         slider.set(count, total)
+
+        # double check wave
         WAVE_CHECK.load_offset(WAVE_CHECK)
         area = ClickButton(OCR_WAVE_COUNT.button, name=OCR_WAVE_COUNT.name)
+        # use lang='cn' for better digit detection
+        ocr = WaveDigit(area, lang='cn')
         self.ui_ensure_index(
-            count, letter=WaveDigit(area, lang=server.lang),
+            count, letter=ocr,
             next_button=WAVE_PLUS, prev_button=WAVE_MINUS,
             skip_first_screenshot=True
         )

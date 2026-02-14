@@ -796,6 +796,19 @@ Rappa = CharacterList(
     relic_setid=119,
     ornament_setid=307,
 )
+TheDahlia = CharacterList(
+    id=1321,
+    name='TheDahlia',
+    cn='大丽花',
+    cht='大理花',
+    en='The Dahlia',
+    jp='ダリア',
+    es='La Dalia',
+    type_name='Fire',
+    path_name='Nihility',
+    relic_setid=119,
+    ornament_setid=316,
+)
 TheHerta = CharacterList(
     id=1401,
     name='TheHerta',

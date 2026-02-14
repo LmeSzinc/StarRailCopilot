@@ -1249,7 +1249,8 @@ class Connection(ConnectionAttr):
             # Set config
             if set_config:
                 with self.config.multi_set():
-                    self.config.Emulator_PackageName = server_.to_server(self.package)
+                    self.config.Emulator_PackageName = server_.to_server(
+                        self.package, before=self.config.Emulator_PackageName)
                     if self.package in server_.VALID_CLOUD_PACKAGE:
                         if self.config.Emulator_GameClient != 'cloud_android':
                             self.config.Emulator_GameClient = 'cloud_android'
@@ -1267,7 +1268,8 @@ class Connection(ConnectionAttr):
                     logger.info('Auto package detection found only one package, using it')
                     self.package = packages[0]
                     if set_config:
-                        self.config.Emulator_PackageName = server_.to_server(self.package)
+                        self.config.Emulator_PackageName = server_.to_server(
+                            self.package, before=self.config.Emulator_PackageName)
                     return
             else:
                 packages = [p for p in packages if p in server_.VALID_PACKAGE]
@@ -1275,7 +1277,8 @@ class Connection(ConnectionAttr):
                     logger.info('Auto package detection found only one package, using it')
                     self.package = packages[0]
                     if set_config:
-                        self.config.Emulator_PackageName = server_.to_server(self.package)
+                        self.config.Emulator_PackageName = server_.to_server(
+                            self.package, before=self.config.Emulator_PackageName)
                     return
             logger.critical(
                 f'Multiple Star Rail packages found, auto package detection cannot decide which to choose, '

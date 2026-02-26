@@ -8,7 +8,7 @@ from tasks.assignment.keywords import (KEYWORDS_ASSIGNMENT_GROUP,
                                        AssignmentEntry, AssignmentEventEntry,
                                        AssignmentEventGroup)
 from tasks.assignment.ui import ASSIGNMENT_ENTRY_LIST, AssignmentStatus
-from tasks.base.page import page_assignment, page_menu
+from tasks.base.page import page_assignment
 from tasks.daily.keywords import KEYWORDS_DAILY_QUEST
 from tasks.daily.synthesize import SynthesizeUI
 
@@ -75,8 +75,8 @@ class Assignment(AssignmentClaim, SynthesizeUI):
         with self.config.multi_set():
             # Check daily
             quests = self.config.stored.DailyQuest.load_quests()
-            if KEYWORDS_DAILY_QUEST.Dispatch_1_assignments in quests:
-                logger.info('Achieved daily quest Dispatch_1_assignments')
+            if KEYWORDS_DAILY_QUEST.Dispatch_Assignments_or_claim_Assignment_rewards_1_time in quests:
+                logger.info('Achieved daily quest Dispatch_Assignments_or_claim_Assignment_rewards_1_time')
                 self.config.task_call('DailyQuest')
             # Delay self
             if len(self.dispatched):
@@ -94,7 +94,7 @@ class Assignment(AssignmentClaim, SynthesizeUI):
                 self.config.task_delay(minute=120)
                 # Check future daily
                 if now() > get_server_next_update(self.config.Scheduler_ServerUpdate) - timedelta(minutes=110) \
-                        and KEYWORDS_DAILY_QUEST.Dispatch_1_assignments in quests:
+                        and KEYWORDS_DAILY_QUEST.Dispatch_Assignments_or_claim_Assignment_rewards_1_time in quests:
                     logger.error(
                         "Assigment is scheduled tomorrow but today's assignment daily haven't been finished yet")
                     self.config.task_call('DailyQuest')

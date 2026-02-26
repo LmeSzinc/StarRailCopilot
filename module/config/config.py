@@ -523,7 +523,7 @@ class AzurLaneConfig(ConfigUpdater, ManualConfig, GeneratedConfig, ConfigWatcher
                 q.write_quests([
                     'Complete_1_Daily_Mission',
                     'Log_in_to_the_game',
-                    'Dispatch_1_assignments',
+                    'Dispatch_Assignments_or_claim_Assignment_rewards_1_time',
                     'Complete_Divergent_Universe_or_Currency_Wars_1_times',
                     'Obtain_victory_in_combat_with_Support_Characters_1_times',
                     'Consume_120_Trailblaze_Power',

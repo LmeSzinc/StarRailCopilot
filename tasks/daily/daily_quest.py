@@ -390,7 +390,7 @@ class DailyQuestUI(DungeonUI, RouteLoader):
                 future += 200
             else:
                 logger.info('Stamina consume cannot achieved, dungeon task is scheduled tomorrow')
-        if KEYWORDS_DAILY_QUEST.Dispatch_1_assignments in quests:
+        if KEYWORDS_DAILY_QUEST.Dispatch_Assignments_or_claim_Assignment_rewards_1_time in quests:
             # 10min in advance to do quests
             if assignment < reset - timedelta(minutes=10):
                 logger.info('Assignment can be achieved in the future')

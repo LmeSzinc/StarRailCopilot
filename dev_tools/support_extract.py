@@ -1,8 +1,8 @@
+from module.base.utils import random_rectangle_vector_opted
 from module.exception import ScriptError
 from module.logger import logger
 from tasks.combat.assets.assets_combat_prepare import COMBAT_PREPARE
-from tasks.combat.assets.assets_combat_support import COMBAT_SUPPORT_LIST
-from tasks.combat.assets.assets_combat_team import COMBAT_TEAM_SUPPORT
+from tasks.combat.assets.assets_combat_support import COMBAT_SUPPORT_LIST, COMBAT_TEAM_SUPPORT, COMBAT_SUPPORT_LIST_GRID
 from tasks.combat.support_dev import SupportDev
 from tasks.combat.support_tab import support_tab
 from tasks.dungeon.dungeon import Dungeon
@@ -67,7 +67,7 @@ class SupportExtract(Dungeon, SupportDev):
             in: COMBAT_SUPPORT_LIST
         """
         tab = support_tab()
-        tab.set('Strangers', main=self)
+        tab.set('Support', main=self)
         scroll = self._support_scroll()
         scroll.set_bottom(main=self)
         scroll.set_top(main=self)
@@ -96,7 +96,7 @@ class SupportExtract(Dungeon, SupportDev):
 
         logger.info('Goto support page')
         # Goto first calyx golden
-        dungeon = KEYWORDS_DUNGEON_LIST.Calyx_Golden_Aether_Amphoreus
+        dungeon = KEYWORDS_DUNGEON_LIST.Calyx_Golden_Aether_Planarcadia
         self.dungeon_tab_goto(KEYWORDS_DUNGEON_TAB.Survival_Index)
         self.dungeon_goto(dungeon)
         self.support_enter()
@@ -119,8 +119,11 @@ class SupportExtract(Dungeon, SupportDev):
                 if scroll.at_bottom(main=self):
                     logger.info('Support list reached bottom')
                     break
+                p1, p2 = random_rectangle_vector_opted(
+                    (0, -320), box=COMBAT_SUPPORT_LIST_GRID.button, random_range=(-20, -30, 20, 30), padding=0)
+                self.device.drag(p1, p2, name=f'SUPPORT_DRAG')
                 self.device.click_record_clear()
-                scroll.next_page(main=self)
+                self.device.screenshot()
             self.support_refresh_list()
             self.support_refresh_wait_top()
 
@@ -136,7 +139,7 @@ if __name__ == '__main__':
     4. Stop manually if you think missing templates are all gathered.
     
     """
-    self = SupportExtract('src2')
+    self = SupportExtract('src')
     self.device.screenshot()
     self.goto_support_page()
     self.gen_templates()

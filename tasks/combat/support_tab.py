@@ -3,14 +3,6 @@ from tasks.combat.assets.assets_combat_support_tab import *
 
 
 class SupportTab(Switch):
-    def add_state(self, state, check_button, click_button=None):
-        # Load search
-        if check_button is not None:
-            check_button.load_search(TAB_SEARCH.area)
-        if click_button is not None:
-            click_button.load_search(TAB_SEARCH.area)
-        return super().add_state(state, check_button, click_button)
-
     def get(self, main):
         """
         Args:
@@ -41,6 +33,7 @@ class SupportTab(Switch):
 
 def support_tab() -> SupportTab:
     tab = SupportTab('SupportTab', is_selector=True)
-    tab.add_state('Friends', check_button=FRIENDS_CHECK, click_button=FRIENDS_CLICK)
-    tab.add_state('Strangers', check_button=STRANGER_CHECK, click_button=STRANGER_CLICK)
+    tab.add_state('Catalog', check_button=CATALOG_CHECK, click_button=CATALOG_CLICK)
+    tab.add_state('Support', check_button=SUPPORT_CHECK, click_button=SUPPORT_CLICK)
+    tab.add_state('Team', check_button=TEAM_CHECK, click_button=TEAM_CLICK)
     return tab

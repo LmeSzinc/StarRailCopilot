@@ -31,8 +31,8 @@
       "help": "Task.Dungeon.help"
     },
     "Ornament": {
-      "name": "Task.Ornament.name",
-      "help": "Task.Ornament.help"
+      "name": "オーナメント抽出",
+      "help": "「オーナメント抽出」を実行するには、以下の条件を満たす必要があります：\n月に一度、事前に「差分宇宙」を手動でクリアし、セーブデータを保存しておくこと。"
     },
     "DailyQuest": {
       "name": "Task.DailyQuest.name",
@@ -245,6 +245,7 @@
     "Name": {
       "name": "Dungeon.Name.name",
       "help": "Dungeon.Name.help",
+      "Cavern_of_Corrosion_Path_of_Possession": "遺器：魔法少女 & 卜者（魔占の路）",
       "Cavern_of_Corrosion_Path_of_Hidden_Salvation": "遺器：救世主 & 隠者（隠救の路）",
       "Cavern_of_Corrosion_Path_of_Thundersurge": "遺器：烈陽 & 船長（雷滾の路）",
       "Cavern_of_Corrosion_Path_of_Aria": "遺器：英雄 & 詩人（弦歌の路）",
@@ -259,14 +260,17 @@
       "Cavern_of_Corrosion_Path_of_Drifting": "遺器：治療套 & ガンマン（漂泊の路）",
       "Cavern_of_Corrosion_Path_of_Jabbing_Punch": "遺器：物理套 & 怪盗（迅拳の路）",
       "Cavern_of_Corrosion_Path_of_Gelid_Wind": "遺器：氷套 & 風套（霜風の路）",
+      "Calyx_Golden_Memories_Planarcadia": "素材：役割経験（回憶の蕾 二相楽園）：",
       "Calyx_Golden_Memories_Amphoreus": "素材：役割経験（回憶の蕾 オンパロス）：",
       "Calyx_Golden_Memories_Penacony": "素材：役割経験（回憶の蕾 ピノコニー）：",
       "Calyx_Golden_Memories_The_Xianzhou_Luofu": "素材：役割経験（回憶の蕾 仙舟羅浮）：",
       "Calyx_Golden_Memories_Jarilo_VI": "素材：役割経験（回憶の蕾 ヤリーロ-VI）：",
+      "Calyx_Golden_Aether_Planarcadia": "素材：武器経験（エーテルの蕾 二相楽園）",
       "Calyx_Golden_Aether_Amphoreus": "素材：武器経験（エーテルの蕾 オンパロス）",
       "Calyx_Golden_Aether_Penacony": "素材：武器経験（エーテルの蕾 ピノコニー）",
       "Calyx_Golden_Aether_The_Xianzhou_Luofu": "素材：武器経験（エーテルの蕾 仙舟羅浮）",
       "Calyx_Golden_Aether_Jarilo_VI": "素材：武器経験（エーテルの蕾 ヤリーロ-VI）",
+      "Calyx_Golden_Treasures_Planarcadia": "素材：クレジット（秘蔵の蕾 二相楽園）",
       "Calyx_Golden_Treasures_Amphoreus": "素材：クレジット（秘蔵の蕾 オンパロス）",
       "Calyx_Golden_Treasures_Penacony": "素材：クレジット（秘蔵の蕾 ピノコニー）",
       "Calyx_Golden_Treasures_The_Xianzhou_Luofu": "素材：クレジット（秘蔵の蕾 仙舟羅浮）",
@@ -277,6 +281,7 @@
       "Calyx_Crimson_Preservation_Penacony_ClockStudiosThemePark": "軌跡素材：存護（クラークフィルムランド）",
       "Calyx_Crimson_The_Hunt_Jarilo_OutlyingSnowPlains": "軌跡素材：巡狩（郊外雪原）",
       "Calyx_Crimson_The_Hunt_Penacony_SoulGladScorchsandAuditionVenue": "軌跡素材：巡狩（スラーダ熱砂オーディション会場）",
+      "Calyx_Crimson_The_Hunt_Amphoreus_MemortisShoreRuinsofTime": "軌跡素材：巡狩（葬られし記憶の彼岸時の果て）",
       "Calyx_Crimson_Abundance_Jarilo_BackwaterPass": "軌跡素材：豊穣（外縁通路）",
       "Calyx_Crimson_Abundance_Luofu_FyxestrollGarden": "軌跡素材：豊穣（綏園）",
       "Calyx_Crimson_Erudition_Jarilo_RivetTown": "軌跡素材：知恵（リベットタウン）",
@@ -286,18 +291,20 @@
       "Calyx_Crimson_Nihility_Jarilo_GreatMine": "軌跡素材：虚無（大鉱区）",
       "Calyx_Crimson_Nihility_Luofu_AlchemyCommission": "軌跡素材：虚無（丹鼎司）",
       "Calyx_Crimson_Remembrance_Amphoreus_StrifeRuinsCastrumKremnos": "軌跡素材：記憶（紛争の爪痕クレムノス）",
+      "Calyx_Crimson_Elation_Planarcadia_WorldEndTavern": "軌跡素材：愉悦（パブワールドエンド）",
       "Stagnant_Shadow_Spike": "昇格素材：物理（ナターシャ / クラーラ / ルカ / 素裳）",
       "Stagnant_Shadow_Perdition": "昇格素材：物理（寒鴉 / アルジェンティ）",
-      "Stagnant_Shadow_Duty": "昇格素材：物理（ブートヒル / ロビン / 雲璃）",
-      "Stagnant_Shadow_Deepsheaf": "昇格素材：物理（ファイノン / セイレンス / 丹恒・騰荒）",
+      "Stagnant_Shadow_Duty": "昇格素材：物理（雲璃 / ロビン / ブートヒル）",
+      "Stagnant_Shadow_Deepsheaf": "昇格素材：物理（ファイノン / セイレンス / 丹恒・騰荒 / 爻光）",
       "Stagnant_Shadow_Blaze": "昇格素材：炎（姫子 / アスター / フック）",
-      "Stagnant_Shadow_Scorch": "昇格素材：炎（桂乃芬 / トパーズ&カブ / 帰忘の流離人）",
-      "Stagnant_Shadow_Ire": "昇格素材：炎（ホタル / ギャラガー / 椒丘 / 霊砂）",
-      "Stagnant_Shadow_Ashes": "昇格素材：炎（ダリア）",
+      "Stagnant_Shadow_Scorch": "昇格素材：炎（トパーズ&カブ / 桂乃芬 / 帰忘の流離人）",
+      "Stagnant_Shadow_Roast": "昇格素材：量子（花火 / ジェイド）",
+      "Stagnant_Shadow_Ire": "昇格素材：炎（椒丘 / 霊砂 / ギャラガー / ホタル）",
+      "Stagnant_Shadow_Ashes": "昇格素材：炎（ダリア / 火花）",
       "Stagnant_Shadow_Rime": "昇格素材：氷（三月なのか / ヘルタ / ジェパード / ペラ）",
       "Stagnant_Shadow_Icicle": "昇格素材：氷（彦卿 / 鏡流 / ルアン・メェイ）",
       "Stagnant_Shadow_Nectar": "昇格素材：氷（ミーシャ / マダム・ヘルタ）",
-      "Stagnant_Shadow_Sirens": "昇格素材：氷（キュレネ / 長夜月）",
+      "Stagnant_Shadow_Sirens": "昇格素材：氷（長夜月 / キュレネ）",
       "Stagnant_Shadow_Fulmination": "昇格素材：雷（アーラン / セーバル / 停雲 / 白露）",
       "Stagnant_Shadow_Doom": "昇格素材：雷（カフカ / 景元 / 黄泉）",
       "Stagnant_Shadow_Mechwolf": "昇格素材：雷（モゼ / アグライア）",
@@ -307,8 +314,7 @@
       "Stagnant_Shadow_Cinders": "昇格素材：風（ケリュドラ）",
       "Stagnant_Shadow_Quanta": "昇格素材：量子（銀狼 / ゼーレ / 青雀）",
       "Stagnant_Shadow_Abomination": "昇格素材：量子（リンクス / 符玄 / 雪衣）",
-      "Stagnant_Shadow_Roast": "昇格素材：量子（ジェイド / 花火）",
-      "Stagnant_Shadow_Gelidmoon": "昇格素材：量子（トリビー / キャストリス / サフェル / アーチャー）",
+      "Stagnant_Shadow_Gelidmoon": "昇格素材：量子（トリビー / サフェル / キャストリス / アーチャー）",
       "Stagnant_Shadow_Mirage": "昇格素材：虚数（ヴェルト / 羅刹 / 御空）",
       "Stagnant_Shadow_Puppetry": "昇格素材：虚数（丹恒・飲月 / アベンチュリン / Dr.レイシオ）",
       "Stagnant_Shadow_Timbre": "昇格素材：虚数（サンデー / 乱破）",
@@ -317,14 +323,17 @@
     "NameAtDoubleCalyx": {
       "name": "Dungeon.NameAtDoubleCalyx.name",
       "help": "Dungeon.NameAtDoubleCalyx.help",
+      "Calyx_Golden_Memories_Planarcadia": "素材：役割経験（回憶の蕾 二相楽園）：",
       "Calyx_Golden_Memories_Amphoreus": "素材：役割経験（回憶の蕾 オンパロス）：",
       "Calyx_Golden_Memories_Penacony": "素材：役割経験（回憶の蕾 ピノコニー）：",
       "Calyx_Golden_Memories_The_Xianzhou_Luofu": "素材：役割経験（回憶の蕾 仙舟羅浮）：",
       "Calyx_Golden_Memories_Jarilo_VI": "素材：役割経験（回憶の蕾 ヤリーロ-VI）：",
+      "Calyx_Golden_Aether_Planarcadia": "素材：武器経験（エーテルの蕾 二相楽園）",
       "Calyx_Golden_Aether_Amphoreus": "素材：武器経験（エーテルの蕾 オンパロス）",
       "Calyx_Golden_Aether_Penacony": "素材：武器経験（エーテルの蕾 ピノコニー）",
       "Calyx_Golden_Aether_The_Xianzhou_Luofu": "素材：武器経験（エーテルの蕾 仙舟羅浮）",
       "Calyx_Golden_Aether_Jarilo_VI": "素材：武器経験（エーテルの蕾 ヤリーロ-VI）",
+      "Calyx_Golden_Treasures_Planarcadia": "素材：クレジット（秘蔵の蕾 二相楽園）",
       "Calyx_Golden_Treasures_Amphoreus": "素材：クレジット（秘蔵の蕾 オンパロス）",
       "Calyx_Golden_Treasures_Penacony": "素材：クレジット（秘蔵の蕾 ピノコニー）",
       "Calyx_Golden_Treasures_The_Xianzhou_Luofu": "素材：クレジット（秘蔵の蕾 仙舟羅浮）",
@@ -335,6 +344,7 @@
       "Calyx_Crimson_Preservation_Penacony_ClockStudiosThemePark": "軌跡素材：存護（クラークフィルムランド）",
       "Calyx_Crimson_The_Hunt_Jarilo_OutlyingSnowPlains": "軌跡素材：巡狩（郊外雪原）",
       "Calyx_Crimson_The_Hunt_Penacony_SoulGladScorchsandAuditionVenue": "軌跡素材：巡狩（スラーダ熱砂オーディション会場）",
+      "Calyx_Crimson_The_Hunt_Amphoreus_MemortisShoreRuinsofTime": "軌跡素材：巡狩（葬られし記憶の彼岸時の果て）",
       "Calyx_Crimson_Abundance_Jarilo_BackwaterPass": "軌跡素材：豊穣（外縁通路）",
       "Calyx_Crimson_Abundance_Luofu_FyxestrollGarden": "軌跡素材：豊穣（綏園）",
       "Calyx_Crimson_Erudition_Jarilo_RivetTown": "軌跡素材：知恵（リベットタウン）",
@@ -343,11 +353,13 @@
       "Calyx_Crimson_Harmony_Penacony_TheReverieDreamscape": "軌跡素材：調和（ホテル・レバリー-夢境）",
       "Calyx_Crimson_Nihility_Jarilo_GreatMine": "軌跡素材：虚無（大鉱区）",
       "Calyx_Crimson_Nihility_Luofu_AlchemyCommission": "軌跡素材：虚無（丹鼎司）",
-      "Calyx_Crimson_Remembrance_Amphoreus_StrifeRuinsCastrumKremnos": "軌跡素材：記憶（紛争の爪痕クレムノス）"
+      "Calyx_Crimson_Remembrance_Amphoreus_StrifeRuinsCastrumKremnos": "軌跡素材：記憶（紛争の爪痕クレムノス）",
+      "Calyx_Crimson_Elation_Planarcadia_WorldEndTavern": "軌跡素材：愉悦（パブワールドエンド）"
     },
     "NameAtDoubleRelic": {
       "name": "Dungeon.NameAtDoubleRelic.name",
       "help": "Dungeon.NameAtDoubleRelic.help",
+      "Cavern_of_Corrosion_Path_of_Possession": "遺器：魔法少女 & 卜者（魔占の路）",
       "Cavern_of_Corrosion_Path_of_Hidden_Salvation": "遺器：救世主 & 隠者（隠救の路）",
       "Cavern_of_Corrosion_Path_of_Thundersurge": "遺器：烈陽 & 船長（雷滾の路）",
       "Cavern_of_Corrosion_Path_of_Aria": "遺器：英雄 & 詩人（弦歌の路）",
@@ -408,16 +420,18 @@
       "help": "DungeonSupport._info.help"
     },
     "Use": {
-      "name": "DungeonSupport.Use.name",
-      "help": "DungeonSupport.Use.help",
+      "name": "サポートを使用",
+      "help": "",
       "always_use": "always_use",
       "when_daily": "when_daily",
       "do_not_use": "do_not_use"
     },
     "Character": {
-      "name": "DungeonSupport.Character.name",
-      "help": "DungeonSupport.Character.help",
+      "name": "サポートキャラ",
+      "help": "フレンドのサポートキャラクターを選択します。見つからない場合は、最初のキャラクターが選択されます。フレンドをピン留めすることをお勧めします。",
       "FirstCharacter": "FirstCharacter",
+      "Sparxie": "[4.0] 火花",
+      "YaoGuang": "[4.0] 爻光",
       "TheDahlia": "[3.8] ダリア",
       "Cyrene": "[3.7] キュレネ",
       "Evernight": "[3.6] 長夜月",
@@ -498,6 +512,14 @@
       "Tingyun": "停雲",
       "Pela": "ペラ",
       "Natasha": "ナターシャ"
+    },
+    "Replace": {
+      "name": "サポート入れ替え位置",
+      "help": "サポートキャラクターはチーム内の指定された位置と入れ替わります。サポートキャラクターがチーム内のキャラクターと重複する場合、そのキャラクターと直接入れ替わり、この設定は無効になります。チームが満員でない場合、サポートキャラクターは直接チームに入り、この設定は無効になります。",
+      "1": "1番目",
+      "2": "2番目",
+      "3": "3番目",
+      "4": "4番目"
     }
   },
   "DungeonStorage": {
@@ -622,7 +644,7 @@
       "help": ""
     },
     "Item_Searing_Steel_Blade": {
-      "name": "昇格素材：炎（桂乃芬 / トパーズ&カブ / 帰忘の流離人）",
+      "name": "昇格素材：炎（トパーズ&カブ / 桂乃芬 / 帰忘の流離人）",
       "help": ""
     },
     "Item_Gelid_Chitin": {
@@ -646,11 +668,11 @@
       "help": ""
     },
     "Item_IPC_Work_Permit": {
-      "name": "昇格素材：物理（ブートヒル / ロビン / 雲璃）",
+      "name": "昇格素材：物理（雲璃 / ロビン / ブートヒル）",
       "help": ""
     },
     "Item_Raging_Heart": {
-      "name": "昇格素材：炎（ホタル / ギャラガー / 椒丘 / 霊砂）",
+      "name": "昇格素材：炎（椒丘 / 霊砂 / ギャラガー / ホタル）",
       "help": ""
     },
     "Item_Dream_Fridge": {
@@ -666,7 +688,7 @@
       "help": ""
     },
     "Item_Dream_Flamer": {
-      "name": "昇格素材：量子（ジェイド / 花火）",
+      "name": "昇格素材：量子（花火 / ジェイド）",
       "help": ""
     },
     "Item_Chordal_Mirage": {
@@ -674,15 +696,19 @@
       "help": ""
     },
     "Item_Invasive_Clot": {
-      "name": "昇格素材：物理（ファイノン / セイレンス / 丹恒・騰荒）",
+      "name": "昇格素材：物理（ファイノン / セイレンス / 丹恒・騰荒 / 爻光）",
       "help": ""
     },
     "Item_Radiant_Prominence": {
-      "name": "昇格素材：炎（ダリア）",
+      "name": "昇格素材：炎（ダリア / 火花）",
       "help": ""
     },
     "Item_Sea_Siren_Torn_Fin": {
-      "name": "昇格素材：氷（キュレネ / 長夜月）",
+      "name": "昇格素材：氷（長夜月 / キュレネ）",
+      "help": ""
+    },
+    "Item_Thunder_Strum": {
+      "name": "Unknown_Dungeon_Come_From",
       "help": ""
     },
     "Item_Charred_Bud_of_Twilight": {
@@ -690,7 +716,7 @@
       "help": ""
     },
     "Item_Darkveil_Moonlight": {
-      "name": "昇格素材：量子（トリビー / キャストリス / サフェル / アーチャー）",
+      "name": "昇格素材：量子（トリビー / サフェル / キャストリス / アーチャー）",
       "help": ""
     },
     "Item_Harbinger_of_Strife": {
@@ -755,6 +781,14 @@
     },
     "Item_Flower_of_Alaya": {
       "name": "軌跡素材：記憶（紛争の爪痕クレムノス）",
+      "help": ""
+    },
+    "Item_The_Fluffy_Collector_Edition": {
+      "name": "軌跡素材：愉悦（パブワールドエンド）",
+      "help": ""
+    },
+    "Item_Lance_of_Retribution": {
+      "name": "軌跡素材：巡狩（葬られし記憶の彼岸時の果て）",
       "help": ""
     },
     "Item_Tracks_of_Destiny": {
@@ -832,6 +866,10 @@
     "Item_Eternal_Lament": {
       "name": "果てしなく続く悲嘆",
       "help": ""
+    },
+    "Item_Lucid_Awl": {
+      "name": "夢見の絵筆",
+      "help": ""
     }
   },
   "PlannerTarget": {
@@ -851,6 +889,8 @@
       "name": "PlannerTarget.Character.name",
       "help": "PlannerTarget.Character.help",
       "_none_": "_none_",
+      "Sparxie": "[4.0] 火花",
+      "YaoGuang": "[4.0] 爻光",
       "TheDahlia": "[3.8] ダリア",
       "Cyrene": "[3.7] キュレネ",
       "Evernight": "[3.6] 長夜月",
@@ -936,6 +976,8 @@
       "name": "PlannerTarget.Cone.name",
       "help": "PlannerTarget.Cone.help",
       "_none_": "_none_",
+      "When_She_Decided_to_See": "[4.0] 爻光 | 5* 彼女が視ると決めた時",
+      "Dazzled_by_a_Flowery_World": "[4.0] 火花 | 5* きらびやかな世界",
       "This_Love_Forever": "[3.7] キュレネ | 5* 愛はいま永遠に",
       "Though_Worlds_Apart": "[3.6] 丹恒・騰荒 | 5* 万里の山河を越えて",
       "Never_Forget_Her_Flame": "[3.8] ダリア | 5* 彼女の炎を忘れずに",
@@ -1002,6 +1044,8 @@
       "For_Tomorrow_Journey": "4* 明日のための旅",
       "Hey_Over_Here": "4* よぉ、ここにいるぜ",
       "Before_the_Tutorial_Mission_Starts": "4* 初めてのクエストの前に",
+      "Today_Good_Luck": "4* 今日は好運",
+      "Mushy_Shroomy_Adventures": "4* タケタケ冒険記",
       "See_You_at_the_End": "4* 終点でまた会おう",
       "Holiday_Thermae_Escapade": "4* 休日のバルネア大冒険",
       "A_Dream_Scented_in_Wheat": "4* 麦の香り漂う夢",
@@ -1063,6 +1107,8 @@
       "Day_One_of_My_New_Life": "4* 余生の初日",
       "Good_Night_and_Sleep_Well": "4* おやすみなさいと寝顔",
       "Post_Op_Conversation": "4* 手術後の会話",
+      "Lingering_Tear": "3* 残涙",
+      "Sneering": "3* 嗤笑",
       "Reminiscence": "3* 辿る記憶",
       "Shadowburn": "3* 燃ゆる影",
       "Sagacity": "3* 見識",
@@ -1091,6 +1137,7 @@
       "name": "PlannerTarget.Relic.name",
       "help": "PlannerTarget.Relic.help",
       "_none_": "_none_",
+      "Cavern_of_Corrosion_Path_of_Possession": "遺器：魔法少女 & 卜者（魔占の路）",
       "Cavern_of_Corrosion_Path_of_Hidden_Salvation": "遺器：救世主 & 隠者（隠救の路）",
       "Cavern_of_Corrosion_Path_of_Thundersurge": "遺器：烈陽 & 船長（雷滾の路）",
       "Cavern_of_Corrosion_Path_of_Aria": "遺器：英雄 & 詩人（弦歌の路）",
@@ -1615,9 +1662,10 @@
       "Divergent_Universe_Smelted_Heart": "飾品：盗賊 & ウェンワーク（鋼の意志）",
       "Divergent_Universe_Untoppled_Walls": "飾品：宇宙 & 仙舟（不動の砦）"
     },
-    "Team": {
-      "name": "Ornament.Team.name",
-      "help": "Ornament.Team.help",
+    "Team40": {
+      "name": "出撃チーム",
+      "help": "指定されたチームはデフォルトの名前を使用する必要があります。カスタムチーム名は使用できません。\n注意：ゲームクライアントは前回のチームをクラウド同期できないため、チームを指定することをお勧めします。",
+      "0": "前回のチーム",
       "1": "1",
       "2": "2",
       "3": "3",

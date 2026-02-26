@@ -25,39 +25,30 @@ CHARACTER_OPERATE = ButtonWrapper(
 )
 LIST_REFRESH = ButtonWrapper(
     name='LIST_REFRESH',
-    share=[
-        Button(
-            file='./assets/share/combat/support_dev/LIST_REFRESH.png',
-            area=(319, 645, 337, 681),
-            search=(299, 625, 357, 701),
-            color=(196, 195, 197),
-            button=(319, 645, 337, 681),
-        ),
-        Button(
-            file='./assets/share/combat/support_dev/LIST_REFRESH.2.png',
-            area=(312, 640, 330, 676),
-            search=(292, 620, 350, 696),
-            color=(210, 209, 210),
-            button=(312, 640, 330, 676),
-        ),
-    ],
+    share=Button(
+        file='./assets/share/combat/support_dev/LIST_REFRESH.png',
+        area=(310, 649, 327, 667),
+        search=(290, 629, 347, 687),
+        color=(185, 185, 186),
+        button=(310, 649, 327, 667),
+    ),
 )
 LIST_REFRESHED = ButtonWrapper(
     name='LIST_REFRESHED',
     share=[
         Button(
             file='./assets/share/combat/support_dev/LIST_REFRESHED.png',
-            area=(319, 653, 337, 672),
-            search=(299, 633, 357, 692),
-            color=(63, 63, 68),
-            button=(319, 653, 337, 672),
+            area=(310, 649, 327, 668),
+            search=(290, 629, 347, 688),
+            color=(173, 176, 186),
+            button=(310, 649, 327, 668),
         ),
         Button(
             file='./assets/share/combat/support_dev/LIST_REFRESHED.2.png',
-            area=(300, 638, 331, 678),
-            search=(280, 618, 351, 698),
-            color=(174, 178, 190),
-            button=(300, 638, 331, 678),
+            area=(310, 649, 327, 667),
+            search=(290, 629, 347, 687),
+            color=(59, 61, 63),
+            button=(310, 649, 327, 667),
         ),
     ],
 )

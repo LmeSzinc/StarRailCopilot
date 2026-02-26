@@ -315,8 +315,21 @@ Sea_Siren_Torn_Fin = ItemAscension(
     item_group=1100,
     dungeon_id=1126,
 )
-Charred_Bud_of_Twilight = ItemAscension(
+Thunder_Strum = ItemAscension(
     id=25,
+    name='Thunder_Strum',
+    cn='狂雷扫弦',
+    cht='狂雷掃弦',
+    en='Thunder Strum',
+    jp='狂雷のストローク',
+    es='Rasgueo tormentoso',
+    rarity='VeryRare',
+    item_id=110434,
+    item_group=1100,
+    dungeon_id=1128,
+)
+Charred_Bud_of_Twilight = ItemAscension(
+    id=26,
     name='Charred_Bud_of_Twilight',
     cn='暮晖烬蕾',
     cht='暮暉燼蕾',
@@ -329,7 +342,7 @@ Charred_Bud_of_Twilight = ItemAscension(
     dungeon_id=1125,
 )
 Darkveil_Moonlight = ItemAscension(
-    id=26,
+    id=27,
     name='Darkveil_Moonlight',
     cn='暗帷月华',
     cht='暗帷月華',
@@ -342,7 +355,7 @@ Darkveil_Moonlight = ItemAscension(
     dungeon_id=1123,
 )
 Harbinger_of_Strife = ItemAscension(
-    id=27,
+    id=28,
     name='Harbinger_of_Strife',
     cn='纷争先兆',
     cht='紛爭先兆',

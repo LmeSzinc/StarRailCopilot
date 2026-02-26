@@ -1,14 +1,9 @@
 import module.config.server as server
-from module.base.decorator import run_once
 from module.device.platform.utils import cached_property
 from module.exception import RequestHumanTakeover
 from module.logger import logger
-from module.ui.scroll import AdaptiveScroll
 from tasks.base.assets.assets_base_page import MAP_EXIT
-from tasks.base.assets.assets_base_popup import POPUP_CANCEL
-from tasks.character.keywords import CharacterList
 from tasks.combat.assets.assets_combat_prepare import COMBAT_PREPARE, WAVE_CHECK, WAVE_CHECK_SEARCH
-from tasks.combat.assets.assets_combat_support import COMBAT_SUPPORT_LIST, COMBAT_SUPPORT_LIST_SCROLL_OE
 from tasks.combat.prepare import WaveDigit
 from tasks.dungeon.dungeon import Dungeon
 from tasks.dungeon.keywords import DungeonList
@@ -18,6 +13,7 @@ from tasks.ornament.assets.assets_ornament_combat import *
 from tasks.ornament.assets.assets_ornament_prepare import *
 from tasks.ornament.assets.assets_ornament_special import *
 from tasks.ornament.assets.assets_ornament_ui import *
+from tasks.ornament.team import OrnamentTeam
 from tasks.rogue.route.loader import RouteLoader, model_from_json
 from tasks.rogue.route.model import RogueRouteListModel, RogueRouteModel
 
@@ -26,7 +22,7 @@ class OrnamentTeamNotPrepared(Exception):
     pass
 
 
-class OrnamentCombat(Dungeon, RouteLoader):
+class OrnamentCombat(Dungeon, RouteLoader, OrnamentTeam):
     def combat_enter_from_map(self, skip_first_screenshot=True):
         # Don't enter from map, UI too deep inside
         # Enter from survival index instead
@@ -90,72 +86,30 @@ class OrnamentCombat(Dungeon, RouteLoader):
         self.oe_leave()
         return True
 
-    @staticmethod
-    def _support_scroll():
-        """
-        v3.2, Ornament has different support scroll so OrnamentCombat._support_scroll overrides
-        """
-        return AdaptiveScroll(area=COMBAT_SUPPORT_LIST_SCROLL_OE.area,
-                              name=COMBAT_SUPPORT_LIST_SCROLL_OE.name)
+    @cached_property
+    def _dict_character_slot(self):
+        return {
+            1: OE_SLOT_1,
+            2: OE_SLOT_2,
+            3: OE_SLOT_3,
+            4: OE_SLOT_4,
+        }
 
-    def _search_support_with_fallback(self, support_character_name: str = "JingYuan"):
-        # In Ornament Extraction, first character isn't selected by default
-        if support_character_name == "FirstCharacter":
-            self._select_first()
-            return True
-        return super()._search_support_with_fallback(support_character_name)
+    def _on_enter_support(self):
+        # ornament support has not tab
+        self._support_disable_friend_only()
 
-    def support_set(self, support_character_name: str = "FirstCharacter"):
-        """
-        Args:
-            support_character_name: Support character name
-
-        Returns:
-            bool: If clicked
-
-        Pages:
-            in: COMBAT_PREPARE
-            mid: COMBAT_SUPPORT_LIST
-            out: COMBAT_PREPARE
-        """
-        logger.hr("Combat support")
-        if isinstance(support_character_name, CharacterList):
-            support_character_name = support_character_name.name
-        self.interval_clear(SUPPORT_ADD)
-        skip_first_screenshot = True
-        selected_support = False
-        while 1:
-            if skip_first_screenshot:
-                skip_first_screenshot = False
-            else:
-                self.device.screenshot()
-
-            # End
-            if self.match_template_luma(SUPPORT_DISMISS):
-                return True
-
-            # Click
-            # small icon, use match_template_luma
-            if self.match_template_luma(SUPPORT_ADD, interval=2):
-                self.device.click(SUPPORT_ADD)
-                self.interval_reset(SUPPORT_ADD)
-                continue
-            if self.appear(POPUP_CANCEL, interval=1):
-                logger.warning(
-                    "selected identical character, trying select another")
-                self._cancel_popup()
-                self._select_next_support()
-                self.interval_reset(POPUP_CANCEL)
-                continue
-            if self.appear(COMBAT_SUPPORT_LIST, interval=2):
-                if not selected_support:
-                    # Search support
-                    if not selected_support:
-                        self._search_support_with_fallback(support_character_name)
-                        selected_support = True
-                self.device.click(SUPPORT_ADD)
-                self.interval_reset(COMBAT_SUPPORT_LIST)
-                continue
+    def support_set(
+            self,
+            name: str = "FirstCharacter",
+            replace=4,
+            support_button=SUPPORT_ADD,
+            dismiss_button=SUPPORT_DISMISS,
+            confirm_button=PREPARE_CLOSE,
+    ):
+        super().support_set(
+            name, replace=replace,
+            support_button=support_button, dismiss_button=dismiss_button, confirm_button=confirm_button)
 
     def get_equivalent_stamina(self):
         value = self.config.stored.Immersifier.value * 40
@@ -205,16 +159,6 @@ class OrnamentCombat(Dungeon, RouteLoader):
         logger.attr('TrailblazePowerExhausted', flag)
         return flag
 
-    def is_team_prepared(self) -> bool:
-        """
-        Pages:
-            in: COMBAT_PREPARE
-        """
-        slots = CHARACTER_EMPTY_OE.match_multi_template(self.device.image)
-        slots = 4 - len(slots)
-        logger.attr('TeamSlotsPrepared', slots)
-        return slots > 0
-
     def combat_set_wave(self, count=6, total=6):
         """
         Args:
@@ -247,19 +191,11 @@ class OrnamentCombat(Dungeon, RouteLoader):
             out: is_in_main
         """
         self.combat_wave_cost = 40
-
-        @run_once
-        def check_team_prepare():
-            if not self.is_team_prepared():
-                logger.error(f'Please prepare your team in Ornament Extraction')
-                raise OrnamentTeamNotPrepared
-
         logger.hr('Combat prepare')
 
         # wait WAVE_SLIDER_OE
         WAVE_CHECK.load_search(WAVE_CHECK_SEARCH)
         for _ in self.loop():
-            check_team_prepare()
             if self.match_template_luma(WAVE_CHECK):
                 break
 
@@ -286,22 +222,29 @@ class OrnamentCombat(Dungeon, RouteLoader):
             self.oe_leave()
             return False
 
+        # select team
+        team = self.config.Ornament_Team40
+        team_set = False
+        if team > 0:
+            if self.ornament_team_set(team):
+                team_set = True
+        if not team_set:
+            slots = 4 - len(self._get_empty_slot())
+            logger.attr('TeamSlotsPrepared', slots)
+            if slots <= 0:
+                logger.error(f'Please prepare your team in Ornament Extraction')
+                raise OrnamentTeamNotPrepared
+
         # select support
         if support_character:
             # Block COMBAT_TEAM_PREPARE before support set
             support_set = False
         else:
             support_set = True
-        logger.info([support_character, support_set])
+        replace = self.config.DungeonSupport_Replace
+        logger.info([support_character, support_set, replace])
         if support_character:
-            self.support_set(support_character)
-            # wait until support aside closed
-            for _ in self.loop(timeout=1):
-                if self.match_template_color(DU_CHECK):
-                    logger.info('Support aside closed')
-                    break
-            else:
-                logger.warning('Wait support aside closed timeout')
+            self.support_set(support_character, replace=replace)
 
         # enter combat
         trial = 0
@@ -319,8 +262,6 @@ class OrnamentCombat(Dungeon, RouteLoader):
             if trial > 5:
                 logger.critical('Failed to enter dungeon after 5 trial, probably because relics are full')
                 raise RequestHumanTakeover
-            if self.match_template_luma(SUPPORT_ADD):
-                check_team_prepare()
 
             # Click
             if self.appear(COMBAT_PREPARE, interval=5):

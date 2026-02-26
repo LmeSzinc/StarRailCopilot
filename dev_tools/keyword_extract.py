@@ -124,7 +124,7 @@ class KeywordExtract:
         gen.CommentAutoGenerage('dev_tools.keyword_extract')
 
         old_quest = [
-            "Go_on_assignment_1_time",  # -> Dispatch_1_assignments
+            "Go_on_assignment_1_time",  # -> Dispatch_Assignments_or_claim_Assignment_rewards_1_time
             "Complete_Simulated_Universe_1_times",  # same
             "Complete_1_stage_in_Simulated_Universe_Any_world",
             # -> Complete_Divergent_Universe_or_Currency_Wars_1_times
@@ -144,7 +144,7 @@ class KeywordExtract:
         ]
 
         correct_times = {
-            #    "Dispatch_1_assignments":  1,
+            #    "Dispatch_Assignments_or_claim_Assignment_rewards_1_time":  1,
             #    "Complete_Divergent_Universe_or_Currency_Wars_1_times": 1,
             #    "Clear_Calyx_Crimson_1_times": 1,
             "Enter_combat_by_attacking_enemie_Weakness_and_win_1_times": 3,

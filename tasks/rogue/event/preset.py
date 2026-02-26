@@ -71,7 +71,7 @@ STRATEGY_COMMON = {
         KEYWORDS_ROGUE_EVENT_OPTION.Leave_2a92
     ],
     KEYWORDS_ROGUE_EVENT_TITLE.Bounty_Hunter: [
-        KEYWORDS_ROGUE_EVENT_OPTION.Walk_away_28e3,
+        KEYWORDS_ROGUE_EVENT_OPTION.Walk_away_874e,
         KEYWORDS_ROGUE_EVENT_OPTION.Give_him_the_fur_you_re_wearing
     ],
     KEYWORDS_ROGUE_EVENT_TITLE.Nomadic_Miners: [
@@ -81,7 +81,7 @@ STRATEGY_COMMON = {
     KEYWORDS_ROGUE_EVENT_TITLE.Jim_Hulk_and_Jim_Hall: [
         KEYWORDS_ROGUE_EVENT_OPTION.Jim_Hulk_collection_4959,
         KEYWORDS_ROGUE_EVENT_OPTION.Jim_Hulk_collection_d4f1,
-        KEYWORDS_ROGUE_EVENT_OPTION.Walk_away_28e3
+        KEYWORDS_ROGUE_EVENT_OPTION.Walk_away_874e
     ],
     KEYWORDS_ROGUE_EVENT_TITLE.The_Cremators: [
         KEYWORDS_ROGUE_EVENT_OPTION.Bear_ten_carats_of_trash,
@@ -118,17 +118,17 @@ STRATEGY_COMMON = {
     KEYWORDS_ROGUE_EVENT_TITLE.Make_A_Wish: [
         KEYWORDS_ROGUE_EVENT_OPTION.Exchange_for_a_3_star_Blessing,
         KEYWORDS_ROGUE_EVENT_OPTION.Exchange_for_a_2_star_Blessing,
-        KEYWORDS_ROGUE_EVENT_OPTION.Leave_3c49
+        KEYWORDS_ROGUE_EVENT_OPTION.Leave_30e2
     ],
     KEYWORDS_ROGUE_EVENT_TITLE.Let_Exchange_Gifts: [
         KEYWORDS_ROGUE_EVENT_OPTION.Blessing_Exchange,
         KEYWORDS_ROGUE_EVENT_OPTION.Blessing_Reforge,
-        KEYWORDS_ROGUE_EVENT_OPTION.Leave_3c49
+        KEYWORDS_ROGUE_EVENT_OPTION.Leave_30e2
     ],
     KEYWORDS_ROGUE_EVENT_TITLE.Robot_Sales_Terminal: [
         KEYWORDS_ROGUE_EVENT_OPTION.Purchase_1_Blessing_of_1_to_3_star_rarity,
         KEYWORDS_ROGUE_EVENT_OPTION.Purchase_1_Blessing_of_1_to_3_star_rarity,
-        KEYWORDS_ROGUE_EVENT_OPTION.Leave_3c49
+        KEYWORDS_ROGUE_EVENT_OPTION.Leave_30e2
     ],
     KEYWORDS_ROGUE_EVENT_TITLE.History_Fictionologists: [
         KEYWORDS_ROGUE_EVENT_OPTION.Record_of_the_Aeon_of_1,

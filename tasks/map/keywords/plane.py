@@ -861,3 +861,58 @@ Amphoreus_BeyondTimeAnEternalPage = MapPlane(
     world_id=4,
     plane_id=1040501,
 )
+Planarcadia_DuomensionCity = MapPlane(
+    id=80,
+    name='Planarcadia_DuomensionCity',
+    cn='二维市',
+    cht='二維市',
+    en='Duomension City',
+    jp='二次元シティ',
+    es='Bidimensia',
+    world_id=5,
+    plane_id=1050101,
+)
+Planarcadia_PhantasmoonCourtyard = MapPlane(
+    id=81,
+    name='Planarcadia_PhantasmoonCourtyard',
+    cn='幻月秘庭',
+    cht='幻月秘庭',
+    en='Phantasmoon Courtyard',
+    jp='幻月の秘庭',
+    es='Patio Fabuluna',
+    world_id=5,
+    plane_id=1050201,
+)
+Planarcadia_GraphiaAcademy = MapPlane(
+    id=82,
+    name='Planarcadia_GraphiaAcademy',
+    cn='绘世学院',
+    cht='繪世學院',
+    en='Graphia Academy',
+    jp='グラフィエ学院',
+    es='Escuela Grafía',
+    world_id=5,
+    plane_id=2050101,
+)
+Planarcadia_DovebrookDistrict = MapPlane(
+    id=83,
+    name='Planarcadia_DovebrookDistrict',
+    cn='鸽川区',
+    cht='鴿川區',
+    en='Dovebrook District',
+    jp='鳩川区',
+    es='Distrito Palomaguas',
+    world_id=5,
+    plane_id=2050301,
+)
+Planarcadia_WorldEndTavern = MapPlane(
+    id=84,
+    name='Planarcadia_WorldEndTavern',
+    cn='「世界尽头」酒馆',
+    cht='「世界盡頭」酒館',
+    en='"World\'s End" Tavern',
+    jp='パブ「ワールドエンド」',
+    es='Taberna El Fin del Mundo',
+    world_id=5,
+    plane_id=2050201,
+)

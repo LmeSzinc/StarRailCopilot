@@ -118,6 +118,9 @@ DungeonSupport:
     # Options will be injected in config updater
     value: FirstCharacter
     option: [ FirstCharacter, ]
+  Replace:
+    value: 4
+    option: [ 1, 2, 3, 4 ]
 DungeonStorage:
   TrailblazePower:
     stored: StoredTrailblazePower
@@ -408,11 +411,10 @@ Ornament:
     value: Divergent_Universe_Eternal_Comedy
     # OrnamentExtraction will be injected in config updater
     option: [ ]
-  Team:
-    keepvalue: true
-    display: hide
-    value: 1
-    option: [ 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12 ]
+  Team40:
+    # 0 for last team
+    value: 0
+    option: [ 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12 ]
   UseImmersifier:
     type: state
     value: true

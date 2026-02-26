@@ -75,3 +75,12 @@ Remembrance = CharacterPath(
     jp='記憶',
     es='Reminiscencia',
 )
+Elation = CharacterPath(
+    id=9,
+    name='Elation',
+    cn='欢愉',
+    cht='歡愉',
+    en='Elation',
+    jp='愉悦',
+    es='Exultación',
+)

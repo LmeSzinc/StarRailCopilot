@@ -48,14 +48,14 @@ Claim_an_equal_amount_of_Data_Exchange = RogueEventOption(
     jp='同量の『データ交換』を行う',
     es='Recoge la misma cantidad de "intercambio de datos".',
 )
-Leave_7417 = RogueEventOption(
+Leave_97cd = RogueEventOption(
     id=6,
-    name='Leave_7417',
+    name='Leave_97cd',
     cn='离开',
     cht='離開',
     en='Leave',
     jp='離れる',
-    es='Salir.',
+    es='Márchate.',
 )
 For_Fair_Play = RogueEventOption(
     id=7,
@@ -118,7 +118,7 @@ Enhance_2_random_Blessings = RogueEventOption(
     cht='強化2個隨機祝福。',
     en='Enhance 2 random Blessings.',
     jp='祝福をランダムで2個強化する',
-    es='Potencias 2 bendiciones al azar.',
+    es='Potencia 2 bendiciones al azar.',
 )
 Qlipoth_Favor = RogueEventOption(
     id=14,
@@ -201,14 +201,14 @@ Jim_Hulk_collection_d4f1 = RogueEventOption(
     jp='ジャック・ハックの所蔵品',
     es='Colección de Jim Hulk.',
 )
-Walk_away_28e3 = RogueEventOption(
+Walk_away_d070 = RogueEventOption(
     id=23,
-    name='Walk_away_28e3',
+    name='Walk_away_d070',
     cn='转身走开。',
     cht='轉身走開。',
     en='Walk away.',
     jp='その場から去る',
-    es='Te marchas.',
+    es='Da media vuelta y vete.',
 )
 Preserve_Jim_Hulk_remains = RogueEventOption(
     id=24,
@@ -478,7 +478,7 @@ Pat_it_lightly = RogueEventOption(
     cht='輕輕拍它一下。',
     en='Pat it lightly.',
     jp='軽く叩く',
-    es='Le das unas palmaditas.',
+    es='Dale unas palmaditas.',
 )
 Hit_it_hard = RogueEventOption(
     id=54,
@@ -514,7 +514,7 @@ Dismantle_it = RogueEventOption(
     cht='把它拆了。',
     en='Dismantle it.',
     jp='それを解体する',
-    es='Lo desmontas.',
+    es='Desmóntalo.',
 )
 I_ll_buy_it_f619 = RogueEventOption(
     id=58,
@@ -793,7 +793,7 @@ Hug_the_ostracized_subspecie_Trotter = RogueEventOption(
     cht='抱抱被孤立的亞種撲滿',
     en='Hug the ostracized subspecie Trotter',
     jp='孤立された亜種のプーマンを抱きしめる',
-    es='Abraza a la subespecie de Chanchito solitario',
+    es='Abraza a la subespecie de Chanchito solitario.',
 )
 Head_into_the_darkness = RogueEventOption(
     id=89,
@@ -820,7 +820,7 @@ Enjoy_something = RogueEventOption(
     cht='享受其中……',
     en='Enjoy something...',
     jp='楽しんでいる…',
-    es='Disfruta de algo...',
+    es='Disfruta de ello...',
 )
 Accept_the_flames_of_Self_destruction_and_destroy_the_black_box = RogueEventOption(
     id=92,
@@ -919,7 +919,7 @@ Swallow_the_other_fish_eye_and_continue_to_enjoy_the_massage = RogueEventOption(
     cht='吞下另一隻*魚眼*，繼續享受按摩。',
     en='Swallow the other fish eye and continue to enjoy the massage.',
     jp='もう1つの「魚眼」を飲み込み、引き続きマッサージを楽しむ',
-    es='Te tragas el otro ojo de pez y sigues disfrutando del masaje.',
+    es='Trágate el otro ojo de pez y sigue disfrutando del masaje.',
 )
 Return_to_work = RogueEventOption(
     id=103,
@@ -1020,14 +1020,14 @@ Give_him_the_fur_you_re_wearing = RogueEventOption(
     jp='身にまとっている毛皮を彼に渡す',
     es='Dale la piel que llevas puesta.',
 )
-Walk_away_5610 = RogueEventOption(
+Walk_away_874e = RogueEventOption(
     id=114,
-    name='Walk_away_5610',
+    name='Walk_away_874e',
     cn='转身走开。',
     cht='轉身走開。',
     en='Walk away.',
     jp='その場から立ち去る',
-    es='Te marchas.',
+    es='Da media vuelta y vete.',
 )
 Rip_off_his_badge = RogueEventOption(
     id=115,
@@ -1054,7 +1054,7 @@ Get_more_intelligence_from_him = RogueEventOption(
     cht='向他套取更多*情報*。',
     en='Get more "intelligence" from him.',
     jp='彼から更なる「情報」を引き出す',
-    es='Consigue más "inteligencia" de su parte.',
+    es='Consigue más "información" de su parte.',
 )
 Pick_an_Error_Code_Curio = RogueEventOption(
     id=118,
@@ -1108,16 +1108,16 @@ Let_them_experience_the_real_cowboy = RogueEventOption(
     cht='讓他們見識見識真正的「牛仔」。',
     en='Let them experience the real "cowboy."',
     jp='彼らに本物の「カウボーイ」を見せてやる',
-    es='Dejémosles probar al verdadero "vaquero".',
+    es='Déjales probar lo que es ser un verdadero "vaquero".',
 )
-Surrender_immediately_f542 = RogueEventOption(
+Surrender_immediately_8683 = RogueEventOption(
     id=124,
-    name='Surrender_immediately_f542',
+    name='Surrender_immediately_8683',
     cn='直接投降。',
     cht='直接投降。',
     en='Surrender immediately.',
     jp='そのまま降参する',
-    es='Te rindes inmediatamente.',
+    es='Ríndete inmediatamente.',
 )
 Make_a_trade_with_them = RogueEventOption(
     id=125,
@@ -1128,14 +1128,14 @@ Make_a_trade_with_them = RogueEventOption(
     jp='彼らと「取引」する',
     es='Haz negocios con ellos.',
 )
-Surrender_immediately_c09a = RogueEventOption(
+Surrender_immediately_3974 = RogueEventOption(
     id=126,
-    name='Surrender_immediately_c09a',
+    name='Surrender_immediately_3974',
     cn='直接投降。',
     cht='直接投降。',
     en='Surrender immediately.',
     jp='そのまま降参する。',
-    es='Te rindes inmediatamente.',
+    es='Ríndete inmediatamente.',
 )
 Give_up = RogueEventOption(
     id=127,
@@ -1252,7 +1252,7 @@ Bet_on_the_name_of_a_competition_winner = RogueEventOption(
     cht='賭一個擂台贏家的*名字*！',
     en='Bet on the *name* of a competition winner!',
     jp='リングの勝者の「名前」を賭ける！',
-    es='¡Apuestas por el nombre del ganador de la competición!',
+    es='¡Apuesta por el nombre del ganador de la competición!',
 )
 Use_additional_methods_to_get_rid_of_both_batches_of_visitors = RogueEventOption(
     id=140,
@@ -1297,7 +1297,7 @@ Blessing_Reforge = RogueEventOption(
     cht='祝福重鑄',
     en='Blessing Reforge',
     jp='祝福の再鋳造',
-    es='Reforja de bendición',
+    es='Reforja bendiciones.',
 )
 Blessing_Exchange = RogueEventOption(
     id=145,
@@ -1306,16 +1306,16 @@ Blessing_Exchange = RogueEventOption(
     cht='祝福交換',
     en='Blessing Exchange',
     jp='祝福の交換',
-    es='Intercambio de bendición',
+    es='Intercambia bendiciones.',
 )
-Leave_3c49 = RogueEventOption(
+Leave_30e2 = RogueEventOption(
     id=146,
-    name='Leave_3c49',
+    name='Leave_30e2',
     cn='离开',
     cht='離開',
     en='Leave',
     jp='立ち去る',
-    es='Salir.',
+    es='Márchate.',
 )
 Exchange_your_memories = RogueEventOption(
     id=147,
@@ -1324,7 +1324,7 @@ Exchange_your_memories = RogueEventOption(
     cht='互換你們的「記憶」。',
     en='Exchange your memories.',
     jp='あなたたちの「記憶」を交換する',
-    es='Intercambias recuerdos.',
+    es='Intercambia recuerdos.',
 )
 Throw_out_your_story_Then_loot_the_Fun_Experiences_from_the_car = RogueEventOption(
     id=148,
@@ -1333,16 +1333,16 @@ Throw_out_your_story_Then_loot_the_Fun_Experiences_from_the_car = RogueEventOpti
     cht='拋出你的故事！然後從車廂中掠奪「趣味經歷」。',
     en='Throw out your story! Then loot the "Fun Experiences" from the car.',
     jp='自分の物語をさらけ出そう！そして車両の中から「面白い経験」を略奪する',
-    es='¡Te deshaces de tu historia! Acto seguido, saqueas las experiencias divertidas del auto.',
+    es='¡Deshazte de tu historia! Acto seguido, saquea las experiencias divertidas del auto.',
 )
-Overwrite_Equation_b119 = RogueEventOption(
+Overwrite_Equation_0119 = RogueEventOption(
     id=149,
-    name='Overwrite_Equation_b119',
+    name='Overwrite_Equation_0119',
     cn='方程覆写',
     cht='方程式覆寫',
     en='Overwrite Equation',
     jp='方程式上書き',
-    es='Sobrescritura de ecuaciones',
+    es='Sobrescribe ecuaciones.',
 )
 Overwrite_Component = RogueEventOption(
     id=150,
@@ -1362,14 +1362,14 @@ Exchange_Component = RogueEventOption(
     jp='コンポーネントを交換する',
     es='Intercambia componentes.',
 )
-Overwrite_Equation_297d = RogueEventOption(
+Overwrite_Equation_38d1 = RogueEventOption(
     id=152,
-    name='Overwrite_Equation_297d',
+    name='Overwrite_Equation_38d1',
     cn='方程覆写。',
     cht='方程式覆寫。',
     en='Overwrite Equation.',
     jp='方程式上書き。',
-    es='Sobrescritura de ecuaciones',
+    es='Sobrescribe ecuaciones.',
 )
 Reforge_Blessing = RogueEventOption(
     id=153,
@@ -1378,7 +1378,7 @@ Reforge_Blessing = RogueEventOption(
     cht='祝福重鑄。',
     en='Reforge Blessing.',
     jp='祝福の再鋳造。',
-    es='Reforja de bendición',
+    es='Reforja bendiciones.',
 )
 Exchange_for_a_2_star_Blessing = RogueEventOption(
     id=154,
@@ -1387,7 +1387,7 @@ Exchange_for_a_2_star_Blessing = RogueEventOption(
     cht='換取1個二星祝福',
     en='Exchange for a 2-star Blessing',
     jp='★2の祝福を1個交換する',
-    es='Intercambia por 1 bendición de 2 estrellas',
+    es='Intercambia por 1 bendición de 2 estrellas.',
 )
 Exchange_for_a_3_star_Blessing = RogueEventOption(
     id=155,
@@ -1396,7 +1396,7 @@ Exchange_for_a_3_star_Blessing = RogueEventOption(
     cht='換取1個三星祝福',
     en='Exchange for a 3-star Blessing',
     jp='★3の祝福を1個交換する',
-    es='Intercambia por 1 bendición de 3 estrellas',
+    es='Intercambia por 1 bendición de 3 estrellas.',
 )
 Let_the_sleeping_soldiers_wake_up_again = RogueEventOption(
     id=156,
@@ -1405,7 +1405,7 @@ Let_the_sleeping_soldiers_wake_up_again = RogueEventOption(
     cht='讓沉睡的士兵「再次醒來」。',
     en='Let the sleeping soldiers "wake up again."',
     jp='熟睡する兵士を「再び目覚めさせる」',
-    es='Dejas que los soldados dormidos despierten nuevamente.',
+    es='Deja que los soldados dormidos despierten nuevamente.',
 )
 Purchase_1_Blessing_of_1_to_2_star_rarity = RogueEventOption(
     id=157,
@@ -1432,7 +1432,7 @@ You_recall_the_long_forgotten_bargaining_technique = RogueEventOption(
     cht='你回想起忘卻已久的「還價技巧」。',
     en='You recall the long-forgotten "bargaining technique."',
     jp='ずっと忘れていた「価格交渉テクニック」を思い出す',
-    es='Recuerdas la olvidada técnica de regateo.',
+    es='Recuerda la olvidada técnica de regateo.',
 )
 The_protective_net_that_surrounds_the_sales_terminal = RogueEventOption(
     id=160,
@@ -1576,7 +1576,7 @@ Sitting_beside_the_14th_Emperor_and_helping_him_equivocate_and_embellish = Rogue
     cht='坐在第十四世皇帝身邊，幫他編篡……',
     en='Sitting beside the 14th Emperor and helping him equivocate and embellish...',
     jp='第14代皇帝のそばに座って、彼の編纂を手伝う…',
-    es='Te sientas junto al Emperador XIV y lo ayudas a componer...',
+    es='Siéntate junto al Emperador XIV y ayúdalo a componer...',
 )
 I_will_put_down_my_gun = RogueEventOption(
     id=176,
@@ -2377,7 +2377,7 @@ You_decide_to_add_more_weird_stuff_to_it = RogueEventOption(
     cht='你決定加更多奇怪的東西進去……',
     en='You decide to add more weird stuff to it...',
     jp='変なものをもっと入れることにした…',
-    es='Decides añadirle más cosas raras...',
+    es='Decide añadirle más cosas raras...',
 )
 Extrapolate_a_better_method = RogueEventOption(
     id=265,
@@ -2422,7 +2422,7 @@ Release_them_together_from_the_pain = RogueEventOption(
     cht='將牠們一併從「痛苦」中釋放。',
     en='Release them together from the "pain."',
     jp='彼らをまとめて「苦痛」から解放する',
-    es='Libéral junt del "dolor".',
+    es='Libéralas juntas del "dolor".',
 )
 Give_the_adult_beast_a_send_off = RogueEventOption(
     id=270,
@@ -2449,7 +2449,7 @@ Repair_a_damaged_Curio = RogueEventOption(
     cht='修理一個損毀的奇物。',
     en='Repair a damaged Curio.',
     jp='壊れた奇物を1個修理する',
-    es='Reparas un objeto raro destruido.',
+    es='Repara un objeto raro destruido.',
 )
 Repair_all_damaged_Curios = RogueEventOption(
     id=273,
@@ -2458,7 +2458,7 @@ Repair_all_damaged_Curios = RogueEventOption(
     cht='修理全部損毀的奇物。',
     en='Repair all damaged Curios.',
     jp='壊れた奇物をすべて修理する',
-    es='Reparas todos los objetos raros destruidos.',
+    es='Repara todos los objetos raros destruidos.',
 )
 Express_friendship_to_the_inorganic_life = RogueEventOption(
     id=274,
@@ -2620,7 +2620,7 @@ Halfheartedly_sell_Interastral_Peace_Groceries = RogueEventOption(
     cht='敷衍地販售「星際和平雜貨」。',
     en='Halfheartedly sell "Interastral Peace Groceries."',
     jp='「スターピース雑貨」を形だけ販売する',
-    es='Vendes de mala gana Comestibles de la Paz Interastral.',
+    es='Vende de mala gana Comestibles de la Paz Interastral.',
 )
 Secretly_goof_off = RogueEventOption(
     id=292,
@@ -2629,7 +2629,7 @@ Secretly_goof_off = RogueEventOption(
     cht='悄悄偷懶。',
     en='Secretly goof off.',
     jp='こっそりサボる',
-    es='Holgazaneas en secreto.',
+    es='Holgazanea en secreto.',
 )
 Dedicate_off_duty_time_to_the_Amber_Lord = RogueEventOption(
     id=293,
@@ -2638,7 +2638,7 @@ Dedicate_off_duty_time_to_the_Amber_Lord = RogueEventOption(
     cht='將下班時間獻給琥珀王。',
     en='Dedicate off-duty time to the Amber Lord.',
     jp='退勤時間を琥珀の王に捧げる',
-    es='Dedicas tu tiempo libre al Señor del Ámbar.',
+    es='Dedica tu tiempo libre al Señor del Ámbar.',
 )
 Accurately_find_the_target_to_sell_star_systems_to = RogueEventOption(
     id=294,
@@ -2647,7 +2647,7 @@ Accurately_find_the_target_to_sell_star_systems_to = RogueEventOption(
     cht='精準地尋找目標銷售星系。',
     en='Accurately find the target to sell star systems to.',
     jp='的確に目標の販売星系を探す',
-    es='Encuentras con precisión el objetivo al que vender sistemas estelares.',
+    es='Encuentra con precisión el objetivo al que vender sistemas estelares.',
 )
 Convene_the_Universal_Finance_Conference = RogueEventOption(
     id=295,
@@ -2656,7 +2656,7 @@ Convene_the_Universal_Finance_Conference = RogueEventOption(
     cht='召開「宇宙金融會議」。',
     en='Convene the "Universal Finance Conference."',
     jp='「宇宙金融会議」を開催する',
-    es='Convocas la Conferencia Financiera Universal.',
+    es='Convoca la Conferencia Financiera Universal.',
 )
 Settle_the_Expert_Skills_Training = RogueEventOption(
     id=296,
@@ -2665,7 +2665,7 @@ Settle_the_Expert_Skills_Training = RogueEventOption(
     cht='沉澱「專家技能培訓」。',
     en='Settle the "Expert Skills Training."',
     jp='「専門スキル研修」を取り計らう',
-    es='Convocas el Entrenamiento de Habilidades para Expertos.',
+    es='Convoca el Entrenamiento de Habilidades para Expertos.',
 )
 Care_for_the_physical_and_mental_health_of_the_temporary_workers = RogueEventOption(
     id=297,
@@ -2674,7 +2674,7 @@ Care_for_the_physical_and_mental_health_of_the_temporary_workers = RogueEventOpt
     cht='關心臨時工的身心健康。',
     en='Care for the physical and mental health of the temporary workers.',
     jp='臨時従業員の心身の健康に注意を払う',
-    es='Velas por la salud física y mental de los trabajadores temporales.',
+    es='Vela por la salud física y mental de los trabajadores temporales.',
 )
 Fully_book_the_following_week_with_the_Interspecies_Bonding_Party = RogueEventOption(
     id=298,
@@ -2683,7 +2683,7 @@ Fully_book_the_following_week_with_the_Interspecies_Bonding_Party = RogueEventOp
     cht='把下週約滿*跨物種聯誼派對*！',
     en='Fully book the following week with the Interspecies Bonding Party!',
     jp='翌週を「種族間交流パーティー」の予定でいっぱいにする！',
-    es='¡Reservas íntegramente la semana siguiente para la Fiesta de Cortejo Interespecies!',
+    es='¡Reserva íntegramente la semana siguiente para la Fiesta de Cortejo Interespecies!',
 )
 Launch_Celebrity_High_Social = RogueEventOption(
     id=299,
@@ -2692,7 +2692,7 @@ Launch_Celebrity_High_Social = RogueEventOption(
     cht='展開「名流高級社交」。',
     en='Launch "Celebrity High Social."',
     jp='「上流階級の交流」を推し進める',
-    es='Lanzas el evento Celebridades de la Alta Sociedad.',
+    es='Lanza el evento Celebridades de la Alta Sociedad.',
 )
 Give_a_shocking_interstellar_speech = RogueEventOption(
     id=300,
@@ -2701,7 +2701,7 @@ Give_a_shocking_interstellar_speech = RogueEventOption(
     cht='發表震撼人心的「星際演講」！',
     en='Give a shocking "interstellar speech"!',
     jp='心に響く「スタースピーチ」を発表する！',
-    es='¡Pronuncias un impactante discurso interastral!',
+    es='¡Pronuncia un impactante discurso interastral!',
 )
 You_are_eager_to_beat_the_big_shots = RogueEventOption(
     id=301,
@@ -2728,7 +2728,7 @@ Directly_provoke_P_48_Taravan_Keane = RogueEventOption(
     cht='直接挑釁「P-48」塔拉梵•基恩！',
     en='Directly provoke P-48 Taravan Keane!',
     jp='「P-48」タラファン・キーンに直接挑む！',
-    es='¡Provocas directamente a Taravan Keane, P-48!',
+    es='¡Provoca directamente a Taravan Keane, P-48!',
 )
 Directly_provoke_P_48_Madam_Scarred_Eye = RogueEventOption(
     id=304,
@@ -2737,7 +2737,7 @@ Directly_provoke_P_48_Madam_Scarred_Eye = RogueEventOption(
     cht='直接挑釁「P-48」疤眼夫人！',
     en='Directly provoke P-48 Madam Scarred Eye!',
     jp='「P-48」スカー・アイ夫人に直接挑む！',
-    es='¡Provocas directamente a la señora Ojo Marcado, P-48!',
+    es='¡Provoca directamente a la señora Ojo Marcado, P-48!',
 )
 You_look_at_the_emptiness_all_around_you = RogueEventOption(
     id=305,
@@ -2746,7 +2746,7 @@ You_look_at_the_emptiness_all_around_you = RogueEventOption(
     cht='你望著四周空蕩蕩的一片。',
     en='You look at the emptiness all around you.',
     jp='何もない周囲を見渡す',
-    es='Contemplas el vacío a tu alrededor.',
+    es='Contempla el vacío a tu alrededor.',
 )
 Secretly_work_overtime = RogueEventOption(
     id=306,
@@ -2755,7 +2755,7 @@ Secretly_work_overtime = RogueEventOption(
     cht='悄悄加班。',
     en='Secretly work overtime.',
     jp='こっそり残業する',
-    es='Haces horas extra en secreto.',
+    es='Haz horas extra en secreto.',
 )
 Give_a_stirring_interstellar_speech = RogueEventOption(
     id=307,
@@ -2764,7 +2764,7 @@ Give_a_stirring_interstellar_speech = RogueEventOption(
     cht='發表震撼人心的「星際演講」！',
     en='Give a stirring "interstellar speech"!',
     jp='心に響く「スタースピーチ」を発表する！',
-    es='¡Pronuncias un impactante discurso interastral!',
+    es='¡Pronuncia un impactante discurso interastral!',
 )
 An_emptiness_envelops_you = RogueEventOption(
     id=308,
@@ -2775,14 +2775,14 @@ An_emptiness_envelops_you = RogueEventOption(
     jp='虚しい感覚があなたを包む',
     es='Un vacío te rodea.',
 )
-Deposit_2_Cosmic_Fragments_49f4 = RogueEventOption(
+Deposit_2_Cosmic_Fragments_9870 = RogueEventOption(
     id=309,
-    name='Deposit_2_Cosmic_Fragments_49f4',
+    name='Deposit_2_Cosmic_Fragments_9870',
     cn='存入#2宇宙碎片。',
     cht='存入#2宇宙碎片。',
     en='Deposit #2 Cosmic Fragment(s).',
     jp='宇宙の欠片を#2振り込む',
-    es='Depositas #2 fragmentos cósmicos.',
+    es='Deposita #2 fragmentos cósmicos.',
 )
 Tamper_with_the_bank_teller_memory = RogueEventOption(
     id=310,
@@ -2791,7 +2791,7 @@ Tamper_with_the_bank_teller_memory = RogueEventOption(
     cht='篡改銀行行員的記憶。',
     en="Tamper with the bank teller's memory.",
     jp='銀行の窓口係の記憶を書き換える',
-    es='Saboteas la memoria del cajero del banco.',
+    es='Sabotea la memoria del cajero del banco.',
 )
 Show_off_your_muscles_to_the_teller = RogueEventOption(
     id=311,
@@ -2800,7 +2800,7 @@ Show_off_your_muscles_to_the_teller = RogueEventOption(
     cht='向行員秀出你的肌肉！',
     en='Show off your muscles to the teller!',
     jp='窓口係に自分の筋肉を見せつける！',
-    es='¡Muestras tus músculos al cajero!',
+    es='¡Muestra tus músculos al cajero!',
 )
 Withdraw_2_Cosmic_Fragments = RogueEventOption(
     id=312,
@@ -2809,7 +2809,7 @@ Withdraw_2_Cosmic_Fragments = RogueEventOption(
     cht='取出#2宇宙碎片。',
     en='Withdraw #2 Cosmic Fragment(s).',
     jp='宇宙の欠片を#2引き出す',
-    es='Retiras #2 fragmentos cósmicos.',
+    es='Retira #2 fragmentos cósmicos.',
 )
 Receive_a_money_management_service_gift_from_the_bank = RogueEventOption(
     id=313,
@@ -2820,14 +2820,14 @@ Receive_a_money_management_service_gift_from_the_bank = RogueEventOption(
     jp='銀行からの「財テク商品」のおまけを受け取る',
     es='Recibe un regalo de la gestión financiera del banco.',
 )
-Deposit_2_Cosmic_Fragments_39a6 = RogueEventOption(
+Deposit_2_Cosmic_Fragments_9160 = RogueEventOption(
     id=314,
-    name='Deposit_2_Cosmic_Fragments_39a6',
+    name='Deposit_2_Cosmic_Fragments_9160',
     cn='存入#2宇宙碎片。',
     cht='存入#2個宇宙碎片。',
     en='Deposit #2 Cosmic Fragments.',
     jp='宇宙の欠片を#2振り込む',
-    es='Depositas #2 fragmentos cósmicos.',
+    es='Deposita #2 fragmentos cósmicos.',
 )
 Feed_the_Erethian_galaxy_sea_salt_snack = RogueEventOption(
     id=315,
@@ -2836,7 +2836,7 @@ Feed_the_Erethian_galaxy_sea_salt_snack = RogueEventOption(
     cht='餵食厄勒特希亞星系「海鹽點心」。',
     en='Feed the Erethian galaxy\'s "sea salt snack."',
     jp='エルトシア星系の「シーソルトスナック」を与える',
-    es='Le das un bocadillo de sal marina de la galaxia de Erethia.',
+    es='Dale un bocadillo de sal marina de la galaxia de Erethia.',
 )
 Use_the_specialty_cleaning_foam_of_Washtopia = RogueEventOption(
     id=316,
@@ -2845,7 +2845,7 @@ Use_the_specialty_cleaning_foam_of_Washtopia = RogueEventOption(
     cht='使用洗車星埠口特產「清潔泡沫」。',
     en='Use the specialty "cleaning foam" of Washtopia.',
     jp='洗車星埠頭の名物「洗浄フォーム」を使用する',
-    es='Utilizas la espuma limpiadora especial de Lavatopía.',
+    es='Utiliza la espuma limpiadora especial de Lavatopía.',
 )
 Feed_the_Vortex_Colony_special_milk_tea = RogueEventOption(
     id=317,
@@ -2854,7 +2854,7 @@ Feed_the_Vortex_Colony_special_milk_tea = RogueEventOption(
     cht='餵食漩渦星聚落「特調奶茶」。',
     en='Feed the Vortex Colony\'s "special milk tea."',
     jp='ヴォルテックス星の集落の「特製ミルクティー」を与える',
-    es='Le das un té con leche especial de la colonia Vórtice.',
+    es='Dale un té con leche especial de la colonia Vórtice.',
 )
 Use_your_own_blood_to_feed_it = RogueEventOption(
     id=318,
@@ -2863,7 +2863,7 @@ Use_your_own_blood_to_feed_it = RogueEventOption(
     cht='用自己的血液餵飽*牠*。',
     en='Use your own blood to feed "it."',
     jp='自分の血を「それ」に与える',
-    es='Usas tu propia sangre para alimentar "eso".',
+    es='Usa tu propia sangre para alimentar "eso".',
 )
 Take_care_of_it_wholeheartedly = RogueEventOption(
     id=319,
@@ -2872,7 +2872,7 @@ Take_care_of_it_wholeheartedly = RogueEventOption(
     cht='用心呵護*牠*。',
     en='Take care of "it" wholeheartedly.',
     jp='「それ」を大切にする',
-    es='Cuidas de "eso" con todo tu corazón.',
+    es='Cuida de "eso" con todo tu corazón.',
 )
 Accept_the_Heartfelt_Gift = RogueEventOption(
     id=320,
@@ -2881,7 +2881,7 @@ Accept_the_Heartfelt_Gift = RogueEventOption(
     cht='接受「愛心小禮物」。',
     en='Accept the "Heartfelt Gift."',
     jp='「思いやりのプレゼント」を受け取る',
-    es='Aceptas el regalo de corazón.',
+    es='Acepta el regalo de corazón.',
 )
 Accept_the_Life_Favor = RogueEventOption(
     id=321,
@@ -2890,7 +2890,7 @@ Accept_the_Life_Favor = RogueEventOption(
     cht='接受「生命的回饋」。',
     en='Accept the "Life\'s Favor."',
     jp='「命の贈物」を受け取る',
-    es='Aceptas el favor de la vida.',
+    es='Acepta el favor de la vida.',
 )
 Feed_mung_bean_soda_from_the_Xianzhou_Luofu = RogueEventOption(
     id=322,
@@ -2901,14 +2901,14 @@ Feed_mung_bean_soda_from_the_Xianzhou_Luofu = RogueEventOption(
     jp='仙舟羅浮の名物「ソーダ豆汁」を飲ませる',
     es='Dale refresco de frijoles del Luofu de Xianzhou.',
 )
-Toss_your_trash_in = RogueEventOption(
+Toss_your_trash_in_d5c5 = RogueEventOption(
     id=323,
-    name='Toss_your_trash_in',
+    name='Toss_your_trash_in_d5c5',
     cn='把你的废物丢进去！',
     cht='把你的垃圾丟進去！',
     en='Toss your trash in!',
     jp='自分のゴミを投げ捨てよう！',
-    es='¡Arrojas tu basura adentro!',
+    es='¡Arroja tu basura adentro!',
 )
 Quickly_take_it_while_he_not_paying_attention = RogueEventOption(
     id=324,
@@ -2937,18 +2937,27 @@ Even_trash_has_its_unique_value = RogueEventOption(
     jp='ゴミにも自分の「価値」がある……',
     es='Incluso la basura tiene valor...',
 )
-Make_a_detour = RogueEventOption(
+Toss_your_trash_in_d5b5 = RogueEventOption(
     id=327,
-    name='Make_a_detour',
+    name='Toss_your_trash_in_d5b5',
+    cn='把你的废物丢进去！',
+    cht='把你的垃圾丟進去！',
+    en='Toss your trash in!',
+    jp='自分のゴミを投げ捨てよう！',
+    es='¡Arrojas tu basura adentro!',
+)
+Make_a_detour_6f2a = RogueEventOption(
+    id=328,
+    name='Make_a_detour_6f2a',
     cn='绕路。',
     cht='繞路。',
     en='Make a detour.',
     jp='回り道',
     es='Das un rodeo.',
 )
-Take_spore = RogueEventOption(
-    id=328,
-    name='Take_spore',
+Take_spore_ec77 = RogueEventOption(
+    id=329,
+    name='Take_spore_ec77',
     cn='窃取「孢子」。',
     cht='竊取「孢子」。',
     en='Take "spore."',
@@ -2956,106 +2965,106 @@ Take_spore = RogueEventOption(
     es='Tomas esporas.',
 )
 Help_the_Nameless = RogueEventOption(
-    id=329,
+    id=330,
     name='Help_the_Nameless',
     cn='解救「无名客」。',
     cht='解救「無名客」。',
     en='Help the "Nameless."',
     jp='「ナナシビト」を救う',
-    es='Ayudas a los Anónimos.',
+    es='Ayuda a los Anónimos.',
 )
-Leave_immediately_a892 = RogueEventOption(
-    id=330,
-    name='Leave_immediately_a892',
+Leave_immediately = RogueEventOption(
+    id=331,
+    name='Leave_immediately',
     cn='立刻后退。',
     cht='立刻後退。',
     en='Leave immediately.',
     jp='直ちに後退する',
     es='Márchate inmediatamente.',
 )
-Tidy_things_up_5624 = RogueEventOption(
-    id=331,
-    name='Tidy_things_up_5624',
+Tidy_things_up_b7c6 = RogueEventOption(
+    id=332,
+    name='Tidy_things_up_b7c6',
     cn='清理它们。',
     cht='清理牠們。',
     en='Tidy things up.',
     jp='奴らを一掃する',
-    es='Pones algo de orden.',
+    es='Pon algo de orden.',
 )
-Leave_64e6 = RogueEventOption(
-    id=332,
-    name='Leave_64e6',
-    cn='离开。',
-    cht='離開。',
-    en='Leave.',
-    jp='離れる',
-    es='Te marchas.',
-)
-Leave_immediately_436d = RogueEventOption(
+Make_a_detour_7449 = RogueEventOption(
     id=333,
-    name='Leave_immediately_436d',
-    cn='立刻后退。',
-    cht='立刻後退。',
-    en='Leave immediately.',
-    jp='直ちに後退する',
-    es='Te marchas inmediatamente.',
+    name='Make_a_detour_7449',
+    cn='绕路。',
+    cht='繞路。',
+    en='Make a detour.',
+    jp='回り道',
+    es='Da un rodeo.',
 )
-Tidy_things_up_3e7a = RogueEventOption(
+Take_spore_9f1e = RogueEventOption(
     id=334,
-    name='Tidy_things_up_3e7a',
+    name='Take_spore_9f1e',
+    cn='窃取「孢子」。',
+    cht='竊取「孢子」。',
+    en='Take "spore."',
+    jp='「胞子」を盗む',
+    es='Toma esporas.',
+)
+Tidy_things_up_1f47 = RogueEventOption(
+    id=335,
+    name='Tidy_things_up_1f47',
     cn='清理它们。',
     cht='清理它們。',
     en='Tidy things up.',
     jp='奴らを一掃する',
-    es='Pones algo de orden.',
+    es='Pon algo de orden.',
 )
 Offer_your_spore_sacks_to_the_lord = RogueEventOption(
-    id=335,
+    id=336,
     name='Offer_your_spore_sacks_to_the_lord',
     cn='向领主献上你的孢囊。',
     cht='向領主獻上你的孢囊。',
     en='Offer your spore sacks to the lord.',
     jp='領主に自分の胞子嚢を捧げる。',
-    es='Ofreces tus sacos de esporas al señor.',
+    es='Ofrece tus sacos de esporas al señor.',
 )
 Absorb_its_power = RogueEventOption(
-    id=336,
+    id=337,
     name='Absorb_its_power',
     cn='「吸取」它的力量。',
     cht='「吸取」牠的力量。',
     en='"Absorb" its power.',
     jp='その力を「吸い取る」',
-    es='Absorbes su poder.',
+    es='Absorbe su poder.',
 )
 Give_it_power = RogueEventOption(
-    id=337,
+    id=338,
     name='Give_it_power',
     cn='「给予」它力量',
     cht='「給予」牠力量',
     en='"Give" it power.',
     jp='それに力を「与える」',
-    es='Darle fuerza.',
+    es='Dale fuerza.',
 )
 Kill_them = RogueEventOption(
-    id=338,
+    id=339,
     name='Kill_them',
     cn='进入杀死它们。',
     cht='進入殺死牠們。',
     en='Kill them.',
     jp='中に入って奴らを一掃する',
-    es='Los matas.',
+    es='Mátalos.',
 )
 Leave_quietly = RogueEventOption(
-    id=339,
+    id=340,
     name='Leave_quietly',
     cn='悄悄离开。',
     cht='悄悄離開。',
     en='Leave quietly.',
     jp='静かに立ち去る',
-    es='Te marchas en silencio.',
+    es='Márchate en silencio.',
 )
 Leave_hurriedly = RogueEventOption(
-    id=340,
+    id=341,
     name='Leave_hurriedly',
     cn='慌忙逃走。',
     cht='慌忙逃走。',
@@ -3064,52 +3073,52 @@ Leave_hurriedly = RogueEventOption(
     es='Márchate de prisa.',
 )
 Enter_and_explore_the_Nameless_relics = RogueEventOption(
-    id=341,
+    id=342,
     name='Enter_and_explore_the_Nameless_relics',
     cn='进入探取无名客遗物。',
     cht='進入探取無名客遺物。',
     en='Enter and explore the Nameless relics.',
     jp='中に入ってナナシビトの遺物を探す',
-    es='Entras y explora las reliquias de los Anónimos.',
+    es='Entra y explora las reliquias de los Anónimos.',
 )
 Join_the_Combatobug_combat_unit = RogueEventOption(
-    id=342,
+    id=343,
     name='Join_the_Combatobug_combat_unit',
     cn='加入「鏖兜虫」作战单位。',
     cht='加入「鏖兜蟲」作戰單位。',
     en='Join the "Combatobug" combat unit.',
     jp='「鏖兜虫」の戦闘ユニットに加わる',
-    es='Te unes a la unidad de combate Puñoinsecto.',
+    es='Únete a la unidad de combate Puñoinsecto.',
 )
 Invite_the_Device_Assistant_to_arrange_remotely = RogueEventOption(
-    id=343,
+    id=344,
     name='Invite_the_Device_Assistant_to_arrange_remotely',
     cn='邀请「设备助理」远程布局。',
     cht='邀請「設備助理」遠端佈局。',
     en='Invite the "Device Assistant" to arrange remotely.',
     jp='「デバイスアシスタント」を招待してリモート構成をする',
-    es='Invitas al asistente de dispositivos a organizarlo a distancia.',
+    es='Invita al asistente de dispositivos a organizarlo a distancia.',
 )
 Take_care_of_the_surrounding_Swarm = RogueEventOption(
-    id=344,
+    id=345,
     name='Take_care_of_the_surrounding_Swarm',
     cn='解决周围的虫群。',
     cht='解決周圍的蟲群。',
     en='Take care of the surrounding Swarm.',
     jp='周囲のスウォームを倒す',
-    es='Te encargas del Enjambre de alrededor.',
+    es='Encárgate del Enjambre circundante.',
 )
 Drink_the_Doctors_of_Chaos_medicine = RogueEventOption(
-    id=345,
+    id=346,
     name='Drink_the_Doctors_of_Chaos_medicine',
     cn='喝下「混沌医师」的药。',
     cht='喝下「混沌醫師」的藥。',
     en='Drink the Doctors of Chaos medicine.',
     jp='「混沌医師」の薬を飲む',
-    es='Bebes la medicina de los Doctores del Caos.',
+    es='Bebe la medicina de los Doctores del Caos.',
 )
 Charge_head_on = RogueEventOption(
-    id=346,
+    id=347,
     name='Charge_head_on',
     cn='正面突入！',
     cht='正面突入！',
@@ -3118,7 +3127,7 @@ Charge_head_on = RogueEventOption(
     es='¡A la carga de frente!',
 )
 It_is_a_daring_move_that_risks_it_all = RogueEventOption(
-    id=347,
+    id=348,
     name='It_is_a_daring_move_that_risks_it_all',
     cn='这是一场孤注一掷的行动。',
     cht='這是一場孤注一擲的行動。',
@@ -3127,7 +3136,7 @@ It_is_a_daring_move_that_risks_it_all = RogueEventOption(
     es='Es una acción desesperada.',
 )
 Tell_fortune = RogueEventOption(
-    id=348,
+    id=349,
     name='Tell_fortune',
     cn='抽签。',
     cht='抽籤。',
@@ -3136,61 +3145,61 @@ Tell_fortune = RogueEventOption(
     es='Quieres saber tu fortuna.',
 )
 Refuse_invitation = RogueEventOption(
-    id=349,
+    id=350,
     name='Refuse_invitation',
     cn='拒绝邀请。',
     cht='拒絕邀請。',
     en='Refuse invitation.',
     jp='招待を断る',
-    es='Rechazas la invitación.',
+    es='Rechaza la invitación.',
 )
-Choose_number_four_It_has_a_tiny_bow_3215 = RogueEventOption(
-    id=350,
-    name='Choose_number_four_It_has_a_tiny_bow_3215',
+Choose_number_four_It_has_a_tiny_bow_94c2 = RogueEventOption(
+    id=351,
+    name='Choose_number_four_It_has_a_tiny_bow_94c2',
     cn='选择四号：它装饰着小蝴蝶结！',
     cht='選擇四號：它裝飾著小蝴蝶結！',
     en='Choose number four! It has a tiny bow!',
     jp='4番を選ぶ：小さなリボンがついている！',
-    es='Eliges la número 4: ¡tiene un lacito!',
+    es='Elige la número 4: ¡tiene un lacito!',
 )
-Choose_number_three_Its_teeth_are_rusted_0f13 = RogueEventOption(
-    id=351,
-    name='Choose_number_three_Its_teeth_are_rusted_0f13',
+Choose_number_three_Its_teeth_are_rusted_e443 = RogueEventOption(
+    id=352,
+    name='Choose_number_three_Its_teeth_are_rusted_e443',
     cn='选择三号：它的牙齿生锈了…',
     cht='選擇三號：它的牙齒生鏽了……',
     en='Choose number three. Its teeth are rusted...',
     jp='3番を選ぶ：歯が錆びている…',
-    es='Eliges la número 3: tiene los dientes podridos...',
+    es='Elige la número 3: tiene los dientes podridos...',
 )
 Choose_number_two_It_snores_like_Andatur_Zazzalo = RogueEventOption(
-    id=352,
+    id=353,
     name='Choose_number_two_It_snores_like_Andatur_Zazzalo',
     cn='选择二号：它打了个安达吐尔•扎罗式呼噜。',
     cht='選擇二號：它打了個安達吐爾•扎羅式呼嚕。',
     en='Choose number two. It snores like Andatur Zazzalo.',
     jp='2番を選ぶ：アンダトゥール・ザザロ式のいびきをかいている',
-    es='Eliges la número 2: ronca igual que Andatur Zazzalo.',
+    es='Elige la número 2: ronca igual que Andatur Zazzalo.',
 )
-Choose_number_four_It_has_a_tiny_bow_2f99 = RogueEventOption(
-    id=353,
-    name='Choose_number_four_It_has_a_tiny_bow_2f99',
+Choose_number_four_It_has_a_tiny_bow_c00a = RogueEventOption(
+    id=354,
+    name='Choose_number_four_It_has_a_tiny_bow_c00a',
     cn='选择四号：它装饰着小蝴蝶结！',
     cht='選擇四號：它的裝飾有小蝴蝶結！',
     en='Choose number four! It has a tiny bow!',
     jp='4番を選ぶ：小さなリボンがついている！',
-    es='Eliges la número 4: ¡tiene un lacito!',
+    es='Elige la número 4: ¡tiene un lacito!',
 )
-Choose_number_three_Its_teeth_are_rusted_637d = RogueEventOption(
-    id=354,
-    name='Choose_number_three_Its_teeth_are_rusted_637d',
+Choose_number_three_Its_teeth_are_rusted_7b3b = RogueEventOption(
+    id=355,
+    name='Choose_number_three_Its_teeth_are_rusted_7b3b',
     cn='选择三号：它的牙齿生锈了…',
     cht='選擇三號：它的牙齒生鏽了…',
     en='Choose number three. Its teeth are rusted...',
     jp='3番を選ぶ：歯が錆びている…',
-    es='Eliges la número 3: tiene los dientes podridos...',
+    es='Elige la número 3: tiene los dientes podridos...',
 )
 Light_the_first_candle = RogueEventOption(
-    id=355,
+    id=356,
     name='Light_the_first_candle',
     cn='点亮第一盏烛火。',
     cht='點亮第一盞燭火。',
@@ -3199,7 +3208,7 @@ Light_the_first_candle = RogueEventOption(
     es='Enciende la primera vela.',
 )
 Light_the_second_candle = RogueEventOption(
-    id=356,
+    id=357,
     name='Light_the_second_candle',
     cn='点亮第二盏烛火。',
     cht='點亮第二盞燭火。',
@@ -3208,7 +3217,7 @@ Light_the_second_candle = RogueEventOption(
     es='Enciende la segunda vela.',
 )
 Light_the_third_candle = RogueEventOption(
-    id=357,
+    id=358,
     name='Light_the_third_candle',
     cn='点亮第三盏烛火。',
     cht='點亮第三盞燭火。',
@@ -3217,25 +3226,25 @@ Light_the_third_candle = RogueEventOption(
     es='Enciende la tercera vela.',
 )
 Silently_recite_what_you_want = RogueEventOption(
-    id=358,
+    id=359,
     name='Silently_recite_what_you_want',
     cn='默念你想要的。',
     cht='默唸你想要的。',
     en='Silently recite what you want.',
     jp='あなたの欲しているものを黙考する',
-    es='Recitas silenciosamente lo que quieres.',
+    es='Recita silenciosamente lo que quieres.',
 )
 Make_a_wish_to_get_her_out_of_the_mirror = RogueEventOption(
-    id=359,
+    id=360,
     name='Make_a_wish_to_get_her_out_of_the_mirror',
     cn='许愿让她从镜子里出来。',
     cht='許願讓她從鏡子裡出來。',
     en='Make a wish to get her out of the mirror.',
     jp='彼女が鏡の中から出てこられることを願う',
-    es='Pides un deseo para sacarla del espejo.',
+    es='Pide un deseo para sacarla del espejo.',
 )
 Give_me_some_startup_capital = RogueEventOption(
-    id=360,
+    id=361,
     name='Give_me_some_startup_capital',
     cn='给我一些启动资金吧',
     cht='給我一些啟動資金吧',
@@ -3244,7 +3253,7 @@ Give_me_some_startup_capital = RogueEventOption(
     es='¡Necesito un capital inicial!',
 )
 Give_me_some_good_stuff = RogueEventOption(
-    id=361,
+    id=362,
     name='Give_me_some_good_stuff',
     cn='给我点好东西吧',
     cht='給我點好東西吧',
@@ -3253,16 +3262,16 @@ Give_me_some_good_stuff = RogueEventOption(
     es='¡Dame algo bueno!',
 )
 Do_nothing = RogueEventOption(
-    id=362,
+    id=363,
     name='Do_nothing',
     cn='什么也不做',
     cht='什麼也不做',
     en='Do nothing',
     jp='何もしない',
-    es='No hacer nada.',
+    es='No hagas nada.',
 )
 Adjust_Intra_Cognition_Understand_the_rules_of_improving_Intelligence = RogueEventOption(
-    id=363,
+    id=364,
     name='Adjust_Intra_Cognition_Understand_the_rules_of_improving_Intelligence',
     cn='调整「自我认知」-了解提升『智力』的法则',
     cht='調整「自我認知」-瞭解提升「智力」的法則',
@@ -3271,7 +3280,7 @@ Adjust_Intra_Cognition_Understand_the_rules_of_improving_Intelligence = RogueEve
     es='Ajusta tu autopercepción: entiende las normas para mejorar tu inteligencia.',
 )
 Adjust_Intra_Cognition_Understand_the_rules_of_improving_Charm = RogueEventOption(
-    id=364,
+    id=365,
     name='Adjust_Intra_Cognition_Understand_the_rules_of_improving_Charm',
     cn='调整「自我认知」-了解提升『魅力』的法则',
     cht='調整「自我認知」-瞭解提升「魅力」的法則',
@@ -3280,7 +3289,7 @@ Adjust_Intra_Cognition_Understand_the_rules_of_improving_Charm = RogueEventOptio
     es='Ajusta tu autopercepción: entiende las normas para mejorar tu encanto.',
 )
 Choose_1_pair_of_machine_flower_underpants = RogueEventOption(
-    id=365,
+    id=366,
     name='Choose_1_pair_of_machine_flower_underpants',
     cn='选择1件机器花裤衩。',
     cht='選擇1件機器花內褲。',
@@ -3289,7 +3298,7 @@ Choose_1_pair_of_machine_flower_underpants = RogueEventOption(
     es='Elige 1 bóxer floral mecánico.',
 )
 Choose_1_machine_shirt = RogueEventOption(
-    id=366,
+    id=367,
     name='Choose_1_machine_shirt',
     cn='选择1件机器衬衫。',
     cht='選擇1件機器襯衫。',
@@ -3298,7 +3307,7 @@ Choose_1_machine_shirt = RogueEventOption(
     es='Elige 1 camisa mecánica.',
 )
 Adjust_Intra_Cognition_I_choose_Good = RogueEventOption(
-    id=367,
+    id=368,
     name='Adjust_Intra_Cognition_I_choose_Good',
     cn='调整「自我认知」-我选择『善』。',
     cht='調整「自我認知」-我選擇「善」。',
@@ -3307,7 +3316,7 @@ Adjust_Intra_Cognition_I_choose_Good = RogueEventOption(
     es='Ajusta tu autopercepción: yo elijo el "bien".',
 )
 Adjust_Intra_Cognition_I_choose_Evil = RogueEventOption(
-    id=368,
+    id=369,
     name='Adjust_Intra_Cognition_I_choose_Evil',
     cn='调整「自我认知」-我选择『恶』。',
     cht='調整「自我認知」-我選擇「惡」。',
@@ -3316,7 +3325,7 @@ Adjust_Intra_Cognition_I_choose_Evil = RogueEventOption(
     es='Ajusta tu autopercepción: yo elijo el "mal".',
 )
 Agree_with_Dr_No_5 = RogueEventOption(
-    id=369,
+    id=370,
     name='Agree_with_Dr_No_5',
     cn='赞成No.5博士。',
     cht='贊成No.5博士。',
@@ -3325,16 +3334,16 @@ Agree_with_Dr_No_5 = RogueEventOption(
     es='Muestra tu acuerdo con el Dr. N.º 5.',
 )
 Agree_with_Dr_Ratio = RogueEventOption(
-    id=370,
+    id=371,
     name='Agree_with_Dr_Ratio',
     cn='赞成真理医生。',
     cht='贊成真理醫生。',
     en='Agree with Dr. Ratio.',
     jp='Dr.レイシオに賛成',
-    es='Estás de acuerdo con el Dr. Ratio.',
+    es='Muestra tu acuerdo con el Dr. Ratio.',
 )
 Adjust_Intra_Cognition_I_am_organic = RogueEventOption(
-    id=371,
+    id=372,
     name='Adjust_Intra_Cognition_I_am_organic',
     cn='调整「自我认知」-我是有机。',
     cht='調整「自我認知」-我是有機。',
@@ -3343,7 +3352,7 @@ Adjust_Intra_Cognition_I_am_organic = RogueEventOption(
     es='Ajusta tu autopercepción: soy orgánico.',
 )
 Adjust_Intra_Cognition_I_am_inorganic = RogueEventOption(
-    id=372,
+    id=373,
     name='Adjust_Intra_Cognition_I_am_inorganic',
     cn='调整「自我认知」-我是无机。',
     cht='調整「自我認知」-我是無機。',
@@ -3352,7 +3361,7 @@ Adjust_Intra_Cognition_I_am_inorganic = RogueEventOption(
     es='Ajusta tu autopercepción: soy inorgánico.',
 )
 Pick_a_family_element = RogueEventOption(
-    id=373,
+    id=374,
     name='Pick_a_family_element',
     cn='挑取一个亲情元件。',
     cht='挑取一個親情元件。',
@@ -3361,7 +3370,7 @@ Pick_a_family_element = RogueEventOption(
     es='Elige un componente familiar.',
 )
 Pick_a_friendship_element = RogueEventOption(
-    id=374,
+    id=375,
     name='Pick_a_friendship_element',
     cn='挑取一个友情元件。',
     cht='挑取一個友情元件。',
@@ -3370,7 +3379,7 @@ Pick_a_friendship_element = RogueEventOption(
     es='Elige un componente de amistad.',
 )
 Accept_the_Curio_Organic_Heart = RogueEventOption(
-    id=375,
+    id=376,
     name='Accept_the_Curio_Organic_Heart',
     cn='接受奇物:「有机心脏」。',
     cht='接受奇物:「有機心臟」。',
@@ -3379,22 +3388,13 @@ Accept_the_Curio_Organic_Heart = RogueEventOption(
     es='Acepta el objeto raro Corazón orgánico.',
 )
 Accept_the_Curio_Mysterious_Magnetism = RogueEventOption(
-    id=376,
+    id=377,
     name='Accept_the_Curio_Mysterious_Magnetism',
     cn='接受奇物:「神秘」磁力。',
     cht='接受奇物:「神秘」磁力。',
     en='Accept the Curio "Mysterious Magnetism."',
     jp='奇物：「神秘」の磁力を受け入れる',
     es='Acepta el objeto raro Magnetismo misterioso.',
-)
-Leave_53f7 = RogueEventOption(
-    id=377,
-    name='Leave_53f7',
-    cn='离开。',
-    cht='離開。',
-    en='Leave.',
-    jp='離れる',
-    es='Marcharte.',
 )
 Sealing_Wax_Blessing = RogueEventOption(
     id=378,
@@ -3439,7 +3439,7 @@ Purchase_Sealing_Wax = RogueEventOption(
     cht='火漆採購。',
     en='Purchase Sealing Wax.',
     jp='封蝋を仕入れる',
-    es='Compras lacre.',
+    es='Adquisición de lacre.',
 )
 Invest_in_your_trust = RogueEventOption(
     id=383,
@@ -3450,35 +3450,44 @@ Invest_in_your_trust = RogueEventOption(
     jp='「信頼」を投資する',
     es='Invierte en tu confianza.',
 )
-Don_t_take = RogueEventOption(
+Don_t_take_69ab = RogueEventOption(
     id=384,
-    name='Don_t_take',
+    name='Don_t_take_69ab',
     cn='不拿。',
     cht='不拿。',
     en="Don't take.",
     jp='受け取らない',
     es='No lo tomas.',
 )
-Keep_investing_in_your_trust_c485 = RogueEventOption(
+Keep_investing_in_your_trust_c2d9 = RogueEventOption(
     id=385,
-    name='Keep_investing_in_your_trust_c485',
+    name='Keep_investing_in_your_trust_c2d9',
     cn='继续投资你的*信任*。',
     cht='繼續投資你的*信任*。',
     en='Keep investing in your *trust*.',
     jp='「信頼」を投資し続ける',
-    es='Continúas invirtiendo en tu confianza.',
+    es='Continúa invirtiendo en tu confianza.',
 )
-Keep_investing_in_your_trust_4b40 = RogueEventOption(
+Keep_investing_in_your_trust_fd6e = RogueEventOption(
     id=386,
-    name='Keep_investing_in_your_trust_4b40',
+    name='Keep_investing_in_your_trust_fd6e',
     cn='继续投资你的*信任*',
     cht='繼續投資你的*信任*',
     en='Keep investing in your *trust*',
     jp='「信頼」を投資し続ける',
-    es='Continúas invirtiendo en tu confianza.',
+    es='Continúa invirtiendo en tu confianza.',
+)
+Don_t_take_ba63 = RogueEventOption(
+    id=387,
+    name='Don_t_take_ba63',
+    cn='不拿。',
+    cht='不拿。',
+    en="Don't take.",
+    jp='受け取らない',
+    es='No lo tomes.',
 )
 Ambergris_Cheese = RogueEventOption(
-    id=387,
+    id=388,
     name='Ambergris_Cheese',
     cn='香涎干酪。',
     cht='香涎乾酪。',
@@ -3487,7 +3496,7 @@ Ambergris_Cheese = RogueEventOption(
     es='Queso de ámbar gris.',
 )
 Casket_of_Inaccuracy = RogueEventOption(
-    id=388,
+    id=389,
     name='Casket_of_Inaccuracy',
     cn='测不准匣。',
     cht='測不準匣。',
@@ -3496,7 +3505,7 @@ Casket_of_Inaccuracy = RogueEventOption(
     es='Caja de la imprecisión.',
 )
 Fruit_of_the_Alien_Tree = RogueEventOption(
-    id=389,
+    id=390,
     name='Fruit_of_the_Alien_Tree',
     cn='异木果实。',
     cht='異木果實。',
@@ -3505,7 +3514,7 @@ Fruit_of_the_Alien_Tree = RogueEventOption(
     es='Fruto del árbol extraño.',
 )
 Resurrection_of_Language = RogueEventOption(
-    id=390,
+    id=391,
     name='Resurrection_of_Language',
     cn='语言的复活。',
     cht='語言的復活。',
@@ -3514,7 +3523,7 @@ Resurrection_of_Language = RogueEventOption(
     es='Resurrección del lenguaje.',
 )
 Level_up_Ambergris_Cheese = RogueEventOption(
-    id=391,
+    id=392,
     name='Level_up_Ambergris_Cheese',
     cn='升级香涎干酪。',
     cht='升級香涎乾酪。',
@@ -3523,7 +3532,7 @@ Level_up_Ambergris_Cheese = RogueEventOption(
     es='Mejora Queso de ámbar gris.',
 )
 Level_up_Casket_of_Inaccuracy = RogueEventOption(
-    id=392,
+    id=393,
     name='Level_up_Casket_of_Inaccuracy',
     cn='升级测不准匣。',
     cht='升級測不準匣。',
@@ -3532,7 +3541,7 @@ Level_up_Casket_of_Inaccuracy = RogueEventOption(
     es='Mejora Caja de la imprecisión.',
 )
 Level_up_Fruit_of_the_Alien_Tree = RogueEventOption(
-    id=393,
+    id=394,
     name='Level_up_Fruit_of_the_Alien_Tree',
     cn='升级异木果实。',
     cht='升級異木果實。',
@@ -3541,7 +3550,7 @@ Level_up_Fruit_of_the_Alien_Tree = RogueEventOption(
     es='Mejora Fruto del árbol extraño.',
 )
 Take_2_Cosmic_Fragments = RogueEventOption(
-    id=394,
+    id=395,
     name='Take_2_Cosmic_Fragments',
     cn='拿#2块钱。',
     cht='拿#2塊錢。',
@@ -3550,7 +3559,7 @@ Take_2_Cosmic_Fragments = RogueEventOption(
     es='Toma #2 fragmentos cósmicos.',
 )
 Obtain_2_random_Curios = RogueEventOption(
-    id=395,
+    id=396,
     name='Obtain_2_random_Curios',
     cn='获得#2个随机奇物。',
     cht='獲得#2個隨機奇物。',
@@ -3559,7 +3568,7 @@ Obtain_2_random_Curios = RogueEventOption(
     es='Obtienes #2 objeto(s) raro(s) al azar.',
 )
 Want_both_Cosmic_Fragments_and_Curios = RogueEventOption(
-    id=396,
+    id=397,
     name='Want_both_Cosmic_Fragments_and_Curios',
     cn='钱和奇物全要了。',
     cht='錢和奇物全要了。',
@@ -3568,7 +3577,7 @@ Want_both_Cosmic_Fragments_and_Curios = RogueEventOption(
     es='Quiero los fragmentos cósmicos y el objeto raro.',
 )
 You_don_t_need_this = RogueEventOption(
-    id=397,
+    id=398,
     name='You_don_t_need_this',
     cn='你不需要。',
     cht='你不需要。',
@@ -3577,7 +3586,7 @@ You_don_t_need_this = RogueEventOption(
     es='No lo necesitas.',
 )
 Forced_to_fight = RogueEventOption(
-    id=398,
+    id=399,
     name='Forced_to_fight',
     cn='被迫战斗。',
     cht='被迫戰鬥。',
@@ -3586,7 +3595,7 @@ Forced_to_fight = RogueEventOption(
     es='Obligad a combatir.',
 )
 Best_to_be_cautious = RogueEventOption(
-    id=399,
+    id=400,
     name='Best_to_be_cautious',
     cn='还是谨慎为好。',
     cht='還是謹慎點比較好。',
@@ -3595,7 +3604,7 @@ Best_to_be_cautious = RogueEventOption(
     es='La precaución siempre es bienvenida.',
 )
 Here_Eat_some_more_Don_t_get_hungry = RogueEventOption(
-    id=400,
+    id=401,
     name='Here_Eat_some_more_Don_t_get_hungry',
     cn='多吃点，别饿着了。',
     cht='多吃點，別餓著了。',
@@ -3604,7 +3613,7 @@ Here_Eat_some_more_Don_t_get_hungry = RogueEventOption(
     es='Come más. No te quedes con hambre.',
 )
 Eat_whatever_you_want_Have_it_all = RogueEventOption(
-    id=401,
+    id=402,
     name='Eat_whatever_you_want_Have_it_all',
     cn='随便吃！全都给你！',
     cht='隨便吃！全都給你！',
@@ -3613,7 +3622,7 @@ Eat_whatever_you_want_Have_it_all = RogueEventOption(
     es='¡Come lo que quieras! ¡Todo para ti!',
 )
 Just_as_I_expected = RogueEventOption(
-    id=402,
+    id=403,
     name='Just_as_I_expected',
     cn='果然不出我所料。',
     cht='果然不出我所料。',
@@ -3622,7 +3631,7 @@ Just_as_I_expected = RogueEventOption(
     es='Tal y como esperabas.',
 )
 You_asked_for_this = RogueEventOption(
-    id=403,
+    id=404,
     name='You_asked_for_this',
     cn='这是你自找的！',
     cht='這是你自找的！',
@@ -3631,7 +3640,7 @@ You_asked_for_this = RogueEventOption(
     es='¡Tú te lo buscaste!',
 )
 This_battle_is_unavoidable = RogueEventOption(
-    id=404,
+    id=405,
     name='This_battle_is_unavoidable',
     cn='战斗已不可避免。',
     cht='戰鬥已不可避免。',
@@ -3640,7 +3649,7 @@ This_battle_is_unavoidable = RogueEventOption(
     es='El combate es inevitable.',
 )
 No_crying_if_you_lose_142f = RogueEventOption(
-    id=405,
+    id=406,
     name='No_crying_if_you_lose_142f',
     cn='输了可别哭鼻子。',
     cht='輸了可別哭哭啼啼呀。',
@@ -3649,7 +3658,7 @@ No_crying_if_you_lose_142f = RogueEventOption(
     es='No llores si pierdes.',
 )
 No_crying_if_you_lose_4ec2 = RogueEventOption(
-    id=406,
+    id=407,
     name='No_crying_if_you_lose_4ec2',
     cn='输了可别哭鼻子。',
     cht='輸了不要哭哦。',
@@ -3658,7 +3667,7 @@ No_crying_if_you_lose_4ec2 = RogueEventOption(
     es='No llores si pierdes.',
 )
 No_crying_if_you_lose_fb50 = RogueEventOption(
-    id=407,
+    id=408,
     name='No_crying_if_you_lose_fb50',
     cn='输了可别哭鼻子。',
     cht='輸了不要哭哦。',
@@ -3667,7 +3676,7 @@ No_crying_if_you_lose_fb50 = RogueEventOption(
     es='No llores si pierdes.',
 )
 Just_come_at_me_all_at_once_I_m_in_a_hurry_8a00 = RogueEventOption(
-    id=408,
+    id=409,
     name='Just_come_at_me_all_at_once_I_m_in_a_hurry_8a00',
     cn='一起上吧，我赶时间。',
     cht='一起上吧，我趕時間。',
@@ -3676,25 +3685,25 @@ Just_come_at_me_all_at_once_I_m_in_a_hurry_8a00 = RogueEventOption(
     es='Vengan a la vez. Tengo prisa.',
 )
 Throw_trash_into_the_opponent_can = RogueEventOption(
-    id=409,
+    id=410,
     name='Throw_trash_into_the_opponent_can',
     cn='往对手的桶里丢垃圾。',
     cht='往對手的桶裡丟垃圾。',
     en="Throw trash into the opponent's can.",
     jp='相手のゴミ箱にゴミを捨てる',
-    es='Tiras basura al cubo del oponente.',
+    es='Tira basura al cubo del oponente.',
 )
 Challenge_the_jury_above_your_grade = RogueEventOption(
-    id=410,
+    id=411,
     name='Challenge_the_jury_above_your_grade',
     cn='跨级挑战评委。',
     cht='跨級挑戰評審。',
     en='Challenge the jury above your grade.',
     jp='直接審査員に挑戦する',
-    es='Desafías a los evaluadores por encima de tu nivel.',
+    es='Desafía a los evaluadores por encima de tu nivel.',
 )
 Just_come_at_me_all_at_once_I_m_in_a_hurry_fb91 = RogueEventOption(
-    id=411,
+    id=412,
     name='Just_come_at_me_all_at_once_I_m_in_a_hurry_fb91',
     cn='一起上吧，我赶时间。',
     cht='一起上吧，我趕時間。',
@@ -3703,61 +3712,61 @@ Just_come_at_me_all_at_once_I_m_in_a_hurry_fb91 = RogueEventOption(
     es='Vengan a la vez. Tengo prisa.',
 )
 Fix_the_assimilation_unit = RogueEventOption(
-    id=412,
+    id=413,
     name='Fix_the_assimilation_unit',
     cn='修复同化单元。',
     cht='修復同化單元。',
     en='Fix the assimilation unit.',
     jp='同化ユニットを修復する',
-    es='Reparas la unidad de asimilación.',
+    es='Repara la unidad de asimilación.',
 )
 Pull_out_the_baseball_bat = RogueEventOption(
-    id=413,
+    id=414,
     name='Pull_out_the_baseball_bat',
     cn='掏出球棒。',
     cht='掏出球棒。',
     en='Pull out the baseball bat.',
     jp='バットを取り出す',
-    es='Sacas el bate de béisbol.',
+    es='Saca el bate de béisbol.',
 )
 Touch_the_legacy_of_the_empire = RogueEventOption(
-    id=414,
+    id=415,
     name='Touch_the_legacy_of_the_empire',
     cn='触摸帝国的遗产。',
     cht='觸摸帝國的遺產。',
     en='Touch the legacy of the empire.',
     jp='帝国の遺産に触れる',
-    es='Tocas el legado del imperio.',
+    es='Toca el legado del imperio.',
 )
 Accept_the_legacy_of_the_empire = RogueEventOption(
-    id=415,
+    id=416,
     name='Accept_the_legacy_of_the_empire',
     cn='接受帝国的遗产。',
     cht='接受帝國的遺產。',
     en='Accept the legacy of the empire.',
     jp='帝国の遺産を受け取る',
-    es='Aceptas el legado del imperio.',
+    es='Acepta el legado del imperio.',
 )
 Embrace_the_legacy_of_the_empire = RogueEventOption(
-    id=416,
+    id=417,
     name='Embrace_the_legacy_of_the_empire',
     cn='拥抱帝国的遗产。',
     cht='擁抱帝國的遺產。',
     en='Embrace the legacy of the empire.',
     jp='帝国の遺産を抱き締める',
-    es='Abrazas el legado del imperio.',
+    es='Abraza el legado del imperio.',
 )
 Return_the_legacy_of_the_empire = RogueEventOption(
-    id=417,
+    id=418,
     name='Return_the_legacy_of_the_empire',
     cn='归还帝国的遗产。',
     cht='歸還帝國的遺產。',
     en='Return the legacy of the empire.',
     jp='帝国の遺産を返す',
-    es='Devuelves el legado del imperio.',
+    es='Devuelve el legado del imperio.',
 )
 Will_I_get_rich_in_the_near_future = RogueEventOption(
-    id=418,
+    id=419,
     name='Will_I_get_rich_in_the_near_future',
     cn='最近能发财吗？',
     cht='最近能發財嗎？',
@@ -3766,7 +3775,7 @@ Will_I_get_rich_in_the_near_future = RogueEventOption(
     es='¿Seré ric en el futuro?',
 )
 Will_I_be_in_danger_in_the_near_future = RogueEventOption(
-    id=419,
+    id=420,
     name='Will_I_be_in_danger_in_the_near_future',
     cn='最近有危险吗？',
     cht='最近有危險嗎？',
@@ -3775,7 +3784,7 @@ Will_I_be_in_danger_in_the_near_future = RogueEventOption(
     es='¿Estaré en peligro en el futuro?',
 )
 Will_my_journey_go_smoothly = RogueEventOption(
-    id=420,
+    id=421,
     name='Will_my_journey_go_smoothly',
     cn='旅程会顺利吗？',
     cht='旅程會順利嗎？',
@@ -3784,25 +3793,25 @@ Will_my_journey_go_smoothly = RogueEventOption(
     es='¿Irá mi viaje bien?',
 )
 Accept_the_amulet = RogueEventOption(
-    id=421,
+    id=422,
     name='Accept_the_amulet',
     cn='接受护身符',
     cht='接受護身符',
     en='Accept the amulet.',
     jp='お守りを受け取る',
-    es='Aceptas el amuleto.',
+    es='Acepta el amuleto.',
 )
 Accept_your_fate = RogueEventOption(
-    id=422,
+    id=423,
     name='Accept_your_fate',
     cn='接受你的命运',
     cht='接受你的命運',
     en='Accept your fate.',
     jp='あなたの運命を受け入れる',
-    es='Aceptas tu destino.',
+    es='Acepta tu destino.',
 )
 A_surprise_beyond_imagination = RogueEventOption(
-    id=423,
+    id=424,
     name='A_surprise_beyond_imagination',
     cn='一个突破想象力的惊喜。',
     cht='一個突破想像力的驚喜。',
@@ -3811,25 +3820,25 @@ A_surprise_beyond_imagination = RogueEventOption(
     es='¡Una sorpresa inesperada!',
 )
 Add_some_flair_to_Screwllum_topic = RogueEventOption(
-    id=424,
+    id=425,
     name='Add_some_flair_to_Screwllum_topic',
     cn='给螺丝咕姆的课题加点料。',
     cht='給螺絲咕姆的課題加點料。',
     en="Add some flair to Screwllum's topic.",
     jp='スクリューガムの研究テーマを増やす',
-    es='Añades un poco de talento al tema de investigación de Tornillum.',
+    es='Añade un poco de talento al tema de investigación de Tornillum.',
 )
 Increase_experimental_samples = RogueEventOption(
-    id=425,
+    id=426,
     name='Increase_experimental_samples',
     cn='增加实验样本。',
     cht='增加實驗樣本。',
     en='Increase experimental samples.',
     jp='実験サンプルを増やす。',
-    es='Aumentas las muestras experimentales.',
+    es='Aumenta las muestras experimentales.',
 )
 The_vending_machine_displays_a_discount = RogueEventOption(
-    id=426,
+    id=427,
     name='The_vending_machine_displays_a_discount',
     cn='售货机亮出了折扣。',
     cht='販賣機亮出了折扣。',
@@ -3838,7 +3847,7 @@ The_vending_machine_displays_a_discount = RogueEventOption(
     es='La máquina expendedora muestra un descuento.',
 )
 It_too_expensive = RogueEventOption(
-    id=427,
+    id=428,
     name='It_too_expensive',
     cn='太贵了。',
     cht='太貴了。',
@@ -3847,7 +3856,7 @@ It_too_expensive = RogueEventOption(
     es='Es muy caro.',
 )
 The_vending_machine_displays_the_price = RogueEventOption(
-    id=428,
+    id=429,
     name='The_vending_machine_displays_the_price',
     cn='售货机亮出了售价。',
     cht='販賣機亮出了售價。',
@@ -3856,7 +3865,7 @@ The_vending_machine_displays_the_price = RogueEventOption(
     es='La máquina expendedora muestra el precio.',
 )
 I_want_freebies = RogueEventOption(
-    id=429,
+    id=430,
     name='I_want_freebies',
     cn='我要免费的！',
     cht='我要免費的！',
@@ -3865,7 +3874,7 @@ I_want_freebies = RogueEventOption(
     es='¡Quiero cosas gratis!',
 )
 You_better_reconsider = RogueEventOption(
-    id=430,
+    id=431,
     name='You_better_reconsider',
     cn='你最好再想想。',
     cht='你最好再想想。',
@@ -3874,7 +3883,7 @@ You_better_reconsider = RogueEventOption(
     es='Será mejor que lo reconsideres.',
 )
 Is_this_enough = RogueEventOption(
-    id=431,
+    id=432,
     name='Is_this_enough',
     cn='这个够了吗？',
     cht='這個夠了嗎？',
@@ -3883,7 +3892,7 @@ Is_this_enough = RogueEventOption(
     es='¿Acaso es suficiente?',
 )
 Do_me_a_favor = RogueEventOption(
-    id=432,
+    id=433,
     name='Do_me_a_favor',
     cn='给我个面子。',
     cht='給我一個面子。',
@@ -3892,7 +3901,7 @@ Do_me_a_favor = RogueEventOption(
     es='Hazme un favor.',
 )
 The_vending_machine_spits_out_the_product = RogueEventOption(
-    id=433,
+    id=434,
     name='The_vending_machine_spits_out_the_product',
     cn='售货机吐出了商品。',
     cht='販賣機吐出了商品。',
@@ -3901,7 +3910,7 @@ The_vending_machine_spits_out_the_product = RogueEventOption(
     es='La máquina expendedora escupe el producto.',
 )
 Show_it_how_strong_you_are = RogueEventOption(
-    id=434,
+    id=435,
     name='Show_it_how_strong_you_are',
     cn='让它看看你有多强。',
     cht='讓它看看你有多強。',
@@ -3910,7 +3919,7 @@ Show_it_how_strong_you_are = RogueEventOption(
     es='Demuéstrale lo fuerte que eres.',
 )
 Can_t_beat_it_Time_to_run = RogueEventOption(
-    id=435,
+    id=436,
     name='Can_t_beat_it_Time_to_run',
     cn='打不过，溜了溜了。',
     cht='打不過，溜了溜了。',
@@ -3919,7 +3928,7 @@ Can_t_beat_it_Time_to_run = RogueEventOption(
     es='Si no puedes con él, sal pitando.',
 )
 Listen_to_him_speak = RogueEventOption(
-    id=436,
+    id=437,
     name='Listen_to_him_speak',
     cn='听他说下去。',
     cht='聽他說下去。',
@@ -3928,7 +3937,7 @@ Listen_to_him_speak = RogueEventOption(
     es='Escucha lo que dice.',
 )
 Leave_after_tasting = RogueEventOption(
-    id=437,
+    id=438,
     name='Leave_after_tasting',
     cn='试吃后离开。',
     cht='試吃後離開。',
@@ -3937,7 +3946,7 @@ Leave_after_tasting = RogueEventOption(
     es='Vete después de probarlo.',
 )
 Is_there_anything_else = RogueEventOption(
-    id=438,
+    id=439,
     name='Is_there_anything_else',
     cn='还有别的吗？',
     cht='還有別的嗎？',
@@ -3946,7 +3955,7 @@ Is_there_anything_else = RogueEventOption(
     es='¿Hay algo más?',
 )
 Take_away_the_sample_testers = RogueEventOption(
-    id=439,
+    id=440,
     name='Take_away_the_sample_testers',
     cn='带走试吃品。',
     cht='帶走試吃品。',
@@ -3955,7 +3964,7 @@ Take_away_the_sample_testers = RogueEventOption(
     es='Llévate las muestras.',
 )
 I_wanna_buy_em_all = RogueEventOption(
-    id=440,
+    id=441,
     name='I_wanna_buy_em_all',
     cn='我全买了！',
     cht='我全買了！',
@@ -3964,7 +3973,7 @@ I_wanna_buy_em_all = RogueEventOption(
     es='¡Quiero comprarlos todos!',
 )
 Stop_his_imperial_worshiping_behavior = RogueEventOption(
-    id=441,
+    id=442,
     name='Stop_his_imperial_worshiping_behavior',
     cn='制止他的帝国崇拜行为。',
     cht='制止他的帝國崇拜行為。',
@@ -3972,17 +3981,17 @@ Stop_his_imperial_worshiping_behavior = RogueEventOption(
     jp='帝国を崇拝する彼の行為を止める',
     es='Detén su comportamiento de adoración imperialista.',
 )
-Find_a_excuse_and_leave_this_place = RogueEventOption(
-    id=442,
-    name='Find_a_excuse_and_leave_this_place',
+Find_an_excuse_and_leave_this_place = RogueEventOption(
+    id=443,
+    name='Find_an_excuse_and_leave_this_place',
     cn='找借口离开这里。',
     cht='找藉口離開這裡。',
-    en='Find a excuse and leave this place.',
+    en='Find an excuse and leave this place.',
     jp='言い訳を見つけてここを離れる',
     es='Encuentra una excusa y deja este lugar.',
 )
 Pale_gold = RogueEventOption(
-    id=443,
+    id=444,
     name='Pale_gold',
     cn='淡金色。',
     cht='淡金色。',
@@ -3991,7 +4000,7 @@ Pale_gold = RogueEventOption(
     es='Oro pálido.',
 )
 Blood_red = RogueEventOption(
-    id=444,
+    id=445,
     name='Blood_red',
     cn='血红色。',
     cht='血紅色。',
@@ -4000,7 +4009,7 @@ Blood_red = RogueEventOption(
     es='Rojo sangre.',
 )
 Dark_gray = RogueEventOption(
-    id=445,
+    id=446,
     name='Dark_gray',
     cn='深灰色。',
     cht='深灰色。',
@@ -4009,7 +4018,7 @@ Dark_gray = RogueEventOption(
     es='Gris oscuro.',
 )
 Remove_the_creation = RogueEventOption(
-    id=446,
+    id=447,
     name='Remove_the_creation',
     cn='取出造物。',
     cht='取出造物。',
@@ -4018,7 +4027,7 @@ Remove_the_creation = RogueEventOption(
     es='Retira la creación.',
 )
 Security_Verification_Failed_Leave_for_now = RogueEventOption(
-    id=447,
+    id=448,
     name='Security_Verification_Failed_Leave_for_now',
     cn='密保验证失败，先离开吧。',
     cht='驗證失敗，先離開吧。',
@@ -4027,7 +4036,7 @@ Security_Verification_Failed_Leave_for_now = RogueEventOption(
     es='Verificación de seguridad fallida. Vete por ahora.',
 )
 Device_IX_unit_compound = RogueEventOption(
-    id=448,
+    id=449,
     name='Device_IX_unit_compound',
     cn='第Ⅸ机关单位大院。',
     cht='第Ⅸ機關單位大院。',
@@ -4036,7 +4045,7 @@ Device_IX_unit_compound = RogueEventOption(
     es='Recinto de la unidad Dispositivo IX.',
 )
 Herta_Space_Station = RogueEventOption(
-    id=449,
+    id=450,
     name='Herta_Space_Station',
     cn='黑塔空间站。',
     cht='黑塔太空站。',
@@ -4045,7 +4054,7 @@ Herta_Space_Station = RogueEventOption(
     es='Estación Espacial Herta.',
 )
 Superalloy_concrete = RogueEventOption(
-    id=450,
+    id=451,
     name='Superalloy_concrete',
     cn='超合金混凝土。',
     cht='超合金混凝土。',
@@ -4054,7 +4063,7 @@ Superalloy_concrete = RogueEventOption(
     es='Cemento superaleado.',
 )
 Homo_sapiens = RogueEventOption(
-    id=451,
+    id=452,
     name='Homo_sapiens',
     cn='智人。',
     cht='智人。',
@@ -4063,7 +4072,7 @@ Homo_sapiens = RogueEventOption(
     es='Homo sapiens.',
 )
 Insect_eating_fungi = RogueEventOption(
-    id=452,
+    id=453,
     name='Insect_eating_fungi',
     cn='食虫菌毯。',
     cht='食蟲菌毯。',
@@ -4072,7 +4081,7 @@ Insect_eating_fungi = RogueEventOption(
     es='Hongos que se alimentan de insectos.',
 )
 Retrieve_the_bank_card = RogueEventOption(
-    id=453,
+    id=454,
     name='Retrieve_the_bank_card',
     cn='取走银行卡。',
     cht='拿走銀行卡。',
@@ -4081,7 +4090,7 @@ Retrieve_the_bank_card = RogueEventOption(
     es='Recupera la tarjeta de banco.',
 )
 Withdraw_investment = RogueEventOption(
-    id=454,
+    id=455,
     name='Withdraw_investment',
     cn='提取本金。',
     cht='提取本金。',
@@ -4090,7 +4099,7 @@ Withdraw_investment = RogueEventOption(
     es='Retira el efectivo.',
 )
 Withdraw_interest = RogueEventOption(
-    id=455,
+    id=456,
     name='Withdraw_interest',
     cn='提取利息。',
     cht='提取利息。',
@@ -4099,7 +4108,7 @@ Withdraw_interest = RogueEventOption(
     es='Retira los intereses.',
 )
 Withdraw_knowledge = RogueEventOption(
-    id=456,
+    id=457,
     name='Withdraw_knowledge',
     cn='提取知识。',
     cht='提取知識。',
@@ -4108,7 +4117,7 @@ Withdraw_knowledge = RogueEventOption(
     es='Retira el conocimiento.',
 )
 Withdraw_memories = RogueEventOption(
-    id=457,
+    id=458,
     name='Withdraw_memories',
     cn='提取记忆。',
     cht='提取記憶。',
@@ -4117,7 +4126,7 @@ Withdraw_memories = RogueEventOption(
     es='Retira los recuerdos.',
 )
 The_extremity_of_a_tomato = RogueEventOption(
-    id=458,
+    id=459,
     name='The_extremity_of_a_tomato',
     cn='西红柿的末端。',
     cht='蕃茄的末端。',
@@ -4126,7 +4135,7 @@ The_extremity_of_a_tomato = RogueEventOption(
     es='La extremidad de un tomate.',
 )
 Press_it = RogueEventOption(
-    id=459,
+    id=460,
     name='Press_it',
     cn='按下它。',
     cht='按下它。',
@@ -4135,7 +4144,7 @@ Press_it = RogueEventOption(
     es='Presiona.',
 )
 Remove_your_hand = RogueEventOption(
-    id=460,
+    id=461,
     name='Remove_your_hand',
     cn='把手拿开。',
     cht='把手拿開。',
@@ -4144,7 +4153,7 @@ Remove_your_hand = RogueEventOption(
     es='Quita la mano.',
 )
 You_re_teaching_me_how_to_do_my_job = RogueEventOption(
-    id=461,
+    id=462,
     name='You_re_teaching_me_how_to_do_my_job',
     cn='你在教我做事？',
     cht='你在教我做事？',
@@ -4153,7 +4162,7 @@ You_re_teaching_me_how_to_do_my_job = RogueEventOption(
     es='¿Me estás diciendo cómo hacer mi trabajo?',
 )
 Be_receptive_to_feedback = RogueEventOption(
-    id=462,
+    id=463,
     name='Be_receptive_to_feedback',
     cn='要善于听取意见。',
     cht='要善於聽取意見。',
@@ -4162,7 +4171,7 @@ Be_receptive_to_feedback = RogueEventOption(
     es='Mantente abiert a los comentarios.',
 )
 I_told_you_to_stop_pressing_the_button = RogueEventOption(
-    id=463,
+    id=464,
     name='I_told_you_to_stop_pressing_the_button',
     cn='都叫你别按按钮了。',
     cht='都叫你別按按鈕了。',
@@ -4171,7 +4180,7 @@ I_told_you_to_stop_pressing_the_button = RogueEventOption(
     es='Te dije que no presionaras el botón.',
 )
 Xianzhou_collab_set_meal = RogueEventOption(
-    id=464,
+    id=465,
     name='Xianzhou_collab_set_meal',
     cn='仙舟联名套餐。',
     cht='仙舟聯名套餐。',
@@ -4180,7 +4189,7 @@ Xianzhou_collab_set_meal = RogueEventOption(
     es='Menú de colaboración de Xianzhou.',
 )
 Terrorbird_fruit_stew = RogueEventOption(
-    id=465,
+    id=466,
     name='Terrorbird_fruit_stew',
     cn='骇鸟水果乱炖。',
     cht='駭鳥水果亂燉。',
@@ -4189,7 +4198,7 @@ Terrorbird_fruit_stew = RogueEventOption(
     es='Estofado de fruta terrorpájaro.',
 )
 The_big_data_will_provide_the_answers = RogueEventOption(
-    id=466,
+    id=467,
     name='The_big_data_will_provide_the_answers',
     cn='大数据会给出答案。',
     cht='大資料會給出答案。',
@@ -4198,7 +4207,7 @@ The_big_data_will_provide_the_answers = RogueEventOption(
     es='Los macrodatos darán las respuestas.',
 )
 Awesome_big_W = RogueEventOption(
-    id=467,
+    id=468,
     name='Awesome_big_W',
     cn='真好，赚到。',
     cht='真好，賺到。',
@@ -4207,7 +4216,7 @@ Awesome_big_W = RogueEventOption(
     es='Genial, una buena ganancia.',
 )
 Life_support_meal_combo_d549 = RogueEventOption(
-    id=468,
+    id=469,
     name='Life_support_meal_combo_d549',
     cn='生命维持套餐。',
     cht='生命維持套餐。',
@@ -4216,7 +4225,7 @@ Life_support_meal_combo_d549 = RogueEventOption(
     es='Comida de soporte vital.',
 )
 Life_support_meal_combo_3279 = RogueEventOption(
-    id=469,
+    id=470,
     name='Life_support_meal_combo_3279',
     cn='生命维持套餐。',
     cht='生命維持套餐。',
@@ -4225,7 +4234,7 @@ Life_support_meal_combo_3279 = RogueEventOption(
     es='Comida de soporte vital.',
 )
 Challenge_A_sentence_of_ten_words = RogueEventOption(
-    id=470,
+    id=471,
     name='Challenge_A_sentence_of_ten_words',
     cn='挑战十个字的句子。',
     cht='挑戰十個字的句子。',
@@ -4234,7 +4243,7 @@ Challenge_A_sentence_of_ten_words = RogueEventOption(
     es='Desafío: una frase de diez palabras.',
 )
 Challenge_Two_short_sentences_of_five_words_each = RogueEventOption(
-    id=471,
+    id=472,
     name='Challenge_Two_short_sentences_of_five_words_each',
     cn='挑战两个五字短语。',
     cht='挑戰兩個五字短語。',
@@ -4243,7 +4252,7 @@ Challenge_Two_short_sentences_of_five_words_each = RogueEventOption(
     es='Desafío: dos frases cortas de cinco palabras cada una.',
 )
 Disassemble_the_characters_it_carries = RogueEventOption(
-    id=472,
+    id=473,
     name='Disassemble_the_characters_it_carries',
     cn='拆散它携带的字符。',
     cht='拆散它攜帶的字元。',
@@ -4252,7 +4261,7 @@ Disassemble_the_characters_it_carries = RogueEventOption(
     es='Desmonta las letras que lleva.',
 )
 Choose_Pineapple = RogueEventOption(
-    id=473,
+    id=474,
     name='Choose_Pineapple',
     cn='选择菠萝。',
     cht='選擇鳳梨。',
@@ -4261,7 +4270,7 @@ Choose_Pineapple = RogueEventOption(
     es='Elige la piña.',
 )
 Choose_Bread = RogueEventOption(
-    id=474,
+    id=475,
     name='Choose_Bread',
     cn='选择面包。',
     cht='選擇麵包。',
@@ -4270,7 +4279,7 @@ Choose_Bread = RogueEventOption(
     es='Elige el pan.',
 )
 Take_a_drink_and_calm_down = RogueEventOption(
-    id=475,
+    id=476,
     name='Take_a_drink_and_calm_down',
     cn='喝瓶水冷静冷静。',
     cht='喝瓶水冷靜一下。',
@@ -4279,7 +4288,7 @@ Take_a_drink_and_calm_down = RogueEventOption(
     es='Tómate una bebida y cálmate.',
 )
 I_will_not_turn_my_back_on_humanity = RogueEventOption(
-    id=476,
+    id=477,
     name='I_will_not_turn_my_back_on_humanity',
     cn='我绝不会背叛人类。',
     cht='我絕不會背叛人類。',
@@ -4288,7 +4297,7 @@ I_will_not_turn_my_back_on_humanity = RogueEventOption(
     es='Nunca traicionaré a la humanidad.',
 )
 I_am_the_king_of_trashcans = RogueEventOption(
-    id=477,
+    id=478,
     name='I_am_the_king_of_trashcans',
     cn='我才是垃圾桶之王！',
     cht='我才是垃圾桶之王！',
@@ -4297,7 +4306,7 @@ I_am_the_king_of_trashcans = RogueEventOption(
     es='¡Soy el rey de los cubos de basura!',
 )
 I_will_never_betray_humanity = RogueEventOption(
-    id=478,
+    id=479,
     name='I_will_never_betray_humanity',
     cn='我绝不会背叛人类。',
     cht='我絕不會背叛人類。',
@@ -4306,7 +4315,7 @@ I_will_never_betray_humanity = RogueEventOption(
     es='Nunca traicionaré a la humanidad.',
 )
 Reforge_weapon = RogueEventOption(
-    id=479,
+    id=480,
     name='Reforge_weapon',
     cn='重铸武器。',
     cht='重鑄武器。',
@@ -4315,7 +4324,7 @@ Reforge_weapon = RogueEventOption(
     es='Vuelve a forjar un arma.',
 )
 Smelt_weapon = RogueEventOption(
-    id=480,
+    id=481,
     name='Smelt_weapon',
     cn='熔炼武器。',
     cht='熔鍊武器。',
@@ -4324,7 +4333,7 @@ Smelt_weapon = RogueEventOption(
     es='Funde un arma.',
 )
 Precision_forge_weapon = RogueEventOption(
-    id=481,
+    id=482,
     name='Precision_forge_weapon',
     cn='精锻武器。',
     cht='精鍛武器。',
@@ -4333,7 +4342,7 @@ Precision_forge_weapon = RogueEventOption(
     es='Refina un arma de calidad.',
 )
 There_something_hidden_in_its_fur = RogueEventOption(
-    id=482,
+    id=483,
     name='There_something_hidden_in_its_fur',
     cn='有什么藏在毛茸茸里。',
     cht='有什麼藏在茸毛裡？',
@@ -4342,7 +4351,7 @@ There_something_hidden_in_its_fur = RogueEventOption(
     es='Hay algo oculto en su pelaje.',
 )
 Reel_in_the_line = RogueEventOption(
-    id=483,
+    id=484,
     name='Reel_in_the_line',
     cn='收线。',
     cht='收線。',
@@ -4351,7 +4360,7 @@ Reel_in_the_line = RogueEventOption(
     es='Recoge el sedal.',
 )
 Offer_blood = RogueEventOption(
-    id=484,
+    id=485,
     name='Offer_blood',
     cn='献上鲜血。',
     cht='獻上鮮血。',
@@ -4360,7 +4369,7 @@ Offer_blood = RogueEventOption(
     es='Ofrece sangre.',
 )
 Offer_money = RogueEventOption(
-    id=485,
+    id=486,
     name='Offer_money',
     cn='献上金钱。',
     cht='獻上金錢。',
@@ -4369,7 +4378,7 @@ Offer_money = RogueEventOption(
     es='Ofrece dinero.',
 )
 Offer_the_past = RogueEventOption(
-    id=486,
+    id=487,
     name='Offer_the_past',
     cn='献上过去。',
     cht='獻上過去。',
@@ -4378,7 +4387,7 @@ Offer_the_past = RogueEventOption(
     es='Ofrece el pasado.',
 )
 Offer_the_future = RogueEventOption(
-    id=487,
+    id=488,
     name='Offer_the_future',
     cn='献上未来。',
     cht='獻上未來。',
@@ -4387,7 +4396,7 @@ Offer_the_future = RogueEventOption(
     es='Ofrece el futuro.',
 )
 I_want_to_get_rich = RogueEventOption(
-    id=488,
+    id=489,
     name='I_want_to_get_rich',
     cn='我想获得财富。',
     cht='我想獲得財富。',
@@ -4396,7 +4405,7 @@ I_want_to_get_rich = RogueEventOption(
     es='Quiero ser millonari.',
 )
 I_want_to_receive_benedictions = RogueEventOption(
-    id=489,
+    id=490,
     name='I_want_to_receive_benedictions',
     cn='我想获得恩赐。',
     cht='我想獲得恩賜。',
@@ -4405,7 +4414,7 @@ I_want_to_receive_benedictions = RogueEventOption(
     es='Quiero recibir bendiciones.',
 )
 I_want_to_touch_upon_the_unknown = RogueEventOption(
-    id=490,
+    id=491,
     name='I_want_to_touch_upon_the_unknown',
     cn='我想触及未知。',
     cht='我想觸及未知。',
@@ -4414,7 +4423,7 @@ I_want_to_touch_upon_the_unknown = RogueEventOption(
     es='Quiero tocar lo desconocido.',
 )
 I_want_to_obtain_wisdom = RogueEventOption(
-    id=491,
+    id=492,
     name='I_want_to_obtain_wisdom',
     cn='我想触及智慧。',
     cht='我想觸及智慧。',
@@ -4423,7 +4432,7 @@ I_want_to_obtain_wisdom = RogueEventOption(
     es='Quiero sabiduría.',
 )
 Give_up_on_fishing = RogueEventOption(
-    id=492,
+    id=493,
     name='Give_up_on_fishing',
     cn='放弃垂钓。',
     cht='放棄垂釣。',
@@ -4432,7 +4441,7 @@ Give_up_on_fishing = RogueEventOption(
     es='Deja de pescar.',
 )
 A_primordial_bloodthirsty_beast = RogueEventOption(
-    id=493,
+    id=494,
     name='A_primordial_bloodthirsty_beast',
     cn='远古的渴血巨兽。',
     cht='遠古的渴血巨獸。',
@@ -4441,7 +4450,7 @@ A_primordial_bloodthirsty_beast = RogueEventOption(
     es='Una antigua bestia sedienta de sangre.',
 )
 A_cooking_Lordly_Trashcan = RogueEventOption(
-    id=494,
+    id=495,
     name='A_cooking_Lordly_Trashcan',
     cn='下厨的王下一桶。',
     cht='下廚的王下一桶。',
@@ -4450,7 +4459,7 @@ A_cooking_Lordly_Trashcan = RogueEventOption(
     es='Un Cubo de Basura Señorial cocinillas.',
 )
 A_game_of_Rock_Paper_Scissors_with_the_calculator = RogueEventOption(
-    id=495,
+    id=496,
     name='A_game_of_Rock_Paper_Scissors_with_the_calculator',
     cn='计算机的猜拳游戏。',
     cht='電腦的猜拳遊戲。',
@@ -4459,7 +4468,7 @@ A_game_of_Rock_Paper_Scissors_with_the_calculator = RogueEventOption(
     es='Una ronda de piedra, papel o tijera de la calculadora.',
 )
 Last_night_dream = RogueEventOption(
-    id=496,
+    id=497,
     name='Last_night_dream',
     cn='昨晚的梦。',
     cht='昨晚的夢。',
@@ -4468,7 +4477,7 @@ Last_night_dream = RogueEventOption(
     es='El sueño de anoche.',
 )
 Pom_Pom_tail = RogueEventOption(
-    id=497,
+    id=498,
     name='Pom_Pom_tail',
     cn='帕姆的尾巴。',
     cht='帕姆的尾巴。',
@@ -4477,7 +4486,7 @@ Pom_Pom_tail = RogueEventOption(
     es='La cola de Pom-Pom.',
 )
 Himeko_coffee = RogueEventOption(
-    id=498,
+    id=499,
     name='Himeko_coffee',
     cn='姬子的咖啡。',
     cht='姬子的咖啡。',
@@ -4486,7 +4495,7 @@ Himeko_coffee = RogueEventOption(
     es='El café de Himeko.',
 )
 Bounty_Hunter_of_the_Snow_Plains = RogueEventOption(
-    id=499,
+    id=500,
     name='Bounty_Hunter_of_the_Snow_Plains',
     cn='雪原的赏金猎人。',
     cht='雪原的賞金獵人。',
@@ -4495,7 +4504,7 @@ Bounty_Hunter_of_the_Snow_Plains = RogueEventOption(
     es='Cazarrecompensas de las llanuras nevadas.',
 )
 An_Aha_Stuffed_Toy_asking_to_be_hit = RogueEventOption(
-    id=500,
+    id=501,
     name='An_Aha_Stuffed_Toy_asking_to_be_hit',
     cn='欠揍的阿哈玩偶。',
     cht='欠揍的阿哈玩偶。',
@@ -4504,7 +4513,7 @@ An_Aha_Stuffed_Toy_asking_to_be_hit = RogueEventOption(
     es='Un muñeco de Aha que quiere que lo golpeen.',
 )
 The_library_History_Fictionologist = RogueEventOption(
-    id=501,
+    id=502,
     name='The_library_History_Fictionologist',
     cn='图书馆的虚构史学家。',
     cht='圖書館的虛構史學家。',
@@ -4513,7 +4522,7 @@ The_library_History_Fictionologist = RogueEventOption(
     es='Los Historiadores Espurios de la biblioteca.',
 )
 Describe_a_colorful_journey = RogueEventOption(
-    id=502,
+    id=503,
     name='Describe_a_colorful_journey',
     cn='讲述多彩的旅途。',
     cht='講述多彩的旅途。',
@@ -4522,7 +4531,7 @@ Describe_a_colorful_journey = RogueEventOption(
     es='Describe un viaje extravagante.',
 )
 Describe_a_wondrous_adventure = RogueEventOption(
-    id=503,
+    id=504,
     name='Describe_a_wondrous_adventure',
     cn='讲述惊奇的冒险。',
     cht='講述驚奇的冒險。',
@@ -4531,7 +4540,7 @@ Describe_a_wondrous_adventure = RogueEventOption(
     es='Describe una aventura maravillosa.',
 )
 Describe_a_simple_life = RogueEventOption(
-    id=504,
+    id=505,
     name='Describe_a_simple_life',
     cn='讲述朴实的生活。',
     cht='講述樸實的生活。',
@@ -4540,7 +4549,7 @@ Describe_a_simple_life = RogueEventOption(
     es='Describe una vida simple.',
 )
 Recount_your_empty_past = RogueEventOption(
-    id=505,
+    id=506,
     name='Recount_your_empty_past',
     cn='讲述空白的过往。',
     cht='講述空白的過往。',
@@ -4549,7 +4558,7 @@ Recount_your_empty_past = RogueEventOption(
     es='Describe tu vacío pasado.',
 )
 Chasing_excitement = RogueEventOption(
-    id=506,
+    id=507,
     name='Chasing_excitement',
     cn='玩的就是一个刺激。',
     cht='越刺激就會越好玩。',
@@ -4558,7 +4567,7 @@ Chasing_excitement = RogueEventOption(
     es='Divertirse es emocionante.',
 )
 Consider_it_as_helping_out_the_Guild_business = RogueEventOption(
-    id=507,
+    id=508,
     name='Consider_it_as_helping_out_the_Guild_business',
     cn='就当照顾学会的生意。',
     cht='就當關照學會的生意。',
@@ -4567,7 +4576,7 @@ Consider_it_as_helping_out_the_Guild_business = RogueEventOption(
     es='Considéralo como un apoyo a los negocios de la Sociedad.',
 )
 Let_have_a_meal_first = RogueEventOption(
-    id=508,
+    id=509,
     name='Let_have_a_meal_first',
     cn='先吃饭吧。',
     cht='先吃飯吧。',
@@ -4576,7 +4585,7 @@ Let_have_a_meal_first = RogueEventOption(
     es='Come primero.',
 )
 The_meaning_of_luck = RogueEventOption(
-    id=509,
+    id=510,
     name='The_meaning_of_luck',
     cn='什么叫运气！',
     cht='什麼叫運氣！',
@@ -4585,7 +4594,7 @@ The_meaning_of_luck = RogueEventOption(
     es='¿A qué llamas "suerte"?',
 )
 Claim_your_loot = RogueEventOption(
-    id=510,
+    id=511,
     name='Claim_your_loot',
     cn='带走你的收获。',
     cht='帶走你的收穫。',
@@ -4594,7 +4603,7 @@ Claim_your_loot = RogueEventOption(
     es='Llévate tus ganancias.',
 )
 Add_stake_with_2_Cosmic_Fragments = RogueEventOption(
-    id=511,
+    id=512,
     name='Add_stake_with_2_Cosmic_Fragments',
     cn='加注#2宇宙碎片。',
     cht='加注#2個宇宙碎片。',
@@ -4603,7 +4612,7 @@ Add_stake_with_2_Cosmic_Fragments = RogueEventOption(
     es='Sube la apuesta con #2 fragmentos cósmicos.',
 )
 Hold_steady_keep_it_as_it_is = RogueEventOption(
-    id=512,
+    id=513,
     name='Hold_steady_keep_it_as_it_is',
     cn='稳住，保持原样。',
     cht='穩住，保持原樣。',
@@ -4612,7 +4621,7 @@ Hold_steady_keep_it_as_it_is = RogueEventOption(
     es='Mantén la calma y déjalo como estaba.',
 )
 If_you_don_t_lose_you_win = RogueEventOption(
-    id=513,
+    id=514,
     name='If_you_don_t_lose_you_win',
     cn='不输就是赢。',
     cht='不輸就是贏。',
@@ -4621,7 +4630,7 @@ If_you_don_t_lose_you_win = RogueEventOption(
     es='Si no pierdes, ganas.',
 )
 Join_in_the_heckling = RogueEventOption(
-    id=514,
+    id=515,
     name='Join_in_the_heckling',
     cn='跟着起哄。',
     cht='跟著起鬨。',
@@ -4630,7 +4639,7 @@ Join_in_the_heckling = RogueEventOption(
     es='Únete a la algarabía.',
 )
 Quit_while_you_re_ahead_46b7 = RogueEventOption(
-    id=515,
+    id=516,
     name='Quit_while_you_re_ahead_46b7',
     cn='见好就收。',
     cht='見好就收。',
@@ -4639,7 +4648,7 @@ Quit_while_you_re_ahead_46b7 = RogueEventOption(
     es='Retírate mientras estás a la cabeza.',
 )
 Bid_on_the_fastest_ship = RogueEventOption(
-    id=516,
+    id=517,
     name='Bid_on_the_fastest_ship',
     cn='押最快的那艘。',
     cht='押最快的那艘。',
@@ -4648,7 +4657,7 @@ Bid_on_the_fastest_ship = RogueEventOption(
     es='Apuesta por la nave más rápida.',
 )
 Bid_on_the_safest_ship = RogueEventOption(
-    id=517,
+    id=518,
     name='Bid_on_the_safest_ship',
     cn='押最稳的那艘。',
     cht='押最穩的那艘。',
@@ -4657,7 +4666,7 @@ Bid_on_the_safest_ship = RogueEventOption(
     es='Apuesta por la nave más segura.',
 )
 Bid_on_the_slowest_ship = RogueEventOption(
-    id=518,
+    id=519,
     name='Bid_on_the_slowest_ship',
     cn='押最慢的那艘。',
     cht='押最慢的那艘。',
@@ -4666,7 +4675,7 @@ Bid_on_the_slowest_ship = RogueEventOption(
     es='Apuesta por la nave más lenta.',
 )
 This_is_what_luck_is = RogueEventOption(
-    id=519,
+    id=520,
     name='This_is_what_luck_is',
     cn='什么叫运气！',
     cht='什麼叫運氣！',
@@ -4675,7 +4684,7 @@ This_is_what_luck_is = RogueEventOption(
     es='¿A qué llamas "suerte"?',
 )
 Take_your_earnings = RogueEventOption(
-    id=520,
+    id=521,
     name='Take_your_earnings',
     cn='带走你的收获。',
     cht='帶走你的收穫。',
@@ -4684,7 +4693,7 @@ Take_your_earnings = RogueEventOption(
     es='Llévate tus ganancias.',
 )
 Quit_while_you_re_ahead_14b1 = RogueEventOption(
-    id=521,
+    id=522,
     name='Quit_while_you_re_ahead_14b1',
     cn='见好就收。',
     cht='見好就收。',
@@ -4693,7 +4702,7 @@ Quit_while_you_re_ahead_14b1 = RogueEventOption(
     es='Retírate mientras vas ganando.',
 )
 Calculation_failed = RogueEventOption(
-    id=522,
+    id=523,
     name='Calculation_failed',
     cn='测算失败。',
     cht='測算失敗。',
@@ -4702,7 +4711,7 @@ Calculation_failed = RogueEventOption(
     es='Cálculo fallido.',
 )
 Execute = RogueEventOption(
-    id=523,
+    id=524,
     name='Execute',
     cn='开始执行。',
     cht='開始執行。',
@@ -4711,7 +4720,7 @@ Execute = RogueEventOption(
     es='Comienza a ejecutar.',
 )
 Leave_behind_the_plastic_ornaments_on_you = RogueEventOption(
-    id=524,
+    id=525,
     name='Leave_behind_the_plastic_ornaments_on_you',
     cn='留下随身的塑料装饰。',
     cht='留下隨身的塑膠裝飾。',
@@ -4720,7 +4729,7 @@ Leave_behind_the_plastic_ornaments_on_you = RogueEventOption(
     es='Deja detrás los adornos de plástico que llevas.',
 )
 Leave_behind_rusted_metal_parts = RogueEventOption(
-    id=525,
+    id=526,
     name='Leave_behind_rusted_metal_parts',
     cn='留下生锈的金属部件。',
     cht='留下生鏽的金屬部件。',
@@ -4729,7 +4738,7 @@ Leave_behind_rusted_metal_parts = RogueEventOption(
     es='Deja detrás las partes de metal oxidadas.',
 )
 Leave_behind_useless_electronic_devices = RogueEventOption(
-    id=526,
+    id=527,
     name='Leave_behind_useless_electronic_devices',
     cn='留下废旧的电子设备。',
     cht='留下廢舊的電子裝置。',
@@ -4738,7 +4747,7 @@ Leave_behind_useless_electronic_devices = RogueEventOption(
     es='Deja detrás los dispositivos electrónicos obsoletos.',
 )
 Add_a_few_components = RogueEventOption(
-    id=527,
+    id=528,
     name='Add_a_few_components',
     cn='加入一点点零件。',
     cht='加入一點點零件。',
@@ -4747,7 +4756,7 @@ Add_a_few_components = RogueEventOption(
     es='Añade algunos componentes.',
 )
 Add_a_bit_of_inspiration = RogueEventOption(
-    id=528,
+    id=529,
     name='Add_a_bit_of_inspiration',
     cn='加入一点点灵感。',
     cht='加入一點點靈感。',
@@ -4756,7 +4765,7 @@ Add_a_bit_of_inspiration = RogueEventOption(
     es='Añade un poco de inspiración.',
 )
 Pour_in_a_little_joy = RogueEventOption(
-    id=529,
+    id=530,
     name='Pour_in_a_little_joy',
     cn='倒入一点点喜悦。',
     cht='倒入一點點喜悅。',
@@ -4765,7 +4774,7 @@ Pour_in_a_little_joy = RogueEventOption(
     es='Añade un poco de diversión.',
 )
 A_joke_about_a_sinister_mask_0c7c = RogueEventOption(
-    id=530,
+    id=531,
     name='A_joke_about_a_sinister_mask_0c7c',
     cn='狰狞面具的笑话。',
     cht='猙獰面具的笑話。',
@@ -4774,7 +4783,7 @@ A_joke_about_a_sinister_mask_0c7c = RogueEventOption(
     es='Un chiste sobre una máscara siniestra.',
 )
 A_joke_about_a_ridiculous_mask = RogueEventOption(
-    id=531,
+    id=532,
     name='A_joke_about_a_ridiculous_mask',
     cn='咧嘴面具的笑话。',
     cht='咧嘴面具的笑話。',
@@ -4783,7 +4792,7 @@ A_joke_about_a_ridiculous_mask = RogueEventOption(
     es='Un chiste sobre una máscara ridícula.',
 )
 A_joke_about_a_masquerade_mask_32be = RogueEventOption(
-    id=532,
+    id=533,
     name='A_joke_about_a_masquerade_mask_32be',
     cn='舞会面具的笑话。',
     cht='舞會面具的笑話。',
@@ -4792,7 +4801,7 @@ A_joke_about_a_masquerade_mask_32be = RogueEventOption(
     es='Un chiste sobre una máscara de baile.',
 )
 A_joke_about_a_fox_faced_mask = RogueEventOption(
-    id=533,
+    id=534,
     name='A_joke_about_a_fox_faced_mask',
     cn='狐狸面具的笑话。',
     cht='狐狸面具的笑話。',
@@ -4801,7 +4810,7 @@ A_joke_about_a_fox_faced_mask = RogueEventOption(
     es='Un chiste sobre una máscara de zorro.',
 )
 A_joke_about_an_intact_mask = RogueEventOption(
-    id=534,
+    id=535,
     name='A_joke_about_an_intact_mask',
     cn='完整面具的笑话。',
     cht='完整面具的笑話。',
@@ -4810,7 +4819,7 @@ A_joke_about_an_intact_mask = RogueEventOption(
     es='Un chiste sobre una máscara completa.',
 )
 A_joke_about_a_broken_mask = RogueEventOption(
-    id=535,
+    id=536,
     name='A_joke_about_a_broken_mask',
     cn='破碎面具的笑话。',
     cht='破碎面具的笑話。',
@@ -4819,7 +4828,7 @@ A_joke_about_a_broken_mask = RogueEventOption(
     es='Un chiste sobre una máscara rota.',
 )
 A_joke_about_a_sinister_mask_26fd = RogueEventOption(
-    id=536,
+    id=537,
     name='A_joke_about_a_sinister_mask_26fd',
     cn='狰狞面具的笑话。',
     cht='猙獰面具的笑話。',
@@ -4828,7 +4837,7 @@ A_joke_about_a_sinister_mask_26fd = RogueEventOption(
     es='Un chiste sobre una máscara siniestra.',
 )
 A_joke_about_a_masquerade_mask_6df8 = RogueEventOption(
-    id=537,
+    id=538,
     name='A_joke_about_a_masquerade_mask_6df8',
     cn='舞会面具的笑话。',
     cht='舞會面具的笑話。',
@@ -4837,25 +4846,25 @@ A_joke_about_a_masquerade_mask_6df8 = RogueEventOption(
     es='Un chiste sobre una máscara de baile.',
 )
 Just_a_cursory_amount_for_show = RogueEventOption(
-    id=538,
+    id=539,
     name='Just_a_cursory_amount_for_show',
     cn='象征性意思意思',
     cht='客氣一下而已',
     en='Just a cursory amount for show',
     jp='少しだけ誠意を見せる',
-    es='Compra solo una pequeña cantidad para quedar bien',
+    es='Compra solo una pequeña cantidad para quedar bien.',
 )
 Buy_more_to_gift_friends_and_family = RogueEventOption(
-    id=539,
+    id=540,
     name='Buy_more_to_gift_friends_and_family',
     cn='多买点送亲戚朋友',
     cht='多買一點送親朋好友',
     en='Buy more to gift friends and family',
     jp='もっと買って親戚や友人のお土産にする',
-    es='Compra muchos regalos para la familia y los amigos',
+    es='Compra muchos regalos para la familia y los amigos.',
 )
 Buy_everything_in_this_vending_machine = RogueEventOption(
-    id=540,
+    id=541,
     name='Buy_everything_in_this_vending_machine',
     cn='这台售货机，你承包了！',
     cht='這台販賣機，你承包了！',
@@ -4864,241 +4873,241 @@ Buy_everything_in_this_vending_machine = RogueEventOption(
     es='¡Compra todo lo que hay en esta máquina expendedora!',
 )
 You_decide_to_do_as_the_locals_do = RogueEventOption(
-    id=541,
+    id=542,
     name='You_decide_to_do_as_the_locals_do',
     cn='你决定入乡随俗',
     cht='你決定入鄉隨俗',
     en='You decide to do as the locals do',
     jp='郷に入っては郷に従うことに決めた',
-    es='Decides que "donde fueres, haz lo que vieres"',
+    es='Decides que "donde fueres, haz lo que vieres".',
 )
 Knock_out_the_golden_head_of_tricks = RogueEventOption(
-    id=542,
+    id=543,
     name='Knock_out_the_golden_head_of_tricks',
     cn='敲晕手法的黄金脑袋',
     cht='敲暈手法的黃金腦袋',
     en='Knock out the golden head of tricks',
     jp='トリックを推理するゴールデンヘッドを気絶させる',
-    es='Golpea la cabeza dorada de los trucos',
+    es='Golpea la cabeza dorada de los trucos.',
 )
 Knock_out_the_diamond_head_of_motives = RogueEventOption(
-    id=543,
+    id=544,
     name='Knock_out_the_diamond_head_of_motives',
     cn='敲晕动机的钻石脑袋',
     cht='敲暈動機的鑽石腦袋',
     en='Knock out the diamond head of motives',
     jp='動機を推理するダイヤモンドヘッドを気絶させる',
-    es='Golpea la cabeza de diamante de los motivos',
+    es='Golpea la cabeza de diamante de los motivos.',
 )
 Wide_broad_strokes = RogueEventOption(
-    id=544,
+    id=545,
     name='Wide_broad_strokes',
     cn='大笔一挥',
     cht='大筆一揮',
     en='Wide, broad strokes',
     jp='絵を描く',
-    es='Pinceladas grandes y amplias',
+    es='Pinceladas grandes y amplias.',
 )
 Give_up_on_painting = RogueEventOption(
-    id=545,
+    id=546,
     name='Give_up_on_painting',
     cn='放弃作画',
     cht='放棄作畫',
     en='Give up on painting',
     jp='絵を描くのを諦める',
-    es='Deja de pintar',
+    es='Deja de pintar.',
 )
 Learn_from_a_master = RogueEventOption(
-    id=546,
+    id=547,
     name='Learn_from_a_master',
     cn='拜师学艺',
     cht='拜師學藝',
     en='Learn from a master',
     jp='師匠について学ぶ',
-    es='Aprende del maestro',
+    es='Aprende del maestro.',
 )
 Purchase_high_quality_paints = RogueEventOption(
-    id=547,
+    id=548,
     name='Purchase_high_quality_paints',
     cn='购买高级颜料',
     cht='購買高級顏料',
     en='Purchase high-quality paints',
     jp='高級絵の具を購入する',
-    es='Compra pinturas de buena calidad',
+    es='Compra pinturas de buena calidad.',
 )
 Hire_a_local_illustrator = RogueEventOption(
-    id=548,
+    id=549,
     name='Hire_a_local_illustrator',
     cn='聘请本地绘师',
     cht='聘請本地繪師',
     en='Hire a local illustrator',
     jp='現地の画家を雇う',
-    es='Contrata a un artista local',
+    es='Contrata a un Artista local.',
 )
 Offer_fury_to_the_deceased_king = RogueEventOption(
-    id=549,
+    id=550,
     name='Offer_fury_to_the_deceased_king',
     cn='向已死之王献上愤怒',
     cht='向已死之王獻上憤怒',
     en='Offer fury to the deceased king',
     jp='死した王に怒りを捧げる',
-    es='Ofrece furia al difunto rey',
+    es='Ofrece furia al difunto rey.',
 )
 Leave_this_gloomy_place = RogueEventOption(
-    id=550,
+    id=551,
     name='Leave_this_gloomy_place',
     cn='离开这个阴沉的地方',
     cht='離開這個陰沉的地方',
     en='Leave this gloomy place',
     jp='この陰鬱な場所を離れる',
-    es='Sal de este lugar sombrío',
+    es='Sal de este lugar sombrío.',
 )
 Leave_with_the_Wrath_King_treasure = RogueEventOption(
-    id=551,
+    id=552,
     name='Leave_with_the_Wrath_King_treasure',
     cn='带走嗔王的宝藏',
     cht='帶走嗔王的寶藏',
     en="Leave with the Wrath King's treasure",
     jp='怒りの王の宝物を持ち去る',
-    es='Toma el tesoro del Rey de la Ira',
+    es='Toma el tesoro del Rey de la Ira.',
 )
 Leave_with_the_Wrath_King_memories = RogueEventOption(
-    id=552,
+    id=553,
     name='Leave_with_the_Wrath_King_memories',
     cn='带走嗔王的回忆',
     cht='帶走嗔王的回憶',
     en="Leave with the Wrath King's memories",
     jp='怒りの王の思い出を持ち去る',
-    es='Toma los recuerdos del Rey de la Ira',
+    es='Toma los recuerdos del Rey de la Ira.',
 )
 Change_my_future = RogueEventOption(
-    id=553,
+    id=554,
     name='Change_my_future',
     cn='改变我的未来',
     cht='改變我的未來',
     en='Change my future',
     jp='の未来を変える',
-    es='Cambia mi futuro',
+    es='Cambia mi futuro.',
 )
 Abandon_the_suspicious_divination = RogueEventOption(
-    id=554,
+    id=555,
     name='Abandon_the_suspicious_divination',
     cn='放弃可疑的占卜',
     cht='放棄可疑的占卜',
     en='Abandon the suspicious divination',
     jp='怪しい占いを無視する',
-    es='Rehúsa la adivinación sospechosa',
+    es='Rehúsa la adivinación sospechosa.',
 )
 Collect_the_remaining_data = RogueEventOption(
-    id=555,
+    id=556,
     name='Collect_the_remaining_data',
     cn='收拾残存的数据',
     cht='收拾殘存的資料',
     en='Collect the remaining data',
     jp='残りのデータを片付ける',
-    es='Reúne los datos restantes',
+    es='Reúne los datos restantes.',
 )
 Gather_more_of_the_deep_data = RogueEventOption(
-    id=556,
+    id=557,
     name='Gather_more_of_the_deep_data',
     cn='捞取更多深层数据',
     cht='挖掘更多深層資料',
     en='Gather more of the deep data',
     jp='深層のデータをさらに引き上げる',
-    es='Reúne más datos profundos',
+    es='Reúne más datos profundos.',
 )
 Float_toward_the_surface_data = RogueEventOption(
-    id=557,
+    id=558,
     name='Float_toward_the_surface_data',
     cn='向数据表层上浮',
     cht='挪移至資料表層',
     en='Float toward the surface data',
     jp='データの表層へ浮上する',
-    es='Flota hacia la superficie de los datos',
+    es='Flota hacia la superficie de los datos.',
 )
 Gummy_candies_so_spicy_that_they_make_one_rethink_life = RogueEventOption(
-    id=558,
+    id=559,
     name='Gummy_candies_so_spicy_that_they_make_one_rethink_life',
     cn='辣到怀疑人生的软糖',
     cht='辣到懷疑人生的軟糖',
     en='Gummy candies so spicy that they make one rethink life',
     jp='人生の走馬灯が見える激辛グミ',
-    es='Golosinas tan picantes que te hacen dudar de la vida',
+    es='Golosinas tan picantes que te hacen dudar de la vida.',
 )
 Hard_crack_candies_so_numbing_that_make_one_reconsider_monsterdom = RogueEventOption(
-    id=559,
+    id=560,
     name='Hard_crack_candies_so_numbing_that_make_one_reconsider_monsterdom',
     cn='麻到怀疑妖生的硬糖',
     cht='麻到懷疑妖生的硬糖',
     en='Hard-crack candies so numbing that make one reconsider monsterdom',
     jp='妖生の走馬灯が見える麻辣キャンディー',
-    es='Golosinas que te entumecen la lengua',
+    es='Golosinas que te entumecen la lengua.',
 )
 Fruit_candies_mumbling_speechlessly = RogueEventOption(
-    id=560,
+    id=561,
     name='Fruit_candies_mumbling_speechlessly',
     cn='叽里咕噜无语水果糖',
     cht='嘰哩咕嚕無言水果糖',
     en='Fruit candies mumbling speechlessly',
     jp='食べると言葉を失うフルーツキャンディー',
-    es='Caramelos de frutas que murmuran sin decir nada',
+    es='Caramelos de frutas que murmuran sin decir nada.',
 )
 Punish_and_vanquish_evil = RogueEventOption(
-    id=561,
+    id=562,
     name='Punish_and_vanquish_evil',
     cn='惩凶除恶',
     cht='懲凶除惡',
     en='Punish and vanquish evil',
     jp='悪を懲らしめる',
-    es='Erradica el mal',
+    es='Erradica el mal.',
 )
 Protect_peace = RogueEventOption(
-    id=562,
+    id=563,
     name='Protect_peace',
     cn='守望安宁',
     cht='守望安寧',
     en='Protect peace',
     jp='平和を見守る',
-    es='Protege la paz',
+    es='Protege la paz.',
 )
 I_want_to_eliminate_the_wicked = RogueEventOption(
-    id=563,
+    id=564,
     name='I_want_to_eliminate_the_wicked',
     cn='我要剿灭奸邪之徒',
     cht='我要剿滅奸邪之徒',
     en='I want to eliminate the wicked',
     jp='悪党を滅ぼしたい',
-    es='Quiero acabar con los malvados',
+    es='Quiero acabar con los malvados.',
 )
 I_want_to_suppress_dangerous_entities = RogueEventOption(
-    id=564,
+    id=565,
     name='I_want_to_suppress_dangerous_entities',
     cn='我要镇压危险之物',
     cht='我要鎮壓危險之物',
     en='I want to suppress dangerous entities',
     jp='危険な存在を抑え込みたい',
-    es='Quiero eliminar los peligros',
+    es='Quiero eliminar los peligros.',
 )
 I_will_stand_upon_the_Wardance_arena = RogueEventOption(
-    id=565,
+    id=566,
     name='I_will_stand_upon_the_Wardance_arena',
     cn='我要登上演武仪典的擂台',
     cht='我要登上演武儀典的擂台',
     en="I will stand upon the Wardance's arena",
     jp='演武典礼の演武台に上がりたい',
-    es='Quiero salir a la arena de la ceremonia de Habilidades Estelares de Combate',
+    es='Quiero salir a la arena de la ceremonia de Habilidades Estelares de Combate.',
 )
 I_will_rout_the_abominations_of_the_Plague_Author = RogueEventOption(
-    id=566,
+    id=567,
     name='I_will_rout_the_abominations_of_the_Plague_Author',
     cn='我要去击退寿瘟的孽物',
     cht='我要去擊退壽瘟的孽物',
     en='I will rout the abominations of the Plague Author',
     jp='寿瘟の忌み物を撃退したい',
-    es='Quiero derrotar a las abominaciones de la Hacedora de Plagas',
+    es='Quiero derrotar a las abominaciones de la Hacedora de Plagas.',
 )
 Pursue_the_butterfly_that_sniffs_out_bygone_memories = RogueEventOption(
-    id=567,
+    id=568,
     name='Pursue_the_butterfly_that_sniffs_out_bygone_memories',
     cn='追逐嗅探旧事的蝴蝶。',
     cht='追逐嗅探舊事的蝴蝶。',
@@ -5107,7 +5116,7 @@ Pursue_the_butterfly_that_sniffs_out_bygone_memories = RogueEventOption(
     es='Persigue a la mariposa que explora los recuerdos del pasado.',
 )
 Pursue_the_butterfly_that_flies_across_the_battlefield = RogueEventOption(
-    id=568,
+    id=569,
     name='Pursue_the_butterfly_that_flies_across_the_battlefield',
     cn='追逐飞过战场的蝴蝶。',
     cht='追逐飛過戰場的蝴蝶。',
@@ -5116,7 +5125,7 @@ Pursue_the_butterfly_that_flies_across_the_battlefield = RogueEventOption(
     es='Persigue a la mariposa que revolotea por el campo de batalla.',
 )
 Pursue_the_butterfly_on_the_hero_shoulder = RogueEventOption(
-    id=569,
+    id=570,
     name='Pursue_the_butterfly_on_the_hero_shoulder',
     cn='追逐英雄肩上的蝴蝶。',
     cht='追逐英雄肩上的蝴蝶。',
@@ -5125,7 +5134,7 @@ Pursue_the_butterfly_on_the_hero_shoulder = RogueEventOption(
     es='Persigue a la mariposa que está en el hombro del héroe.',
 )
 Pursue_the_butterfly_you_chanced_upon = RogueEventOption(
-    id=570,
+    id=571,
     name='Pursue_the_butterfly_you_chanced_upon',
     cn='追逐不期而遇的蝴蝶。',
     cht='追逐不期而遇的蝴蝶。',
@@ -5134,7 +5143,7 @@ Pursue_the_butterfly_you_chanced_upon = RogueEventOption(
     es='Persigue a la mariposa con la que te encuentras por casualidad.',
 )
 Ignore_insinuations_and_engage_in_a_fair_duel = RogueEventOption(
-    id=571,
+    id=572,
     name='Ignore_insinuations_and_engage_in_a_fair_duel',
     cn='无视暗示，进行公平的决斗。',
     cht='無視暗示，進行公平的決鬥。',
@@ -5143,7 +5152,7 @@ Ignore_insinuations_and_engage_in_a_fair_duel = RogueEventOption(
     es='Ignora las indirectas y lucha en una pelea justa.',
 )
 Accept_the_bribe_and_hold_back_in_the_duel = RogueEventOption(
-    id=572,
+    id=573,
     name='Accept_the_bribe_and_hold_back_in_the_duel',
     cn='接受好处，在决斗中放水。',
     cht='接受好處，在決鬥中放水。',
@@ -5152,7 +5161,7 @@ Accept_the_bribe_and_hold_back_in_the_duel = RogueEventOption(
     es='Acepta los beneficios y no lo des todo en el duelo.',
 )
 Nuh_uh_needs_more_money = RogueEventOption(
-    id=573,
+    id=574,
     name='Nuh_uh_needs_more_money',
     cn='不行，得加钱。',
     cht='不行，要加錢。',
@@ -5161,7 +5170,7 @@ Nuh_uh_needs_more_money = RogueEventOption(
     es='No, quiero más.',
 )
 Bring_him_the_Grove_of_Epiphany_negative_evidence = RogueEventOption(
-    id=574,
+    id=575,
     name='Bring_him_the_Grove_of_Epiphany_negative_evidence',
     cn='为他带去树庭的证伪。',
     cht='為他帶去樹庭的證偽。',
@@ -5170,7 +5179,7 @@ Bring_him_the_Grove_of_Epiphany_negative_evidence = RogueEventOption(
     es='Tráele la refutación del Soto de las Musas.',
 )
 Provide_him_with_theoretical_support = RogueEventOption(
-    id=575,
+    id=576,
     name='Provide_him_with_theoretical_support',
     cn='向他提供理论援助。',
     cht='向他提供理論援助。',
@@ -5179,7 +5188,7 @@ Provide_him_with_theoretical_support = RogueEventOption(
     es='Proporciónale apoyo teórico.',
 )
 Provide_him_with_practical_solutions = RogueEventOption(
-    id=576,
+    id=577,
     name='Provide_him_with_practical_solutions',
     cn='为他提供实践方案。',
     cht='為他提供實踐方案。',
@@ -5188,7 +5197,7 @@ Provide_him_with_practical_solutions = RogueEventOption(
     es='Ofrécele soluciones prácticas.',
 )
 You_lost_everything = RogueEventOption(
-    id=577,
+    id=578,
     name='You_lost_everything',
     cn='你血本无归。',
     cht='你血本無歸。',
@@ -5197,7 +5206,7 @@ You_lost_everything = RogueEventOption(
     es='Piérdelo todo.',
 )
 You_return_with_a_full_load = RogueEventOption(
-    id=578,
+    id=579,
     name='You_return_with_a_full_load',
     cn='你满载而归。',
     cht='你滿載而歸。',
@@ -5206,7 +5215,7 @@ You_return_with_a_full_load = RogueEventOption(
     es='Regresa con un buen botín.',
 )
 Wanna_follow_the_trend_and_give_it_a_try = RogueEventOption(
-    id=579,
+    id=580,
     name='Wanna_follow_the_trend_and_give_it_a_try',
     cn='要不跟风试试看？',
     cht='要不然跟風試試看？',
@@ -5215,7 +5224,7 @@ Wanna_follow_the_trend_and_give_it_a_try = RogueEventOption(
     es='¿Qué tal seguir la corriente e intentarlo?',
 )
 I_won_t_fall_for_this_again = RogueEventOption(
-    id=580,
+    id=581,
     name='I_won_t_fall_for_this_again',
     cn='我不会再上当了。',
     cht='我不會再上當了。',
@@ -5224,7 +5233,7 @@ I_won_t_fall_for_this_again = RogueEventOption(
     es='No voy a caer en esto otra vez.',
 )
 Spend_everything = RogueEventOption(
-    id=581,
+    id=582,
     name='Spend_everything',
     cn='一掷千金。',
     cht='一擲千金。',
@@ -5233,7 +5242,7 @@ Spend_everything = RogueEventOption(
     es='Gástalo todo.',
 )
 Quit_while_you_re_ahead_835b = RogueEventOption(
-    id=582,
+    id=583,
     name='Quit_while_you_re_ahead_835b',
     cn='见好就收。',
     cht='見好就收。',
@@ -5242,7 +5251,7 @@ Quit_while_you_re_ahead_835b = RogueEventOption(
     es='Retírate mientras vas ganando.',
 )
 No_I_still_have_a_chance = RogueEventOption(
-    id=583,
+    id=584,
     name='No_I_still_have_a_chance',
     cn='不，我还有机会！',
     cht='不，我還有機會！',
@@ -5251,7 +5260,7 @@ No_I_still_have_a_chance = RogueEventOption(
     es='¡No, aún tengo una oportunidad!',
 )
 Give_up_in_time = RogueEventOption(
-    id=584,
+    id=585,
     name='Give_up_in_time',
     cn='及时放弃。',
     cht='及時放棄。',
@@ -5260,7 +5269,7 @@ Give_up_in_time = RogueEventOption(
     es='Ríndete antes de que sea demasiado tarde.',
 )
 For_a_better_future = RogueEventOption(
-    id=585,
+    id=586,
     name='For_a_better_future',
     cn='为了更好的未来！',
     cht='為了更好的未來！',
@@ -5269,7 +5278,7 @@ For_a_better_future = RogueEventOption(
     es='¡Por un futuro mejor!',
 )
 Restrain_your_urge = RogueEventOption(
-    id=586,
+    id=587,
     name='Restrain_your_urge',
     cn='遏制心中的欲望。',
     cht='遏制心中的欲望。',
@@ -5278,7 +5287,7 @@ Restrain_your_urge = RogueEventOption(
     es='Controla tus impulsos.',
 )
 You_just_want_to_leave = RogueEventOption(
-    id=587,
+    id=588,
     name='You_just_want_to_leave',
     cn='你只想离开这里。',
     cht='你只想離開這裡。',
@@ -5287,7 +5296,7 @@ You_just_want_to_leave = RogueEventOption(
     es='Solo quieres salir de aquí.',
 )
 Float_in_the_direction_of_the_noise = RogueEventOption(
-    id=588,
+    id=589,
     name='Float_in_the_direction_of_the_noise',
     cn='向嘈杂的方向游曳。',
     cht='向嘈雜的方向遊曳。',
@@ -5296,7 +5305,7 @@ Float_in_the_direction_of_the_noise = RogueEventOption(
     es='Flota en la dirección del ruido.',
 )
 Float_in_the_direction_of_silence = RogueEventOption(
-    id=589,
+    id=590,
     name='Float_in_the_direction_of_silence',
     cn='向静谧的方向游曳。',
     cht='向靜謐的方向遊曳。',
@@ -5305,7 +5314,7 @@ Float_in_the_direction_of_silence = RogueEventOption(
     es='Flota en la dirección del silencio.',
 )
 Proceed_toward_the_direction_of_the_prayer = RogueEventOption(
-    id=590,
+    id=591,
     name='Proceed_toward_the_direction_of_the_prayer',
     cn='向有祈祷的方向行进。',
     cht='向有祈禱的方向行進。',
@@ -5314,7 +5323,7 @@ Proceed_toward_the_direction_of_the_prayer = RogueEventOption(
     es='Avanza en la dirección de la plegaria.',
 )
 Proceed_toward_the_direction_with_the_prophecy = RogueEventOption(
-    id=591,
+    id=592,
     name='Proceed_toward_the_direction_with_the_prophecy',
     cn='向有谕示的方向进行。',
     cht='向有諭示的方向進行。',
@@ -5323,7 +5332,7 @@ Proceed_toward_the_direction_with_the_prophecy = RogueEventOption(
     es='Ve en la dirección de la profecía.',
 )
 You_feel_this_is_the_wrong_direction = RogueEventOption(
-    id=592,
+    id=593,
     name='You_feel_this_is_the_wrong_direction',
     cn='你感觉方向反了。',
     cht='你感覺方向反了。',
@@ -5332,7 +5341,7 @@ You_feel_this_is_the_wrong_direction = RogueEventOption(
     es='Crees que vas en la dirección opuesta.',
 )
 Keep_moving_forward = RogueEventOption(
-    id=593,
+    id=594,
     name='Keep_moving_forward',
     cn='坚持继续向前。',
     cht='堅持繼續向前。',
@@ -5341,7 +5350,7 @@ Keep_moving_forward = RogueEventOption(
     es='Sigue adelante.',
 )
 Pick_up_the_mirror_next_to_you = RogueEventOption(
-    id=594,
+    id=595,
     name='Pick_up_the_mirror_next_to_you',
     cn='捡起身旁的镜子。',
     cht='撿起身旁的鏡子。',
@@ -5350,7 +5359,7 @@ Pick_up_the_mirror_next_to_you = RogueEventOption(
     es='Recoge el espejo que hay a tu lado.',
 )
 Proceed_toward_the_direction_of_the_prophecy = RogueEventOption(
-    id=595,
+    id=596,
     name='Proceed_toward_the_direction_of_the_prophecy',
     cn='向有谕示的方向行进。',
     cht='向有諭示的方向行進。',
@@ -5359,7 +5368,7 @@ Proceed_toward_the_direction_of_the_prophecy = RogueEventOption(
     es='Avanza en la dirección de la profecía.',
 )
 I_m_guilty_I_m_guilty = RogueEventOption(
-    id=596,
+    id=597,
     name='I_m_guilty_I_m_guilty',
     cn='我有罪，我有罪啊！',
     cht='我有罪，我有罪啊！',
@@ -5368,7 +5377,7 @@ I_m_guilty_I_m_guilty = RogueEventOption(
     es='¡Soy culpable! ¡Soy culpable!',
 )
 I_need_some_challenges = RogueEventOption(
-    id=597,
+    id=598,
     name='I_need_some_challenges',
     cn='我需要一些挑战。',
     cht='我需要一些挑戰。',
@@ -5377,7 +5386,7 @@ I_need_some_challenges = RogueEventOption(
     es='Necesito un desafío.',
 )
 Aeons_I_didn_t_mean_to_succeed_so_hard = RogueEventOption(
-    id=598,
+    id=599,
     name='Aeons_I_didn_t_mean_to_succeed_so_hard',
     cn='天呐，我也不想这么成功。',
     cht='天哪，我也不想這麼成功。',
@@ -5386,7 +5395,7 @@ Aeons_I_didn_t_mean_to_succeed_so_hard = RogueEventOption(
     es='Vaya, no esperaba tener tanto éxito.',
 )
 Is_this_any_of_your_business = RogueEventOption(
-    id=599,
+    id=600,
     name='Is_this_any_of_your_business',
     cn='我吃你家大米了？',
     cht='我吃你家大米了？',
@@ -5395,16 +5404,16 @@ Is_this_any_of_your_business = RogueEventOption(
     es='¡Métete en tus asuntos!',
 )
 Argue_with_the_judge = RogueEventOption(
-    id=600,
+    id=601,
     name='Argue_with_the_judge',
     cn='与法官辩论！！',
     cht='與法官辯論！！',
     en='Argue with the judge!',
     jp='裁判官と弁論する！！',
-    es='¡Tienes un debate con el juez!',
+    es='¡Discute con el juez!',
 )
 Take_the_Death_tainted_reward = RogueEventOption(
-    id=601,
+    id=602,
     name='Take_the_Death_tainted_reward',
     cn='带走染上「死亡」的报酬。',
     cht='帶走染上「死亡」的報酬。',
@@ -5413,7 +5422,7 @@ Take_the_Death_tainted_reward = RogueEventOption(
     es='Llévate la recompensa marcada con la muerte.',
 )
 Forget_it_I_value_my_life_too_much = RogueEventOption(
-    id=602,
+    id=603,
     name='Forget_it_I_value_my_life_too_much',
     cn='算了，我惜命。',
     cht='算了，我惜命。',
@@ -5422,16 +5431,16 @@ Forget_it_I_value_my_life_too_much = RogueEventOption(
     es='Mejor no, mi vida es muy valiosa.',
 )
 Just_a_cursory_show = RogueEventOption(
-    id=603,
+    id=604,
     name='Just_a_cursory_show',
     cn='意思意思得了。',
     cht='差不多就可以了。',
     en='Just a cursory show.',
     jp='少しだけなら。',
-    es='Te limitas a guardar las apariencias.',
+    es='Limítate a guardar las apariencias.',
 )
 You_ve_always_cherished_the_old_and_young = RogueEventOption(
-    id=604,
+    id=605,
     name='You_ve_always_cherished_the_old_and_young',
     cn='你向来尊老爱幼。',
     cht='你向來尊老愛幼。',
@@ -5440,7 +5449,7 @@ You_ve_always_cherished_the_old_and_young = RogueEventOption(
     es='Siempre has respetado a los mayores y amado a los niños.',
 )
 Hand_over_two_more_credits_to_upgrade_your_seating = RogueEventOption(
-    id=605,
+    id=606,
     name='Hand_over_two_more_credits_to_upgrade_your_seating',
     cn='多给两块，升个舱。',
     cht='多給兩塊，升級一下。',
@@ -5449,7 +5458,7 @@ Hand_over_two_more_credits_to_upgrade_your_seating = RogueEventOption(
     es='Paga un poco más para subir de categoría.',
 )
 Shake_off_the_old_one_soul = RogueEventOption(
-    id=606,
+    id=607,
     name='Shake_off_the_old_one_soul',
     cn='甩开老人的亡魂。',
     cht='甩開老人的亡魂。',
@@ -5458,7 +5467,7 @@ Shake_off_the_old_one_soul = RogueEventOption(
     es='Dale una buena sacudida a esa alma anciana.',
 )
 Take_the_secret_treasure_of_the_ocean = RogueEventOption(
-    id=607,
+    id=608,
     name='Take_the_secret_treasure_of_the_ocean',
     cn='带走海洋的秘宝。',
     cht='帶走海洋的秘寶。',
@@ -5467,7 +5476,7 @@ Take_the_secret_treasure_of_the_ocean = RogueEventOption(
     es='Llévate el tesoro secreto del océano.',
 )
 Don_t_I_sound_good = RogueEventOption(
-    id=608,
+    id=609,
     name='Don_t_I_sound_good',
     cn='我不唱得挺好吗？',
     cht='我唱得不是很好嗎？',
@@ -5476,7 +5485,7 @@ Don_t_I_sound_good = RogueEventOption(
     es='¿Es que no canto bien?',
 )
 Sometimes_even_courage_is_not_omnipotent = RogueEventOption(
-    id=609,
+    id=610,
     name='Sometimes_even_courage_is_not_omnipotent',
     cn='有时，勇气也并非无所不能。',
     cht='有時，勇氣也並非無所不能。',
@@ -5485,7 +5494,7 @@ Sometimes_even_courage_is_not_omnipotent = RogueEventOption(
     es='A veces, ni siquiera el valor es suficiente.',
 )
 Y_You_re_asking_too_much = RogueEventOption(
-    id=610,
+    id=611,
     name='Y_You_re_asking_too_much',
     cn='你们不要得寸进尺！',
     cht='你們不要得寸進尺！',
@@ -5494,7 +5503,7 @@ Y_You_re_asking_too_much = RogueEventOption(
     es='¡Están pidiendo demasiado!',
 )
 Offer_honey_brew_to_the_ocean = RogueEventOption(
-    id=611,
+    id=612,
     name='Offer_honey_brew_to_the_ocean',
     cn='向大海献祭蜜酿。',
     cht='向大海獻祭蜜釀。',
@@ -5503,7 +5512,7 @@ Offer_honey_brew_to_the_ocean = RogueEventOption(
     es='Ofrece hidromiel al océano.',
 )
 Sing_a_duet_with_the_kins = RogueEventOption(
-    id=612,
+    id=613,
     name='Sing_a_duet_with_the_kins',
     cn='与眷属们对唱。',
     cht='與眷屬們對唱。',
@@ -5512,7 +5521,7 @@ Sing_a_duet_with_the_kins = RogueEventOption(
     es='Canta con los deudos.',
 )
 Breach_the_ocean_with_your_vigor = RogueEventOption(
-    id=613,
+    id=614,
     name='Breach_the_ocean_with_your_vigor',
     cn='靠气势突破海洋！',
     cht='靠氣勢突破海洋！',
@@ -5521,7 +5530,7 @@ Breach_the_ocean_with_your_vigor = RogueEventOption(
     es='¡Parte el océano con tu poder!',
 )
 Offer_honey_brew_to_the_kins = RogueEventOption(
-    id=614,
+    id=615,
     name='Offer_honey_brew_to_the_kins',
     cn='向眷属们献祭蜜酿。',
     cht='向眷屬們獻祭蜜釀。',
@@ -5530,7 +5539,7 @@ Offer_honey_brew_to_the_kins = RogueEventOption(
     es='Ofrece hidromiel a los deudos.',
 )
 Sing_for_the_ocean = RogueEventOption(
-    id=615,
+    id=616,
     name='Sing_for_the_ocean',
     cn='为海洋献上歌唱。',
     cht='為海洋獻上歌唱。',
@@ -5539,7 +5548,7 @@ Sing_for_the_ocean = RogueEventOption(
     es='Canta para el océano.',
 )
 Leap_into_the_river = RogueEventOption(
-    id=616,
+    id=617,
     name='Leap_into_the_river',
     cn='纵身跳入河流。',
     cht='縱身跳入河流。',
@@ -5548,7 +5557,7 @@ Leap_into_the_river = RogueEventOption(
     es='Salta al río.',
 )
 Pass_through_the_gates_of_freedom = RogueEventOption(
-    id=617,
+    id=618,
     name='Pass_through_the_gates_of_freedom',
     cn='走进自由之门。',
     cht='走進自由之門。',
@@ -5557,7 +5566,7 @@ Pass_through_the_gates_of_freedom = RogueEventOption(
     es='Entra por la puerta de la libertad.',
 )
 Stop_them_from_sounding_the_alarm = RogueEventOption(
-    id=618,
+    id=619,
     name='Stop_them_from_sounding_the_alarm',
     cn='阻止他们发出警报。',
     cht='阻止他們發出警報。',
@@ -5566,7 +5575,7 @@ Stop_them_from_sounding_the_alarm = RogueEventOption(
     es='Impide que den la alarma.',
 )
 Escape_into_the_open_plains = RogueEventOption(
-    id=619,
+    id=620,
     name='Escape_into_the_open_plains',
     cn='逃向空旷的原野。',
     cht='逃向空曠的原野。',
@@ -5575,7 +5584,7 @@ Escape_into_the_open_plains = RogueEventOption(
     es='Escapa a campo abierto.',
 )
 Keep_praying_to_Oronyx = RogueEventOption(
-    id=620,
+    id=621,
     name='Keep_praying_to_Oronyx',
     cn='坚持向欧洛尼斯祈祷。',
     cht='堅持向歐洛尼斯祈禱。',
@@ -5584,7 +5593,7 @@ Keep_praying_to_Oronyx = RogueEventOption(
     es='Sigue rezando a Oronix.',
 )
 Pray_for_Janus_guidance = RogueEventOption(
-    id=621,
+    id=622,
     name='Pray_for_Janus_guidance',
     cn='祈求雅努斯的指引。',
     cht='祈求雅努斯的指引。',
@@ -5593,7 +5602,7 @@ Pray_for_Janus_guidance = RogueEventOption(
     es='Suplica a Jano que te guíe.',
 )
 Show_your_originality_and_pray_to_Talanton = RogueEventOption(
-    id=622,
+    id=623,
     name='Show_your_originality_and_pray_to_Talanton',
     cn='独辟蹊径，向塔兰顿祈祷。',
     cht='獨闢蹊徑，向塔蘭頓祈禱。',
@@ -5602,7 +5611,7 @@ Show_your_originality_and_pray_to_Talanton = RogueEventOption(
     es='Demuestra lo original que eres y reza a Talanton.',
 )
 Take_off_the_armor_and_redeploy_with_light_gear = RogueEventOption(
-    id=623,
+    id=624,
     name='Take_off_the_armor_and_redeploy_with_light_gear',
     cn='卸下铠甲，轻装上阵。',
     cht='卸下鎧甲，輕裝上陣。',
@@ -5611,7 +5620,7 @@ Take_off_the_armor_and_redeploy_with_light_gear = RogueEventOption(
     es='Quítate la armadura y entra en combate con equipamiento ligero.',
 )
 Make_a_bet_on_your_own_defeat_first = RogueEventOption(
-    id=624,
+    id=625,
     name='Make_a_bet_on_your_own_defeat_first',
     cn='先压一注赌你自己会输。',
     cht='先壓一注賭你自己會輸。',
@@ -5620,7 +5629,7 @@ Make_a_bet_on_your_own_defeat_first = RogueEventOption(
     es='Primero apuesta a que perderás.',
 )
 Join_a_grand_adventure = RogueEventOption(
-    id=625,
+    id=626,
     name='Join_a_grand_adventure',
     cn='加入一场伟大的冒险旅程。',
     cht='加入一場偉大的冒險旅程。',
@@ -5629,7 +5638,7 @@ Join_a_grand_adventure = RogueEventOption(
     es='Embárcate en una gran aventura.',
 )
 Slay_the_monster_in_the_valley = RogueEventOption(
-    id=626,
+    id=627,
     name='Slay_the_monster_in_the_valley',
     cn='刺杀盘踞在山谷中的魔怪。',
     cht='刺殺盤踞在山谷中的魔怪。',
@@ -5638,7 +5647,7 @@ Slay_the_monster_in_the_valley = RogueEventOption(
     es='Asesina al monstruo que ocupa el valle.',
 )
 Hunt_the_boar_that_has_been_twisted_by_the_black_tide = RogueEventOption(
-    id=627,
+    id=628,
     name='Hunt_the_boar_that_has_been_twisted_by_the_black_tide',
     cn='围猎被黑潮侵蚀的野猪。',
     cht='圍獵被黑潮侵蝕的野豬。',
@@ -5647,7 +5656,7 @@ Hunt_the_boar_that_has_been_twisted_by_the_black_tide = RogueEventOption(
     es='Caza el jabalí afectado por la marea oscura.',
 )
 Continue_the_expedition_with_the_children = RogueEventOption(
-    id=628,
+    id=629,
     name='Continue_the_expedition_with_the_children',
     cn='和孩子们继续「远征」。',
     cht='和孩子們繼續「遠征」。',
@@ -5656,7 +5665,7 @@ Continue_the_expedition_with_the_children = RogueEventOption(
     es='Continúa la expedición con los niños.',
 )
 Close_your_eyes_forever = RogueEventOption(
-    id=629,
+    id=630,
     name='Close_your_eyes_forever',
     cn='永恒地闭上眼睛。',
     cht='永恆地閉上眼睛。',
@@ -5665,7 +5674,7 @@ Close_your_eyes_forever = RogueEventOption(
     es='Cierra los ojos para siempre.',
 )
 Ignore_the_mistakes = RogueEventOption(
-    id=630,
+    id=631,
     name='Ignore_the_mistakes',
     cn='无视错误。',
     cht='無視錯誤。',
@@ -5674,7 +5683,7 @@ Ignore_the_mistakes = RogueEventOption(
     es='Ignora los errores.',
 )
 Perform_corrections = RogueEventOption(
-    id=631,
+    id=632,
     name='Perform_corrections',
     cn='进行修正。',
     cht='進行修正。',
@@ -5683,7 +5692,7 @@ Perform_corrections = RogueEventOption(
     es='Haz correcciones.',
 )
 Cover_up_the_lab_accident = RogueEventOption(
-    id=632,
+    id=633,
     name='Cover_up_the_lab_accident',
     cn='掩盖实验事故。',
     cht='掩蓋實驗事故。',
@@ -5692,7 +5701,7 @@ Cover_up_the_lab_accident = RogueEventOption(
     es='Oculta el accidente de laboratorio.',
 )
 Cover_up_the_lab_incident = RogueEventOption(
-    id=633,
+    id=634,
     name='Cover_up_the_lab_incident',
     cn='粉饰实验事故。',
     cht='粉飾實驗事故。',
@@ -5701,7 +5710,7 @@ Cover_up_the_lab_incident = RogueEventOption(
     es='Quita importancia al accidente de laboratorio.',
 )
 Publicly_correct_the_error = RogueEventOption(
-    id=634,
+    id=635,
     name='Publicly_correct_the_error',
     cn='公开修正错误。',
     cht='公開修正錯誤。',
@@ -5710,7 +5719,7 @@ Publicly_correct_the_error = RogueEventOption(
     es='Corrige el error públicamente.',
 )
 Pay_with_the_Titan_blessing = RogueEventOption(
-    id=635,
+    id=636,
     name='Pay_with_the_Titan_blessing',
     cn='付出泰坦的恩赐。',
     cht='付出泰坦的恩賜。',
@@ -5719,7 +5728,7 @@ Pay_with_the_Titan_blessing = RogueEventOption(
     es='Ofrece el don del Titán.',
 )
 Pay_forth_gleaming_riches = RogueEventOption(
-    id=636,
+    id=637,
     name='Pay_forth_gleaming_riches',
     cn='付出闪烁的财富。',
     cht='付出閃爍的財富。',
@@ -5728,7 +5737,7 @@ Pay_forth_gleaming_riches = RogueEventOption(
     es='Paga una fortuna reluciente.',
 )
 Pay_with_strange_treasures = RogueEventOption(
-    id=637,
+    id=638,
     name='Pay_with_strange_treasures',
     cn='付出奇异的宝物。',
     cht='付出奇異的寶物。',
@@ -5737,7 +5746,7 @@ Pay_with_strange_treasures = RogueEventOption(
     es='Ofrece tesoros extraños.',
 )
 Exchange_divine_gifts_for_the_shield = RogueEventOption(
-    id=638,
+    id=639,
     name='Exchange_divine_gifts_for_the_shield',
     cn='用神赐交换盾牌。',
     cht='用神賜交換盾牌。',
@@ -5746,7 +5755,7 @@ Exchange_divine_gifts_for_the_shield = RogueEventOption(
     es='Intercambia regalos divinos por un escudo.',
 )
 Exchange_divine_gifts_for_the_spear = RogueEventOption(
-    id=639,
+    id=640,
     name='Exchange_divine_gifts_for_the_spear',
     cn='用神赐交换长矛。',
     cht='用神賜交換長矛。',
@@ -5755,7 +5764,7 @@ Exchange_divine_gifts_for_the_spear = RogueEventOption(
     es='Intercambia regalos divinos por una lanza.',
 )
 Exchange_divine_gifts_for_the_chariot = RogueEventOption(
-    id=640,
+    id=641,
     name='Exchange_divine_gifts_for_the_chariot',
     cn='用神赐交换战车。',
     cht='用神賜交換戰車。',
@@ -5764,7 +5773,7 @@ Exchange_divine_gifts_for_the_chariot = RogueEventOption(
     es='Intercambia regalos divinos por un carro.',
 )
 Exchange_wealth_for_a_dagger = RogueEventOption(
-    id=641,
+    id=642,
     name='Exchange_wealth_for_a_dagger',
     cn='用财富交换匕首。',
     cht='用財富交換匕首。',
@@ -5773,7 +5782,7 @@ Exchange_wealth_for_a_dagger = RogueEventOption(
     es='Intercambia riqueza por una daga.',
 )
 Exchange_wealth_for_a_bow_and_some_arrows = RogueEventOption(
-    id=642,
+    id=643,
     name='Exchange_wealth_for_a_bow_and_some_arrows',
     cn='用财富交换弓箭。',
     cht='用財富交換弓箭。',
@@ -5782,7 +5791,7 @@ Exchange_wealth_for_a_bow_and_some_arrows = RogueEventOption(
     es='Intercambia riqueza por un arco.',
 )
 Exchange_wealth_for_an_opportunity = RogueEventOption(
-    id=643,
+    id=644,
     name='Exchange_wealth_for_an_opportunity',
     cn='用财富交换机运。',
     cht='用財富交換機運。',
@@ -5791,7 +5800,7 @@ Exchange_wealth_for_an_opportunity = RogueEventOption(
     es='Intercambia riqueza por una oportunidad.',
 )
 Exchange_treasures_for_a_revelation = RogueEventOption(
-    id=644,
+    id=645,
     name='Exchange_treasures_for_a_revelation',
     cn='用宝物交换启示。',
     cht='用寶物交換啟示。',
@@ -5800,7 +5809,7 @@ Exchange_treasures_for_a_revelation = RogueEventOption(
     es='Intercambia tesoros por una revelación.',
 )
 Exchange_treasures_for_a_strategy = RogueEventOption(
-    id=645,
+    id=646,
     name='Exchange_treasures_for_a_strategy',
     cn='用宝物交换谋略。',
     cht='用寶物交換謀略。',
@@ -5809,7 +5818,7 @@ Exchange_treasures_for_a_strategy = RogueEventOption(
     es='Intercambia tesoros por una estrategia.',
 )
 Exchange_treasures_for_a_surprise_attack = RogueEventOption(
-    id=646,
+    id=647,
     name='Exchange_treasures_for_a_surprise_attack',
     cn='用宝物交换奇袭。',
     cht='用寶物交換奇襲。',
@@ -5817,17 +5826,17 @@ Exchange_treasures_for_a_surprise_attack = RogueEventOption(
     jp='宝物で奇襲と交換する。',
     es='Intercambia tesoros por un ataque sorpresa.',
 )
-Leave_373b = RogueEventOption(
-    id=647,
-    name='Leave_373b',
+Leave_7170 = RogueEventOption(
+    id=648,
+    name='Leave_7170',
     cn='离开。',
     cht='離開。',
     en='Leave.',
     jp='離れる。',
-    es='Te marchas.',
+    es='Márchate.',
 )
 Sealing_Wax_Prayer = RogueEventOption(
-    id=648,
+    id=649,
     name='Sealing_Wax_Prayer',
     cn='祈求火漆。',
     cht='祈求火漆。',
@@ -5836,7 +5845,7 @@ Sealing_Wax_Prayer = RogueEventOption(
     es='Súplica de Lacre.',
 )
 Sealing_Wax_Discussion = RogueEventOption(
-    id=649,
+    id=650,
     name='Sealing_Wax_Discussion',
     cn='谈论火漆。',
     cht='談論火漆。',
@@ -5845,25 +5854,25 @@ Sealing_Wax_Discussion = RogueEventOption(
     es='Discusión de Lacre.',
 )
 Gladly_accept = RogueEventOption(
-    id=650,
+    id=651,
     name='Gladly_accept',
     cn='欣然收下。',
     cht='欣然收下。',
     en='Gladly accept.',
     jp='ありがたく受け取る。',
-    es='Lo aceptas con gusto.',
+    es='Acéptalo con gusto.',
 )
 Get_some_travel_money_and_venture_out_into_the_world_again = RogueEventOption(
-    id=651,
+    id=652,
     name='Get_some_travel_money_and_venture_out_into_the_world_again',
     cn='讨要盘缠，再到外面闯一闯。',
     cht='討要盤纏，再到外面闖一闖。',
     en='Get some travel money and venture out into the world again.',
     jp='旅費をねだり、もう少し外の世界を冒険する。',
-    es='Pides algo de dinero y sales a probar suerte afuera.',
+    es='Pide algo de dinero y sal a probar suerte afuera.',
 )
 A_robe_of_leaves_imbued_with_wisdom = RogueEventOption(
-    id=652,
+    id=653,
     name='A_robe_of_leaves_imbued_with_wisdom',
     cn='一套蕴含智慧的叶片袍。',
     cht='一套蘊含智慧的葉片袍。',
@@ -5872,7 +5881,7 @@ A_robe_of_leaves_imbued_with_wisdom = RogueEventOption(
     es='Una túnica de hojas que contiene sabiduría.',
 )
 A_bottle_of_panacea_that_heals_all_wounds = RogueEventOption(
-    id=653,
+    id=654,
     name='A_bottle_of_panacea_that_heals_all_wounds',
     cn='一瓶治愈伤痛的万灵药。',
     cht='一瓶治癒傷痛的萬靈藥。',
@@ -5881,7 +5890,7 @@ A_bottle_of_panacea_that_heals_all_wounds = RogueEventOption(
     es='Una botella de Elixir total que cura todas las heridas.',
 )
 A_talisman_blessed_by_destiny = RogueEventOption(
-    id=654,
+    id=655,
     name='A_talisman_blessed_by_destiny',
     cn='一条命运赐福的护身符。',
     cht='一條命運賜福的護身符。',
@@ -5890,25 +5899,25 @@ A_talisman_blessed_by_destiny = RogueEventOption(
     es='Un amuleto bendecido por el destino.',
 )
 Accept_this_power = RogueEventOption(
-    id=655,
+    id=656,
     name='Accept_this_power',
     cn='接受这股力量。',
     cht='接受這股力量。',
     en='Accept this power.',
     jp='この力を受け入れる。',
-    es='Aceptas este poder.',
+    es='Acepta este poder.',
 )
 Request_other_rewards = RogueEventOption(
-    id=656,
+    id=657,
     name='Request_other_rewards',
     cn='请求其他奖励。',
     cht='請求其他獎勵。',
     en='Request other rewards.',
     jp='他の報酬を要求する。',
-    es='Solicitas otras recompensas.',
+    es='Solicita otras recompensas.',
 )
 Others_need_it_more_than_I_do = RogueEventOption(
-    id=657,
+    id=658,
     name='Others_need_it_more_than_I_do',
     cn='其他人比我更需要它。',
     cht='其他人比我更需要它。',

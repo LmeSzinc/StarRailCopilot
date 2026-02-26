@@ -3,6 +3,7 @@ from typing import Callable
 from module.base.base import ModuleBase
 from module.base.utils import color_similarity_2d
 from module.logger import logger
+from tasks.base.assets.assets_base_daemon import *
 from tasks.base.assets.assets_base_page import BACK, CLOSE
 from tasks.base.assets.assets_base_popup import *
 
@@ -163,6 +164,26 @@ class PopupHandler(ModuleBase):
             self.device.click(GET_REWARD)
             return True
 
+        return False
+
+    def handle_tutorial(self, interval=0.2):
+        """
+        Handle tutorial popup
+
+        Args:
+            interval:
+
+        Returns:
+            If handled.
+        """
+        # Tutorial popup
+        if self.appear(TUTORIAL_CHECK, interval=interval):
+            if self.image_color_count(TUTORIAL_CLOSE, color=(255, 255, 255), threshold=180, count=400):
+                self.device.click(TUTORIAL_CLOSE)
+                return True
+            if self.image_color_count(TUTORIAL_NEXT, color=(255, 255, 255), threshold=180, count=50):
+                self.device.click(TUTORIAL_NEXT)
+                return True
         return False
 
     def handle_forgotten_hall_buff(self, interval=2):

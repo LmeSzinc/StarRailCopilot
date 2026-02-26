@@ -123,6 +123,7 @@ class GenerateDungeonList(GenerateKeyword):
             'Calyx_Crimson_Harmony',
             'Calyx_Crimson_Nihility',
             'Calyx_Crimson_Remembrance',
+            'Calyx_Crimson_Elation',
         ]
         for keyword in order:
             condition = lambda x: x['name'].startswith(keyword)
@@ -160,8 +161,9 @@ class GenerateDungeonList(GenerateKeyword):
         Luofu = dungeons[3:6]
         Penacony = dungeons[6:9]
         Amphoreus = dungeons[9:12]
-        others = dungeons[12:]
-        dungeons = Amphoreus + Penacony + Luofu + Jarilo + others
+        Planarcadia = dungeons[12:15]
+        others = dungeons[15:]
+        dungeons = Planarcadia + Amphoreus + Penacony + Luofu + Jarilo + others
 
         # Re-sort ID
         self.keyword_index = 0

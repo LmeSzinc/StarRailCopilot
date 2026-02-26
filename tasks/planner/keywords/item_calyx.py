@@ -393,3 +393,42 @@ Eternal_Lament = ItemCalyx(
     item_group=1410,
     dungeon_id=1025,
 )
+Whimsy_Wax = ItemCalyx(
+    id=31,
+    name='Whimsy_Wax',
+    cn='童真蜡笔',
+    cht='童真蠟筆',
+    en='Whimsy Wax',
+    jp='童心のクレヨン',
+    es='Crayón de la inocencia',
+    rarity='NotNormal',
+    item_id=116001,
+    item_group=1411,
+    dungeon_id=1028,
+)
+Dreamweave_Steel = ItemCalyx(
+    id=32,
+    name='Dreamweave_Steel',
+    cn='造梦蘸钢',
+    cht='造夢蘸鋼',
+    en='Dreamweave Steel',
+    jp='夢作りの鋼材',
+    es='Pluma creasueños',
+    rarity='Rare',
+    item_id=116002,
+    item_group=1411,
+    dungeon_id=1028,
+)
+Lucid_Awl = ItemCalyx(
+    id=33,
+    name='Lucid_Awl',
+    cn='梦现管锥',
+    cht='夢現管錐',
+    en='Lucid Awl',
+    jp='夢見の絵筆',
+    es='Pincel de los sueños',
+    rarity='VeryRare',
+    item_id=116003,
+    item_group=1411,
+    dungeon_id=1028,
+)

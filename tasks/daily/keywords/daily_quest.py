@@ -66,6 +66,15 @@ Defeat_a_total_of_20_enemies = DailyQuest(
     jp='敵を累計で20体倒す',
     es='Derrota a 20 enemigos',
 )
+Dispatch_Assignments_or_claim_Assignment_rewards_1_time = DailyQuest(
+    id=11,
+    name='Dispatch_Assignments_or_claim_Assignment_rewards_1_time',
+    cn='派遣委托或收取1次委托奖励',
+    cht='派遣委託或收取1次委託獎勵',
+    en='Dispatch Assignments or claim Assignment rewards 1 time',
+    jp='依頼を派遣もしくは依頼の報酬を1回受け取る',
+    es='Asigna o recoge la recompensa de un encargo 1 vez',
+)
 Complete_Forgotten_Hall_1_time = DailyQuest(
     id=14,
     name='Complete_Forgotten_Hall_1_time',
@@ -120,14 +129,14 @@ Log_in_to_the_game = DailyQuest(
     jp='ゲームにログインする',
     es='Inicia sesión en el juego',
 )
-Dispatch_1_assignments = DailyQuest(
+Dispatch_Assignments_or_claim_Assignment_rewards_1_times = DailyQuest(
     id=27,
-    name='Dispatch_1_assignments',
-    cn='派遣1次委托',
-    cht='派遣1次委託',
-    en='Dispatch 1 assignment(s)',
-    jp='依頼を1回派遣する',
-    es='Asigna 1 encargo',
+    name='Dispatch_Assignments_or_claim_Assignment_rewards_1_times',
+    cn='派遣委托或收取1次委托奖励',
+    cht='派遣委託或收取1次委託獎勵',
+    en='Dispatch Assignments or claim Assignment rewards 1 time(s)',
+    jp='依頼を派遣もしくは依頼の報酬を1回受け取る',
+    es='Asigna encargos o recoge recompensas de encargos 1 vez',
 )
 Complete_Divergent_Universe_or_Currency_Wars_1_times = DailyQuest(
     id=29,

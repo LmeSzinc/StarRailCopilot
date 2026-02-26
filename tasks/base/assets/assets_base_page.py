@@ -5,19 +5,12 @@ from module.base.button import Button, ButtonWrapper
 
 ASSIGNMENT_CHECK = ButtonWrapper(
     name='ASSIGNMENT_CHECK',
-    cn=Button(
-        file='./assets/cn/base/page/ASSIGNMENT_CHECK.png',
-        area=(535, 165, 587, 181),
-        search=(515, 145, 607, 201),
-        color=(207, 199, 181),
-        button=(535, 165, 587, 181),
-    ),
-    en=Button(
-        file='./assets/en/base/page/ASSIGNMENT_CHECK.png',
-        area=(535, 165, 581, 180),
-        search=(515, 145, 601, 200),
-        color=(204, 195, 176),
-        button=(535, 165, 581, 180),
+    share=Button(
+        file='./assets/share/base/page/ASSIGNMENT_CHECK.png',
+        area=(43, 21, 70, 54),
+        search=(23, 1, 90, 74),
+        color=(182, 175, 145),
+        button=(43, 21, 70, 54),
     ),
 )
 BACK = ButtonWrapper(

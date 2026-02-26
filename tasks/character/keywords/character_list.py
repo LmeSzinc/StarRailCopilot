@@ -991,6 +991,32 @@ Cyrene = CharacterList(
     relic_setid=127,
     ornament_setid=323,
 )
+Sparxie = CharacterList(
+    id=1501,
+    name='Sparxie',
+    cn='火花',
+    cht='火花',
+    en='Sparxie',
+    jp='火花',
+    es='Chispa',
+    type_name='Fire',
+    path_name='Elation',
+    relic_setid=129,
+    ornament_setid=324,
+)
+YaoGuang = CharacterList(
+    id=1502,
+    name='YaoGuang',
+    cn='爻光',
+    cht='爻光',
+    en='Yao Guang',
+    jp='爻光',
+    es='Yao Guang',
+    type_name='Physical',
+    path_name='Elation',
+    relic_setid=130,
+    ornament_setid=317,
+)
 TrailblazerDestruction = CharacterList(
     id=8002,
     name='TrailblazerDestruction',

@@ -140,14 +140,8 @@ class Daemon(RouteBase, RadarMixin, DaemonBase, AimDetectorMixin):
                 continue
             if self.appear_then_click(DUNGEON_NEXT, interval=1.5):
                 continue
-            # Tutorial popup
-            if self.appear(TUTORIAL_CHECK, interval=0.2):
-                if self.image_color_count(TUTORIAL_CLOSE, color=(255, 255, 255), threshold=180, count=400):
-                    self.device.click(TUTORIAL_CLOSE)
-                    continue
-                if self.image_color_count(TUTORIAL_NEXT, color=(255, 255, 255), threshold=180, count=50):
-                    self.device.click(TUTORIAL_NEXT)
-                    continue
+            if self.handle_tutorial():
+                continue
             # Rogue
             if self.handle_blessing():
                 continue

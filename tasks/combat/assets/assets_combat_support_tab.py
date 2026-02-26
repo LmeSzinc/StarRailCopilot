@@ -3,145 +3,83 @@ from module.base.button import Button, ButtonWrapper
 # This file was auto-generated, do not modify it manually. To generate:
 # ``` python -m dev_tools.button_extract ```
 
-FRIENDS_CHECK = ButtonWrapper(
-    name='FRIENDS_CHECK',
-    cn=[
-        Button(
-            file='./assets/cn/combat/support_tab/FRIENDS_CHECK.png',
-            area=(120, 84, 155, 100),
-            search=(100, 64, 175, 120),
-            color=(145, 144, 145),
-            button=(120, 84, 155, 100),
-        ),
-        Button(
-            file='./assets/cn/combat/support_tab/FRIENDS_CHECK.2.png',
-            area=(119, 113, 154, 130),
-            search=(99, 93, 174, 150),
-            color=(150, 148, 152),
-            button=(119, 113, 154, 130),
-        ),
-    ],
-    en=[
-        Button(
-            file='./assets/en/combat/support_tab/FRIENDS_CHECK.png',
-            area=(103, 85, 159, 99),
-            search=(83, 65, 179, 119),
-            color=(159, 157, 159),
-            button=(103, 85, 159, 99),
-        ),
-        Button(
-            file='./assets/en/combat/support_tab/FRIENDS_CHECK.2.png',
-            area=(102, 114, 158, 129),
-            search=(82, 94, 178, 149),
-            color=(161, 160, 164),
-            button=(102, 114, 158, 129),
-        ),
-    ],
+CATALOG_CHECK = ButtonWrapper(
+    name='CATALOG_CHECK',
+    cn=Button(
+        file='./assets/cn/combat/support_tab/CATALOG_CHECK.png',
+        area=(104, 46, 176, 65),
+        search=(84, 26, 196, 85),
+        color=(155, 155, 157),
+        button=(104, 46, 176, 65),
+    ),
+    en=Button(
+        file='./assets/en/combat/support_tab/CATALOG_CHECK.png',
+        area=(155, 48, 219, 67),
+        search=(135, 28, 239, 87),
+        color=(168, 168, 170),
+        button=(155, 48, 219, 67),
+    ),
 )
-FRIENDS_CLICK = ButtonWrapper(
-    name='FRIENDS_CLICK',
-    cn=[
-        Button(
-            file='./assets/cn/combat/support_tab/FRIENDS_CLICK.png',
-            area=(121, 84, 155, 100),
-            search=(101, 64, 175, 120),
-            color=(134, 128, 125),
-            button=(121, 84, 155, 100),
-        ),
-        Button(
-            file='./assets/cn/combat/support_tab/FRIENDS_CLICK.2.png',
-            area=(119, 113, 154, 130),
-            search=(99, 93, 174, 150),
-            color=(133, 133, 161),
-            button=(119, 113, 154, 130),
-        ),
-    ],
-    en=[
-        Button(
-            file='./assets/en/combat/support_tab/FRIENDS_CLICK.png',
-            area=(103, 85, 159, 100),
-            search=(83, 65, 179, 120),
-            color=(121, 115, 111),
-            button=(103, 85, 159, 100),
-        ),
-        Button(
-            file='./assets/en/combat/support_tab/FRIENDS_CLICK.2.png',
-            area=(102, 114, 158, 129),
-            search=(82, 94, 178, 149),
-            color=(126, 127, 158),
-            button=(102, 114, 158, 129),
-        ),
-    ],
+CATALOG_CLICK = ButtonWrapper(
+    name='CATALOG_CLICK',
+    cn=Button(
+        file='./assets/cn/combat/support_tab/CATALOG_CLICK.png',
+        area=(103, 46, 177, 66),
+        search=(83, 26, 197, 86),
+        color=(104, 106, 123),
+        button=(103, 46, 177, 66),
+    ),
+    en=Button(
+        file='./assets/en/combat/support_tab/CATALOG_CLICK.png',
+        area=(155, 48, 219, 67),
+        search=(135, 28, 239, 87),
+        color=(100, 102, 120),
+        button=(155, 48, 219, 67),
+    ),
 )
-STRANGER_CHECK = ButtonWrapper(
-    name='STRANGER_CHECK',
-    cn=[
-        Button(
-            file='./assets/cn/combat/support_tab/STRANGER_CHECK.png',
-            area=(332, 84, 383, 100),
-            search=(312, 64, 403, 120),
-            color=(159, 157, 159),
-            button=(332, 84, 383, 100),
-        ),
-        Button(
-            file='./assets/cn/combat/support_tab/STRANGER_CHECK.2.png',
-            area=(327, 113, 379, 130),
-            search=(307, 93, 399, 150),
-            color=(166, 164, 166),
-            button=(327, 113, 379, 130),
-        ),
-    ],
-    en=[
-        Button(
-            file='./assets/en/combat/support_tab/STRANGER_CHECK.png',
-            area=(311, 85, 388, 100),
-            search=(291, 65, 408, 120),
-            color=(163, 161, 163),
-            button=(311, 85, 388, 100),
-        ),
-        Button(
-            file='./assets/en/combat/support_tab/STRANGER_CHECK.2.png',
-            area=(307, 114, 384, 129),
-            search=(287, 94, 404, 149),
-            color=(163, 162, 163),
-            button=(307, 114, 384, 129),
-        ),
-    ],
+FRIEND_ONLY = ButtonWrapper(
+    name='FRIEND_ONLY',
+    share=Button(
+        file='./assets/share/combat/support_tab/FRIEND_ONLY.png',
+        area=(38, 88, 88, 112),
+        search=(18, 68, 108, 132),
+        color=(219, 184, 131),
+        button=(38, 88, 88, 112),
+    ),
 )
-STRANGER_CLICK = ButtonWrapper(
-    name='STRANGER_CLICK',
-    cn=[
-        Button(
-            file='./assets/cn/combat/support_tab/STRANGER_CLICK.png',
-            area=(332, 84, 383, 100),
-            search=(312, 64, 403, 120),
-            color=(123, 116, 114),
-            button=(332, 84, 383, 100),
-        ),
-        Button(
-            file='./assets/cn/combat/support_tab/STRANGER_CLICK.2.png',
-            area=(327, 114, 379, 130),
-            search=(307, 94, 399, 150),
-            color=(117, 115, 126),
-            button=(327, 114, 379, 130),
-        ),
-    ],
-    en=[
-        Button(
-            file='./assets/en/combat/support_tab/STRANGER_CLICK.png',
-            area=(311, 85, 388, 100),
-            search=(291, 65, 408, 120),
-            color=(120, 113, 110),
-            button=(311, 85, 388, 100),
-        ),
-        Button(
-            file='./assets/en/combat/support_tab/STRANGER_CLICK.2.png',
-            area=(307, 114, 384, 129),
-            search=(287, 94, 404, 149),
-            color=(116, 114, 122),
-            button=(307, 114, 384, 129),
-        ),
-    ],
+SUPPORT_CHECK = ButtonWrapper(
+    name='SUPPORT_CHECK',
+    cn=Button(
+        file='./assets/cn/combat/support_tab/SUPPORT_CHECK.png',
+        area=(319, 46, 392, 66),
+        search=(299, 26, 412, 86),
+        color=(158, 158, 160),
+        button=(319, 46, 392, 66),
+    ),
+    en=Button(
+        file='./assets/en/combat/support_tab/SUPPORT_CHECK.png',
+        area=(274, 48, 344, 66),
+        search=(254, 28, 364, 86),
+        color=(168, 168, 170),
+        button=(274, 48, 344, 66),
+    ),
+)
+SUPPORT_CLICK = ButtonWrapper(
+    name='SUPPORT_CLICK',
+    cn=Button(
+        file='./assets/cn/combat/support_tab/SUPPORT_CLICK.png',
+        area=(319, 45, 391, 65),
+        search=(299, 25, 411, 85),
+        color=(107, 111, 127),
+        button=(319, 45, 391, 65),
+    ),
+    en=Button(
+        file='./assets/en/combat/support_tab/SUPPORT_CLICK.png',
+        area=(274, 47, 344, 67),
+        search=(254, 27, 364, 87),
+        color=(94, 98, 116),
+        button=(274, 47, 344, 67),
+    ),
 )
 SUPPORT_EMPTY = ButtonWrapper(
     name='SUPPORT_EMPTY',
@@ -153,13 +91,37 @@ SUPPORT_EMPTY = ButtonWrapper(
         button=(233, 362, 262, 399),
     ),
 )
-TAB_SEARCH = ButtonWrapper(
-    name='TAB_SEARCH',
-    share=Button(
-        file='./assets/share/combat/support_tab/TAB_SEARCH.png',
-        area=(43, 74, 458, 139),
-        search=(23, 54, 478, 159),
-        color=(91, 87, 96),
-        button=(43, 74, 458, 139),
+TEAM_CHECK = ButtonWrapper(
+    name='TEAM_CHECK',
+    cn=Button(
+        file='./assets/cn/combat/support_tab/TEAM_CHECK.png',
+        area=(319, 46, 393, 66),
+        search=(299, 26, 413, 86),
+        color=(162, 162, 162),
+        button=(319, 46, 393, 66),
+    ),
+    en=Button(
+        file='./assets/en/combat/support_tab/TEAM_CHECK.png',
+        area=(357, 46, 417, 67),
+        search=(337, 26, 437, 87),
+        color=(182, 181, 181),
+        button=(357, 46, 417, 67),
+    ),
+)
+TEAM_CLICK = ButtonWrapper(
+    name='TEAM_CLICK',
+    cn=Button(
+        file='./assets/cn/combat/support_tab/TEAM_CLICK.png',
+        area=(319, 45, 393, 67),
+        search=(299, 25, 413, 87),
+        color=(115, 110, 104),
+        button=(319, 45, 393, 67),
+    ),
+    en=Button(
+        file='./assets/en/combat/support_tab/TEAM_CLICK.png',
+        area=(357, 46, 417, 67),
+        search=(337, 26, 437, 87),
+        color=(106, 100, 94),
+        button=(357, 46, 417, 67),
     ),
 )

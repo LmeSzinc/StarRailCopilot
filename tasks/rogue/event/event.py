@@ -101,18 +101,18 @@ class OcrRogueEventOption(OcrRogueEvent):
     OCR_REPLACE = {
         'cn': [
             # Special cases with placeholder
-            (KEYWORDS_ROGUE_EVENT_OPTION.Deposit_2_Cosmic_Fragments_39a6, '存入\d+.*'),
+            (KEYWORDS_ROGUE_EVENT_OPTION.Deposit_2_Cosmic_Fragments_9160, '存入\d+.*'),
             (KEYWORDS_ROGUE_EVENT_OPTION.Withdraw_2_Cosmic_Fragments, '取出\d+.*'),
             (KEYWORDS_ROGUE_EVENT_OPTION.Record_of_the_Aeon_of_1, '^关于.*'),
             (KEYWORDS_ROGUE_EVENT_OPTION.Wait_for_THEM_13dc, '^等待.*'),
             (KEYWORDS_ROGUE_EVENT_OPTION.Choose_number_two_It_snores_like_Andatur_Zazzalo, '.*二号.*安达.*'),
-            (KEYWORDS_ROGUE_EVENT_OPTION.Choose_number_three_Its_teeth_are_rusted_0f13, '.*三号.*牙齿.*'),
+            (KEYWORDS_ROGUE_EVENT_OPTION.Choose_number_three_Its_teeth_are_rusted_e443, '.*三号.*牙齿.*'),
             (KEYWORDS_ROGUE_EVENT_OPTION.Believe_in_THEM_with_pure_devotion, '.*虔诚信仰.*'),
             (KEYWORDS_ROGUE_EVENT_OPTION.A_box_of_expired_doughnuts_6308, '^盒过期甜甜圈.*'),
             (KEYWORDS_ROGUE_EVENT_OPTION.Give_everything_to_THEM, '^将一切奉献给.*')
         ],
         'en': [
-            (KEYWORDS_ROGUE_EVENT_OPTION.Deposit_2_Cosmic_Fragments_39a6, 'Deposit \d+.*'),
+            (KEYWORDS_ROGUE_EVENT_OPTION.Deposit_2_Cosmic_Fragments_9160, 'Deposit \d+.*'),
             (KEYWORDS_ROGUE_EVENT_OPTION.Withdraw_2_Cosmic_Fragments, 'Withdraw \d+.*'),
             (KEYWORDS_ROGUE_EVENT_OPTION.Record_of_the_Aeon_of_1, '^Record of the Aeon.*'),
         ]

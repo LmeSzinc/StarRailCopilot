@@ -127,6 +127,10 @@ class Login(LoginAndroidCloud, RogueUI, AgreementHandler, UIDHandler):
         Returns:
             bool: If clicked
         """
+        # 4.0 ADVERTISE for new world
+        if self.match_template_luma(ADVERTISE_Planarcadia, interval=2):
+            self.device.click(ADVERTISE_Planarcadia)
+            return True
         # 3.7 ADVERTISE_Cyrene popup
         if self.match_template_luma(ADVERTISE_Cyrene, interval=2):
             logger.info(f'{ADVERTISE_Cyrene} -> {CLOSE}')

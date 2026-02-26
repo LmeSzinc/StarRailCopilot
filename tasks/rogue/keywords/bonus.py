@@ -615,3 +615,21 @@ Condensed_Heart = RogueBonus(
     jp='凝結する心',
     es='Corazón coagulado',
 )
+Spore_Ball = RogueBonus(
+    id=69,
+    name='Spore_Ball',
+    cn='孢子团',
+    cht='孢子團',
+    en='Spore Ball',
+    jp='胞子嚢群',
+    es='Grupo de esporas',
+)
+Mini_Meme = RogueBonus(
+    id=70,
+    name='Mini_Meme',
+    cn='迷你模因',
+    cht='迷你迷因',
+    en='Mini Meme',
+    jp='ミニミーム',
+    es='Mini memético',
+)

@@ -420,6 +420,17 @@
     "order": 0,
     "color": "#777777"
   },
+  "Item_Thunder_Strum": {
+    "name": "Item_Thunder_Strum",
+    "path": "Dungeon.Planner.Item_Thunder_Strum",
+    "i18n": "Planner.Item_Thunder_Strum.name",
+    "stored": "StoredPlanner",
+    "attrs": {
+      "time": "2020-01-01 00:00:00"
+    },
+    "order": 0,
+    "color": "#777777"
+  },
   "Item_Charred_Bud_of_Twilight": {
     "name": "Item_Charred_Bud_of_Twilight",
     "path": "Dungeon.Planner.Item_Charred_Bud_of_Twilight",
@@ -611,6 +622,28 @@
     "name": "Item_Flower_of_Alaya",
     "path": "Dungeon.Planner.Item_Flower_of_Alaya",
     "i18n": "Planner.Item_Flower_of_Alaya.name",
+    "stored": "StoredPlanner",
+    "attrs": {
+      "time": "2020-01-01 00:00:00"
+    },
+    "order": 0,
+    "color": "#777777"
+  },
+  "Item_The_Fluffy_Collector_Edition": {
+    "name": "Item_The_Fluffy_Collector_Edition",
+    "path": "Dungeon.Planner.Item_The_Fluffy_Collector_Edition",
+    "i18n": "Planner.Item_The_Fluffy_Collector_Edition.name",
+    "stored": "StoredPlanner",
+    "attrs": {
+      "time": "2020-01-01 00:00:00"
+    },
+    "order": 0,
+    "color": "#777777"
+  },
+  "Item_Lance_of_Retribution": {
+    "name": "Item_Lance_of_Retribution",
+    "path": "Dungeon.Planner.Item_Lance_of_Retribution",
+    "i18n": "Planner.Item_Lance_of_Retribution.name",
     "stored": "StoredPlanner",
     "attrs": {
       "time": "2020-01-01 00:00:00"
@@ -820,6 +853,17 @@
     "name": "Item_Eternal_Lament",
     "path": "Dungeon.Planner.Item_Eternal_Lament",
     "i18n": "Planner.Item_Eternal_Lament.name",
+    "stored": "StoredPlanner",
+    "attrs": {
+      "time": "2020-01-01 00:00:00"
+    },
+    "order": 0,
+    "color": "#777777"
+  },
+  "Item_Lucid_Awl": {
+    "name": "Item_Lucid_Awl",
+    "path": "Dungeon.Planner.Item_Lucid_Awl",
+    "i18n": "Planner.Item_Lucid_Awl.name",
     "stored": "StoredPlanner",
     "attrs": {
       "time": "2020-01-01 00:00:00"

@@ -73,7 +73,7 @@ class ConfigGenerator:
         # calyx_crimson
         from tasks.rogue.keywords import KEYWORDS_ROGUE_PATH as Path
         order = [Path.Destruction, Path.Preservation, Path.The_Hunt, Path.Abundance,
-                 Path.Erudition, Path.Harmony, Path.Nihility, Path.Remembrance]
+                 Path.Erudition, Path.Harmony, Path.Nihility, Path.Remembrance, Path.Elation]
         calyx_crimson = []
         for path in order:
             calyx_crimson += [dungeon.name for dungeon in DungeonList.instances.values()

@@ -391,6 +391,34 @@
     "jp": "隠者",
     "es": "Eremita"
   },
+  "EverGloriousMagicalGirl": {
+    "setid": 129,
+    "dungeon_id": 1215,
+    "cn_origin": "闪耀功勋的魔法少女",
+    "cht_origin": "功勳閃耀的魔法少女",
+    "en_origin": "Ever-Glorious Magical Girl",
+    "jp_origin": "功績輝く魔法少女",
+    "es_origin": "Chica mágica de hazañas gloriosas",
+    "cn": "魔法少女",
+    "cht": "魔法少女",
+    "en": "Magical Girl",
+    "jp": "魔法少女",
+    "es": "Chica mágica"
+  },
+  "DivinerofDistantReach": {
+    "setid": 130,
+    "dungeon_id": 1215,
+    "cn_origin": "应天涉远的卜者",
+    "cht_origin": "應天涉遠的卜者",
+    "en_origin": "Diviner of Distant Reach",
+    "jp_origin": "天命に従う旅の卜者",
+    "es_origin": "Adivino de alcance remoto",
+    "cn": "卜者",
+    "cht": "卜者",
+    "en": "Diviner",
+    "jp": "卜者",
+    "es": "Adivino"
+  },
   "SpaceSealingStation": {
     "setid": 301,
     "dungeon_id": 230,

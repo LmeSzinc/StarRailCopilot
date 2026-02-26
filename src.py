@@ -49,7 +49,7 @@ class StarRailCopilot(AzurLaneAutoScript):
         BattlePassUI(config=self.config, device=self.device).run()
 
     def assignment(self):
-        from tasks.assignment.assignment import Assignment
+        from tasks.assignment.state import Assignment
         Assignment(config=self.config, device=self.device).run()
 
     def data_update(self):

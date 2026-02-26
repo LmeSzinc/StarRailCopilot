@@ -32,7 +32,7 @@
     },
     "Ornament": {
       "name": "飾品提取",
-      "help": "運行 \"飾品提取\" 任務需要：\n1. 每週事先手動通關差分宇宙一次並保存檔案\n2. 在當前設備進入過副本一次，有保存的編隊"
+      "help": "運行「飾品提取」任務需要滿足以下條件：\n每月事先手動通關差分宇宙一次並保存存檔"
     },
     "DailyQuest": {
       "name": "每日任務",
@@ -245,6 +245,7 @@
     "Name": {
       "name": "副本名稱",
       "help": "默認打本設定",
+      "Cavern_of_Corrosion_Path_of_Possession": "遺器：魔法少女 & 卜者（魔占之徑）",
       "Cavern_of_Corrosion_Path_of_Hidden_Salvation": "遺器：救世主 & 隱士（隱救之徑）",
       "Cavern_of_Corrosion_Path_of_Thundersurge": "遺器：烈陽 & 船長（靂湧之徑）",
       "Cavern_of_Corrosion_Path_of_Aria": "遺器：英豪 & 詩人（絃歌之徑）",
@@ -259,14 +260,17 @@
       "Cavern_of_Corrosion_Path_of_Drifting": "遺器：治療套 & 快槍手（漂泊之徑）",
       "Cavern_of_Corrosion_Path_of_Jabbing_Punch": "遺器：物理套 & 怪盜（迅拳之徑）",
       "Cavern_of_Corrosion_Path_of_Gelid_Wind": "遺器：冰套 & 風套（霜風之徑）",
+      "Calyx_Golden_Memories_Planarcadia": "材料：角色經驗（回憶之蕾 二相樂園）",
       "Calyx_Golden_Memories_Amphoreus": "材料：角色經驗（回憶之蕾 翁法羅斯）",
       "Calyx_Golden_Memories_Penacony": "材料：角色經驗（回憶之蕾 匹諾康尼）",
       "Calyx_Golden_Memories_The_Xianzhou_Luofu": "材料：角色經驗（回憶之蕾 仙舟羅浮）",
       "Calyx_Golden_Memories_Jarilo_VI": "材料：角色經驗（回憶之蕾 雅利洛-Ⅵ）",
+      "Calyx_Golden_Aether_Planarcadia": "材料：武器經驗（乙太之蕾 二相樂園）",
       "Calyx_Golden_Aether_Amphoreus": "材料：武器經驗（乙太之蕾 翁法羅斯）",
       "Calyx_Golden_Aether_Penacony": "材料：武器經驗（乙太之蕾 匹諾康尼）",
       "Calyx_Golden_Aether_The_Xianzhou_Luofu": "材料：武器經驗（乙太之蕾 仙舟羅浮）",
       "Calyx_Golden_Aether_Jarilo_VI": "材料：武器經驗（乙太之蕾 雅利洛-Ⅵ）",
+      "Calyx_Golden_Treasures_Planarcadia": "材料：信用點（藏珍之蕾 二相樂園）",
       "Calyx_Golden_Treasures_Amphoreus": "材料：信用點（藏珍之蕾 翁法羅斯）",
       "Calyx_Golden_Treasures_Penacony": "材料：信用點（藏珍之蕾 匹諾康尼）",
       "Calyx_Golden_Treasures_The_Xianzhou_Luofu": "材料：信用點（藏珍之蕾 仙舟羅浮）",
@@ -277,6 +281,7 @@
       "Calyx_Crimson_Preservation_Penacony_ClockStudiosThemePark": "行跡材料：存護（克勞克影視樂園）",
       "Calyx_Crimson_The_Hunt_Jarilo_OutlyingSnowPlains": "行跡材料：巡獵（城郊雪原）",
       "Calyx_Crimson_The_Hunt_Penacony_SoulGladScorchsandAuditionVenue": "行跡材料：巡獵（蘇樂達熱砂海選會場）",
+      "Calyx_Crimson_The_Hunt_Amphoreus_MemortisShoreRuinsofTime": "行跡材料：巡獵（葬憶彼岸時光歸墟）",
       "Calyx_Crimson_Abundance_Jarilo_BackwaterPass": "行跡材料：豐饒（邊緣通道）",
       "Calyx_Crimson_Abundance_Luofu_FyxestrollGarden": "行跡材料：豐饒（綏園）",
       "Calyx_Crimson_Erudition_Jarilo_RivetTown": "行跡材料：智識（鉚釘鎮）",
@@ -286,18 +291,20 @@
       "Calyx_Crimson_Nihility_Jarilo_GreatMine": "行跡材料：虛無（大礦區）",
       "Calyx_Crimson_Nihility_Luofu_AlchemyCommission": "行跡材料：虛無（丹鼎司）",
       "Calyx_Crimson_Remembrance_Amphoreus_StrifeRuinsCastrumKremnos": "行跡材料：記憶（紛爭荒墟懸鋒城）",
+      "Calyx_Crimson_Elation_Planarcadia_WorldEndTavern": "行跡材料：歡愉（世界盡頭酒館）",
       "Stagnant_Shadow_Spike": "晉階材料：物理（娜塔莎 / 克拉拉 / 盧卡 / 素裳）",
       "Stagnant_Shadow_Perdition": "晉階材料：物理（寒鴉 / 銀枝）",
-      "Stagnant_Shadow_Duty": "晉階材料：物理（波提歐 / 知更鳥 / 雲璃）",
-      "Stagnant_Shadow_Deepsheaf": "晉階材料：物理（白厄 / 海瑟音 / 丹恆•騰荒）",
+      "Stagnant_Shadow_Duty": "晉階材料：物理（雲璃 / 知更鳥 / 波提歐）",
+      "Stagnant_Shadow_Deepsheaf": "晉階材料：物理（白厄 / 海瑟音 / 丹恆•騰荒 / 爻光）",
       "Stagnant_Shadow_Blaze": "晉階材料：火（姬子 / 艾絲妲 / 虎克）",
-      "Stagnant_Shadow_Scorch": "晉階材料：火（桂乃芬 / 托帕&帳帳 / 忘歸人）",
-      "Stagnant_Shadow_Ire": "晉階材料：火（流螢 / 加拉赫 / 椒丘 / 靈砂）",
-      "Stagnant_Shadow_Ashes": "晉階材料：火（大理花）",
+      "Stagnant_Shadow_Scorch": "晉階材料：火（托帕&帳帳 / 桂乃芬 / 忘歸人）",
+      "Stagnant_Shadow_Roast": "晉階材料：量子（花火 / 翡翠）",
+      "Stagnant_Shadow_Ire": "晉階材料：火（椒丘 / 靈砂 / 加拉赫 / 流螢）",
+      "Stagnant_Shadow_Ashes": "晉階材料：火（大理花 / 火花）",
       "Stagnant_Shadow_Rime": "晉階材料：冰（三月七 / 黑塔 / 傑帕德 / 佩拉）",
       "Stagnant_Shadow_Icicle": "晉階材料：冰（彥卿 / 鏡流 / 阮•梅）",
       "Stagnant_Shadow_Nectar": "晉階材料：冰（米沙 / 大黑塔）",
-      "Stagnant_Shadow_Sirens": "晉階材料：冰（昔漣 / 長夜月）",
+      "Stagnant_Shadow_Sirens": "晉階材料：冰（長夜月 / 昔漣）",
       "Stagnant_Shadow_Fulmination": "晉階材料：雷（阿蘭 / 希露瓦 / 停雲 / 白露）",
       "Stagnant_Shadow_Doom": "晉階材料：雷（卡芙卡 / 景元 / 黃泉）",
       "Stagnant_Shadow_Mechwolf": "晉階材料：雷（貊澤 / 阿格萊雅）",
@@ -307,8 +314,7 @@
       "Stagnant_Shadow_Cinders": "晉階材料：風（刻律德菈）",
       "Stagnant_Shadow_Quanta": "晉階材料：量子（銀狼 / 希兒 / 青雀）",
       "Stagnant_Shadow_Abomination": "晉階材料：量子（玲可 / 符玄 / 雪衣）",
-      "Stagnant_Shadow_Roast": "晉階材料：量子（翡翠 / 花火）",
-      "Stagnant_Shadow_Gelidmoon": "晉階材料：量子（緹寶 / 遐蝶 / 賽飛兒 / Archer）",
+      "Stagnant_Shadow_Gelidmoon": "晉階材料：量子（緹寶 / 賽飛兒 / 遐蝶 / Archer）",
       "Stagnant_Shadow_Mirage": "晉階材料：虛數（瓦爾特 / 羅剎 / 馭空）",
       "Stagnant_Shadow_Puppetry": "晉階材料：虛數（丹恆•飲月 / 砂金 / 真理醫生）",
       "Stagnant_Shadow_Timbre": "晉階材料：虛數（星期日 / 亂破）",
@@ -317,14 +323,17 @@
     "NameAtDoubleCalyx": {
       "name": "有雙倍花活動時，選擇副本",
       "help": "次數耗儘後回退到默認打本設定",
+      "Calyx_Golden_Memories_Planarcadia": "材料：角色經驗（回憶之蕾 二相樂園）",
       "Calyx_Golden_Memories_Amphoreus": "材料：角色經驗（回憶之蕾 翁法羅斯）",
       "Calyx_Golden_Memories_Penacony": "材料：角色經驗（回憶之蕾 匹諾康尼）",
       "Calyx_Golden_Memories_The_Xianzhou_Luofu": "材料：角色經驗（回憶之蕾 仙舟羅浮）",
       "Calyx_Golden_Memories_Jarilo_VI": "材料：角色經驗（回憶之蕾 雅利洛-Ⅵ）",
+      "Calyx_Golden_Aether_Planarcadia": "材料：武器經驗（乙太之蕾 二相樂園）",
       "Calyx_Golden_Aether_Amphoreus": "材料：武器經驗（乙太之蕾 翁法羅斯）",
       "Calyx_Golden_Aether_Penacony": "材料：武器經驗（乙太之蕾 匹諾康尼）",
       "Calyx_Golden_Aether_The_Xianzhou_Luofu": "材料：武器經驗（乙太之蕾 仙舟羅浮）",
       "Calyx_Golden_Aether_Jarilo_VI": "材料：武器經驗（乙太之蕾 雅利洛-Ⅵ）",
+      "Calyx_Golden_Treasures_Planarcadia": "材料：信用點（藏珍之蕾 二相樂園）",
       "Calyx_Golden_Treasures_Amphoreus": "材料：信用點（藏珍之蕾 翁法羅斯）",
       "Calyx_Golden_Treasures_Penacony": "材料：信用點（藏珍之蕾 匹諾康尼）",
       "Calyx_Golden_Treasures_The_Xianzhou_Luofu": "材料：信用點（藏珍之蕾 仙舟羅浮）",
@@ -335,6 +344,7 @@
       "Calyx_Crimson_Preservation_Penacony_ClockStudiosThemePark": "行跡材料：存護（克勞克影視樂園）",
       "Calyx_Crimson_The_Hunt_Jarilo_OutlyingSnowPlains": "行跡材料：巡獵（城郊雪原）",
       "Calyx_Crimson_The_Hunt_Penacony_SoulGladScorchsandAuditionVenue": "行跡材料：巡獵（蘇樂達熱砂海選會場）",
+      "Calyx_Crimson_The_Hunt_Amphoreus_MemortisShoreRuinsofTime": "行跡材料：巡獵（葬憶彼岸時光歸墟）",
       "Calyx_Crimson_Abundance_Jarilo_BackwaterPass": "行跡材料：豐饒（邊緣通道）",
       "Calyx_Crimson_Abundance_Luofu_FyxestrollGarden": "行跡材料：豐饒（綏園）",
       "Calyx_Crimson_Erudition_Jarilo_RivetTown": "行跡材料：智識（鉚釘鎮）",
@@ -343,11 +353,13 @@
       "Calyx_Crimson_Harmony_Penacony_TheReverieDreamscape": "行跡材料：同諧（白日夢飯店-夢境）",
       "Calyx_Crimson_Nihility_Jarilo_GreatMine": "行跡材料：虛無（大礦區）",
       "Calyx_Crimson_Nihility_Luofu_AlchemyCommission": "行跡材料：虛無（丹鼎司）",
-      "Calyx_Crimson_Remembrance_Amphoreus_StrifeRuinsCastrumKremnos": "行跡材料：記憶（紛爭荒墟懸鋒城）"
+      "Calyx_Crimson_Remembrance_Amphoreus_StrifeRuinsCastrumKremnos": "行跡材料：記憶（紛爭荒墟懸鋒城）",
+      "Calyx_Crimson_Elation_Planarcadia_WorldEndTavern": "行跡材料：歡愉（世界盡頭酒館）"
     },
     "NameAtDoubleRelic": {
       "name": "有遺器活動時，選擇副本",
       "help": "次數耗儘後回退到默認打本設定",
+      "Cavern_of_Corrosion_Path_of_Possession": "遺器：魔法少女 & 卜者（魔占之徑）",
       "Cavern_of_Corrosion_Path_of_Hidden_Salvation": "遺器：救世主 & 隱士（隱救之徑）",
       "Cavern_of_Corrosion_Path_of_Thundersurge": "遺器：烈陽 & 船長（靂湧之徑）",
       "Cavern_of_Corrosion_Path_of_Aria": "遺器：英豪 & 詩人（絃歌之徑）",
@@ -408,16 +420,18 @@
       "help": ""
     },
     "Use": {
-      "name": "使用好友支援",
+      "name": "使用支援",
       "help": "",
       "always_use": "總是使用",
       "when_daily": "僅當每日任務需要時使用",
       "do_not_use": "不使用"
     },
     "Character": {
-      "name": "好友支援角色",
-      "help": "選擇好友支援角色，未找到則選擇默認（第一個）角色\n支援角色不要與隊伍中的角色重複，建議置頂好友角色",
+      "name": "支援角色",
+      "help": "選擇好友支援角色，未找到則選擇第一個角色，建議置頂好友角色",
       "FirstCharacter": "支援列表第一個角色",
+      "Sparxie": "[4.0] 火花",
+      "YaoGuang": "[4.0] 爻光",
       "TheDahlia": "[3.8] 大理花",
       "Cyrene": "[3.7] 昔漣",
       "Evernight": "[3.6] 長夜月",
@@ -498,6 +512,14 @@
       "Tingyun": "停雲",
       "Pela": "佩拉",
       "Natasha": "娜塔莎"
+    },
+    "Replace": {
+      "name": "支援角色替換位置",
+      "help": "支援角色將替換隊伍中的指定位置。如果支援角色與隊伍角色重複，則直接替換隊伍角色，此設定不生效。如果隊伍角色未滿，支援角色直接進入隊伍，此設定不生效",
+      "1": "1號位",
+      "2": "2號位",
+      "3": "3號位",
+      "4": "4號位"
     }
   },
   "DungeonStorage": {
@@ -622,7 +644,7 @@
       "help": ""
     },
     "Item_Searing_Steel_Blade": {
-      "name": "晉階材料：火（桂乃芬 / 托帕&帳帳 / 忘歸人）",
+      "name": "晉階材料：火（托帕&帳帳 / 桂乃芬 / 忘歸人）",
       "help": ""
     },
     "Item_Gelid_Chitin": {
@@ -646,11 +668,11 @@
       "help": ""
     },
     "Item_IPC_Work_Permit": {
-      "name": "晉階材料：物理（波提歐 / 知更鳥 / 雲璃）",
+      "name": "晉階材料：物理（雲璃 / 知更鳥 / 波提歐）",
       "help": ""
     },
     "Item_Raging_Heart": {
-      "name": "晉階材料：火（流螢 / 加拉赫 / 椒丘 / 靈砂）",
+      "name": "晉階材料：火（椒丘 / 靈砂 / 加拉赫 / 流螢）",
       "help": ""
     },
     "Item_Dream_Fridge": {
@@ -666,7 +688,7 @@
       "help": ""
     },
     "Item_Dream_Flamer": {
-      "name": "晉階材料：量子（翡翠 / 花火）",
+      "name": "晉階材料：量子（花火 / 翡翠）",
       "help": ""
     },
     "Item_Chordal_Mirage": {
@@ -674,15 +696,19 @@
       "help": ""
     },
     "Item_Invasive_Clot": {
-      "name": "晉階材料：物理（白厄 / 海瑟音 / 丹恆•騰荒）",
+      "name": "晉階材料：物理（白厄 / 海瑟音 / 丹恆•騰荒 / 爻光）",
       "help": ""
     },
     "Item_Radiant_Prominence": {
-      "name": "晉階材料：火（大理花）",
+      "name": "晉階材料：火（大理花 / 火花）",
       "help": ""
     },
     "Item_Sea_Siren_Torn_Fin": {
-      "name": "晉階材料：冰（昔漣 / 長夜月）",
+      "name": "晉階材料：冰（長夜月 / 昔漣）",
+      "help": ""
+    },
+    "Item_Thunder_Strum": {
+      "name": "Unknown_Dungeon_Come_From",
       "help": ""
     },
     "Item_Charred_Bud_of_Twilight": {
@@ -690,7 +716,7 @@
       "help": ""
     },
     "Item_Darkveil_Moonlight": {
-      "name": "晉階材料：量子（緹寶 / 遐蝶 / 賽飛兒 / Archer）",
+      "name": "晉階材料：量子（緹寶 / 賽飛兒 / 遐蝶 / Archer）",
       "help": ""
     },
     "Item_Harbinger_of_Strife": {
@@ -755,6 +781,14 @@
     },
     "Item_Flower_of_Alaya": {
       "name": "行跡材料：記憶（紛爭荒墟懸鋒城）",
+      "help": ""
+    },
+    "Item_The_Fluffy_Collector_Edition": {
+      "name": "行跡材料：歡愉（世界盡頭酒館）",
+      "help": ""
+    },
+    "Item_Lance_of_Retribution": {
+      "name": "行跡材料：巡獵（葬憶彼岸時光歸墟）",
       "help": ""
     },
     "Item_Tracks_of_Destiny": {
@@ -832,6 +866,10 @@
     "Item_Eternal_Lament": {
       "name": "哀嘆漫無止息",
       "help": ""
+    },
+    "Item_Lucid_Awl": {
+      "name": "夢現管錐",
+      "help": ""
     }
   },
   "PlannerTarget": {
@@ -851,6 +889,8 @@
       "name": "養成角色",
       "help": "",
       "_none_": "無",
+      "Sparxie": "[4.0] 火花",
+      "YaoGuang": "[4.0] 爻光",
       "TheDahlia": "[3.8] 大理花",
       "Cyrene": "[3.7] 昔漣",
       "Evernight": "[3.6] 長夜月",
@@ -936,6 +976,8 @@
       "name": "養成光錐",
       "help": "",
       "_none_": "無",
+      "When_She_Decided_to_See": "[4.0] 爻光 | 5* 當她決定看見",
+      "Dazzled_by_a_Flowery_World": "[4.0] 火花 | 5* 花花世界迷人眼",
       "This_Love_Forever": "[3.7] 昔漣 | 5* 愛如此刻永恆",
       "Though_Worlds_Apart": "[3.6] 丹恆•騰荒 | 5* 縱然山河萬程",
       "Never_Forget_Her_Flame": "[3.8] 大理花 | 5* 勿忘她的火焰",
@@ -1002,6 +1044,8 @@
       "For_Tomorrow_Journey": "4* 為了明日的旅途",
       "Hey_Over_Here": "4* 嘿，我在這裡",
       "Before_the_Tutorial_Mission_Starts": "4* 新手任務開始前",
+      "Today_Good_Luck": "4* 今日好手氣",
+      "Mushy_Shroomy_Adventures": "4* 菇菇嘎嘎歷險記",
       "See_You_at_the_End": "4* 於那終點再見",
       "Holiday_Thermae_Escapade": "4* 假日浴場大冒險",
       "A_Dream_Scented_in_Wheat": "4* 氤氳麥香的夢",
@@ -1063,6 +1107,8 @@
       "Day_One_of_My_New_Life": "4* 餘生的第一天",
       "Good_Night_and_Sleep_Well": "4* 晚安與睡顏",
       "Post_Op_Conversation": "4* 一場術後對話",
+      "Lingering_Tear": "3* 殘淚",
+      "Sneering": "3* 嗤笑",
       "Reminiscence": "3* 溯憶",
       "Shadowburn": "3* 焚影",
       "Sagacity": "3* 睿見",
@@ -1091,6 +1137,7 @@
       "name": "養成外圈遺器",
       "help": "",
       "_none_": "無",
+      "Cavern_of_Corrosion_Path_of_Possession": "遺器：魔法少女 & 卜者（魔占之徑）",
       "Cavern_of_Corrosion_Path_of_Hidden_Salvation": "遺器：救世主 & 隱士（隱救之徑）",
       "Cavern_of_Corrosion_Path_of_Thundersurge": "遺器：烈陽 & 船長（靂湧之徑）",
       "Cavern_of_Corrosion_Path_of_Aria": "遺器：英豪 & 詩人（絃歌之徑）",
@@ -1615,9 +1662,10 @@
       "Divergent_Universe_Smelted_Heart": "飾品：盜賊 & 翁瓦克（浴火鋼心）",
       "Divergent_Universe_Untoppled_Walls": "飾品：太空 & 仙舟（堅城不倒）"
     },
-    "Team": {
+    "Team40": {
       "name": "打本隊伍",
-      "help": "指定的隊伍需要使用預設名稱，不能使用自訂隊伍名稱",
+      "help": "指定的隊伍需要使用預設名稱，不能使用自訂隊伍名稱。\n注意：遊戲客戶端無法雲端同步上一次的隊伍，建議指定隊伍。",
+      "0": "上一次的隊伍",
       "1": "1",
       "2": "2",
       "3": "3",

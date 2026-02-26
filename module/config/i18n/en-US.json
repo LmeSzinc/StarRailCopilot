@@ -32,7 +32,7 @@
     },
     "Ornament": {
       "name": "Ornament",
-      "help": "The followings must be satisfied:\n1. Manually clear Divergent Universe once this week and have a save file.\n2. Enter the dungeon once on current device to have dungeon team saved."
+      "help": "The following must be satisfied:\nManually clear Divergent Universe once a month and have a save file."
     },
     "DailyQuest": {
       "name": "Daily Quest",
@@ -245,6 +245,7 @@
     "Name": {
       "name": "Dungeon Name",
       "help": "Default dungeon setting",
+      "Cavern_of_Corrosion_Path_of_Possession": "Relics: Magical Girl & Diviner (Path of Possession)",
       "Cavern_of_Corrosion_Path_of_Hidden_Salvation": "Relics: Deliverer & Recluse (Path of Hidden Salvation)",
       "Cavern_of_Corrosion_Path_of_Thundersurge": "Relics: Warrior Goddess & Captain (Path of Thundersurge)",
       "Cavern_of_Corrosion_Path_of_Aria": "Relics: Hero & Poet (Path of Aria)",
@@ -259,14 +260,17 @@
       "Cavern_of_Corrosion_Path_of_Drifting": "Relics: Healing set & Musketeer (Path of Drifting)",
       "Cavern_of_Corrosion_Path_of_Jabbing_Punch": "Relics: Physical set & Thief (Path of Jabbing Punch)",
       "Cavern_of_Corrosion_Path_of_Gelid_Wind": "Relics: Ice set & Wind set (Path of Gelid Wind)",
+      "Calyx_Golden_Memories_Planarcadia": "Material: Character EXP (Bud of Memories, Planarcadia)",
       "Calyx_Golden_Memories_Amphoreus": "Material: Character EXP (Bud of Memories, Amphoreus)",
       "Calyx_Golden_Memories_Penacony": "Material: Character EXP (Bud of Memories, Penacony)",
       "Calyx_Golden_Memories_The_Xianzhou_Luofu": "Material: Character EXP (Bud of Memories, The Xianzhou Luofu)",
       "Calyx_Golden_Memories_Jarilo_VI": "Material: Character EXP (Bud of Memories, Jarilo-VI)",
+      "Calyx_Golden_Aether_Planarcadia": "Material: Light Cone EXP (Bud of Aether, Planarcadia)",
       "Calyx_Golden_Aether_Amphoreus": "Material: Light Cone EXP (Bud of Aether, Amphoreus)",
       "Calyx_Golden_Aether_Penacony": "Material: Light Cone EXP (Bud of Aether, Penacony)",
       "Calyx_Golden_Aether_The_Xianzhou_Luofu": "Material: Light Cone EXP (Bud of Aether, The Xianzhou Luofu)",
       "Calyx_Golden_Aether_Jarilo_VI": "Material: Light Cone EXP (Bud of Aether, Jarilo-VI)",
+      "Calyx_Golden_Treasures_Planarcadia": "Material: Credit (Bud of Treasures, Planarcadia)",
       "Calyx_Golden_Treasures_Amphoreus": "Material: Credit (Bud of Treasures, Amphoreus)",
       "Calyx_Golden_Treasures_Penacony": "Material: Credit (Bud of Treasures, Penacony)",
       "Calyx_Golden_Treasures_The_Xianzhou_Luofu": "Material: Credit (Bud of Treasures, The Xianzhou Luofu)",
@@ -277,6 +281,7 @@
       "Calyx_Crimson_Preservation_Penacony_ClockStudiosThemePark": "Trace: Preservation (Clock Studios Theme Park)",
       "Calyx_Crimson_The_Hunt_Jarilo_OutlyingSnowPlains": "Trace: The Hunt (Outlying Snow Plains)",
       "Calyx_Crimson_The_Hunt_Penacony_SoulGladScorchsandAuditionVenue": "Trace: The Hunt (SoulGlad Scorchsand Audition Venue)",
+      "Calyx_Crimson_The_Hunt_Amphoreus_MemortisShoreRuinsofTime": "Trace: The Hunt (Memortis Shore Ruins of Time)",
       "Calyx_Crimson_Abundance_Jarilo_BackwaterPass": "Trace: Abundance (Backwater Pass)",
       "Calyx_Crimson_Abundance_Luofu_FyxestrollGarden": "Trace: Abundance (Fyxestroll Garden)",
       "Calyx_Crimson_Erudition_Jarilo_RivetTown": "Trace: Erudition (Rivet Town)",
@@ -286,18 +291,20 @@
       "Calyx_Crimson_Nihility_Jarilo_GreatMine": "Trace: Nihility (Great Mine)",
       "Calyx_Crimson_Nihility_Luofu_AlchemyCommission": "Trace: Nihility (Alchemy Commission)",
       "Calyx_Crimson_Remembrance_Amphoreus_StrifeRuinsCastrumKremnos": "Trace: Remembrance (Strife Ruins Castrum Kremnos)",
+      "Calyx_Crimson_Elation_Planarcadia_WorldEndTavern": "Trace: Elation (World's End Tavern)",
       "Stagnant_Shadow_Spike": "Ascension: Physical (Natasha / Clara / Luka / Sushang)",
       "Stagnant_Shadow_Perdition": "Ascension: Physical (Hanya / Argenti)",
-      "Stagnant_Shadow_Duty": "Ascension: Physical (Boothill / Robin / Yunli)",
-      "Stagnant_Shadow_Deepsheaf": "Ascension: Physical (Phainon / Hysilens / Dan Heng • Permansor Terrae)",
+      "Stagnant_Shadow_Duty": "Ascension: Physical (Yunli / Robin / Boothill)",
+      "Stagnant_Shadow_Deepsheaf": "Ascension: Physical (Phainon / Hysilens / Dan Heng • Permansor Terrae / Yao Guang)",
       "Stagnant_Shadow_Blaze": "Ascension: Fire (Himeko / Asta / Hook)",
-      "Stagnant_Shadow_Scorch": "Ascension: Fire (Guinaifen / Topaz & Numby / Fugue)",
-      "Stagnant_Shadow_Ire": "Ascension: Fire (Firefly / Gallagher / Jiaoqiu / Lingsha)",
-      "Stagnant_Shadow_Ashes": "Ascension: Fire (The Dahlia)",
+      "Stagnant_Shadow_Scorch": "Ascension: Fire (Topaz & Numby / Guinaifen / Fugue)",
+      "Stagnant_Shadow_Roast": "Ascension: Quantum (Sparkle / Jade)",
+      "Stagnant_Shadow_Ire": "Ascension: Fire (Jiaoqiu / Lingsha / Gallagher / Firefly)",
+      "Stagnant_Shadow_Ashes": "Ascension: Fire (The Dahlia / Sparxie)",
       "Stagnant_Shadow_Rime": "Ascension: Ice (March 7th / Herta / Gepard / Pela)",
       "Stagnant_Shadow_Icicle": "Ascension: Ice (Yanqing / Jingliu / Ruan Mei)",
       "Stagnant_Shadow_Nectar": "Ascension: Ice (Misha / The Herta)",
-      "Stagnant_Shadow_Sirens": "Ascension: Ice (Cyrene / Evernight)",
+      "Stagnant_Shadow_Sirens": "Ascension: Ice (Evernight / Cyrene)",
       "Stagnant_Shadow_Fulmination": "Ascension: Lightning (Arlan / Serval / Tingyun / Bailu)",
       "Stagnant_Shadow_Doom": "Ascension: Lightning (Kafka / Jing Yuan / Acheron)",
       "Stagnant_Shadow_Mechwolf": "Ascension: Lightning (Moze / Aglaea)",
@@ -307,8 +314,7 @@
       "Stagnant_Shadow_Cinders": "Ascension: Wind (Cerydra)",
       "Stagnant_Shadow_Quanta": "Ascension: Quantum (Silver Wolf / Seele / Qingque)",
       "Stagnant_Shadow_Abomination": "Ascension: Quantum (Lynx / Fu Xuan / Xueyi)",
-      "Stagnant_Shadow_Roast": "Ascension: Quantum (Jade / Sparkle)",
-      "Stagnant_Shadow_Gelidmoon": "Ascension: Quantum (Tribbie / Castorice / Cipher / Archer)",
+      "Stagnant_Shadow_Gelidmoon": "Ascension: Quantum (Tribbie / Cipher / Castorice / Archer)",
       "Stagnant_Shadow_Mirage": "Ascension: Imaginary (Welt / Luocha / Yukong)",
       "Stagnant_Shadow_Puppetry": "Ascension: Imaginary (Dan Heng • Imbibitor Lunae / Aventurine / Dr. Ratio)",
       "Stagnant_Shadow_Timbre": "Ascension: Imaginary (Sunday / Rappa)",
@@ -317,14 +323,17 @@
     "NameAtDoubleCalyx": {
       "name": "At Double Calyx Event, choose dungeon",
       "help": "Return to the default dungeon settings after double times exhausted",
+      "Calyx_Golden_Memories_Planarcadia": "Material: Character EXP (Bud of Memories, Planarcadia)",
       "Calyx_Golden_Memories_Amphoreus": "Material: Character EXP (Bud of Memories, Amphoreus)",
       "Calyx_Golden_Memories_Penacony": "Material: Character EXP (Bud of Memories, Penacony)",
       "Calyx_Golden_Memories_The_Xianzhou_Luofu": "Material: Character EXP (Bud of Memories, The Xianzhou Luofu)",
       "Calyx_Golden_Memories_Jarilo_VI": "Material: Character EXP (Bud of Memories, Jarilo-VI)",
+      "Calyx_Golden_Aether_Planarcadia": "Material: Light Cone EXP (Bud of Aether, Planarcadia)",
       "Calyx_Golden_Aether_Amphoreus": "Material: Light Cone EXP (Bud of Aether, Amphoreus)",
       "Calyx_Golden_Aether_Penacony": "Material: Light Cone EXP (Bud of Aether, Penacony)",
       "Calyx_Golden_Aether_The_Xianzhou_Luofu": "Material: Light Cone EXP (Bud of Aether, The Xianzhou Luofu)",
       "Calyx_Golden_Aether_Jarilo_VI": "Material: Light Cone EXP (Bud of Aether, Jarilo-VI)",
+      "Calyx_Golden_Treasures_Planarcadia": "Material: Credit (Bud of Treasures, Planarcadia)",
       "Calyx_Golden_Treasures_Amphoreus": "Material: Credit (Bud of Treasures, Amphoreus)",
       "Calyx_Golden_Treasures_Penacony": "Material: Credit (Bud of Treasures, Penacony)",
       "Calyx_Golden_Treasures_The_Xianzhou_Luofu": "Material: Credit (Bud of Treasures, The Xianzhou Luofu)",
@@ -335,6 +344,7 @@
       "Calyx_Crimson_Preservation_Penacony_ClockStudiosThemePark": "Trace: Preservation (Clock Studios Theme Park)",
       "Calyx_Crimson_The_Hunt_Jarilo_OutlyingSnowPlains": "Trace: The Hunt (Outlying Snow Plains)",
       "Calyx_Crimson_The_Hunt_Penacony_SoulGladScorchsandAuditionVenue": "Trace: The Hunt (SoulGlad Scorchsand Audition Venue)",
+      "Calyx_Crimson_The_Hunt_Amphoreus_MemortisShoreRuinsofTime": "Trace: The Hunt (Memortis Shore Ruins of Time)",
       "Calyx_Crimson_Abundance_Jarilo_BackwaterPass": "Trace: Abundance (Backwater Pass)",
       "Calyx_Crimson_Abundance_Luofu_FyxestrollGarden": "Trace: Abundance (Fyxestroll Garden)",
       "Calyx_Crimson_Erudition_Jarilo_RivetTown": "Trace: Erudition (Rivet Town)",
@@ -343,11 +353,13 @@
       "Calyx_Crimson_Harmony_Penacony_TheReverieDreamscape": "Trace: Harmony (The Reverie (Dreamscape))",
       "Calyx_Crimson_Nihility_Jarilo_GreatMine": "Trace: Nihility (Great Mine)",
       "Calyx_Crimson_Nihility_Luofu_AlchemyCommission": "Trace: Nihility (Alchemy Commission)",
-      "Calyx_Crimson_Remembrance_Amphoreus_StrifeRuinsCastrumKremnos": "Trace: Remembrance (Strife Ruins Castrum Kremnos)"
+      "Calyx_Crimson_Remembrance_Amphoreus_StrifeRuinsCastrumKremnos": "Trace: Remembrance (Strife Ruins Castrum Kremnos)",
+      "Calyx_Crimson_Elation_Planarcadia_WorldEndTavern": "Trace: Elation (World's End Tavern)"
     },
     "NameAtDoubleRelic": {
       "name": "At Double Relic Event, choose dungeon",
       "help": "Return to the default dungeon settings after double times exhausted",
+      "Cavern_of_Corrosion_Path_of_Possession": "Relics: Magical Girl & Diviner (Path of Possession)",
       "Cavern_of_Corrosion_Path_of_Hidden_Salvation": "Relics: Deliverer & Recluse (Path of Hidden Salvation)",
       "Cavern_of_Corrosion_Path_of_Thundersurge": "Relics: Warrior Goddess & Captain (Path of Thundersurge)",
       "Cavern_of_Corrosion_Path_of_Aria": "Relics: Hero & Poet (Path of Aria)",
@@ -408,7 +420,7 @@
       "help": ""
     },
     "Use": {
-      "name": "Use Friend Support",
+      "name": "Use Support",
       "help": "",
       "always_use": "Always Use",
       "when_daily": "Use Only When Required by Dailies",
@@ -416,8 +428,10 @@
     },
     "Character": {
       "name": "Support Character",
-      "help": "Select a friend support character, if not found, select the default (first) role\nSupport character should not be the same as the character in the team, recommended to prioritize friends.",
+      "help": "Select a friend support character. If not found, the first character will be selected. Recommended to pin friend characters.",
       "FirstCharacter": "First Character",
+      "Sparxie": "[4.0] Sparxie",
+      "YaoGuang": "[4.0] Yao Guang",
       "TheDahlia": "[3.8] The Dahlia",
       "Cyrene": "[3.7] Cyrene",
       "Evernight": "[3.6] Evernight",
@@ -498,6 +512,14 @@
       "Tingyun": "Tingyun",
       "Pela": "Pela",
       "Natasha": "Natasha"
+    },
+    "Replace": {
+      "name": "Support Replacement Position",
+      "help": "Support character will replace the specified position in the team. If the support character is the same as a character already in the team, it will replace that character directly, and this setting would not take effect. If the team is not full, the support character enters the team directly, and this setting would not take effect.",
+      "1": "Slot 1",
+      "2": "Slot 2",
+      "3": "Slot 3",
+      "4": "Slot 4"
     }
   },
   "DungeonStorage": {
@@ -622,7 +644,7 @@
       "help": ""
     },
     "Item_Searing_Steel_Blade": {
-      "name": "Ascension: Fire (Guinaifen / Topaz & Numby / Fugue)",
+      "name": "Ascension: Fire (Topaz & Numby / Guinaifen / Fugue)",
       "help": ""
     },
     "Item_Gelid_Chitin": {
@@ -646,11 +668,11 @@
       "help": ""
     },
     "Item_IPC_Work_Permit": {
-      "name": "Ascension: Physical (Boothill / Robin / Yunli)",
+      "name": "Ascension: Physical (Yunli / Robin / Boothill)",
       "help": ""
     },
     "Item_Raging_Heart": {
-      "name": "Ascension: Fire (Firefly / Gallagher / Jiaoqiu / Lingsha)",
+      "name": "Ascension: Fire (Jiaoqiu / Lingsha / Gallagher / Firefly)",
       "help": ""
     },
     "Item_Dream_Fridge": {
@@ -666,7 +688,7 @@
       "help": ""
     },
     "Item_Dream_Flamer": {
-      "name": "Ascension: Quantum (Jade / Sparkle)",
+      "name": "Ascension: Quantum (Sparkle / Jade)",
       "help": ""
     },
     "Item_Chordal_Mirage": {
@@ -674,15 +696,19 @@
       "help": ""
     },
     "Item_Invasive_Clot": {
-      "name": "Ascension: Physical (Phainon / Hysilens / Dan Heng • Permansor Terrae)",
+      "name": "Ascension: Physical (Phainon / Hysilens / Dan Heng • Permansor Terrae / Yao Guang)",
       "help": ""
     },
     "Item_Radiant_Prominence": {
-      "name": "Ascension: Fire (The Dahlia)",
+      "name": "Ascension: Fire (The Dahlia / Sparxie)",
       "help": ""
     },
     "Item_Sea_Siren_Torn_Fin": {
-      "name": "Ascension: Ice (Cyrene / Evernight)",
+      "name": "Ascension: Ice (Evernight / Cyrene)",
+      "help": ""
+    },
+    "Item_Thunder_Strum": {
+      "name": "Unknown_Dungeon_Come_From",
       "help": ""
     },
     "Item_Charred_Bud_of_Twilight": {
@@ -690,7 +716,7 @@
       "help": ""
     },
     "Item_Darkveil_Moonlight": {
-      "name": "Ascension: Quantum (Tribbie / Castorice / Cipher / Archer)",
+      "name": "Ascension: Quantum (Tribbie / Cipher / Castorice / Archer)",
       "help": ""
     },
     "Item_Harbinger_of_Strife": {
@@ -755,6 +781,14 @@
     },
     "Item_Flower_of_Alaya": {
       "name": "Trace: Remembrance (Strife Ruins Castrum Kremnos)",
+      "help": ""
+    },
+    "Item_The_Fluffy_Collector_Edition": {
+      "name": "Trace: Elation (World's End Tavern)",
+      "help": ""
+    },
+    "Item_Lance_of_Retribution": {
+      "name": "Trace: The Hunt (Memortis Shore Ruins of Time)",
       "help": ""
     },
     "Item_Tracks_of_Destiny": {
@@ -832,6 +866,10 @@
     "Item_Eternal_Lament": {
       "name": "Eternal Lament",
       "help": ""
+    },
+    "Item_Lucid_Awl": {
+      "name": "Lucid Awl",
+      "help": ""
     }
   },
   "PlannerTarget": {
@@ -851,6 +889,8 @@
       "name": "Character",
       "help": "",
       "_none_": "None",
+      "Sparxie": "[4.0] Sparxie",
+      "YaoGuang": "[4.0] Yao Guang",
       "TheDahlia": "[3.8] The Dahlia",
       "Cyrene": "[3.7] Cyrene",
       "Evernight": "[3.6] Evernight",
@@ -936,6 +976,8 @@
       "name": "Cone",
       "help": "",
       "_none_": "None",
+      "When_She_Decided_to_See": "[4.0] Yao Guang | 5* When She Decided to See",
+      "Dazzled_by_a_Flowery_World": "[4.0] Sparxie | 5* Dazzled by a Flowery World",
       "This_Love_Forever": "[3.7] Cyrene | 5* This Love, Forever",
       "Though_Worlds_Apart": "[3.6] Dan Heng • Permansor Terrae | 5* Though Worlds Apart",
       "Never_Forget_Her_Flame": "[3.8] The Dahlia | 5* Never Forget Her Flame",
@@ -1002,6 +1044,8 @@
       "For_Tomorrow_Journey": "4* For Tomorrow's Journey",
       "Hey_Over_Here": "4* Hey, Over Here",
       "Before_the_Tutorial_Mission_Starts": "4* Before the Tutorial Mission Starts",
+      "Today_Good_Luck": "4* Today's Good Luck",
+      "Mushy_Shroomy_Adventures": "4* Mushy Shroomy's Adventures",
       "See_You_at_the_End": "4* See You at the End",
       "Holiday_Thermae_Escapade": "4* Holiday Thermae Escapade",
       "A_Dream_Scented_in_Wheat": "4* A Dream Scented in Wheat",
@@ -1063,6 +1107,8 @@
       "Day_One_of_My_New_Life": "4* Day One of My New Life",
       "Good_Night_and_Sleep_Well": "4* Good Night and Sleep Well",
       "Post_Op_Conversation": "4* Post-Op Conversation",
+      "Lingering_Tear": "3* Lingering Tear",
+      "Sneering": "3* Sneering",
       "Reminiscence": "3* Reminiscence",
       "Shadowburn": "3* Shadowburn",
       "Sagacity": "3* Sagacity",
@@ -1091,6 +1137,7 @@
       "name": "Relic",
       "help": "",
       "_none_": "None",
+      "Cavern_of_Corrosion_Path_of_Possession": "Relics: Magical Girl & Diviner (Path of Possession)",
       "Cavern_of_Corrosion_Path_of_Hidden_Salvation": "Relics: Deliverer & Recluse (Path of Hidden Salvation)",
       "Cavern_of_Corrosion_Path_of_Thundersurge": "Relics: Warrior Goddess & Captain (Path of Thundersurge)",
       "Cavern_of_Corrosion_Path_of_Aria": "Relics: Hero & Poet (Path of Aria)",
@@ -1615,9 +1662,10 @@
       "Divergent_Universe_Smelted_Heart": "Ornament: Banditry & Vonwacq (Smelted Heart)",
       "Divergent_Universe_Untoppled_Walls": "Ornament: Space & Ageless Fleet (Untoppled Walls)"
     },
-    "Team": {
+    "Team40": {
       "name": "Dungeon Team",
-      "help": "The specified team must use the default name; custom team names are not allowed.",
+      "help": "The specified team must use the default name; custom team names are not allowed.\nNote: The game client cannot cloud sync the last team used; it is recommended to specify a team.",
+      "0": "Last team used",
       "1": "1",
       "2": "2",
       "3": "3",

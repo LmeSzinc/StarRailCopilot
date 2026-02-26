@@ -58,3 +58,14 @@ Amphoreus = MapWorld(
     world_id=4,
     short_name='Amphoreus',
 )
+Planarcadia = MapWorld(
+    id=6,
+    name='Planarcadia',
+    cn='二相乐园',
+    cht='二相樂園',
+    en='Planarcadia',
+    jp='二相楽園',
+    es='Planarcadia',
+    world_id=5,
+    short_name='Planarcadia',
+)

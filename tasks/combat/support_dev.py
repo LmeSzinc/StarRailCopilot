@@ -11,7 +11,6 @@ from module.logger import logger
 from tasks.base.ui import UI
 from tasks.combat.assets.assets_combat_support_dev import *
 from tasks.combat.support import SupportCharacter
-from tasks.combat.support_tab import support_tab
 
 
 class SupportDev(UI):

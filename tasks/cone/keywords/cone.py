@@ -279,6 +279,30 @@ Reminiscence = Cone(
     path_name='Remembrance',
     character_name='',
 )
+Sneering = Cone(
+    id=20023,
+    name='Sneering',
+    cn='嗤笑',
+    cht='嗤笑',
+    en='Sneering',
+    jp='嗤笑',
+    es='Risita burlona',
+    rarity='Rare',
+    path_name='Elation',
+    character_name='',
+)
+Lingering_Tear = Cone(
+    id=20024,
+    name='Lingering_Tear',
+    cn='残泪',
+    cht='殘淚',
+    en='Lingering Tear',
+    jp='残涙',
+    es='Las lágrimas que quedan',
+    rarity='Rare',
+    path_name='Elation',
+    character_name='',
+)
 Post_Op_Conversation = Cone(
     id=21000,
     name='Post_Op_Conversation',
@@ -1011,6 +1035,30 @@ See_You_at_the_End = Cone(
     path_name='The_Hunt',
     character_name='',
 )
+Mushy_Shroomy_Adventures = Cone(
+    id=21064,
+    name='Mushy_Shroomy_Adventures',
+    cn='菇菇嘎嘎历险记',
+    cht='菇菇嘎嘎歷險記',
+    en="Mushy Shroomy's Adventures",
+    jp='タケタケ冒険記',
+    es='Las aventuras de Champigaga',
+    rarity='VeryRare',
+    path_name='Elation',
+    character_name='',
+)
+Today_Good_Luck = Cone(
+    id=21065,
+    name='Today_Good_Luck',
+    cn='今日好手气',
+    cht='今日好手氣',
+    en="Today's Good Luck",
+    jp='今日は好運',
+    es='La buena suerte de hoy',
+    rarity='VeryRare',
+    path_name='Elation',
+    character_name='',
+)
 Before_the_Tutorial_Mission_Starts = Cone(
     id=22000,
     name='Before_the_Tutorial_Mission_Starts',
@@ -1730,6 +1778,30 @@ This_Love_Forever = Cone(
     rarity='SuperRare',
     path_name='Remembrance',
     character_name='Cyrene',
+)
+Dazzled_by_a_Flowery_World = Cone(
+    id=23053,
+    name='Dazzled_by_a_Flowery_World',
+    cn='花花世界迷人眼',
+    cht='花花世界迷人眼',
+    en='Dazzled by a Flowery World',
+    jp='きらびやかな世界',
+    es='El cautivador mundochispa',
+    rarity='SuperRare',
+    path_name='Elation',
+    character_name='Sparxie',
+)
+When_She_Decided_to_See = Cone(
+    id=23054,
+    name='When_She_Decided_to_See',
+    cn='当她决定看见',
+    cht='當她決定看見',
+    en='When She Decided to See',
+    jp='彼女が視ると決めた時',
+    es='Cuando se decidió a ver',
+    rarity='SuperRare',
+    path_name='Elation',
+    character_name='YaoGuang',
 )
 On_the_Fall_of_an_Aeon = Cone(
     id=24000,

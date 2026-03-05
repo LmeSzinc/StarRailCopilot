@@ -33,6 +33,10 @@ class SupportTab(Switch):
 
 def support_tab() -> SupportTab:
     tab = SupportTab('SupportTab', is_selector=True)
+    # Tabs in combat support page
+    # - Catalog - Support
+    # Tabs in ornament combat support page
+    # - Catalog - Team
     tab.add_state('Catalog', check_button=CATALOG_CHECK, click_button=CATALOG_CLICK)
     tab.add_state('Support', check_button=SUPPORT_CHECK, click_button=SUPPORT_CLICK)
     tab.add_state('Team', check_button=TEAM_CHECK, click_button=TEAM_CLICK)

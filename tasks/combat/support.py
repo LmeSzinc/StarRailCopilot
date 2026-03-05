@@ -9,8 +9,7 @@ from module.logger import logger
 from module.ui.scroll import AdaptiveScroll
 from tasks.character.keywords import CharacterList
 from tasks.combat.assets.assets_combat_support import *
-from tasks.combat.assets.assets_combat_support_dev import LIST_REFRESHED, LIST_REFRESH
-from tasks.combat.assets.assets_combat_support_tab import FRIEND_ONLY
+from tasks.combat.assets.assets_combat_support_tab import FRIEND_ONLY, SUPPORT_CHECK, SUPPORT_CLICK
 from tasks.combat.state import CombatState
 from tasks.combat.support_tab import support_tab
 
@@ -195,8 +194,8 @@ class CombatSupport(CombatState):
             if self.match_template_luma(dismiss_button):
                 return True
             if self.appear(COMBAT_SUPPORT_LIST):
-                # check refresh also, because ornament team page has COMBAT_SUPPORT_LIST too
-                if self.match_template_color(LIST_REFRESH) or self.match_template_color(LIST_REFRESHED):
+                # check support tab, because ornament team page has COMBAT_SUPPORT_LIST too
+                if self.match_template_luma(SUPPORT_CHECK) or self.match_template_color(SUPPORT_CLICK):
                     break
             if self.appear_then_click(support_button, interval=5):
                 continue

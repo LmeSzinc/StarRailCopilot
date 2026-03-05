@@ -56,6 +56,15 @@ class OcrItemName(Ocr):
         result = re.sub('明辉日.?', '明辉日珥', result)
         # 灭流绝溢的缄默
         result = re.sub('灭流绝溢的.?默', '灭流绝溢的缄默', result)
+        # The Fluffy Hand-drawn Storyboards
+        if re.search(r'Fluffy\s*Hand.*drawn\s*Storyboard', result):
+            result = 'The Fluffy Hand-drawn Storyboards'
+        # The Fluffy Serialization Memorial Issue
+        if re.search(r'Fluffy\s*Serialization\s*Memorial', result):
+            result = 'The Fluffy Serialization Memorial Issue'
+        # The Fluffy Collector's Edition
+        if re.search(r'Fluffy\s*Collector.*Edition', result):
+            result = "The Fluffy Collector's Edition"
         return result
 
 

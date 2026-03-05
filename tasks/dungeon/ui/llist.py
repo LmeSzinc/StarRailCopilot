@@ -25,7 +25,7 @@ from tasks.dungeon.keywords import (
     KEYWORDS_DUNGEON_LIST
 )
 from tasks.dungeon.keywords.classes import DungeonEntrance
-from tasks.map.keywords import MapPlane
+from tasks.map.keywords import KEYWORDS_MAP_PLANE, MapPlane
 
 LIST_SORTING = Switch('DUNGEON_LIST_SORTING', is_selector=True)
 LIST_SORTING.add_state('Ascending', check_button=LIST_ASCENDING)
@@ -148,30 +148,81 @@ class OcrDungeonList(OcrDungeonName):
                         text=str([result.ocr_text for result in results]))
         return results
 
-    def _match_result(self, *args, **kwargs):
-        """
-        Convert MapPlane object to their corresponding DungeonList object
-        """
-        matched = super()._match_result(*args, **kwargs)
-        if self.target_dungeon is not None and matched is not None:
+    def _fixup_plane_dungeon(
+            self, matched_plane: OcrResultButton, results: "list[OcrResultButton]"
+    ) -> bool:
+
+        plane = matched_plane.matched_keyword
+        # Calyx_Golden_Aether_Planarcadia and Calyx_Golden_Treasures_Planarcadia are at Planarcadia_DovebrookDistrict
+        # try to match dungeon name above to distinguish them
+        if plane == KEYWORDS_MAP_PLANE.Planarcadia_DovebrookDistrict:
+            for matched_dungeon in results:
+                dungeon = matched_dungeon.matched_keyword
+                if not isinstance(dungeon, DungeonList):
+                    continue
+                dungeon_bottom = matched_dungeon.area[3]
+                plane_upper = matched_plane.area[1]
+                if 0 < plane_upper - dungeon_bottom < 35:
+                    # dungeon name and plane name is in pair
+                    if dungeon.is_Calyx_Golden_Aether:
+                        matched_plane.set_matched_keyword(KEYWORDS_DUNGEON_LIST.Calyx_Golden_Aether_Planarcadia)
+                        return True
+                    if dungeon.is_Calyx_Golden_Treasures:
+                        matched_plane.set_matched_keyword(KEYWORDS_DUNGEON_LIST.Calyx_Golden_Treasures_Planarcadia)
+                        return True
+            # no match, maybe dungeon name is truncated, treat as lower row
+            matched_plane.set_matched_keyword(KEYWORDS_DUNGEON_LIST.Calyx_Golden_Treasures_Planarcadia)
+            return True
+        return False
+
+    def _product_buttons(
+            self,
+            results: "list[BoxedResult]",
+            keyword_classes,
+            lang: str = None,
+            ignore_punctuation=True,
+            ignore_digit=True
+    ) -> "list[OcrResultButton]":
+        results = super()._product_buttons(
+            results,
+            keyword_classes=keyword_classes,
+            lang=lang,
+            ignore_punctuation=ignore_punctuation,
+            ignore_digit=ignore_digit,
+        )
+        if self.target_dungeon is None:
+            return results
+
+        new = []
+        for matched in results:
+            kw = matched.matched_keyword
+            if isinstance(kw, DungeonEntrance):
+                new.append(matched)
+                continue
+
             if self.target_dungeon.is_Calyx_Golden:
                 # convert MapPlane and ignore DungeonList
-                if isinstance(matched, DungeonList):
-                    return
-                for dungeon in DungeonList.instances.values():
-                    if dungeon.is_Calyx_Golden and dungeon.plane == matched:
-                        return dungeon
-            if self.target_dungeon.is_Calyx_Crimson:
-                if isinstance(matched, DungeonList):
-                    return
-                for dungeon in DungeonList.instances.values():
-                    if dungeon.is_Calyx_Crimson and dungeon.plane == matched:
-                        return dungeon
+                if isinstance(kw, MapPlane):
+                    for dungeon in DungeonList.instances.values():
+                        if dungeon.is_Calyx_Golden and dungeon.plane == kw:
+                            if self._fixup_plane_dungeon(matched, results):
+                                pass
+                            else:
+                                matched.set_matched_keyword(dungeon)
+                            new.append(matched)
+                            break
+            elif self.target_dungeon.is_Calyx_Crimson:
+                # convert MapPlane and ignore DungeonList
+                if isinstance(kw, MapPlane):
+                    for dungeon in DungeonList.instances.values():
+                        if dungeon.is_Calyx_Crimson and dungeon.plane == kw:
+                            matched.set_matched_keyword(dungeon)
+                            new.append(matched)
+                            break
             else:
-                if isinstance(matched, MapPlane):
-                    return
-
-        return matched
+                if isinstance(kw, DungeonList):
+                    new.append(matched)
+        return new
 
 
 class DraggableDungeonList(DraggableList):

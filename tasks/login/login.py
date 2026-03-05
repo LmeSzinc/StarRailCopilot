@@ -93,6 +93,8 @@ class Login(LoginAndroidCloud, RogueUI, AgreementHandler, UIDHandler):
                 continue
             if self.handle_user_agreement():
                 continue
+            if self.handle_account_confirm():
+                continue
             # Additional
             if self.handle_popup_single():
                 continue

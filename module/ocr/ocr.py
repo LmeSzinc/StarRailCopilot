@@ -22,6 +22,7 @@ class OcrResultButton:
             boxed_result: BoxedResult from ppocr-onnx
             matched_keyword: Keyword object or None
         """
+        self.boxed_result = boxed_result
         self.area = boxed_result.box
         self.search = area_pad(self.area, pad=-20)
         # self.color =
@@ -54,6 +55,14 @@ class OcrResultButton:
     @property
     def is_keyword_matched(self) -> bool:
         return self.matched_keyword is not None
+
+    def set_matched_keyword(self, keyword):
+        if keyword is None:
+            self.matched_keyword = None
+            self.name = self.boxed_result.ocr_text
+        else:
+            self.matched_keyword = keyword
+            self.name = str(keyword)
 
 
 class Ocr:
@@ -302,6 +311,24 @@ class Ocr:
         button = OcrResultButton(boxed_result, matched_keyword)
         return button
 
+    def _product_buttons(
+            self,
+            results: "list[BoxedResult]",
+            keyword_classes,
+            lang: str = None,
+            ignore_punctuation=True,
+            ignore_digit=True
+    ) -> "list[OcrResultButton]":
+        results = [self._product_button(
+            result,
+            keyword_classes=keyword_classes,
+            lang=lang,
+            ignore_punctuation=ignore_punctuation,
+            ignore_digit=ignore_digit,
+        ) for result in results]
+        results = [result for result in results if result.is_keyword_matched]
+        return results
+
     def matched_ocr(
             self,
             image,
@@ -324,10 +351,8 @@ class Ocr:
         """
         results = self.detect_and_ocr(image, direct_ocr=direct_ocr)
 
-        results = [self._product_button(
-            result, keyword_classes=keyword_classes, lang=lang, ignore_punctuation=ignore_punctuation
-        ) for result in results]
-        results = [result for result in results if result.is_keyword_matched]
+        results = self._product_buttons(
+            results, keyword_classes=keyword_classes, lang=lang, ignore_punctuation=ignore_punctuation)
 
         logger.attr(name=f'{self.name} matched',
                     text=results)

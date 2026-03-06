@@ -104,19 +104,19 @@ class SynthesizeUI(UI):
 
     def _select_items(self, candidate_items: dict[ButtonWrapper, ButtonWrapper]) -> bool:
         for item, item_check in candidate_items.items():
+            if self.match_template_luma(item_check):
+                logger.info(f'Selected synthesize item {item}')
+                return True
+        for item, item_check in candidate_items.items():
             # Determine if the "item" can be found and synthesized in the left item column
-            if item.match_template_color(self.device.image, similarity=0.7):
-                logger.info('Find an item that can be synthesized')
+            if item.match_template_luma(self.device.image, similarity=0.7):
+                logger.info(f'Find synthesize item {item}')
                 # Ensure that item is selected
-                skip_first_screenshot = True
-                while 1:
-                    if skip_first_screenshot:
-                        skip_first_screenshot = False
-                    else:
-                        self.device.screenshot()
-                    if self.appear(item_check):
-                        logger.info('Item that can be synthesized has been selected')
-                        return True
+                for _ in self.loop():
+                    for item, item_check in candidate_items.items():
+                        if self.match_template_luma(item_check):
+                            logger.info(f'Selected synthesize item {item}')
+                            return True
                     if self.appear_then_click(item, similarity=0.7):
                         continue
         else:

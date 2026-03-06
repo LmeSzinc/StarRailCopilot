@@ -196,14 +196,18 @@ class CombatSupport(CombatState):
                 return True
             if self.appear(COMBAT_SUPPORT_LIST):
                 # check support tab, because ornament team page has COMBAT_SUPPORT_LIST too
-                for button in [SUPPORT_CHECK, SUPPORT_CLICK]:
-                    if self.match_template_luma(button):
-                        logger.info(f'At {button}')
-                        break
-                for button in [LIST_REFRESH, LIST_REFRESHED]:
-                    if self.match_template_color(button):
-                        logger.info(f'At {button}')
-                        break
+                if self.match_template_luma(SUPPORT_CHECK):
+                    logger.info(f'At {SUPPORT_CHECK}')
+                    break
+                if self.match_template_luma(SUPPORT_CLICK):
+                    logger.info(f'At {SUPPORT_CLICK}')
+                    break
+                if self.match_template_color(LIST_REFRESH):
+                    logger.info(f'At {LIST_REFRESH}')
+                    break
+                if self.match_template_color(LIST_REFRESHED):
+                    logger.info(f'At {LIST_REFRESHED}')
+                    break
             if self.appear_then_click(support_button, interval=5):
                 continue
 

@@ -20,5 +20,16 @@
       317.4
     ],
     "domain": "Combat"
+  },
+  {
+    "name": "Combat_Penacony_TheReverieReality_F1_X245Y233",
+    "route": "route.ornament.Combat.Penacony_TheReverieReality_F1:Penacony_TheReverieReality_F1_X245Y233",
+    "plane": "Penacony_TheReverieReality",
+    "floor": "F1",
+    "position": [
+      245.3,
+      233.3
+    ],
+    "domain": "Combat"
   }
 ]

@@ -1803,6 +1803,18 @@ When_She_Decided_to_See = Cone(
     path_name='Elation',
     character_name='YaoGuang',
 )
+The_Finale_of_a_Lie = Cone(
+    id=23056,
+    name='The_Finale_of_a_Lie',
+    cn='一场谎言的终幕',
+    cht='一場謊言的終幕',
+    en='The Finale of a Lie',
+    jp='或る嘘の終幕',
+    es='El final de una mentira',
+    rarity='SuperRare',
+    path_name='The_Hunt',
+    character_name='Ashveil',
+)
 On_the_Fall_of_an_Aeon = Cone(
     id=24000,
     name='On_the_Fall_of_an_Aeon',
@@ -1873,5 +1885,17 @@ Memory_Curtain_Never_Falls = Cone(
     es='Sobre los recuerdos nunca cae el telón',
     rarity='SuperRare',
     path_name='Remembrance',
+    character_name='',
+)
+Elation_Brimming_With_Blessings = Cone(
+    id=24006,
+    name='Elation_Brimming_With_Blessings',
+    cn='欢愉满溢祝福',
+    cht='歡愉滿溢祝福',
+    en='Elation Brimming With Blessings',
+    jp='愉悦溢れる祝福',
+    es='Exultación desbordante de bendiciones',
+    rarity='SuperRare',
+    path_name='Elation',
     character_name='',
 )

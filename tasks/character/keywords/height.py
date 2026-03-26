@@ -64,6 +64,7 @@ CHARACTER_HEIGHT = {
     'Sunday': 'Lad',
     'Archer': 'Male',
     'Argenti': 'Male',
+    'Ashveil': 'Male',
     'Boothill': 'Male',
     'DanHengPermansorTerrae': 'Male',
     'DrRatio': 'Male',

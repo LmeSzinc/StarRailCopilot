@@ -1017,6 +1017,19 @@ YaoGuang = CharacterList(
     relic_setid=130,
     ornament_setid=317,
 )
+Ashveil = CharacterList(
+    id=1504,
+    name='Ashveil',
+    cn='不死途',
+    cht='不死途',
+    en='Ashveil',
+    jp='不死途',
+    es='Ashveil',
+    type_name='Lightning',
+    path_name='The_Hunt',
+    relic_setid=115,
+    ornament_setid=326,
+)
 TrailblazerDestruction = CharacterList(
     id=8002,
     name='TrailblazerDestruction',

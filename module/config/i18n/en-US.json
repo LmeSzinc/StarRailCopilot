@@ -308,6 +308,7 @@
       "Stagnant_Shadow_Fulmination": "Ascension: Lightning (Arlan / Serval / Tingyun / Bailu)",
       "Stagnant_Shadow_Doom": "Ascension: Lightning (Kafka / Jing Yuan / Acheron)",
       "Stagnant_Shadow_Mechwolf": "Ascension: Lightning (Moze / Aglaea)",
+      "Stagnant_Shadow_Soundburst": "Ascension: Lightning (Ashveil)",
       "Stagnant_Shadow_Gust": "Ascension: Wind (Dan Heng / Bronya / Sampo)",
       "Stagnant_Shadow_Celestial": "Ascension: Wind (Blade / Huohuo / Black Swan)",
       "Stagnant_Shadow_Gloam": "Ascension: Wind (Feixiao / Anaxa / Hyacine / Saber)",
@@ -430,6 +431,7 @@
       "name": "Support Character",
       "help": "Select a friend support character. If not found, the first character will be selected. Recommended to pin friend characters.",
       "FirstCharacter": "First Character",
+      "Ashveil": "[4.1] Ashveil",
       "Sparxie": "[4.0] Sparxie",
       "YaoGuang": "[4.0] Yao Guang",
       "TheDahlia": "[3.8] The Dahlia",
@@ -708,7 +710,7 @@
       "help": ""
     },
     "Item_Thunder_Strum": {
-      "name": "Unknown_Dungeon_Come_From",
+      "name": "Ascension: Lightning (Ashveil)",
       "help": ""
     },
     "Item_Charred_Bud_of_Twilight": {
@@ -889,6 +891,7 @@
       "name": "Character",
       "help": "",
       "_none_": "None",
+      "Ashveil": "[4.1] Ashveil",
       "Sparxie": "[4.0] Sparxie",
       "YaoGuang": "[4.0] Yao Guang",
       "TheDahlia": "[3.8] The Dahlia",
@@ -976,6 +979,7 @@
       "name": "Cone",
       "help": "",
       "_none_": "None",
+      "The_Finale_of_a_Lie": "[4.1] Ashveil | 5* The Finale of a Lie",
       "When_She_Decided_to_See": "[4.0] Yao Guang | 5* When She Decided to See",
       "Dazzled_by_a_Flowery_World": "[4.0] Sparxie | 5* Dazzled by a Flowery World",
       "This_Love_Forever": "[3.7] Cyrene | 5* This Love, Forever",
@@ -1022,6 +1026,7 @@
       "Incessant_Rain": "[1.1] Silver Wolf | 5* Incessant Rain",
       "Patience_Is_All_You_Need": "[1.2] Kafka | 5* Patience Is All You Need",
       "In_the_Night": "[1.0] Seele | 5* In the Night",
+      "Elation_Brimming_With_Blessings": "5* Elation Brimming With Blessings",
       "Memory_Curtain_Never_Falls": "5* Memory's Curtain Never Falls",
       "Eternal_Calculus": "5* Eternal Calculus",
       "Solitary_Healing": "5* Solitary Healing",
@@ -1157,6 +1162,7 @@
       "name": "Ornament",
       "help": "",
       "_none_": "None",
+      "Divergent_Universe_Gilded_Recollection": "Ornament: Punklorde Stage Zero & City of Converging Stars (Gilded Recollection)",
       "Divergent_Universe_Within_the_West_Wind": "Ornament: Amphoreus & Tengoku (Within the West Wind)",
       "Divergent_Universe_Moonlit_Blood": "Ornament: Arcadia & Revelry (Moonlit Blood)",
       "Divergent_Universe_Unceasing_Strife": "Ornament: Bone Collection & Giant Tree (Unceasing Strife)",
@@ -1649,6 +1655,7 @@
     "Dungeon": {
       "name": "Dungeon Name",
       "help": "",
+      "Divergent_Universe_Gilded_Recollection": "Ornament: Punklorde Stage Zero & City of Converging Stars (Gilded Recollection)",
       "Divergent_Universe_Within_the_West_Wind": "Ornament: Amphoreus & Tengoku (Within the West Wind)",
       "Divergent_Universe_Moonlit_Blood": "Ornament: Arcadia & Revelry (Moonlit Blood)",
       "Divergent_Universe_Unceasing_Strife": "Ornament: Bone Collection & Giant Tree (Unceasing Strife)",

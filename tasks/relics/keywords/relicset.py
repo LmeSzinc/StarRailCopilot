@@ -543,3 +543,23 @@ TengokuLivestream = RelicSet(
     es='Tengoku@sala de chat',
     setid=324,
 )
+PunklordeStageZero = RelicSet(
+    id=55,
+    name='PunklordeStageZero',
+    cn='零号关卡朋克洛德',
+    cht='零號關卡龐克洛德',
+    en='Punklorde Stage Zero',
+    jp='ステージゼロ：パンクロード',
+    es='Etapa cero de Punklorde',
+    setid=325,
+)
+CityofConvergingStars = RelicSet(
+    id=56,
+    name='CityofConvergingStars',
+    cn='千星荟萃之城',
+    cht='千星薈萃之城',
+    en='City of Converging Stars',
+    jp='千の星が集う街',
+    es='Ciudad de las mil estrellas',
+    setid=326,
+)

@@ -656,6 +656,7 @@
         "display": "hide",
         "option": [
           "_none_",
+          "Ashveil",
           "Sparxie",
           "YaoGuang",
           "TheDahlia",
@@ -747,6 +748,7 @@
         "display": "hide",
         "option": [
           "_none_",
+          "The_Finale_of_a_Lie",
           "When_She_Decided_to_See",
           "Dazzled_by_a_Flowery_World",
           "This_Love_Forever",
@@ -793,6 +795,7 @@
           "Incessant_Rain",
           "Patience_Is_All_You_Need",
           "In_the_Night",
+          "Elation_Brimming_With_Blessings",
           "Memory_Curtain_Never_Falls",
           "Eternal_Calculus",
           "Solitary_Healing",
@@ -936,6 +939,7 @@
         "display": "hide",
         "option": [
           "_none_",
+          "Divergent_Universe_Gilded_Recollection",
           "Divergent_Universe_Within_the_West_Wind",
           "Divergent_Universe_Moonlit_Blood",
           "Divergent_Universe_Unceasing_Strife",
@@ -1154,6 +1158,7 @@
           "Stagnant_Shadow_Fulmination",
           "Stagnant_Shadow_Doom",
           "Stagnant_Shadow_Mechwolf",
+          "Stagnant_Shadow_Soundburst",
           "Stagnant_Shadow_Gust",
           "Stagnant_Shadow_Celestial",
           "Stagnant_Shadow_Gloam",
@@ -1259,6 +1264,7 @@
         "value": "FirstCharacter",
         "option": [
           "FirstCharacter",
+          "Ashveil",
           "Sparxie",
           "YaoGuang",
           "TheDahlia",
@@ -1460,6 +1466,7 @@
         "type": "select",
         "value": "Divergent_Universe_Eternal_Comedy",
         "option": [
+          "Divergent_Universe_Gilded_Recollection",
           "Divergent_Universe_Within_the_West_Wind",
           "Divergent_Universe_Moonlit_Blood",
           "Divergent_Universe_Unceasing_Strife",
@@ -1532,6 +1539,7 @@
         "value": "FirstCharacter",
         "option": [
           "FirstCharacter",
+          "Ashveil",
           "Sparxie",
           "YaoGuang",
           "TheDahlia",
@@ -2136,6 +2144,7 @@
         "value": "FirstCharacter",
         "option": [
           "FirstCharacter",
+          "Ashveil",
           "Sparxie",
           "YaoGuang",
           "TheDahlia",

@@ -308,6 +308,7 @@
       "Stagnant_Shadow_Fulmination": "晋阶材料：雷（阿兰 / 希露瓦 / 停云 / 白露）",
       "Stagnant_Shadow_Doom": "晋阶材料：雷（卡芙卡 / 景元 / 黄泉）",
       "Stagnant_Shadow_Mechwolf": "晋阶材料：雷（貊泽 / 阿格莱雅）",
+      "Stagnant_Shadow_Soundburst": "晋阶材料：雷（不死途）",
       "Stagnant_Shadow_Gust": "晋阶材料：风（丹恒 / 布洛妮娅 / 桑博）",
       "Stagnant_Shadow_Celestial": "晋阶材料：风（刃 / 藿藿 / 黑天鹅）",
       "Stagnant_Shadow_Gloam": "晋阶材料：风（飞霄 / 那刻夏 / 风堇 / Saber）",
@@ -430,6 +431,7 @@
       "name": "支援角色",
       "help": "选择好友支援角色，未找到则选择第一个角色，建议置顶好友角色",
       "FirstCharacter": "支援列表第一个角色",
+      "Ashveil": "[4.1] 不死途",
       "Sparxie": "[4.0] 火花",
       "YaoGuang": "[4.0] 爻光",
       "TheDahlia": "[3.8] 大丽花",
@@ -708,7 +710,7 @@
       "help": ""
     },
     "Item_Thunder_Strum": {
-      "name": "Unknown_Dungeon_Come_From",
+      "name": "晋阶材料：雷（不死途）",
       "help": ""
     },
     "Item_Charred_Bud_of_Twilight": {
@@ -889,6 +891,7 @@
       "name": "养成角色",
       "help": "",
       "_none_": "无",
+      "Ashveil": "[4.1] 不死途",
       "Sparxie": "[4.0] 火花",
       "YaoGuang": "[4.0] 爻光",
       "TheDahlia": "[3.8] 大丽花",
@@ -976,6 +979,7 @@
       "name": "养成光锥",
       "help": "",
       "_none_": "无",
+      "The_Finale_of_a_Lie": "[4.1] 不死途 | 5* 一场谎言的终幕",
       "When_She_Decided_to_See": "[4.0] 爻光 | 5* 当她决定看见",
       "Dazzled_by_a_Flowery_World": "[4.0] 火花 | 5* 花花世界迷人眼",
       "This_Love_Forever": "[3.7] 昔涟 | 5* 爱如此刻永恒",
@@ -1022,6 +1026,7 @@
       "Incessant_Rain": "[1.1] 银狼 | 5* 雨一直下",
       "Patience_Is_All_You_Need": "[1.2] 卡芙卡 | 5* 只需等待",
       "In_the_Night": "[1.0] 希儿 | 5* 于夜色中",
+      "Elation_Brimming_With_Blessings": "5* 欢愉满溢祝福",
       "Memory_Curtain_Never_Falls": "5* 记忆永不落幕",
       "Eternal_Calculus": "5* 不息的演算",
       "Solitary_Healing": "5* 孤独的疗愈",
@@ -1157,6 +1162,7 @@
       "name": "养成内圈遗器",
       "help": "",
       "_none_": "无",
+      "Divergent_Universe_Gilded_Recollection": "饰品：零号关卡朋克洛德 & 千星荟萃之城（鎏金追忆）",
       "Divergent_Universe_Within_the_West_Wind": "饰品：翁法罗斯 & 天国（西风丛中）",
       "Divergent_Universe_Moonlit_Blood": "饰品：妖精 & 沉醉（月下朱殷）",
       "Divergent_Universe_Unceasing_Strife": "饰品：拾骨地 & 巨树（纷争不休）",
@@ -1649,6 +1655,7 @@
     "Dungeon": {
       "name": "副本名称",
       "help": "",
+      "Divergent_Universe_Gilded_Recollection": "饰品：零号关卡朋克洛德 & 千星荟萃之城（鎏金追忆）",
       "Divergent_Universe_Within_the_West_Wind": "饰品：翁法罗斯 & 天国（西风丛中）",
       "Divergent_Universe_Moonlit_Blood": "饰品：妖精 & 沉醉（月下朱殷）",
       "Divergent_Universe_Unceasing_Strife": "饰品：拾骨地 & 巨树（纷争不休）",

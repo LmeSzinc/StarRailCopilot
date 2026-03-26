@@ -916,3 +916,25 @@ Planarcadia_WorldEndTavern = MapPlane(
     world_id=5,
     plane_id=2050201,
 )
+Planarcadia_PearluxeTower = MapPlane(
+    id=85,
+    name='Planarcadia_PearluxeTower',
+    cn='珠星大厦',
+    cht='珠星大廈',
+    en='Pearluxe Tower',
+    jp='珠星ビル',
+    es='Torre Perlux',
+    world_id=5,
+    plane_id=2051301,
+)
+Planarcadia_LookoutCloudStation = MapPlane(
+    id=86,
+    name='Planarcadia_LookoutCloudStation',
+    cn='观览云岛站',
+    cht='觀覽雲島站',
+    en='Lookout Cloud Station',
+    jp='雲の島駅',
+    es='Estación de Islanube Contemplativa',
+    world_id=5,
+    plane_id=2051101,
+)

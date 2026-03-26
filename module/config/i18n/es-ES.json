@@ -308,6 +308,7 @@
       "Stagnant_Shadow_Fulmination": "Ascension: Rayo (Arlan / Serval / Tingyun / Bailu)",
       "Stagnant_Shadow_Doom": "Ascension: Rayo (Kafka / Jing Yuan / Acheron)",
       "Stagnant_Shadow_Mechwolf": "Ascension: Rayo (Moze / Aglaea)",
+      "Stagnant_Shadow_Soundburst": "Ascension: Rayo (Ashveil)",
       "Stagnant_Shadow_Gust": "Ascension: Viento (Dan Heng / Bronya / Sampo)",
       "Stagnant_Shadow_Celestial": "Ascension: Viento (Blade / Huohuo / Cisne Negro)",
       "Stagnant_Shadow_Gloam": "Ascension: Viento (Feixiao / Anaxa / Hyacine / Saber)",
@@ -430,6 +431,7 @@
       "name": "Personaje de apoyo",
       "help": "Selecciona un personaje de apoyo del amigo. Si no se encuentra, se seleccionará el primer personaje. Se recomienda marcar a los personajes de amigos.",
       "FirstCharacter": "Primer personaje",
+      "Ashveil": "[4.1] Ashveil",
       "Sparxie": "[4.0] Chispa",
       "YaoGuang": "[4.0] Yao Guang",
       "TheDahlia": "[3.8] La Dalia",
@@ -708,7 +710,7 @@
       "help": ""
     },
     "Item_Thunder_Strum": {
-      "name": "Unknown_Dungeon_Come_From",
+      "name": "Ascension: Rayo (Ashveil)",
       "help": ""
     },
     "Item_Charred_Bud_of_Twilight": {
@@ -889,6 +891,7 @@
       "name": "Character",
       "help": "",
       "_none_": "None",
+      "Ashveil": "[4.1] Ashveil",
       "Sparxie": "[4.0] Chispa",
       "YaoGuang": "[4.0] Yao Guang",
       "TheDahlia": "[3.8] La Dalia",
@@ -976,6 +979,7 @@
       "name": "Cone",
       "help": "",
       "_none_": "None",
+      "The_Finale_of_a_Lie": "[4.1] Ashveil | 5* El final de una mentira",
       "When_She_Decided_to_See": "[4.0] Yao Guang | 5* Cuando se decidió a ver",
       "Dazzled_by_a_Flowery_World": "[4.0] Chispa | 5* El cautivador mundochispa",
       "This_Love_Forever": "[3.7] Cirene | 5* Amor eterno como este momento",
@@ -1022,6 +1026,7 @@
       "Incessant_Rain": "[1.1] Silver Wolf | 5* Lluvia incesante",
       "Patience_Is_All_You_Need": "[1.2] Kafka | 5* Solo hay que esperar",
       "In_the_Night": "[1.0] Seele | 5* En la noche",
+      "Elation_Brimming_With_Blessings": "5* Exultación desbordante de bendiciones",
       "Memory_Curtain_Never_Falls": "5* Sobre los recuerdos nunca cae el telón",
       "Eternal_Calculus": "5* Cálculo interminable",
       "Solitary_Healing": "5* Sanación solitaria",
@@ -1157,6 +1162,7 @@
       "name": "Ornamento",
       "help": "",
       "_none_": "None",
+      "Divergent_Universe_Gilded_Recollection": "Ornamentos: Etapa cero de Punklorde & Ciudad de las mil estrellas (Recuerdo dorado)",
       "Divergent_Universe_Within_the_West_Wind": "Ornamentos: Amphoreus & Tengoku (Entre el cefiro)",
       "Divergent_Universe_Moonlit_Blood": "Ornamentos: Paraíso & Embriagado (Rubor de la luna)",
       "Divergent_Universe_Unceasing_Strife": "Ornamentos: Osario sereno & Árbol gigante (Conflicto interminable)",
@@ -1649,6 +1655,7 @@
     "Dungeon": {
       "name": "Nombre de la Mazmorra",
       "help": "",
+      "Divergent_Universe_Gilded_Recollection": "Ornamentos: Etapa cero de Punklorde & Ciudad de las mil estrellas (Recuerdo dorado)",
       "Divergent_Universe_Within_the_West_Wind": "Ornamentos: Amphoreus & Tengoku (Entre el cefiro)",
       "Divergent_Universe_Moonlit_Blood": "Ornamentos: Paraíso & Embriagado (Rubor de la luna)",
       "Divergent_Universe_Unceasing_Strife": "Ornamentos: Osario sereno & Árbol gigante (Conflicto interminable)",

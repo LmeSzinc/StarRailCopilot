@@ -92,6 +92,7 @@ dict_aired_version = {
     TheDahlia: "3.8",
     Sparxie: "4.0",
     YaoGuang: "4.0",
+    Ashveil: "4.1",
 }
 
 

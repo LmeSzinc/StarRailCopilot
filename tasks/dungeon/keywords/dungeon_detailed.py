@@ -246,3 +246,12 @@ Stagnant_Shadow_Ashes = DungeonDetailed(
     jp='昇格素材：炎（ダリア / 火花）',
     es='Ascension: Fuego (La Dalia / Chispa)',
 )
+Stagnant_Shadow_Soundburst = DungeonDetailed(
+    id=28,
+    name='Stagnant_Shadow_Soundburst',
+    cn='晋阶材料：雷（不死途）',
+    cht='晉階材料：雷（不死途）',
+    en='Ascension: Lightning (Ashveil)',
+    jp='昇格素材：雷（不死途）',
+    es='Ascension: Rayo (Ashveil)',
+)

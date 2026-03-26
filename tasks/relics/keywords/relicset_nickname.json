@@ -754,5 +754,33 @@
     "en": "Tengoku",
     "jp": "天国",
     "es": "Tengoku"
+  },
+  "PunklordeStageZero": {
+    "setid": 325,
+    "dungeon_id": 350,
+    "cn_origin": "零号关卡朋克洛德",
+    "cht_origin": "零號關卡龐克洛德",
+    "en_origin": "Punklorde Stage Zero",
+    "jp_origin": "ステージゼロ：パンクロード",
+    "es_origin": "Etapa cero de Punklorde",
+    "cn": "零号关卡朋克洛德",
+    "cht": "零號關卡龐克洛德",
+    "en": "Punklorde Stage Zero",
+    "jp": "ステージゼロ：パンクロード",
+    "es": "Etapa cero de Punklorde"
+  },
+  "CityofConvergingStars": {
+    "setid": 326,
+    "dungeon_id": 350,
+    "cn_origin": "千星荟萃之城",
+    "cht_origin": "千星薈萃之城",
+    "en_origin": "City of Converging Stars",
+    "jp_origin": "千の星が集う街",
+    "es_origin": "Ciudad de las mil estrellas",
+    "cn": "千星荟萃之城",
+    "cht": "千星薈萃之城",
+    "en": "City of Converging Stars",
+    "jp": "千の星が集う街",
+    "es": "Ciudad de las mil estrellas"
   }
 }

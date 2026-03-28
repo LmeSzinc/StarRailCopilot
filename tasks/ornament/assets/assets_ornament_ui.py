@@ -5,13 +5,22 @@ from module.base.button import Button, ButtonWrapper
 
 DU_CHECK = ButtonWrapper(
     name='DU_CHECK',
-    share=Button(
-        file='./assets/share/ornament/ui/DU_CHECK.png',
-        area=(39, 20, 75, 53),
-        search=(19, 0, 95, 73),
-        color=(143, 123, 87),
-        button=(39, 20, 75, 53),
-    ),
+    share=[
+        Button(
+            file='./assets/share/ornament/ui/DU_CHECK.png',
+            area=(39, 20, 75, 53),
+            search=(19, 0, 95, 73),
+            color=(143, 123, 87),
+            button=(39, 20, 75, 53),
+        ),
+        Button(
+            file='./assets/share/ornament/ui/DU_CHECK.2.png',
+            area=(39, 21, 75, 54),
+            search=(19, 1, 95, 74),
+            color=(149, 129, 91),
+            button=(39, 21, 75, 54),
+        ),
+    ],
 )
 DU_MAIN_CHECK = ButtonWrapper(
     name='DU_MAIN_CHECK',

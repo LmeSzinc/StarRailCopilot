@@ -32,7 +32,7 @@
     },
     "Ornament": {
       "name": "オーナメント抽出",
-      "help": "「オーナメント抽出」を実行するには、以下の条件を満たす必要があります：\n月に一度、事前に「差分宇宙」を手動でクリアし、セーブデータを保存しておくこと。"
+      "help": ""
     },
     "DailyQuest": {
       "name": "Task.DailyQuest.name",
@@ -1162,7 +1162,7 @@
       "name": "PlannerTarget.Ornament.name",
       "help": "PlannerTarget.Ornament.help",
       "_none_": "_none_",
-      "Divergent_Universe_Gilded_Recollection": "飾品：ステージゼロ：パンクロード & 千の星が集う街（黄金の追憶）",
+      "Divergent_Universe_Gilded_Recollection": "飾品：パンクロード & 千の星が集（黄金の追憶）",
       "Divergent_Universe_Within_the_West_Wind": "飾品：オンパロス & 天国（西風の中で）",
       "Divergent_Universe_Moonlit_Blood": "飾品：妖精 & 酩酊（月下朱殷）",
       "Divergent_Universe_Unceasing_Strife": "飾品：拾骨地 & 巨樹（絶えぬ紛争）",
@@ -1655,7 +1655,7 @@
     "Dungeon": {
       "name": "Ornament.Dungeon.name",
       "help": "Ornament.Dungeon.help",
-      "Divergent_Universe_Gilded_Recollection": "飾品：ステージゼロ：パンクロード & 千の星が集う街（黄金の追憶）",
+      "Divergent_Universe_Gilded_Recollection": "飾品：パンクロード & 千の星が集（黄金の追憶）",
       "Divergent_Universe_Within_the_West_Wind": "飾品：オンパロス & 天国（西風の中で）",
       "Divergent_Universe_Moonlit_Blood": "飾品：妖精 & 酩酊（月下朱殷）",
       "Divergent_Universe_Unceasing_Strife": "飾品：拾骨地 & 巨樹（絶えぬ紛争）",

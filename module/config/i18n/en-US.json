@@ -32,7 +32,7 @@
     },
     "Ornament": {
       "name": "Ornament",
-      "help": "The following must be satisfied:\nManually clear Divergent Universe once a month and have a save file."
+      "help": ""
     },
     "DailyQuest": {
       "name": "Daily Quest",
@@ -1162,7 +1162,7 @@
       "name": "Ornament",
       "help": "",
       "_none_": "None",
-      "Divergent_Universe_Gilded_Recollection": "Ornament: Punklorde Stage Zero & City of Converging Stars (Gilded Recollection)",
+      "Divergent_Universe_Gilded_Recollection": "Ornament: Punklorde & Converging Stars (Gilded Recollection)",
       "Divergent_Universe_Within_the_West_Wind": "Ornament: Amphoreus & Tengoku (Within the West Wind)",
       "Divergent_Universe_Moonlit_Blood": "Ornament: Arcadia & Revelry (Moonlit Blood)",
       "Divergent_Universe_Unceasing_Strife": "Ornament: Bone Collection & Giant Tree (Unceasing Strife)",
@@ -1655,7 +1655,7 @@
     "Dungeon": {
       "name": "Dungeon Name",
       "help": "",
-      "Divergent_Universe_Gilded_Recollection": "Ornament: Punklorde Stage Zero & City of Converging Stars (Gilded Recollection)",
+      "Divergent_Universe_Gilded_Recollection": "Ornament: Punklorde & Converging Stars (Gilded Recollection)",
       "Divergent_Universe_Within_the_West_Wind": "Ornament: Amphoreus & Tengoku (Within the West Wind)",
       "Divergent_Universe_Moonlit_Blood": "Ornament: Arcadia & Revelry (Moonlit Blood)",
       "Divergent_Universe_Unceasing_Strife": "Ornament: Bone Collection & Giant Tree (Unceasing Strife)",

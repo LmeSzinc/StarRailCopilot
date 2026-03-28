@@ -32,7 +32,7 @@
     },
     "Ornament": {
       "name": "Ornamentos",
-      "help": "Se deben cumplir los siguientes requisitos:\nCompletar manualmente el Universo Diferenciado una vez al mes y tener un archivo guardado."
+      "help": ""
     },
     "DailyQuest": {
       "name": "Misión diaria",
@@ -1162,7 +1162,7 @@
       "name": "Ornamento",
       "help": "",
       "_none_": "None",
-      "Divergent_Universe_Gilded_Recollection": "Ornamentos: Etapa cero de Punklorde & Ciudad de las mil estrellas (Recuerdo dorado)",
+      "Divergent_Universe_Gilded_Recollection": "Ornamentos: Punklorde & Las mil estrellas (Recuerdo dorado)",
       "Divergent_Universe_Within_the_West_Wind": "Ornamentos: Amphoreus & Tengoku (Entre el cefiro)",
       "Divergent_Universe_Moonlit_Blood": "Ornamentos: Paraíso & Embriagado (Rubor de la luna)",
       "Divergent_Universe_Unceasing_Strife": "Ornamentos: Osario sereno & Árbol gigante (Conflicto interminable)",
@@ -1655,7 +1655,7 @@
     "Dungeon": {
       "name": "Nombre de la Mazmorra",
       "help": "",
-      "Divergent_Universe_Gilded_Recollection": "Ornamentos: Etapa cero de Punklorde & Ciudad de las mil estrellas (Recuerdo dorado)",
+      "Divergent_Universe_Gilded_Recollection": "Ornamentos: Punklorde & Las mil estrellas (Recuerdo dorado)",
       "Divergent_Universe_Within_the_West_Wind": "Ornamentos: Amphoreus & Tengoku (Entre el cefiro)",
       "Divergent_Universe_Moonlit_Blood": "Ornamentos: Paraíso & Embriagado (Rubor de la luna)",
       "Divergent_Universe_Unceasing_Strife": "Ornamentos: Osario sereno & Árbol gigante (Conflicto interminable)",

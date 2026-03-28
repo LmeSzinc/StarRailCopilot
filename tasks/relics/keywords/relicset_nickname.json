@@ -763,11 +763,11 @@
     "en_origin": "Punklorde Stage Zero",
     "jp_origin": "ステージゼロ：パンクロード",
     "es_origin": "Etapa cero de Punklorde",
-    "cn": "零号关卡朋克洛德",
-    "cht": "零號關卡龐克洛德",
-    "en": "Punklorde Stage Zero",
-    "jp": "ステージゼロ：パンクロード",
-    "es": "Etapa cero de Punklorde"
+    "cn": "朋克洛德",
+    "cht": "龐克洛德",
+    "en": "Punklorde",
+    "jp": "パンクロード",
+    "es": "Punklorde"
   },
   "CityofConvergingStars": {
     "setid": 326,
@@ -777,10 +777,10 @@
     "en_origin": "City of Converging Stars",
     "jp_origin": "千の星が集う街",
     "es_origin": "Ciudad de las mil estrellas",
-    "cn": "千星荟萃之城",
-    "cht": "千星薈萃之城",
-    "en": "City of Converging Stars",
-    "jp": "千の星が集う街",
-    "es": "Ciudad de las mil estrellas"
+    "cn": "千星荟萃",
+    "cht": "千星薈萃",
+    "en": "Converging Stars",
+    "jp": "千の星が集",
+    "es": "Las mil estrellas"
   }
 }

@@ -32,7 +32,7 @@
     },
     "Ornament": {
       "name": "飾品提取",
-      "help": "運行「飾品提取」任務需要滿足以下條件：\n每月事先手動通關差分宇宙一次並保存存檔"
+      "help": ""
     },
     "DailyQuest": {
       "name": "每日任務",
@@ -1162,7 +1162,7 @@
       "name": "養成內圈遺器",
       "help": "",
       "_none_": "無",
-      "Divergent_Universe_Gilded_Recollection": "飾品：零號關卡龐克洛德 & 千星薈萃之城（鎏金追憶）",
+      "Divergent_Universe_Gilded_Recollection": "飾品：龐克洛德 & 千星薈萃（鎏金追憶）",
       "Divergent_Universe_Within_the_West_Wind": "飾品：翁法羅斯 & 天國（西風叢中）",
       "Divergent_Universe_Moonlit_Blood": "飾品：妖精 & 沉醉（月下朱殷）",
       "Divergent_Universe_Unceasing_Strife": "飾品：拾骨地 & 巨樹（紛爭不休）",
@@ -1655,7 +1655,7 @@
     "Dungeon": {
       "name": "副本名稱",
       "help": "",
-      "Divergent_Universe_Gilded_Recollection": "飾品：零號關卡龐克洛德 & 千星薈萃之城（鎏金追憶）",
+      "Divergent_Universe_Gilded_Recollection": "飾品：龐克洛德 & 千星薈萃（鎏金追憶）",
       "Divergent_Universe_Within_the_West_Wind": "飾品：翁法羅斯 & 天國（西風叢中）",
       "Divergent_Universe_Moonlit_Blood": "飾品：妖精 & 沉醉（月下朱殷）",
       "Divergent_Universe_Unceasing_Strife": "飾品：拾骨地 & 巨樹（紛爭不休）",

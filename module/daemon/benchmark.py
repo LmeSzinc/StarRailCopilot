@@ -38,7 +38,7 @@ class Benchmark(DaemonBase):
         record = []
 
         for n in range(1, self.TEST_TOTAL + 1):
-            start = time.time()
+            start = time.perf_counter()
 
             try:
                 func(*args, **kwargs)
@@ -51,7 +51,7 @@ class Benchmark(DaemonBase):
                 logger.warning(f'Benchmark tests failed on func: {func.__name__}')
                 return 'Failed'
 
-            cost = time.time() - start
+            cost = time.perf_counter() - start
             logger.attr(
                 f'{str(n).rjust(2, "0")}/{self.TEST_TOTAL}',
                 f'{float2str(cost)}'
@@ -193,6 +193,10 @@ class Benchmark(DaemonBase):
         if device == 'android_phone_vmos':
             screenshot = ['ADB', 'aScreenCap', 'DroidCast', 'DroidCast_raw']
             click = ['ADB', 'Hermit', 'MaaTouch']
+        # Droidcast on SDK 23 (Android 6.0) to SDK 32 (Android 12)
+        if not (23 <= sdk <= 32):
+            screenshot = remove('DroidCast', 'DroidCast_raw')
+
         if self.device.nemu_ipc_available():
             screenshot.append('nemu_ipc')
         if self.device.ldopengl_available():

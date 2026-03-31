@@ -16,17 +16,7 @@ from tasks.dungeon.keywords import DungeonList
 from tasks.dungeon.keywords.dungeon import Simulated_Universe_World_1
 from tasks.dungeon.ui.state import OcrSimUniPoint
 from tasks.dungeon.ui.ui_rogue import DungeonRogueUI
-from tasks.rogue.assets.assets_rogue_entry import (
-    LEVEL_CONFIRM,
-    OCR_WEEKLY_POINT,
-    OCR_WORLD,
-    THEME_DLC,
-    THEME_ROGUE,
-    THEME_SWITCH,
-    WORLD_ENTER,
-    WORLD_NEXT,
-    WORLD_PREV
-)
+from tasks.rogue.assets.assets_rogue_entry import *
 from tasks.rogue.assets.assets_rogue_path import CONFIRM_PATH
 from tasks.rogue.assets.assets_rogue_ui import ROGUE_LAUNCH
 from tasks.rogue.assets.assets_rogue_weekly import REWARD_CLOSE, REWARD_ENTER
@@ -130,39 +120,40 @@ class RogueEntry(RouteBase, RogueRewardHandler, RoguePathHandler, DungeonRogueUI
                 if current:
                     break
 
-    def _rogue_theme_set(self, world: DungeonList, skip_first_screenshot=True):
+    def _rogue_theme_get(self):
+        for button in [
+            THEME_ROGUE,
+            THEME_Swarm_Disaster,
+            THEME_Gold_and_Gears,
+            THEME_Unknowable_Domain,
+        ]:
+            if self.appear(button):
+                return button
+        return None
+
+    def _rogue_theme_set(self, world: DungeonList):
         """
         Args:
             world: KEYWORDS_DUNGEON_LIST.Simulated_Universe_World_7
-            skip_first_screenshot:
 
         Pages:
             in: is_page_rogue_main()
         """
         logger.info(f'Rogue theme set: {world.rogue_theme}')
-        if world.rogue_theme == 'rogue':
-            check_button = THEME_ROGUE
-        elif world.rogue_theme == 'dlc':
-            check_button = THEME_DLC
-        else:
-            logger.warning(f'Invalid rogue theme: {world}')
-            raise RequestHumanTakeover
 
-        interval = Timer(2, count=10)
-        while 1:
-            if skip_first_screenshot:
-                skip_first_screenshot = False
-            else:
-                self.device.screenshot()
-
+        interval = Timer(3, count=10)
+        for _ in self.loop():
             # End
-            if self.appear(check_button):
-                logger.info(f'At theme {world.rogue_theme}')
+            theme = self._rogue_theme_get()
+            logger.attr('RogueTheme', theme)
+            if theme == THEME_ROGUE:
+                logger.info(f'At theme {theme}')
                 break
             # Click
-            if interval.reached() and self.is_page_rogue_main():
+            if theme is not None and interval.reached():
                 self.device.click(THEME_SWITCH)
                 interval.reset()
+                continue
             # Weekly refresh popup
             if self.appear_then_click(REWARD_CLOSE, interval=2):
                 continue

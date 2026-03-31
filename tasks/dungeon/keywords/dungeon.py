@@ -1169,8 +1169,19 @@ Simulated_Universe_Gold_and_Gears = DungeonList(
     dungeon_id=-1,
     plane_id=-1,
 )
-Memory_of_Chaos = DungeonList(
+Simulated_Universe_Unknowable_Domain = DungeonList(
     id=107,
+    name='Simulated_Universe_Unknowable_Domain',
+    cn='不可知域',
+    cht='不可知域',
+    en='Unknowable Domain',
+    jp='不可知域',
+    es='Región desconocida',
+    dungeon_id=-1,
+    plane_id=-1,
+)
+Memory_of_Chaos = DungeonList(
+    id=108,
     name='Memory_of_Chaos',
     cn='混沌回忆',
     cht='混沌回憶',
@@ -1181,7 +1192,7 @@ Memory_of_Chaos = DungeonList(
     plane_id=-1,
 )
 The_Voyage_of_Navis_Astrigera = DungeonList(
-    id=108,
+    id=109,
     name='The_Voyage_of_Navis_Astrigera',
     cn='天艟求仙迷航录',
     cht='天艟求仙迷航錄',
@@ -1192,7 +1203,7 @@ The_Voyage_of_Navis_Astrigera = DungeonList(
     plane_id=-1,
 )
 The_Last_Vestiges_of_Towering_Citadel = DungeonList(
-    id=109,
+    id=110,
     name='The_Last_Vestiges_of_Towering_Citadel',
     cn='永屹之城遗秘',
     cht='永屹之城遺秘',

@@ -27,6 +27,7 @@ def dungeon_name(name: str) -> str:
         'The_Swarm_Disaster',
         'Swarm_Disaster',
         'Gold_and_Gears',
+        'Unknowable_Domain',
     ]:
         name = f'Simulated_Universe_{name}'
     name = name.replace('Stagnant_Shadow_Stagnant_Shadow', 'Stagnant_Shadow')
@@ -74,6 +75,7 @@ class GenerateDungeonList(GenerateKeyword):
         # Consider rogue DLC as a dungeon
         yield '寰宇蝗灾'
         yield '黄金与机械'
+        yield '不可知域'
         # 'Memory of Chaos' is not a real dungeon, but represents a group
         yield '混沌回忆'
         yield '天艟求仙迷航录'

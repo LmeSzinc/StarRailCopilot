@@ -33,24 +33,15 @@ OCR_WORLD = ButtonWrapper(
         button=(488, 339, 718, 395),
     ),
 )
-THEME_DLC = ButtonWrapper(
-    name='THEME_DLC',
-    share=[
-        Button(
-            file='./assets/share/rogue/entry/THEME_DLC.png',
-            area=(229, 300, 299, 370),
-            search=(209, 280, 319, 390),
-            color=(109, 25, 65),
-            button=(229, 300, 299, 370),
-        ),
-        Button(
-            file='./assets/share/rogue/entry/THEME_DLC.2.png',
-            area=(224, 324, 299, 399),
-            search=(204, 304, 319, 419),
-            color=(29, 115, 140),
-            button=(224, 324, 299, 399),
-        ),
-    ],
+THEME_Gold_and_Gears = ButtonWrapper(
+    name='THEME_Gold_and_Gears',
+    share=Button(
+        file='./assets/share/rogue/entry/THEME_Gold_and_Gears.png',
+        area=(224, 324, 299, 399),
+        search=(204, 304, 319, 419),
+        color=(29, 115, 140),
+        button=(224, 324, 299, 399),
+    ),
 )
 THEME_ROGUE = ButtonWrapper(
     name='THEME_ROGUE',
@@ -70,6 +61,26 @@ THEME_SWITCH = ButtonWrapper(
         search=(27, 474, 107, 554),
         color=(86, 71, 170),
         button=(47, 494, 87, 534),
+    ),
+)
+THEME_Swarm_Disaster = ButtonWrapper(
+    name='THEME_Swarm_Disaster',
+    share=Button(
+        file='./assets/share/rogue/entry/THEME_Swarm_Disaster.png',
+        area=(229, 300, 299, 370),
+        search=(209, 280, 319, 390),
+        color=(109, 25, 65),
+        button=(229, 300, 299, 370),
+    ),
+)
+THEME_Unknowable_Domain = ButtonWrapper(
+    name='THEME_Unknowable_Domain',
+    share=Button(
+        file='./assets/share/rogue/entry/THEME_Unknowable_Domain.png',
+        area=(222, 319, 297, 394),
+        search=(202, 299, 317, 414),
+        color=(49, 97, 169),
+        button=(222, 319, 297, 394),
     ),
 )
 WORLD_ENTER = ButtonWrapper(

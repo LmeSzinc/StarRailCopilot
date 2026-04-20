@@ -4,7 +4,7 @@ from tasks.base.ui import UI
 from tasks.combat.assets.assets_combat_interact import DUNGEON_COMBAT_INTERACT, MAP_LOADING
 from tasks.combat.assets.assets_combat_prepare import COMBAT_PREPARE
 from tasks.map.assets.assets_map_control import A_BUTTON
-from tasks.rogue.assets.assets_rogue_weekly import REWARD_ENTER
+from tasks.rogue.assets.assets_rogue_weekly import REWARD_ENTER, REWARD_MESSAGE
 
 
 class CombatInteract(UI):
@@ -40,6 +40,9 @@ class CombatInteract(UI):
             # is_page_rogue_main()
             if self.match_template_color(REWARD_ENTER):
                 logger.info(f'At rogue {REWARD_ENTER}')
+                break
+            if self.match_template_color(REWARD_MESSAGE):
+                logger.info(f'At rogue {REWARD_MESSAGE}')
                 break
             if self.handle_combat_interact():
                 continue

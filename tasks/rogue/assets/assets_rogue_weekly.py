@@ -43,6 +43,16 @@ REWARD_ENTER = ButtonWrapper(
         button=(41, 651, 116, 679),
     ),
 )
+REWARD_MESSAGE = ButtonWrapper(
+    name='REWARD_MESSAGE',
+    share=Button(
+        file='./assets/share/rogue/weekly/REWARD_MESSAGE.png',
+        area=(30, 644, 60, 660),
+        search=(10, 624, 80, 680),
+        color=(72, 53, 151),
+        button=(30, 644, 60, 660),
+    ),
+)
 REWARD_RED_DOT = ButtonWrapper(
     name='REWARD_RED_DOT',
     share=Button(

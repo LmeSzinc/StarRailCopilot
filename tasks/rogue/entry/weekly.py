@@ -1,7 +1,7 @@
 from module.base.timer import Timer
 from module.logger import logger
 from tasks.rogue.assets.assets_rogue_entry import LEVEL_CONFIRM
-from tasks.rogue.assets.assets_rogue_weekly import CLAIM_ALL, REWARD_CHECK, REWARD_CLOSE, REWARD_ENTER, REWARD_RED_DOT
+from tasks.rogue.assets.assets_rogue_weekly import *
 from tasks.rogue.blessing.ui import RogueUI
 
 
@@ -12,7 +12,11 @@ class RogueRewardHandler(RogueUI):
             in: is_page_rogue_main()
         """
         if self.image_color_count(REWARD_RED_DOT, color=(214, 45, 47), threshold=221, count=50):
+            logger.info('Rogue reward red dot found')
             return True
+        if self.match_template_color(REWARD_MESSAGE):
+            logger.info(f'Rogue reward is {REWARD_MESSAGE}, no reward')
+            return False
 
         return False
 

@@ -48,8 +48,17 @@ Synthesize_Consumables_1_times = BattlePassQuest(
     jp='消耗品を累計1回合成する',
     es='Sintetiza consumibles 1 veces',
 )
-Clear_Stagnant_Shadow_1_times = BattlePassQuest(
+Capture_1_creation_in_your_own_or_someone_else_Party_Car = BattlePassQuest(
     id=6,
+    name='Capture_1_creation_in_your_own_or_someone_else_Party_Car',
+    cn='在自己或其余人的派对车厢中，抓住1只造物',
+    cht='在自己或其餘人的派對車廂中，抓住1隻造物',
+    en="Capture 1 creation in your own or someone else's Party Car",
+    jp='自分または他の人のパーティー車両で、創造物を1匹捕まえる',
+    es='Atrapa 1 creación en tu vagón de fiestas o en el de los demás.',
+)
+Clear_Stagnant_Shadow_1_times = BattlePassQuest(
+    id=7,
     name='Clear_Stagnant_Shadow_1_times',
     cn='完成1次「凝滞虚影」',
     cht='完成1次「凝滯虛影」',
@@ -58,7 +67,7 @@ Clear_Stagnant_Shadow_1_times = BattlePassQuest(
     es='Completa Sombra paralizada 1 vez',
 )
 Clear_Cavern_of_Corrosion_1_times = BattlePassQuest(
-    id=7,
+    id=8,
     name='Clear_Cavern_of_Corrosion_1_times',
     cn='完成1次「侵蚀隧洞」',
     cht='完成1次「侵蝕隧洞」',
@@ -67,7 +76,7 @@ Clear_Cavern_of_Corrosion_1_times = BattlePassQuest(
     es='Completa Caverna de la corrosión 1 veces',
 )
 Consume_a_total_of_1_Trailblaze_Power_1400_Trailblazer_Power_max = BattlePassQuest(
-    id=8,
+    id=9,
     name='Consume_a_total_of_1_Trailblaze_Power_1400_Trailblazer_Power_max',
     cn='累计消耗1点开拓力（上限1400点开拓力）',
     cht='累積消耗1點開拓力（上限1400點開拓力）',

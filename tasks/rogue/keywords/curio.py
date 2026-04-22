@@ -2361,8 +2361,17 @@ Perfecting_Humans_Protocol = RogueCurio(
     jp='完全人類育成プロトコル',
     es='Acuerdo de cultivo de la persona perfecta',
 )
-Warping_Compound_Eye_Decrypted = RogueCurio(
+Absolute_Failure_Prescription_Extra_Strength = RogueCurio(
     id=263,
+    name='Absolute_Failure_Prescription_Extra_Strength',
+    cn='绝对失败处方（强效）',
+    cht='絕對失敗處方（強效）',
+    en='Absolute Failure Prescription (Extra Strength)',
+    jp='絶対的失敗の処方箋（強力）',
+    es='Receta de fracaso absoluto (potente)',
+)
+Warping_Compound_Eye_Decrypted = RogueCurio(
+    id=264,
     name='Warping_Compound_Eye_Decrypted',
     cn='跃迁复眼（破解版）',
     cht='躍遷複眼（破解版）',
@@ -2371,7 +2380,7 @@ Warping_Compound_Eye_Decrypted = RogueCurio(
     es='Ojo compuesto luminoso (versión pirateada)',
 )
 Dimension_Reduction_Dice_Decrypted = RogueCurio(
-    id=264,
+    id=265,
     name='Dimension_Reduction_Dice_Decrypted',
     cn='降维骰子（破解版）',
     cht='降維骰子（破解版）',
@@ -2380,7 +2389,7 @@ Dimension_Reduction_Dice_Decrypted = RogueCurio(
     es='Dado de la reducción dimensional (versión pirateada)',
 )
 Wish_Upon_a_Star_Decrypted = RogueCurio(
-    id=265,
+    id=266,
     name='Wish_Upon_a_Star_Decrypted',
     cn='许愿星（破解版）',
     cht='許願星（破解版）',
@@ -2389,7 +2398,7 @@ Wish_Upon_a_Star_Decrypted = RogueCurio(
     es='Estrella de los deseos (versión pirateada)',
 )
 Memory_Cycle_Decrypted = RogueCurio(
-    id=266,
+    id=267,
     name='Memory_Cycle_Decrypted',
     cn='记忆轮（破解版）',
     cht='記憶輪（破解版）',
@@ -2398,7 +2407,7 @@ Memory_Cycle_Decrypted = RogueCurio(
     es='Ciclo de recuerdos (versión pirateada)',
 )
 Angel_type_I_O_U_Dispenser_Prototype = RogueCurio(
-    id=267,
+    id=268,
     name='Angel_type_I_O_U_Dispenser_Prototype',
     cn='天使型谢债发行机（原型机）',
     cht='天使型謝債發行機（原型機）',
@@ -2407,7 +2416,7 @@ Angel_type_I_O_U_Dispenser_Prototype = RogueCurio(
     es='Dispensador de deuda en forma de ángel (prototipo)',
 )
 Angel_type_I_O_U_Dispenser_Mass_Produced = RogueCurio(
-    id=268,
+    id=269,
     name='Angel_type_I_O_U_Dispenser_Mass_Produced',
     cn='天使型谢债发行机（量产机）',
     cht='天使型謝債發行機（量產機）',
@@ -2416,7 +2425,7 @@ Angel_type_I_O_U_Dispenser_Mass_Produced = RogueCurio(
     es='Dispensador de deuda en forma de ángel (producto final)',
 )
 Quiz_With_No_Prize_Decrypted = RogueCurio(
-    id=269,
+    id=270,
     name='Quiz_With_No_Prize_Decrypted',
     cn='无奖竞答（破解版）',
     cht='無獎競答（破解版）',
@@ -2425,7 +2434,7 @@ Quiz_With_No_Prize_Decrypted = RogueCurio(
     es='Cuestionario sin recompensa (versión pirateada)',
 )
 Medal_of_the_Gloryblood_Era_Collector_Edition = RogueCurio(
-    id=270,
+    id=271,
     name='Medal_of_the_Gloryblood_Era_Collector_Edition',
     cn='血锦之纪徽章（典藏版）',
     cht='血錦之紀徽章（典藏版）',
@@ -2434,7 +2443,7 @@ Medal_of_the_Gloryblood_Era_Collector_Edition = RogueCurio(
     es='Medalla de la Era Gloriasangrienta (edición de coleccionista)',
 )
 Relatively_Successful_Prescription = RogueCurio(
-    id=271,
+    id=272,
     name='Relatively_Successful_Prescription',
     cn='相对成功处方',
     cht='相對成功處方',
@@ -2443,7 +2452,7 @@ Relatively_Successful_Prescription = RogueCurio(
     es='Receta de éxito relativo',
 )
 Gold_Coin_of_Discord_Decrypted = RogueCurio(
-    id=272,
+    id=273,
     name='Gold_Coin_of_Discord_Decrypted',
     cn='分裂金币（破解版）',
     cht='分裂金幣（破解版）',
@@ -2452,7 +2461,7 @@ Gold_Coin_of_Discord_Decrypted = RogueCurio(
     es='Moneda de oro del desacuerdo (versión pirateada)',
 )
 Peace_Box_Decrypted = RogueCurio(
-    id=273,
+    id=274,
     name='Peace_Box_Decrypted',
     cn='和平箱（破解版）',
     cht='和平箱（破解版）',
@@ -2461,7 +2470,7 @@ Peace_Box_Decrypted = RogueCurio(
     es='Caja de paz (versión pirateada)',
 )
 Medal_of_the_Gloryblood_Era_Limited = RogueCurio(
-    id=274,
+    id=275,
     name='Medal_of_the_Gloryblood_Era_Limited',
     cn='血锦之纪徽章（限量款）',
     cht='血錦之紀徽章（限量款）',
@@ -2470,7 +2479,7 @@ Medal_of_the_Gloryblood_Era_Limited = RogueCurio(
     es='Medalla de la Era Gloriasangrienta (edición limitada)',
 )
 Jellyfish_on_the_Staircase_Decrypted = RogueCurio(
-    id=275,
+    id=276,
     name='Jellyfish_on_the_Staircase_Decrypted',
     cn='楼梯上的水母（破解版）',
     cht='樓梯上的水母（破解版）',
@@ -2479,7 +2488,7 @@ Jellyfish_on_the_Staircase_Decrypted = RogueCurio(
     es='Medusa de las escaleras (versión pirateada)',
 )
 Tenebrous_Trapezohedron_Die = RogueCurio(
-    id=276,
+    id=277,
     name='Tenebrous_Trapezohedron_Die',
     cn='漆黑的偏方三八面骰',
     cht='漆黑的偏方三八面骰',
@@ -2488,7 +2497,7 @@ Tenebrous_Trapezohedron_Die = RogueCurio(
     es='Dado trapezoedro negro',
 )
 Regular_A_Ruan_Pouch = RogueCurio(
-    id=277,
+    id=278,
     name='Regular_A_Ruan_Pouch',
     cn='普通的阿阮袋',
     cht='普通的阿阮袋',
@@ -2497,7 +2506,7 @@ Regular_A_Ruan_Pouch = RogueCurio(
     es='Bolsa de Ruan Mei normal',
 )
 Stuffed_A_Ruan_Pouch = RogueCurio(
-    id=278,
+    id=279,
     name='Stuffed_A_Ruan_Pouch',
     cn='膨胀的阿阮袋',
     cht='膨脹的阿阮袋',
@@ -2506,7 +2515,7 @@ Stuffed_A_Ruan_Pouch = RogueCurio(
     es='Bolsa de Ruan Mei repleta',
 )
 Bursting_A_Ruan_Pouch = RogueCurio(
-    id=279,
+    id=280,
     name='Bursting_A_Ruan_Pouch',
     cn='失控的阿阮袋',
     cht='失控的阿阮袋',
@@ -2515,7 +2524,7 @@ Bursting_A_Ruan_Pouch = RogueCurio(
     es='Bolsa de Ruan Mei reventona',
 )
 Lost_Golden_Claw_Anchor_Decrypted = RogueCurio(
-    id=280,
+    id=281,
     name='Lost_Golden_Claw_Anchor_Decrypted',
     cn='失金爪锚（破解版）',
     cht='失金爪錨（破解版）',
@@ -2524,7 +2533,7 @@ Lost_Golden_Claw_Anchor_Decrypted = RogueCurio(
     es='Ancla de aurogarra perdida (versión pirateada)',
 )
 Arena_of_the_Strong_Decrypted = RogueCurio(
-    id=281,
+    id=282,
     name='Arena_of_the_Strong_Decrypted',
     cn='强者竞技（破解版）',
     cht='強者競技（破解版）',
@@ -2533,7 +2542,7 @@ Arena_of_the_Strong_Decrypted = RogueCurio(
     es='Torneo de los fuertes (versión pirateada)',
 )
 Featherlight_Inscription_Decrypted = RogueCurio(
-    id=282,
+    id=283,
     name='Featherlight_Inscription_Decrypted',
     cn='不沉重碑文（破解版）',
     cht='不沉重碑文（破解版）',

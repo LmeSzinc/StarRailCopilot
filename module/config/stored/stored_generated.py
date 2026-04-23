@@ -85,6 +85,7 @@ class StoredGenerated:
     Item_Flower_of_Alaya = StoredPlanner("Dungeon.Planner.Item_Flower_of_Alaya")
     Item_The_Fluffy_Collector_Edition = StoredPlanner("Dungeon.Planner.Item_The_Fluffy_Collector_Edition")
     Item_Lance_of_Retribution = StoredPlanner("Dungeon.Planner.Item_Lance_of_Retribution")
+    Item_Heart_of_Phagousa = StoredPlanner("Dungeon.Planner.Item_Heart_of_Phagousa")
     Item_Tracks_of_Destiny = StoredPlanner("Dungeon.Planner.Item_Tracks_of_Destiny")
     Item_Destroyer_Final_Road = StoredPlanner("Dungeon.Planner.Item_Destroyer_Final_Road")
     Item_Guardian_Lament = StoredPlanner("Dungeon.Planner.Item_Guardian_Lament")

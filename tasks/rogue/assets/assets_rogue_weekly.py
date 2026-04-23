@@ -7,39 +7,39 @@ CLAIM_ALL = ButtonWrapper(
     name='CLAIM_ALL',
     share=Button(
         file='./assets/share/rogue/weekly/CLAIM_ALL.png',
-        area=(871, 524, 1146, 560),
-        search=(851, 504, 1166, 580),
-        color=(238, 186, 85),
-        button=(871, 524, 1146, 560),
+        area=(908, 499, 1183, 535),
+        search=(888, 479, 1203, 555),
+        color=(244, 191, 86),
+        button=(908, 499, 1183, 535),
     ),
 )
 REWARD_CHECK = ButtonWrapper(
     name='REWARD_CHECK',
     share=Button(
         file='./assets/share/rogue/weekly/REWARD_CHECK.png',
-        area=(152, 504, 187, 532),
-        search=(132, 484, 207, 552),
-        color=(131, 130, 126),
-        button=(152, 504, 187, 532),
+        area=(68, 495, 111, 539),
+        search=(48, 475, 131, 559),
+        color=(99, 82, 53),
+        button=(68, 495, 111, 539),
     ),
 )
 REWARD_CLOSE = ButtonWrapper(
     name='REWARD_CLOSE',
     share=Button(
         file='./assets/share/rogue/weekly/REWARD_CLOSE.png',
-        area=(1139, 137, 1169, 167),
-        search=(1119, 117, 1189, 187),
-        color=(64, 64, 64),
-        button=(1139, 137, 1169, 167),
+        area=(1176, 179, 1208, 209),
+        search=(1156, 159, 1228, 229),
+        color=(53, 53, 54),
+        button=(1176, 179, 1208, 209),
     ),
 )
 REWARD_ENTER = ButtonWrapper(
     name='REWARD_ENTER',
     share=Button(
         file='./assets/share/rogue/weekly/REWARD_ENTER.png',
-        area=(46, 657, 76, 679),
-        search=(26, 637, 96, 699),
-        color=(139, 142, 149),
+        area=(43, 656, 77, 680),
+        search=(23, 636, 97, 700),
+        color=(145, 146, 154),
         button=(41, 651, 116, 679),
     ),
 )

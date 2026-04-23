@@ -17,10 +17,10 @@ OCR_WEEKLY_POINT = ButtonWrapper(
     name='OCR_WEEKLY_POINT',
     share=Button(
         file='./assets/share/rogue/entry/OCR_WEEKLY_POINT.png',
-        area=(116, 658, 316, 682),
-        search=(96, 638, 336, 702),
-        color=(74, 70, 72),
-        button=(116, 658, 316, 682),
+        area=(116, 658, 333, 682),
+        search=(96, 638, 353, 702),
+        color=(74, 70, 73),
+        button=(116, 658, 333, 682),
     ),
 )
 OCR_WORLD = ButtonWrapper(

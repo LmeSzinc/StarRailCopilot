@@ -290,12 +290,13 @@
       "Calyx_Crimson_Harmony_Penacony_TheReverieDreamscape": "Rastros: Armonía (Hotel Fantasía (paisaje onírico))",
       "Calyx_Crimson_Nihility_Jarilo_GreatMine": "Rastros: Nihilidad (Mina principal)",
       "Calyx_Crimson_Nihility_Luofu_AlchemyCommission": "Rastros: Nihilidad (Comisión de Alquimia)",
+      "Calyx_Crimson_Nihility_Amphoreus_RadiantScarwoodGroveofEpiphany": "Rastros: Nihilidad (Soto de las Musas, Cicatriz Radiante)",
       "Calyx_Crimson_Remembrance_Amphoreus_StrifeRuinsCastrumKremnos": "Rastros: Reminiscencia (Castrum Kremnos, Ruinas del Conflicto)",
       "Calyx_Crimson_Elation_Planarcadia_WorldEndTavern": "Rastros: Exultación (Taberna El Fin del Mundo)",
       "Stagnant_Shadow_Spike": "Ascension: Físico (Natasha / Clara / Luka / Sushang)",
       "Stagnant_Shadow_Perdition": "Ascension: Físico (Hanya / Argenti)",
       "Stagnant_Shadow_Duty": "Ascension: Físico (Yunli / Robin / Boothill)",
-      "Stagnant_Shadow_Deepsheaf": "Ascension: Físico (Fainón / Hysilens / Dan Heng - Permansor Terrae / Yao Guang)",
+      "Stagnant_Shadow_Deepsheaf": "Ascension: Físico (Fainón / Hysilens / Dan Heng - Permansor Terrae / Yao Guang / Evanescia)",
       "Stagnant_Shadow_Blaze": "Ascension: Fuego (Himeko / Asta / Hook)",
       "Stagnant_Shadow_Scorch": "Ascension: Fuego (Topaz y Conti / Guinaifen / Fugue)",
       "Stagnant_Shadow_Roast": "Ascension: Cuántico (Sparkle / Jade)",
@@ -319,7 +320,7 @@
       "Stagnant_Shadow_Mirage": "Ascension: Imaginario (Welt / Luocha / Yukong)",
       "Stagnant_Shadow_Puppetry": "Ascension: Imaginario (Dan Heng - Imbibitor Lunae / Aventurino / Dr. Ratio)",
       "Stagnant_Shadow_Timbre": "Ascension: Imaginario (Sunday / Rappa)",
-      "Stagnant_Shadow_Sloggyre": "Ascension: Imaginario (Midei)"
+      "Stagnant_Shadow_Sloggyre": "Ascension: Imaginario (Midei / Silver Wolf Niv. 999)"
     },
     "NameAtDoubleCalyx": {
       "name": "En los eventos de x2 de Cáliz",
@@ -354,6 +355,7 @@
       "Calyx_Crimson_Harmony_Penacony_TheReverieDreamscape": "Rastros: Armonía (Hotel Fantasía (paisaje onírico))",
       "Calyx_Crimson_Nihility_Jarilo_GreatMine": "Rastros: Nihilidad (Mina principal)",
       "Calyx_Crimson_Nihility_Luofu_AlchemyCommission": "Rastros: Nihilidad (Comisión de Alquimia)",
+      "Calyx_Crimson_Nihility_Amphoreus_RadiantScarwoodGroveofEpiphany": "Rastros: Nihilidad (Soto de las Musas, Cicatriz Radiante)",
       "Calyx_Crimson_Remembrance_Amphoreus_StrifeRuinsCastrumKremnos": "Rastros: Reminiscencia (Castrum Kremnos, Ruinas del Conflicto)",
       "Calyx_Crimson_Elation_Planarcadia_WorldEndTavern": "Rastros: Exultación (Taberna El Fin del Mundo)"
     },
@@ -431,6 +433,8 @@
       "name": "Personaje de apoyo",
       "help": "Selecciona un personaje de apoyo del amigo. Si no se encuentra, se seleccionará el primer personaje. Se recomienda marcar a los personajes de amigos.",
       "FirstCharacter": "Primer personaje",
+      "SilverWolfLV999": "[4.2] Silver Wolf Niv. 999",
+      "Evanescia": "[4.2] Evanescia",
       "Ashveil": "[4.1] Ashveil",
       "Sparxie": "[4.0] Chispa",
       "YaoGuang": "[4.0] Yao Guang",
@@ -494,6 +498,7 @@
       "TrailblazerPreservation": "Trailblazer: Conservación",
       "TrailblazerHarmony": "Trailblazer: Armonía",
       "TrailblazerRemembrance": "Trailblazer (Reminiscencia)",
+      "TrailblazerElation": "Trailblazer (Exultación)",
       "Himeko": "Himeko",
       "Welt": "Welt",
       "Gepard": "Gepard",
@@ -698,7 +703,7 @@
       "help": ""
     },
     "Item_Invasive_Clot": {
-      "name": "Ascension: Físico (Fainón / Hysilens / Dan Heng - Permansor Terrae / Yao Guang)",
+      "name": "Ascension: Físico (Fainón / Hysilens / Dan Heng - Permansor Terrae / Yao Guang / Evanescia)",
       "help": ""
     },
     "Item_Radiant_Prominence": {
@@ -722,7 +727,7 @@
       "help": ""
     },
     "Item_Harbinger_of_Strife": {
-      "name": "Ascension: Imaginario (Midei)",
+      "name": "Ascension: Imaginario (Midei / Silver Wolf Niv. 999)",
       "help": ""
     },
     "Item_Worldbreaker_Blade": {
@@ -791,6 +796,10 @@
     },
     "Item_Lance_of_Retribution": {
       "name": "Rastros: Cacería (Ruinas del Tiempo, Orilla de los Recuerdos Enterrados)",
+      "help": ""
+    },
+    "Item_Heart_of_Phagousa": {
+      "name": "Rastros: Nihilidad (Soto de las Musas, Cicatriz Radiante)",
       "help": ""
     },
     "Item_Tracks_of_Destiny": {
@@ -891,6 +900,8 @@
       "name": "Character",
       "help": "",
       "_none_": "None",
+      "SilverWolfLV999": "[4.2] Silver Wolf Niv. 999",
+      "Evanescia": "[4.2] Evanescia",
       "Ashveil": "[4.1] Ashveil",
       "Sparxie": "[4.0] Chispa",
       "YaoGuang": "[4.0] Yao Guang",
@@ -954,6 +965,7 @@
       "TrailblazerPreservation": "Trailblazer: Conservación",
       "TrailblazerHarmony": "Trailblazer: Armonía",
       "TrailblazerRemembrance": "Trailblazer (Reminiscencia)",
+      "TrailblazerElation": "Trailblazer (Exultación)",
       "Himeko": "Himeko",
       "Welt": "Welt",
       "Gepard": "Gepard",
@@ -979,6 +991,8 @@
       "name": "Cone",
       "help": "",
       "_none_": "None",
+      "Until_the_Flowers_Bloom_Again": "[4.2] Evanescia | 5* Encuentro en la próxima primavera",
+      "Welcome_to_the_Cosmic_City": "[4.2] Silver Wolf Niv. 999 | 5* Bienvenidos a la ciudad cósmica",
       "The_Finale_of_a_Lie": "[4.1] Ashveil | 5* El final de una mentira",
       "When_She_Decided_to_See": "[4.0] Yao Guang | 5* Cuando se decidió a ver",
       "Dazzled_by_a_Flowery_World": "[4.0] Chispa | 5* El cautivador mundochispa",
@@ -1042,6 +1056,7 @@
       "But_the_Battle_Isn_t_Over": "5* La batalla no ha terminado",
       "Something_Irreplaceable": "5* Algo insustituible",
       "Night_on_the_Milky_Way": "5* Noche en la Vía Láctea",
+      "Tomorrow_Together": "4* Juntos hacia el futuro",
       "Fly_Into_a_Pink_Tomorrow": "4* Volando hacia un mañana rosado",
       "The_Forever_Victual": "4* Viandas sin fin",
       "The_Great_Cosmic_Enterprise": "4* El gran negocio cósmico",

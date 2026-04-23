@@ -290,12 +290,13 @@
       "Calyx_Crimson_Harmony_Penacony_TheReverieDreamscape": "軌跡素材：調和（ホテル・レバリー-夢境）",
       "Calyx_Crimson_Nihility_Jarilo_GreatMine": "軌跡素材：虚無（大鉱区）",
       "Calyx_Crimson_Nihility_Luofu_AlchemyCommission": "軌跡素材：虚無（丹鼎司）",
+      "Calyx_Crimson_Nihility_Amphoreus_RadiantScarwoodGroveofEpiphany": "軌跡素材：虚無（痕輝ける聖林神悟の樹庭）",
       "Calyx_Crimson_Remembrance_Amphoreus_StrifeRuinsCastrumKremnos": "軌跡素材：記憶（紛争の爪痕クレムノス）",
       "Calyx_Crimson_Elation_Planarcadia_WorldEndTavern": "軌跡素材：愉悦（パブワールドエンド）",
       "Stagnant_Shadow_Spike": "昇格素材：物理（ナターシャ / クラーラ / ルカ / 素裳）",
       "Stagnant_Shadow_Perdition": "昇格素材：物理（寒鴉 / アルジェンティ）",
       "Stagnant_Shadow_Duty": "昇格素材：物理（雲璃 / ロビン / ブートヒル）",
-      "Stagnant_Shadow_Deepsheaf": "昇格素材：物理（ファイノン / セイレンス / 丹恒・騰荒 / 爻光）",
+      "Stagnant_Shadow_Deepsheaf": "昇格素材：物理（ファイノン / セイレンス / 丹恒・騰荒 / 爻光 / 緋英）",
       "Stagnant_Shadow_Blaze": "昇格素材：炎（姫子 / アスター / フック）",
       "Stagnant_Shadow_Scorch": "昇格素材：炎（トパーズ&カブ / 桂乃芬 / 帰忘の流離人）",
       "Stagnant_Shadow_Roast": "昇格素材：量子（花火 / ジェイド）",
@@ -319,7 +320,7 @@
       "Stagnant_Shadow_Mirage": "昇格素材：虚数（ヴェルト / 羅刹 / 御空）",
       "Stagnant_Shadow_Puppetry": "昇格素材：虚数（丹恒・飲月 / アベンチュリン / Dr.レイシオ）",
       "Stagnant_Shadow_Timbre": "昇格素材：虚数（サンデー / 乱破）",
-      "Stagnant_Shadow_Sloggyre": "昇格素材：虚数（モーディス）"
+      "Stagnant_Shadow_Sloggyre": "昇格素材：虚数（モーディス / 銀狼LV.999）"
     },
     "NameAtDoubleCalyx": {
       "name": "Dungeon.NameAtDoubleCalyx.name",
@@ -354,6 +355,7 @@
       "Calyx_Crimson_Harmony_Penacony_TheReverieDreamscape": "軌跡素材：調和（ホテル・レバリー-夢境）",
       "Calyx_Crimson_Nihility_Jarilo_GreatMine": "軌跡素材：虚無（大鉱区）",
       "Calyx_Crimson_Nihility_Luofu_AlchemyCommission": "軌跡素材：虚無（丹鼎司）",
+      "Calyx_Crimson_Nihility_Amphoreus_RadiantScarwoodGroveofEpiphany": "軌跡素材：虚無（痕輝ける聖林神悟の樹庭）",
       "Calyx_Crimson_Remembrance_Amphoreus_StrifeRuinsCastrumKremnos": "軌跡素材：記憶（紛争の爪痕クレムノス）",
       "Calyx_Crimson_Elation_Planarcadia_WorldEndTavern": "軌跡素材：愉悦（パブワールドエンド）"
     },
@@ -431,6 +433,8 @@
       "name": "サポートキャラ",
       "help": "フレンドのサポートキャラクターを選択します。見つからない場合は、最初のキャラクターが選択されます。フレンドをピン留めすることをお勧めします。",
       "FirstCharacter": "FirstCharacter",
+      "SilverWolfLV999": "[4.2] 銀狼LV.999",
+      "Evanescia": "[4.2] 緋英",
       "Ashveil": "[4.1] 不死途",
       "Sparxie": "[4.0] 火花",
       "YaoGuang": "[4.0] 爻光",
@@ -494,6 +498,7 @@
       "TrailblazerPreservation": "開拓者・存護",
       "TrailblazerHarmony": "開拓者・調和",
       "TrailblazerRemembrance": "開拓者・記憶",
+      "TrailblazerElation": "開拓者・愉悦",
       "Himeko": "姫子",
       "Welt": "ヴェルト",
       "Gepard": "ジェパード",
@@ -698,7 +703,7 @@
       "help": ""
     },
     "Item_Invasive_Clot": {
-      "name": "昇格素材：物理（ファイノン / セイレンス / 丹恒・騰荒 / 爻光）",
+      "name": "昇格素材：物理（ファイノン / セイレンス / 丹恒・騰荒 / 爻光 / 緋英）",
       "help": ""
     },
     "Item_Radiant_Prominence": {
@@ -722,7 +727,7 @@
       "help": ""
     },
     "Item_Harbinger_of_Strife": {
-      "name": "昇格素材：虚数（モーディス）",
+      "name": "昇格素材：虚数（モーディス / 銀狼LV.999）",
       "help": ""
     },
     "Item_Worldbreaker_Blade": {
@@ -791,6 +796,10 @@
     },
     "Item_Lance_of_Retribution": {
       "name": "軌跡素材：巡狩（葬られし記憶の彼岸時の果て）",
+      "help": ""
+    },
+    "Item_Heart_of_Phagousa": {
+      "name": "軌跡素材：虚無（痕輝ける聖林神悟の樹庭）",
       "help": ""
     },
     "Item_Tracks_of_Destiny": {
@@ -891,6 +900,8 @@
       "name": "PlannerTarget.Character.name",
       "help": "PlannerTarget.Character.help",
       "_none_": "_none_",
+      "SilverWolfLV999": "[4.2] 銀狼LV.999",
+      "Evanescia": "[4.2] 緋英",
       "Ashveil": "[4.1] 不死途",
       "Sparxie": "[4.0] 火花",
       "YaoGuang": "[4.0] 爻光",
@@ -954,6 +965,7 @@
       "TrailblazerPreservation": "開拓者・存護",
       "TrailblazerHarmony": "開拓者・調和",
       "TrailblazerRemembrance": "開拓者・記憶",
+      "TrailblazerElation": "開拓者・愉悦",
       "Himeko": "姫子",
       "Welt": "ヴェルト",
       "Gepard": "ジェパード",
@@ -979,6 +991,8 @@
       "name": "PlannerTarget.Cone.name",
       "help": "PlannerTarget.Cone.help",
       "_none_": "_none_",
+      "Until_the_Flowers_Bloom_Again": "[4.2] 緋英 | 5* 再び花が咲く季節に",
+      "Welcome_to_the_Cosmic_City": "[4.2] 銀狼LV.999 | 5* 銀河シティへようこそ",
       "The_Finale_of_a_Lie": "[4.1] 不死途 | 5* 或る嘘の終幕",
       "When_She_Decided_to_See": "[4.0] 爻光 | 5* 彼女が視ると決めた時",
       "Dazzled_by_a_Flowery_World": "[4.0] 火花 | 5* きらびやかな世界",
@@ -1042,6 +1056,7 @@
       "But_the_Battle_Isn_t_Over": "5* だが戦争は終わらない",
       "Something_Irreplaceable": "5* かけがえのないもの",
       "Night_on_the_Milky_Way": "5* 銀河鉄道の夜",
+      "Tomorrow_Together": "4* みんなで一緒に未来へ",
       "Fly_Into_a_Pink_Tomorrow": "4* ピンク色の明日へ",
       "The_Forever_Victual": "4* 永遠の迷境ごはん",
       "The_Great_Cosmic_Enterprise": "4* 宇宙一の大商い！",

@@ -52,7 +52,7 @@ Welt = CharacterList(
     es='Welt',
     type_name='Imaginary',
     path_name='Nihility',
-    relic_setid=112,
+    relic_setid=117,
     ornament_setid=309,
 )
 Kafka = CharacterList(
@@ -1030,6 +1030,32 @@ Ashveil = CharacterList(
     relic_setid=115,
     ornament_setid=326,
 )
+Evanescia = CharacterList(
+    id=1505,
+    name='Evanescia',
+    cn='绯英',
+    cht='緋英',
+    en='Evanescia',
+    jp='緋英',
+    es='Evanescia',
+    type_name='Physical',
+    path_name='Elation',
+    relic_setid=129,
+    ornament_setid=325,
+)
+SilverWolfLV999 = CharacterList(
+    id=1506,
+    name='SilverWolfLV999',
+    cn='银狼LV.999',
+    cht='銀狼LV.999',
+    en='Silver Wolf LV.999',
+    jp='銀狼LV.999',
+    es='Silver Wolf Niv. 999',
+    type_name='Imaginary',
+    path_name='Elation',
+    relic_setid=129,
+    ornament_setid=325,
+)
 TrailblazerDestruction = CharacterList(
     id=8002,
     name='TrailblazerDestruction',
@@ -1080,5 +1106,18 @@ TrailblazerRemembrance = CharacterList(
     type_name='Ice',
     path_name='Remembrance',
     relic_setid=123,
+    ornament_setid=317,
+)
+TrailblazerElation = CharacterList(
+    id=8010,
+    name='TrailblazerElation',
+    cn='Trailblazer•欢愉',
+    cht='Trailblazer•歡愉',
+    en='Trailblazer: Elation',
+    jp='Trailblazer・愉悦',
+    es='Trailblazer (Exultación)',
+    type_name='Lightning',
+    path_name='Elation',
+    relic_setid=130,
     ornament_setid=317,
 )

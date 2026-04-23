@@ -153,6 +153,7 @@ class OcrDungeonList(OcrDungeonName):
         merge_result_button(results, 'Murmuring', 'Epiphany', 'MurmuringWoodsGroveofEpiphany')
         merge_result_button(results, 'Sanctumo', 'Janusopoli', 'SanctumofProphecyJanusopolis')
         merge_result_button(results, 'Castrum', 'Kremno', 'StrifeRuinsCastrumKremnos')
+        merge_result_button(results, 'Radiant', 'Epiphany', 'RadiantScarwoodGroveofEpiphany')
 
         if results != before:
             logger.attr(name=self.name,

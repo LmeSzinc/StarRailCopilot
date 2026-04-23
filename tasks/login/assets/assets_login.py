@@ -27,16 +27,16 @@ LOGIN_CONFIRM = ButtonWrapper(
     share=[
         Button(
             file='./assets/share/login/LOGIN_CONFIRM.png',
-            area=(1188, 44, 1220, 74),
-            search=(1168, 24, 1240, 94),
-            color=(140, 124, 144),
+            area=(1190, 206, 1219, 234),
+            search=(1170, 186, 1239, 254),
+            color=(138, 139, 160),
             button=(683, 327, 1143, 620),
         ),
         Button(
             file='./assets/share/login/LOGIN_CONFIRM.2.png',
-            area=(1109, 48, 1139, 73),
-            search=(1089, 28, 1159, 93),
-            color=(149, 145, 164),
+            area=(1189, 126, 1219, 154),
+            search=(1169, 106, 1239, 174),
+            color=(137, 127, 142),
             button=(683, 327, 1143, 620),
         ),
     ],

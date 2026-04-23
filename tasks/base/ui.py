@@ -332,6 +332,8 @@ class UI(MainPage):
         return appear
 
     def is_in_login_confirm(self, interval=0):
+        # since 4.2, LOGIN_CONFIRM checks the "Setting" button at login page
+        # because both downloading page and login page has "Notice" button
         self.device.stuck_record_add(LOGIN_CONFIRM)
 
         if interval and not self.interval_is_reached(LOGIN_CONFIRM, interval=interval):

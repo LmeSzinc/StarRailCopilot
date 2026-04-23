@@ -7,20 +7,20 @@ CAN_GET_REWARD = ButtonWrapper(
     name='CAN_GET_REWARD',
     share=Button(
         file='./assets/share/freebies/support_reward/CAN_GET_REWARD.png',
-        area=(1092, 181, 1123, 204),
-        search=(1072, 161, 1143, 224),
-        color=(246, 227, 173),
-        button=(1092, 181, 1123, 204),
+        area=(1231, 213, 1246, 246),
+        search=(1211, 193, 1266, 266),
+        color=(244, 220, 163),
+        button=(1231, 213, 1246, 246),
     ),
 )
 IN_PROFILE = ButtonWrapper(
     name='IN_PROFILE',
     share=Button(
         file='./assets/share/freebies/support_reward/IN_PROFILE.png',
-        area=(175, 90, 198, 100),
-        search=(155, 70, 218, 120),
-        color=(177, 177, 178),
-        button=(175, 90, 198, 100),
+        area=(863, 647, 892, 669),
+        search=(843, 627, 912, 689),
+        color=(190, 178, 158),
+        button=(863, 647, 892, 669),
     ),
 )
 MENU_TO_PROFILE = ButtonWrapper(
@@ -58,5 +58,56 @@ REWARD_POPUP = ButtonWrapper(
         search=(863, 532, 934, 600),
         color=(88, 89, 114),
         button=(883, 552, 914, 580),
+    ),
+)
+SHOWCASE_BATTLE_CHECK = ButtonWrapper(
+    name='SHOWCASE_BATTLE_CHECK',
+    cn=Button(
+        file='./assets/cn/freebies/support_reward/SHOWCASE_BATTLE_CHECK.png',
+        area=(446, 50, 515, 68),
+        search=(426, 30, 535, 88),
+        color=(191, 181, 163),
+        button=(446, 50, 515, 68),
+    ),
+    en=Button(
+        file='./assets/en/freebies/support_reward/SHOWCASE_BATTLE_CHECK.png',
+        area=(414, 54, 490, 66),
+        search=(394, 34, 510, 86),
+        color=(201, 195, 186),
+        button=(414, 54, 490, 66),
+    ),
+)
+SHOWCASE_CHARACTER_CHECK = ButtonWrapper(
+    name='SHOWCASE_CHARACTER_CHECK',
+    cn=Button(
+        file='./assets/cn/freebies/support_reward/SHOWCASE_CHARACTER_CHECK.png',
+        area=(605, 50, 676, 68),
+        search=(585, 30, 696, 88),
+        color=(192, 182, 165),
+        button=(605, 50, 676, 68),
+    ),
+    en=Button(
+        file='./assets/en/freebies/support_reward/SHOWCASE_CHARACTER_CHECK.png',
+        area=(579, 54, 638, 66),
+        search=(559, 34, 658, 86),
+        color=(200, 193, 182),
+        button=(579, 54, 638, 66),
+    ),
+)
+SHOWCASE_COLLECTION_CHECK = ButtonWrapper(
+    name='SHOWCASE_COLLECTION_CHECK',
+    cn=Button(
+        file='./assets/cn/freebies/support_reward/SHOWCASE_COLLECTION_CHECK.png',
+        area=(765, 51, 835, 68),
+        search=(745, 31, 855, 88),
+        color=(189, 178, 158),
+        button=(765, 51, 835, 68),
+    ),
+    en=Button(
+        file='./assets/en/freebies/support_reward/SHOWCASE_COLLECTION_CHECK.png',
+        area=(740, 54, 798, 66),
+        search=(720, 34, 818, 86),
+        color=(198, 191, 179),
+        button=(740, 54, 798, 66),
     ),
 )

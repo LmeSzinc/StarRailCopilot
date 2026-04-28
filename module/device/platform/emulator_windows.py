@@ -110,6 +110,8 @@ class Emulator(EmulatorBase):
                 return cls.LDPlayer4
             elif dir1 == 'ldplayer9':
                 return cls.LDPlayer9
+            elif dir1 == 'ldplayer14':
+                return cls.LDPlayer14
             else:
                 return cls.LDPlayer3
         if exe == 'nemuplayer.exe':
@@ -459,9 +461,11 @@ class EmulatorManager(EmulatorManagerBase):
             'LDPlayer',
             'LDPlayer4',
             'LDPlayer9',
+            'LDPlayer14',
             'leidian',
             'leidian4',
             'leidian9',
+            'leidian14',
             'Nemu',
             'Nemu9',
             'MuMuPlayer',
@@ -523,7 +527,8 @@ class EmulatorManager(EmulatorManagerBase):
 
         # LDPlayer install path
         for path in [r'SOFTWARE\leidian\ldplayer',
-                     r'SOFTWARE\leidian\ldplayer9']:
+                     r'SOFTWARE\leidian\ldplayer9',
+                     r'SOFTWARE\leidian\ldplayer14']:
             ld = self.get_install_dir_from_reg(path, 'InstallDir')
             if ld:
                 ld = abspath(os.path.join(ld, './dnplayer.exe'))

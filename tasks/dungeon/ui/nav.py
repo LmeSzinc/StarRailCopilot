@@ -221,13 +221,16 @@ class DungeonUINav(UI):
         ui_switched = self.ui_ensure(page_guide)
         tab_switched = self.dungeon_tab.set(state, main=self)
 
+        if state == KEYWORDS_DUNGEON_TAB.Survival_Index:
+            logger.info(f'Tab goto {state}, wait until loaded')
+            self._dungeon_wait_survival_index_loaded()
+            return True
         if ui_switched or tab_switched:
             if state == KEYWORDS_DUNGEON_TAB.Daily_Training:
                 logger.info(f'Tab goto {state}, wait until loaded')
                 self._dungeon_wait_daily_training_loaded()
             return True
-        else:
-            return False
+        return False
 
     def _dungeon_wait_daily_training_loaded(self, skip_first_screenshot=True):
         """
@@ -252,7 +255,7 @@ class DungeonUINav(UI):
                 logger.info('Daily training loaded')
                 return True
 
-    def _dungeon_wait_survival_index_loaded(self, skip_first_screenshot=True):
+    def _dungeon_wait_survival_index_loaded(self):
         """
         Returns:
             bool: True if wait success, False if wait timeout.
@@ -260,25 +263,19 @@ class DungeonUINav(UI):
         Pages:
             in: page_guide, Survival_Index
         """
-        timeout = Timer(2, count=4).start()
-        while 1:
-            if skip_first_screenshot:
-                skip_first_screenshot = False
-            else:
-                self.device.screenshot()
-
-            if timeout.reached():
-                logger.warning('Wait survival index loaded timeout')
-                return False
-            if self.appear(SURVIVAL_INDEX_SU_LOADED):
-                logger.info('Survival index loaded, SURVIVAL_INDEX_SU_LOADED')
+        for _ in self.loop(timeout=2):
+            if self.dungeon_nav.state_appear(KEYWORDS_DUNGEON_NAV.Stagnant_Shadow, main=self):
+                logger.info('Survival index loaded, Stagnant_Shadow appeared')
                 return True
-            if self.appear(SURVIVAL_INDEX_OE_LOADED):
-                logger.info('Survival index loaded, SURVIVAL_INDEX_OE_LOADED')
+            if self.dungeon_nav.state_appear(KEYWORDS_DUNGEON_NAV.Calyx_Crimson, main=self):
+                logger.info('Survival index loaded, Calyx_Crimson appeared')
                 return True
-            if self.appear(SURVIVAL_INDEX_BUILD_LOADED):
-                logger.info('Survival index loaded, SURVIVAL_INDEX_BUILD_LOADED')
+            if self.dungeon_nav.state_appear(KEYWORDS_DUNGEON_NAV.Cavern_of_Corrosion, main=self):
+                logger.info('Survival index loaded, Cavern_of_Corrosion appeared')
                 return True
+        else:
+            logger.warning('Wait survival index loaded timeout')
+            return False
 
     def _dungeon_survival_index_top_appear(self):
         if self.appear(SURVIVAL_INDEX_SU_LOADED):

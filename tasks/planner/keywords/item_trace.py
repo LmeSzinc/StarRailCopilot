@@ -666,3 +666,42 @@ Lance_of_Retribution = ItemTrace(
     item_group=1222,
     dungeon_id=1033,
 )
+Tear_of_Phagousa = ItemTrace(
+    id=52,
+    name='Tear_of_Phagousa',
+    cn='法吉娜之泪',
+    cht='法吉娜之淚',
+    en='Tear of Phagousa',
+    jp='ファジェイナの涙',
+    es='Lágrima de Fagusa',
+    rarity='NotNormal',
+    item_id=110311,
+    item_group=1225,
+    dungeon_id=1032,
+)
+Wine_of_Phagousa = ItemTrace(
+    id=53,
+    name='Wine_of_Phagousa',
+    cn='法吉娜之酒',
+    cht='法吉娜之酒',
+    en='Wine of Phagousa',
+    jp='ファジェイナの酒',
+    es='Vino de Fagusa',
+    rarity='Rare',
+    item_id=110312,
+    item_group=1225,
+    dungeon_id=1032,
+)
+Heart_of_Phagousa = ItemTrace(
+    id=54,
+    name='Heart_of_Phagousa',
+    cn='法吉娜之心',
+    cht='法吉娜之心',
+    en='Heart of Phagousa',
+    jp='ファジェイナの心',
+    es='Corazón de Fagusa',
+    rarity='VeryRare',
+    item_id=110313,
+    item_group=1225,
+    dungeon_id=1032,
+)

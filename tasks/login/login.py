@@ -129,6 +129,11 @@ class Login(LoginAndroidCloud, RogueUI, AgreementHandler, UIDHandler):
         Returns:
             bool: If clicked
         """
+        # 4.2 SilverWolfLV999 popup
+        if self.match_template_luma(ADVERTISE_SilverWolfLV999, interval=2):
+            logger.info(f'{ADVERTISE_SilverWolfLV999} -> {CLOSE}')
+            self.device.click(CLOSE)
+            return True
         # 4.0 ADVERTISE for new world
         if self.match_template_luma(ADVERTISE_Planarcadia, interval=2):
             self.device.click(ADVERTISE_Planarcadia)

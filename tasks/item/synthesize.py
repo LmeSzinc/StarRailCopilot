@@ -152,11 +152,28 @@ class Synthesize(CombatObtain, ItemUI, SynthesizeUI):
         Pages:
             in: page_synthesize
         """
+        match_result = {}
+        def get_similarity(button_asset):
+            image = crop(self.device.image, button_asset.search, copy=False)
+            image = rgb2luma(image)
+            for b in button_asset.buttons:
+                res = cv2.matchTemplate(b.image_luma, image, cv2.TM_CCOEFF_NORMED)
+                _, sim, _, _ = cv2.minMaxLoc(res)
+                if sim > 0.7:
+                    match_result[button_asset] = sim
+                    return sim
+        # match two buttons, return the one with greater similarity
+        # because ENTRY_ITEM_USE9 matches "/9" may have mis-detection on normal amount letters
+        get_similarity(ENTRY_ITEM_USE9)
+        get_similarity(ENTRY_ITEM_USE3)
+        best_button = max(match_result, key=match_result.get) if match_result else None
+
         # 2025.02.26, Since 3.1 purple items can be auto synthesized from blue and green at one time
         # Having two items -> synthesizing purple item
         rarity = self._item_get_rarity_from_button(ENTRY_ITEM_FROM_LEFT)
         # When having 2 items, left is blue and right is green. This indicates synthesizing purple.
-        if rarity == 'blue':
+        # check best_button also, maybe one item at the middle and random blue background detected as purple (LEFT)
+        if rarity == 'blue' and best_button is None:
             # must have white letter below to avoid mis-detection on blue background
             area = ENTRY_ITEM_FROM_LEFT.area
             area = (area[0], area[3], area[2], area[3] + 30)
@@ -169,24 +186,7 @@ class Synthesize(CombatObtain, ItemUI, SynthesizeUI):
             # Blue material appears -> synthesizing purple
             logger.attr('SynthesizeRarity', 'purple (MIDDLE)')
             return 'purple'
-        elif rarity == 'green':
-            match_result = {}
-
-            def get_similarity(button_asset):
-                image = crop(self.device.image, button_asset.search, copy=False)
-                image = rgb2luma(image)
-                for b in button_asset.buttons:
-                    res = cv2.matchTemplate(b.image_luma, image, cv2.TM_CCOEFF_NORMED)
-                    _, sim, _, _ = cv2.minMaxLoc(res)
-                    if sim > 0.7:
-                        match_result[button_asset] = sim
-                        return sim
-
-            # match two buttons, return the one with greater similarity
-            # because ENTRY_ITEM_USE9 matches "/9" may have mis-detection on normal ammount letters
-            get_similarity(ENTRY_ITEM_USE9)
-            get_similarity(ENTRY_ITEM_USE3)
-            best_button = max(match_result, key=match_result.get) if match_result else None
+        if rarity == 'green':
             # If middle item is green, it could be purple or blue item being synthesized
             # USE9: cost of green to purple
             if best_button == ENTRY_ITEM_USE9:

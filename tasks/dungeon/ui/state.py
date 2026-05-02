@@ -19,6 +19,11 @@ class OcrSimUniPoint(DigitCounter):
             result = result.removesuffix('/1400') + '/14000'
         if result.endswith('/140'):
             result = result.removesuffix('/140') + '/14000'
+        # Since 4.2 OcrSimUniPoint is 18000 at max
+        if result.endswith('/1800'):
+            result = result.removesuffix('/1800') + '/18000'
+        if result.endswith('/180'):
+            result = result.removesuffix('/180') + '/18000'
         return result
 
 

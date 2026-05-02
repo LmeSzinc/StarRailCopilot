@@ -7,50 +7,60 @@ CLAIM_ALL = ButtonWrapper(
     name='CLAIM_ALL',
     share=Button(
         file='./assets/share/rogue/weekly/CLAIM_ALL.png',
-        area=(871, 524, 1146, 560),
-        search=(851, 504, 1166, 580),
-        color=(238, 186, 85),
-        button=(871, 524, 1146, 560),
+        area=(908, 499, 1183, 535),
+        search=(888, 479, 1203, 555),
+        color=(244, 191, 86),
+        button=(908, 499, 1183, 535),
     ),
 )
 REWARD_CHECK = ButtonWrapper(
     name='REWARD_CHECK',
     share=Button(
         file='./assets/share/rogue/weekly/REWARD_CHECK.png',
-        area=(152, 504, 187, 532),
-        search=(132, 484, 207, 552),
-        color=(131, 130, 126),
-        button=(152, 504, 187, 532),
+        area=(68, 495, 111, 539),
+        search=(48, 475, 131, 559),
+        color=(99, 82, 53),
+        button=(68, 495, 111, 539),
     ),
 )
 REWARD_CLOSE = ButtonWrapper(
     name='REWARD_CLOSE',
     share=Button(
         file='./assets/share/rogue/weekly/REWARD_CLOSE.png',
-        area=(1139, 137, 1169, 167),
-        search=(1119, 117, 1189, 187),
-        color=(64, 64, 64),
-        button=(1139, 137, 1169, 167),
+        area=(1176, 179, 1208, 209),
+        search=(1156, 159, 1228, 229),
+        color=(53, 53, 54),
+        button=(1176, 179, 1208, 209),
     ),
 )
 REWARD_ENTER = ButtonWrapper(
     name='REWARD_ENTER',
     share=Button(
         file='./assets/share/rogue/weekly/REWARD_ENTER.png',
-        area=(46, 657, 76, 679),
-        search=(26, 637, 96, 699),
-        color=(139, 142, 149),
+        area=(43, 656, 77, 680),
+        search=(23, 636, 97, 700),
+        color=(145, 146, 154),
         button=(41, 651, 116, 679),
+    ),
+)
+REWARD_MESSAGE = ButtonWrapper(
+    name='REWARD_MESSAGE',
+    share=Button(
+        file='./assets/share/rogue/weekly/REWARD_MESSAGE.png',
+        area=(30, 644, 60, 660),
+        search=(10, 624, 80, 680),
+        color=(72, 53, 151),
+        button=(30, 644, 60, 660),
     ),
 )
 REWARD_RED_DOT = ButtonWrapper(
     name='REWARD_RED_DOT',
     share=Button(
         file='./assets/share/rogue/weekly/REWARD_RED_DOT.png',
-        area=(308, 640, 328, 660),
-        search=(288, 620, 348, 680),
-        color=(179, 57, 63),
-        button=(308, 640, 328, 660),
+        area=(286, 637, 356, 663),
+        search=(266, 617, 376, 683),
+        color=(49, 21, 33),
+        button=(286, 637, 356, 663),
     ),
 )
 ROGUE_REPORT = ButtonWrapper(

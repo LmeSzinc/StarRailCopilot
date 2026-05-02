@@ -938,3 +938,25 @@ Planarcadia_LookoutCloudStation = MapPlane(
     world_id=5,
     plane_id=2051101,
 )
+Planarcadia_SeafeldCity = MapPlane(
+    id=87,
+    name='Planarcadia_SeafeldCity',
+    cn='海原市',
+    cht='海原市',
+    en='Seafeld City',
+    jp='海原市',
+    es='Manamar',
+    world_id=5,
+    plane_id=1052101,
+)
+Planarcadia_SeafeldTVTower = MapPlane(
+    id=88,
+    name='Planarcadia_SeafeldTVTower',
+    cn='海原电视塔',
+    cht='海原電視塔',
+    en='Seafeld TV Tower',
+    jp='海原テレビタワー',
+    es='Torre de televisión de Manamar',
+    world_id=5,
+    plane_id=2052101,
+)

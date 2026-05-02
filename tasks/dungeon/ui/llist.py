@@ -58,6 +58,17 @@ class OcrDungeonName(Ocr):
             result = re.sub('^怒之形', '嗔怒之形', result)
             # 烬日之形•凝滞虚影
             result = re.sub('^日之形', '烬日之形', result)
+            # 漠簇 -> 溟簇之形
+            result = result.replace('漠簇', '溟簇')
+            result = re.sub('^簇之形', '溟簇之形', result)
+            # 塞王之形 -> 塞壬之形
+            result = result.replace('塞王', '塞壬')
+            # 烟日之形 -> 烬日之形
+            result = re.sub('[烟烬][日目曰]之形', '烬日之形', result)
+            # 擎兽之形 -> 孽兽之形
+            result = result.replace('擎兽', '孽兽')
+            # 焦灸之形 -> 焦炙之形
+            result = re.sub('焦[灸炙]+之形', '焦炙之形', result)
             # 蛀星的旧·历战余响
             result = re.sub(r'蛀星的旧.?历战.+$', '蛀星的旧魇•历战的余响', result)
             result = re.sub(r'蛀星的旧.?历战?$', '蛀星的旧魇•历战', result)
@@ -142,6 +153,7 @@ class OcrDungeonList(OcrDungeonName):
         merge_result_button(results, 'Murmuring', 'Epiphany', 'MurmuringWoodsGroveofEpiphany')
         merge_result_button(results, 'Sanctumo', 'Janusopoli', 'SanctumofProphecyJanusopolis')
         merge_result_button(results, 'Castrum', 'Kremno', 'StrifeRuinsCastrumKremnos')
+        merge_result_button(results, 'Radiant', 'Epiphany', 'RadiantScarwoodGroveofEpiphany')
 
         if results != before:
             logger.attr(name=self.name,

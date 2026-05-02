@@ -3,7 +3,7 @@ from module.logger import logger
 from module.ocr.ocr import Digit, OcrResultButton
 from tasks.base.ui import UI
 from tasks.rogue.assets.assets_rogue_ui import *
-from tasks.rogue.assets.assets_rogue_weekly import REWARD_ENTER
+from tasks.rogue.assets.assets_rogue_weekly import REWARD_ENTER, REWARD_MESSAGE
 from tasks.rogue.blessing.blessing import RogueBlessingSelector
 from tasks.rogue.blessing.bonus import RogueBonusSelector
 from tasks.rogue.blessing.curio import RogueCurioSelector
@@ -41,7 +41,13 @@ class RogueUI(UI):
         return self.appear(PAGE_EVENT)
 
     def is_page_rogue_main(self):
-        return self.match_template_color(REWARD_ENTER)
+        if self.match_template_color(REWARD_ENTER):
+            return True
+        # v4.2 that rogue reward is replaced by a message
+        # Rogue reward is merged, current reward is sent by mail
+        if self.match_template_color(REWARD_MESSAGE):
+            return True
+        return False
 
     def is_page_rogue_launch(self):
         return self.match_template_color(ROGUE_LAUNCH)

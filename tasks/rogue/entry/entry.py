@@ -19,7 +19,7 @@ from tasks.dungeon.ui.ui_rogue import DungeonRogueUI
 from tasks.rogue.assets.assets_rogue_entry import *
 from tasks.rogue.assets.assets_rogue_path import CONFIRM_PATH
 from tasks.rogue.assets.assets_rogue_ui import ROGUE_LAUNCH
-from tasks.rogue.assets.assets_rogue_weekly import REWARD_CLOSE, REWARD_ENTER
+from tasks.rogue.assets.assets_rogue_weekly import REWARD_CLOSE, REWARD_ENTER, REWARD_MESSAGE
 from tasks.rogue.entry.path import RoguePathHandler
 from tasks.rogue.entry.weekly import RogueRewardHandler
 from tasks.rogue.exception import RogueReachedWeeklyPointLimit
@@ -417,15 +417,21 @@ class RogueEntry(RouteBase, RogueRewardHandler, RoguePathHandler, DungeonRogueUI
         self._rogue_theme_set(world)
         self._rogue_world_wait()
 
-        # Update rogue points
-        if datetime.now() - self.config.stored.SimulatedUniverse.time > timedelta(minutes=2):
-            ocr = OcrSimUniPoint(OCR_WEEKLY_POINT)
-            value, _, total = ocr.ocr_single_line(self.device.image)
-            if total and value <= total:
-                logger.attr('SimulatedUniverse', f'{value}/{total}')
-                self.config.stored.SimulatedUniverse.set(value, total)
-            else:
-                logger.warning(f'Invalid SimulatedUniverse points: {value}/{total}')
+        if self.match_template_color(REWARD_MESSAGE):
+            logger.info(f'Rogue reward is {REWARD_MESSAGE}, reward full')
+            total = self.config.stored.SimulatedUniverse.total
+            logger.attr('SimulatedUniverse', f'{total}/{total}')
+            self.config.stored.SimulatedUniverse.set(total, total)
+        else:
+            # Update rogue points
+            if datetime.now() - self.config.stored.SimulatedUniverse.time > timedelta(minutes=2):
+                ocr = OcrSimUniPoint(OCR_WEEKLY_POINT)
+                value, _, total = ocr.ocr_single_line(self.device.image)
+                if total and value <= total:
+                    logger.attr('SimulatedUniverse', f'{value}/{total}')
+                    self.config.stored.SimulatedUniverse.set(value, total)
+                else:
+                    logger.warning(f'Invalid SimulatedUniverse points: {value}/{total}')
 
         self.rogue_reward_claim()
         # Check stop condition again as weekly reward updated

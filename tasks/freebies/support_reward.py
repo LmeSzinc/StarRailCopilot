@@ -1,18 +1,30 @@
+from module.base.decorator import cached_property
 from module.base.timer import Timer
 from module.logger import logger
+from module.ui.switch import Switch
 from tasks.base.assets.assets_base_page import CLOSE, MAIN_GOTO_MENU, MENU_CHECK
 from tasks.base.page import page_main, page_menu
 from tasks.base.ui import UI
-from tasks.freebies.assets.assets_freebies_support_reward import (
-    CAN_GET_REWARD,
-    IN_PROFILE,
-    MENU_TO_PROFILE,
-    PROFILE,
-    REWARD_POPUP,
-)
+from tasks.freebies.assets.assets_freebies_support_reward import *
 
 
 class SupportReward(UI):
+    @cached_property
+    def showcase(self):
+        switch = Switch('ProfileShowcase', is_selector=True)
+        switch.add_state(
+            SHOWCASE_BATTLE_CHECK,
+            check_button=SHOWCASE_BATTLE_CHECK,
+        )
+        switch.add_state(
+            SHOWCASE_CHARACTER_CHECK,
+            check_button=SHOWCASE_CHARACTER_CHECK,
+        )
+        switch.add_state(
+            SHOWCASE_COLLECTION_CHECK,
+            check_button=SHOWCASE_COLLECTION_CHECK,
+        )
+        return switch
 
     def run(self):
         """
@@ -21,6 +33,7 @@ class SupportReward(UI):
         self.ui_ensure(page_menu)
 
         self._goto_profile()
+        self.showcase.set(SHOWCASE_CHARACTER_CHECK, main=self)
         self._get_reward()
         self._goto_menu()
 
@@ -30,18 +43,12 @@ class SupportReward(UI):
             in: MENU
             out: PROFILE
         """
-        skip_first_screenshot = False
         logger.info('Going to profile')
         self.interval_clear(page_main.check_button)
-        while 1:
-            if skip_first_screenshot:
-                skip_first_screenshot = False
-            else:
-                self.device.screenshot()
-
+        for _ in self.loop():
             if self.appear(IN_PROFILE):
                 logger.info('Successfully in profile')
-                return True
+                break
 
             if self.appear_then_click(MENU_TO_PROFILE):
                 continue
@@ -52,6 +59,15 @@ class SupportReward(UI):
                 logger.info(f'{page_main} -> {MAIN_GOTO_MENU}')
                 self.device.click(MAIN_GOTO_MENU)
                 continue
+
+        # wait until IN_PROFILE stable
+        for _ in self.loop(timeout=1.5):
+            if self.appear(IN_PROFILE):
+                if IN_PROFILE.is_offset_in(5, 5):
+                    logger.info('IN_PROFILE stabled')
+                    break
+        else:
+            logger.warning('Wait until IN_PROFILE stable timeout')
 
     def _get_reward(self, skip_first_screenshot=True):
         """
@@ -75,7 +91,7 @@ class SupportReward(UI):
             if self.reward_appear():
                 logger.info('Got reward')
                 break
-            if self.appear(REWARD_POPUP):
+            if self.appear(REWARD_POPUP, similarity=0.75):
                 logger.info('Got reward popup')
                 break
             if timeout.reached():
@@ -104,7 +120,7 @@ class SupportReward(UI):
             if self.appear(MENU_CHECK):
                 return True
 
-            if self.appear_then_click(REWARD_POPUP, interval=2):
+            if self.appear_then_click(REWARD_POPUP, similarity=0.75, interval=2):
                 logger.info(f'{REWARD_POPUP} - {CLOSE}')
                 self.device.click(CLOSE)
                 continue

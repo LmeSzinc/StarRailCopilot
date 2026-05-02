@@ -42,6 +42,16 @@ ADVERTISE_Planarcadia = ButtonWrapper(
         button=(1216, 167, 1248, 200),
     ),
 )
+ADVERTISE_SilverWolfLV999 = ButtonWrapper(
+    name='ADVERTISE_SilverWolfLV999',
+    share=Button(
+        file='./assets/share/login/popup/ADVERTISE_SilverWolfLV999.png',
+        area=(489, 618, 510, 639),
+        search=(469, 598, 530, 659),
+        color=(96, 96, 186),
+        button=(489, 618, 510, 639),
+    ),
+)
 CLAIM_CHARACTER = ButtonWrapper(
     name='CLAIM_CHARACTER',
     share=Button(

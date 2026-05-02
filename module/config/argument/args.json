@@ -515,6 +515,12 @@
         "display": "display",
         "stored": "StoredPlanner"
       },
+      "Item_Heart_of_Phagousa": {
+        "type": "planner",
+        "value": {},
+        "display": "display",
+        "stored": "StoredPlanner"
+      },
       "Item_Tracks_of_Destiny": {
         "type": "planner",
         "value": {},
@@ -657,6 +663,8 @@
         "display": "hide",
         "option": [
           "_none_",
+          "SilverWolfLV999",
+          "Evanescia",
           "Ashveil",
           "Sparxie",
           "YaoGuang",
@@ -720,6 +728,7 @@
           "TrailblazerPreservation",
           "TrailblazerHarmony",
           "TrailblazerRemembrance",
+          "TrailblazerElation",
           "Himeko",
           "Welt",
           "Gepard",
@@ -749,6 +758,8 @@
         "display": "hide",
         "option": [
           "_none_",
+          "Until_the_Flowers_Bloom_Again",
+          "Welcome_to_the_Cosmic_City",
           "The_Finale_of_a_Lie",
           "When_She_Decided_to_See",
           "Dazzled_by_a_Flowery_World",
@@ -812,6 +823,7 @@
           "But_the_Battle_Isn_t_Over",
           "Something_Irreplaceable",
           "Night_on_the_Milky_Way",
+          "Tomorrow_Together",
           "Fly_Into_a_Pink_Tomorrow",
           "The_Forever_Victual",
           "The_Great_Cosmic_Enterprise",
@@ -1141,6 +1153,7 @@
           "Calyx_Crimson_Harmony_Penacony_TheReverieDreamscape",
           "Calyx_Crimson_Nihility_Jarilo_GreatMine",
           "Calyx_Crimson_Nihility_Luofu_AlchemyCommission",
+          "Calyx_Crimson_Nihility_Amphoreus_RadiantScarwoodGroveofEpiphany",
           "Calyx_Crimson_Remembrance_Amphoreus_StrifeRuinsCastrumKremnos",
           "Calyx_Crimson_Elation_Planarcadia_WorldEndTavern",
           "Stagnant_Shadow_Spike",
@@ -1207,6 +1220,7 @@
           "Calyx_Crimson_Harmony_Penacony_TheReverieDreamscape",
           "Calyx_Crimson_Nihility_Jarilo_GreatMine",
           "Calyx_Crimson_Nihility_Luofu_AlchemyCommission",
+          "Calyx_Crimson_Nihility_Amphoreus_RadiantScarwoodGroveofEpiphany",
           "Calyx_Crimson_Remembrance_Amphoreus_StrifeRuinsCastrumKremnos",
           "Calyx_Crimson_Elation_Planarcadia_WorldEndTavern"
         ]
@@ -1265,6 +1279,8 @@
         "value": "FirstCharacter",
         "option": [
           "FirstCharacter",
+          "SilverWolfLV999",
+          "Evanescia",
           "Ashveil",
           "Sparxie",
           "YaoGuang",
@@ -1328,6 +1344,7 @@
           "TrailblazerPreservation",
           "TrailblazerHarmony",
           "TrailblazerRemembrance",
+          "TrailblazerElation",
           "Himeko",
           "Welt",
           "Gepard",
@@ -1540,6 +1557,8 @@
         "value": "FirstCharacter",
         "option": [
           "FirstCharacter",
+          "SilverWolfLV999",
+          "Evanescia",
           "Ashveil",
           "Sparxie",
           "YaoGuang",
@@ -1603,6 +1622,7 @@
           "TrailblazerPreservation",
           "TrailblazerHarmony",
           "TrailblazerRemembrance",
+          "TrailblazerElation",
           "Himeko",
           "Welt",
           "Gepard",
@@ -2145,6 +2165,8 @@
         "value": "FirstCharacter",
         "option": [
           "FirstCharacter",
+          "SilverWolfLV999",
+          "Evanescia",
           "Ashveil",
           "Sparxie",
           "YaoGuang",
@@ -2208,6 +2230,7 @@
           "TrailblazerPreservation",
           "TrailblazerHarmony",
           "TrailblazerRemembrance",
+          "TrailblazerElation",
           "Himeko",
           "Welt",
           "Gepard",

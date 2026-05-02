@@ -1143,6 +1143,18 @@ Fly_Into_a_Pink_Tomorrow = Cone(
     path_name='Remembrance',
     character_name='',
 )
+Tomorrow_Together = Cone(
+    id=22007,
+    name='Tomorrow_Together',
+    cn='未来，有我们一起',
+    cht='未來，有我們一起',
+    en='Tomorrow, Together',
+    jp='みんなで一緒に未来へ',
+    es='Juntos hacia el futuro',
+    rarity='VeryRare',
+    path_name='Elation',
+    character_name='',
+)
 Night_on_the_Milky_Way = Cone(
     id=23000,
     name='Night_on_the_Milky_Way',
@@ -1814,6 +1826,30 @@ The_Finale_of_a_Lie = Cone(
     rarity='SuperRare',
     path_name='The_Hunt',
     character_name='Ashveil',
+)
+Welcome_to_the_Cosmic_City = Cone(
+    id=23057,
+    name='Welcome_to_the_Cosmic_City',
+    cn='欢迎来到银河城',
+    cht='歡迎來到銀河城',
+    en='Welcome to the Cosmic City',
+    jp='銀河シティへようこそ',
+    es='Bienvenidos a la ciudad cósmica',
+    rarity='SuperRare',
+    path_name='Elation',
+    character_name='SilverWolfLV999',
+)
+Until_the_Flowers_Bloom_Again = Cone(
+    id=23058,
+    name='Until_the_Flowers_Bloom_Again',
+    cn='邂逅于下一个花季',
+    cht='邂逅於下一個花季',
+    en='Until the Flowers Bloom Again',
+    jp='再び花が咲く季節に',
+    es='Encuentro en la próxima primavera',
+    rarity='SuperRare',
+    path_name='Elation',
+    character_name='Evanescia',
 )
 On_the_Fall_of_an_Aeon = Cone(
     id=24000,

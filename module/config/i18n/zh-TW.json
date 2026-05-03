@@ -234,7 +234,8 @@
       "stay_there": "停在原處",
       "goto_main": "前往主界面",
       "close_game": "關閉遊戲",
-      "close_emulator": "關閉模擬器"
+      "close_emulator": "關閉模擬器",
+      "done_exit": "完成後退出"
     }
   },
   "Dungeon": {

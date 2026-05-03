@@ -234,7 +234,8 @@
       "stay_there": "Stay There",
       "goto_main": "Goto Main Page",
       "close_game": "Close Game",
-      "close_emulator": "Close Emulator"
+      "close_emulator": "Close Emulator",
+      "done_exit": "Done Exit"
     }
   },
   "Dungeon": {

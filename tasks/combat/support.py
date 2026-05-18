@@ -282,6 +282,7 @@ class CombatSupport(CombatState):
         logger.hr("Combat support search", level=2)
         scroll = self._support_scroll()
         count = 0
+        is_first = Timer(0.3, count=0).start()
         while 1:
             character = SupportCharacter.new(name, self.device.image)
             if character:
@@ -289,6 +290,13 @@ class CombatSupport(CombatState):
                     return True
                 else:
                     # wait selected timeout, retry
+                    continue
+            else:
+                # Character avatar might not be loaded that fast after entering support page
+                # retry within 0.3s
+                if not is_first.reached():
+                    logger.info('No support character at top, waiting')
+                    self.device.screenshot()
                     continue
 
             # no character, scroll

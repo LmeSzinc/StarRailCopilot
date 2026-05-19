@@ -305,7 +305,7 @@ class Dungeon(Combat, DungeonStamina, DungeonEvent):
         # Run double events
         planner = self.planner.get_dungeon(double_calyx=True)
         # Double calyx
-        if self.config.stored.DungeonDouble.calyx > 0:
+        if self.config.stored.DungeonDouble.calyx > 0 and self.config.Dungeon_NameAtDoubleCalyx != 'do_not_use':
             logger.info('Run double calyx')
             dungeon = DungeonList.find(self.config.Dungeon_NameAtDoubleCalyx)
             if planner is not None:
@@ -315,7 +315,7 @@ class Dungeon(Combat, DungeonStamina, DungeonEvent):
             self.dungeon_run(dungeon=dungeon, wave_limit=self.config.stored.DungeonDouble.calyx)
             self.is_doing_planner = False
         # Double relic
-        if self.config.stored.DungeonDouble.relic > 0:
+        if self.config.stored.DungeonDouble.relic > 0 and self.config.Dungeon_NameAtDoubleRelic != 'do_not_use':
             logger.info('Run double relic')
             dungeon = DungeonList.find(self.config.Dungeon_NameAtDoubleRelic)
             self.running_double = True

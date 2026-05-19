@@ -135,8 +135,8 @@
     },
     "Dungeon": {
       "Name": "Calyx_Golden_Treasures_Jarilo_VI",
-      "NameAtDoubleCalyx": "Calyx_Golden_Treasures_Jarilo_VI",
-      "NameAtDoubleRelic": "Cavern_of_Corrosion_Path_of_Providence",
+      "NameAtDoubleCalyx": "do_not_use",
+      "NameAtDoubleRelic": "do_not_use",
       "Team": 1
     },
     "DungeonSupport": {

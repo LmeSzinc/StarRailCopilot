@@ -45,6 +45,10 @@ class DungeonEvent(UI):
         has |= self.image_color_count(area, color=(252, 251, 140), threshold=221, count=50)
         # Anniversary 3x rogue event
         has |= self.image_color_count(area, color=(229, 62, 44), threshold=221, count=50)
+        # 3rd anniversary has blue icon
+        has |= self.image_color_count(area, color=(60, 108, 254), threshold=221, count=50)
+        # gold flashing animation
+        has |= self.image_color_count(area, color=(255, 255, 122), threshold=221, count=50)
         logger.attr('Double calyx', has)
         return has
 

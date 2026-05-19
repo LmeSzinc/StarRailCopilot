@@ -97,16 +97,21 @@ class MailReward(UI):
             if self.handle_reward():
                 continue
 
-    def _is_mail_red_dot(self):
+    def _has_mail_red_dot(self):
         """
         Pages:
             in: page_menu
         """
-        if self.image_color_count(MAIL_RED_DOT, color=(202, 24, 48), count=30, threshold=221):
-            return True
-        # lighter red color when still in blur after closing support reward
-        if self.image_color_count(MAIL_RED_DOT, color=(171, 44, 44), count=30, threshold=221):
-            return True
+        # wait mail red dot because it might still in transparent
+        for _ in self.loop(timeout=1):
+            if self.image_color_count(MAIL_RED_DOT, color=(202, 24, 48), count=30, threshold=221):
+                logger.attr('MailRedDot', True)
+                return True
+            # lighter red color when still in blur after closing support reward
+            if self.image_color_count(MAIL_RED_DOT, color=(171, 44, 44), count=30, threshold=221):
+                logger.attr('MailRedDot', True)
+                return True
+        logger.attr('MailRedDot', False)
         return False
 
     def mail_claim_all(self):
@@ -122,8 +127,7 @@ class MailReward(UI):
         """
         self.ui_ensure(page_menu)
 
-        dot = self._is_mail_red_dot()
-        logger.attr('MailRedDot', dot)
+        dot = self._has_mail_red_dot()
         if not dot:
             return False
 

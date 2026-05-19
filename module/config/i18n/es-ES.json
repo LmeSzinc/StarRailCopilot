@@ -326,6 +326,7 @@
     "NameAtDoubleCalyx": {
       "name": "En los eventos de x2 de Cáliz",
       "help": "Se volverán a los ajustes predeterminados una vez se acaben los intentos del evento",
+      "do_not_use": "No participar en el evento doble",
       "Calyx_Golden_Memories_Planarcadia": "Material: EXP de personaje (Flor de los recuerdos, Planarcadia)",
       "Calyx_Golden_Memories_Amphoreus": "Material: EXP de personaje (Flor de los recuerdos, Amphoreus)",
       "Calyx_Golden_Memories_Penacony": "Material: EXP de personaje (Flor de los recuerdos, Colonipenal)",
@@ -363,6 +364,7 @@
     "NameAtDoubleRelic": {
       "name": "En los eventos de x2 de Caverna de la corrosión",
       "help": "Se volverán a los ajustes predeterminados una vez se acaben los intentos del evento",
+      "do_not_use": "No participar en el evento doble",
       "Cavern_of_Corrosion_Path_of_Possession": "Artefactos: Chica mágica & Adivino (Senda de la adivinación)",
       "Cavern_of_Corrosion_Path_of_Hidden_Salvation": "Artefactos: Salvado & Eremita (Senda de la salvación oculta)",
       "Cavern_of_Corrosion_Path_of_Thundersurge": "Artefactos: Guerrera celestial & Capitán (Senda del estruendo)",

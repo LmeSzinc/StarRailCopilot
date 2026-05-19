@@ -1188,8 +1188,9 @@
       },
       "NameAtDoubleCalyx": {
         "type": "select",
-        "value": "Calyx_Golden_Treasures_Jarilo_VI",
+        "value": "do_not_use",
         "option": [
+          "do_not_use",
           "Calyx_Golden_Memories_Planarcadia",
           "Calyx_Golden_Memories_Amphoreus",
           "Calyx_Golden_Memories_Penacony",
@@ -1227,8 +1228,9 @@
       },
       "NameAtDoubleRelic": {
         "type": "select",
-        "value": "Cavern_of_Corrosion_Path_of_Providence",
+        "value": "do_not_use",
         "option": [
+          "do_not_use",
           "Cavern_of_Corrosion_Path_of_Possession",
           "Cavern_of_Corrosion_Path_of_Hidden_Salvation",
           "Cavern_of_Corrosion_Path_of_Thundersurge",

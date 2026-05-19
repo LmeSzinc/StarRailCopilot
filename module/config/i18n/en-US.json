@@ -326,6 +326,7 @@
     "NameAtDoubleCalyx": {
       "name": "At Double Calyx Event, choose dungeon",
       "help": "Return to the default dungeon settings after double times exhausted",
+      "do_not_use": "Do not participate in double event",
       "Calyx_Golden_Memories_Planarcadia": "Material: Character EXP (Bud of Memories, Planarcadia)",
       "Calyx_Golden_Memories_Amphoreus": "Material: Character EXP (Bud of Memories, Amphoreus)",
       "Calyx_Golden_Memories_Penacony": "Material: Character EXP (Bud of Memories, Penacony)",
@@ -363,6 +364,7 @@
     "NameAtDoubleRelic": {
       "name": "At Double Relic Event, choose dungeon",
       "help": "Return to the default dungeon settings after double times exhausted",
+      "do_not_use": "Do not participate in double event",
       "Cavern_of_Corrosion_Path_of_Possession": "Relics: Magical Girl & Diviner (Path of Possession)",
       "Cavern_of_Corrosion_Path_of_Hidden_Salvation": "Relics: Deliverer & Recluse (Path of Hidden Salvation)",
       "Cavern_of_Corrosion_Path_of_Thundersurge": "Relics: Warrior Goddess & Captain (Path of Thundersurge)",

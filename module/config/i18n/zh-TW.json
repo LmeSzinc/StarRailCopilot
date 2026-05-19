@@ -326,6 +326,7 @@
     "NameAtDoubleCalyx": {
       "name": "有雙倍花活動時，選擇副本",
       "help": "次數耗儘後回退到默認打本設定",
+      "do_not_use": "不參與雙倍活動",
       "Calyx_Golden_Memories_Planarcadia": "材料：角色經驗（回憶之蕾 二相樂園）",
       "Calyx_Golden_Memories_Amphoreus": "材料：角色經驗（回憶之蕾 翁法羅斯）",
       "Calyx_Golden_Memories_Penacony": "材料：角色經驗（回憶之蕾 匹諾康尼）",
@@ -363,6 +364,7 @@
     "NameAtDoubleRelic": {
       "name": "有遺器活動時，選擇副本",
       "help": "次數耗儘後回退到默認打本設定",
+      "do_not_use": "不參與雙倍活動",
       "Cavern_of_Corrosion_Path_of_Possession": "遺器：魔法少女 & 卜者（魔占之徑）",
       "Cavern_of_Corrosion_Path_of_Hidden_Salvation": "遺器：救世主 & 隱士（隱救之徑）",
       "Cavern_of_Corrosion_Path_of_Thundersurge": "遺器：烈陽 & 船長（靂湧之徑）",

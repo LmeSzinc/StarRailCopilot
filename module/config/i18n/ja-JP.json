@@ -326,6 +326,7 @@
     "NameAtDoubleCalyx": {
       "name": "Dungeon.NameAtDoubleCalyx.name",
       "help": "Dungeon.NameAtDoubleCalyx.help",
+      "do_not_use": "2倍イベントに参加しない",
       "Calyx_Golden_Memories_Planarcadia": "素材：役割経験（回憶の蕾 二相楽園）：",
       "Calyx_Golden_Memories_Amphoreus": "素材：役割経験（回憶の蕾 オンパロス）：",
       "Calyx_Golden_Memories_Penacony": "素材：役割経験（回憶の蕾 ピノコニー）：",
@@ -363,6 +364,7 @@
     "NameAtDoubleRelic": {
       "name": "Dungeon.NameAtDoubleRelic.name",
       "help": "Dungeon.NameAtDoubleRelic.help",
+      "do_not_use": "2倍イベントに参加しない",
       "Cavern_of_Corrosion_Path_of_Possession": "遺器：魔法少女 & 卜者（魔占の路）",
       "Cavern_of_Corrosion_Path_of_Hidden_Salvation": "遺器：救世主 & 隠者（隠救の路）",
       "Cavern_of_Corrosion_Path_of_Thundersurge": "遺器：烈陽 & 船長（雷滾の路）",

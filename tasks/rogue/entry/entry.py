@@ -418,10 +418,9 @@ class RogueEntry(RouteBase, RogueRewardHandler, RoguePathHandler, DungeonRogueUI
         self._rogue_world_wait()
 
         if self.match_template_color(REWARD_MESSAGE):
-            logger.info(f'Rogue reward is {REWARD_MESSAGE}, reward full')
-            total = self.config.stored.SimulatedUniverse.total
-            logger.attr('SimulatedUniverse', f'{total}/{total}')
-            self.config.stored.SimulatedUniverse.set(total, total)
+            logger.info(f'Rogue reward is {REWARD_MESSAGE}, delay to tomorrow')
+            self.config.task_delay(server_update=True)
+            self.config.task_stop()
         else:
             # Update rogue points
             if datetime.now() - self.config.stored.SimulatedUniverse.time > timedelta(minutes=2):

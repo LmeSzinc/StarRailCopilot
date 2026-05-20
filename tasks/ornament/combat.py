@@ -184,7 +184,8 @@ class OrnamentCombat(Dungeon, RouteLoader, OrnamentTeam):
             support_character: Support character name
 
         Returns:
-            bool: True
+            bool: True if success to enter combat
+                False if trialblaze power is not enough
 
         Pages:
             in: COMBAT_PREPARE
@@ -196,6 +197,8 @@ class OrnamentCombat(Dungeon, RouteLoader, OrnamentTeam):
         # wait WAVE_SLIDER_OE
         WAVE_CHECK.load_search(WAVE_CHECK_SEARCH)
         for _ in self.loop():
+            if self.is_combat_executing():
+                return True
             if self.match_template_luma(WAVE_CHECK):
                 break
 

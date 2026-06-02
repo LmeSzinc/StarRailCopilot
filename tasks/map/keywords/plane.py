@@ -960,3 +960,14 @@ Planarcadia_SeafeldTVTower = MapPlane(
     world_id=5,
     plane_id=2052101,
 )
+Planarcadia_InkfordHermitage = MapPlane(
+    id=89,
+    name='Planarcadia_InkfordHermitage',
+    cn='渡画泉隐',
+    cht='渡畫泉隱',
+    en='Inkford Hermitage',
+    jp='渡画泉隠',
+    es='Hotel Retiro Pictovado',
+    world_id=5,
+    plane_id=2053101,
+)

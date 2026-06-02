@@ -464,6 +464,17 @@
     "order": 0,
     "color": "#777777"
   },
+  "Item_Sneering_Harlequin": {
+    "name": "Item_Sneering_Harlequin",
+    "path": "Dungeon.Planner.Item_Sneering_Harlequin",
+    "i18n": "Planner.Item_Sneering_Harlequin.name",
+    "stored": "StoredPlanner",
+    "attrs": {
+      "time": "2020-01-01 00:00:00"
+    },
+    "order": 0,
+    "color": "#777777"
+  },
   "Item_Worldbreaker_Blade": {
     "name": "Item_Worldbreaker_Blade",
     "path": "Dungeon.Planner.Item_Worldbreaker_Blade",
@@ -644,6 +655,28 @@
     "name": "Item_Lance_of_Retribution",
     "path": "Dungeon.Planner.Item_Lance_of_Retribution",
     "i18n": "Planner.Item_Lance_of_Retribution.name",
+    "stored": "StoredPlanner",
+    "attrs": {
+      "time": "2020-01-01 00:00:00"
+    },
+    "order": 0,
+    "color": "#777777"
+  },
+  "Item_Omnicolor_Fool_Own": {
+    "name": "Item_Omnicolor_Fool_Own",
+    "path": "Dungeon.Planner.Item_Omnicolor_Fool_Own",
+    "i18n": "Planner.Item_Omnicolor_Fool_Own.name",
+    "stored": "StoredPlanner",
+    "attrs": {
+      "time": "2020-01-01 00:00:00"
+    },
+    "order": 0,
+    "color": "#777777"
+  },
+  "Item_Cosmic_Sandpit": {
+    "name": "Item_Cosmic_Sandpit",
+    "path": "Dungeon.Planner.Item_Cosmic_Sandpit",
+    "i18n": "Planner.Item_Cosmic_Sandpit.name",
     "stored": "StoredPlanner",
     "attrs": {
       "time": "2020-01-01 00:00:00"

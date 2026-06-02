@@ -110,6 +110,9 @@ class GenerateItemWeekly(GenerateItemBase):
     output_file = './tasks/planner/keywords/item_weekly.py'
     purpose_type = [4]
 
+    # Can't farm Tears_of_Rail
+    blacklist = [110610]
+
 
 class GenerateItemCalyx(GenerateItemBase):
     output_file = './tasks/planner/keywords/item_calyx.py'

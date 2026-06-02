@@ -419,6 +419,34 @@
     "jp": "卜者",
     "es": "Adivino"
   },
+  "AsNavigatorIseeSeesIt": {
+    "setid": 131,
+    "dungeon_id": 1216,
+    "cn_origin": "星如我见的领航员",
+    "cht_origin": "星如我見的領航員",
+    "en_origin": "As Navigator Isee Sees It",
+    "jp_origin": "星巡るナビゲーター「シケン」",
+    "es_origin": "Piloto estelar como Yoveo",
+    "cn": "领航员",
+    "cht": "領航員",
+    "en": "Navigator",
+    "jp": "ナビゲーター",
+    "es": "Piloto estelar"
+  },
+  "DivineQueryingMasterSmith": {
+    "setid": 132,
+    "dungeon_id": 1216,
+    "cn_origin": "叩问天工的名冶",
+    "cht_origin": "叩問天工的名冶",
+    "en_origin": "Divine-Querying Master Smith",
+    "jp_origin": "神業を探求する名匠",
+    "es_origin": "Gran forja del interrogante divino",
+    "cn": "名冶",
+    "cht": "名冶",
+    "en": "Master Smith",
+    "jp": "名匠",
+    "es": "Gran forja"
+  },
   "SpaceSealingStation": {
     "setid": 301,
     "dungeon_id": 230,

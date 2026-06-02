@@ -188,6 +188,8 @@ def convert_inner_character_to_keyword(name):
         'Mydeimos': 'Mydei',
         'Harscyline': 'Hysilens',
         'DanHengPT': 'DanHengPermansorTerrae',
+        'Constance': 'TheDahlia',
+        'SilverWolf999': 'SilverWolfLV999',
     }
     return convert_dict.get(name, name)
 

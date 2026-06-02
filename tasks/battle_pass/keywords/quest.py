@@ -55,7 +55,7 @@ Capture_1_creation_in_your_own_or_someone_else_Party_Car = BattlePassQuest(
     cht='在自己或其餘人的派對車廂中，抓住1隻造物',
     en="Capture 1 creation in your own or someone else's Party Car",
     jp='自分または他の人のパーティー車両で、創造物を1匹捕まえる',
-    es='Atrapa 1 creación en tu vagón de fiestas o en el de los demás.',
+    es='Atrapa 1 creación en tu vagón de fiestas o en el de los demás',
 )
 Clear_Stagnant_Shadow_1_times = BattlePassQuest(
     id=7,

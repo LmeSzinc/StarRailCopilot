@@ -1056,6 +1056,19 @@ SilverWolfLV999 = CharacterList(
     relic_setid=129,
     ornament_setid=325,
 )
+MortenaxBlade = CharacterList(
+    id=1507,
+    name='MortenaxBlade',
+    cn='千冶•刃',
+    cht='千冶•刃',
+    en='Mortenax Blade',
+    jp='千冶・刃',
+    es='Mortenax Blade',
+    type_name='Fire',
+    path_name='Nihility',
+    relic_setid=132,
+    ornament_setid=319,
+)
 TrailblazerDestruction = CharacterList(
     id=8002,
     name='TrailblazerDestruction',

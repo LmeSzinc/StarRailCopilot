@@ -246,6 +246,7 @@
     "Name": {
       "name": "Nombre de la Mazmorra",
       "help": "Ajustes predeterminados de las mazmorras",
+      "Cavern_of_Corrosion_Path_of_Insight": "Artefactos: Piloto estelar & Gran forja (Senda de la mirada ardiente)",
       "Cavern_of_Corrosion_Path_of_Possession": "Artefactos: Chica mágica & Adivino (Senda de la adivinación)",
       "Cavern_of_Corrosion_Path_of_Hidden_Salvation": "Artefactos: Salvado & Eremita (Senda de la salvación oculta)",
       "Cavern_of_Corrosion_Path_of_Thundersurge": "Artefactos: Guerrera celestial & Capitán (Senda del estruendo)",
@@ -278,6 +279,7 @@
       "Calyx_Golden_Treasures_Jarilo_VI": "Material: Créditos (Flor de tesoros, Jarilo-VI)",
       "Calyx_Crimson_Destruction_Herta_StorageZone": "Rastros: Destrucción (Zona de almacenamiento)",
       "Calyx_Crimson_Destruction_Luofu_ScalegorgeWaterscape": "Rastros: Destrucción (Desfiladero de Escamas)",
+      "Calyx_Crimson_Destruction_Planarcadia_InkfordHermitage": "Rastros: Destrucción (Hotel Retiro Pictovado)",
       "Calyx_Crimson_Preservation_Herta_SupplyZone": "Rastros: Conservación (Zona de suministros)",
       "Calyx_Crimson_Preservation_Penacony_ClockStudiosThemePark": "Rastros: Conservación (Parque temático de los Estudios Reloj)",
       "Calyx_Crimson_The_Hunt_Jarilo_OutlyingSnowPlains": "Rastros: Cacería (Llanuras nevadas de las afueras)",
@@ -287,6 +289,7 @@
       "Calyx_Crimson_Abundance_Luofu_FyxestrollGarden": "Rastros: Abundancia (Jardín del Sosiego)",
       "Calyx_Crimson_Erudition_Jarilo_RivetTown": "Rastros: Erudición (Villarremache)",
       "Calyx_Crimson_Erudition_Penacony_PenaconyGrandTheater": "Rastros: Erudición (Gran Teatro de Colonipenal)",
+      "Calyx_Crimson_Erudition_Planarcadia_SeafeldTVTower": "Rastros: Erudición (Torre de televisión de Manamar)",
       "Calyx_Crimson_Harmony_Jarilo_RobotSettlement": "Rastros: Armonía (Asentamiento robot)",
       "Calyx_Crimson_Harmony_Penacony_TheReverieDreamscape": "Rastros: Armonía (Hotel Fantasía (paisaje onírico))",
       "Calyx_Crimson_Nihility_Jarilo_GreatMine": "Rastros: Nihilidad (Mina principal)",
@@ -302,7 +305,7 @@
       "Stagnant_Shadow_Scorch": "Ascension: Fuego (Topaz y Conti / Guinaifen / Fugue)",
       "Stagnant_Shadow_Roast": "Ascension: Cuántico (Sparkle / Jade)",
       "Stagnant_Shadow_Ire": "Ascension: Fuego (Jiaoqiu / Lingsha / Gallagher / Luciérnaga)",
-      "Stagnant_Shadow_Ashes": "Ascension: Fuego (La Dalia / Chispa)",
+      "Stagnant_Shadow_Ashes": "Ascension: Fuego (La Dalia / Chispa / Mortenax Blade)",
       "Stagnant_Shadow_Rime": "Ascension: Hielo (Siete de Marzo / Herta / Gepard / Pela)",
       "Stagnant_Shadow_Icicle": "Ascension: Hielo (Yanqing / Jingliu / Ruan Mei)",
       "Stagnant_Shadow_Nectar": "Ascension: Hielo (Misha / Sra. Herta)",
@@ -344,6 +347,7 @@
       "Calyx_Golden_Treasures_Jarilo_VI": "Material: Créditos (Flor de tesoros, Jarilo-VI)",
       "Calyx_Crimson_Destruction_Herta_StorageZone": "Rastros: Destrucción (Zona de almacenamiento)",
       "Calyx_Crimson_Destruction_Luofu_ScalegorgeWaterscape": "Rastros: Destrucción (Desfiladero de Escamas)",
+      "Calyx_Crimson_Destruction_Planarcadia_InkfordHermitage": "Rastros: Destrucción (Hotel Retiro Pictovado)",
       "Calyx_Crimson_Preservation_Herta_SupplyZone": "Rastros: Conservación (Zona de suministros)",
       "Calyx_Crimson_Preservation_Penacony_ClockStudiosThemePark": "Rastros: Conservación (Parque temático de los Estudios Reloj)",
       "Calyx_Crimson_The_Hunt_Jarilo_OutlyingSnowPlains": "Rastros: Cacería (Llanuras nevadas de las afueras)",
@@ -353,6 +357,7 @@
       "Calyx_Crimson_Abundance_Luofu_FyxestrollGarden": "Rastros: Abundancia (Jardín del Sosiego)",
       "Calyx_Crimson_Erudition_Jarilo_RivetTown": "Rastros: Erudición (Villarremache)",
       "Calyx_Crimson_Erudition_Penacony_PenaconyGrandTheater": "Rastros: Erudición (Gran Teatro de Colonipenal)",
+      "Calyx_Crimson_Erudition_Planarcadia_SeafeldTVTower": "Rastros: Erudición (Torre de televisión de Manamar)",
       "Calyx_Crimson_Harmony_Jarilo_RobotSettlement": "Rastros: Armonía (Asentamiento robot)",
       "Calyx_Crimson_Harmony_Penacony_TheReverieDreamscape": "Rastros: Armonía (Hotel Fantasía (paisaje onírico))",
       "Calyx_Crimson_Nihility_Jarilo_GreatMine": "Rastros: Nihilidad (Mina principal)",
@@ -365,6 +370,7 @@
       "name": "En los eventos de x2 de Caverna de la corrosión",
       "help": "Se volverán a los ajustes predeterminados una vez se acaben los intentos del evento",
       "do_not_use": "No participar en el evento doble",
+      "Cavern_of_Corrosion_Path_of_Insight": "Artefactos: Piloto estelar & Gran forja (Senda de la mirada ardiente)",
       "Cavern_of_Corrosion_Path_of_Possession": "Artefactos: Chica mágica & Adivino (Senda de la adivinación)",
       "Cavern_of_Corrosion_Path_of_Hidden_Salvation": "Artefactos: Salvado & Eremita (Senda de la salvación oculta)",
       "Cavern_of_Corrosion_Path_of_Thundersurge": "Artefactos: Guerrera celestial & Capitán (Senda del estruendo)",
@@ -436,6 +442,7 @@
       "name": "Personaje de apoyo",
       "help": "Selecciona un personaje de apoyo del amigo. Si no se encuentra, se seleccionará el primer personaje. Se recomienda marcar a los personajes de amigos.",
       "FirstCharacter": "Primer personaje",
+      "MortenaxBlade": "[4.3] Mortenax Blade",
       "SilverWolfLV999": "[4.2] Silver Wolf Niv. 999",
       "Evanescia": "[4.2] Evanescia",
       "Ashveil": "[4.1] Ashveil",
@@ -710,7 +717,7 @@
       "help": ""
     },
     "Item_Radiant_Prominence": {
-      "name": "Ascension: Fuego (La Dalia / Chispa)",
+      "name": "Ascension: Fuego (La Dalia / Chispa / Mortenax Blade)",
       "help": ""
     },
     "Item_Sea_Siren_Torn_Fin": {
@@ -731,6 +738,10 @@
     },
     "Item_Harbinger_of_Strife": {
       "name": "Ascension: Imaginario (Midei / Silver Wolf Niv. 999)",
+      "help": ""
+    },
+    "Item_Sneering_Harlequin": {
+      "name": "Unknown_Dungeon_Come_From",
       "help": ""
     },
     "Item_Worldbreaker_Blade": {
@@ -799,6 +810,14 @@
     },
     "Item_Lance_of_Retribution": {
       "name": "Rastros: Cacería (Ruinas del Tiempo, Orilla de los Recuerdos Enterrados)",
+      "help": ""
+    },
+    "Item_Omnicolor_Fool_Own": {
+      "name": "Rastros: Destrucción (Hotel Retiro Pictovado)",
+      "help": ""
+    },
+    "Item_Cosmic_Sandpit": {
+      "name": "Rastros: Erudición (Torre de televisión de Manamar)",
       "help": ""
     },
     "Item_Heart_of_Phagousa": {
@@ -903,6 +922,7 @@
       "name": "Character",
       "help": "",
       "_none_": "None",
+      "MortenaxBlade": "[4.3] Mortenax Blade",
       "SilverWolfLV999": "[4.2] Silver Wolf Niv. 999",
       "Evanescia": "[4.2] Evanescia",
       "Ashveil": "[4.1] Ashveil",
@@ -994,6 +1014,7 @@
       "name": "Cone",
       "help": "",
       "_none_": "None",
+      "Reforged_in_Hellfire": "[4.3] Mortenax Blade | 5* Nuevo cuerpo del averno ardiente",
       "Until_the_Flowers_Bloom_Again": "[4.2] Evanescia | 5* Encuentro en la próxima primavera",
       "Welcome_to_the_Cosmic_City": "[4.2] Silver Wolf Niv. 999 | 5* Bienvenidos a la ciudad cósmica",
       "The_Finale_of_a_Lie": "[4.1] Ashveil | 5* El final de una mentira",
@@ -1160,6 +1181,7 @@
       "name": "Artefacto",
       "help": "",
       "_none_": "None",
+      "Cavern_of_Corrosion_Path_of_Insight": "Artefactos: Piloto estelar & Gran forja (Senda de la mirada ardiente)",
       "Cavern_of_Corrosion_Path_of_Possession": "Artefactos: Chica mágica & Adivino (Senda de la adivinación)",
       "Cavern_of_Corrosion_Path_of_Hidden_Salvation": "Artefactos: Salvado & Eremita (Senda de la salvación oculta)",
       "Cavern_of_Corrosion_Path_of_Thundersurge": "Artefactos: Guerrera celestial & Capitán (Senda del estruendo)",

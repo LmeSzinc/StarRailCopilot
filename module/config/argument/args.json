@@ -413,6 +413,12 @@
         "display": "display",
         "stored": "StoredPlanner"
       },
+      "Item_Sneering_Harlequin": {
+        "type": "planner",
+        "value": {},
+        "display": "display",
+        "stored": "StoredPlanner"
+      },
       "Item_Worldbreaker_Blade": {
         "type": "planner",
         "value": {},
@@ -510,6 +516,18 @@
         "stored": "StoredPlanner"
       },
       "Item_Lance_of_Retribution": {
+        "type": "planner",
+        "value": {},
+        "display": "display",
+        "stored": "StoredPlanner"
+      },
+      "Item_Omnicolor_Fool_Own": {
+        "type": "planner",
+        "value": {},
+        "display": "display",
+        "stored": "StoredPlanner"
+      },
+      "Item_Cosmic_Sandpit": {
         "type": "planner",
         "value": {},
         "display": "display",
@@ -663,6 +681,7 @@
         "display": "hide",
         "option": [
           "_none_",
+          "MortenaxBlade",
           "SilverWolfLV999",
           "Evanescia",
           "Ashveil",
@@ -758,6 +777,7 @@
         "display": "hide",
         "option": [
           "_none_",
+          "Reforged_in_Hellfire",
           "Until_the_Flowers_Bloom_Again",
           "Welcome_to_the_Cosmic_City",
           "The_Finale_of_a_Lie",
@@ -928,6 +948,7 @@
         "display": "hide",
         "option": [
           "_none_",
+          "Cavern_of_Corrosion_Path_of_Insight",
           "Cavern_of_Corrosion_Path_of_Possession",
           "Cavern_of_Corrosion_Path_of_Hidden_Salvation",
           "Cavern_of_Corrosion_Path_of_Thundersurge",
@@ -1108,6 +1129,7 @@
         "type": "select",
         "value": "Calyx_Golden_Treasures_Jarilo_VI",
         "option": [
+          "Cavern_of_Corrosion_Path_of_Insight",
           "Cavern_of_Corrosion_Path_of_Possession",
           "Cavern_of_Corrosion_Path_of_Hidden_Salvation",
           "Cavern_of_Corrosion_Path_of_Thundersurge",
@@ -1140,6 +1162,7 @@
           "Calyx_Golden_Treasures_Jarilo_VI",
           "Calyx_Crimson_Destruction_Herta_StorageZone",
           "Calyx_Crimson_Destruction_Luofu_ScalegorgeWaterscape",
+          "Calyx_Crimson_Destruction_Planarcadia_InkfordHermitage",
           "Calyx_Crimson_Preservation_Herta_SupplyZone",
           "Calyx_Crimson_Preservation_Penacony_ClockStudiosThemePark",
           "Calyx_Crimson_The_Hunt_Jarilo_OutlyingSnowPlains",
@@ -1149,6 +1172,7 @@
           "Calyx_Crimson_Abundance_Luofu_FyxestrollGarden",
           "Calyx_Crimson_Erudition_Jarilo_RivetTown",
           "Calyx_Crimson_Erudition_Penacony_PenaconyGrandTheater",
+          "Calyx_Crimson_Erudition_Planarcadia_SeafeldTVTower",
           "Calyx_Crimson_Harmony_Jarilo_RobotSettlement",
           "Calyx_Crimson_Harmony_Penacony_TheReverieDreamscape",
           "Calyx_Crimson_Nihility_Jarilo_GreatMine",
@@ -1208,6 +1232,7 @@
           "Calyx_Golden_Treasures_Jarilo_VI",
           "Calyx_Crimson_Destruction_Herta_StorageZone",
           "Calyx_Crimson_Destruction_Luofu_ScalegorgeWaterscape",
+          "Calyx_Crimson_Destruction_Planarcadia_InkfordHermitage",
           "Calyx_Crimson_Preservation_Herta_SupplyZone",
           "Calyx_Crimson_Preservation_Penacony_ClockStudiosThemePark",
           "Calyx_Crimson_The_Hunt_Jarilo_OutlyingSnowPlains",
@@ -1217,6 +1242,7 @@
           "Calyx_Crimson_Abundance_Luofu_FyxestrollGarden",
           "Calyx_Crimson_Erudition_Jarilo_RivetTown",
           "Calyx_Crimson_Erudition_Penacony_PenaconyGrandTheater",
+          "Calyx_Crimson_Erudition_Planarcadia_SeafeldTVTower",
           "Calyx_Crimson_Harmony_Jarilo_RobotSettlement",
           "Calyx_Crimson_Harmony_Penacony_TheReverieDreamscape",
           "Calyx_Crimson_Nihility_Jarilo_GreatMine",
@@ -1231,6 +1257,7 @@
         "value": "do_not_use",
         "option": [
           "do_not_use",
+          "Cavern_of_Corrosion_Path_of_Insight",
           "Cavern_of_Corrosion_Path_of_Possession",
           "Cavern_of_Corrosion_Path_of_Hidden_Salvation",
           "Cavern_of_Corrosion_Path_of_Thundersurge",
@@ -1281,6 +1308,7 @@
         "value": "FirstCharacter",
         "option": [
           "FirstCharacter",
+          "MortenaxBlade",
           "SilverWolfLV999",
           "Evanescia",
           "Ashveil",
@@ -1559,6 +1587,7 @@
         "value": "FirstCharacter",
         "option": [
           "FirstCharacter",
+          "MortenaxBlade",
           "SilverWolfLV999",
           "Evanescia",
           "Ashveil",
@@ -2167,6 +2196,7 @@
         "value": "FirstCharacter",
         "option": [
           "FirstCharacter",
+          "MortenaxBlade",
           "SilverWolfLV999",
           "Evanescia",
           "Ashveil",

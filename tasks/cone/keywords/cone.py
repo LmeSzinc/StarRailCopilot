@@ -1851,6 +1851,18 @@ Until_the_Flowers_Bloom_Again = Cone(
     path_name='Elation',
     character_name='Evanescia',
 )
+Reforged_in_Hellfire = Cone(
+    id=23059,
+    name='Reforged_in_Hellfire',
+    cn='灼尽炼狱的新骸',
+    cht='灼盡煉獄的新骸',
+    en='Reforged in Hellfire',
+    jp='煉獄に焼かれし新身',
+    es='Nuevo cuerpo del averno ardiente',
+    rarity='SuperRare',
+    path_name='Nihility',
+    character_name='MortenaxBlade',
+)
 On_the_Fall_of_an_Aeon = Cone(
     id=24000,
     name='On_the_Fall_of_an_Aeon',

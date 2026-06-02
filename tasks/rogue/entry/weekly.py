@@ -99,8 +99,9 @@ class RogueRewardHandler(RogueUI):
                 continue
             if self.appear_then_click(DISCARD_FuelVouchers):
                 continue
-            if self.handle_popup_confirm():
-                continue
+            if not self.appear(DISCARD_FuelVouchers):
+                if self.handle_popup_confirm():
+                    continue
             if self.interval_is_reached(CLAIM_ALL, interval=1):
                 if self.image_color_count(CLAIM_ALL, color=(255, 199, 89), threshold=221, count=500):
                     self.device.click(CLAIM_ALL)

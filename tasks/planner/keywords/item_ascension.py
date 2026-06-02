@@ -367,3 +367,16 @@ Harbinger_of_Strife = ItemAscension(
     item_group=1100,
     dungeon_id=1122,
 )
+Sneering_Harlequin = ItemAscension(
+    id=29,
+    name='Sneering_Harlequin',
+    cn='嗤笑丑面',
+    cht='嗤笑醜面',
+    en='Sneering Harlequin',
+    jp='嗤うピエロの面',
+    es='Máscara grotesca de la risita burlona',
+    rarity='VeryRare',
+    item_id=110443,
+    item_group=1100,
+    dungeon_id=1129,
+)

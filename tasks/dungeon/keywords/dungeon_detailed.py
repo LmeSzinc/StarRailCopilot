@@ -240,11 +240,11 @@ Stagnant_Shadow_Sirens = DungeonDetailed(
 Stagnant_Shadow_Ashes = DungeonDetailed(
     id=27,
     name='Stagnant_Shadow_Ashes',
-    cn='晋阶材料：火（大丽花 / 火花）',
-    cht='晉階材料：火（大理花 / 火花）',
-    en='Ascension: Fire (The Dahlia / Sparxie)',
-    jp='昇格素材：炎（ダリア / 火花）',
-    es='Ascension: Fuego (La Dalia / Chispa)',
+    cn='晋阶材料：火（大丽花 / 火花 / 千冶•刃）',
+    cht='晉階材料：火（大理花 / 火花 / 千冶•刃）',
+    en='Ascension: Fire (The Dahlia / Sparxie / Mortenax Blade)',
+    jp='昇格素材：炎（ダリア / 火花 / 千冶・刃）',
+    es='Ascension: Fuego (La Dalia / Chispa / Mortenax Blade)',
 )
 Stagnant_Shadow_Soundburst = DungeonDetailed(
     id=28,

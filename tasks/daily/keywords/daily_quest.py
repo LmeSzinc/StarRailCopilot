@@ -246,3 +246,12 @@ Level_up_any_Relic_1_times = DailyQuest(
     jp='任意の遺物を1回レベルアップする',
     es='Mejora cualquier artefacto 1 vez',
 )
+Use_a_Fuel_Voucher_or_a_Deep_Immersifier = DailyQuest(
+    id=41,
+    name='Use_a_Fuel_Voucher_or_a_Deep_Immersifier',
+    cn='使用1次「助燃券」或「深度沉浸器」',
+    cht='使用1次「助燃券」或「深度沉浸器」',
+    en='Use a "Fuel Voucher" or a "Deep Immersifier"',
+    jp='「点火チケット」または「深層没入器」を1回使用する',
+    es='Usa un cupón de combustible o un inmersor profundo 1 vez',
+)

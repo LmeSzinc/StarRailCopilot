@@ -246,6 +246,7 @@
     "Name": {
       "name": "副本名稱",
       "help": "默認打本設定",
+      "Cavern_of_Corrosion_Path_of_Insight": "遺器：領航員 & 名冶（觀火之徑）",
       "Cavern_of_Corrosion_Path_of_Possession": "遺器：魔法少女 & 卜者（魔占之徑）",
       "Cavern_of_Corrosion_Path_of_Hidden_Salvation": "遺器：救世主 & 隱士（隱救之徑）",
       "Cavern_of_Corrosion_Path_of_Thundersurge": "遺器：烈陽 & 船長（靂湧之徑）",
@@ -278,6 +279,7 @@
       "Calyx_Golden_Treasures_Jarilo_VI": "材料：信用點（藏珍之蕾 雅利洛-Ⅵ）",
       "Calyx_Crimson_Destruction_Herta_StorageZone": "行跡材料：毀滅（收容艙段）",
       "Calyx_Crimson_Destruction_Luofu_ScalegorgeWaterscape": "行跡材料：毀滅（鱗淵境）",
+      "Calyx_Crimson_Destruction_Planarcadia_InkfordHermitage": "行跡材料：毀滅（渡畫泉隱）",
       "Calyx_Crimson_Preservation_Herta_SupplyZone": "行跡材料：存護（支援艙段）",
       "Calyx_Crimson_Preservation_Penacony_ClockStudiosThemePark": "行跡材料：存護（克勞克影視樂園）",
       "Calyx_Crimson_The_Hunt_Jarilo_OutlyingSnowPlains": "行跡材料：巡獵（城郊雪原）",
@@ -287,6 +289,7 @@
       "Calyx_Crimson_Abundance_Luofu_FyxestrollGarden": "行跡材料：豐饒（綏園）",
       "Calyx_Crimson_Erudition_Jarilo_RivetTown": "行跡材料：智識（鉚釘鎮）",
       "Calyx_Crimson_Erudition_Penacony_PenaconyGrandTheater": "行跡材料：智識（匹諾康尼大劇院）",
+      "Calyx_Crimson_Erudition_Planarcadia_SeafeldTVTower": "行跡材料：智識（海原電視塔）",
       "Calyx_Crimson_Harmony_Jarilo_RobotSettlement": "行跡材料：同諧（機械聚落）",
       "Calyx_Crimson_Harmony_Penacony_TheReverieDreamscape": "行跡材料：同諧（白日夢飯店-夢境）",
       "Calyx_Crimson_Nihility_Jarilo_GreatMine": "行跡材料：虛無（大礦區）",
@@ -302,7 +305,7 @@
       "Stagnant_Shadow_Scorch": "晉階材料：火（托帕&帳帳 / 桂乃芬 / 忘歸人）",
       "Stagnant_Shadow_Roast": "晉階材料：量子（花火 / 翡翠）",
       "Stagnant_Shadow_Ire": "晉階材料：火（椒丘 / 靈砂 / 加拉赫 / 流螢）",
-      "Stagnant_Shadow_Ashes": "晉階材料：火（大理花 / 火花）",
+      "Stagnant_Shadow_Ashes": "晉階材料：火（大理花 / 火花 / 千冶•刃）",
       "Stagnant_Shadow_Rime": "晉階材料：冰（三月七 / 黑塔 / 傑帕德 / 佩拉）",
       "Stagnant_Shadow_Icicle": "晉階材料：冰（彥卿 / 鏡流 / 阮•梅）",
       "Stagnant_Shadow_Nectar": "晉階材料：冰（米沙 / 大黑塔）",
@@ -344,6 +347,7 @@
       "Calyx_Golden_Treasures_Jarilo_VI": "材料：信用點（藏珍之蕾 雅利洛-Ⅵ）",
       "Calyx_Crimson_Destruction_Herta_StorageZone": "行跡材料：毀滅（收容艙段）",
       "Calyx_Crimson_Destruction_Luofu_ScalegorgeWaterscape": "行跡材料：毀滅（鱗淵境）",
+      "Calyx_Crimson_Destruction_Planarcadia_InkfordHermitage": "行跡材料：毀滅（渡畫泉隱）",
       "Calyx_Crimson_Preservation_Herta_SupplyZone": "行跡材料：存護（支援艙段）",
       "Calyx_Crimson_Preservation_Penacony_ClockStudiosThemePark": "行跡材料：存護（克勞克影視樂園）",
       "Calyx_Crimson_The_Hunt_Jarilo_OutlyingSnowPlains": "行跡材料：巡獵（城郊雪原）",
@@ -353,6 +357,7 @@
       "Calyx_Crimson_Abundance_Luofu_FyxestrollGarden": "行跡材料：豐饒（綏園）",
       "Calyx_Crimson_Erudition_Jarilo_RivetTown": "行跡材料：智識（鉚釘鎮）",
       "Calyx_Crimson_Erudition_Penacony_PenaconyGrandTheater": "行跡材料：智識（匹諾康尼大劇院）",
+      "Calyx_Crimson_Erudition_Planarcadia_SeafeldTVTower": "行跡材料：智識（海原電視塔）",
       "Calyx_Crimson_Harmony_Jarilo_RobotSettlement": "行跡材料：同諧（機械聚落）",
       "Calyx_Crimson_Harmony_Penacony_TheReverieDreamscape": "行跡材料：同諧（白日夢飯店-夢境）",
       "Calyx_Crimson_Nihility_Jarilo_GreatMine": "行跡材料：虛無（大礦區）",
@@ -365,6 +370,7 @@
       "name": "有遺器活動時，選擇副本",
       "help": "次數耗儘後回退到默認打本設定",
       "do_not_use": "不參與雙倍活動",
+      "Cavern_of_Corrosion_Path_of_Insight": "遺器：領航員 & 名冶（觀火之徑）",
       "Cavern_of_Corrosion_Path_of_Possession": "遺器：魔法少女 & 卜者（魔占之徑）",
       "Cavern_of_Corrosion_Path_of_Hidden_Salvation": "遺器：救世主 & 隱士（隱救之徑）",
       "Cavern_of_Corrosion_Path_of_Thundersurge": "遺器：烈陽 & 船長（靂湧之徑）",
@@ -436,6 +442,7 @@
       "name": "支援角色",
       "help": "選擇好友支援角色，未找到則選擇第一個角色，建議置頂好友角色",
       "FirstCharacter": "支援列表第一個角色",
+      "MortenaxBlade": "[4.3] 千冶•刃",
       "SilverWolfLV999": "[4.2] 銀狼LV.999",
       "Evanescia": "[4.2] 緋英",
       "Ashveil": "[4.1] 不死途",
@@ -710,7 +717,7 @@
       "help": ""
     },
     "Item_Radiant_Prominence": {
-      "name": "晉階材料：火（大理花 / 火花）",
+      "name": "晉階材料：火（大理花 / 火花 / 千冶•刃）",
       "help": ""
     },
     "Item_Sea_Siren_Torn_Fin": {
@@ -731,6 +738,10 @@
     },
     "Item_Harbinger_of_Strife": {
       "name": "晉階材料：虛數（萬敵 / 銀狼LV.999）",
+      "help": ""
+    },
+    "Item_Sneering_Harlequin": {
+      "name": "Unknown_Dungeon_Come_From",
       "help": ""
     },
     "Item_Worldbreaker_Blade": {
@@ -799,6 +810,14 @@
     },
     "Item_Lance_of_Retribution": {
       "name": "行跡材料：巡獵（葬憶彼岸時光歸墟）",
+      "help": ""
+    },
+    "Item_Omnicolor_Fool_Own": {
+      "name": "行跡材料：毀滅（渡畫泉隱）",
+      "help": ""
+    },
+    "Item_Cosmic_Sandpit": {
+      "name": "行跡材料：智識（海原電視塔）",
       "help": ""
     },
     "Item_Heart_of_Phagousa": {
@@ -903,6 +922,7 @@
       "name": "養成角色",
       "help": "",
       "_none_": "無",
+      "MortenaxBlade": "[4.3] 千冶•刃",
       "SilverWolfLV999": "[4.2] 銀狼LV.999",
       "Evanescia": "[4.2] 緋英",
       "Ashveil": "[4.1] 不死途",
@@ -994,6 +1014,7 @@
       "name": "養成光錐",
       "help": "",
       "_none_": "無",
+      "Reforged_in_Hellfire": "[4.3] 千冶•刃 | 5* 灼盡煉獄的新骸",
       "Until_the_Flowers_Bloom_Again": "[4.2] 緋英 | 5* 邂逅於下一個花季",
       "Welcome_to_the_Cosmic_City": "[4.2] 銀狼LV.999 | 5* 歡迎來到銀河城",
       "The_Finale_of_a_Lie": "[4.1] 不死途 | 5* 一場謊言的終幕",
@@ -1160,6 +1181,7 @@
       "name": "養成外圈遺器",
       "help": "",
       "_none_": "無",
+      "Cavern_of_Corrosion_Path_of_Insight": "遺器：領航員 & 名冶（觀火之徑）",
       "Cavern_of_Corrosion_Path_of_Possession": "遺器：魔法少女 & 卜者（魔占之徑）",
       "Cavern_of_Corrosion_Path_of_Hidden_Salvation": "遺器：救世主 & 隱士（隱救之徑）",
       "Cavern_of_Corrosion_Path_of_Thundersurge": "遺器：烈陽 & 船長（靂湧之徑）",

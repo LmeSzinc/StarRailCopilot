@@ -246,6 +246,7 @@
     "Name": {
       "name": "Dungeon Name",
       "help": "Default dungeon setting",
+      "Cavern_of_Corrosion_Path_of_Insight": "Relics: Navigator & Master Smith (Path of Insight)",
       "Cavern_of_Corrosion_Path_of_Possession": "Relics: Magical Girl & Diviner (Path of Possession)",
       "Cavern_of_Corrosion_Path_of_Hidden_Salvation": "Relics: Deliverer & Recluse (Path of Hidden Salvation)",
       "Cavern_of_Corrosion_Path_of_Thundersurge": "Relics: Warrior Goddess & Captain (Path of Thundersurge)",
@@ -278,6 +279,7 @@
       "Calyx_Golden_Treasures_Jarilo_VI": "Material: Credit (Bud of Treasures, Jarilo-VI)",
       "Calyx_Crimson_Destruction_Herta_StorageZone": "Trace: Destruction (Storage Zone)",
       "Calyx_Crimson_Destruction_Luofu_ScalegorgeWaterscape": "Trace: Destruction (Scalegorge Waterscape)",
+      "Calyx_Crimson_Destruction_Planarcadia_InkfordHermitage": "Trace: Destruction (Inkford Hermitage)",
       "Calyx_Crimson_Preservation_Herta_SupplyZone": "Trace: Preservation (Supply Zone)",
       "Calyx_Crimson_Preservation_Penacony_ClockStudiosThemePark": "Trace: Preservation (Clock Studios Theme Park)",
       "Calyx_Crimson_The_Hunt_Jarilo_OutlyingSnowPlains": "Trace: The Hunt (Outlying Snow Plains)",
@@ -287,6 +289,7 @@
       "Calyx_Crimson_Abundance_Luofu_FyxestrollGarden": "Trace: Abundance (Fyxestroll Garden)",
       "Calyx_Crimson_Erudition_Jarilo_RivetTown": "Trace: Erudition (Rivet Town)",
       "Calyx_Crimson_Erudition_Penacony_PenaconyGrandTheater": "Trace: Erudition (Penacony Grand Theater)",
+      "Calyx_Crimson_Erudition_Planarcadia_SeafeldTVTower": "Trace: Erudition (Seafeld TV Tower)",
       "Calyx_Crimson_Harmony_Jarilo_RobotSettlement": "Trace: Harmony (Robot Settlement)",
       "Calyx_Crimson_Harmony_Penacony_TheReverieDreamscape": "Trace: Harmony (The Reverie (Dreamscape))",
       "Calyx_Crimson_Nihility_Jarilo_GreatMine": "Trace: Nihility (Great Mine)",
@@ -302,7 +305,7 @@
       "Stagnant_Shadow_Scorch": "Ascension: Fire (Topaz & Numby / Guinaifen / Fugue)",
       "Stagnant_Shadow_Roast": "Ascension: Quantum (Sparkle / Jade)",
       "Stagnant_Shadow_Ire": "Ascension: Fire (Jiaoqiu / Lingsha / Gallagher / Firefly)",
-      "Stagnant_Shadow_Ashes": "Ascension: Fire (The Dahlia / Sparxie)",
+      "Stagnant_Shadow_Ashes": "Ascension: Fire (The Dahlia / Sparxie / Mortenax Blade)",
       "Stagnant_Shadow_Rime": "Ascension: Ice (March 7th / Herta / Gepard / Pela)",
       "Stagnant_Shadow_Icicle": "Ascension: Ice (Yanqing / Jingliu / Ruan Mei)",
       "Stagnant_Shadow_Nectar": "Ascension: Ice (Misha / The Herta)",
@@ -344,6 +347,7 @@
       "Calyx_Golden_Treasures_Jarilo_VI": "Material: Credit (Bud of Treasures, Jarilo-VI)",
       "Calyx_Crimson_Destruction_Herta_StorageZone": "Trace: Destruction (Storage Zone)",
       "Calyx_Crimson_Destruction_Luofu_ScalegorgeWaterscape": "Trace: Destruction (Scalegorge Waterscape)",
+      "Calyx_Crimson_Destruction_Planarcadia_InkfordHermitage": "Trace: Destruction (Inkford Hermitage)",
       "Calyx_Crimson_Preservation_Herta_SupplyZone": "Trace: Preservation (Supply Zone)",
       "Calyx_Crimson_Preservation_Penacony_ClockStudiosThemePark": "Trace: Preservation (Clock Studios Theme Park)",
       "Calyx_Crimson_The_Hunt_Jarilo_OutlyingSnowPlains": "Trace: The Hunt (Outlying Snow Plains)",
@@ -353,6 +357,7 @@
       "Calyx_Crimson_Abundance_Luofu_FyxestrollGarden": "Trace: Abundance (Fyxestroll Garden)",
       "Calyx_Crimson_Erudition_Jarilo_RivetTown": "Trace: Erudition (Rivet Town)",
       "Calyx_Crimson_Erudition_Penacony_PenaconyGrandTheater": "Trace: Erudition (Penacony Grand Theater)",
+      "Calyx_Crimson_Erudition_Planarcadia_SeafeldTVTower": "Trace: Erudition (Seafeld TV Tower)",
       "Calyx_Crimson_Harmony_Jarilo_RobotSettlement": "Trace: Harmony (Robot Settlement)",
       "Calyx_Crimson_Harmony_Penacony_TheReverieDreamscape": "Trace: Harmony (The Reverie (Dreamscape))",
       "Calyx_Crimson_Nihility_Jarilo_GreatMine": "Trace: Nihility (Great Mine)",
@@ -365,6 +370,7 @@
       "name": "At Double Relic Event, choose dungeon",
       "help": "Return to the default dungeon settings after double times exhausted",
       "do_not_use": "Do not participate in double event",
+      "Cavern_of_Corrosion_Path_of_Insight": "Relics: Navigator & Master Smith (Path of Insight)",
       "Cavern_of_Corrosion_Path_of_Possession": "Relics: Magical Girl & Diviner (Path of Possession)",
       "Cavern_of_Corrosion_Path_of_Hidden_Salvation": "Relics: Deliverer & Recluse (Path of Hidden Salvation)",
       "Cavern_of_Corrosion_Path_of_Thundersurge": "Relics: Warrior Goddess & Captain (Path of Thundersurge)",
@@ -436,6 +442,7 @@
       "name": "Support Character",
       "help": "Select a friend support character. If not found, the first character will be selected. Recommended to pin friend characters.",
       "FirstCharacter": "First Character",
+      "MortenaxBlade": "[4.3] Mortenax Blade",
       "SilverWolfLV999": "[4.2] Silver Wolf LV.999",
       "Evanescia": "[4.2] Evanescia",
       "Ashveil": "[4.1] Ashveil",
@@ -710,7 +717,7 @@
       "help": ""
     },
     "Item_Radiant_Prominence": {
-      "name": "Ascension: Fire (The Dahlia / Sparxie)",
+      "name": "Ascension: Fire (The Dahlia / Sparxie / Mortenax Blade)",
       "help": ""
     },
     "Item_Sea_Siren_Torn_Fin": {
@@ -731,6 +738,10 @@
     },
     "Item_Harbinger_of_Strife": {
       "name": "Ascension: Imaginary (Mydei / Silver Wolf LV.999)",
+      "help": ""
+    },
+    "Item_Sneering_Harlequin": {
+      "name": "Unknown_Dungeon_Come_From",
       "help": ""
     },
     "Item_Worldbreaker_Blade": {
@@ -799,6 +810,14 @@
     },
     "Item_Lance_of_Retribution": {
       "name": "Trace: The Hunt (Memortis Shore Ruins of Time)",
+      "help": ""
+    },
+    "Item_Omnicolor_Fool_Own": {
+      "name": "Trace: Destruction (Inkford Hermitage)",
+      "help": ""
+    },
+    "Item_Cosmic_Sandpit": {
+      "name": "Trace: Erudition (Seafeld TV Tower)",
       "help": ""
     },
     "Item_Heart_of_Phagousa": {
@@ -903,6 +922,7 @@
       "name": "Character",
       "help": "",
       "_none_": "None",
+      "MortenaxBlade": "[4.3] Mortenax Blade",
       "SilverWolfLV999": "[4.2] Silver Wolf LV.999",
       "Evanescia": "[4.2] Evanescia",
       "Ashveil": "[4.1] Ashveil",
@@ -994,6 +1014,7 @@
       "name": "Cone",
       "help": "",
       "_none_": "None",
+      "Reforged_in_Hellfire": "[4.3] Mortenax Blade | 5* Reforged in Hellfire",
       "Until_the_Flowers_Bloom_Again": "[4.2] Evanescia | 5* Until the Flowers Bloom Again",
       "Welcome_to_the_Cosmic_City": "[4.2] Silver Wolf LV.999 | 5* Welcome to the Cosmic City",
       "The_Finale_of_a_Lie": "[4.1] Ashveil | 5* The Finale of a Lie",
@@ -1160,6 +1181,7 @@
       "name": "Relic",
       "help": "",
       "_none_": "None",
+      "Cavern_of_Corrosion_Path_of_Insight": "Relics: Navigator & Master Smith (Path of Insight)",
       "Cavern_of_Corrosion_Path_of_Possession": "Relics: Magical Girl & Diviner (Path of Possession)",
       "Cavern_of_Corrosion_Path_of_Hidden_Salvation": "Relics: Deliverer & Recluse (Path of Hidden Salvation)",
       "Cavern_of_Corrosion_Path_of_Thundersurge": "Relics: Warrior Goddess & Captain (Path of Thundersurge)",

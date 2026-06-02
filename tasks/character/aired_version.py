@@ -96,6 +96,7 @@ dict_aired_version = {
     Ashveil: "4.1",
     SilverWolfLV999: "4.2",
     Evanescia: "4.2",
+    MortenaxBlade: "4.3",
 }
 
 

@@ -203,8 +203,10 @@ class Synthesize(CombatObtain, ItemUI, SynthesizeUI):
         if item is not None:
             try:
                 if item.is_rarity_purple:
+                    logger.attr('SynthesizeRarity', 'purple (OCR)')
                     return 'purple'
                 if item.is_rarity_blue:
+                    logger.attr('SynthesizeRarity', 'blue (OCR)')
                     return 'blue'
             except AttributeError:
                 pass

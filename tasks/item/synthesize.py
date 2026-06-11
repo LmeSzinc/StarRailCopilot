@@ -197,6 +197,20 @@ class Synthesize(CombatObtain, ItemUI, SynthesizeUI):
                 logger.attr('SynthesizeRarity', 'blue (USE3)')
                 return 'blue'
 
+        # try to get from item name
+        ocr = SynthesizeItemName(ITEM_NAME)
+        item = ocr.matched_single_line(self.device.image, keyword_classes=ITEM_CLASSES)
+        if item is not None:
+            try:
+                if item.is_rarity_purple:
+                    logger.attr('SynthesizeRarity', 'purple (OCR)')
+                    return 'purple'
+                if item.is_rarity_blue:
+                    logger.attr('SynthesizeRarity', 'blue (OCR)')
+                    return 'blue'
+            except AttributeError:
+                pass
+
         logger.attr('SynthesizeRarity', None)
         return None
 

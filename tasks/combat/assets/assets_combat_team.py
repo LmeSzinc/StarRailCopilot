@@ -67,6 +67,13 @@ TEAM_1_CHECK = ButtonWrapper(
             color=(196, 181, 175),
             button=(390, 29, 424, 57),
         ),
+        Button(
+            file='./assets/share/combat/team/TEAM_1_CHECK.3.png',
+            area=(389, 24, 425, 57),
+            search=(369, 4, 445, 77),
+            color=(183, 170, 166),
+            button=(389, 24, 425, 57),
+        ),
     ],
 )
 TEAM_2_CHECK = ButtonWrapper(

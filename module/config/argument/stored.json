@@ -794,6 +794,17 @@
     "order": 0,
     "color": "#777777"
   },
+  "Item_High_Hopes_of_the_Falsely_Enlightened": {
+    "name": "Item_High_Hopes_of_the_Falsely_Enlightened",
+    "path": "Dungeon.Planner.Item_High_Hopes_of_the_Falsely_Enlightened",
+    "i18n": "Planner.Item_High_Hopes_of_the_Falsely_Enlightened.name",
+    "stored": "StoredPlanner",
+    "attrs": {
+      "time": "2020-01-01 00:00:00"
+    },
+    "order": 0,
+    "color": "#777777"
+  },
   "Item_Squirming_Core": {
     "name": "Item_Squirming_Core",
     "path": "Dungeon.Planner.Item_Squirming_Core",

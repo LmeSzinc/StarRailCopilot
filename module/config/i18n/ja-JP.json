@@ -305,7 +305,7 @@
       "Stagnant_Shadow_Scorch": "昇格素材：炎（トパーズ&カブ / 桂乃芬 / 帰忘の流離人）",
       "Stagnant_Shadow_Roast": "昇格素材：量子（花火 / ジェイド）",
       "Stagnant_Shadow_Ire": "昇格素材：炎（椒丘 / 霊砂 / ギャラガー / ホタル）",
-      "Stagnant_Shadow_Ashes": "昇格素材：炎（ダリア / 火花 / 千冶・刃）",
+      "Stagnant_Shadow_Ashes": "昇格素材：炎（ダリア / 火花 / 千冶・刃 / 姫子・旅立ち）",
       "Stagnant_Shadow_Rime": "昇格素材：氷（三月なのか / ヘルタ / ジェパード / ペラ）",
       "Stagnant_Shadow_Icicle": "昇格素材：氷（彦卿 / 鏡流 / ルアン・メェイ）",
       "Stagnant_Shadow_Nectar": "昇格素材：氷（ミーシャ / マダム・ヘルタ）",
@@ -313,7 +313,7 @@
       "Stagnant_Shadow_Fulmination": "昇格素材：雷（アーラン / セーバル / 停雲 / 白露）",
       "Stagnant_Shadow_Doom": "昇格素材：雷（カフカ / 景元 / 黄泉）",
       "Stagnant_Shadow_Mechwolf": "昇格素材：雷（モゼ / アグライア）",
-      "Stagnant_Shadow_Soundburst": "昇格素材：雷（不死途）",
+      "Stagnant_Shadow_Soundburst": "昇格素材：雷（不死途 / ギルガメッシュ）",
       "Stagnant_Shadow_Gust": "昇格素材：風（丹恒 / ブローニャ / サンポ）",
       "Stagnant_Shadow_Celestial": "昇格素材：風（刃 / フォフォ / ブラックスワン）",
       "Stagnant_Shadow_Gloam": "昇格素材：風（飛霄 / アナイクス / ヒアンシー / セイバー）",
@@ -321,6 +321,7 @@
       "Stagnant_Shadow_Quanta": "昇格素材：量子（銀狼 / ゼーレ / 青雀）",
       "Stagnant_Shadow_Abomination": "昇格素材：量子（リンクス / 符玄 / 雪衣）",
       "Stagnant_Shadow_Gelidmoon": "昇格素材：量子（トリビー / サフェル / キャストリス / アーチャー）",
+      "Stagnant_Shadow_Devour": "昇格素材：量子（遠坂凛）",
       "Stagnant_Shadow_Mirage": "昇格素材：虚数（ヴェルト / 羅刹 / 御空）",
       "Stagnant_Shadow_Puppetry": "昇格素材：虚数（丹恒・飲月 / アベンチュリン / Dr.レイシオ）",
       "Stagnant_Shadow_Timbre": "昇格素材：虚数（サンデー / 乱破）",
@@ -442,6 +443,9 @@
       "name": "サポートキャラ",
       "help": "フレンドのサポートキャラクターを選択します。見つからない場合は、最初のキャラクターが選択されます。フレンドをピン留めすることをお勧めします。",
       "FirstCharacter": "FirstCharacter",
+      "RinTohsaka": "[4.4] 遠坂凛",
+      "Gilgamesh": "[4.4] ギルガメッシュ",
+      "HimekoNova": "[4.4] 姫子・旅立ち",
       "MortenaxBlade": "[4.3] 千冶・刃",
       "SilverWolfLV999": "[4.2] 銀狼LV.999",
       "Evanescia": "[4.2] 緋英",
@@ -717,7 +721,7 @@
       "help": ""
     },
     "Item_Radiant_Prominence": {
-      "name": "昇格素材：炎（ダリア / 火花 / 千冶・刃）",
+      "name": "昇格素材：炎（ダリア / 火花 / 千冶・刃 / 姫子・旅立ち）",
       "help": ""
     },
     "Item_Sea_Siren_Torn_Fin": {
@@ -725,7 +729,7 @@
       "help": ""
     },
     "Item_Thunder_Strum": {
-      "name": "昇格素材：雷（不死途）",
+      "name": "昇格素材：雷（不死途 / ギルガメッシュ）",
       "help": ""
     },
     "Item_Charred_Bud_of_Twilight": {
@@ -741,7 +745,7 @@
       "help": ""
     },
     "Item_Sneering_Harlequin": {
-      "name": "Unknown_Dungeon_Come_From",
+      "name": "昇格素材：量子（遠坂凛）",
       "help": ""
     },
     "Item_Worldbreaker_Blade": {
@@ -860,6 +864,10 @@
       "name": "鉄骸の錆び塚 (オンパロス)",
       "help": ""
     },
+    "Item_High_Hopes_of_the_Falsely_Enlightened": {
+      "name": "壊滅の喜劇 (二相楽園)",
+      "help": ""
+    },
     "Item_Squirming_Core": {
       "name": "脈動する原核",
       "help": ""
@@ -922,6 +930,9 @@
       "name": "PlannerTarget.Character.name",
       "help": "PlannerTarget.Character.help",
       "_none_": "_none_",
+      "RinTohsaka": "[4.4] 遠坂凛",
+      "Gilgamesh": "[4.4] ギルガメッシュ",
+      "HimekoNova": "[4.4] 姫子・旅立ち",
       "MortenaxBlade": "[4.3] 千冶・刃",
       "SilverWolfLV999": "[4.2] 銀狼LV.999",
       "Evanescia": "[4.2] 緋英",
@@ -1014,6 +1025,7 @@
       "name": "PlannerTarget.Cone.name",
       "help": "PlannerTarget.Cone.help",
       "_none_": "_none_",
+      "A_Star_That_Lights_the_Night": "[4.4] 姫子・旅立ち | 5* 夜を照らす導きの星",
       "Reforged_in_Hellfire": "[4.3] 千冶・刃 | 5* 煉獄に焼かれし新身",
       "Until_the_Flowers_Bloom_Again": "[4.2] 緋英 | 5* 再び花が咲く季節に",
       "Welcome_to_the_Cosmic_City": "[4.2] 銀狼LV.999 | 5* 銀河シティへようこそ",
@@ -1071,6 +1083,8 @@
       "Texture_of_Memories": "5* 記憶の素材",
       "Cruising_in_the_Stellar_Sea": "5* 星海巡航",
       "On_the_Fall_of_an_Aeon": "5* とある星神の殞落を記す",
+      "I_Am_As_You_Behold": "5* 在るがままの我",
+      "Flickering_Stars": "5* 静かに瞬く小さな火",
       "The_Hell_Where_Ideals_Burn": "5* 理想を焼く奈落で",
       "A_Thankless_Coronation": "5* 報われぬ戴冠",
       "Time_Waits_for_No_One": "5* 時節は居らず",
@@ -1202,6 +1216,7 @@
       "name": "PlannerTarget.Ornament.name",
       "help": "PlannerTarget.Ornament.help",
       "_none_": "_none_",
+      "Divergent_Universe_Bugs_Incoming": "飾品：墜星 & 宇宙生命（虫の襲来）",
       "Divergent_Universe_Gilded_Recollection": "飾品：パンクロード & 千の星が集（黄金の追憶）",
       "Divergent_Universe_Within_the_West_Wind": "飾品：オンパロス & 天国（西風の中で）",
       "Divergent_Universe_Moonlit_Blood": "飾品：妖精 & 酩酊（月下朱殷）",
@@ -1324,6 +1339,7 @@
     "Name": {
       "name": "Weekly.Name.name",
       "help": "Weekly.Name.help",
+      "Echo_of_War_The_Comedy_of_Doom": "壊滅の喜劇 (二相楽園)",
       "Echo_of_War_Rusted_Crypt_of_the_Iron_Carcass": "鉄骸の錆び塚 (オンパロス)",
       "Echo_of_War_Glance_of_Twilight": "晨昏の回顧 (オンパロス)",
       "Echo_of_War_Inner_Beast_Battlefield": "心獣の戦場 (仙舟「羅浮」)",
@@ -1695,6 +1711,7 @@
     "Dungeon": {
       "name": "Ornament.Dungeon.name",
       "help": "Ornament.Dungeon.help",
+      "Divergent_Universe_Bugs_Incoming": "飾品：墜星 & 宇宙生命（虫の襲来）",
       "Divergent_Universe_Gilded_Recollection": "飾品：パンクロード & 千の星が集（黄金の追憶）",
       "Divergent_Universe_Within_the_West_Wind": "飾品：オンパロス & 天国（西風の中で）",
       "Divergent_Universe_Moonlit_Blood": "飾品：妖精 & 酩酊（月下朱殷）",

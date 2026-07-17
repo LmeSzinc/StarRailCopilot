@@ -305,7 +305,7 @@
       "Stagnant_Shadow_Scorch": "Ascension: Fire (Topaz & Numby / Guinaifen / Fugue)",
       "Stagnant_Shadow_Roast": "Ascension: Quantum (Sparkle / Jade)",
       "Stagnant_Shadow_Ire": "Ascension: Fire (Jiaoqiu / Lingsha / Gallagher / Firefly)",
-      "Stagnant_Shadow_Ashes": "Ascension: Fire (The Dahlia / Sparxie / Mortenax Blade)",
+      "Stagnant_Shadow_Ashes": "Ascension: Fire (The Dahlia / Sparxie / Mortenax Blade / Himeko • Nova)",
       "Stagnant_Shadow_Rime": "Ascension: Ice (March 7th / Herta / Gepard / Pela)",
       "Stagnant_Shadow_Icicle": "Ascension: Ice (Yanqing / Jingliu / Ruan Mei)",
       "Stagnant_Shadow_Nectar": "Ascension: Ice (Misha / The Herta)",
@@ -313,7 +313,7 @@
       "Stagnant_Shadow_Fulmination": "Ascension: Lightning (Arlan / Serval / Tingyun / Bailu)",
       "Stagnant_Shadow_Doom": "Ascension: Lightning (Kafka / Jing Yuan / Acheron)",
       "Stagnant_Shadow_Mechwolf": "Ascension: Lightning (Moze / Aglaea)",
-      "Stagnant_Shadow_Soundburst": "Ascension: Lightning (Ashveil)",
+      "Stagnant_Shadow_Soundburst": "Ascension: Lightning (Ashveil / Gilgamesh)",
       "Stagnant_Shadow_Gust": "Ascension: Wind (Dan Heng / Bronya / Sampo)",
       "Stagnant_Shadow_Celestial": "Ascension: Wind (Blade / Huohuo / Black Swan)",
       "Stagnant_Shadow_Gloam": "Ascension: Wind (Feixiao / Anaxa / Hyacine / Saber)",
@@ -321,6 +321,7 @@
       "Stagnant_Shadow_Quanta": "Ascension: Quantum (Silver Wolf / Seele / Qingque)",
       "Stagnant_Shadow_Abomination": "Ascension: Quantum (Lynx / Fu Xuan / Xueyi)",
       "Stagnant_Shadow_Gelidmoon": "Ascension: Quantum (Tribbie / Cipher / Castorice / Archer)",
+      "Stagnant_Shadow_Devour": "Ascension: Quantum (Rin Tohsaka)",
       "Stagnant_Shadow_Mirage": "Ascension: Imaginary (Welt / Luocha / Yukong)",
       "Stagnant_Shadow_Puppetry": "Ascension: Imaginary (Dan Heng • Imbibitor Lunae / Aventurine / Dr. Ratio)",
       "Stagnant_Shadow_Timbre": "Ascension: Imaginary (Sunday / Rappa)",
@@ -442,6 +443,9 @@
       "name": "Support Character",
       "help": "Select a friend support character. If not found, the first character will be selected. Recommended to pin friend characters.",
       "FirstCharacter": "First Character",
+      "RinTohsaka": "[4.4] Rin Tohsaka",
+      "Gilgamesh": "[4.4] Gilgamesh",
+      "HimekoNova": "[4.4] Himeko • Nova",
       "MortenaxBlade": "[4.3] Mortenax Blade",
       "SilverWolfLV999": "[4.2] Silver Wolf LV.999",
       "Evanescia": "[4.2] Evanescia",
@@ -717,7 +721,7 @@
       "help": ""
     },
     "Item_Radiant_Prominence": {
-      "name": "Ascension: Fire (The Dahlia / Sparxie / Mortenax Blade)",
+      "name": "Ascension: Fire (The Dahlia / Sparxie / Mortenax Blade / Himeko • Nova)",
       "help": ""
     },
     "Item_Sea_Siren_Torn_Fin": {
@@ -725,7 +729,7 @@
       "help": ""
     },
     "Item_Thunder_Strum": {
-      "name": "Ascension: Lightning (Ashveil)",
+      "name": "Ascension: Lightning (Ashveil / Gilgamesh)",
       "help": ""
     },
     "Item_Charred_Bud_of_Twilight": {
@@ -741,7 +745,7 @@
       "help": ""
     },
     "Item_Sneering_Harlequin": {
-      "name": "Unknown_Dungeon_Come_From",
+      "name": "Ascension: Quantum (Rin Tohsaka)",
       "help": ""
     },
     "Item_Worldbreaker_Blade": {
@@ -860,6 +864,10 @@
       "name": "Rusted Crypt of the Iron Carcass (Amphoreus)",
       "help": ""
     },
+    "Item_High_Hopes_of_the_Falsely_Enlightened": {
+      "name": "The Comedy of Doom (Planarcadia)",
+      "help": ""
+    },
     "Item_Squirming_Core": {
       "name": "Squirming Core",
       "help": ""
@@ -922,6 +930,9 @@
       "name": "Character",
       "help": "",
       "_none_": "None",
+      "RinTohsaka": "[4.4] Rin Tohsaka",
+      "Gilgamesh": "[4.4] Gilgamesh",
+      "HimekoNova": "[4.4] Himeko • Nova",
       "MortenaxBlade": "[4.3] Mortenax Blade",
       "SilverWolfLV999": "[4.2] Silver Wolf LV.999",
       "Evanescia": "[4.2] Evanescia",
@@ -1014,6 +1025,7 @@
       "name": "Cone",
       "help": "",
       "_none_": "None",
+      "A_Star_That_Lights_the_Night": "[4.4] Himeko • Nova | 5* A Star That Lights the Night",
       "Reforged_in_Hellfire": "[4.3] Mortenax Blade | 5* Reforged in Hellfire",
       "Until_the_Flowers_Bloom_Again": "[4.2] Evanescia | 5* Until the Flowers Bloom Again",
       "Welcome_to_the_Cosmic_City": "[4.2] Silver Wolf LV.999 | 5* Welcome to the Cosmic City",
@@ -1071,6 +1083,8 @@
       "Texture_of_Memories": "5* Texture of Memories",
       "Cruising_in_the_Stellar_Sea": "5* Cruising in the Stellar Sea",
       "On_the_Fall_of_an_Aeon": "5* On the Fall of an Aeon",
+      "I_Am_As_You_Behold": "5* I Am As You Behold",
+      "Flickering_Stars": "5* Flickering Stars",
       "The_Hell_Where_Ideals_Burn": "5* The Hell Where Ideals Burn",
       "A_Thankless_Coronation": "5* A Thankless Coronation",
       "Time_Waits_for_No_One": "5* Time Waits for No One",
@@ -1202,6 +1216,7 @@
       "name": "Ornament",
       "help": "",
       "_none_": "None",
+      "Divergent_Universe_Bugs_Incoming": "Ornament: Fallen Star & Cosmic Life (Bugs Incoming)",
       "Divergent_Universe_Gilded_Recollection": "Ornament: Punklorde & Converging Stars (Gilded Recollection)",
       "Divergent_Universe_Within_the_West_Wind": "Ornament: Amphoreus & Tengoku (Within the West Wind)",
       "Divergent_Universe_Moonlit_Blood": "Ornament: Arcadia & Revelry (Moonlit Blood)",
@@ -1324,6 +1339,7 @@
     "Name": {
       "name": "Dungeon Name",
       "help": "",
+      "Echo_of_War_The_Comedy_of_Doom": "The Comedy of Doom (Planarcadia)",
       "Echo_of_War_Rusted_Crypt_of_the_Iron_Carcass": "Rusted Crypt of the Iron Carcass (Amphoreus)",
       "Echo_of_War_Glance_of_Twilight": "Glance of Twilight (Amphoreus)",
       "Echo_of_War_Inner_Beast_Battlefield": "Inner Beast's Battlefield (The Xianzhou Luofu)",
@@ -1695,6 +1711,7 @@
     "Dungeon": {
       "name": "Dungeon Name",
       "help": "",
+      "Divergent_Universe_Bugs_Incoming": "Ornament: Fallen Star & Cosmic Life (Bugs Incoming)",
       "Divergent_Universe_Gilded_Recollection": "Ornament: Punklorde & Converging Stars (Gilded Recollection)",
       "Divergent_Universe_Within_the_West_Wind": "Ornament: Amphoreus & Tengoku (Within the West Wind)",
       "Divergent_Universe_Moonlit_Blood": "Ornament: Arcadia & Revelry (Moonlit Blood)",

@@ -971,3 +971,25 @@ Planarcadia_InkfordHermitage = MapPlane(
     world_id=5,
     plane_id=2053101,
 )
+Planarcadia_DesolateMawDemonhold = MapPlane(
+    id=90,
+    name='Planarcadia_DesolateMawDemonhold',
+    cn='寂灭空飨妖都',
+    cht='寂滅空饗妖都',
+    en="Desolate Maw's Demonhold",
+    jp='獣饗す寂滅の妖都',
+    es='Capital Demoníaca de las Fauces Desoladoras',
+    world_id=5,
+    plane_id=2054101,
+)
+Planarcadia_FallenStarCradle = MapPlane(
+    id=91,
+    name='Planarcadia_FallenStarCradle',
+    cn='坠星的摇篮',
+    cht='墜星的搖籃',
+    en="Fallen Star's Cradle",
+    jp='墜星の揺りかご',
+    es='Cuna de la estrella caída',
+    world_id=5,
+    plane_id=2054201,
+)

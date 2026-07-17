@@ -120,3 +120,16 @@ Vanquished_Flow_Reticence = ItemWeekly(
     item_group=1310,
     dungeon_id=1308,
 )
+High_Hopes_of_the_Falsely_Enlightened = ItemWeekly(
+    id=10,
+    name='High_Hopes_of_the_Falsely_Enlightened',
+    cn='伪觉者的期许',
+    cht='偽覺者的期許',
+    en='High Hopes of the Falsely Enlightened',
+    jp='似非覚者の期待',
+    es='Esperanza del falso iluminado',
+    rarity='VeryRare',
+    item_id=110509,
+    item_group=1310,
+    dungeon_id=1309,
+)

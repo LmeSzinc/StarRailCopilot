@@ -1863,6 +1863,42 @@ Reforged_in_Hellfire = Cone(
     path_name='Nihility',
     character_name='MortenaxBlade',
 )
+A_Star_That_Lights_the_Night = Cone(
+    id=23060,
+    name='A_Star_That_Lights_the_Night',
+    cn='当一颗星照亮夜空',
+    cht='當一顆星照亮夜空',
+    en='A Star That Lights the Night',
+    jp='夜を照らす導きの星',
+    es='Cuando una estrella ilumina la noche',
+    rarity='SuperRare',
+    path_name='Erudition',
+    character_name='HimekoNova',
+)
+Flickering_Stars = Cone(
+    id=23061,
+    name='Flickering_Stars',
+    cn='星火悄然闪耀',
+    cht='星火悄然閃耀',
+    en='Flickering Stars',
+    jp='静かに瞬く小さな火',
+    es='Destelleos silentes',
+    rarity='SuperRare',
+    path_name='Erudition',
+    character_name='',
+)
+I_Am_As_You_Behold = Cone(
+    id=23062,
+    name='I_Am_As_You_Behold',
+    cn='所见即我',
+    cht='所見即我',
+    en='I Am As You Behold',
+    jp='在るがままの我',
+    es='Soy lo que ves',
+    rarity='SuperRare',
+    path_name='Destruction',
+    character_name='',
+)
 On_the_Fall_of_an_Aeon = Cone(
     id=24000,
     name='On_the_Fall_of_an_Aeon',

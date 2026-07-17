@@ -810,5 +810,33 @@
     "en": "Converging Stars",
     "jp": "千の星が集",
     "es": "Las mil estrellas"
+  },
+  "FallenStarAnchorage": {
+    "setid": 327,
+    "dungeon_id": 360,
+    "cn_origin": "坠星启航地",
+    "cht_origin": "墜星啟航地",
+    "en_origin": "Fallen Star Anchorage",
+    "jp_origin": "墜星の出航地",
+    "es_origin": "Punto de partida de la estrella caída",
+    "cn": "坠星",
+    "cht": "墜星",
+    "en": "Fallen Star",
+    "jp": "墜星",
+    "es": "Punto de partida de la estrella caída"
+  },
+  "CosmicLifeSciencesInstitute": {
+    "setid": 328,
+    "dungeon_id": 360,
+    "cn_origin": "寰宇生研院",
+    "cht_origin": "寰宇生研院",
+    "en_origin": "Cosmic Life Sciences Institute",
+    "jp_origin": "宇宙生命科学研究院",
+    "es_origin": "Instituto de Ciencias de la Vida Cósmica",
+    "cn": "寰宇",
+    "cht": "寰宇",
+    "en": "Cosmic Life",
+    "jp": "宇宙生命",
+    "es": "Vida Cósmica"
   }
 }

@@ -131,7 +131,7 @@ Saber = CharacterList(
     type_name='Wind',
     path_name='Destruction',
     relic_setid=126,
-    ornament_setid=306,
+    ornament_setid=328,
 )
 Archer = CharacterList(
     id=1015,
@@ -1068,6 +1068,45 @@ MortenaxBlade = CharacterList(
     path_name='Nihility',
     relic_setid=132,
     ornament_setid=319,
+)
+RinTohsaka = CharacterList(
+    id=1508,
+    name='RinTohsaka',
+    cn='远坂凛',
+    cht='遠坂凜',
+    en='Rin Tohsaka',
+    jp='遠坂凛',
+    es='Rin Tohsaka',
+    type_name='Quantum',
+    path_name='Erudition',
+    relic_setid=108,
+    ornament_setid=324,
+)
+Gilgamesh = CharacterList(
+    id=1509,
+    name='Gilgamesh',
+    cn='吉尔伽美什',
+    cht='吉爾伽美什',
+    en='Gilgamesh',
+    jp='ギルガメッシュ',
+    es='Gilgamesh',
+    type_name='Lightning',
+    path_name='Destruction',
+    relic_setid=122,
+    ornament_setid=328,
+)
+HimekoNova = CharacterList(
+    id=1510,
+    name='HimekoNova',
+    cn='姬子•启行',
+    cht='姬子•啟行',
+    en='Himeko • Nova',
+    jp='姫子・旅立ち',
+    es='Himeko Nova',
+    type_name='Fire',
+    path_name='Erudition',
+    relic_setid=131,
+    ornament_setid=327,
 )
 TrailblazerDestruction = CharacterList(
     id=8002,

@@ -583,3 +583,23 @@ CityofConvergingStars = RelicSet(
     es='Ciudad de las mil estrellas',
     setid=326,
 )
+FallenStarAnchorage = RelicSet(
+    id=59,
+    name='FallenStarAnchorage',
+    cn='坠星启航地',
+    cht='墜星啟航地',
+    en='Fallen Star Anchorage',
+    jp='墜星の出航地',
+    es='Punto de partida de la estrella caída',
+    setid=327,
+)
+CosmicLifeSciencesInstitute = RelicSet(
+    id=60,
+    name='CosmicLifeSciencesInstitute',
+    cn='寰宇生研院',
+    cht='寰宇生研院',
+    en='Cosmic Life Sciences Institute',
+    jp='宇宙生命科学研究院',
+    es='Instituto de Ciencias de la Vida Cósmica',
+    setid=328,
+)

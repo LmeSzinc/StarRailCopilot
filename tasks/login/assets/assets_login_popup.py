@@ -32,6 +32,16 @@ ADVERTISE_Cyrene = ButtonWrapper(
         ),
     ],
 )
+ADVERTISE_HimekoNova = ButtonWrapper(
+    name='ADVERTISE_HimekoNova',
+    share=Button(
+        file='./assets/share/login/popup/ADVERTISE_HimekoNova.png',
+        area=(471, 616, 497, 636),
+        search=(451, 596, 517, 656),
+        color=(151, 84, 51),
+        button=(471, 616, 497, 636),
+    ),
+)
 ADVERTISE_Planarcadia = ButtonWrapper(
     name='ADVERTISE_Planarcadia',
     share=Button(

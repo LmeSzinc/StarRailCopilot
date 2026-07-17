@@ -240,18 +240,27 @@ Stagnant_Shadow_Sirens = DungeonDetailed(
 Stagnant_Shadow_Ashes = DungeonDetailed(
     id=27,
     name='Stagnant_Shadow_Ashes',
-    cn='晋阶材料：火（大丽花 / 火花 / 千冶•刃）',
-    cht='晉階材料：火（大理花 / 火花 / 千冶•刃）',
-    en='Ascension: Fire (The Dahlia / Sparxie / Mortenax Blade)',
-    jp='昇格素材：炎（ダリア / 火花 / 千冶・刃）',
-    es='Ascension: Fuego (La Dalia / Chispa / Mortenax Blade)',
+    cn='晋阶材料：火（大丽花 / 火花 / 千冶•刃 / 姬子•启行）',
+    cht='晉階材料：火（大理花 / 火花 / 千冶•刃 / 姬子•啟行）',
+    en='Ascension: Fire (The Dahlia / Sparxie / Mortenax Blade / Himeko • Nova)',
+    jp='昇格素材：炎（ダリア / 火花 / 千冶・刃 / 姫子・旅立ち）',
+    es='Ascension: Fuego (La Dalia / Chispa / Mortenax Blade / Himeko Nova)',
 )
 Stagnant_Shadow_Soundburst = DungeonDetailed(
     id=28,
     name='Stagnant_Shadow_Soundburst',
-    cn='晋阶材料：雷（不死途）',
-    cht='晉階材料：雷（不死途）',
-    en='Ascension: Lightning (Ashveil)',
-    jp='昇格素材：雷（不死途）',
-    es='Ascension: Rayo (Ashveil)',
+    cn='晋阶材料：雷（不死途 / 吉尔伽美什）',
+    cht='晉階材料：雷（不死途 / 吉爾伽美什）',
+    en='Ascension: Lightning (Ashveil / Gilgamesh)',
+    jp='昇格素材：雷（不死途 / ギルガメッシュ）',
+    es='Ascension: Rayo (Ashveil / Gilgamesh)',
+)
+Stagnant_Shadow_Devour = DungeonDetailed(
+    id=29,
+    name='Stagnant_Shadow_Devour',
+    cn='晋阶材料：量子（远坂凛）',
+    cht='晉階材料：量子（遠坂凜）',
+    en='Ascension: Quantum (Rin Tohsaka)',
+    jp='昇格素材：量子（遠坂凛）',
+    es='Ascension: Cuántico (Rin Tohsaka)',
 )

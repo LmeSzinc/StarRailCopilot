@@ -129,26 +129,31 @@ class Login(LoginAndroidCloud, RogueUI, AgreementHandler, UIDHandler):
         Returns:
             bool: If clicked
         """
+        # 4.4 HimekoNova popup
+        if self.match_template_luma(ADVERTISE_HimekoNova, interval=2):
+            logger.info(f'{ADVERTISE_HimekoNova} -> {CLOSE}')
+            self.device.click(CLOSE)
+            return True
         # 4.2 SilverWolfLV999 popup
-        if self.match_template_luma(ADVERTISE_SilverWolfLV999, interval=2):
-            logger.info(f'{ADVERTISE_SilverWolfLV999} -> {CLOSE}')
-            self.device.click(CLOSE)
-            return True
+        # if self.match_template_luma(ADVERTISE_SilverWolfLV999, interval=2):
+        #     logger.info(f'{ADVERTISE_SilverWolfLV999} -> {CLOSE}')
+        #     self.device.click(CLOSE)
+        #     return True
         # 4.0 ADVERTISE for new world
-        if self.match_template_luma(ADVERTISE_Planarcadia, interval=2):
-            self.device.click(ADVERTISE_Planarcadia)
-            return True
+        # if self.match_template_luma(ADVERTISE_Planarcadia, interval=2):
+        #     self.device.click(ADVERTISE_Planarcadia)
+        #     return True
         # 3.7 ADVERTISE_Cyrene popup
-        if self.match_template_luma(ADVERTISE_Cyrene, interval=2):
-            logger.info(f'{ADVERTISE_Cyrene} -> {CLOSE}')
-            self.device.click(CLOSE)
-            return True
-        if self.match_template_luma(MAIL_Cyrene, interval=2):
-            self.device.click(MAIL_Cyrene)
-            return True
+        # if self.match_template_luma(ADVERTISE_Cyrene, interval=2):
+        #     logger.info(f'{ADVERTISE_Cyrene} -> {CLOSE}')
+        #     self.device.click(CLOSE)
+        #     return True
+        # if self.match_template_luma(MAIL_Cyrene, interval=2):
+        #     self.device.click(MAIL_Cyrene)
+        #     return True
         # 3.2 Castorice popup that advertise you go gacha, but no, close it
-        if self.handle_ui_close(ADVERTISE_Castorice, interval=2):
-            return True
+        # if self.handle_ui_close(ADVERTISE_Castorice, interval=2):
+        #     return True
         # homecoming popup
         if self.handle_ui_close(HOMECOMING_TITLE, interval=2):
             return True

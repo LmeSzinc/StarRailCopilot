@@ -97,6 +97,9 @@ dict_aired_version = {
     SilverWolfLV999: "4.2",
     Evanescia: "4.2",
     MortenaxBlade: "4.3",
+    HimekoNova: "4.4",
+    RinTohsaka: "4.4",
+    Gilgamesh: "4.4",
 }
 
 

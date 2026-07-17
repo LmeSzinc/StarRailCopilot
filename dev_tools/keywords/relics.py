@@ -183,7 +183,62 @@ class GenerateRelicSet(RelicBase):
             data[itemid] = row
         return data
 
+    @cached_property
+    def RogueTournCocoonConfig(self) -> "dict[int, int]":
+        """
+        Build a mapping from setid (relic set ID) to cocoon_id (planar extraction stage ID)
+        using RogueTournCocoonConfig.json.
+
+        RogueTournCocoonConfig defines planar extraction stages in Divergent Universe.
+        Each stage (cocoon) has a DisplayItemList containing RelicSetShowOnly item IDs
+        that identify which planar sets drop from that stage.
+
+        Returns:
+            dict[int, int]: {setid: cocoon_id}
+            e.g. {301: 1001, 302: 1001, 303: 1003, ...}
+        """
+        # 1. Build item_id → setid from RelicSetShowOnly items in ItemConfig
+        item_to_setid = {}
+        for row in SHARE_DATA.ItemConfig:
+            if row.get('ItemSubType', None) != 'RelicSetShowOnly':
+                continue
+            item_id = row.get('ID')
+            cdl = row.get('CustomDataList', [])
+            if item_id and cdl:
+                item_to_setid[item_id] = cdl[0]
+
+        # 2. Build item_id → cocoon_id from RogueTournCocoonConfig
+        item_to_cocoon = {}
+        for row in self.read_file('./ExcelOutput/RogueTournCocoonConfig.json'):
+            cocoon_id = row.get('ID')
+            if not cocoon_id:
+                continue
+            display_items = row.get('DisplayItemList', [])
+            for entry in display_items:
+                item_id = entry.get('ItemID')
+                if item_id and item_id in item_to_setid:
+                    item_to_cocoon[item_id] = cocoon_id
+
+        # 3. Combine: setid → cocoon_id
+        setid_to_cocoon = {}
+        for item_id, cocoon_id in item_to_cocoon.items():
+            setid = item_to_setid.get(item_id)
+            if setid is not None and setid not in setid_to_cocoon:
+                setid_to_cocoon[setid] = cocoon_id
+        return setid_to_cocoon
+
     def relicset_to_dungeonid(self, relicset):
+        if relicset >= 300:
+            # Planar ornaments: look up cocoon_id from RogueTournCocoonConfig,
+            # then convert to Divergent Universe dungeon_id
+            cocoon_id = self.RogueTournCocoonConfig.get(relicset, -1)
+            if cocoon_id <= 0:
+                print(f'Error | no planar extraction stage belongs relicset {relicset}')
+                return -1
+            dungeon_id = 220 + (cocoon_id - 1000) * 10
+            return dungeon_id
+
+        # Cavern relics: find a relic piece of this set, then look up its dungeon drop
         itemid = -1
         for itemid, row in self.RelicConfig.items():
             try:
@@ -218,9 +273,6 @@ class GenerateRelicSet(RelicBase):
             deep_set(new, [name, 'setid'], setid)
             # dungeon_id
             dungeon_id = self.relicset_to_dungeonid(setid)
-            if dungeon_id < 100:
-                # ornament extraction, convert 1, 2, 3 to 230, 240, 250
-                dungeon_id = 220 + dungeon_id * 10
             deep_set(new, [name, 'dungeon_id'], dungeon_id)
             # original name
             for lang in UI_LANGUAGES:

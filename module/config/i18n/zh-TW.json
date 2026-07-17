@@ -305,7 +305,7 @@
       "Stagnant_Shadow_Scorch": "晉階材料：火（托帕&帳帳 / 桂乃芬 / 忘歸人）",
       "Stagnant_Shadow_Roast": "晉階材料：量子（花火 / 翡翠）",
       "Stagnant_Shadow_Ire": "晉階材料：火（椒丘 / 靈砂 / 加拉赫 / 流螢）",
-      "Stagnant_Shadow_Ashes": "晉階材料：火（大理花 / 火花 / 千冶•刃）",
+      "Stagnant_Shadow_Ashes": "晉階材料：火（大理花 / 火花 / 千冶•刃 / 姬子•啟行）",
       "Stagnant_Shadow_Rime": "晉階材料：冰（三月七 / 黑塔 / 傑帕德 / 佩拉）",
       "Stagnant_Shadow_Icicle": "晉階材料：冰（彥卿 / 鏡流 / 阮•梅）",
       "Stagnant_Shadow_Nectar": "晉階材料：冰（米沙 / 大黑塔）",
@@ -313,7 +313,7 @@
       "Stagnant_Shadow_Fulmination": "晉階材料：雷（阿蘭 / 希露瓦 / 停雲 / 白露）",
       "Stagnant_Shadow_Doom": "晉階材料：雷（卡芙卡 / 景元 / 黃泉）",
       "Stagnant_Shadow_Mechwolf": "晉階材料：雷（貊澤 / 阿格萊雅）",
-      "Stagnant_Shadow_Soundburst": "晉階材料：雷（不死途）",
+      "Stagnant_Shadow_Soundburst": "晉階材料：雷（不死途 / 吉爾伽美什）",
       "Stagnant_Shadow_Gust": "晉階材料：風（丹恆 / 布洛妮婭 / 桑博）",
       "Stagnant_Shadow_Celestial": "晉階材料：風（刃 / 藿藿 / 黑天鵝）",
       "Stagnant_Shadow_Gloam": "晉階材料：風（飛霄 / 那刻夏 / 風堇 / Saber）",
@@ -321,6 +321,7 @@
       "Stagnant_Shadow_Quanta": "晉階材料：量子（銀狼 / 希兒 / 青雀）",
       "Stagnant_Shadow_Abomination": "晉階材料：量子（玲可 / 符玄 / 雪衣）",
       "Stagnant_Shadow_Gelidmoon": "晉階材料：量子（緹寶 / 賽飛兒 / 遐蝶 / Archer）",
+      "Stagnant_Shadow_Devour": "晉階材料：量子（遠坂凜）",
       "Stagnant_Shadow_Mirage": "晉階材料：虛數（瓦爾特 / 羅剎 / 馭空）",
       "Stagnant_Shadow_Puppetry": "晉階材料：虛數（丹恆•飲月 / 砂金 / 真理醫生）",
       "Stagnant_Shadow_Timbre": "晉階材料：虛數（星期日 / 亂破）",
@@ -442,6 +443,9 @@
       "name": "支援角色",
       "help": "選擇好友支援角色，未找到則選擇第一個角色，建議置頂好友角色",
       "FirstCharacter": "支援列表第一個角色",
+      "HimekoNova": "[4.4] 姬子•啟行",
+      "RinTohsaka": "[4.4] 遠坂凜",
+      "Gilgamesh": "[4.4] 吉爾伽美什",
       "MortenaxBlade": "[4.3] 千冶•刃",
       "SilverWolfLV999": "[4.2] 銀狼LV.999",
       "Evanescia": "[4.2] 緋英",
@@ -717,7 +721,7 @@
       "help": ""
     },
     "Item_Radiant_Prominence": {
-      "name": "晉階材料：火（大理花 / 火花 / 千冶•刃）",
+      "name": "晉階材料：火（大理花 / 火花 / 千冶•刃 / 姬子•啟行）",
       "help": ""
     },
     "Item_Sea_Siren_Torn_Fin": {
@@ -725,7 +729,7 @@
       "help": ""
     },
     "Item_Thunder_Strum": {
-      "name": "晉階材料：雷（不死途）",
+      "name": "晉階材料：雷（不死途 / 吉爾伽美什）",
       "help": ""
     },
     "Item_Charred_Bud_of_Twilight": {
@@ -741,7 +745,7 @@
       "help": ""
     },
     "Item_Sneering_Harlequin": {
-      "name": "Unknown_Dungeon_Come_From",
+      "name": "晉階材料：量子（遠坂凜）",
       "help": ""
     },
     "Item_Worldbreaker_Blade": {
@@ -860,6 +864,10 @@
       "name": "鐵骸的鏽塚 (翁法羅斯)",
       "help": ""
     },
+    "Item_High_Hopes_of_the_Falsely_Enlightened": {
+      "name": "壞滅的喜劇 (二相樂園)",
+      "help": ""
+    },
     "Item_Squirming_Core": {
       "name": "蠢動原核",
       "help": ""
@@ -922,6 +930,9 @@
       "name": "養成角色",
       "help": "",
       "_none_": "無",
+      "HimekoNova": "[4.4] 姬子•啟行",
+      "RinTohsaka": "[4.4] 遠坂凜",
+      "Gilgamesh": "[4.4] 吉爾伽美什",
       "MortenaxBlade": "[4.3] 千冶•刃",
       "SilverWolfLV999": "[4.2] 銀狼LV.999",
       "Evanescia": "[4.2] 緋英",
@@ -1014,6 +1025,7 @@
       "name": "養成光錐",
       "help": "",
       "_none_": "無",
+      "A_Star_That_Lights_the_Night": "[4.4] 姬子•啟行 | 5* 當一顆星照亮夜空",
       "Reforged_in_Hellfire": "[4.3] 千冶•刃 | 5* 灼盡煉獄的新骸",
       "Until_the_Flowers_Bloom_Again": "[4.2] 緋英 | 5* 邂逅於下一個花季",
       "Welcome_to_the_Cosmic_City": "[4.2] 銀狼LV.999 | 5* 歡迎來到銀河城",
@@ -1071,6 +1083,8 @@
       "Texture_of_Memories": "5* 記憶的質料",
       "Cruising_in_the_Stellar_Sea": "5* 星海巡航",
       "On_the_Fall_of_an_Aeon": "5* 記一位星神的殞落",
+      "I_Am_As_You_Behold": "5* 所見即我",
+      "Flickering_Stars": "5* 星火悄然閃耀",
       "The_Hell_Where_Ideals_Burn": "5* 理想燃燒的地獄",
       "A_Thankless_Coronation": "5* 沒有回報的加冕",
       "Time_Waits_for_No_One": "5* 時節不居",
@@ -1202,6 +1216,7 @@
       "name": "養成內圈遺器",
       "help": "",
       "_none_": "無",
+      "Divergent_Universe_Bugs_Incoming": "飾品：墜星 & 寰宇（蟲蟲來襲）",
       "Divergent_Universe_Gilded_Recollection": "飾品：龐克洛德 & 千星薈萃（鎏金追憶）",
       "Divergent_Universe_Within_the_West_Wind": "飾品：翁法羅斯 & 天國（西風叢中）",
       "Divergent_Universe_Moonlit_Blood": "飾品：妖精 & 沉醉（月下朱殷）",
@@ -1324,6 +1339,7 @@
     "Name": {
       "name": "副本名稱",
       "help": "",
+      "Echo_of_War_The_Comedy_of_Doom": "壞滅的喜劇 (二相樂園)",
       "Echo_of_War_Rusted_Crypt_of_the_Iron_Carcass": "鐵骸的鏽塚 (翁法羅斯)",
       "Echo_of_War_Glance_of_Twilight": "晨昏的回眸 (翁法羅斯)",
       "Echo_of_War_Inner_Beast_Battlefield": "心獸的戰場 (仙舟「羅浮」)",
@@ -1695,6 +1711,7 @@
     "Dungeon": {
       "name": "副本名稱",
       "help": "",
+      "Divergent_Universe_Bugs_Incoming": "飾品：墜星 & 寰宇（蟲蟲來襲）",
       "Divergent_Universe_Gilded_Recollection": "飾品：龐克洛德 & 千星薈萃（鎏金追憶）",
       "Divergent_Universe_Within_the_West_Wind": "飾品：翁法羅斯 & 天國（西風叢中）",
       "Divergent_Universe_Moonlit_Blood": "飾品：妖精 & 沉醉（月下朱殷）",

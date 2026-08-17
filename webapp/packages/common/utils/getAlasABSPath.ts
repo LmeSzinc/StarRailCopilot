@@ -14,7 +14,10 @@ const getAlasABSPath = (
   const sep = path.sep;
   const fg = require('fast-glob');
   let appAbsPath = process.cwd();
-  if (isMacintosh && import.meta.env.PROD) {
+  // `app` is unavailable in preload, but production Electron processes share execPath.
+  if (!isMacintosh && import.meta.env.PROD) {
+    appAbsPath = path.dirname(process.execPath);
+  } else if (isMacintosh && import.meta.env.PROD) {
     appAbsPath = app?.getAppPath() || process.execPath;
   }
 

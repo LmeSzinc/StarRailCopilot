@@ -1,6 +1,7 @@
 import type {CoreService} from '/@/coreService';
+import type {ShutdownCoordinator} from '/@/appShutdown';
 import type {BrowserWindow} from 'electron';
-import {app, ipcMain, nativeTheme} from 'electron';
+import {ipcMain, nativeTheme} from 'electron';
 import {
   ELECTRON_THEME,
   INSTALLER_READY,
@@ -10,7 +11,11 @@ import {
 import {ThemeObj} from '@common/constant/theme';
 import logger from '/@/logger';
 
-export const addIpcMainListener = async (mainWindow: BrowserWindow, coreService: CoreService) => {
+export const addIpcMainListener = async (
+  mainWindow: BrowserWindow,
+  coreService: CoreService,
+  shutdown: ShutdownCoordinator,
+) => {
   // Minimize, maximize, close window.
   ipcMain.on('window-tray', function () {
     mainWindow?.hide();
@@ -22,9 +27,7 @@ export const addIpcMainListener = async (mainWindow: BrowserWindow, coreService:
     mainWindow?.isMaximized() ? mainWindow?.restore() : mainWindow?.maximize();
   });
   ipcMain.on('window-close', function () {
-    coreService?.kill();
-    mainWindow?.close();
-    app.exit(0);
+    void shutdown.request();
   });
 
   ipcMain.on(WINDOW_READY, async function (_, args) {

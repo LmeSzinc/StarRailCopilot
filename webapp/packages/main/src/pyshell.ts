@@ -22,7 +22,7 @@ export class PyShell extends PythonShell {
     return this;
   }
 
-  kill(callback: (...args: any[]) => void): this {
+  kill(callback: (error?: Error) => void): this {
     treeKill(this.childProcess.pid, 'SIGTERM', callback);
     return this;
   }

@@ -181,7 +181,8 @@
       "MuMuPlayer": "MuMu模拟器",
       "MuMuPlayerX": "MuMu模拟器X",
       "MuMuPlayer12": "MuMu模拟器12",
-      "MEmuPlayer": "逍遥模拟器"
+      "MEmuPlayer": "逍遥模拟器",
+      "AndroidAVD": "Android AVD（Linux）"
     },
     "name": {
       "name": "模拟器实例名称",
@@ -190,6 +191,44 @@
     "path": {
       "name": "模拟器安装路径",
       "help": ""
+    }
+  },
+  "LinuxAVD": {
+    "_info": {
+      "name": "Linux AVD 按需启停",
+      "help": "仅在定时任务到期时启动指定 Android AVD，任务队列空闲时关闭。"
+    },
+    "SDKRoot": {
+      "name": "Android SDK 根目录",
+      "help": "可留空；留空时依次使用 ANDROID_SDK_ROOT、ANDROID_HOME 和 PATH。"
+    },
+    "AdbPath": {
+      "name": "ADB 路径",
+      "help": "可选的 adb 可执行文件完整路径。"
+    },
+    "MemoryMB": {
+      "name": "内存（MB）",
+      "help": "模拟器内存范围为 1536–8192 MB，建议先使用 2048 MB。"
+    },
+    "GPU": {
+      "name": "GPU 模式",
+      "help": "host 使用宿主机硬件加速；软件渲染模式仅用于故障诊断。",
+      "host": "host",
+      "auto": "auto",
+      "swiftshader": "swiftshader",
+      "swiftshader_indirect": "swiftshader_indirect"
+    },
+    "Headless": {
+      "name": "无窗口运行",
+      "help": "首次安装和登录时请关闭，完成后可开启以便无人值守运行。"
+    },
+    "StartTimeout": {
+      "name": "启动超时（秒）",
+      "help": "等待进程、ADB、系统启动、Shell 和包管理器就绪的总超时。"
+    },
+    "StopTimeout": {
+      "name": "关闭超时（秒）",
+      "help": "等待 ADB serial 和模拟器进程均消失的宽限时间。"
     }
   },
   "Error": {

@@ -181,7 +181,8 @@
       "MuMuPlayer": "MuMu Player",
       "MuMuPlayerX": "MuMu Player X",
       "MuMuPlayer12": "MuMu Player 12",
-      "MEmuPlayer": "MEmu Player"
+      "MEmuPlayer": "MEmu Player",
+      "AndroidAVD": "Android AVD (Linux)"
     },
     "name": {
       "name": "Emulator Instance Name",
@@ -190,6 +191,44 @@
     "path": {
       "name": "Emulator Installation Path",
       "help": ""
+    }
+  },
+  "LinuxAVD": {
+    "_info": {
+      "name": "Linux AVD Lifecycle",
+      "help": "Start the configured Android AVD only when a scheduled task is due, and stop it while idle."
+    },
+    "SDKRoot": {
+      "name": "Android SDK Root",
+      "help": "Optional SDK root. ANDROID_SDK_ROOT, ANDROID_HOME, and PATH are used when empty."
+    },
+    "AdbPath": {
+      "name": "ADB Path",
+      "help": "Optional full path to adb."
+    },
+    "MemoryMB": {
+      "name": "Memory (MB)",
+      "help": "Emulator RAM, from 1536 to 8192 MB. Start with 2048 MB."
+    },
+    "GPU": {
+      "name": "GPU Mode",
+      "help": "Use host for hardware acceleration; software modes are diagnostic fallbacks.",
+      "host": "host",
+      "auto": "auto",
+      "swiftshader": "swiftshader",
+      "swiftshader_indirect": "swiftshader_indirect"
+    },
+    "Headless": {
+      "name": "Headless",
+      "help": "Disable for the first visible setup and login, then enable for unattended use."
+    },
+    "StartTimeout": {
+      "name": "Startup Timeout (seconds)",
+      "help": "Overall timeout for process, ADB, Android boot, shell, and package-manager readiness."
+    },
+    "StopTimeout": {
+      "name": "Shutdown Timeout (seconds)",
+      "help": "Grace period while waiting for both ADB and the emulator process to disappear."
     }
   },
   "Error": {

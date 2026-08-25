@@ -15,6 +15,15 @@
       "name": null,
       "path": null
     },
+    "LinuxAVD": {
+      "SDKRoot": null,
+      "AdbPath": null,
+      "MemoryMB": 2048,
+      "GPU": "host",
+      "Headless": true,
+      "StartTimeout": 300,
+      "StopTimeout": 60
+    },
     "Error": {
       "Restart": "game",
       "SaveError": true,

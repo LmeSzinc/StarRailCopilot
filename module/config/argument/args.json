@@ -91,7 +91,8 @@
           "MuMuPlayer",
           "MuMuPlayerX",
           "MuMuPlayer12",
-          "MEmuPlayer"
+          "MEmuPlayer",
+          "AndroidAVD"
         ]
       },
       "name": {
@@ -101,6 +102,42 @@
       "path": {
         "type": "textarea",
         "value": null
+      }
+    },
+    "LinuxAVD": {
+      "SDKRoot": {
+        "type": "textarea",
+        "value": null
+      },
+      "AdbPath": {
+        "type": "textarea",
+        "value": null
+      },
+      "MemoryMB": {
+        "type": "input",
+        "value": 2048
+      },
+      "GPU": {
+        "type": "select",
+        "value": "host",
+        "option": [
+          "host",
+          "auto",
+          "swiftshader",
+          "swiftshader_indirect"
+        ]
+      },
+      "Headless": {
+        "type": "checkbox",
+        "value": true
+      },
+      "StartTimeout": {
+        "type": "input",
+        "value": 300
+      },
+      "StopTimeout": {
+        "type": "input",
+        "value": 60
       }
     },
     "Error": {

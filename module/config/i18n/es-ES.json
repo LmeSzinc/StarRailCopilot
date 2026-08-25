@@ -181,7 +181,8 @@
       "MuMuPlayer": "MuMu Player",
       "MuMuPlayerX": "MuMu Player X",
       "MuMuPlayer12": "MuMu Player 12",
-      "MEmuPlayer": "MEmu Player"
+      "MEmuPlayer": "MEmu Player",
+      "AndroidAVD": "Android AVD (Linux)"
     },
     "name": {
       "name": "Nombre de la instancia del emulador",
@@ -190,6 +191,44 @@
     "path": {
       "name": "Ruta de instalación del emulador",
       "help": ""
+    }
+  },
+  "LinuxAVD": {
+    "_info": {
+      "name": "Ciclo de vida de Linux AVD",
+      "help": "Inicia el Android AVD solo cuando vence una tarea programada y lo detiene durante la espera."
+    },
+    "SDKRoot": {
+      "name": "Raíz de Android SDK",
+      "help": "Opcional. Si está vacío se usan ANDROID_SDK_ROOT, ANDROID_HOME y PATH."
+    },
+    "AdbPath": {
+      "name": "Ruta de ADB",
+      "help": "Ruta completa opcional al ejecutable adb."
+    },
+    "MemoryMB": {
+      "name": "Memoria (MB)",
+      "help": "RAM del emulador, entre 1536 y 8192 MB. Empieza con 2048 MB."
+    },
+    "GPU": {
+      "name": "Modo de GPU",
+      "help": "host usa aceleración de hardware; los modos de software son para diagnóstico.",
+      "host": "host",
+      "auto": "auto",
+      "swiftshader": "swiftshader",
+      "swiftshader_indirect": "swiftshader_indirect"
+    },
+    "Headless": {
+      "name": "Sin ventana",
+      "help": "Desactívalo para la instalación y acceso inicial; actívalo para uso desatendido."
+    },
+    "StartTimeout": {
+      "name": "Tiempo límite de inicio (s)",
+      "help": "Límite total para proceso, ADB, Android, shell y gestor de paquetes."
+    },
+    "StopTimeout": {
+      "name": "Tiempo límite de apagado (s)",
+      "help": "Espera hasta que desaparezcan tanto el serial ADB como el proceso del emulador."
     }
   },
   "Error": {

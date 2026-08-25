@@ -71,6 +71,17 @@ class Device(Screenshot, Control, AppControl):
     stuck_timer = Timer(60, count=60).start()
 
     def __init__(self, *args, **kwargs):
+        try:
+            self._initialize(*args, **kwargs)
+        except BaseException:
+            if not IS_WINDOWS and getattr(self, 'linux_avd_managed', False):
+                try:
+                    self.emulator_stop()
+                except Exception as cleanup_error:
+                    logger.warning(f'Failed to clean Linux AVD after Device initialization error: {cleanup_error}')
+            raise
+
+    def _initialize(self, *args, **kwargs):
         for trial in range(4):
             try:
                 super().__init__(*args, **kwargs)

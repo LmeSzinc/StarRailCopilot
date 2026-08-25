@@ -8,6 +8,7 @@ from typing import Dict, List, Union
 import inflection
 from rich.console import Console, ConsoleRenderable
 
+from module.device.env import IS_LINUX
 from module.logger import logger, set_file_logger, set_func_logger
 from module.webui.fake import get_config_mod, mod_instance
 from module.webui.setting import State
@@ -63,7 +64,16 @@ class ProcessManager:
 
         with lock:
             if self.alive:
-                self._process.kill()
+                if IS_LINUX:
+                    self._process.terminate()
+                    self._process.join(timeout=15)
+                    if self._process.is_alive():
+                        logger.warning(
+                            f'[{self.config_name}] did not exit after SIGTERM cleanup grace, force kill'
+                        )
+                        self._process.kill()
+                else:
+                    self._process.kill()
                 self.renderables.append(
                     f"[{self.config_name}] exited. Reason: Manual stop\n"
                 )

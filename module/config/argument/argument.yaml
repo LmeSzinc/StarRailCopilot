@@ -66,6 +66,7 @@ EmulatorInfo:
       MuMuPlayerX,
       MuMuPlayer12,
       MEmuPlayer,
+      AndroidAVD,
     ]
   name:
     value: null
@@ -73,6 +74,20 @@ EmulatorInfo:
   path:
     value: null
     type: textarea
+LinuxAVD:
+  SDKRoot:
+    value: null
+    type: textarea
+  AdbPath:
+    value: null
+    type: textarea
+  MemoryMB: 2048
+  GPU:
+    value: host
+    option: [ host, auto, swiftshader, swiftshader_indirect ]
+  Headless: true
+  StartTimeout: 300
+  StopTimeout: 60
 Error:
   Restart:
     value: game

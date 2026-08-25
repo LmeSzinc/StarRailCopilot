@@ -11,6 +11,7 @@ Alas:
     Alas:
       - Emulator
       - EmulatorInfo
+      - LinuxAVD
       - Error
       - Optimization
     Restart:

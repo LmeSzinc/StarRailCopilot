@@ -1,6 +1,7 @@
 import threading
 from multiprocessing import Event, Process
 
+from module.device.env import IS_LINUX
 from module.logger import logger
 from module.webui.setting import State
 
@@ -85,25 +86,81 @@ def func(ev: threading.Event):
         uvicorn.run("module.webui.app:app", host=host, port=port, factory=True)
 
 
+def supervise_web_process(
+        process_factory=None,
+        event_factory=Event,
+        wait_interval=1,
+):
+    """Keep the Linux Web child alive after an unexpected worker exit.
+
+    Args:
+        process_factory: Optional callable creating a child process.
+        event_factory: Optional callable creating the reload event.
+        wait_interval (float): Seconds between child state checks.
+    """
+    if process_factory is None:
+        process_factory = lambda event: Process(target=func, args=(event,))
+
+    should_exit = False
+    while not should_exit:
+        event = event_factory()
+        process = process_factory(event)
+        process.start()
+        while not should_exit:
+            try:
+                reload_requested = event.wait(wait_interval)
+            except KeyboardInterrupt:
+                should_exit = True
+                if IS_LINUX:
+                    _stop_web_process(process)
+                break
+            if reload_requested:
+                process.kill()
+                break
+            if process.is_alive():
+                continue
+            if not IS_LINUX:
+                should_exit = True
+                break
+            logger.warning(
+                f'Web server process exited unexpectedly with code '
+                f'{getattr(process, "exitcode", None)}; restarting'
+            )
+            break
+        if not should_exit:
+            process.join()
+
+
+def _stop_web_process(process, grace=None):
+    """Stop a Web child without leaving it behind on parent shutdown.
+
+    Args:
+        process: Multiprocessing child process to terminate.
+        grace (float): Seconds to wait for graceful cleanup before killing it.
+    """
+    if grace is None:
+        grace = 90 if IS_LINUX else 5
+    try:
+        process.terminate()
+    except (OSError, RuntimeError):
+        pass
+    try:
+        process.join(timeout=grace)
+    except (OSError, RuntimeError):
+        pass
+    if process.is_alive():
+        try:
+            process.kill()
+        except (OSError, RuntimeError):
+            pass
+        try:
+            process.join(timeout=5)
+        except (OSError, RuntimeError):
+            pass
+
+
 if __name__ == "__main__":
     if State.deploy_config.EnableReload:
-        should_exit = False
-        while not should_exit:
-            event = Event()
-            process = Process(target=func, args=(event,))
-            process.start()
-            while not should_exit:
-                try:
-                    b = event.wait(1)
-                except KeyboardInterrupt:
-                    should_exit = True
-                    break
-                if b:
-                    process.kill()
-                    break
-                elif process.is_alive():
-                    continue
-                else:
-                    should_exit = True
+        supervise_web_process()
     else:
         func(None)

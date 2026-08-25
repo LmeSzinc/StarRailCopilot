@@ -181,7 +181,8 @@
       "MuMuPlayer": "MuMuPlayer",
       "MuMuPlayerX": "MuMuPlayerX",
       "MuMuPlayer12": "MuMuPlayer12",
-      "MEmuPlayer": "MEmuPlayer"
+      "MEmuPlayer": "MEmuPlayer",
+      "AndroidAVD": "Android AVD (Linux)"
     },
     "name": {
       "name": "EmulatorInfo.name.name",
@@ -190,6 +191,44 @@
     "path": {
       "name": "EmulatorInfo.path.name",
       "help": "EmulatorInfo.path.help"
+    }
+  },
+  "LinuxAVD": {
+    "_info": {
+      "name": "Linux AVD オンデマンド起動",
+      "help": "スケジュール済みタスクの期限時のみ Android AVD を起動し、待機中は停止します。"
+    },
+    "SDKRoot": {
+      "name": "Android SDK ルート",
+      "help": "空の場合は ANDROID_SDK_ROOT、ANDROID_HOME、PATH の順に使用します。"
+    },
+    "AdbPath": {
+      "name": "ADB パス",
+      "help": "adb 実行ファイルのフルパス（任意）。"
+    },
+    "MemoryMB": {
+      "name": "メモリ (MB)",
+      "help": "1536～8192 MB。まず 2048 MB を推奨します。"
+    },
+    "GPU": {
+      "name": "GPU モード",
+      "help": "host はハードウェアアクセラレーションを使用します。ソフトウェア描画は診断用です。",
+      "host": "host",
+      "auto": "auto",
+      "swiftshader": "swiftshader",
+      "swiftshader_indirect": "swiftshader_indirect"
+    },
+    "Headless": {
+      "name": "ヘッドレス",
+      "help": "初回セットアップとログイン時は無効にし、無人運転時に有効にします。"
+    },
+    "StartTimeout": {
+      "name": "起動タイムアウト（秒）",
+      "help": "プロセス、ADB、Android、Shell、パッケージマネージャー起動待ちの総時間です。"
+    },
+    "StopTimeout": {
+      "name": "停止タイムアウト（秒）",
+      "help": "ADB serial とエミュレータープロセスの両方が消えるまでの猶予時間です。"
     }
   },
   "Error": {

@@ -26,9 +26,18 @@ class GeneratedConfig:
     Emulator_AdbRestart = False
 
     # Group `EmulatorInfo`
-    EmulatorInfo_Emulator = 'auto'  # auto, NoxPlayer, NoxPlayer64, BlueStacks4, BlueStacks5, BlueStacks4HyperV, BlueStacks5HyperV, LDPlayer3, LDPlayer4, LDPlayer9, LDPlayer14, MuMuPlayer, MuMuPlayerX, MuMuPlayer12, MEmuPlayer
+    EmulatorInfo_Emulator = 'auto'  # auto, NoxPlayer, NoxPlayer64, BlueStacks4, BlueStacks5, BlueStacks4HyperV, BlueStacks5HyperV, LDPlayer3, LDPlayer4, LDPlayer9, LDPlayer14, MuMuPlayer, MuMuPlayerX, MuMuPlayer12, MEmuPlayer, AndroidAVD
     EmulatorInfo_name = None
     EmulatorInfo_path = None
+
+    # Group `LinuxAVD`
+    LinuxAVD_SDKRoot = None
+    LinuxAVD_AdbPath = None
+    LinuxAVD_MemoryMB = 2048
+    LinuxAVD_GPU = 'host'  # host, auto, swiftshader, swiftshader_indirect
+    LinuxAVD_Headless = True
+    LinuxAVD_StartTimeout = 300
+    LinuxAVD_StopTimeout = 60
 
     # Group `Error`
     Error_Restart = 'game'  # game, game_emulator

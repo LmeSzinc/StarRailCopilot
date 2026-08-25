@@ -1,4 +1,5 @@
 import argparse
+import copy
 import queue
 import threading
 import time
@@ -50,6 +51,7 @@ from module.config.utils import (
     filepath_config,
     read_file,
 )
+from module.device.env import IS_LINUX
 from module.logger import logger
 from module.webui.base import Frame
 from module.webui.fake import (
@@ -94,6 +96,32 @@ patch_mimetype()
 fix_py37_subprocess_communicate()
 task_handler = TaskHandler()
 
+ANDROID_AVD = 'AndroidAVD'
+LINUX_AVD_GROUP = 'LinuxAVD'
+LINUX_AVD_EMULATOR_PATH = 'Alas.EmulatorInfo.Emulator'
+
+
+def filter_platform_args(arguments, is_linux):
+    """Remove Linux-only GUI choices on unsupported host platforms.
+
+    Args:
+        arguments (dict): Generated GUI argument definitions.
+        is_linux (bool): Whether the Web UI is running on Linux.
+
+    Returns:
+        dict: An isolated argument tree suitable for the current platform.
+    """
+    if is_linux:
+        return arguments
+
+    filtered = copy.deepcopy(arguments)
+    alas = filtered.get('Alas', {})
+    alas.pop(LINUX_AVD_GROUP, None)
+    options = deep_get(alas, 'EmulatorInfo.Emulator.option', default=[])
+    if isinstance(options, list):
+        options[:] = [option for option in options if option != ANDROID_AVD]
+    return filtered
+
 
 class AlasGUI(Frame):
     ALAS_MENU: Dict[str, Dict[str, List[str]]]
@@ -103,7 +131,10 @@ class AlasGUI(Frame):
 
     def initial(self) -> None:
         self.ALAS_MENU = read_file(filepath_args("menu", self.alas_mod))
-        self.ALAS_ARGS = read_file(filepath_args("args", self.alas_mod))
+        self.ALAS_ARGS = filter_platform_args(
+            read_file(filepath_args("args", self.alas_mod)),
+            is_linux=IS_LINUX,
+        )
         self.ALAS_STORED = read_file(filepath_args("stored", self.alas_mod))
         self._init_alas_config_watcher()
 
@@ -300,6 +331,13 @@ class AlasGUI(Frame):
         for group, arg_dict in deep_iter(self.ALAS_ARGS[task], depth=1):
             if self.set_group(group, arg_dict, config, task):
                 self.set_navigator(group)
+        if task == 'Alas':
+            emulator = deep_get(
+                config,
+                'Alas.EmulatorInfo.Emulator',
+                default='auto',
+            )
+            self._set_linux_avd_visibility(emulator)
 
     @use_scope("groups")
     def set_group(self, group, arg_dict, config, task):
@@ -379,11 +417,30 @@ class AlasGUI(Frame):
                 + $("#pywebio-scope-groups").scrollTop() - 59
             )
         """
-        put_button(
+        button = put_button(
             label=t(f"{group[0]}._info.name"),
             onclick=lambda: run_js(js),
             color="navigator",
         )
+        if group[0] == LINUX_AVD_GROUP:
+            put_scope(f"navigator_{group[0]}", button)
+        else:
+            button.show()
+
+    @staticmethod
+    def _set_linux_avd_visibility(emulator):
+        """Show Linux AVD settings only while AndroidAVD is selected.
+
+        Args:
+            emulator (str): Current EmulatorInfo.Emulator value.
+        """
+        if not IS_LINUX:
+            return
+        visible = 'true' if emulator == ANDROID_AVD else 'false'
+        run_js(f"""
+            $("#pywebio-scope-group_{LINUX_AVD_GROUP}").toggle({visible});
+            $("#pywebio-scope-navigator_{LINUX_AVD_GROUP}").toggle({visible});
+        """)
 
     def set_dashboard(self, arg, arg_dict, config):
         i18n = arg_dict.get('i18n')
@@ -511,14 +568,23 @@ class AlasGUI(Frame):
         self.task_handler.add(log.put_log(self.alas), 0.25, True)
 
     def _init_alas_config_watcher(self) -> None:
-        def put_queue(path, value):
-            self.modified_config_queue.put({"name": path, "value": value})
-
         for path in get_alas_config_listen_path(self.ALAS_ARGS):
             pin_on_change(
-                name="_".join(path), onchange=partial(put_queue, ".".join(path))
+                name="_".join(path),
+                onchange=partial(self._queue_alas_config_change, ".".join(path)),
             )
         logger.info("Init config watcher done.")
+
+    def _queue_alas_config_change(self, path, value):
+        """Queue a config write and apply dependent GUI visibility immediately.
+
+        Args:
+            path (str): Dot-separated configuration path.
+            value: New pin value.
+        """
+        self.modified_config_queue.put({"name": path, "value": value})
+        if path == LINUX_AVD_EMULATOR_PATH:
+            self._set_linux_avd_visibility(value)
 
     def _alas_thread_update_config(self) -> None:
         modified = {}

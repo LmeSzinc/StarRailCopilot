@@ -3,7 +3,7 @@ import itertools
 
 from lxml import etree
 
-from module.device.env import IS_WINDOWS
+from module.device.env import IS_LINUX, IS_WINDOWS
 # Patch pkg_resources before importing adbutils and uiautomator2
 from module.device.pkg_resources import get_distribution
 
@@ -71,6 +71,22 @@ class Device(Screenshot, Control, AppControl):
     stuck_timer = Timer(60, count=60).start()
 
     def __init__(self, *args, **kwargs):
+        """Initialize the device and clean up a partially started Linux AVD."""
+        config = kwargs.get('config', args[0] if args else None)
+        if not IS_LINUX and str(getattr(config, 'EmulatorInfo_Emulator', '')).strip() == 'AndroidAVD':
+            logger.critical('AndroidAVD is supported only on Linux')
+            raise RequestHumanTakeover
+        try:
+            self._initialize(*args, **kwargs)
+        except BaseException:
+            if IS_LINUX and getattr(self, 'linux_avd_managed', False):
+                try:
+                    self.emulator_stop()
+                except BaseException as cleanup_error:
+                    logger.warning(f'Failed to clean Linux AVD after Device initialization error: {cleanup_error}')
+            raise
+
+    def _initialize(self, *args, **kwargs):
         for trial in range(4):
             try:
                 super().__init__(*args, **kwargs)

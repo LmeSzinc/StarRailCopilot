@@ -138,6 +138,7 @@ class LinuxAVDSettings:
             str(self.memory_mb),
             '-gpu',
             self.gpu,
+            '-no-metrics',
         ]
         if self.headless:
             command.extend(['-no-window', '-no-audio'])

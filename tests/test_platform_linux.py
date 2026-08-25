@@ -50,6 +50,7 @@ class LinuxAVDSettingsTest(unittest.TestCase):
                 '2048',
                 '-gpu',
                 'host',
+                '-no-metrics',
                 '-no-window',
                 '-no-audio',
             ],

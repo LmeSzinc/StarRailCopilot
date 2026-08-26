@@ -1974,12 +1974,12 @@ Move_the_universe_sandbox = RogueEventOption(
     jp='この箱庭宇宙を移動させる',
     es='Mueve la caja de arena del universo.',
 )
-I_m_more_concerned_about_the_origins_of_that_Depth_Crawler = RogueEventOption(
+I_m_more_concerned_about_the_origins_of_that_depth_crawler = RogueEventOption(
     id=220,
-    name='I_m_more_concerned_about_the_origins_of_that_Depth_Crawler',
+    name='I_m_more_concerned_about_the_origins_of_that_depth_crawler',
     cn='我还是比较关心那只渊兽的身世。',
     cht='我還是比較關心那隻淵獸的身世。',
-    en="I'm more concerned about the origins of that Depth Crawler.",
+    en="I'm more concerned about the origins of that depth crawler.",
     jp='やっぱりあの淵獣の身の上が気になる',
     es='Me preocupa más el origen de la bestia del abismo.',
 )

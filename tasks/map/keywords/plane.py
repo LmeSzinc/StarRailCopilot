@@ -872,8 +872,41 @@ Planarcadia_DuomensionCity = MapPlane(
     world_id=5,
     plane_id=1050101,
 )
-Planarcadia_PhantasmoonCourtyard = MapPlane(
+Planarcadia_AstropolisCentralDistrict = MapPlane(
     id=81,
+    name='Planarcadia_AstropolisCentralDistrict',
+    cn='千星城中心城区',
+    cht='千星城中心城區',
+    en='Astropolis Central District',
+    jp='千星シティ-セントラルエリア',
+    es='Distrito central de Astrópolis',
+    world_id=5,
+    plane_id=1055101,
+)
+Planarcadia_LodestarTower = MapPlane(
+    id=82,
+    name='Planarcadia_LodestarTower',
+    cn='指针塔',
+    cht='指針塔',
+    en='Lodestar Tower',
+    jp='ノーモンタワー',
+    es='Torre Guía',
+    world_id=5,
+    plane_id=2055101,
+)
+Planarcadia_SkycallAery = MapPlane(
+    id=83,
+    name='Planarcadia_SkycallAery',
+    cn='空声院',
+    cht='空聲院',
+    en='Skycall Aery',
+    jp='空音の院',
+    es='Claustro del Eco Celeste',
+    world_id=5,
+    plane_id=1055201,
+)
+Planarcadia_PhantasmoonCourtyard = MapPlane(
+    id=84,
     name='Planarcadia_PhantasmoonCourtyard',
     cn='幻月秘庭',
     cht='幻月秘庭',
@@ -884,7 +917,7 @@ Planarcadia_PhantasmoonCourtyard = MapPlane(
     plane_id=1050201,
 )
 Planarcadia_GraphiaAcademy = MapPlane(
-    id=82,
+    id=85,
     name='Planarcadia_GraphiaAcademy',
     cn='绘世学院',
     cht='繪世學院',
@@ -895,7 +928,7 @@ Planarcadia_GraphiaAcademy = MapPlane(
     plane_id=2050101,
 )
 Planarcadia_DovebrookDistrict = MapPlane(
-    id=83,
+    id=86,
     name='Planarcadia_DovebrookDistrict',
     cn='鸽川区',
     cht='鴿川區',
@@ -906,7 +939,7 @@ Planarcadia_DovebrookDistrict = MapPlane(
     plane_id=2050301,
 )
 Planarcadia_WorldEndTavern = MapPlane(
-    id=84,
+    id=87,
     name='Planarcadia_WorldEndTavern',
     cn='「世界尽头」酒馆',
     cht='「世界盡頭」酒館',
@@ -917,7 +950,7 @@ Planarcadia_WorldEndTavern = MapPlane(
     plane_id=2050201,
 )
 Planarcadia_PearluxeTower = MapPlane(
-    id=85,
+    id=88,
     name='Planarcadia_PearluxeTower',
     cn='珠星大厦',
     cht='珠星大廈',
@@ -928,7 +961,7 @@ Planarcadia_PearluxeTower = MapPlane(
     plane_id=2051301,
 )
 Planarcadia_LookoutCloudStation = MapPlane(
-    id=86,
+    id=89,
     name='Planarcadia_LookoutCloudStation',
     cn='观览云岛站',
     cht='觀覽雲島站',
@@ -939,7 +972,7 @@ Planarcadia_LookoutCloudStation = MapPlane(
     plane_id=2051101,
 )
 Planarcadia_SeafeldCity = MapPlane(
-    id=87,
+    id=90,
     name='Planarcadia_SeafeldCity',
     cn='海原市',
     cht='海原市',
@@ -950,7 +983,7 @@ Planarcadia_SeafeldCity = MapPlane(
     plane_id=1052101,
 )
 Planarcadia_SeafeldTVTower = MapPlane(
-    id=88,
+    id=91,
     name='Planarcadia_SeafeldTVTower',
     cn='海原电视塔',
     cht='海原電視塔',
@@ -961,7 +994,7 @@ Planarcadia_SeafeldTVTower = MapPlane(
     plane_id=2052101,
 )
 Planarcadia_InkfordHermitage = MapPlane(
-    id=89,
+    id=92,
     name='Planarcadia_InkfordHermitage',
     cn='渡画泉隐',
     cht='渡畫泉隱',
@@ -972,7 +1005,7 @@ Planarcadia_InkfordHermitage = MapPlane(
     plane_id=2053101,
 )
 Planarcadia_DesolateMawDemonhold = MapPlane(
-    id=90,
+    id=93,
     name='Planarcadia_DesolateMawDemonhold',
     cn='寂灭空飨妖都',
     cht='寂滅空饗妖都',
@@ -983,7 +1016,7 @@ Planarcadia_DesolateMawDemonhold = MapPlane(
     plane_id=2054101,
 )
 Planarcadia_FallenStarCradle = MapPlane(
-    id=91,
+    id=94,
     name='Planarcadia_FallenStarCradle',
     cn='坠星的摇篮',
     cht='墜星的搖籃',
@@ -992,4 +1025,15 @@ Planarcadia_FallenStarCradle = MapPlane(
     es='Cuna de la estrella caída',
     world_id=5,
     plane_id=2054201,
+)
+Planarcadia_PearlStudio = MapPlane(
+    id=95,
+    name='Planarcadia_PearlStudio',
+    cn='真珠的画室',
+    cht='真珠的畫室',
+    en="Pearl's Studio",
+    jp='パールのアトリエ',
+    es='Estudio de Perla',
+    world_id=5,
+    plane_id=2051401,
 )

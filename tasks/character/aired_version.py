@@ -100,6 +100,8 @@ dict_aired_version = {
     HimekoNova: "4.4",
     RinTohsaka: "4.4",
     Gilgamesh: "4.4",
+    RobinSummeretto: "4.5",
+    AventurineWaveflair: "4.5",
 }
 
 

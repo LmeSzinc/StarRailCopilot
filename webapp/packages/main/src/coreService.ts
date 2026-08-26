@@ -79,13 +79,19 @@ export class CoreService {
     this.mainWindow?.webContents.send(ALAS_LOG, message);
   }
 
-  kill(callback?: () => void) {
-    this.curService?.kill(callback || this.cb);
-  }
+  kill(): Promise<void> {
+    const service = this.curService;
+    if (!service) return Promise.resolve();
 
-  cb() {
-    /**
-     *
-     */
+    // tree-kill runs taskkill asynchronously on Windows. Resolve only after it completes.
+    return new Promise((resolve, reject) => {
+      service.kill((error?: Error) => {
+        if (error) {
+          reject(error);
+        } else {
+          resolve();
+        }
+      });
+    });
   }
 }

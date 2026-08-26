@@ -17,7 +17,7 @@ const logLevel = 'warn';
  * Needs to set up `VITE_DEV_SERVER_URL` environment variable from {@link import('vite').ViteDevServer.resolvedUrls}
  */
 function setupMainPackageWatcher({resolvedUrls}) {
-  process.env.VITE_DEV_SERVER_URL = resolvedUrls.local[0];
+  process.env.VITE_DEV_SERVER_URL = new URL('index.html', resolvedUrls.local[0]).href;
 
   /** @type {ChildProcess | null} */
   let electronApp = null;

@@ -1108,6 +1108,32 @@ HimekoNova = CharacterList(
     relic_setid=131,
     ornament_setid=327,
 )
+RobinSummeretto = CharacterList(
+    id=1512,
+    name='RobinSummeretto',
+    cn='知更鸟•晴歌',
+    cht='知更鳥•晴歌',
+    en='Robin • Summeretto',
+    jp='ロビン・夏空の歌',
+    es='Robin Estival',
+    type_name='Wind',
+    path_name='Remembrance',
+    relic_setid=127,
+    ornament_setid=323,
+)
+AventurineWaveflair = CharacterList(
+    id=1513,
+    name='AventurineWaveflair',
+    cn='砂金•戏浪',
+    cht='砂金•戲浪',
+    en='Aventurine • Waveflair',
+    jp='アベンチュリン・波と戯れる夏',
+    es='Aventurino Oleaje',
+    type_name='Quantum',
+    path_name='Elation',
+    relic_setid=129,
+    ornament_setid=325,
+)
 TrailblazerDestruction = CharacterList(
     id=8002,
     name='TrailblazerDestruction',

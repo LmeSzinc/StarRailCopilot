@@ -1059,6 +1059,18 @@ Today_Good_Luck = Cone(
     path_name='Elation',
     character_name='',
 )
+A_Little_Getaway = Cone(
+    id=21066,
+    name='A_Little_Getaway',
+    cn='放个短假',
+    cht='放個小假',
+    en='A Little Getaway',
+    jp='バカンスのひと時',
+    es='Un breve descanso',
+    rarity='VeryRare',
+    path_name='Elation',
+    character_name='',
+)
 Before_the_Tutorial_Mission_Starts = Cone(
     id=22000,
     name='Before_the_Tutorial_Mission_Starts',
@@ -1153,6 +1165,18 @@ Tomorrow_Together = Cone(
     es='Juntos hacia el futuro',
     rarity='VeryRare',
     path_name='Elation',
+    character_name='',
+)
+Race_to_the_Horizon = Cone(
+    id=22008,
+    name='Race_to_the_Horizon',
+    cn='向着地平线的终点',
+    cht='向著地平線的終點',
+    en='Race to the Horizon',
+    jp='地平線のゴールへ',
+    es='Hacia el final del horizonte',
+    rarity='VeryRare',
+    path_name='The_Hunt',
     character_name='',
 )
 Night_on_the_Milky_Way = Cone(
@@ -1898,6 +1922,30 @@ I_Am_As_You_Behold = Cone(
     rarity='SuperRare',
     path_name='Destruction',
     character_name='',
+)
+Rise_and_Sing = Cone(
+    id=23063,
+    name='Rise_and_Sing',
+    cn='你将起身歌唱',
+    cht='你將起身歌唱',
+    en='Rise and Sing',
+    jp='立ち上がり高らかな歌を',
+    es='Levántate y canta',
+    rarity='SuperRare',
+    path_name='Remembrance',
+    character_name='RobinSummeretto',
+)
+Summer_Rides_the_Surf = Cone(
+    id=23064,
+    name='Summer_Rides_the_Surf',
+    cn='向浪花掷下盛夏',
+    cht='向浪花擲下盛夏',
+    en='Summer Rides the Surf',
+    jp='波しぶきが躍る夏へ',
+    es='Verano entre olas',
+    rarity='SuperRare',
+    path_name='Elation',
+    character_name='AventurineWaveflair',
 )
 On_the_Fall_of_an_Aeon = Cone(
     id=24000,

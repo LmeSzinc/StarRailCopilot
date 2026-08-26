@@ -317,11 +317,11 @@
       "Stagnant_Shadow_Gust": "Ascension: Wind (Dan Heng / Bronya / Sampo)",
       "Stagnant_Shadow_Celestial": "Ascension: Wind (Blade / Huohuo / Black Swan)",
       "Stagnant_Shadow_Gloam": "Ascension: Wind (Feixiao / Anaxa / Hyacine / Saber)",
-      "Stagnant_Shadow_Cinders": "Ascension: Wind (Cerydra)",
+      "Stagnant_Shadow_Cinders": "Ascension: Wind (Cerydra / Robin • Summeretto)",
       "Stagnant_Shadow_Quanta": "Ascension: Quantum (Silver Wolf / Seele / Qingque)",
       "Stagnant_Shadow_Abomination": "Ascension: Quantum (Lynx / Fu Xuan / Xueyi)",
       "Stagnant_Shadow_Gelidmoon": "Ascension: Quantum (Tribbie / Cipher / Castorice / Archer)",
-      "Stagnant_Shadow_Devour": "Ascension: Quantum (Rin Tohsaka)",
+      "Stagnant_Shadow_Devour": "Ascension: Quantum (Aventurine • Waveflair / Rin Tohsaka)",
       "Stagnant_Shadow_Mirage": "Ascension: Imaginary (Welt / Luocha / Yukong)",
       "Stagnant_Shadow_Puppetry": "Ascension: Imaginary (Dan Heng • Imbibitor Lunae / Aventurine / Dr. Ratio)",
       "Stagnant_Shadow_Timbre": "Ascension: Imaginary (Sunday / Rappa)",
@@ -443,6 +443,8 @@
       "name": "Support Character",
       "help": "Select a friend support character. If not found, the first character will be selected. Recommended to pin friend characters.",
       "FirstCharacter": "First Character",
+      "RobinSummeretto": "[4.5] Robin • Summeretto",
+      "AventurineWaveflair": "[4.5] Aventurine • Waveflair",
       "HimekoNova": "[4.4] Himeko • Nova",
       "RinTohsaka": "[4.4] Rin Tohsaka",
       "Gilgamesh": "[4.4] Gilgamesh",
@@ -733,7 +735,7 @@
       "help": ""
     },
     "Item_Charred_Bud_of_Twilight": {
-      "name": "Ascension: Wind (Cerydra)",
+      "name": "Ascension: Wind (Cerydra / Robin • Summeretto)",
       "help": ""
     },
     "Item_Darkveil_Moonlight": {
@@ -745,7 +747,7 @@
       "help": ""
     },
     "Item_Sneering_Harlequin": {
-      "name": "Ascension: Quantum (Rin Tohsaka)",
+      "name": "Ascension: Quantum (Aventurine • Waveflair / Rin Tohsaka)",
       "help": ""
     },
     "Item_Worldbreaker_Blade": {
@@ -930,6 +932,8 @@
       "name": "Character",
       "help": "",
       "_none_": "None",
+      "RobinSummeretto": "[4.5] Robin • Summeretto",
+      "AventurineWaveflair": "[4.5] Aventurine • Waveflair",
       "HimekoNova": "[4.4] Himeko • Nova",
       "RinTohsaka": "[4.4] Rin Tohsaka",
       "Gilgamesh": "[4.4] Gilgamesh",
@@ -1025,6 +1029,8 @@
       "name": "Cone",
       "help": "",
       "_none_": "None",
+      "Summer_Rides_the_Surf": "[4.5] Aventurine • Waveflair | 5* Summer Rides the Surf",
+      "Rise_and_Sing": "[4.5] Robin • Summeretto | 5* Rise and Sing",
       "A_Star_That_Lights_the_Night": "[4.4] Himeko • Nova | 5* A Star That Lights the Night",
       "Reforged_in_Hellfire": "[4.3] Mortenax Blade | 5* Reforged in Hellfire",
       "Until_the_Flowers_Bloom_Again": "[4.2] Evanescia | 5* Until the Flowers Bloom Again",
@@ -1094,6 +1100,7 @@
       "But_the_Battle_Isn_t_Over": "5* But the Battle Isn't Over",
       "Something_Irreplaceable": "5* Something Irreplaceable",
       "Night_on_the_Milky_Way": "5* Night on the Milky Way",
+      "Race_to_the_Horizon": "4* Race to the Horizon",
       "Tomorrow_Together": "4* Tomorrow, Together",
       "Fly_Into_a_Pink_Tomorrow": "4* Fly Into a Pink Tomorrow",
       "The_Forever_Victual": "4* The Forever Victual",
@@ -1102,6 +1109,7 @@
       "For_Tomorrow_Journey": "4* For Tomorrow's Journey",
       "Hey_Over_Here": "4* Hey, Over Here",
       "Before_the_Tutorial_Mission_Starts": "4* Before the Tutorial Mission Starts",
+      "A_Little_Getaway": "4* A Little Getaway",
       "Today_Good_Luck": "4* Today's Good Luck",
       "Mushy_Shroomy_Adventures": "4* Mushy Shroomy's Adventures",
       "See_You_at_the_End": "4* See You at the End",

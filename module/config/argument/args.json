@@ -687,6 +687,8 @@
         "display": "hide",
         "option": [
           "_none_",
+          "RobinSummeretto",
+          "AventurineWaveflair",
           "HimekoNova",
           "RinTohsaka",
           "Gilgamesh",
@@ -786,6 +788,8 @@
         "display": "hide",
         "option": [
           "_none_",
+          "Summer_Rides_the_Surf",
+          "Rise_and_Sing",
           "A_Star_That_Lights_the_Night",
           "Reforged_in_Hellfire",
           "Until_the_Flowers_Bloom_Again",
@@ -855,6 +859,7 @@
           "But_the_Battle_Isn_t_Over",
           "Something_Irreplaceable",
           "Night_on_the_Milky_Way",
+          "Race_to_the_Horizon",
           "Tomorrow_Together",
           "Fly_Into_a_Pink_Tomorrow",
           "The_Forever_Victual",
@@ -863,6 +868,7 @@
           "For_Tomorrow_Journey",
           "Hey_Over_Here",
           "Before_the_Tutorial_Mission_Starts",
+          "A_Little_Getaway",
           "Today_Good_Luck",
           "Mushy_Shroomy_Adventures",
           "See_You_at_the_End",
@@ -1322,6 +1328,8 @@
         "value": "FirstCharacter",
         "option": [
           "FirstCharacter",
+          "RobinSummeretto",
+          "AventurineWaveflair",
           "HimekoNova",
           "RinTohsaka",
           "Gilgamesh",
@@ -1605,6 +1613,8 @@
         "value": "FirstCharacter",
         "option": [
           "FirstCharacter",
+          "RobinSummeretto",
+          "AventurineWaveflair",
           "HimekoNova",
           "RinTohsaka",
           "Gilgamesh",
@@ -2218,6 +2228,8 @@
         "value": "FirstCharacter",
         "option": [
           "FirstCharacter",
+          "RobinSummeretto",
+          "AventurineWaveflair",
           "HimekoNova",
           "RinTohsaka",
           "Gilgamesh",

@@ -317,11 +317,11 @@
       "Stagnant_Shadow_Gust": "晋阶材料：风（丹恒 / 布洛妮娅 / 桑博）",
       "Stagnant_Shadow_Celestial": "晋阶材料：风（刃 / 藿藿 / 黑天鹅）",
       "Stagnant_Shadow_Gloam": "晋阶材料：风（飞霄 / 那刻夏 / 风堇 / Saber）",
-      "Stagnant_Shadow_Cinders": "晋阶材料：风（刻律德菈）",
+      "Stagnant_Shadow_Cinders": "晋阶材料：风（刻律德菈 / 知更鸟•晴歌）",
       "Stagnant_Shadow_Quanta": "晋阶材料：量子（银狼 / 希儿 / 青雀）",
       "Stagnant_Shadow_Abomination": "晋阶材料：量子（玲可 / 符玄 / 雪衣）",
       "Stagnant_Shadow_Gelidmoon": "晋阶材料：量子（缇宝 / 赛飞儿 / 遐蝶 / Archer）",
-      "Stagnant_Shadow_Devour": "晋阶材料：量子（远坂凛）",
+      "Stagnant_Shadow_Devour": "晋阶材料：量子（砂金•戏浪 / 远坂凛）",
       "Stagnant_Shadow_Mirage": "晋阶材料：虚数（瓦尔特 / 罗刹 / 驭空）",
       "Stagnant_Shadow_Puppetry": "晋阶材料：虚数（丹恒•饮月 / 砂金 / 真理医生）",
       "Stagnant_Shadow_Timbre": "晋阶材料：虚数（星期日 / 乱破）",
@@ -443,6 +443,8 @@
       "name": "支援角色",
       "help": "选择好友支援角色，未找到则选择第一个角色，建议置顶好友角色",
       "FirstCharacter": "支援列表第一个角色",
+      "RobinSummeretto": "[4.5] 知更鸟•晴歌",
+      "AventurineWaveflair": "[4.5] 砂金•戏浪",
       "HimekoNova": "[4.4] 姬子•启行",
       "RinTohsaka": "[4.4] 远坂凛",
       "Gilgamesh": "[4.4] 吉尔伽美什",
@@ -733,7 +735,7 @@
       "help": ""
     },
     "Item_Charred_Bud_of_Twilight": {
-      "name": "晋阶材料：风（刻律德菈）",
+      "name": "晋阶材料：风（刻律德菈 / 知更鸟•晴歌）",
       "help": ""
     },
     "Item_Darkveil_Moonlight": {
@@ -745,7 +747,7 @@
       "help": ""
     },
     "Item_Sneering_Harlequin": {
-      "name": "晋阶材料：量子（远坂凛）",
+      "name": "晋阶材料：量子（砂金•戏浪 / 远坂凛）",
       "help": ""
     },
     "Item_Worldbreaker_Blade": {
@@ -930,6 +932,8 @@
       "name": "养成角色",
       "help": "",
       "_none_": "无",
+      "RobinSummeretto": "[4.5] 知更鸟•晴歌",
+      "AventurineWaveflair": "[4.5] 砂金•戏浪",
       "HimekoNova": "[4.4] 姬子•启行",
       "RinTohsaka": "[4.4] 远坂凛",
       "Gilgamesh": "[4.4] 吉尔伽美什",
@@ -1025,6 +1029,8 @@
       "name": "养成光锥",
       "help": "",
       "_none_": "无",
+      "Summer_Rides_the_Surf": "[4.5] 砂金•戏浪 | 5* 向浪花掷下盛夏",
+      "Rise_and_Sing": "[4.5] 知更鸟•晴歌 | 5* 你将起身歌唱",
       "A_Star_That_Lights_the_Night": "[4.4] 姬子•启行 | 5* 当一颗星照亮夜空",
       "Reforged_in_Hellfire": "[4.3] 千冶•刃 | 5* 灼尽炼狱的新骸",
       "Until_the_Flowers_Bloom_Again": "[4.2] 绯英 | 5* 邂逅于下一个花季",
@@ -1094,6 +1100,7 @@
       "But_the_Battle_Isn_t_Over": "5* 但战斗还未结束",
       "Something_Irreplaceable": "5* 无可取代的东西",
       "Night_on_the_Milky_Way": "5* 银河铁道之夜",
+      "Race_to_the_Horizon": "4* 向着地平线的终点",
       "Tomorrow_Together": "4* 未来，有我们一起",
       "Fly_Into_a_Pink_Tomorrow": "4* 飞向粉色的明天",
       "The_Forever_Victual": "4* 永远的迷境饭",
@@ -1102,6 +1109,7 @@
       "For_Tomorrow_Journey": "4* 为了明日的旅途",
       "Hey_Over_Here": "4* 嘿，我在这儿",
       "Before_the_Tutorial_Mission_Starts": "4* 新手任务开始前",
+      "A_Little_Getaway": "4* 放个短假",
       "Today_Good_Luck": "4* 今日好手气",
       "Mushy_Shroomy_Adventures": "4* 菇菇嘎嘎历险记",
       "See_You_at_the_End": "4* 于那终点再见",

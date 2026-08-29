@@ -27,7 +27,8 @@ locales/
 v8_context_snapshot.bin
 snapshot_blob.bin
 vk_swiftshader_icd.json
-
+run.ps1
+architecture_analysis.md
 # Created by .ignore support plugin (hsz.mobi)
 
 ### JetBrains template

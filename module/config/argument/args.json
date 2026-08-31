@@ -2086,6 +2086,14 @@
         "stored": "StoredInt",
         "order": 8,
         "color": "#fc8f8b"
+      },
+      "SpecialPass": {
+        "type": "stored",
+        "value": {},
+        "display": "display",
+        "stored": "StoredInt",
+        "order": 9,
+        "color": "#ffd700"
       }
     },
     "CloudStorage": {

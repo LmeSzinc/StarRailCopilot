@@ -1573,6 +1573,10 @@
     "StallerJade": {
       "name": "ItemStorage.StallerJade.name",
       "help": "ItemStorage.StallerJade.help"
+    },
+    "SpecialPass": {
+      "name": "星軌専用チケット",
+      "help": ""
     }
   },
   "CloudStorage": {

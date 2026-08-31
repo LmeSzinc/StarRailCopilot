@@ -328,6 +328,11 @@ ItemStorage:
     order: 8
     color: "#fc8f8b"
     display: display
+  SpecialPass:
+    stored: StoredInt
+    order: 9
+    color: "#ffd700"
+    display: display
 
 CloudStorage:
   CloudRemainSeasonPass:

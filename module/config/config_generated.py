@@ -202,6 +202,7 @@ class GeneratedConfig:
     # Group `ItemStorage`
     ItemStorage_Credit = {}
     ItemStorage_StallerJade = {}
+    ItemStorage_SpecialPass = {}
 
     # Group `CloudStorage`
     CloudStorage_CloudRemainSeasonPass = {}

@@ -101,6 +101,18 @@
     "order": 8,
     "color": "#fc8f8b"
   },
+  "SpecialPass": {
+    "name": "SpecialPass",
+    "path": "DataUpdate.ItemStorage.SpecialPass",
+    "i18n": "ItemStorage.SpecialPass.name",
+    "stored": "StoredInt",
+    "attrs": {
+      "time": "2020-01-01 00:00:00",
+      "value": 0
+    },
+    "order": 9,
+    "color": "#ffd700"
+  },
   "Item_Credit": {
     "name": "Item_Credit",
     "path": "Dungeon.Planner.Item_Credit",

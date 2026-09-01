@@ -250,7 +250,8 @@
     },
     "ItemStorage": {
       "Credit": {},
-      "StallerJade": {}
+      "StallerJade": {},
+      "SpecialPass": {}
     },
     "CloudStorage": {
       "CloudRemainSeasonPass": {},

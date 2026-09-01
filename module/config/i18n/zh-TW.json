@@ -1573,6 +1573,10 @@
     "StallerJade": {
       "name": "星瓊",
       "help": ""
+    },
+    "SpecialPass": {
+      "name": "星軌專票",
+      "help": ""
     }
   },
   "CloudStorage": {

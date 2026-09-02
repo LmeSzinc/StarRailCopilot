@@ -1814,13 +1814,15 @@
       "CheckUpdate": "Check update",
       "ClickToUpdate": "Click to update",
       "RetryUpdate": "Retry update",
-      "CancelUpdate": "Cancel update"
+      "CancelUpdate": "Cancel update",
+      "ClearPlanner": "Clear planner"
     },
     "Toast": {
       "DisableTranslateMode": "Click here to disable translate mode",
       "ConfigSaved": "Config saved",
       "AlasIsRunning": "Scheduler is already running",
-      "ClickToUpdate": "New update available, click here to update"
+      "ClickToUpdate": "New update available, click here to update",
+      "PlannerCleared": "Character planner cleared"
     },
     "Status": {
       "Running": "Running",

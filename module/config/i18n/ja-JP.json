@@ -1814,13 +1814,15 @@
       "CheckUpdate": "アップデータチェック",
       "ClickToUpdate": "アップデータ実行",
       "RetryUpdate": "アップデータ再試行",
-      "CancelUpdate": "アップデータ中止"
+      "CancelUpdate": "アップデータ中止",
+      "ClearPlanner": "育成計画をクリア"
     },
     "Toast": {
       "DisableTranslateMode": "クリックして翻訳モードを中止します",
       "ConfigSaved": "コンフィグ設定は保存されました",
       "AlasIsRunning": "スケジューラーはもう実行しています",
-      "ClickToUpdate": "新しいアップデータがあります。クリックしてアップデータ"
+      "ClickToUpdate": "新しいアップデータがあります。クリックしてアップデータ",
+      "PlannerCleared": "育成計画をクリアしました"
     },
     "Status": {
       "Running": "実行中",

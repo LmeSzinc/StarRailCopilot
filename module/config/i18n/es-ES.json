@@ -1814,13 +1814,15 @@
       "CheckUpdate": "Comprobar actualización",
       "ClickToUpdate": "Click para actualizar",
       "RetryUpdate": "Reintentar actualización",
-      "CancelUpdate": "Cancelar actualización"
+      "CancelUpdate": "Cancelar actualización",
+      "ClearPlanner": "Borrar planificador"
     },
     "Toast": {
       "DisableTranslateMode": "Click aquí para deshabilitar el modo traducido",
       "ConfigSaved": "Configuración guardada",
       "AlasIsRunning": "El planificador ya se está ejecutando",
-      "ClickToUpdate": "Nueva actualización disponible, haz click aquí para actualizar"
+      "ClickToUpdate": "Nueva actualización disponible, haz click aquí para actualizar",
+      "PlannerCleared": "Planificador de personaje borrado"
     },
     "Status": {
       "Running": "En ejecución",

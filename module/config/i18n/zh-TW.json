@@ -1814,13 +1814,15 @@
       "CheckUpdate": "檢查更新",
       "ClickToUpdate": "進行更新",
       "RetryUpdate": "重試更新",
-      "CancelUpdate": "取消更新"
+      "CancelUpdate": "取消更新",
+      "ClearPlanner": "清除養成規劃"
     },
     "Toast": {
       "DisableTranslateMode": "點擊這裡關閉翻譯模式",
       "ConfigSaved": "設定已儲存",
       "AlasIsRunning": "調度器已在執行中",
-      "ClickToUpdate": "有更新可用，點擊這裡進行更新"
+      "ClickToUpdate": "有更新可用，點擊這裡進行更新",
+      "PlannerCleared": "已清除角色養成規劃"
     },
     "Status": {
       "Running": "執行中",

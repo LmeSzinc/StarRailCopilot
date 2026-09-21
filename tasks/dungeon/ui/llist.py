@@ -83,6 +83,8 @@ class OcrDungeonName(Ocr):
             # 铁的锈家 -> 铁骸的锈冢
             result = result.replace('锈家', '锈冢')
             result = result.replace('铁的', '铁骸的')
+            # 雷涌之径 -> 雳涌之径
+            result = result.replace('雷涌', '雳涌')
         elif self.lang == 'en':
             # O Supply Zone
             result = re.sub(r'^[Oo0] S', 'S', result)

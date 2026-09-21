@@ -706,12 +706,22 @@ class AlasGUI(Frame):
             )
 
         log.console.width = log.get_width()
+        config = self.alas_config.read_file(self.alas_name)
 
         with use_scope("scheduler-bar"):
             put_text(t("Gui.Overview.Scheduler")).style(
                 "font-size: 1.25rem; margin: auto .5rem auto;"
             )
-            put_scope("scheduler_btn")
+            scheduler_buttons = [put_scope("scheduler_btn")]
+            if task == "PlannerScan":
+                scheduler_buttons.insert(0, put_scope("clear_planner_btn"))
+            put_scope("scheduler_buttons", scheduler_buttons).style(
+                "display: flex; gap: .5rem;"
+            )
+            if task == "PlannerScan":
+                self.put_clear_planner_button(
+                    self.has_planner(config), scope="clear_planner_btn"
+                )
 
         switch_scheduler = BinarySwitchButton(
             label_on=t("Gui.Button.Stop"),
@@ -747,7 +757,6 @@ class AlasGUI(Frame):
             scope="log_scroll_btn",
         )
 
-        config = self.alas_config.read_file(self.alas_name)
         for group, arg_dict in deep_iter(self.ALAS_ARGS[task], depth=1):
             if group[0] == "Storage":
                 continue
@@ -771,6 +780,40 @@ class AlasGUI(Frame):
         self.task_handler.add(switch_scheduler.g(), 1, True)
         self.task_handler.add(switch_log_scroll.g(), 1, True)
         self.task_handler.add(log.put_log(self.alas), 0.25, True)
+
+    @staticmethod
+    def has_planner(config: dict) -> bool:
+        planner = deep_get(config, "Dungeon.Planner", default={})
+        return any(
+            value for key, value in planner.items() if key != "PlannerOverall"
+        )
+
+    def put_clear_planner_button(self, enabled: bool, scope: str = None) -> Output:
+        return put_button(
+            label=t("Gui.Button.ClearPlanner"),
+            onclick=self.clear_planner,
+            color="on" if enabled else "secondary",
+            disabled=not enabled,
+            scope=scope,
+        )
+
+    def clear_planner(self) -> None:
+        if self.alas.alive:
+            toast(t("Gui.Toast.AlasIsRunning"), color="error")
+            return
+
+        config = self.alas_config.read_file(self.alas_name)
+        planner = deep_get(config, "Dungeon.Planner", default={})
+        for key in planner:
+            planner[key] = {}
+        deep_set(config, "Dungeon.Planner", planner)
+        deep_set(config, "Dungeon.PlannerTarget.Enable", False)
+        self.alas_config.write_file(self.alas_name, config)
+        self.alas_config.load()
+        clear("clear_planner_btn")
+        self.put_clear_planner_button(False, scope="clear_planner_btn")
+        logger.info(f"Cleared character planner in {filepath_config(self.alas_name)}")
+        toast(t("Gui.Toast.PlannerCleared"), color="success")
 
     @use_scope("menu", clear=True)
     def dev_set_menu(self) -> None:

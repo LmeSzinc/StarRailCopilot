@@ -14,10 +14,10 @@ CATALOG_CHECK = ButtonWrapper(
     ),
     en=Button(
         file='./assets/en/combat/support_tab/CATALOG_CHECK.png',
-        area=(155, 48, 219, 67),
-        search=(135, 28, 239, 87),
-        color=(168, 168, 170),
-        button=(155, 48, 219, 67),
+        area=(46, 47, 235, 65),
+        search=(26, 27, 255, 85),
+        color=(182, 182, 184),
+        button=(46, 47, 235, 65),
     ),
 )
 CATALOG_CLICK = ButtonWrapper(
@@ -31,10 +31,10 @@ CATALOG_CLICK = ButtonWrapper(
     ),
     en=Button(
         file='./assets/en/combat/support_tab/CATALOG_CLICK.png',
-        area=(155, 48, 219, 67),
-        search=(135, 28, 239, 87),
-        color=(100, 102, 120),
-        button=(155, 48, 219, 67),
+        area=(46, 47, 235, 65),
+        search=(26, 27, 255, 85),
+        color=(87, 89, 109),
+        button=(46, 47, 235, 65),
     ),
 )
 FRIEND_ONLY = ButtonWrapper(
@@ -58,10 +58,10 @@ SUPPORT_CHECK = ButtonWrapper(
     ),
     en=Button(
         file='./assets/en/combat/support_tab/SUPPORT_CHECK.png',
-        area=(274, 48, 344, 66),
-        search=(254, 28, 364, 86),
-        color=(168, 168, 170),
-        button=(274, 48, 344, 66),
+        area=(268, 47, 451, 65),
+        search=(248, 27, 471, 85),
+        color=(180, 180, 182),
+        button=(268, 47, 451, 65),
     ),
 )
 SUPPORT_CLICK = ButtonWrapper(
@@ -75,10 +75,10 @@ SUPPORT_CLICK = ButtonWrapper(
     ),
     en=Button(
         file='./assets/en/combat/support_tab/SUPPORT_CLICK.png',
-        area=(274, 47, 344, 67),
-        search=(254, 27, 364, 87),
-        color=(94, 98, 116),
-        button=(274, 47, 344, 67),
+        area=(268, 47, 451, 65),
+        search=(248, 27, 471, 85),
+        color=(89, 93, 112),
+        button=(268, 47, 451, 65),
     ),
 )
 SUPPORT_EMPTY = ButtonWrapper(

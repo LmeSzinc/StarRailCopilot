@@ -9,7 +9,7 @@ CHARACTER_SLOT_1 = ButtonWrapper(
         file='./assets/share/combat/support/CHARACTER_SLOT_1.png',
         area=(582, 292, 622, 332),
         search=(562, 272, 642, 352),
-        color=(65, 77, 103),
+        color=(53, 53, 76),
         button=(582, 292, 622, 332),
     ),
 )
@@ -19,7 +19,7 @@ CHARACTER_SLOT_2 = ButtonWrapper(
         file='./assets/share/combat/support/CHARACTER_SLOT_2.png',
         area=(763, 356, 803, 396),
         search=(743, 336, 823, 416),
-        color=(82, 86, 121),
+        color=(53, 53, 76),
         button=(763, 356, 803, 396),
     ),
 )
@@ -29,7 +29,7 @@ CHARACTER_SLOT_3 = ButtonWrapper(
         file='./assets/share/combat/support/CHARACTER_SLOT_3.png',
         area=(944, 304, 984, 344),
         search=(924, 284, 1004, 364),
-        color=(63, 67, 95),
+        color=(53, 53, 76),
         button=(944, 304, 984, 344),
     ),
 )
@@ -39,7 +39,7 @@ CHARACTER_SLOT_4 = ButtonWrapper(
         file='./assets/share/combat/support/CHARACTER_SLOT_4.png',
         area=(1121, 360, 1161, 400),
         search=(1101, 340, 1181, 420),
-        color=(55, 65, 86),
+        color=(53, 53, 76),
         button=(1121, 360, 1161, 400),
     ),
 )
@@ -47,10 +47,10 @@ COMBAT_SUPPORT_ADD = ButtonWrapper(
     name='COMBAT_SUPPORT_ADD',
     share=Button(
         file='./assets/share/combat/support/COMBAT_SUPPORT_ADD.png',
-        area=(1057, 649, 1112, 678),
-        search=(1037, 629, 1132, 698),
-        color=(213, 214, 214),
-        button=(1057, 649, 1112, 678),
+        area=(1040, 650, 1130, 678),
+        search=(1020, 630, 1150, 698),
+        color=(207, 208, 208),
+        button=(1040, 650, 1130, 678),
     ),
 )
 COMBAT_SUPPORT_LIST = ButtonWrapper(
@@ -87,20 +87,20 @@ COMBAT_TEAM_DISMISSSUPPORT = ButtonWrapper(
     name='COMBAT_TEAM_DISMISSSUPPORT',
     share=Button(
         file='./assets/share/combat/support/COMBAT_TEAM_DISMISSSUPPORT.png',
-        area=(481, 646, 504, 671),
-        search=(362, 639, 575, 678),
-        color=(180, 180, 180),
-        button=(481, 646, 504, 671),
+        area=(478, 644, 540, 676),
+        search=(458, 624, 560, 696),
+        color=(168, 169, 168),
+        button=(478, 644, 540, 676),
     ),
 )
 COMBAT_TEAM_SUPPORT = ButtonWrapper(
     name='COMBAT_TEAM_SUPPORT',
     share=Button(
         file='./assets/share/combat/support/COMBAT_TEAM_SUPPORT.png',
-        area=(510, 649, 538, 669),
-        search=(435, 638, 555, 679),
-        color=(173, 204, 181),
-        button=(510, 649, 538, 669),
+        area=(478, 644, 540, 676),
+        search=(458, 624, 560, 696),
+        color=(140, 182, 149),
+        button=(535, 646, 610, 672),
     ),
 )
 FIRST_CHARACTER = ButtonWrapper(

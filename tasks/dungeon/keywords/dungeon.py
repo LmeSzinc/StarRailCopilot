@@ -707,8 +707,19 @@ Stagnant_Shadow_Devour = DungeonList(
     dungeon_id=1129,
     plane_id=2053101,
 )
-Cavern_of_Corrosion_Path_of_Insight = DungeonList(
+Cavern_of_Corrosion_Path_of_the_Secret_Actor = DungeonList(
     id=65,
+    name='Cavern_of_Corrosion_Path_of_the_Secret_Actor',
+    cn='密伶之径',
+    cht='密伶之徑',
+    en='Path of the Secret Actor',
+    jp='密伶の路',
+    es='Senda del Plañidero secreto',
+    dungeon_id=1217,
+    plane_id=2056101,
+)
+Cavern_of_Corrosion_Path_of_Insight = DungeonList(
+    id=66,
     name='Cavern_of_Corrosion_Path_of_Insight',
     cn='观火之径',
     cht='觀火之徑',
@@ -719,7 +730,7 @@ Cavern_of_Corrosion_Path_of_Insight = DungeonList(
     plane_id=2051101,
 )
 Cavern_of_Corrosion_Path_of_Possession = DungeonList(
-    id=66,
+    id=67,
     name='Cavern_of_Corrosion_Path_of_Possession',
     cn='魔占之径',
     cht='魔占之徑',
@@ -730,7 +741,7 @@ Cavern_of_Corrosion_Path_of_Possession = DungeonList(
     plane_id=2050101,
 )
 Cavern_of_Corrosion_Path_of_Hidden_Salvation = DungeonList(
-    id=67,
+    id=68,
     name='Cavern_of_Corrosion_Path_of_Hidden_Salvation',
     cn='隐救之径',
     cht='隱救之徑',
@@ -741,7 +752,7 @@ Cavern_of_Corrosion_Path_of_Hidden_Salvation = DungeonList(
     plane_id=2046201,
 )
 Cavern_of_Corrosion_Path_of_Thundersurge = DungeonList(
-    id=68,
+    id=69,
     name='Cavern_of_Corrosion_Path_of_Thundersurge',
     cn='雳涌之径',
     cht='靂湧之徑',
@@ -752,7 +763,7 @@ Cavern_of_Corrosion_Path_of_Thundersurge = DungeonList(
     plane_id=2043201,
 )
 Cavern_of_Corrosion_Path_of_Aria = DungeonList(
-    id=69,
+    id=70,
     name='Cavern_of_Corrosion_Path_of_Aria',
     cn='弦歌之径',
     cht='絃歌之徑',
@@ -763,7 +774,7 @@ Cavern_of_Corrosion_Path_of_Aria = DungeonList(
     plane_id=2041301,
 )
 Cavern_of_Corrosion_Path_of_Uncertainty = DungeonList(
-    id=70,
+    id=71,
     name='Cavern_of_Corrosion_Path_of_Uncertainty',
     cn='迷识之径',
     cht='迷識之徑',
@@ -774,7 +785,7 @@ Cavern_of_Corrosion_Path_of_Uncertainty = DungeonList(
     plane_id=2024101,
 )
 Cavern_of_Corrosion_Path_of_Cavalier = DungeonList(
-    id=71,
+    id=72,
     name='Cavern_of_Corrosion_Path_of_Cavalier',
     cn='勇骑之径',
     cht='勇騎之徑',
@@ -785,7 +796,7 @@ Cavern_of_Corrosion_Path_of_Cavalier = DungeonList(
     plane_id=2033201,
 )
 Cavern_of_Corrosion_Path_of_Dreamdive = DungeonList(
-    id=72,
+    id=73,
     name='Cavern_of_Corrosion_Path_of_Dreamdive',
     cn='梦潜之径',
     cht='夢潛之徑',
@@ -796,7 +807,7 @@ Cavern_of_Corrosion_Path_of_Dreamdive = DungeonList(
     plane_id=2031101,
 )
 Cavern_of_Corrosion_Path_of_Darkness = DungeonList(
-    id=73,
+    id=74,
     name='Cavern_of_Corrosion_Path_of_Darkness',
     cn='幽冥之径',
     cht='幽冥之徑',
@@ -807,7 +818,7 @@ Cavern_of_Corrosion_Path_of_Darkness = DungeonList(
     plane_id=2022301,
 )
 Cavern_of_Corrosion_Path_of_Elixir_Seekers = DungeonList(
-    id=74,
+    id=75,
     name='Cavern_of_Corrosion_Path_of_Elixir_Seekers',
     cn='药使之径',
     cht='藥使之徑',
@@ -818,7 +829,7 @@ Cavern_of_Corrosion_Path_of_Elixir_Seekers = DungeonList(
     plane_id=2023101,
 )
 Cavern_of_Corrosion_Path_of_Conflagration = DungeonList(
-    id=75,
+    id=76,
     name='Cavern_of_Corrosion_Path_of_Conflagration',
     cn='野焰之径',
     cht='野焰之徑',
@@ -829,7 +840,7 @@ Cavern_of_Corrosion_Path_of_Conflagration = DungeonList(
     plane_id=2021201,
 )
 Cavern_of_Corrosion_Path_of_Holy_Hymn = DungeonList(
-    id=76,
+    id=77,
     name='Cavern_of_Corrosion_Path_of_Holy_Hymn',
     cn='圣颂之径',
     cht='聖頌之徑',
@@ -840,7 +851,7 @@ Cavern_of_Corrosion_Path_of_Holy_Hymn = DungeonList(
     plane_id=2021101,
 )
 Cavern_of_Corrosion_Path_of_Providence = DungeonList(
-    id=77,
+    id=78,
     name='Cavern_of_Corrosion_Path_of_Providence',
     cn='睿治之径',
     cht='睿治之徑',
@@ -851,7 +862,7 @@ Cavern_of_Corrosion_Path_of_Providence = DungeonList(
     plane_id=2013401,
 )
 Cavern_of_Corrosion_Path_of_Drifting = DungeonList(
-    id=78,
+    id=79,
     name='Cavern_of_Corrosion_Path_of_Drifting',
     cn='漂泊之径',
     cht='漂泊之徑',
@@ -862,7 +873,7 @@ Cavern_of_Corrosion_Path_of_Drifting = DungeonList(
     plane_id=2013201,
 )
 Cavern_of_Corrosion_Path_of_Jabbing_Punch = DungeonList(
-    id=79,
+    id=80,
     name='Cavern_of_Corrosion_Path_of_Jabbing_Punch',
     cn='迅拳之径',
     cht='迅拳之徑',
@@ -873,7 +884,7 @@ Cavern_of_Corrosion_Path_of_Jabbing_Punch = DungeonList(
     plane_id=2013101,
 )
 Cavern_of_Corrosion_Path_of_Gelid_Wind = DungeonList(
-    id=80,
+    id=81,
     name='Cavern_of_Corrosion_Path_of_Gelid_Wind',
     cn='霜风之径',
     cht='霜風之徑',
@@ -884,7 +895,7 @@ Cavern_of_Corrosion_Path_of_Gelid_Wind = DungeonList(
     plane_id=2000201,
 )
 Echo_of_War_The_Comedy_of_Doom = DungeonList(
-    id=81,
+    id=82,
     name='Echo_of_War_The_Comedy_of_Doom',
     cn='坏灭的喜剧',
     cht='壞滅的喜劇',
@@ -895,7 +906,7 @@ Echo_of_War_The_Comedy_of_Doom = DungeonList(
     plane_id=2054101,
 )
 Echo_of_War_Rusted_Crypt_of_the_Iron_Carcass = DungeonList(
-    id=82,
+    id=83,
     name='Echo_of_War_Rusted_Crypt_of_the_Iron_Carcass',
     cn='铁骸的锈冢',
     cht='鐵骸的鏽塚',
@@ -906,7 +917,7 @@ Echo_of_War_Rusted_Crypt_of_the_Iron_Carcass = DungeonList(
     plane_id=2048101,
 )
 Echo_of_War_Glance_of_Twilight = DungeonList(
-    id=83,
+    id=84,
     name='Echo_of_War_Glance_of_Twilight',
     cn='晨昏的回眸',
     cht='晨昏的回眸',
@@ -917,7 +928,7 @@ Echo_of_War_Glance_of_Twilight = DungeonList(
     plane_id=2043101,
 )
 Echo_of_War_Inner_Beast_Battlefield = DungeonList(
-    id=84,
+    id=85,
     name='Echo_of_War_Inner_Beast_Battlefield',
     cn='心兽的战场',
     cht='心獸的戰場',
@@ -928,7 +939,7 @@ Echo_of_War_Inner_Beast_Battlefield = DungeonList(
     plane_id=2024201,
 )
 Echo_of_War_Salutations_of_Ashen_Dreams = DungeonList(
-    id=85,
+    id=86,
     name='Echo_of_War_Salutations_of_Ashen_Dreams',
     cn='尘梦的赞礼',
     cht='塵夢的贊禮',
@@ -939,7 +950,7 @@ Echo_of_War_Salutations_of_Ashen_Dreams = DungeonList(
     plane_id=2033201,
 )
 Echo_of_War_Borehole_Planet_Past_Nightmares = DungeonList(
-    id=86,
+    id=87,
     name='Echo_of_War_Borehole_Planet_Past_Nightmares',
     cn='蛀星的旧魇',
     cht='蛀星的舊魘',
@@ -950,7 +961,7 @@ Echo_of_War_Borehole_Planet_Past_Nightmares = DungeonList(
     plane_id=2000401,
 )
 Echo_of_War_Divine_Seed = DungeonList(
-    id=87,
+    id=88,
     name='Echo_of_War_Divine_Seed',
     cn='不死的神实',
     cht='不死的神實',
@@ -961,7 +972,7 @@ Echo_of_War_Divine_Seed = DungeonList(
     plane_id=2023201,
 )
 Echo_of_War_End_of_the_Eternal_Freeze = DungeonList(
-    id=88,
+    id=89,
     name='Echo_of_War_End_of_the_Eternal_Freeze',
     cn='寒潮的落幕',
     cht='寒潮的落幕',
@@ -972,7 +983,7 @@ Echo_of_War_End_of_the_Eternal_Freeze = DungeonList(
     plane_id=2013401,
 )
 Echo_of_War_Destruction_Beginning = DungeonList(
-    id=89,
+    id=90,
     name='Echo_of_War_Destruction_Beginning',
     cn='毁灭的开端',
     cht='毀滅的開端',
@@ -983,7 +994,7 @@ Echo_of_War_Destruction_Beginning = DungeonList(
     plane_id=2000301,
 )
 Simulated_Universe_World_1 = DungeonList(
-    id=90,
+    id=91,
     name='Simulated_Universe_World_1',
     cn='第一世界',
     cht='第一世界',
@@ -994,7 +1005,7 @@ Simulated_Universe_World_1 = DungeonList(
     plane_id=100000104,
 )
 Simulated_Universe_World_3 = DungeonList(
-    id=91,
+    id=92,
     name='Simulated_Universe_World_3',
     cn='第三世界',
     cht='第三世界',
@@ -1005,7 +1016,7 @@ Simulated_Universe_World_3 = DungeonList(
     plane_id=100000104,
 )
 Simulated_Universe_World_4 = DungeonList(
-    id=92,
+    id=93,
     name='Simulated_Universe_World_4',
     cn='第四世界',
     cht='第四世界',
@@ -1016,7 +1027,7 @@ Simulated_Universe_World_4 = DungeonList(
     plane_id=100000104,
 )
 Simulated_Universe_World_5 = DungeonList(
-    id=93,
+    id=94,
     name='Simulated_Universe_World_5',
     cn='第五世界',
     cht='第五世界',
@@ -1027,7 +1038,7 @@ Simulated_Universe_World_5 = DungeonList(
     plane_id=100000104,
 )
 Simulated_Universe_World_6 = DungeonList(
-    id=94,
+    id=95,
     name='Simulated_Universe_World_6',
     cn='第六世界',
     cht='第六世界',
@@ -1038,7 +1049,7 @@ Simulated_Universe_World_6 = DungeonList(
     plane_id=100000104,
 )
 Simulated_Universe_World_7 = DungeonList(
-    id=95,
+    id=96,
     name='Simulated_Universe_World_7',
     cn='第七世界',
     cht='第七世界',
@@ -1049,7 +1060,7 @@ Simulated_Universe_World_7 = DungeonList(
     plane_id=100000104,
 )
 Simulated_Universe_World_8 = DungeonList(
-    id=96,
+    id=97,
     name='Simulated_Universe_World_8',
     cn='第八世界',
     cht='第八世界',
@@ -1060,7 +1071,7 @@ Simulated_Universe_World_8 = DungeonList(
     plane_id=100000104,
 )
 Simulated_Universe_World_9 = DungeonList(
-    id=97,
+    id=98,
     name='Simulated_Universe_World_9',
     cn='第九世界',
     cht='第九世界',
@@ -1071,7 +1082,7 @@ Simulated_Universe_World_9 = DungeonList(
     plane_id=100000104,
 )
 Divergent_Universe_Bugs_Incoming = DungeonList(
-    id=98,
+    id=99,
     name='Divergent_Universe_Bugs_Incoming',
     cn='虫虫来袭',
     cht='蟲蟲來襲',
@@ -1082,7 +1093,7 @@ Divergent_Universe_Bugs_Incoming = DungeonList(
     plane_id=0,
 )
 Divergent_Universe_Gilded_Recollection = DungeonList(
-    id=99,
+    id=100,
     name='Divergent_Universe_Gilded_Recollection',
     cn='鎏金追忆',
     cht='鎏金追憶',
@@ -1093,7 +1104,7 @@ Divergent_Universe_Gilded_Recollection = DungeonList(
     plane_id=0,
 )
 Divergent_Universe_Within_the_West_Wind = DungeonList(
-    id=100,
+    id=101,
     name='Divergent_Universe_Within_the_West_Wind',
     cn='西风丛中',
     cht='西風叢中',
@@ -1104,7 +1115,7 @@ Divergent_Universe_Within_the_West_Wind = DungeonList(
     plane_id=0,
 )
 Divergent_Universe_Moonlit_Blood = DungeonList(
-    id=101,
+    id=102,
     name='Divergent_Universe_Moonlit_Blood',
     cn='月下朱殷',
     cht='月下朱殷',
@@ -1115,7 +1126,7 @@ Divergent_Universe_Moonlit_Blood = DungeonList(
     plane_id=0,
 )
 Divergent_Universe_Unceasing_Strife = DungeonList(
-    id=102,
+    id=103,
     name='Divergent_Universe_Unceasing_Strife',
     cn='纷争不休',
     cht='紛爭不休',
@@ -1126,7 +1137,7 @@ Divergent_Universe_Unceasing_Strife = DungeonList(
     plane_id=0,
 )
 Divergent_Universe_Famished_Worker = DungeonList(
-    id=103,
+    id=104,
     name='Divergent_Universe_Famished_Worker',
     cn='蠹役饥肠',
     cht='蠹役飢腸',
@@ -1137,7 +1148,7 @@ Divergent_Universe_Famished_Worker = DungeonList(
     plane_id=0,
 )
 Divergent_Universe_Eternal_Comedy = DungeonList(
-    id=104,
+    id=105,
     name='Divergent_Universe_Eternal_Comedy',
     cn='永恒笑剧',
     cht='永恆笑劇',
@@ -1148,7 +1159,7 @@ Divergent_Universe_Eternal_Comedy = DungeonList(
     plane_id=0,
 )
 Divergent_Universe_To_Sweet_Dreams = DungeonList(
-    id=105,
+    id=106,
     name='Divergent_Universe_To_Sweet_Dreams',
     cn='伴你入眠',
     cht='伴你入眠',
@@ -1159,7 +1170,7 @@ Divergent_Universe_To_Sweet_Dreams = DungeonList(
     plane_id=0,
 )
 Divergent_Universe_Pouring_Blades = DungeonList(
-    id=106,
+    id=107,
     name='Divergent_Universe_Pouring_Blades',
     cn='天剑如雨',
     cht='天劍如雨',
@@ -1170,7 +1181,7 @@ Divergent_Universe_Pouring_Blades = DungeonList(
     plane_id=0,
 )
 Divergent_Universe_Fruit_of_Evil = DungeonList(
-    id=107,
+    id=108,
     name='Divergent_Universe_Fruit_of_Evil',
     cn='孽果盘生',
     cht='孽果盤生',
@@ -1181,7 +1192,7 @@ Divergent_Universe_Fruit_of_Evil = DungeonList(
     plane_id=0,
 )
 Divergent_Universe_Permafrost = DungeonList(
-    id=108,
+    id=109,
     name='Divergent_Universe_Permafrost',
     cn='百年冻土',
     cht='百年凍土',
@@ -1192,7 +1203,7 @@ Divergent_Universe_Permafrost = DungeonList(
     plane_id=0,
 )
 Divergent_Universe_Gentle_Words = DungeonList(
-    id=109,
+    id=110,
     name='Divergent_Universe_Gentle_Words',
     cn='温柔话语',
     cht='溫柔話語',
@@ -1203,7 +1214,7 @@ Divergent_Universe_Gentle_Words = DungeonList(
     plane_id=0,
 )
 Divergent_Universe_Smelted_Heart = DungeonList(
-    id=110,
+    id=111,
     name='Divergent_Universe_Smelted_Heart',
     cn='浴火钢心',
     cht='浴火鋼心',
@@ -1214,7 +1225,7 @@ Divergent_Universe_Smelted_Heart = DungeonList(
     plane_id=0,
 )
 Divergent_Universe_Untoppled_Walls = DungeonList(
-    id=111,
+    id=112,
     name='Divergent_Universe_Untoppled_Walls',
     cn='坚城不倒',
     cht='堅城不倒',
@@ -1225,7 +1236,7 @@ Divergent_Universe_Untoppled_Walls = DungeonList(
     plane_id=0,
 )
 Simulated_Universe_Swarm_Disaster = DungeonList(
-    id=112,
+    id=113,
     name='Simulated_Universe_Swarm_Disaster',
     cn='寰宇蝗灾',
     cht='寰宇蝗災',
@@ -1236,7 +1247,7 @@ Simulated_Universe_Swarm_Disaster = DungeonList(
     plane_id=-1,
 )
 Simulated_Universe_Gold_and_Gears = DungeonList(
-    id=113,
+    id=114,
     name='Simulated_Universe_Gold_and_Gears',
     cn='黄金与机械',
     cht='黃金與機械',
@@ -1247,7 +1258,7 @@ Simulated_Universe_Gold_and_Gears = DungeonList(
     plane_id=-1,
 )
 Simulated_Universe_Unknowable_Domain = DungeonList(
-    id=114,
+    id=115,
     name='Simulated_Universe_Unknowable_Domain',
     cn='不可知域',
     cht='不可知域',
@@ -1258,7 +1269,7 @@ Simulated_Universe_Unknowable_Domain = DungeonList(
     plane_id=-1,
 )
 Memory_of_Chaos = DungeonList(
-    id=115,
+    id=116,
     name='Memory_of_Chaos',
     cn='混沌回忆',
     cht='混沌回憶',
@@ -1269,7 +1280,7 @@ Memory_of_Chaos = DungeonList(
     plane_id=-1,
 )
 The_Voyage_of_Navis_Astrigera = DungeonList(
-    id=116,
+    id=117,
     name='The_Voyage_of_Navis_Astrigera',
     cn='天艟求仙迷航录',
     cht='天艟求仙迷航錄',
@@ -1280,7 +1291,7 @@ The_Voyage_of_Navis_Astrigera = DungeonList(
     plane_id=-1,
 )
 The_Last_Vestiges_of_Towering_Citadel = DungeonList(
-    id=117,
+    id=118,
     name='The_Last_Vestiges_of_Towering_Citadel',
     cn='永屹之城遗秘',
     cht='永屹之城遺秘',

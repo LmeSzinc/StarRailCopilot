@@ -231,11 +231,11 @@ Stagnant_Shadow_Cinders = DungeonDetailed(
 Stagnant_Shadow_Sirens = DungeonDetailed(
     id=26,
     name='Stagnant_Shadow_Sirens',
-    cn='晋阶材料：冰（长夜月 / 昔涟）',
-    cht='晉階材料：冰（長夜月 / 昔漣）',
-    en='Ascension: Ice (Evernight / Cyrene)',
-    jp='昇格素材：氷（長夜月 / キュレネ）',
-    es='Ascension: Hielo (Larganoche / Cirene)',
+    cn='晋阶材料：冰（长夜月 / 昔涟 / 真珠）',
+    cht='晉階材料：冰（長夜月 / 昔漣 / 真珠）',
+    en='Ascension: Ice (Evernight / Cyrene / Pearl)',
+    jp='昇格素材：氷（長夜月 / キュレネ / パール）',
+    es='Ascension: Hielo (Larganoche / Cirene / Perla)',
 )
 Stagnant_Shadow_Ashes = DungeonDetailed(
     id=27,

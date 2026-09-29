@@ -1839,6 +1839,18 @@ When_She_Decided_to_See = Cone(
     path_name='Elation',
     character_name='YaoGuang',
 )
+Colors_for_Tomorrow = Cone(
+    id=23055,
+    name='Colors_for_Tomorrow',
+    cn='献给明日的色彩',
+    cht='獻給明日的色彩',
+    en='Colors for Tomorrow',
+    jp='明日に捧げる色',
+    es='Colores para el mañana',
+    rarity='SuperRare',
+    path_name='Elation',
+    character_name='Pearl',
+)
 The_Finale_of_a_Lie = Cone(
     id=23056,
     name='The_Finale_of_a_Lie',

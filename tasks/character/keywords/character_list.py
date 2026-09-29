@@ -468,7 +468,7 @@ DanHengImbibitorLunae = CharacterList(
     es='Dan Heng - Imbibitor Lunae',
     type_name='Imaginary',
     path_name='Destruction',
-    relic_setid=102,
+    relic_setid=134,
     ornament_setid=309,
 )
 Xueyi = CharacterList(
@@ -1016,6 +1016,19 @@ YaoGuang = CharacterList(
     path_name='Elation',
     relic_setid=130,
     ornament_setid=317,
+)
+Pearl = CharacterList(
+    id=1503,
+    name='Pearl',
+    cn='真珠',
+    cht='真珠',
+    en='Pearl',
+    jp='パール',
+    es='Perla',
+    type_name='Ice',
+    path_name='Elation',
+    relic_setid=133,
+    ornament_setid=308,
 )
 Ashveil = CharacterList(
     id=1504,

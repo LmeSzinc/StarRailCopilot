@@ -102,6 +102,7 @@ dict_aired_version = {
     Gilgamesh: "4.4",
     RobinSummeretto: "4.5",
     AventurineWaveflair: "4.5",
+    Pearl: "4.6",
 }
 
 

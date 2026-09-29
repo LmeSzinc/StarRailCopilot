@@ -246,6 +246,7 @@
     "Name": {
       "name": "Dungeon.Name.name",
       "help": "Dungeon.Name.help",
+      "Cavern_of_Corrosion_Path_of_the_Secret_Actor": "遺器：星灯す夢芝居の伶人 & 禁断の果実を貪る異端者（密伶の路）",
       "Cavern_of_Corrosion_Path_of_Insight": "遺器：ナビゲーター & 名匠（観火の路）",
       "Cavern_of_Corrosion_Path_of_Possession": "遺器：魔法少女 & 卜者（魔占の路）",
       "Cavern_of_Corrosion_Path_of_Hidden_Salvation": "遺器：救世主 & 隠者（隠救の路）",
@@ -309,7 +310,7 @@
       "Stagnant_Shadow_Rime": "昇格素材：氷（三月なのか / ヘルタ / ジェパード / ペラ）",
       "Stagnant_Shadow_Icicle": "昇格素材：氷（彦卿 / 鏡流 / ルアン・メェイ）",
       "Stagnant_Shadow_Nectar": "昇格素材：氷（ミーシャ / マダム・ヘルタ）",
-      "Stagnant_Shadow_Sirens": "昇格素材：氷（長夜月 / キュレネ）",
+      "Stagnant_Shadow_Sirens": "昇格素材：氷（長夜月 / キュレネ / パール）",
       "Stagnant_Shadow_Fulmination": "昇格素材：雷（アーラン / セーバル / 停雲 / 白露）",
       "Stagnant_Shadow_Doom": "昇格素材：雷（カフカ / 景元 / 黄泉）",
       "Stagnant_Shadow_Mechwolf": "昇格素材：雷（モゼ / アグライア）",
@@ -371,6 +372,7 @@
       "name": "Dungeon.NameAtDoubleRelic.name",
       "help": "Dungeon.NameAtDoubleRelic.help",
       "do_not_use": "2倍イベントに参加しない",
+      "Cavern_of_Corrosion_Path_of_the_Secret_Actor": "遺器：星灯す夢芝居の伶人 & 禁断の果実を貪る異端者（密伶の路）",
       "Cavern_of_Corrosion_Path_of_Insight": "遺器：ナビゲーター & 名匠（観火の路）",
       "Cavern_of_Corrosion_Path_of_Possession": "遺器：魔法少女 & 卜者（魔占の路）",
       "Cavern_of_Corrosion_Path_of_Hidden_Salvation": "遺器：救世主 & 隠者（隠救の路）",
@@ -443,6 +445,7 @@
       "name": "サポートキャラ",
       "help": "フレンドのサポートキャラクターを選択します。見つからない場合は、最初のキャラクターが選択されます。フレンドをピン留めすることをお勧めします。",
       "FirstCharacter": "FirstCharacter",
+      "Pearl": "[4.6] パール",
       "RobinSummeretto": "[4.5] ロビン・夏空の歌",
       "AventurineWaveflair": "[4.5] アベンチュリン・波と戯れる夏",
       "HimekoNova": "[4.4] 姫子・旅立ち",
@@ -723,7 +726,7 @@
       "help": ""
     },
     "Item_Sea_Siren_Torn_Fin": {
-      "name": "昇格素材：氷（長夜月 / キュレネ）",
+      "name": "昇格素材：氷（長夜月 / キュレネ / パール）",
       "help": ""
     },
     "Item_Thunder_Strum": {
@@ -928,6 +931,7 @@
       "name": "PlannerTarget.Character.name",
       "help": "PlannerTarget.Character.help",
       "_none_": "_none_",
+      "Pearl": "[4.6] パール",
       "RobinSummeretto": "[4.5] ロビン・夏空の歌",
       "AventurineWaveflair": "[4.5] アベンチュリン・波と戯れる夏",
       "HimekoNova": "[4.4] 姫子・旅立ち",
@@ -1032,6 +1036,7 @@
       "Until_the_Flowers_Bloom_Again": "[4.2] 緋英 | 5* 再び花が咲く季節に",
       "Welcome_to_the_Cosmic_City": "[4.2] 銀狼LV.999 | 5* 銀河シティへようこそ",
       "The_Finale_of_a_Lie": "[4.1] 不死途 | 5* 或る嘘の終幕",
+      "Colors_for_Tomorrow": "[4.6] パール | 5* 明日に捧げる色",
       "When_She_Decided_to_See": "[4.0] 爻光 | 5* 彼女が視ると決めた時",
       "Dazzled_by_a_Flowery_World": "[4.0] 火花 | 5* きらびやかな世界",
       "This_Love_Forever": "[3.7] キュレネ | 5* 愛はいま永遠に",
@@ -1199,6 +1204,7 @@
       "name": "PlannerTarget.Relic.name",
       "help": "PlannerTarget.Relic.help",
       "_none_": "_none_",
+      "Cavern_of_Corrosion_Path_of_the_Secret_Actor": "遺器：星灯す夢芝居の伶人 & 禁断の果実を貪る異端者（密伶の路）",
       "Cavern_of_Corrosion_Path_of_Insight": "遺器：ナビゲーター & 名匠（観火の路）",
       "Cavern_of_Corrosion_Path_of_Possession": "遺器：魔法少女 & 卜者（魔占の路）",
       "Cavern_of_Corrosion_Path_of_Hidden_Salvation": "遺器：救世主 & 隠者（隠救の路）",

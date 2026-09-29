@@ -10,7 +10,7 @@ from module.logger import logger
 from module.ocr.ocr import Ocr
 from tasks.base.assets.assets_base_main_page import ROGUE_LEAVE_FOR_NOW
 from tasks.base.assets.assets_base_page import MAP_EXIT
-from tasks.base.page import page_item, page_main, page_rogue
+from tasks.base.page import page_item, page_main, page_rogue, page_gacha
 from tasks.dungeon.keywords import DungeonList
 from tasks.dungeon.keywords.dungeon import Simulated_Universe_World_1
 from tasks.dungeon.ui.state import OcrSimUniPoint
@@ -371,7 +371,13 @@ class RogueEntry(RouteBase, RogueRewardHandler, RoguePathHandler, DungeonRogueUI
             if self.is_page_rogue_main():
                 logger.info('At is_page_rogue_main()')
                 return True
-            if not self.ui_page_appear(page_item) and self.appear(LEVEL_CONFIRM):
+            if self.appear(LEVEL_CONFIRM):
+                # page_item page_gacha also have button at bottom-left
+                # they are not LEVEL_CONFIRM
+                if self.ui_page_appear(page_item):
+                    return False
+                if self.ui_page_appear(page_gacha):
+                    return False
                 logger.info('At LEVEL_CONFIRM')
                 return True
             return False

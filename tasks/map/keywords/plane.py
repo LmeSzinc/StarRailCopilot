@@ -905,8 +905,19 @@ Planarcadia_SkycallAery = MapPlane(
     world_id=5,
     plane_id=1055201,
 )
-Planarcadia_PhantasmoonCourtyard = MapPlane(
+Planarcadia_LifeSciencesInstitute = MapPlane(
     id=84,
+    name='Planarcadia_LifeSciencesInstitute',
+    cn='生研院',
+    cht='生研院',
+    en='Life Sciences Institute',
+    jp='生研院',
+    es='Instituto de Ciencias de la Vida',
+    world_id=5,
+    plane_id=2056101,
+)
+Planarcadia_PhantasmoonCourtyard = MapPlane(
+    id=85,
     name='Planarcadia_PhantasmoonCourtyard',
     cn='幻月秘庭',
     cht='幻月秘庭',
@@ -917,7 +928,7 @@ Planarcadia_PhantasmoonCourtyard = MapPlane(
     plane_id=1050201,
 )
 Planarcadia_GraphiaAcademy = MapPlane(
-    id=85,
+    id=86,
     name='Planarcadia_GraphiaAcademy',
     cn='绘世学院',
     cht='繪世學院',
@@ -928,7 +939,7 @@ Planarcadia_GraphiaAcademy = MapPlane(
     plane_id=2050101,
 )
 Planarcadia_DovebrookDistrict = MapPlane(
-    id=86,
+    id=87,
     name='Planarcadia_DovebrookDistrict',
     cn='鸽川区',
     cht='鴿川區',
@@ -939,7 +950,7 @@ Planarcadia_DovebrookDistrict = MapPlane(
     plane_id=2050301,
 )
 Planarcadia_WorldEndTavern = MapPlane(
-    id=87,
+    id=88,
     name='Planarcadia_WorldEndTavern',
     cn='「世界尽头」酒馆',
     cht='「世界盡頭」酒館',
@@ -950,7 +961,7 @@ Planarcadia_WorldEndTavern = MapPlane(
     plane_id=2050201,
 )
 Planarcadia_PearluxeTower = MapPlane(
-    id=88,
+    id=89,
     name='Planarcadia_PearluxeTower',
     cn='珠星大厦',
     cht='珠星大廈',
@@ -961,7 +972,7 @@ Planarcadia_PearluxeTower = MapPlane(
     plane_id=2051301,
 )
 Planarcadia_LookoutCloudStation = MapPlane(
-    id=89,
+    id=90,
     name='Planarcadia_LookoutCloudStation',
     cn='观览云岛站',
     cht='觀覽雲島站',
@@ -972,7 +983,7 @@ Planarcadia_LookoutCloudStation = MapPlane(
     plane_id=2051101,
 )
 Planarcadia_SeafeldCity = MapPlane(
-    id=90,
+    id=91,
     name='Planarcadia_SeafeldCity',
     cn='海原市',
     cht='海原市',
@@ -983,7 +994,7 @@ Planarcadia_SeafeldCity = MapPlane(
     plane_id=1052101,
 )
 Planarcadia_SeafeldTVTower = MapPlane(
-    id=91,
+    id=92,
     name='Planarcadia_SeafeldTVTower',
     cn='海原电视塔',
     cht='海原電視塔',
@@ -994,7 +1005,7 @@ Planarcadia_SeafeldTVTower = MapPlane(
     plane_id=2052101,
 )
 Planarcadia_InkfordHermitage = MapPlane(
-    id=92,
+    id=93,
     name='Planarcadia_InkfordHermitage',
     cn='渡画泉隐',
     cht='渡畫泉隱',
@@ -1005,7 +1016,7 @@ Planarcadia_InkfordHermitage = MapPlane(
     plane_id=2053101,
 )
 Planarcadia_DesolateMawDemonhold = MapPlane(
-    id=93,
+    id=94,
     name='Planarcadia_DesolateMawDemonhold',
     cn='寂灭空飨妖都',
     cht='寂滅空饗妖都',
@@ -1016,7 +1027,7 @@ Planarcadia_DesolateMawDemonhold = MapPlane(
     plane_id=2054101,
 )
 Planarcadia_FallenStarCradle = MapPlane(
-    id=94,
+    id=95,
     name='Planarcadia_FallenStarCradle',
     cn='坠星的摇篮',
     cht='墜星的搖籃',
@@ -1027,7 +1038,7 @@ Planarcadia_FallenStarCradle = MapPlane(
     plane_id=2054201,
 )
 Planarcadia_PearlStudio = MapPlane(
-    id=95,
+    id=96,
     name='Planarcadia_PearlStudio',
     cn='真珠的画室',
     cht='真珠的畫室',

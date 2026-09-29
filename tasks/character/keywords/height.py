@@ -34,6 +34,7 @@ CHARACTER_HEIGHT = {
     'Lingsha': 'Maid',
     'March7thPreservation': 'Maid',
     'March7thTheHunt': 'Maid',
+    'Pearl': 'Maid',
     'Rappa': 'Maid',
     'Robin': 'Maid',
     'RuanMei': 'Maid',

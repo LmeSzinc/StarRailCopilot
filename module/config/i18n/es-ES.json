@@ -246,6 +246,7 @@
     "Name": {
       "name": "Nombre de la Mazmorra",
       "help": "Ajustes predeterminados de las mazmorras",
+      "Cavern_of_Corrosion_Path_of_the_Secret_Actor": "Artefactos: Plañidera iluminaestrellas & Hereje del fruto prohibido (Senda del Plañidero secreto)",
       "Cavern_of_Corrosion_Path_of_Insight": "Artefactos: Piloto estelar & Gran forja (Senda de la mirada ardiente)",
       "Cavern_of_Corrosion_Path_of_Possession": "Artefactos: Chica mágica & Adivino (Senda de la adivinación)",
       "Cavern_of_Corrosion_Path_of_Hidden_Salvation": "Artefactos: Salvado & Eremita (Senda de la salvación oculta)",
@@ -309,7 +310,7 @@
       "Stagnant_Shadow_Rime": "Ascension: Hielo (Siete de Marzo / Herta / Gepard / Pela)",
       "Stagnant_Shadow_Icicle": "Ascension: Hielo (Yanqing / Jingliu / Ruan Mei)",
       "Stagnant_Shadow_Nectar": "Ascension: Hielo (Misha / Sra. Herta)",
-      "Stagnant_Shadow_Sirens": "Ascension: Hielo (Larganoche / Cirene)",
+      "Stagnant_Shadow_Sirens": "Ascension: Hielo (Larganoche / Cirene / Perla)",
       "Stagnant_Shadow_Fulmination": "Ascension: Rayo (Arlan / Serval / Tingyun / Bailu)",
       "Stagnant_Shadow_Doom": "Ascension: Rayo (Kafka / Jing Yuan / Acheron)",
       "Stagnant_Shadow_Mechwolf": "Ascension: Rayo (Moze / Aglaea)",
@@ -371,6 +372,7 @@
       "name": "En los eventos de x2 de Caverna de la corrosión",
       "help": "Se volverán a los ajustes predeterminados una vez se acaben los intentos del evento",
       "do_not_use": "No participar en el evento doble",
+      "Cavern_of_Corrosion_Path_of_the_Secret_Actor": "Artefactos: Plañidera iluminaestrellas & Hereje del fruto prohibido (Senda del Plañidero secreto)",
       "Cavern_of_Corrosion_Path_of_Insight": "Artefactos: Piloto estelar & Gran forja (Senda de la mirada ardiente)",
       "Cavern_of_Corrosion_Path_of_Possession": "Artefactos: Chica mágica & Adivino (Senda de la adivinación)",
       "Cavern_of_Corrosion_Path_of_Hidden_Salvation": "Artefactos: Salvado & Eremita (Senda de la salvación oculta)",
@@ -443,6 +445,7 @@
       "name": "Personaje de apoyo",
       "help": "Selecciona un personaje de apoyo del amigo. Si no se encuentra, se seleccionará el primer personaje. Se recomienda marcar a los personajes de amigos.",
       "FirstCharacter": "Primer personaje",
+      "Pearl": "[4.6] Perla",
       "RobinSummeretto": "[4.5] Robin Estival",
       "AventurineWaveflair": "[4.5] Aventurino Oleaje",
       "HimekoNova": "[4.4] Himeko Nova",
@@ -723,7 +726,7 @@
       "help": ""
     },
     "Item_Sea_Siren_Torn_Fin": {
-      "name": "Ascension: Hielo (Larganoche / Cirene)",
+      "name": "Ascension: Hielo (Larganoche / Cirene / Perla)",
       "help": ""
     },
     "Item_Thunder_Strum": {
@@ -928,6 +931,7 @@
       "name": "Character",
       "help": "",
       "_none_": "None",
+      "Pearl": "[4.6] Perla",
       "RobinSummeretto": "[4.5] Robin Estival",
       "AventurineWaveflair": "[4.5] Aventurino Oleaje",
       "HimekoNova": "[4.4] Himeko Nova",
@@ -1032,6 +1036,7 @@
       "Until_the_Flowers_Bloom_Again": "[4.2] Evanescia | 5* Encuentro en la próxima primavera",
       "Welcome_to_the_Cosmic_City": "[4.2] Silver Wolf Niv. 999 | 5* Bienvenidos a la ciudad cósmica",
       "The_Finale_of_a_Lie": "[4.1] Ashveil | 5* El final de una mentira",
+      "Colors_for_Tomorrow": "[4.6] Perla | 5* Colores para el mañana",
       "When_She_Decided_to_See": "[4.0] Yao Guang | 5* Cuando se decidió a ver",
       "Dazzled_by_a_Flowery_World": "[4.0] Chispa | 5* El cautivador mundochispa",
       "This_Love_Forever": "[3.7] Cirene | 5* Amor eterno como este momento",
@@ -1199,6 +1204,7 @@
       "name": "Artefacto",
       "help": "",
       "_none_": "None",
+      "Cavern_of_Corrosion_Path_of_the_Secret_Actor": "Artefactos: Plañidera iluminaestrellas & Hereje del fruto prohibido (Senda del Plañidero secreto)",
       "Cavern_of_Corrosion_Path_of_Insight": "Artefactos: Piloto estelar & Gran forja (Senda de la mirada ardiente)",
       "Cavern_of_Corrosion_Path_of_Possession": "Artefactos: Chica mágica & Adivino (Senda de la adivinación)",
       "Cavern_of_Corrosion_Path_of_Hidden_Salvation": "Artefactos: Salvado & Eremita (Senda de la salvación oculta)",

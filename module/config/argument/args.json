@@ -687,6 +687,7 @@
         "display": "hide",
         "option": [
           "_none_",
+          "Pearl",
           "RobinSummeretto",
           "AventurineWaveflair",
           "HimekoNova",
@@ -795,6 +796,7 @@
           "Until_the_Flowers_Bloom_Again",
           "Welcome_to_the_Cosmic_City",
           "The_Finale_of_a_Lie",
+          "Colors_for_Tomorrow",
           "When_She_Decided_to_See",
           "Dazzled_by_a_Flowery_World",
           "This_Love_Forever",
@@ -966,6 +968,7 @@
         "display": "hide",
         "option": [
           "_none_",
+          "Cavern_of_Corrosion_Path_of_the_Secret_Actor",
           "Cavern_of_Corrosion_Path_of_Insight",
           "Cavern_of_Corrosion_Path_of_Possession",
           "Cavern_of_Corrosion_Path_of_Hidden_Salvation",
@@ -1148,6 +1151,7 @@
         "type": "select",
         "value": "Calyx_Golden_Treasures_Jarilo_VI",
         "option": [
+          "Cavern_of_Corrosion_Path_of_the_Secret_Actor",
           "Cavern_of_Corrosion_Path_of_Insight",
           "Cavern_of_Corrosion_Path_of_Possession",
           "Cavern_of_Corrosion_Path_of_Hidden_Salvation",
@@ -1277,6 +1281,7 @@
         "value": "do_not_use",
         "option": [
           "do_not_use",
+          "Cavern_of_Corrosion_Path_of_the_Secret_Actor",
           "Cavern_of_Corrosion_Path_of_Insight",
           "Cavern_of_Corrosion_Path_of_Possession",
           "Cavern_of_Corrosion_Path_of_Hidden_Salvation",
@@ -1328,6 +1333,7 @@
         "value": "FirstCharacter",
         "option": [
           "FirstCharacter",
+          "Pearl",
           "RobinSummeretto",
           "AventurineWaveflair",
           "HimekoNova",
@@ -1605,6 +1611,7 @@
         "value": "FirstCharacter",
         "option": [
           "FirstCharacter",
+          "Pearl",
           "RobinSummeretto",
           "AventurineWaveflair",
           "HimekoNova",
@@ -2228,6 +2235,7 @@
         "value": "FirstCharacter",
         "option": [
           "FirstCharacter",
+          "Pearl",
           "RobinSummeretto",
           "AventurineWaveflair",
           "HimekoNova",

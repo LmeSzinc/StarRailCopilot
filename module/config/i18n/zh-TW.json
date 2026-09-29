@@ -246,6 +246,7 @@
     "Name": {
       "name": "副本名稱",
       "help": "默認打本設定",
+      "Cavern_of_Corrosion_Path_of_the_Secret_Actor": "遺器：戲夢點星的伶人 & 貪噬禁果的異端（密伶之徑）",
       "Cavern_of_Corrosion_Path_of_Insight": "遺器：領航員 & 名冶（觀火之徑）",
       "Cavern_of_Corrosion_Path_of_Possession": "遺器：魔法少女 & 卜者（魔占之徑）",
       "Cavern_of_Corrosion_Path_of_Hidden_Salvation": "遺器：救世主 & 隱士（隱救之徑）",
@@ -309,7 +310,7 @@
       "Stagnant_Shadow_Rime": "晉階材料：冰（三月七 / 黑塔 / 傑帕德 / 佩拉）",
       "Stagnant_Shadow_Icicle": "晉階材料：冰（彥卿 / 鏡流 / 阮•梅）",
       "Stagnant_Shadow_Nectar": "晉階材料：冰（米沙 / 大黑塔）",
-      "Stagnant_Shadow_Sirens": "晉階材料：冰（長夜月 / 昔漣）",
+      "Stagnant_Shadow_Sirens": "晉階材料：冰（長夜月 / 昔漣 / 真珠）",
       "Stagnant_Shadow_Fulmination": "晉階材料：雷（阿蘭 / 希露瓦 / 停雲 / 白露）",
       "Stagnant_Shadow_Doom": "晉階材料：雷（卡芙卡 / 景元 / 黃泉）",
       "Stagnant_Shadow_Mechwolf": "晉階材料：雷（貊澤 / 阿格萊雅）",
@@ -371,6 +372,7 @@
       "name": "有遺器活動時，選擇副本",
       "help": "次數耗儘後回退到默認打本設定",
       "do_not_use": "不參與雙倍活動",
+      "Cavern_of_Corrosion_Path_of_the_Secret_Actor": "遺器：戲夢點星的伶人 & 貪噬禁果的異端（密伶之徑）",
       "Cavern_of_Corrosion_Path_of_Insight": "遺器：領航員 & 名冶（觀火之徑）",
       "Cavern_of_Corrosion_Path_of_Possession": "遺器：魔法少女 & 卜者（魔占之徑）",
       "Cavern_of_Corrosion_Path_of_Hidden_Salvation": "遺器：救世主 & 隱士（隱救之徑）",
@@ -443,6 +445,7 @@
       "name": "支援角色",
       "help": "選擇好友支援角色，未找到則選擇第一個角色，建議置頂好友角色",
       "FirstCharacter": "支援列表第一個角色",
+      "Pearl": "[4.6] 真珠",
       "RobinSummeretto": "[4.5] 知更鳥•晴歌",
       "AventurineWaveflair": "[4.5] 砂金•戲浪",
       "HimekoNova": "[4.4] 姬子•啟行",
@@ -723,7 +726,7 @@
       "help": ""
     },
     "Item_Sea_Siren_Torn_Fin": {
-      "name": "晉階材料：冰（長夜月 / 昔漣）",
+      "name": "晉階材料：冰（長夜月 / 昔漣 / 真珠）",
       "help": ""
     },
     "Item_Thunder_Strum": {
@@ -928,6 +931,7 @@
       "name": "養成角色",
       "help": "",
       "_none_": "無",
+      "Pearl": "[4.6] 真珠",
       "RobinSummeretto": "[4.5] 知更鳥•晴歌",
       "AventurineWaveflair": "[4.5] 砂金•戲浪",
       "HimekoNova": "[4.4] 姬子•啟行",
@@ -1032,6 +1036,7 @@
       "Until_the_Flowers_Bloom_Again": "[4.2] 緋英 | 5* 邂逅於下一個花季",
       "Welcome_to_the_Cosmic_City": "[4.2] 銀狼LV.999 | 5* 歡迎來到銀河城",
       "The_Finale_of_a_Lie": "[4.1] 不死途 | 5* 一場謊言的終幕",
+      "Colors_for_Tomorrow": "[4.6] 真珠 | 5* 獻給明日的色彩",
       "When_She_Decided_to_See": "[4.0] 爻光 | 5* 當她決定看見",
       "Dazzled_by_a_Flowery_World": "[4.0] 火花 | 5* 花花世界迷人眼",
       "This_Love_Forever": "[3.7] 昔漣 | 5* 愛如此刻永恆",
@@ -1199,6 +1204,7 @@
       "name": "養成外圈遺器",
       "help": "",
       "_none_": "無",
+      "Cavern_of_Corrosion_Path_of_the_Secret_Actor": "遺器：戲夢點星的伶人 & 貪噬禁果的異端（密伶之徑）",
       "Cavern_of_Corrosion_Path_of_Insight": "遺器：領航員 & 名冶（觀火之徑）",
       "Cavern_of_Corrosion_Path_of_Possession": "遺器：魔法少女 & 卜者（魔占之徑）",
       "Cavern_of_Corrosion_Path_of_Hidden_Salvation": "遺器：救世主 & 隱士（隱救之徑）",

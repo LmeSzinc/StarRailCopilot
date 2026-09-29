@@ -447,6 +447,34 @@
     "jp": "名匠",
     "es": "Gran forja"
   },
+  "DreamlitActor": {
+    "setid": 133,
+    "dungeon_id": 1217,
+    "cn_origin": "戏梦点星的伶人",
+    "cht_origin": "戲夢點星的伶人",
+    "en_origin": "Dreamlit Actor",
+    "jp_origin": "星灯す夢芝居の伶人",
+    "es_origin": "Plañidera iluminaestrellas",
+    "cn": "戏梦点星的伶人",
+    "cht": "戲夢點星的伶人",
+    "en": "Dreamlit Actor",
+    "jp": "星灯す夢芝居の伶人",
+    "es": "Plañidera iluminaestrellas"
+  },
+  "TheEdaciousHeretic": {
+    "setid": 134,
+    "dungeon_id": 1217,
+    "cn_origin": "贪噬禁果的异端",
+    "cht_origin": "貪噬禁果的異端",
+    "en_origin": "The Edacious Heretic",
+    "jp_origin": "禁断の果実を貪る異端者",
+    "es_origin": "Hereje del fruto prohibido",
+    "cn": "贪噬禁果的异端",
+    "cht": "貪噬禁果的異端",
+    "en": "The Edacious Heretic",
+    "jp": "禁断の果実を貪る異端者",
+    "es": "Hereje del fruto prohibido"
+  },
   "SpaceSealingStation": {
     "setid": 301,
     "dungeon_id": 230,

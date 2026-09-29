@@ -323,8 +323,28 @@ DivineQueryingMasterSmith = RelicSet(
     es='Gran forja del interrogante divino',
     setid=132,
 )
-SpaceSealingStation = RelicSet(
+DreamlitActor = RelicSet(
     id=33,
+    name='DreamlitActor',
+    cn='戏梦点星的伶人',
+    cht='戲夢點星的伶人',
+    en='Dreamlit Actor',
+    jp='星灯す夢芝居の伶人',
+    es='Plañidera iluminaestrellas',
+    setid=133,
+)
+TheEdaciousHeretic = RelicSet(
+    id=34,
+    name='TheEdaciousHeretic',
+    cn='贪噬禁果的异端',
+    cht='貪噬禁果的異端',
+    en='The Edacious Heretic',
+    jp='禁断の果実を貪る異端者',
+    es='Hereje del fruto prohibido',
+    setid=134,
+)
+SpaceSealingStation = RelicSet(
+    id=35,
     name='SpaceSealingStation',
     cn='太空封印站',
     cht='太空封印站',
@@ -334,7 +354,7 @@ SpaceSealingStation = RelicSet(
     setid=301,
 )
 FleetoftheAgeless = RelicSet(
-    id=34,
+    id=36,
     name='FleetoftheAgeless',
     cn='不老者的仙舟',
     cht='不老者的仙舟',
@@ -344,7 +364,7 @@ FleetoftheAgeless = RelicSet(
     setid=302,
 )
 PanCosmicCommercialEnterprise = RelicSet(
-    id=35,
+    id=37,
     name='PanCosmicCommercialEnterprise',
     cn='泛银河商业公司',
     cht='泛銀河商業公司',
@@ -354,7 +374,7 @@ PanCosmicCommercialEnterprise = RelicSet(
     setid=303,
 )
 BelobogoftheArchitects = RelicSet(
-    id=36,
+    id=38,
     name='BelobogoftheArchitects',
     cn='筑城者的贝洛伯格',
     cht='築城者的貝洛伯格',
@@ -364,7 +384,7 @@ BelobogoftheArchitects = RelicSet(
     setid=304,
 )
 CelestialDifferentiator = RelicSet(
-    id=37,
+    id=39,
     name='CelestialDifferentiator',
     cn='星体差分机',
     cht='星體差分機',
@@ -374,7 +394,7 @@ CelestialDifferentiator = RelicSet(
     setid=305,
 )
 InertSalsotto = RelicSet(
-    id=38,
+    id=40,
     name='InertSalsotto',
     cn='停转的萨尔索图',
     cht='停轉的薩爾索圖',
@@ -384,7 +404,7 @@ InertSalsotto = RelicSet(
     setid=306,
 )
 TaliaKingdomofBanditry = RelicSet(
-    id=39,
+    id=41,
     name='TaliaKingdomofBanditry',
     cn='盗贼公国塔利亚',
     cht='盜賊公國塔利亞',
@@ -394,7 +414,7 @@ TaliaKingdomofBanditry = RelicSet(
     setid=307,
 )
 SprightlyVonwacq = RelicSet(
-    id=40,
+    id=42,
     name='SprightlyVonwacq',
     cn='生命的翁瓦克',
     cht='生命的翁瓦克',
@@ -404,7 +424,7 @@ SprightlyVonwacq = RelicSet(
     setid=308,
 )
 RutilantArena = RelicSet(
-    id=41,
+    id=43,
     name='RutilantArena',
     cn='繁星竞技场',
     cht='繁星競技場',
@@ -414,7 +434,7 @@ RutilantArena = RelicSet(
     setid=309,
 )
 BrokenKeel = RelicSet(
-    id=42,
+    id=44,
     name='BrokenKeel',
     cn='折断的龙骨',
     cht='折斷的龍骨',
@@ -424,7 +444,7 @@ BrokenKeel = RelicSet(
     setid=310,
 )
 FirmamentFrontlineGlamoth = RelicSet(
-    id=43,
+    id=45,
     name='FirmamentFrontlineGlamoth',
     cn='苍穹战线格拉默',
     cht='蒼穹戰線格拉默',
@@ -434,7 +454,7 @@ FirmamentFrontlineGlamoth = RelicSet(
     setid=311,
 )
 PenaconyLandoftheDreams = RelicSet(
-    id=44,
+    id=46,
     name='PenaconyLandoftheDreams',
     cn='梦想之地匹诺康尼',
     cht='夢想之地匹諾康尼',
@@ -444,7 +464,7 @@ PenaconyLandoftheDreams = RelicSet(
     setid=312,
 )
 SigoniatheUnclaimedDesolation = RelicSet(
-    id=45,
+    id=47,
     name='SigoniatheUnclaimedDesolation',
     cn='无主荒星茨冈尼亚',
     cht='無主荒星茨岡尼亞',
@@ -454,7 +474,7 @@ SigoniatheUnclaimedDesolation = RelicSet(
     setid=313,
 )
 IzumoGenseiandTakamaDivineRealm = RelicSet(
-    id=46,
+    id=48,
     name='IzumoGenseiandTakamaDivineRealm',
     cn='出云显世与高天神国',
     cht='出雲顯世與高天神國',
@@ -464,7 +484,7 @@ IzumoGenseiandTakamaDivineRealm = RelicSet(
     setid=314,
 )
 DuranDynastyofRunningWolves = RelicSet(
-    id=47,
+    id=49,
     name='DuranDynastyofRunningWolves',
     cn='奔狼的都蓝王朝',
     cht='奔狼的都藍王朝',
@@ -474,7 +494,7 @@ DuranDynastyofRunningWolves = RelicSet(
     setid=315,
 )
 ForgeoftheKalpagniLantern = RelicSet(
-    id=48,
+    id=50,
     name='ForgeoftheKalpagniLantern',
     cn='劫火莲灯铸炼宫',
     cht='劫火蓮燈鑄煉宮',
@@ -484,7 +504,7 @@ ForgeoftheKalpagniLantern = RelicSet(
     setid=316,
 )
 LushakatheSunkenSeas = RelicSet(
-    id=49,
+    id=51,
     name='LushakatheSunkenSeas',
     cn='沉陆海域露莎卡',
     cht='沉陸海域露莎卡',
@@ -494,7 +514,7 @@ LushakatheSunkenSeas = RelicSet(
     setid=317,
 )
 TheWondrousBananAmusementPark = RelicSet(
-    id=50,
+    id=52,
     name='TheWondrousBananAmusementPark',
     cn='奇想蕉乐园',
     cht='奇想蕉樂園',
@@ -504,7 +524,7 @@ TheWondrousBananAmusementPark = RelicSet(
     setid=318,
 )
 BoneCollectionSereneDemesne = RelicSet(
-    id=51,
+    id=53,
     name='BoneCollectionSereneDemesne',
     cn='谧宁拾骨地',
     cht='謐寧拾骨地',
@@ -514,7 +534,7 @@ BoneCollectionSereneDemesne = RelicSet(
     setid=319,
 )
 GiantTreeofRaptBrooding = RelicSet(
-    id=52,
+    id=54,
     name='GiantTreeofRaptBrooding',
     cn='渊思寂虑的巨树',
     cht='淵思寂慮的巨樹',
@@ -524,7 +544,7 @@ GiantTreeofRaptBrooding = RelicSet(
     setid=320,
 )
 ArcadiaofWovenDreams = RelicSet(
-    id=53,
+    id=55,
     name='ArcadiaofWovenDreams',
     cn='妖精织梦的乐园',
     cht='妖精織夢的樂園',
@@ -534,7 +554,7 @@ ArcadiaofWovenDreams = RelicSet(
     setid=321,
 )
 RevelrybytheSea = RelicSet(
-    id=54,
+    id=56,
     name='RevelrybytheSea',
     cn='沉欢醉饮的海隅',
     cht='沉歡醉飲的海隅',
@@ -544,7 +564,7 @@ RevelrybytheSea = RelicSet(
     setid=322,
 )
 AmphoreusTheEternalLand = RelicSet(
-    id=55,
+    id=57,
     name='AmphoreusTheEternalLand',
     cn='永恒之地翁法罗斯',
     cht='永恆之地翁法羅斯',
@@ -554,7 +574,7 @@ AmphoreusTheEternalLand = RelicSet(
     setid=323,
 )
 TengokuLivestream = RelicSet(
-    id=56,
+    id=58,
     name='TengokuLivestream',
     cn='天国@直播间',
     cht='天國@直播頻道',
@@ -564,7 +584,7 @@ TengokuLivestream = RelicSet(
     setid=324,
 )
 PunklordeStageZero = RelicSet(
-    id=57,
+    id=59,
     name='PunklordeStageZero',
     cn='零号关卡朋克洛德',
     cht='零號關卡龐克洛德',
@@ -574,7 +594,7 @@ PunklordeStageZero = RelicSet(
     setid=325,
 )
 CityofConvergingStars = RelicSet(
-    id=58,
+    id=60,
     name='CityofConvergingStars',
     cn='千星荟萃之城',
     cht='千星薈萃之城',
@@ -584,7 +604,7 @@ CityofConvergingStars = RelicSet(
     setid=326,
 )
 FallenStarAnchorage = RelicSet(
-    id=59,
+    id=61,
     name='FallenStarAnchorage',
     cn='坠星启航地',
     cht='墜星啟航地',
@@ -594,7 +614,7 @@ FallenStarAnchorage = RelicSet(
     setid=327,
 )
 CosmicLifeSciencesInstitute = RelicSet(
-    id=60,
+    id=62,
     name='CosmicLifeSciencesInstitute',
     cn='寰宇生研院',
     cht='寰宇生研院',

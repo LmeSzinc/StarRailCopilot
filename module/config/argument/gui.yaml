@@ -20,12 +20,14 @@ Button:
   ClickToUpdate:
   RetryUpdate:
   CancelUpdate:
+  ClearPlanner:
 
 Toast:
   DisableTranslateMode:
   ConfigSaved:
   AlasIsRunning:
   ClickToUpdate:
+  PlannerCleared:
 
 Status:
   Running:

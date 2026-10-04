@@ -1420,6 +1420,10 @@
       "name": "累计合成消耗品10次",
       "help": ""
     },
+    "BattlePassQuestPartyCar": {
+      "name": "在派对车厢中抓住1只造物",
+      "help": ""
+    },
     "BattlePassQuestStagnantShadow": {
       "name": "完成3次「凝滞虚影」",
       "help": ""

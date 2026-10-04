@@ -281,6 +281,9 @@ BattlePassStorage:
   BattlePassQuestSynthesizeConsumables:
     stored: StoredBattlePassQuestSynthesizeConsumables
     display: display
+  BattlePassQuestPartyCar:
+    stored: StoredBattlePassQuestPartyCar
+    display: display
   BattlePassQuestStagnantShadow:
     stored: StoredBattlePassQuestStagnantShadow
     display: display

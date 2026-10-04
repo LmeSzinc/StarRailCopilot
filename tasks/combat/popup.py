@@ -10,6 +10,8 @@ class CombatPopup(UI):
         Returns:
             bool: If clicked
         """
+        if self.handle_tutorial():
+            return True
         # combat specific buff popup in Echo_of_War_Rusted_Crypt_of_the_Iron_Carcass
         if self.match_template_color(Rusted_Crypt_1, interval=5):
             # RUN_BUTTON is somewhere safe to click, no side effect and not clicking the popup itself

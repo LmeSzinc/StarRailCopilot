@@ -1420,6 +1420,10 @@
       "name": "Synthesize Consumables 10 time(s)",
       "help": ""
     },
+    "BattlePassQuestPartyCar": {
+      "name": "Capture 1 creation in a Party Car",
+      "help": ""
+    },
     "BattlePassQuestStagnantShadow": {
       "name": "Clear Stagnant Shadow 3 time(s)",
       "help": ""

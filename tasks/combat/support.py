@@ -62,6 +62,9 @@ class SupportCharacter:
                 'March7thPreservation': ['March7thPreservation.2'],
                 'Firefly': ['Firefly.2'],
                 'RuanMei': ['RuanMei.2'],
+                'Castorice': ['Castorice.2'],
+                'Evanescia': ['Evanescia.2'],
+                'Sparxie': ['Sparxie.2'],
             }
             if name in dict_skin:
                 for skin in dict_skin[name]:

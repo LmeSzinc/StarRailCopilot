@@ -63,6 +63,11 @@ class RogueRewardHandler(RogueUI):
                 continue
             if self.handle_reward():
                 continue
+            if self.appear_then_click(DISCARD_FuelVouchers):
+                continue
+            if not self.appear(DISCARD_FuelVouchers):
+                if self.handle_popup_confirm():
+                    continue
 
     def _rogue_reward_claim(self, skip_first_screenshot=True):
         """
@@ -98,6 +103,7 @@ class RogueRewardHandler(RogueUI):
                 claimed = True
                 continue
             if self.appear_then_click(DISCARD_FuelVouchers):
+                claimed = True
                 continue
             if not self.appear(DISCARD_FuelVouchers):
                 if self.handle_popup_confirm():

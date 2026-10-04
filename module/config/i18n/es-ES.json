@@ -1420,6 +1420,10 @@
       "name": "Sintetiza consumibles 10 veces",
       "help": ""
     },
+    "BattlePassQuestPartyCar": {
+      "name": "Captura 1 criatura en un vagón de fiestas",
+      "help": ""
+    },
     "BattlePassQuestStagnantShadow": {
       "name": "Completa Sombra paralizada 3 veces",
       "help": ""

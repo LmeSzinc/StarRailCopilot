@@ -1096,6 +1096,19 @@
     "order": 0,
     "color": "#777777"
   },
+  "BattlePassQuestPartyCar": {
+    "name": "BattlePassQuestPartyCar",
+    "path": "BattlePass.BattlePassStorage.BattlePassQuestPartyCar",
+    "i18n": "BattlePassStorage.BattlePassQuestPartyCar.name",
+    "stored": "StoredBattlePassQuestPartyCar",
+    "attrs": {
+      "time": "2020-01-01 00:00:00",
+      "total": 1,
+      "value": 0
+    },
+    "order": 0,
+    "color": "#777777"
+  },
   "BattlePassQuestStagnantShadow": {
     "name": "BattlePassQuestStagnantShadow",
     "path": "BattlePass.BattlePassStorage.BattlePassQuestStagnantShadow",

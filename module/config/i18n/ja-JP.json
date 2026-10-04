@@ -1420,6 +1420,10 @@
       "name": "BattlePassStorage.BattlePassQuestSynthesizeConsumables.name",
       "help": "BattlePassStorage.BattlePassQuestSynthesizeConsumables.help"
     },
+    "BattlePassQuestPartyCar": {
+      "name": "パーティー車両で創造物を1匹捕まえる",
+      "help": ""
+    },
     "BattlePassQuestStagnantShadow": {
       "name": "BattlePassStorage.BattlePassQuestStagnantShadow.name",
       "help": "BattlePassStorage.BattlePassQuestStagnantShadow.help"

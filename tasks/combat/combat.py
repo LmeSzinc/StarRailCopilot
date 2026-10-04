@@ -204,6 +204,8 @@ class Combat(CombatInteract, CombatPrepare, CombatSupport, CombatTeam, CombatSki
                     continue
             if self.handle_popup_confirm():
                 continue
+            if self.handle_combat_popup():
+                continue
 
     def combat_execute(self, expected_end=None):
         """

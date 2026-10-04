@@ -373,6 +373,8 @@ class BattlePassUI(UI):
                 self.config.stored.BattlePassQuestCredits,
             KEYWORDS_BATTLE_PASS_QUEST.Synthesize_Consumables_1_times:
                 self.config.stored.BattlePassQuestSynthesizeConsumables,
+            KEYWORDS_BATTLE_PASS_QUEST.Capture_1_creation_in_your_own_or_someone_else_Party_Car:
+                self.config.stored.BattlePassQuestPartyCar,
             KEYWORDS_BATTLE_PASS_QUEST.Clear_Stagnant_Shadow_1_times:
                 self.config.stored.BattlePassQuestStagnantShadow,
             KEYWORDS_BATTLE_PASS_QUEST.Clear_Cavern_of_Corrosion_1_times:

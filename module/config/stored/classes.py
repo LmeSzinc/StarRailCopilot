@@ -433,6 +433,10 @@ class StoredBattlePassQuestSynthesizeConsumables(StoredCounter):
     FIXED_TOTAL = 10
 
 
+class StoredBattlePassQuestPartyCar(StoredCounter):
+    FIXED_TOTAL = 1
+
+
 class StoredBattlePassQuestStagnantShadow(StoredCounter):
     FIXED_TOTAL = 3
 

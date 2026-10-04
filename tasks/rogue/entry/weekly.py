@@ -98,6 +98,7 @@ class RogueRewardHandler(RogueUI):
                 claimed = True
                 continue
             if self.appear_then_click(DISCARD_FuelVouchers):
+                claimed = True
                 continue
             if not self.appear(DISCARD_FuelVouchers):
                 if self.handle_popup_confirm():

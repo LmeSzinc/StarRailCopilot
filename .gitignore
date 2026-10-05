@@ -256,3 +256,5 @@ adb_port.ini
 !popup.exe
 *.zip
 .vscode/*
+/module/device/cloud/core/
+/config/cloud/

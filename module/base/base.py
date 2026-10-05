@@ -3,15 +3,16 @@ from module.base.button import Button, ButtonWrapper, ClickButton, match_templat
 from module.base.timer import Timer
 from module.base.utils import *
 from module.config.config import AzurLaneConfig
-from module.device.device import Device
-from module.device.method.utils import HierarchyButton
+from module.device.base import DeviceBase
+from module.device.factory import create_device
+from module.device.hierarchy import HierarchyButton
 from module.logger import logger
 from module.webui.setting import cached_class_property
 
 
 class ModuleBase:
     config: AzurLaneConfig
-    device: Device
+    device: DeviceBase
 
     def __init__(self, config, device=None, task=None):
         """
@@ -36,13 +37,13 @@ class ModuleBase:
             logger.warning('Alas ModuleBase received an unknown config, assume it is AzurLaneConfig')
             self.config = config
 
-        if isinstance(device, Device):
+        if isinstance(device, DeviceBase):
             self.device = device
         elif device is None:
-            self.device = Device(config=self.config)
+            self.device = create_device(config=self.config)
         elif isinstance(device, str):
             self.config.override(Emulator_Serial=device)
-            self.device = Device(config=self.config)
+            self.device = create_device(config=self.config)
         else:
             logger.warning('Alas ModuleBase received an unknown device, assume it is Device')
             self.device = device

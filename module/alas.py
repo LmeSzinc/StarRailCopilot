@@ -40,8 +40,8 @@ class AzurLaneAutoScript:
     @cached_property
     def device(self):
         try:
-            from module.device.device import Device
-            device = Device(config=self.config)
+            from module.device.factory import create_device
+            device = create_device(config=self.config)
             return device
         except RequestHumanTakeover:
             logger.critical('Request human takeover')
@@ -74,7 +74,11 @@ class AzurLaneAutoScript:
 
     def run(self, command):
         try:
-            self.device.screenshot()
+            if not self.config.is_task_supported(inflection.camelize(command)):
+                logger.warning(f'Task `{command}` is not supported by the selected backend')
+                return True
+            if command != 'stop' or not self.config.is_cloud_direct:
+                self.device.screenshot()
             self.device.screenshot_tracking.clear()
             self.__getattribute__(command)()
             return True

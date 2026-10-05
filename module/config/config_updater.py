@@ -10,6 +10,7 @@ from module.config.convert import *
 from module.config.deep import deep_default, deep_get, deep_iter, deep_set
 from module.config.server import VALID_SERVER
 from module.config.utils import *
+from module.device.cloud import backend
 
 CONFIG_IMPORT = '''
 import datetime
@@ -57,6 +58,8 @@ class ConfigGenerator:
         """
         data = {}
         raw = read_file(filepath_argument('argument'))
+        if backend is not None:
+            raw['Emulator']['GameClient']['option'].append('cloud_direct')
 
         def option_add(keys, options):
             options = deep_get(raw, keys=keys, default=[]) + options
@@ -789,7 +792,12 @@ class ConfigUpdater:
 
     @cached_property
     def args(self):
-        return read_file(filepath_args())
+        data = read_file(filepath_args())
+        options = deep_get(data, 'Alas.Emulator.GameClient.option')
+        options[:] = [option for option in options if option != 'cloud_direct']
+        if backend is not None:
+            options.append('cloud_direct')
+        return data
 
     def config_update(self, old, is_template=False):
         """
@@ -813,7 +821,8 @@ class ConfigUpdater:
                     or typ in type_lock or (display == 'hide' and typ not in type_stored):
                 if not keepvalue:
                     value = data['value']
-            value = parse_value(value, data=data)
+            if keys != ['Alas', 'Emulator', 'GameClient'] or value != 'cloud_direct':
+                value = parse_value(value, data=data)
             deep_set(new, keys=keys, value=value)
 
         if not is_template:
@@ -873,6 +882,11 @@ class ConfigUpdater:
 
     @staticmethod
     def update_state(data):
+        game_client = deep_get(data, keys='Alas.Emulator.GameClient')
+        if backend is not None and game_client == 'cloud_direct':
+            deep_set(data, keys='Rogue.Scheduler.Enable', value=False)
+            for arg in ('UseImmersifier', 'UseStamina', 'DoubleEvent'):
+                deep_set(data, keys=f'Rogue.RogueWorld.{arg}', value=False)
         # Limit setting combinations
         if deep_get(data, keys='Rogue.RogueWorld.UseImmersifier') is False:
             deep_set(data, keys='Rogue.RogueWorld.UseStamina', value=False)
@@ -884,7 +898,7 @@ class ConfigUpdater:
         if deep_get(data, keys='Rogue.RogueWorld.UseImmersifier') is True:
             deep_set(data, keys='Dungeon.Scheduler.Enable', value=True)
         # Cloud settings
-        if deep_get(data, keys='Alas.Emulator.GameClient') == 'cloud_android':
+        if game_client == 'cloud_android' or (backend is not None and game_client == 'cloud_direct'):
             deep_set(data, keys='Alas.Emulator.PackageName', value='CN-Official')
 
         return data
@@ -921,9 +935,14 @@ class ConfigUpdater:
             yield 'Rogue.RogueWorld.UseImmersifier', True
         if key == 'Rogue.RogueWorld.DoubleEvent' and value is True:
             yield 'Rogue.RogueWorld.UseImmersifier', True
-        if key == 'Alas.Emulator.GameClient' and value == 'cloud_android':
+        if key == 'Alas.Emulator.GameClient' and (
+                value == 'cloud_android' or (backend is not None and value == 'cloud_direct')):
             yield 'Alas.Emulator.PackageName', 'CN-Official'
             yield 'Alas.Optimization.WhenTaskQueueEmpty', 'close_game'
+            if value == 'cloud_direct':
+                yield 'Rogue.Scheduler.Enable', False
+                for arg in ('UseImmersifier', 'UseStamina', 'DoubleEvent'):
+                    yield f'Rogue.RogueWorld.{arg}', False
         # Sync Dungeon.TrailblazePower and Ornament.TrailblazePower
         if key == 'Dungeon.TrailblazePower.ExtractReservedTrailblazePower':
             yield 'Ornament.TrailblazePower.ExtractReservedTrailblazePower', value
@@ -950,6 +969,11 @@ class ConfigUpdater:
         Yields:
             str: Arg path that should be hidden
         """
+        if backend is not None and deep_get(data, 'Alas.Emulator.GameClient') == 'cloud_direct':
+            for arg in ('Serial', 'ScreenshotMethod', 'ControlMethod', 'AdbRestart'):
+                yield f'Alas.Emulator.{arg}'
+            for arg in ('Emulator', 'name', 'path'):
+                yield f'Alas.EmulatorInfo.{arg}'
         if deep_get(data, 'Dungeon.TrailblazePower.UseFuel') == False:
             yield 'Dungeon.TrailblazePower.FuelReserve'
         if deep_get(data, 'Dungeon.TrailblazePower.UseFuel') == False:

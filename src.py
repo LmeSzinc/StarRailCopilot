@@ -5,7 +5,7 @@ from module.logger import logger
 
 
 class StarRailCopilot(AzurLaneAutoScript):
-    def __init__(self, config_name='src'):
+    def __init__(self, config_name='alas'):
         super().__init__(config_name)
         if self.config.is_cloud_direct and backend is None:
             logger.critical('当前设备后端不受支持。')

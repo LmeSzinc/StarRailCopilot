@@ -1219,7 +1219,7 @@ class AlasGUI(Frame):
                 """
             SRC is a free open source software, if you paid for SRC from any channel, please refund.
             SRC 是一款免费开源软件，如果你在任何渠道付费购买了SRC，请退款。
-            Project repository 项目地址：`https://github.com/teikengstudio/StarRailCopilot`
+            Project repository 项目地址：`https://github.com/LmeSzinc/StarRailCopilot`
             """
             ).style("text-align: center")
 

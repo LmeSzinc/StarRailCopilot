@@ -2,7 +2,7 @@ from pywebio.io_ctrl import Output
 
 import module.config.server as server
 
-CLOUD_UNSUPPORTED_TASKS = frozenset(('Rogue', 'Daemon', 'PlannerScan', 'Ornament'))
+CLOUD_UNSUPPORTED_TASKS = frozenset(('Rogue', 'Daemon', 'PlannerScan'))
 
 
 class ManualConfig:

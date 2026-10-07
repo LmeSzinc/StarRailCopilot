@@ -1375,10 +1375,14 @@ def clearup():
     # stop_ocr_server_process()
     for alas in ProcessManager._processes.values():
         alas.stop()
-    if backend is not None:
-        backend.shutdown_all()
-    State.clearup()
-    task_handler.stop()
+    try:
+        if backend is not None:
+            backend.shutdown_all()
+    finally:
+        try:
+            State.clearup()
+        finally:
+            task_handler.stop()
     logger.info("Alas closed.")
 
 

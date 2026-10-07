@@ -27,45 +27,46 @@ class ProcessManager:
         self.renderables_max_length = 400
         self.renderables_reduce_length = 80
         self._process: Process = None
-        self._process_locks: Dict[str, threading.Lock] = {}
+        self._lifecycle_lock = threading.RLock()
         self.thd_log_queue_handler: threading.Thread = None
         self._cloud_runtime = None
 
     def start(self, func, ev: threading.Event = None) -> None:
-        if not self.alive:
-            if func is None:
-                func = get_config_mod(self.config_name)
-            data = State.config_updater.read_file(self.config_name)
-            bridge = None
-            if deep_get(data, 'Alas.Emulator.GameClient') == 'cloud_direct':
-                if backend is None:
-                    message = f'[{self.config_name}] Unsupported device backend'
-                    logger.error(message)
-                    self.renderables.append(f'{message}\n')
-                    return
-                if inflection.camelize(func) in CLOUD_UNSUPPORTED_TASKS:
-                    logger.warning(f'[{self.config_name}] {func} is not supported by the selected backend')
-                    return
-                self._cloud_runtime = backend.get_runtime(self.config_name)
-                self._cloud_runtime.scheduler_acquire()
-                bridge = self._cloud_runtime.bridge
-            self._process = Process(
-                target=ProcessManager.run_process,
-                args=(
-                    self.config_name,
-                    func,
-                    self._renderable_queue,
-                    ev,
-                    bridge,
-                ),
-            )
-            try:
-                self._process.start()
-            except Exception:
-                if self._cloud_runtime is not None:
-                    self._cloud_runtime.scheduler_release()
-                raise
-            self.start_log_queue_handler()
+        with self._lifecycle_lock:
+            if not self.alive:
+                if func is None:
+                    func = get_config_mod(self.config_name)
+                data = State.config_updater.read_file(self.config_name)
+                bridge = None
+                if deep_get(data, 'Alas.Emulator.GameClient') == 'cloud_direct':
+                    if backend is None:
+                        message = f'[{self.config_name}] Unsupported device backend'
+                        logger.error(message)
+                        self.renderables.append(f'{message}\n')
+                        return
+                    if inflection.camelize(func) in CLOUD_UNSUPPORTED_TASKS:
+                        logger.warning(f'[{self.config_name}] {func} is not supported by the selected backend')
+                        return
+                    self._cloud_runtime = backend.get_runtime(self.config_name)
+                    self._cloud_runtime.scheduler_acquire()
+                    bridge = self._cloud_runtime.bridge
+                self._process = Process(
+                    target=ProcessManager.run_process,
+                    args=(
+                        self.config_name,
+                        func,
+                        self._renderable_queue,
+                        ev,
+                        bridge,
+                    ),
+                )
+                try:
+                    self._process.start()
+                except Exception:
+                    if self._cloud_runtime is not None:
+                        self._cloud_runtime.scheduler_release()
+                    raise
+                self.start_log_queue_handler()
 
     def start_log_queue_handler(self):
         if (
@@ -79,30 +80,31 @@ class ProcessManager:
         self.thd_log_queue_handler.start()
 
     def stop(self) -> None:
-        try:
-            lock = self._process_locks[self.config_name]
-        except KeyError:
-            lock = threading.Lock()
-            self._process_locks[self.config_name] = lock
-
-        with lock:
+        with self._lifecycle_lock:
+            exit_error = None
+            was_alive = self.alive
+            if self._cloud_runtime is not None:
+                try:
+                    self._cloud_runtime.scheduler_release()
+                except Exception:
+                    exit_error = 'Device backend exit could not be confirmed; check its status before restarting'
+                    logger.warning(exit_error)
             if self.alive:
-                if self._cloud_runtime is not None:
-                    try:
-                        self._cloud_runtime.scheduler_release()
-                    except Exception:
-                        logger.warning('Device backend exit could not be confirmed')
                 self._process.kill()
-                self.renderables.append(
-                    f"[{self.config_name}] exited. Reason: Manual stop\n"
-                )
+            if self._process is not None and self._process.pid is not None:
+                self._process.join(timeout=5)
+            if self.alive:
+                exit_error = 'Process is still stopping; wait before restarting'
+                logger.warning(exit_error)
             if self.thd_log_queue_handler is not None:
                 self.thd_log_queue_handler.join(timeout=1)
                 if self.thd_log_queue_handler.is_alive():
-                    logger.warning(
-                        "Log queue handler thread does not stop within 1 seconds"
-                    )
-        logger.info(f"[{self.config_name}] exited")
+                    logger.warning('Log queue handler thread does not stop within 1 seconds')
+            if exit_error:
+                self.renderables.append(f'[{self.config_name}] {exit_error}. Reason: Exit unconfirmed\n')
+            elif was_alive:
+                self.renderables.append(f'[{self.config_name}] exited. Reason: Manual stop\n')
+        logger.info(f'[{self.config_name}] stop completed' if not exit_error else f'[{self.config_name}] stop requires attention')
 
     def _thread_log_queue_handler(self) -> None:
         while self.alive:
@@ -195,7 +197,7 @@ class ProcessManager:
             logger.exception(e)
         finally:
             if cloud_bridge is not None and backend is not None:
-                backend.CloudProxy(cloud_bridge).stop()
+                backend.CloudProxy(cloud_bridge).stop(revoke=True)
 
     @classmethod
     def running_instances(cls) -> List["ProcessManager"]:

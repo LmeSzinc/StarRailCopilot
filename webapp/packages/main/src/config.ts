@@ -2,6 +2,7 @@ import {isMacintosh} from '@common/utils/env';
 import getAlasABSPath from '@common/utils/getAlasABSPath';
 import {ALAS_INSTR_FILE} from '@common/constant/config';
 import {validateConfigFile} from '@common/utils/validate';
+import {app} from 'electron';
 import {join} from 'path';
 import logger from '/@/logger';
 
@@ -11,7 +12,9 @@ const path = require('path');
 
 function getAlasPath() {
   let file;
-  const currentFilePath = process.cwd();
+  // A packaged app can be launched from a shortcut or another working directory.
+  // Resolve portable backend resources relative to the executable in production.
+  const currentFilePath = app?.isPackaged ? path.dirname(process.execPath) : process.cwd();
   const pathLookup = [
     // Current
     './',

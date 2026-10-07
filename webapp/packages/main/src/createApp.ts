@@ -1,6 +1,7 @@
 import {createMainWindow} from '/@/createMainWindow';
 import {addIpcMainListener} from '/@/addIpcMainListener';
 import {CoreService} from '/@/coreService';
+import {ShutdownCoordinator} from '/@/appShutdown';
 import logger from '/@/logger';
 import {app, nativeImage, Tray} from 'electron';
 import {join} from 'node:path';
@@ -10,6 +11,17 @@ export const createApp = async () => {
   logger.info('-----createMainWindow-----');
   const mainWindow = await createMainWindow();
   const coreService = new CoreService({mainWindow});
+  const shutdown = new ShutdownCoordinator(
+    () => coreService.kill(),
+    () => app.quit(),
+    error => logger.error(`Failed to stop core service: ${String(error)}`),
+  );
+
+  app.on('before-quit', event => {
+    if (shutdown.readyToQuit) return;
+    event.preventDefault();
+    void shutdown.request();
+  });
 
   // Hide menu
   const {Menu} = require('electron');
@@ -34,11 +46,7 @@ export const createApp = async () => {
     {
       label: 'Exit',
       click: function () {
-        coreService.curService?.kill(() => {
-          logger.info('kill coreService');
-        });
-        app.quit();
-        process.exit(0);
+        void shutdown.request();
       },
     },
   ]);
@@ -59,7 +67,7 @@ export const createApp = async () => {
     tray.popUpContextMenu(contextMenu);
   });
 
-  await addIpcMainListener(mainWindow, coreService);
+  await addIpcMainListener(mainWindow, coreService, shutdown);
   return {
     mainWindow,
     coreService,

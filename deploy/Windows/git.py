@@ -56,12 +56,15 @@ class GitManager(DeployConfig):
             proxy='', ssl_verify=True, keep_changes=False
     ):
         logger.hr('Git Init', 1)
+        ignore_file_mode = self.git_config.check('core', 'filemode', value='false')
         if not self.execute(f'"{self.git}" init', allow_failure=True):
             self.remove('./.git/config')
             self.remove('./.git/index')
             self.remove('./.git/HEAD')
             self.remove('./.git/ORIG_HEAD')
             self.execute(f'"{self.git}" init')
+        if ignore_file_mode:
+            self.execute(f'"{self.git}" config --local core.fileMode false')
         Progress.GitInit()
 
         logger.hr('Set Git Proxy', 1)

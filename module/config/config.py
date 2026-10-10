@@ -15,7 +15,6 @@ from module.config.stored.classes import iter_attribute
 from module.config.stored.stored_generated import StoredGenerated
 from module.config.utils import DEFAULT_TIME, dict_to_kv, filepath_config, path_to_arg
 from module.config.watcher import ConfigWatcher
-from module.device.cloud import backend
 from module.exception import RequestHumanTakeover, ScriptError
 from module.logger import logger
 
@@ -198,7 +197,7 @@ class AzurLaneConfig(ConfigUpdater, ManualConfig, GeneratedConfig, ConfigWatcher
         return deep_get(self.data, keys='Alas.Emulator.GameClient') == 'cloud_direct'
 
     def is_task_supported(self, task):
-        return not (backend is not None and self.is_cloud_direct and task in CLOUD_UNSUPPORTED_TASKS)
+        return not (self.is_cloud_direct and task in CLOUD_UNSUPPORTED_TASKS)
 
     @cached_property
     def stored(self) -> StoredGenerated:

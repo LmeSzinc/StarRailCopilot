@@ -268,7 +268,7 @@ class AlasGUI(Frame):
                             "label": t(f"Task.{task}.name"),
                             "value": task,
                             "color": "menu",
-                            "disabled": not self.alas_config.is_task_supported(task),
+                            "disabled": backend is not None and not self.alas_config.is_task_supported(task),
                         }],
                         onclick=_onclick,
                     ).style(f"--menu-{task}--")
@@ -289,12 +289,20 @@ class AlasGUI(Frame):
                             "label": t(f"Task.{task}.name"),
                             "value": task,
                             "color": "menu",
-                            "disabled": not self.alas_config.is_task_supported(task),
+                            "disabled": backend is not None and not self.alas_config.is_task_supported(task),
                         }],
                         onclick=_onclick,
                     ).style(f"--menu-{task}--").style(f"padding-left: 0.75rem")
 
         self.alas_overview()
+
+    def _get_hidden_args(self, config, config_updater=None):
+        hidden = (config_updater or self.alas_config).get_hidden_args(config)
+        if backend is not None and deep_get(config, 'Alas.Emulator.GameClient') == 'cloud_direct':
+            hidden.update(f'Alas.Emulator.{arg}' for arg in
+                          ('Serial', 'ScreenshotMethod', 'ControlMethod', 'AdbRestart'))
+            hidden.update(f'Alas.EmulatorInfo.{arg}' for arg in ('Emulator', 'name', 'path'))
+        return hidden
 
     @use_scope("content", clear=True)
     def alas_set_group(self, task: str) -> None:
@@ -315,7 +323,7 @@ class AlasGUI(Frame):
             )
 
         config = self.alas_config.read_file(self.alas_name)
-        self.alas_config_hidden = self.alas_config.get_hidden_args(config)
+        self.alas_config_hidden = self._get_hidden_args(config)
         for group, arg_dict in deep_iter(self.ALAS_ARGS[task], depth=1):
             if self.set_group(group, arg_dict, config, task):
                 self.set_navigator(group)
@@ -602,7 +610,7 @@ class AlasGUI(Frame):
                     logger.warning(f"Invalid value {v} for key {k}, skip saving.")
             self.pin_remove_invalid_mark(valid)
             self.pin_set_invalid_mark(invalid)
-            new_hidden_args = config_updater.get_hidden_args(config)
+            new_hidden_args = self._get_hidden_args(config, config_updater)
             for k in new_hidden_args - self.alas_config_hidden:
                 self.pin_set_hidden_arg(k, type_=deep_get(self.ALAS_ARGS, f"{k}.type"))
             for k in self.alas_config_hidden - new_hidden_args:
@@ -704,7 +712,7 @@ class AlasGUI(Frame):
 
     @use_scope("content", clear=True)
     def alas_daemon_overview(self, task: str) -> None:
-        if not self.alas_config.is_task_supported(task):
+        if backend is not None and not self.alas_config.is_task_supported(task):
             toast('当前设备后端不支持此工具。', color='error')
             return
         self.init_menu(name=task)

@@ -108,7 +108,8 @@
       "name": "遊戲客戶端",
       "help": "選擇雲端遊戲時，將自動排隊登入，雲端遊戲目前僅有國服",
       "android": "安卓端",
-      "cloud_android": "雲端遊戲安卓端"
+      "cloud_android": "雲端遊戲安卓端",
+      "cloud_direct": "可選後端"
     },
     "PackageName": {
       "name": "遊戲伺服器",

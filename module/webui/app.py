@@ -353,7 +353,10 @@ class AlasGUI(Frame):
             # Default value
             output_kwargs["value"] = value
             # Options
-            output_kwargs["options"] = options = output_kwargs.pop("option", [])
+            options = output_kwargs.pop("option", [])
+            if backend is None and group_name == 'Emulator' and arg_name == 'GameClient':
+                options = [option for option in options if option != 'cloud_direct']
+            output_kwargs["options"] = options
             # Options label
             options_label = []
             for opt in options:

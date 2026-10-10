@@ -58,8 +58,6 @@ class ConfigGenerator:
         """
         data = {}
         raw = read_file(filepath_argument('argument'))
-        if backend is not None:
-            raw['Emulator']['GameClient']['option'].append('cloud_direct')
 
         def option_add(keys, options):
             options = deep_get(raw, keys=keys, default=[]) + options
@@ -792,12 +790,7 @@ class ConfigUpdater:
 
     @cached_property
     def args(self):
-        data = read_file(filepath_args())
-        options = deep_get(data, 'Alas.Emulator.GameClient.option')
-        options[:] = [option for option in options if option != 'cloud_direct']
-        if backend is not None:
-            options.append('cloud_direct')
-        return data
+        return read_file(filepath_args())
 
     def config_update(self, old, is_template=False):
         """
@@ -821,8 +814,7 @@ class ConfigUpdater:
                     or typ in type_lock or (display == 'hide' and typ not in type_stored):
                 if not keepvalue:
                     value = data['value']
-            if keys != ['Alas', 'Emulator', 'GameClient'] or value != 'cloud_direct':
-                value = parse_value(value, data=data)
+            value = parse_value(value, data=data)
             deep_set(new, keys=keys, value=value)
 
         if not is_template:

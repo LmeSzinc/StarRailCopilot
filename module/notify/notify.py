@@ -51,6 +51,22 @@ def handle_notify(_config: str, **kwargs) -> bool:
                 config["token"] = access_token
 
         resp = notifier.notify(**config)
+        if provider_name.lower() == "telegram":
+            # Telegram's API result, not just HTTP 200, confirms acceptance.
+            if not isinstance(resp, Response):
+                logger.warning("Telegram returned no verifiable response")
+                return False
+            try:
+                result = resp.json()
+            except ValueError:
+                logger.warning("Telegram returned an invalid JSON response")
+                return False
+            if resp.status_code != 200 or result.get("ok") is not True:
+                logger.warning(f"Telegram rejected notification (HTTP {resp.status_code}, "
+                               f"error_code={result.get('error_code', 'unknown')})")
+                return False
+            logger.info(f"Telegram accepted notification, message_id="
+                        f"{result.get('result', {}).get('message_id', 'unknown')}")
         if isinstance(resp, Response):
             if resp.status_code != 200:
                 logger.warning("Push notify failed!")
@@ -69,7 +85,7 @@ def handle_notify(_config: str, **kwargs) -> bool:
         return False
     except Exception as e:
         # don't show any exceptions because exceptions contain variable traceback
-        logger.error(e)
+        logger.error(f"Push notify failed ({type(e).__name__})")
         return False
 
     logger.info("Push notify success")

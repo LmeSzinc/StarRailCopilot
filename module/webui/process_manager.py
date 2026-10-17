@@ -48,7 +48,13 @@ class ProcessManager:
                         logger.warning(f'[{self.config_name}] {func} is not supported by the selected backend')
                         return
                     self._cloud_runtime = backend.get_runtime(self.config_name)
-                    self._cloud_runtime.scheduler_acquire()
+                    try:
+                        self._cloud_runtime.scheduler_acquire()
+                    except backend.CloudConnectionError as exc:
+                        message = f'[{self.config_name}] {exc}'
+                        logger.warning(message)
+                        self.renderables.append(f'{message}\n')
+                        return
                     bridge = self._cloud_runtime.bridge
                 self._process = Process(
                     target=ProcessManager.run_process,

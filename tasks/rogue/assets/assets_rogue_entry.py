@@ -83,6 +83,16 @@ THEME_Unknowable_Domain = ButtonWrapper(
         button=(222, 319, 297, 394),
     ),
 )
+WEEKLY_REFRESH_BANNER = ButtonWrapper(
+    name='WEEKLY_REFRESH_BANNER',
+    share=Button(
+        file='./assets/share/rogue/entry/WEEKLY_REFRESH_BANNER.png',
+        area=(439, 344, 480, 377),
+        search=(419, 324, 500, 397),
+        color=(21, 18, 15),
+        button=(1115, 624, 1270, 704),
+    ),
+)
 WORLD_ENTER = ButtonWrapper(
     name='WORLD_ENTER',
     share=Button(

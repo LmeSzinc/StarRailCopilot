@@ -1,5 +1,4 @@
 import random
-import re
 from dataclasses import dataclass
 from functools import cached_property
 from itertools import chain
@@ -37,35 +36,19 @@ class OptionButton:
 
 class OcrRogueEvent(Ocr):
     merge_thres_y = 5
-    OCR_REPLACE = {
+    OCR_MATCH = {
         'cn': [],
         'en': []
     }
 
-    @cached_property
-    def ocr_regex(self) -> re.Pattern | None:
-        rules = self.OCR_REPLACE.get(self.lang)
-        if not rules:
-            return None
-        return re.compile('|'.join(
-            f'(?P<{kw.name}>{pat})'
-            for kw, pat in rules
-        ))
-
-    def _after_process(self, result, keyword_class):
-        result = super().after_process(result)
-        if self.ocr_regex is None:
-            return result
-        matched = self.ocr_regex.fullmatch(result)
-        if matched is None:
-            return result
-        matched = keyword_class.find(matched.lastgroup)
-        matched = getattr(matched, self.lang)
-        return matched
-
 
 class OcrRogueEventTitle(OcrRogueEvent):
+    # OCR reads 戍 as 成/戌 sometimes
     OCR_REPLACE = {
+        'cn': [('卫[成戌]', '卫戍')],
+        'en': [],
+    }
+    OCR_MATCH = {
         'cn': [
             (KEYWORDS_ROGUE_EVENT_TITLE.Rock_Paper_Scissors, '^猜拳.*'),
             (KEYWORDS_ROGUE_EVENT_TITLE.Ka_ching_IPC_Banking_I, '^咔.*其一.*'),
@@ -79,10 +62,6 @@ class OcrRogueEventTitle(OcrRogueEvent):
             (KEYWORDS_ROGUE_EVENT_TITLE.Insights_from_the_Universal_Dancer, '.*Dancer$'),
         ]
     }
-
-    def after_process(self, result):
-        result = re.sub('卫[成戌]', '卫戍', result)
-        return self._after_process(result, RogueEventTitle)
 
     def detect_and_ocr(self, *args, **kwargs) -> list[BoxedResult]:
         results = super().detect_and_ocr(*args, **kwargs)
@@ -98,7 +77,12 @@ class OcrRogueEventTitle(OcrRogueEvent):
 # Failed to OCR title|results is not as expected
 class OcrRogueEventOption(OcrRogueEvent):
     expected_options: list[OptionButton] = []
+    # OCR reads 匣 as 厘 sometimes
     OCR_REPLACE = {
+        'cn': [('(许愿|机械|黑|准)厘', r'\1匣')],
+        'en': [],
+    }
+    OCR_MATCH = {
         'cn': [
             # Special cases with placeholder
             (KEYWORDS_ROGUE_EVENT_OPTION.Deposit_2_Cosmic_Fragments_9160, '存入\d+.*'),
@@ -133,10 +117,6 @@ class OcrRogueEventOption(OcrRogueEvent):
             x1, y1, x2, y2 = area_offset(option.prefix_icon.area, offset)
             image[y1:y2, x1:x2] = (0, 0, 0)
         return image
-
-    def after_process(self, result):
-        result = re.sub('(许愿|机械|黑|准)厘', r'\1匣', result)
-        return self._after_process(result, RogueEventOption)
 
 
 class OptionScroll(Scroll):

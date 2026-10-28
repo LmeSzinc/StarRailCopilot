@@ -107,9 +107,14 @@ class RogueEntry(RouteBase, RogueRewardHandler, RoguePathHandler, DungeonRogueUI
                 self.device.screenshot()
 
             # Additional
+            if self.handle_ui_close(LEVEL_CONFIRM, interval=2):
+                continue
+            # Weekly refresh popup
             if self.appear_then_click(REWARD_CLOSE, interval=2):
                 continue
-            if self.handle_ui_close(LEVEL_CONFIRM, interval=2):
+            if self.appear_then_click(WEEKLY_REFRESH_BANNER, interval=2):
+                continue
+            if self.handle_reward():
                 continue
 
             if self.is_page_rogue_main() \
@@ -154,6 +159,8 @@ class RogueEntry(RouteBase, RogueRewardHandler, RoguePathHandler, DungeonRogueUI
                 continue
             # Weekly refresh popup
             if self.appear_then_click(REWARD_CLOSE, interval=2):
+                continue
+            if self.appear_then_click(WEEKLY_REFRESH_BANNER, interval=2):
                 continue
             if self.handle_reward():
                 continue

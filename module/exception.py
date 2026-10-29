@@ -46,3 +46,8 @@ class RequestHumanTakeover(Exception):
     # Request human takeover
     # Alas is unable to handle such error, probably because of wrong settings.
     pass
+
+
+class DungeonEntryFailed(RequestHumanTakeover):
+    # Stop the scheduler quietly; failed entry is not proof of full inventory.
+    pass

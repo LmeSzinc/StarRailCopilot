@@ -108,7 +108,8 @@
       "name": "Emulator.GameClient.name",
       "help": "Emulator.GameClient.help",
       "android": "android",
-      "cloud_android": "cloud_android"
+      "cloud_android": "cloud_android",
+      "cloud_direct": "追加バックエンド"
     },
     "PackageName": {
       "name": "Emulator.PackageName.name",

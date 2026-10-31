@@ -8,7 +8,7 @@ import pywebio
 from module.base.decorator import cached_property, del_cached_property
 from module.base.filter import Filter
 from module.config.config_generated import GeneratedConfig
-from module.config.config_manual import ManualConfig, OutputConfig
+from module.config.config_manual import CLOUD_UNSUPPORTED_TASKS, ManualConfig, OutputConfig
 from module.config.config_updater import ConfigUpdater, ensure_time, get_server_next_update, nearest_future
 from module.config.deep import deep_get, deep_set
 from module.config.stored.classes import iter_attribute
@@ -190,7 +190,14 @@ class AzurLaneConfig(ConfigUpdater, ManualConfig, GeneratedConfig, ConfigWatcher
     def is_cloud_game(self):
         return deep_get(
             self.data, keys="Alas.Emulator.GameClient"
-        ) == 'cloud_android'
+        ) in ('cloud_android', 'cloud_direct')
+
+    @property
+    def is_cloud_direct(self):
+        return deep_get(self.data, keys='Alas.Emulator.GameClient') == 'cloud_direct'
+
+    def is_task_supported(self, task):
+        return not (self.is_cloud_direct and task in CLOUD_UNSUPPORTED_TASKS)
 
     @cached_property
     def stored(self) -> StoredGenerated:
@@ -213,7 +220,7 @@ class AzurLaneConfig(ConfigUpdater, ManualConfig, GeneratedConfig, ConfigWatcher
             now -= self.hoarding
         for func in self.data.values():
             func = Function(func)
-            if not func.enable:
+            if not func.enable or not self.is_task_supported(func.command):
                 continue
             if not isinstance(func.next_run, datetime):
                 error.append(func)
@@ -443,6 +450,9 @@ class AzurLaneConfig(ConfigUpdater, ManualConfig, GeneratedConfig, ConfigWatcher
         Returns:
             bool: If called.
         """
+        if not self.is_task_supported(task):
+            logger.warning(f'Task `{task}` is not supported by the selected backend')
+            return False
         if deep_get(self.data, keys=f"{task}.Scheduler.NextRun", default=None) is None:
             raise ScriptError(f"Task to call: `{task}` does not exist in user config")
 
@@ -504,7 +514,7 @@ class AzurLaneConfig(ConfigUpdater, ManualConfig, GeneratedConfig, ConfigWatcher
             self.task_stop(message=message)
 
     def is_task_enabled(self, task):
-        return bool(self.cross_get(keys=[task, 'Scheduler', 'Enable'], default=False))
+        return self.is_task_supported(task) and bool(self.cross_get(keys=[task, 'Scheduler', 'Enable'], default=False))
 
     def update_daily_quests(self):
         """

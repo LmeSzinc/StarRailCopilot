@@ -96,7 +96,7 @@ class RedemptionCode(UI):
 
     def _code_input(self, code):
         """
-        Input code into game using uiautomator2
+        Copy the code through the active device backend and use the paste button.
         """
         logger.info(f'Code input: {code}')
         self.interval_clear([
@@ -115,8 +115,7 @@ class RedemptionCode(UI):
 
             if interval.reached():
                 logger.info('set_clipboard')
-                d = self.device.u2
-                d.set_clipboard(code)
+                self.device.set_clipboard(code)
                 # no need to retry this clicking because POPUP_CONFIRM will only appear when code is not empty
                 self.device.click(INPUT_PASTE)
                 interval.reset()

@@ -116,6 +116,8 @@ class DataUpdate(ItemUI, PlannerMixin):
 
         self.ui_ensure(page_gacha, acquire_lang_checked=False)
         special_pass = self._get_special_pass()
+        if self.config.is_cloud_direct:
+            self.device.update_cloud_wallet()
 
         with self.config.multi_set():
             self.config.stored.Credit.value = credit

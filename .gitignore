@@ -27,6 +27,7 @@ locales/
 v8_context_snapshot.bin
 snapshot_blob.bin
 vk_swiftshader_icd.json
+config/deploy.test.template.yaml
 
 # Created by .ignore support plugin (hsz.mobi)
 

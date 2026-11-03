@@ -1,7 +1,13 @@
 import {webuiArgs, webuiPath} from '/@/config';
 import {PyShell} from '/@/pyshell';
-import type {CallbackFun} from '/@/coreService';
+import type {CallbackFun, CoreService} from '/@/coreService';
 import logger from '/@/logger';
+
+export function handleAlasEnd(ctx: Pick<CoreService, 'sendLaunchLog'>, err?: string) {
+  if (!err) return;
+  logger.info('alas.end:' + err);
+  ctx.sendLaunchLog(err);
+}
 
 export const createAlas: CallbackFun = async ctx => {
   let alas: PyShell | null = null;
@@ -17,10 +23,7 @@ export const createAlas: CallbackFun = async ctx => {
     ctx.sendLaunchLog(err);
   });
   alas?.end(function (err: string) {
-    if (!err) return;
-    logger.info('alas.end:' + err);
-    ctx.sendLaunchLog(err);
-    throw err;
+    handleAlasEnd(ctx, err);
   });
   alas?.on('stdout', function (message) {
     ctx.sendLaunchLog(message);

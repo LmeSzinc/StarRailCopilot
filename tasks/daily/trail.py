@@ -80,6 +80,7 @@ class CharacterTrial(UI):
                 self.device.drag(p1, p2, name=f'REGULAR_GACHA_DRAG')
                 self.interval_reset(page_gacha.check_button)
                 continue
+            # Switch to regular gacha
             if self.match_template_color(REGULAR_GACHA_CLICK, interval=2):
                 # Poor sleep indeed, clicks won't be response unless other elements are loaded
                 # Waiting for gacha banner moving
@@ -88,6 +89,14 @@ class CharacterTrial(UI):
                     first_gacha = False
                 self.device.click(REGULAR_GACHA_CLICK)
                 continue
+            # Slide down to find regular gacha if beginner gacha found
+            if self.match_template_color(BEGINNER_GACHA_CHECK,interval=4):
+                swipe_vector = (0, -4*REGULAR_GACHA_CLICK.height)
+                self.device.swipe_vector(swipe_vector, box=REGULAR_GACHA_CLICK.search,
+                                 random_range=(-10, -10, 10, 10), name='FIND_REGULAR_GACHA_DRAG')
+                continue
+
+                
 
     def exit_trial(self, skip_first_screenshot=True):
         """

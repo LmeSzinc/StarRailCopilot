@@ -238,7 +238,6 @@ class AzurLaneAutoScript:
                     self.run('stop')
                     release_resources()
                     self.device.release_during_wait()
-                    # 关闭模拟器
                     try:
                         self.device.emulator_stop()
                         logger.info('Emulator stopped successfully')
@@ -252,12 +251,22 @@ class AzurLaneAutoScript:
                         del_cached_property(self, 'config')
                         del_cached_property(self, 'device')
                         continue
-                    # 重新启动模拟器
                     if task.command != 'Restart':
                         self.config.task_call('Restart')
                         del_cached_property(self, 'config')
                         del_cached_property(self, 'device')
                         continue
+                elif method == 'done_exit':
+                    logger.info('Exit after tasks completed')
+                    release_resources()
+                    try:
+                        self.run('stop')
+                        self.device.emulator_stop()
+                        logger.info('Emulator stopped successfully')
+                    except Exception:
+                        pass
+                    self.device.release_during_wait()
+                    exit(0)
                 else:
                     logger.warning(f'Invalid Optimization_WhenTaskQueueEmpty: {method}, fallback to stay_there')
                     release_resources()

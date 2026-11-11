@@ -1048,3 +1048,25 @@ Planarcadia_PearlStudio = MapPlane(
     world_id=5,
     plane_id=2051401,
 )
+Planarcadia_Starfroster = MapPlane(
+    id=97,
+    name='Planarcadia_Starfroster',
+    cn='点星船',
+    cht='點星船',
+    en='Starfroster',
+    jp='可笑しな船',
+    es='Astrobarquillo',
+    world_id=5,
+    plane_id=2057101,
+)
+Planarcadia_MomentofJoy = MapPlane(
+    id=98,
+    name='Planarcadia_MomentofJoy',
+    cn='瞬息欢愉',
+    cht='瞬息歡愉',
+    en='Moment of Joy',
+    jp='刹那の愉悦',
+    es='Alegrías efímeras',
+    world_id=5,
+    plane_id=2057201,
+)

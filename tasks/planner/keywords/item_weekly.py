@@ -133,3 +133,16 @@ High_Hopes_of_the_Falsely_Enlightened = ItemWeekly(
     item_group=1310,
     dungeon_id=1309,
 )
+Ravenous_Baby_Tooth = ItemWeekly(
+    id=11,
+    name='Ravenous_Baby_Tooth',
+    cn='饥饿的乳牙',
+    cht='飢餓的乳牙',
+    en='Ravenous Baby Tooth',
+    jp='飢餓の乳歯',
+    es='Diente de leche hambriento',
+    rarity='VeryRare',
+    item_id=110510,
+    item_group=1310,
+    dungeon_id=1310,
+)

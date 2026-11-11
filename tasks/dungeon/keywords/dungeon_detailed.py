@@ -258,9 +258,9 @@ Stagnant_Shadow_Soundburst = DungeonDetailed(
 Stagnant_Shadow_Devour = DungeonDetailed(
     id=29,
     name='Stagnant_Shadow_Devour',
-    cn='晋阶材料：量子（砂金•戏浪 / 远坂凛）',
-    cht='晉階材料：量子（砂金•戲浪 / 遠坂凜）',
-    en='Ascension: Quantum (Aventurine • Waveflair / Rin Tohsaka)',
-    jp='昇格素材：量子（アベンチュリン・波と戯れる夏 / 遠坂凛）',
-    es='Ascension: Cuántico (Aventurino Oleaje / Rin Tohsaka)',
+    cn='晋阶材料：量子（砂金•戏浪 / 星神★阿哈 / 远坂凛）',
+    cht='晉階材料：量子（砂金•戲浪 / 星神★阿哈 / 遠坂凜）',
+    en='Ascension: Quantum (Aventurine • Waveflair / Aeon ★ Aha / Rin Tohsaka)',
+    jp='昇格素材：量子（アベンチュリン・波と戯れる夏 / 星神★アッハ / 遠坂凛）',
+    es='Ascension: Cuántico (Aventurino Oleaje / Eón ★ Aha / Rin Tohsaka)',
 )

@@ -623,3 +623,23 @@ CosmicLifeSciencesInstitute = RelicSet(
     es='Instituto de Ciencias de la Vida Cósmica',
     setid=328,
 )
+GodMomentofJoy = RelicSet(
+    id=63,
+    name='GodMomentofJoy',
+    cn='神的瞬息欢愉',
+    cht='神的瞬息歡愉',
+    en="God's Moment of Joy",
+    jp='神の刹那の愉悦',
+    es='Alegría efímera divina',
+    setid=329,
+)
+SubspaceASCCenter = RelicSet(
+    id=64,
+    name='SubspaceASCCenter',
+    cn='亚空异容所',
+    cht='亞空異容所',
+    en='Subspace ASC Center',
+    jp='亜空異容所',
+    es='Centro de Anomalías Subespacial',
+    setid=330,
+)

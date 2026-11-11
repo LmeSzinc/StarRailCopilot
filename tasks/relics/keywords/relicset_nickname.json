@@ -866,5 +866,33 @@
     "en": "Cosmic Life",
     "jp": "宇宙生命",
     "es": "Vida Cósmica"
+  },
+  "GodMomentofJoy": {
+    "setid": 329,
+    "dungeon_id": 370,
+    "cn_origin": "神的瞬息欢愉",
+    "cht_origin": "神的瞬息歡愉",
+    "en_origin": "God's Moment of Joy",
+    "jp_origin": "神の刹那の愉悦",
+    "es_origin": "Alegría efímera divina",
+    "cn": "神的瞬息欢愉",
+    "cht": "神的瞬息歡愉",
+    "en": "God's Moment of Joy",
+    "jp": "神の刹那の愉悦",
+    "es": "Alegría efímera divina"
+  },
+  "SubspaceASCCenter": {
+    "setid": 330,
+    "dungeon_id": 370,
+    "cn_origin": "亚空异容所",
+    "cht_origin": "亞空異容所",
+    "en_origin": "Subspace ASC Center",
+    "jp_origin": "亜空異容所",
+    "es_origin": "Centro de Anomalías Subespacial",
+    "cn": "亚空异容所",
+    "cht": "亞空異容所",
+    "en": "Subspace ASC Center",
+    "jp": "亜空異容所",
+    "es": "Centro de Anomalías Subespacial"
   }
 }

@@ -322,7 +322,7 @@
       "Stagnant_Shadow_Quanta": "Ascension: Cuántico (Silver Wolf / Seele / Qingque)",
       "Stagnant_Shadow_Abomination": "Ascension: Cuántico (Lynx / Fu Xuan / Xueyi)",
       "Stagnant_Shadow_Gelidmoon": "Ascension: Cuántico (Tribbie / Cífer / Castorice / Archer)",
-      "Stagnant_Shadow_Devour": "Ascension: Cuántico (Aventurino Oleaje / Rin Tohsaka)",
+      "Stagnant_Shadow_Devour": "Ascension: Cuántico (Aventurino Oleaje / Eón ★ Aha / Rin Tohsaka)",
       "Stagnant_Shadow_Mirage": "Ascension: Imaginario (Welt / Luocha / Yukong)",
       "Stagnant_Shadow_Puppetry": "Ascension: Imaginario (Dan Heng - Imbibitor Lunae / Aventurino / Dr. Ratio)",
       "Stagnant_Shadow_Timbre": "Ascension: Imaginario (Sunday / Rappa)",
@@ -445,6 +445,7 @@
       "name": "Personaje de apoyo",
       "help": "Selecciona un personaje de apoyo del amigo. Si no se encuentra, se seleccionará el primer personaje. Se recomienda marcar a los personajes de amigos.",
       "FirstCharacter": "Primer personaje",
+      "AeonAha": "[4.7] Eón ★ Aha",
       "Pearl": "[4.6] Perla",
       "RobinSummeretto": "[4.5] Robin Estival",
       "AventurineWaveflair": "[4.5] Aventurino Oleaje",
@@ -746,7 +747,7 @@
       "help": ""
     },
     "Item_Sneering_Harlequin": {
-      "name": "Ascension: Cuántico (Aventurino Oleaje / Rin Tohsaka)",
+      "name": "Ascension: Cuántico (Aventurino Oleaje / Eón ★ Aha / Rin Tohsaka)",
       "help": ""
     },
     "Item_Worldbreaker_Blade": {
@@ -869,6 +870,10 @@
       "name": "Comedia de la fatalidad (Planarcadia)",
       "help": ""
     },
+    "Item_Ravenous_Baby_Tooth": {
+      "name": "Unknown_Dungeon_Come_From",
+      "help": ""
+    },
     "Item_Squirming_Core": {
       "name": "Núcleo serpenteante",
       "help": ""
@@ -931,6 +936,7 @@
       "name": "Character",
       "help": "",
       "_none_": "None",
+      "AeonAha": "[4.7] Eón ★ Aha",
       "Pearl": "[4.6] Perla",
       "RobinSummeretto": "[4.5] Robin Estival",
       "AventurineWaveflair": "[4.5] Aventurino Oleaje",
@@ -1029,6 +1035,7 @@
       "name": "Cone",
       "help": "",
       "_none_": "None",
+      "Upon_the_First_Echo_of_Aha": "[4.7] Eón ★ Aha | 5* Al primer eco de Aha",
       "Summer_Rides_the_Surf": "[4.5] Aventurino Oleaje | 5* Verano entre olas",
       "Rise_and_Sing": "[4.5] Robin Estival | 5* Levántate y canta",
       "A_Star_That_Lights_the_Night": "[4.4] Himeko Nova | 5* Cuando una estrella ilumina la noche",
@@ -1101,6 +1108,7 @@
       "But_the_Battle_Isn_t_Over": "5* La batalla no ha terminado",
       "Something_Irreplaceable": "5* Algo insustituible",
       "Night_on_the_Milky_Way": "5* Noche en la Vía Láctea",
+      "See_You_at_the_World_End": "4* ¡Nos vemos en El Fin del Mundo!",
       "Race_to_the_Horizon": "4* Hacia el final del horizonte",
       "Tomorrow_Together": "4* Juntos hacia el futuro",
       "Fly_Into_a_Pink_Tomorrow": "4* Volando hacia un mañana rosado",
@@ -1226,6 +1234,7 @@
       "name": "Ornamento",
       "help": "",
       "_none_": "None",
+      "Divergent_Universe_Dramatis_Personae": "Ornamentos: Alegría efímera divina & Centro de Anomalías Subespacial (Personaje de la obra)",
       "Divergent_Universe_Bugs_Incoming": "Ornamentos: Punto de partida de la estrella caída & Vida Cósmica (Ataque de bichos)",
       "Divergent_Universe_Gilded_Recollection": "Ornamentos: Punklorde & Las mil estrellas (Recuerdo dorado)",
       "Divergent_Universe_Within_the_West_Wind": "Ornamentos: Amphoreus & Tengoku (Entre el cefiro)",
@@ -1739,6 +1748,7 @@
     "Dungeon": {
       "name": "Nombre de la Mazmorra",
       "help": "",
+      "Divergent_Universe_Dramatis_Personae": "Ornamentos: Alegría efímera divina & Centro de Anomalías Subespacial (Personaje de la obra)",
       "Divergent_Universe_Bugs_Incoming": "Ornamentos: Punto de partida de la estrella caída & Vida Cósmica (Ataque de bichos)",
       "Divergent_Universe_Gilded_Recollection": "Ornamentos: Punklorde & Las mil estrellas (Recuerdo dorado)",
       "Divergent_Universe_Within_the_West_Wind": "Ornamentos: Amphoreus & Tengoku (Entre el cefiro)",

@@ -322,7 +322,7 @@
       "Stagnant_Shadow_Quanta": "昇格素材：量子（銀狼 / ゼーレ / 青雀）",
       "Stagnant_Shadow_Abomination": "昇格素材：量子（リンクス / 符玄 / 雪衣）",
       "Stagnant_Shadow_Gelidmoon": "昇格素材：量子（トリビー / サフェル / キャストリス / アーチャー）",
-      "Stagnant_Shadow_Devour": "昇格素材：量子（アベンチュリン・波と戯れる夏 / 遠坂凛）",
+      "Stagnant_Shadow_Devour": "昇格素材：量子（アベンチュリン・波と戯れる夏 / 星神★アッハ / 遠坂凛）",
       "Stagnant_Shadow_Mirage": "昇格素材：虚数（ヴェルト / 羅刹 / 御空）",
       "Stagnant_Shadow_Puppetry": "昇格素材：虚数（丹恒・飲月 / アベンチュリン / Dr.レイシオ）",
       "Stagnant_Shadow_Timbre": "昇格素材：虚数（サンデー / 乱破）",
@@ -445,6 +445,7 @@
       "name": "サポートキャラ",
       "help": "フレンドのサポートキャラクターを選択します。見つからない場合は、最初のキャラクターが選択されます。フレンドをピン留めすることをお勧めします。",
       "FirstCharacter": "FirstCharacter",
+      "AeonAha": "[4.7] 星神★アッハ",
       "Pearl": "[4.6] パール",
       "RobinSummeretto": "[4.5] ロビン・夏空の歌",
       "AventurineWaveflair": "[4.5] アベンチュリン・波と戯れる夏",
@@ -746,7 +747,7 @@
       "help": ""
     },
     "Item_Sneering_Harlequin": {
-      "name": "昇格素材：量子（アベンチュリン・波と戯れる夏 / 遠坂凛）",
+      "name": "昇格素材：量子（アベンチュリン・波と戯れる夏 / 星神★アッハ / 遠坂凛）",
       "help": ""
     },
     "Item_Worldbreaker_Blade": {
@@ -869,6 +870,10 @@
       "name": "壊滅の喜劇 (二相楽園)",
       "help": ""
     },
+    "Item_Ravenous_Baby_Tooth": {
+      "name": "Unknown_Dungeon_Come_From",
+      "help": ""
+    },
     "Item_Squirming_Core": {
       "name": "脈動する原核",
       "help": ""
@@ -931,6 +936,7 @@
       "name": "PlannerTarget.Character.name",
       "help": "PlannerTarget.Character.help",
       "_none_": "_none_",
+      "AeonAha": "[4.7] 星神★アッハ",
       "Pearl": "[4.6] パール",
       "RobinSummeretto": "[4.5] ロビン・夏空の歌",
       "AventurineWaveflair": "[4.5] アベンチュリン・波と戯れる夏",
@@ -1029,6 +1035,7 @@
       "name": "PlannerTarget.Cone.name",
       "help": "PlannerTarget.Cone.help",
       "_none_": "_none_",
+      "Upon_the_First_Echo_of_Aha": "[4.7] 星神★アッハ | 5* はじめの「アッハ」が響く時",
       "Summer_Rides_the_Surf": "[4.5] アベンチュリン・波と戯れる夏 | 5* 波しぶきが躍る夏へ",
       "Rise_and_Sing": "[4.5] ロビン・夏空の歌 | 5* 立ち上がり高らかな歌を",
       "A_Star_That_Lights_the_Night": "[4.4] 姫子・旅立ち | 5* 夜を照らす導きの星",
@@ -1101,6 +1108,7 @@
       "But_the_Battle_Isn_t_Over": "5* だが戦争は終わらない",
       "Something_Irreplaceable": "5* かけがえのないもの",
       "Night_on_the_Milky_Way": "5* 銀河鉄道の夜",
+      "See_You_at_the_World_End": "4* 世界の果てで会おう！",
       "Race_to_the_Horizon": "4* 地平線のゴールへ",
       "Tomorrow_Together": "4* みんなで一緒に未来へ",
       "Fly_Into_a_Pink_Tomorrow": "4* ピンク色の明日へ",
@@ -1226,6 +1234,7 @@
       "name": "PlannerTarget.Ornament.name",
       "help": "PlannerTarget.Ornament.help",
       "_none_": "_none_",
+      "Divergent_Universe_Dramatis_Personae": "飾品：神の刹那の愉悦 & 亜空異容所（劇中の人）",
       "Divergent_Universe_Bugs_Incoming": "飾品：墜星 & 宇宙生命（虫の襲来）",
       "Divergent_Universe_Gilded_Recollection": "飾品：パンクロード & 千の星が集（黄金の追憶）",
       "Divergent_Universe_Within_the_West_Wind": "飾品：オンパロス & 天国（西風の中で）",
@@ -1739,6 +1748,7 @@
     "Dungeon": {
       "name": "Ornament.Dungeon.name",
       "help": "Ornament.Dungeon.help",
+      "Divergent_Universe_Dramatis_Personae": "飾品：神の刹那の愉悦 & 亜空異容所（劇中の人）",
       "Divergent_Universe_Bugs_Incoming": "飾品：墜星 & 宇宙生命（虫の襲来）",
       "Divergent_Universe_Gilded_Recollection": "飾品：パンクロード & 千の星が集（黄金の追憶）",
       "Divergent_Universe_Within_the_West_Wind": "飾品：オンパロス & 天国（西風の中で）",

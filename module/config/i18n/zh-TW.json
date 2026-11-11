@@ -322,7 +322,7 @@
       "Stagnant_Shadow_Quanta": "晉階材料：量子（銀狼 / 希兒 / 青雀）",
       "Stagnant_Shadow_Abomination": "晉階材料：量子（玲可 / 符玄 / 雪衣）",
       "Stagnant_Shadow_Gelidmoon": "晉階材料：量子（緹寶 / 賽飛兒 / 遐蝶 / Archer）",
-      "Stagnant_Shadow_Devour": "晉階材料：量子（砂金•戲浪 / 遠坂凜）",
+      "Stagnant_Shadow_Devour": "晉階材料：量子（砂金•戲浪 / 星神★阿哈 / 遠坂凜）",
       "Stagnant_Shadow_Mirage": "晉階材料：虛數（瓦爾特 / 羅剎 / 馭空）",
       "Stagnant_Shadow_Puppetry": "晉階材料：虛數（丹恆•飲月 / 砂金 / 真理醫生）",
       "Stagnant_Shadow_Timbre": "晉階材料：虛數（星期日 / 亂破）",
@@ -445,6 +445,7 @@
       "name": "支援角色",
       "help": "選擇好友支援角色，未找到則選擇第一個角色，建議置頂好友角色",
       "FirstCharacter": "支援列表第一個角色",
+      "AeonAha": "[4.7] 星神★阿哈",
       "Pearl": "[4.6] 真珠",
       "RobinSummeretto": "[4.5] 知更鳥•晴歌",
       "AventurineWaveflair": "[4.5] 砂金•戲浪",
@@ -746,7 +747,7 @@
       "help": ""
     },
     "Item_Sneering_Harlequin": {
-      "name": "晉階材料：量子（砂金•戲浪 / 遠坂凜）",
+      "name": "晉階材料：量子（砂金•戲浪 / 星神★阿哈 / 遠坂凜）",
       "help": ""
     },
     "Item_Worldbreaker_Blade": {
@@ -869,6 +870,10 @@
       "name": "壞滅的喜劇 (二相樂園)",
       "help": ""
     },
+    "Item_Ravenous_Baby_Tooth": {
+      "name": "Unknown_Dungeon_Come_From",
+      "help": ""
+    },
     "Item_Squirming_Core": {
       "name": "蠢動原核",
       "help": ""
@@ -931,6 +936,7 @@
       "name": "養成角色",
       "help": "",
       "_none_": "無",
+      "AeonAha": "[4.7] 星神★阿哈",
       "Pearl": "[4.6] 真珠",
       "RobinSummeretto": "[4.5] 知更鳥•晴歌",
       "AventurineWaveflair": "[4.5] 砂金•戲浪",
@@ -1029,6 +1035,7 @@
       "name": "養成光錐",
       "help": "",
       "_none_": "無",
+      "Upon_the_First_Echo_of_Aha": "[4.7] 星神★阿哈 | 5* 當第一聲「阿哈」響起",
       "Summer_Rides_the_Surf": "[4.5] 砂金•戲浪 | 5* 向浪花擲下盛夏",
       "Rise_and_Sing": "[4.5] 知更鳥•晴歌 | 5* 你將起身歌唱",
       "A_Star_That_Lights_the_Night": "[4.4] 姬子•啟行 | 5* 當一顆星照亮夜空",
@@ -1101,6 +1108,7 @@
       "But_the_Battle_Isn_t_Over": "5* 但戰鬥還未結束",
       "Something_Irreplaceable": "5* 無可取代的東西",
       "Night_on_the_Milky_Way": "5* 銀河鐵道之夜",
+      "See_You_at_the_World_End": "4* 在世界盡頭相會吧！",
       "Race_to_the_Horizon": "4* 向著地平線的終點",
       "Tomorrow_Together": "4* 未來，有我們一起",
       "Fly_Into_a_Pink_Tomorrow": "4* 飛向粉紅色的明天",
@@ -1226,6 +1234,7 @@
       "name": "養成內圈遺器",
       "help": "",
       "_none_": "無",
+      "Divergent_Universe_Dramatis_Personae": "飾品：神的瞬息歡愉 & 亞空異容所（戲劇中人）",
       "Divergent_Universe_Bugs_Incoming": "飾品：墜星 & 寰宇（蟲蟲來襲）",
       "Divergent_Universe_Gilded_Recollection": "飾品：龐克洛德 & 千星薈萃（鎏金追憶）",
       "Divergent_Universe_Within_the_West_Wind": "飾品：翁法羅斯 & 天國（西風叢中）",
@@ -1739,6 +1748,7 @@
     "Dungeon": {
       "name": "副本名稱",
       "help": "",
+      "Divergent_Universe_Dramatis_Personae": "飾品：神的瞬息歡愉 & 亞空異容所（戲劇中人）",
       "Divergent_Universe_Bugs_Incoming": "飾品：墜星 & 寰宇（蟲蟲來襲）",
       "Divergent_Universe_Gilded_Recollection": "飾品：龐克洛德 & 千星薈萃（鎏金追憶）",
       "Divergent_Universe_Within_the_West_Wind": "飾品：翁法羅斯 & 天國（西風叢中）",

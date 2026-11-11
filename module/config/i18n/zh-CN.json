@@ -322,7 +322,7 @@
       "Stagnant_Shadow_Quanta": "晋阶材料：量子（银狼 / 希儿 / 青雀）",
       "Stagnant_Shadow_Abomination": "晋阶材料：量子（玲可 / 符玄 / 雪衣）",
       "Stagnant_Shadow_Gelidmoon": "晋阶材料：量子（缇宝 / 赛飞儿 / 遐蝶 / Archer）",
-      "Stagnant_Shadow_Devour": "晋阶材料：量子（砂金•戏浪 / 远坂凛）",
+      "Stagnant_Shadow_Devour": "晋阶材料：量子（砂金•戏浪 / 星神★阿哈 / 远坂凛）",
       "Stagnant_Shadow_Mirage": "晋阶材料：虚数（瓦尔特 / 罗刹 / 驭空）",
       "Stagnant_Shadow_Puppetry": "晋阶材料：虚数（丹恒•饮月 / 砂金 / 真理医生）",
       "Stagnant_Shadow_Timbre": "晋阶材料：虚数（星期日 / 乱破）",
@@ -445,6 +445,7 @@
       "name": "支援角色",
       "help": "选择好友支援角色，未找到则选择第一个角色，建议置顶好友角色",
       "FirstCharacter": "支援列表第一个角色",
+      "AeonAha": "[4.7] 星神★阿哈",
       "Pearl": "[4.6] 真珠",
       "RobinSummeretto": "[4.5] 知更鸟•晴歌",
       "AventurineWaveflair": "[4.5] 砂金•戏浪",
@@ -746,7 +747,7 @@
       "help": ""
     },
     "Item_Sneering_Harlequin": {
-      "name": "晋阶材料：量子（砂金•戏浪 / 远坂凛）",
+      "name": "晋阶材料：量子（砂金•戏浪 / 星神★阿哈 / 远坂凛）",
       "help": ""
     },
     "Item_Worldbreaker_Blade": {
@@ -869,6 +870,10 @@
       "name": "坏灭的喜剧 (二相乐园)",
       "help": ""
     },
+    "Item_Ravenous_Baby_Tooth": {
+      "name": "Unknown_Dungeon_Come_From",
+      "help": ""
+    },
     "Item_Squirming_Core": {
       "name": "蠢动原核",
       "help": ""
@@ -931,6 +936,7 @@
       "name": "养成角色",
       "help": "",
       "_none_": "无",
+      "AeonAha": "[4.7] 星神★阿哈",
       "Pearl": "[4.6] 真珠",
       "RobinSummeretto": "[4.5] 知更鸟•晴歌",
       "AventurineWaveflair": "[4.5] 砂金•戏浪",
@@ -1029,6 +1035,7 @@
       "name": "养成光锥",
       "help": "",
       "_none_": "无",
+      "Upon_the_First_Echo_of_Aha": "[4.7] 星神★阿哈 | 5* 当第一声「阿哈」响起",
       "Summer_Rides_the_Surf": "[4.5] 砂金•戏浪 | 5* 向浪花掷下盛夏",
       "Rise_and_Sing": "[4.5] 知更鸟•晴歌 | 5* 你将起身歌唱",
       "A_Star_That_Lights_the_Night": "[4.4] 姬子•启行 | 5* 当一颗星照亮夜空",
@@ -1101,6 +1108,7 @@
       "But_the_Battle_Isn_t_Over": "5* 但战斗还未结束",
       "Something_Irreplaceable": "5* 无可取代的东西",
       "Night_on_the_Milky_Way": "5* 银河铁道之夜",
+      "See_You_at_the_World_End": "4* 在世界尽头相会吧！",
       "Race_to_the_Horizon": "4* 向着地平线的终点",
       "Tomorrow_Together": "4* 未来，有我们一起",
       "Fly_Into_a_Pink_Tomorrow": "4* 飞向粉色的明天",
@@ -1226,6 +1234,7 @@
       "name": "养成内圈遗器",
       "help": "",
       "_none_": "无",
+      "Divergent_Universe_Dramatis_Personae": "饰品：神的瞬息欢愉 & 亚空异容所（戏剧中人）",
       "Divergent_Universe_Bugs_Incoming": "饰品：坠星 & 寰宇（虫虫来袭）",
       "Divergent_Universe_Gilded_Recollection": "饰品：朋克洛德 & 千星荟萃（鎏金追忆）",
       "Divergent_Universe_Within_the_West_Wind": "饰品：翁法罗斯 & 天国（西风丛中）",
@@ -1739,6 +1748,7 @@
     "Dungeon": {
       "name": "副本名称",
       "help": "",
+      "Divergent_Universe_Dramatis_Personae": "饰品：神的瞬息欢愉 & 亚空异容所（戏剧中人）",
       "Divergent_Universe_Bugs_Incoming": "饰品：坠星 & 寰宇（虫虫来袭）",
       "Divergent_Universe_Gilded_Recollection": "饰品：朋克洛德 & 千星荟萃（鎏金追忆）",
       "Divergent_Universe_Within_the_West_Wind": "饰品：翁法罗斯 & 天国（西风丛中）",

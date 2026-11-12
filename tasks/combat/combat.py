@@ -1,6 +1,7 @@
 from module.base.decorator import run_once
 from module.base.timer import Timer
-from module.exception import RequestHumanTakeover
+from module.exception import (DungeonEntryFailed, GameNotRunningError, GamePageUnknownError,
+                              GameStuckError, GameTooManyClickError, RequestHumanTakeover)
 from module.logger import logger
 from tasks.base.page import page_guide
 from tasks.combat.assets.assets_combat_finish import COMBAT_AGAIN, COMBAT_EXIT
@@ -148,14 +149,16 @@ class Combat(CombatInteract, CombatPrepare, CombatSupport, CombatTeam, CombatSki
             # End
             if self.is_combat_executing():
                 return True
-            # Relics full
-            # Clicking between COMBAT_PREPARE and COMBAT_TEAM_PREPARE
-            if combat_trial > 3:
-                logger.critical('Failed to enter dungeon after 3 trial, probably because relics are full')
-                raise RequestHumanTakeover
-            if team_trial > 3:
-                logger.critical('Failed to enter dungeon after 3 trial, probably because relics are full')
-                raise RequestHumanTakeover
+            # Entry failure alone does not establish that relic inventory is full.
+            if combat_trial > 3 or team_trial > 3:
+                logger.error('Repeated dungeon entry failed')
+                from tasks.item.data_update import DataUpdate
+                try:
+                    DataUpdate(self.config, self.device).check_relic_full()
+                except (GameNotRunningError, GamePageUnknownError, GameStuckError,
+                        GameTooManyClickError, RequestHumanTakeover) as e:
+                    logger.warning(f'Cannot verify relic inventory: {type(e).__name__}')
+                raise DungeonEntryFailed
 
             # Click
             if support_character and self.appear(COMBAT_TEAM_SUPPORT, interval=2):

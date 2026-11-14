@@ -57,6 +57,7 @@ class State:
 
     restart_event: threading.Event = None
     manager: SyncManager = None
+    cloud_bridge = None
     electron: bool = False
     theme: str = "default"
 

@@ -7,7 +7,7 @@ from pynput import keyboard
 from module.config.config import AzurLaneConfig
 from module.config.utils import alas_instance
 from module.device.connection import Connection, ConnectionAttr
-from module.device.device import Device
+from module.device.factory import create_device
 from module.logger import logger
 
 """
@@ -60,7 +60,7 @@ if name.isdigit():
     name = f'127.0.0.1:{name}'
 if name in alas_instance():
     print(f'{name} is an existing config file')
-    device = Device(name)
+    device = create_device(name)
 else:
     print(f'{name} is a device serial')
     config = AzurLaneConfig('template')
@@ -69,7 +69,7 @@ else:
         Emulator_PackageName='com.miHoYo.hkrpg',
         Emulator_ScreenshotMethod='adb_nc',
     )
-    device = Device(config)
+    device = create_device(config)
 
 output = './screenshots/dev_screenshots'
 os.makedirs(output, exist_ok=True)

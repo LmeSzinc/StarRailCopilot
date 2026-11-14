@@ -108,7 +108,8 @@
       "name": "Game Client",
       "help": "When using cloud, you will be automatically queued to log in. Cloud game is available in CN only",
       "android": "Android client",
-      "cloud_android": "Cloud game android client"
+      "cloud_android": "Cloud game android client",
+      "cloud_direct": "Optional backend"
     },
     "PackageName": {
       "name": "Game Server",

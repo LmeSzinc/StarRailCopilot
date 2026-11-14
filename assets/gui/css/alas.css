@@ -214,8 +214,7 @@ button.btn.dropdown-toggle {
     margin-bottom: 0 !important;
 }
 
-.alas-icon,
-.alas-icon > image {
+.alas-icon {
     width: 42px;
     height: 42px;
 }

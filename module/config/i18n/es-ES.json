@@ -108,7 +108,8 @@
       "name": "Cliente del juego",
       "help": "Al usar la nube, automáticamente se pondrá en cola para iniciar sesión. El juego en la nube está disponible solo en CN",
       "android": "Cliente Android",
-      "cloud_android": "Cliente de juego en la nube para Android"
+      "cloud_android": "Cliente de juego en la nube para Android",
+      "cloud_direct": "Backend opcional"
     },
     "PackageName": {
       "name": "Región del juego",

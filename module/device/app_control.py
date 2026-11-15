@@ -72,14 +72,20 @@ class AppControl(Adb, WSA, Uiautomator2):
         self._hierarchy_interval.wait()
         self._hierarchy_interval.reset()
 
-        # method = self.config.Emulator_ControlMethod
-        # if method in AppControl._app_u2_family:
-        #     self.hierarchy = self.dump_hierarchy_uiautomator2()
-        # else:
-        #     self.hierarchy = self.dump_hierarchy_adb()
+        method = self.config.Emulator_ControlMethod
+        if method in AppControl._app_u2_family:
+            try:
+                self.hierarchy = self.dump_hierarchy_uiautomator2()
+            except Exception as e:
+                logger.warning(f'dump_hierarchy_uiautomator2 failed: {e}, fallback to dump_hierarchy_adb')
+                self.hierarchy = self.dump_hierarchy_adb()
+        else:
+            try:
+                self.hierarchy = self.dump_hierarchy_adb()
+            except Exception as e:
+                logger.warning(f'dump_hierarchy_adb failed: {e}, fallback to dump_hierarchy_uiautomator2')
+                self.hierarchy = self.dump_hierarchy_uiautomator2()
 
-        # Using uiautomator2
-        self.hierarchy = self.dump_hierarchy_uiautomator2()
         return self.hierarchy
 
     def xpath_to_button(self, xpath: str) -> HierarchyButton:

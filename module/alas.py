@@ -77,7 +77,7 @@ class AzurLaneAutoScript:
             if not self.config.is_task_supported(inflection.camelize(command)):
                 logger.warning(f'Task `{command}` is not supported by the selected backend')
                 return True
-            if command != 'stop' or not self.config.is_cloud_direct:
+            if not (self.config.is_cloud_direct and command in ('stop', 'restart')):
                 self.device.screenshot()
             self.device.screenshot_tracking.clear()
             self.__getattribute__(command)()

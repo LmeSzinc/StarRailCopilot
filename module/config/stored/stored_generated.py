@@ -100,6 +100,7 @@ class StoredGenerated:
     Item_Daythunder_Anamnesis = StoredPlanner("Dungeon.Planner.Item_Daythunder_Anamnesis")
     Item_Vanquished_Flow_Reticence = StoredPlanner("Dungeon.Planner.Item_Vanquished_Flow_Reticence")
     Item_High_Hopes_of_the_Falsely_Enlightened = StoredPlanner("Dungeon.Planner.Item_High_Hopes_of_the_Falsely_Enlightened")
+    Item_Ravenous_Baby_Tooth = StoredPlanner("Dungeon.Planner.Item_Ravenous_Baby_Tooth")
     Item_Squirming_Core = StoredPlanner("Dungeon.Planner.Item_Squirming_Core")
     Item_Conqueror_Will = StoredPlanner("Dungeon.Planner.Item_Conqueror_Will")
     Item_Silvermane_Medal = StoredPlanner("Dungeon.Planner.Item_Silvermane_Medal")

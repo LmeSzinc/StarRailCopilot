@@ -804,6 +804,17 @@
     "order": 0,
     "color": "#777777"
   },
+  "Item_Ravenous_Baby_Tooth": {
+    "name": "Item_Ravenous_Baby_Tooth",
+    "path": "Dungeon.Planner.Item_Ravenous_Baby_Tooth",
+    "i18n": "Planner.Item_Ravenous_Baby_Tooth.name",
+    "stored": "StoredPlanner",
+    "attrs": {
+      "time": "2020-01-01 00:00:00"
+    },
+    "order": 0,
+    "color": "#777777"
+  },
   "Item_Squirming_Core": {
     "name": "Item_Squirming_Core",
     "path": "Dungeon.Planner.Item_Squirming_Core",

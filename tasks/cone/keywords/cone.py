@@ -1179,6 +1179,18 @@ Race_to_the_Horizon = Cone(
     path_name='The_Hunt',
     character_name='',
 )
+See_You_at_the_World_End = Cone(
+    id=22009,
+    name='See_You_at_the_World_End',
+    cn='在世界尽头相会吧！',
+    cht='在世界盡頭相會吧！',
+    en="See You at the World's End!",
+    jp='世界の果てで会おう！',
+    es='¡Nos vemos en El Fin del Mundo!',
+    rarity='VeryRare',
+    path_name='Elation',
+    character_name='',
+)
 Night_on_the_Milky_Way = Cone(
     id=23000,
     name='Night_on_the_Milky_Way',
@@ -1958,6 +1970,18 @@ Summer_Rides_the_Surf = Cone(
     rarity='SuperRare',
     path_name='Elation',
     character_name='AventurineWaveflair',
+)
+Upon_the_First_Echo_of_Aha = Cone(
+    id=23065,
+    name='Upon_the_First_Echo_of_Aha',
+    cn='当第一声「阿哈」响起',
+    cht='當第一聲「阿哈」響起',
+    en='Upon the First Echo of "Aha"',
+    jp='はじめの「アッハ」が響く時',
+    es='Al primer eco de Aha',
+    rarity='SuperRare',
+    path_name='Elation',
+    character_name='AeonAha',
 )
 On_the_Fall_of_an_Aeon = Cone(
     id=24000,

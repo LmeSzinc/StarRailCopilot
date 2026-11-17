@@ -1121,6 +1121,19 @@ HimekoNova = CharacterList(
     relic_setid=131,
     ornament_setid=327,
 )
+AeonAha = CharacterList(
+    id=1511,
+    name='AeonAha',
+    cn='星神★阿哈',
+    cht='星神★阿哈',
+    en='Aeon ★ Aha',
+    jp='星神★アッハ',
+    es='Eón ★ Aha',
+    type_name='Quantum',
+    path_name='Elation',
+    relic_setid=133,
+    ornament_setid=329,
+)
 RobinSummeretto = CharacterList(
     id=1512,
     name='RobinSummeretto',

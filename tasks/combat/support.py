@@ -65,6 +65,7 @@ class SupportCharacter:
                 'Castorice': ['Castorice.2'],
                 'Evanescia': ['Evanescia.2'],
                 'Sparxie': ['Sparxie.2'],
+                'AeonAha': ['AeonAha.2'],
             }
             if name in dict_skin:
                 for skin in dict_skin[name]:

@@ -19,11 +19,6 @@ from module.exception import RequestHumanTakeover, ScriptError
 from module.logger import logger
 
 
-def random_normal_distribution(a, b, n=5):
-    output = np.mean(np.random.uniform(a, b, size=n))
-    return output
-
-
 def random_theta():
     theta = np.random.uniform(0, 2 * np.pi)
     return np.array([np.sin(theta), np.cos(theta)])

@@ -3,6 +3,16 @@ from module.base.button import Button, ButtonWrapper
 # This file was auto-generated, do not modify it manually. To generate:
 # ``` python -m dev_tools.button_extract ```
 
+ADVERTISE_AeonAha = ButtonWrapper(
+    name='ADVERTISE_AeonAha',
+    share=Button(
+        file='./assets/share/login/popup/ADVERTISE_AeonAha.png',
+        area=(494, 614, 515, 636),
+        search=(474, 594, 535, 656),
+        color=(198, 69, 56),
+        button=(494, 614, 515, 636),
+    ),
+)
 ADVERTISE_Castorice = ButtonWrapper(
     name='ADVERTISE_Castorice',
     share=Button(

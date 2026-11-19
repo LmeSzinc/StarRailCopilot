@@ -129,11 +129,16 @@ class Login(LoginAndroidCloud, RogueUI, AgreementHandler, UIDHandler):
         Returns:
             bool: If clicked
         """
-        # 4.4 HimekoNova popup
-        if self.match_template_luma(ADVERTISE_HimekoNova, interval=2):
-            logger.info(f'{ADVERTISE_HimekoNova} -> {CLOSE}')
+        # 4.7 AeonAha popup
+        if self.match_template_luma(ADVERTISE_AeonAha, interval=2):
+            logger.info(f'{ADVERTISE_AeonAha} -> {CLOSE}')
             self.device.click(CLOSE)
             return True
+        # 4.4 HimekoNova popup
+        # if self.match_template_luma(ADVERTISE_HimekoNova, interval=2):
+        #     logger.info(f'{ADVERTISE_HimekoNova} -> {CLOSE}')
+        #     self.device.click(CLOSE)
+        #     return True
         # 4.2 SilverWolfLV999 popup
         # if self.match_template_luma(ADVERTISE_SilverWolfLV999, interval=2):
         #     logger.info(f'{ADVERTISE_SilverWolfLV999} -> {CLOSE}')

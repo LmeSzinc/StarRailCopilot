@@ -160,6 +160,9 @@ class Dungeon(Combat, DungeonStamina, DungeonEvent):
                         self.achieved_weekly_quest = True
             # Ornament_Extraction
             if dungeon.is_Ornament_Extraction:
+                if KEYWORDS_DAILY_QUEST.Complete_Divergent_Universe_or_Currency_Wars_1_times in self.daily_quests:
+                    logger.info('Achieve daily quest Complete_Divergent_Universe_or_Currency_Wars_1_times')
+                    self.achieved_daily_quest = True
                 if KEYWORDS_BATTLE_PASS_QUEST.Complete_Divergent_Universe_or_Currency_Wars_1_times in self.weekly_quests:
                     logger.info('Achieved weekly quest Complete_Divergent_Universe_or_Currency_Wars_1_times')
                     # No need to add since it's 0/1

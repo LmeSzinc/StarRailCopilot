@@ -1,3 +1,4 @@
+import re
 import time
 from datetime import timedelta
 
@@ -70,6 +71,13 @@ class Ocr:
     merge_thres_x = 0
     merge_thres_y = 0
 
+    # OCR error post-processing, step 1: string replace, applied in order by re.sub
+    #   {lang: [(pattern, replacement), ...]}
+    OCR_REPLACE: "dict[str, list[tuple[str, str]]]" = {}
+    # OCR error post-processing, step 2: regex fullmatch, return the Keyword text of current lang
+    #   {lang: [(Keyword, pattern), ...]}
+    OCR_MATCH: "dict[str, list[tuple[Keyword, str]]]" = {}
+
     def __init__(self, button: ButtonWrapper, lang=None, name=None):
         """
         Args:
@@ -89,6 +97,26 @@ class Ocr:
     @cached_property
     def model(self) -> TextSystem:
         return OCR_MODEL.get_by_lang(self.lang)
+
+    @cached_property
+    def ocr_replace(self) -> "list[tuple[str, str]]":
+        return self.OCR_REPLACE.get(self.lang) or []
+
+    @cached_property
+    def ocr_match(self):
+        """
+        Returns:
+            (compiled pattern, {group name: Keyword}), or None if no rule for current lang.
+        """
+        rules = self.OCR_MATCH.get(self.lang)
+        if not rules:
+            return None
+        pattern = re.compile('|'.join(
+            f'(?P<{kw.name}>{pat})'
+            for kw, pat in rules
+        ))
+        keywords = {kw.name: kw for kw, _ in rules}
+        return pattern, keywords
 
     def pre_process(self, image):
         """
@@ -110,7 +138,22 @@ class Ocr:
         """
         if result.startswith('UID'):
             result = 'UID'
-        return result
+        # Step 1: string replace
+        for pattern, replacement in self.ocr_replace:
+            result = re.sub(pattern, replacement, result)
+        # Step 2: regex match to keyword
+        ocr_match = self.ocr_match
+        if ocr_match is None:
+            return result
+        pattern, keywords = ocr_match
+        matched = pattern.fullmatch(result)
+        if matched is None:
+            return result
+        keyword = keywords[matched.lastgroup]
+        output = getattr(keyword, self.lang)
+        logger.attr(name=f'{self.name} after_process',
+                    text=f'{result} -> {output}')
+        return output
 
     def format_result(self, result):
         """

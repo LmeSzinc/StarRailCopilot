@@ -2,7 +2,6 @@ import re
 from collections.abc import Iterator
 from datetime import datetime, timedelta
 from enum import Enum
-from functools import cached_property
 
 from pponnxcr.predict_system import BoxedResult
 
@@ -33,7 +32,12 @@ class AssignmentOcr(Ocr):
     merge_thres_y = 20
     merge_thres_x = 20
 
+    # Born to ObeyCurrently Owned:7781 -> Born to Obey
     OCR_REPLACE = {
+        'cn': [('(?:当前持有).*', '')],
+        'en': [('(?:Currently|currently).*', '')],
+    }
+    OCR_MATCH = {
         'cn': [
             (KEYWORDS_ASSIGNMENT_ENTRY.Winter_Soldiers, '[黑]冬的战士们'),
             (KEYWORDS_ASSIGNMENT_ENTRY.Born_to_Obey, '[牛]而服从'),
@@ -60,16 +64,6 @@ class AssignmentOcr(Ocr):
         # Key: Assignment, value: remain time
         self.dict_remain: "dict[AssignmentEntry, str]" = {}
 
-    @cached_property
-    def ocr_regex(self) -> re.Pattern | None:
-        rules = AssignmentOcr.OCR_REPLACE.get(self.lang)
-        if rules is None:
-            return None
-        return re.compile('|'.join(
-            f'(?P<{kw.name}>{pat})'
-            for kw, pat in rules
-        ))
-
     def filter_detected(self, result) -> bool:
         # Drop duration rows
         res = Duration.timedelta_regex(self.lang).search(result.ocr_text)
@@ -84,34 +78,6 @@ class AssignmentOcr(Ocr):
         }[self.lang]
         res = re.search(locked_pattern, result.ocr_text)
         return not res
-
-    def after_process(self, result: str):
-        result = super().after_process(result)
-        # Born to ObeyCurrently Owned:7781 -> Born to Obey
-        for splitter in ['Currently', 'currently', '当前持有']:
-            try:
-                result = result.split(splitter)[0]
-            except IndexError:
-                pass
-        if self.ocr_regex is None:
-            return result
-        matched = self.ocr_regex.fullmatch(result)
-        if matched is None:
-            return result
-        for keyword_class in (
-                KEYWORDS_ASSIGNMENT_ENTRY,
-                KEYWORDS_ASSIGNMENT_EVENT_ENTRY,
-        ):
-            kw = getattr(keyword_class, matched.lastgroup, None)
-            if kw is not None:
-                matched = kw
-                break
-        else:
-            raise ScriptError(f'No keyword found for {matched.lastgroup}')
-        matched = getattr(matched, self.lang)
-        logger.attr(name=f'{self.name} after_process',
-                    text=f'{result} -> {matched}')
-        return matched
 
     def matched_ocr(self, *args, **kwargs):
         # Clear previous remain time on new OCR

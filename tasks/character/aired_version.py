@@ -103,6 +103,7 @@ dict_aired_version = {
     RobinSummeretto: "4.5",
     AventurineWaveflair: "4.5",
     Pearl: "4.6",
+    AeonAha: "4.7",
 }
 
 

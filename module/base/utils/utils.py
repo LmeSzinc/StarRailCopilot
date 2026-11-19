@@ -8,6 +8,10 @@ from PIL import Image
 REGEX_NODE = re.compile(r'(-?[A-Za-z]+)(-?\d+)')
 
 
+def random_normal_distribution(a, b, n=5):
+    return np.mean(np.random.uniform(a, b, size=n))
+
+
 def random_normal_distribution_int(a, b, n=3):
     """
     Generate a normal distribution int within the interval.

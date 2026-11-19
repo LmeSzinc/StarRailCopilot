@@ -65,8 +65,12 @@ class UI(MainPage):
             if self.config.is_cloud_game:
                 from tasks.login.login import Login
                 login = Login(config=self.config, device=self.device)
-                self.device.dump_hierarchy()
-                login.cloud_try_enter_game()
+                if self.config.is_cloud_direct:
+                    login.handle_app_login()
+                else:
+                    self.device.dump_hierarchy()
+                    login.cloud_try_enter_game()
+                timeout.reset()
 
         timeout = Timer(10, count=20).start()
         while 1:

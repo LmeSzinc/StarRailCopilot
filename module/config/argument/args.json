@@ -11,7 +11,8 @@
         "value": "android",
         "option": [
           "android",
-          "cloud_android"
+          "cloud_android",
+          "cloud_direct"
         ]
       },
       "PackageName": {

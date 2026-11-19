@@ -50,6 +50,7 @@ from module.config.utils import (
     filepath_config,
     read_file,
 )
+from module.device.cloud import backend
 from module.logger import logger
 from module.webui.base import Frame
 from module.webui.fake import (
@@ -103,12 +104,13 @@ class AlasGUI(Frame):
 
     def initial(self) -> None:
         self.ALAS_MENU = read_file(filepath_args("menu", self.alas_mod))
-        self.ALAS_ARGS = read_file(filepath_args("args", self.alas_mod))
+        self.ALAS_ARGS = self.alas_config.args
         self.ALAS_STORED = read_file(filepath_args("stored", self.alas_mod))
         self._init_alas_config_watcher()
 
     def __init__(self) -> None:
         super().__init__()
+        self.cloud_panel = backend.CloudPanel(self) if backend is not None else None
         # modified keys, return values of pin_wait_change()
         self.modified_config_queue = queue.Queue()
         # alas config name
@@ -122,6 +124,21 @@ class AlasGUI(Frame):
         self.inst_cache = []
         self.load_home = False
         self.af_flag = False
+
+    def init_menu(self, collapse_menu=True, name=None):
+        if self.cloud_panel is not None:
+            self.cloud_panel.close()
+        super().init_menu(collapse_menu=collapse_menu, name=name)
+
+    def init_aside(self, expand_menu=True, name=None):
+        if self.cloud_panel is not None:
+            self.cloud_panel.close()
+        super().init_aside(expand_menu=expand_menu, name=name)
+
+    def stop(self):
+        if getattr(self, 'cloud_panel', None) is not None:
+            self.cloud_panel.close()
+        super().stop()
 
     @use_scope("aside", clear=True)
     def set_aside(self) -> None:
@@ -251,6 +268,7 @@ class AlasGUI(Frame):
                             "label": t(f"Task.{task}.name"),
                             "value": task,
                             "color": "menu",
+                            "disabled": backend is not None and not self.alas_config.is_task_supported(task),
                         }],
                         onclick=_onclick,
                     ).style(f"--menu-{task}--")
@@ -271,11 +289,20 @@ class AlasGUI(Frame):
                             "label": t(f"Task.{task}.name"),
                             "value": task,
                             "color": "menu",
+                            "disabled": backend is not None and not self.alas_config.is_task_supported(task),
                         }],
                         onclick=_onclick,
                     ).style(f"--menu-{task}--").style(f"padding-left: 0.75rem")
 
         self.alas_overview()
+
+    def _get_hidden_args(self, config, config_updater=None):
+        hidden = (config_updater or self.alas_config).get_hidden_args(config)
+        if backend is not None and deep_get(config, 'Alas.Emulator.GameClient') == 'cloud_direct':
+            hidden.update(f'Alas.Emulator.{arg}' for arg in
+                          ('Serial', 'ScreenshotMethod', 'ControlMethod', 'AdbRestart'))
+            hidden.update(f'Alas.EmulatorInfo.{arg}' for arg in ('Emulator', 'name', 'path'))
+        return hidden
 
     @use_scope("content", clear=True)
     def alas_set_group(self, task: str) -> None:
@@ -296,7 +323,7 @@ class AlasGUI(Frame):
             )
 
         config = self.alas_config.read_file(self.alas_name)
-        self.alas_config_hidden = self.alas_config.get_hidden_args(config)
+        self.alas_config_hidden = self._get_hidden_args(config)
         for group, arg_dict in deep_iter(self.ALAS_ARGS[task], depth=1):
             if self.set_group(group, arg_dict, config, task):
                 self.set_navigator(group)
@@ -334,7 +361,10 @@ class AlasGUI(Frame):
             # Default value
             output_kwargs["value"] = value
             # Options
-            output_kwargs["options"] = options = output_kwargs.pop("option", [])
+            options = output_kwargs.pop("option", [])
+            if backend is None and group_name == 'Emulator' and arg_name == 'GameClient':
+                options = [option for option in options if option != 'cloud_direct']
+            output_kwargs["options"] = options
             # Options label
             options_label = []
             for opt in options:
@@ -368,6 +398,8 @@ class AlasGUI(Frame):
             put_html('<hr class="hr-group">')
             for output in output_list:
                 output.show()
+            if group_name == 'Emulator' and self.cloud_panel is not None:
+                self.cloud_panel.mount(task, deep_get(config, [task, group_name, 'GameClient'], 'android'))
 
         return len(output_list)
 
@@ -513,6 +545,8 @@ class AlasGUI(Frame):
     def _init_alas_config_watcher(self) -> None:
         def put_queue(path, value):
             self.modified_config_queue.put({"name": path, "value": value})
+            if self.cloud_panel is not None and path.endswith('.Emulator.GameClient'):
+                self.cloud_panel.select_mode('_'.join(path.split('.')), value)
 
         for path in get_alas_config_listen_path(self.ALAS_ARGS):
             pin_on_change(
@@ -576,7 +610,7 @@ class AlasGUI(Frame):
                     logger.warning(f"Invalid value {v} for key {k}, skip saving.")
             self.pin_remove_invalid_mark(valid)
             self.pin_set_invalid_mark(invalid)
-            new_hidden_args = config_updater.get_hidden_args(config)
+            new_hidden_args = self._get_hidden_args(config, config_updater)
             for k in new_hidden_args - self.alas_config_hidden:
                 self.pin_set_hidden_arg(k, type_=deep_get(self.ALAS_ARGS, f"{k}.type"))
             for k in self.alas_config_hidden - new_hidden_args:
@@ -594,11 +628,17 @@ class AlasGUI(Frame):
                     f"Save config {filepath_config(config_name)}, {dict_to_kv(modified)}"
                 )
                 config_updater.write_file(config_name, config)
+                if backend is not None and 'Alas.Emulator.GameClient' in modified:
+                    from module.config.config_manual import CLOUD_UNSUPPORTED_TASKS
+                    disabled = deep_get(config, 'Alas.Emulator.GameClient') == 'cloud_direct'
+                    for task in CLOUD_UNSUPPORTED_TASKS:
+                        run_js("$('div[style*=\"--menu-' + task + '--\"]>button').prop('disabled', disabled)",
+                               task=task, disabled=disabled)
         except Exception as e:
             logger.exception(e)
 
     def alas_update_overview_task(self) -> None:
-        if not self.visible:
+        if not self.visible or self.page != 'Overview':
             return
         self.alas_config.load()
         self.alas_config.get_next_task()
@@ -656,6 +696,8 @@ class AlasGUI(Frame):
                         put_task(task)
                 else:
                     put_text(t("Gui.Overview.NoTask")).style("--overview-notask-text--")
+        if self.page != 'Overview':
+            return
 
         for arg, arg_dict in self.ALAS_STORED.items():
             # Skip order=0
@@ -670,6 +712,9 @@ class AlasGUI(Frame):
 
     @use_scope("content", clear=True)
     def alas_daemon_overview(self, task: str) -> None:
+        if backend is not None and not self.alas_config.is_task_supported(task):
+            toast('当前设备后端不支持此工具。', color='error')
+            return
         self.init_menu(name=task)
         self.set_title(t(f"Task.{task}.name"))
 
@@ -1341,8 +1386,14 @@ def clearup():
     # stop_ocr_server_process()
     for alas in ProcessManager._processes.values():
         alas.stop()
-    State.clearup()
-    task_handler.stop()
+    try:
+        if backend is not None:
+            backend.shutdown_all()
+    finally:
+        try:
+            State.clearup()
+        finally:
+            task_handler.stop()
     logger.info("Alas closed.")
 
 
@@ -1410,5 +1461,7 @@ def app():
         ],
         on_shutdown=[clearup],
     )
+    if backend is not None:
+        backend.add_preview_routes(app, key=key, cdn=cdn)
 
     return app

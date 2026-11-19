@@ -5,10 +5,7 @@ import cv2
 import numpy as np
 
 from module.base.timer import Timer
-from module.base.utils import area_offset
-from module.device.method.maatouch import MaatouchBuilder, retry as maatouch_retry
-from module.device.method.minitouch import (
-    CommandBuilder, insert_swipe, random_normal_distribution, retry as minitouch_retry)
+from module.base.utils import area_offset, random_normal_distribution
 from module.exception import ScriptError
 from module.logger import logger
 from tasks.base.ui import UI
@@ -52,16 +49,20 @@ class JoystickContact:
         return self.prev_point is not None
 
     @cached_property
-    def builder(self):
+    def _android_controls(self):
         """
         Initialize a command builder
         """
         method = self.main.config.Emulator_ControlMethod
         if method == 'MaaTouch':
+            from module.device.method.maatouch import MaatouchBuilder, retry
+
             # Get the very first builder to initialize MaaTouch
             _ = self.main.device.maatouch_builder
             builder = MaatouchBuilder(self.main.device, contact=1)
         elif method == 'minitouch':
+            from module.device.method.minitouch import CommandBuilder, retry
+
             # Get the very first builder to initialize minitouch
             _ = self.main.device.minitouch_builder
             builder = CommandBuilder(self.main.device, contact=1)
@@ -69,26 +70,33 @@ class JoystickContact:
             raise ScriptError(f'Control method {method} does not support multi-finger, '
                               f'please use MaaTouch or minitouch instead')
 
-        # def empty_func():
-        #     pass
-        #
-        # # No clear()
-        # builder.clear = empty_func
-        # No delay
         builder.DEFAULT_DELAY = 0.
+        return builder, retry
 
-        return builder
+    def _send(self, action, point):
+        # Keep the joystick held on finger 1 while taps and camera swipes use finger 0.
+        device = self.main.device
+        touch = getattr(device, 'touch_contact', None)
+        if touch is not None:
+            touch(*point, action, finger_id=1)
+            return
 
-    def with_retry(self, func):
-        method = self.main.config.Emulator_ControlMethod
-        if method == 'MaaTouch':
-            retry = maatouch_retry
-        elif method == 'minitouch':
-            retry = minitouch_retry
-        else:
-            raise ScriptError(f'Control method {method} does not support multi-finger')
+        builder, retry = self._android_controls
 
-        return retry(func)(self)
+        @retry
+        def send(_device):
+            if action == 'down':
+                builder.down(*point).commit()
+            elif action == 'move':
+                from module.device.method.minitouch import insert_swipe
+
+                for p in insert_swipe(p0=self.prev_point, p3=point, speed=20)[1:]:
+                    builder.move(*p).commit().wait(10)
+            else:
+                builder.up().commit()
+            builder.send()
+
+        send(device)
 
     @classmethod
     def direction2screen(cls, direction, run=True):
@@ -122,13 +130,7 @@ class JoystickContact:
         if not self.is_downed:
             return
         logger.info('JoystickContact up')
-        builder = self.builder
-
-        def _up(_self):
-            builder.up().commit()
-            builder.send()
-
-        self.with_retry(_up)
+        self._send('up', self.prev_point)
         self.prev_point = None
 
     def set(self, direction, run=True):
@@ -141,7 +143,6 @@ class JoystickContact:
         """
         logger.info(f'JoystickContact set to {direction}, run={run}')
         point = JoystickContact.direction2screen(direction, run=run)
-        builder = self.builder
 
         if self.is_downed and not self.main.joystick_speed():
             if self.main.joystick_lost_timer.reached():
@@ -151,20 +152,9 @@ class JoystickContact:
             self.main.joystick_lost_timer.reset()
 
         if self.is_downed:
-            points = insert_swipe(p0=self.prev_point, p3=point, speed=20)
-
-            def _set(_self):
-                for p in points[1:]:
-                    builder.move(*p).commit().wait(10)
-                builder.send()
-
-            self.with_retry(_set)
+            self._send('move', point)
         else:
-            def _set(_self):
-                builder.down(*point).commit()
-                builder.send()
-
-            self.with_retry(_set)
+            self._send('down', point)
             # Character starts moving, RUN button is still unavailable in a short time.
             # Assume available in 0.3s
             # We still have reties if 0.3s is incorrect.

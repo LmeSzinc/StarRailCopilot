@@ -20,7 +20,7 @@ Emulator:
     valuetype: str
   GameClient:
     value: android
-    option: [ android, cloud_android ]
+    option: [ android, cloud_android, cloud_direct ]
   PackageName:
     value: auto
     option: [ auto, ]

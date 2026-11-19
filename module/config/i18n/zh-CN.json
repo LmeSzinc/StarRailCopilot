@@ -108,7 +108,8 @@
       "name": "游戏客户端",
       "help": "选择云游戏时，将自动排队登录，云游戏目前仅有国服",
       "android": "安卓端",
-      "cloud_android": "云游戏安卓端"
+      "cloud_android": "云游戏安卓端",
+      "cloud_direct": "可选后端"
     },
     "PackageName": {
       "name": "游戏服务器",

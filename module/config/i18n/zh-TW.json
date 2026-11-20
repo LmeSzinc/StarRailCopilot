@@ -871,7 +871,7 @@
       "help": ""
     },
     "Item_Ravenous_Baby_Tooth": {
-      "name": "Unknown_Dungeon_Come_From",
+      "name": "貪歡的月亮 (二相樂園)",
       "help": ""
     },
     "Item_Squirming_Core": {
@@ -1358,6 +1358,7 @@
     "Name": {
       "name": "副本名稱",
       "help": "",
+      "Echo_of_War_Moon_of_Indulgence": "貪歡的月亮 (二相樂園)",
       "Echo_of_War_The_Comedy_of_Doom": "壞滅的喜劇 (二相樂園)",
       "Echo_of_War_Rusted_Crypt_of_the_Iron_Carcass": "鐵骸的鏽塚 (翁法羅斯)",
       "Echo_of_War_Glance_of_Twilight": "晨昏的回眸 (翁法羅斯)",

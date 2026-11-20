@@ -894,8 +894,19 @@ Cavern_of_Corrosion_Path_of_Gelid_Wind = DungeonList(
     dungeon_id=1201,
     plane_id=2000201,
 )
-Echo_of_War_The_Comedy_of_Doom = DungeonList(
+Echo_of_War_Moon_of_Indulgence = DungeonList(
     id=82,
+    name='Echo_of_War_Moon_of_Indulgence',
+    cn='贪欢的月亮',
+    cht='貪歡的月亮',
+    en='Moon of Indulgence',
+    jp='貪悦の月',
+    es='Luna del deleite',
+    dungeon_id=1310,
+    plane_id=2057101,
+)
+Echo_of_War_The_Comedy_of_Doom = DungeonList(
+    id=83,
     name='Echo_of_War_The_Comedy_of_Doom',
     cn='坏灭的喜剧',
     cht='壞滅的喜劇',
@@ -906,7 +917,7 @@ Echo_of_War_The_Comedy_of_Doom = DungeonList(
     plane_id=2054101,
 )
 Echo_of_War_Rusted_Crypt_of_the_Iron_Carcass = DungeonList(
-    id=83,
+    id=84,
     name='Echo_of_War_Rusted_Crypt_of_the_Iron_Carcass',
     cn='铁骸的锈冢',
     cht='鐵骸的鏽塚',
@@ -917,7 +928,7 @@ Echo_of_War_Rusted_Crypt_of_the_Iron_Carcass = DungeonList(
     plane_id=2048101,
 )
 Echo_of_War_Glance_of_Twilight = DungeonList(
-    id=84,
+    id=85,
     name='Echo_of_War_Glance_of_Twilight',
     cn='晨昏的回眸',
     cht='晨昏的回眸',
@@ -928,7 +939,7 @@ Echo_of_War_Glance_of_Twilight = DungeonList(
     plane_id=2043101,
 )
 Echo_of_War_Inner_Beast_Battlefield = DungeonList(
-    id=85,
+    id=86,
     name='Echo_of_War_Inner_Beast_Battlefield',
     cn='心兽的战场',
     cht='心獸的戰場',
@@ -939,7 +950,7 @@ Echo_of_War_Inner_Beast_Battlefield = DungeonList(
     plane_id=2024201,
 )
 Echo_of_War_Salutations_of_Ashen_Dreams = DungeonList(
-    id=86,
+    id=87,
     name='Echo_of_War_Salutations_of_Ashen_Dreams',
     cn='尘梦的赞礼',
     cht='塵夢的贊禮',
@@ -950,7 +961,7 @@ Echo_of_War_Salutations_of_Ashen_Dreams = DungeonList(
     plane_id=2033201,
 )
 Echo_of_War_Borehole_Planet_Past_Nightmares = DungeonList(
-    id=87,
+    id=88,
     name='Echo_of_War_Borehole_Planet_Past_Nightmares',
     cn='蛀星的旧魇',
     cht='蛀星的舊魘',
@@ -961,7 +972,7 @@ Echo_of_War_Borehole_Planet_Past_Nightmares = DungeonList(
     plane_id=2000401,
 )
 Echo_of_War_Divine_Seed = DungeonList(
-    id=88,
+    id=89,
     name='Echo_of_War_Divine_Seed',
     cn='不死的神实',
     cht='不死的神實',
@@ -972,7 +983,7 @@ Echo_of_War_Divine_Seed = DungeonList(
     plane_id=2023201,
 )
 Echo_of_War_End_of_the_Eternal_Freeze = DungeonList(
-    id=89,
+    id=90,
     name='Echo_of_War_End_of_the_Eternal_Freeze',
     cn='寒潮的落幕',
     cht='寒潮的落幕',
@@ -983,7 +994,7 @@ Echo_of_War_End_of_the_Eternal_Freeze = DungeonList(
     plane_id=2013401,
 )
 Echo_of_War_Destruction_Beginning = DungeonList(
-    id=90,
+    id=91,
     name='Echo_of_War_Destruction_Beginning',
     cn='毁灭的开端',
     cht='毀滅的開端',
@@ -992,17 +1003,6 @@ Echo_of_War_Destruction_Beginning = DungeonList(
     es='El principio de la Destrucción',
     dungeon_id=1301,
     plane_id=2000301,
-)
-Moon_of_Indulgence = DungeonList(
-    id=91,
-    name='Moon_of_Indulgence',
-    cn='贪欢的月亮',
-    cht='貪歡的月亮',
-    en='Moon of Indulgence',
-    jp='貪悦の月',
-    es='Luna del deleite',
-    dungeon_id=1310,
-    plane_id=2057101,
 )
 Simulated_Universe_World_1 = DungeonList(
     id=92,

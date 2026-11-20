@@ -2210,9 +2210,10 @@
     "Weekly": {
       "Name": {
         "type": "select",
-        "value": "Echo_of_War_The_Comedy_of_Doom",
+        "value": "Echo_of_War_Moon_of_Indulgence",
         "options": [],
         "option": [
+          "Echo_of_War_Moon_of_Indulgence",
           "Echo_of_War_The_Comedy_of_Doom",
           "Echo_of_War_Rusted_Crypt_of_the_Iron_Carcass",
           "Echo_of_War_Glance_of_Twilight",

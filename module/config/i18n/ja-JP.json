@@ -871,7 +871,7 @@
       "help": ""
     },
     "Item_Ravenous_Baby_Tooth": {
-      "name": "Unknown_Dungeon_Come_From",
+      "name": "貪悦の月 (二相楽園)",
       "help": ""
     },
     "Item_Squirming_Core": {
@@ -1358,6 +1358,7 @@
     "Name": {
       "name": "Weekly.Name.name",
       "help": "Weekly.Name.help",
+      "Echo_of_War_Moon_of_Indulgence": "貪悦の月 (二相楽園)",
       "Echo_of_War_The_Comedy_of_Doom": "壊滅の喜劇 (二相楽園)",
       "Echo_of_War_Rusted_Crypt_of_the_Iron_Carcass": "鉄骸の錆び塚 (オンパロス)",
       "Echo_of_War_Glance_of_Twilight": "晨昏の回顧 (オンパロス)",

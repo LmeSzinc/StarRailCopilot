@@ -871,7 +871,7 @@
       "help": ""
     },
     "Item_Ravenous_Baby_Tooth": {
-      "name": "Unknown_Dungeon_Come_From",
+      "name": "Luna del deleite (Planarcadia)",
       "help": ""
     },
     "Item_Squirming_Core": {
@@ -1358,6 +1358,7 @@
     "Name": {
       "name": "Nombre de la Mazmorra",
       "help": "",
+      "Echo_of_War_Moon_of_Indulgence": "Luna del deleite (Planarcadia)",
       "Echo_of_War_The_Comedy_of_Doom": "Comedia de la fatalidad (Planarcadia)",
       "Echo_of_War_Rusted_Crypt_of_the_Iron_Carcass": "Tumba oxidada del cadáver de hierro (Amphoreus)",
       "Echo_of_War_Glance_of_Twilight": "Una mirada al crepúsculo (Amphoreus)",

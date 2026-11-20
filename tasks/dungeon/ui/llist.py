@@ -9,6 +9,7 @@ from module.base.button import ClickButton
 from module.base.decorator import run_once, set_cached_property
 from module.base.timer import Timer
 from module.base.utils import area_center, area_limit, area_offset, color_similarity_2d, crop, image_size
+from module.exception import HandledError
 from module.logger import logger
 from module.ocr.ocr import Ocr, OcrResultButton
 from module.ocr.utils import merge_result_button, split_and_pair_button_attr
@@ -483,6 +484,7 @@ class DungeonUIList(UI):
         logger.hr('Dungeon enter', level=2)
         DUNGEON_LIST.target_dungeon = dungeon
         skip_first_load = skip_first_screenshot
+        miss_count = 0
 
         @run_once
         def screenshot_interval_set():
@@ -519,6 +521,7 @@ class DungeonUIList(UI):
                     DUNGEON_LIST.load_rows(main=self)
                 entrance = DUNGEON_LIST.keyword2button(dungeon)
                 if entrance is not None:
+                    miss_count = 0
                     # Avoid clicking the soring button
                     entrance.button = area_limit(entrance.button, OCR_DUNGEON_TELEPORT.area)
                     self.device.click(entrance)
@@ -527,6 +530,20 @@ class DungeonUIList(UI):
                     continue
                 else:
                     logger.warning(f'Cannot find dungeon entrance of {dungeon}')
+                    miss_count += 1
+                    if miss_count <= 3:
+                        # The list may be scrolled away by a mis-click,
+                        # scroll it back and search again.
+                        DUNGEON_LIST.drag_page(DUNGEON_LIST.drag_direction, main=self)
+                        self.wait_until_stable(
+                            DUNGEON_LIST.search_button, timer=Timer(0, count=0),
+                            timeout=Timer(1.5, count=5)
+                        )
+                    elif miss_count == 4:
+                        logger.warning(f'Dungeon {dungeon} is not found by scrolling, insight it again')
+                        self.dungeon_insight(dungeon)
+                    else:
+                        raise HandledError(f'Cannot find dungeon entrance of {dungeon} after scrolling')
                     continue
 
         self.device.screenshot_interval_set()

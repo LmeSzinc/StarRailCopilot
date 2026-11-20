@@ -172,6 +172,7 @@ class DraggableList:
         logger.info(f'Insight row: {row}, index={row_index}')
         last_buttons: set[OcrResultButton] = None
         bottom_check = Timer(3, count=5).start()
+        miss_count = 0
         while 1:
             if skip_first_screenshot:
                 skip_first_screenshot = False
@@ -181,13 +182,28 @@ class DraggableList:
             self.load_rows(main=main)
 
             # End
-            if self.cur_buttons and self.cur_min <= row_index <= self.cur_max:
+            # Rows are not always ascending sorted by index. Dungeons added in a new
+            # version are placed at the top of the list, but carry the largest index,
+            # so an index inside [cur_min, cur_max] does not mean the row is on screen.
+            # Check the loaded buttons instead.
+            if self.keyword2button(row, show_warning=False):
                 break
 
             # Drag pages
-            if row_index < self.cur_min:
+            if self.cur_buttons and self.cur_min <= row_index <= self.cur_max:
+                # Index is inside the loaded range, but the row itself is not loaded.
+                # Retry once before dragging, the row may simply be missed by OCR.
+                if miss_count < 1:
+                    miss_count += 1
+                    skip_first_screenshot = False
+                    continue
+                miss_count = 0
+                self.drag_page(self.drag_direction, main=main)
+            elif row_index < self.cur_min:
+                miss_count = 0
                 self.drag_page(self.reverse_direction(self.drag_direction), main=main)
-            elif self.cur_max < row_index:
+            else:
+                miss_count = 0
                 self.drag_page(self.drag_direction, main=main)
 
             # Wait for bottoming out

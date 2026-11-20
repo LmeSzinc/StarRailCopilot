@@ -22,6 +22,7 @@ def dungeon_name(name: str) -> str:
         'Glance_of_Twilight',
         'Rusted_Crypt_of_the_Iron_Carcass',
         'The_Comedy_of_Doom',
+        'Moon_of_Indulgence',
     ]:
         name = f'Echo_of_War_{name}'
     if name in [

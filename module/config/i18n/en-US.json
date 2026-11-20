@@ -871,7 +871,7 @@
       "help": ""
     },
     "Item_Ravenous_Baby_Tooth": {
-      "name": "Unknown_Dungeon_Come_From",
+      "name": "Moon of Indulgence (Planarcadia)",
       "help": ""
     },
     "Item_Squirming_Core": {
@@ -1358,6 +1358,7 @@
     "Name": {
       "name": "Dungeon Name",
       "help": "",
+      "Echo_of_War_Moon_of_Indulgence": "Moon of Indulgence (Planarcadia)",
       "Echo_of_War_The_Comedy_of_Doom": "The Comedy of Doom (Planarcadia)",
       "Echo_of_War_Rusted_Crypt_of_the_Iron_Carcass": "Rusted Crypt of the Iron Carcass (Amphoreus)",
       "Echo_of_War_Glance_of_Twilight": "Glance of Twilight (Amphoreus)",

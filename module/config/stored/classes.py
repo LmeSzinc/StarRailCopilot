@@ -220,7 +220,8 @@ class StoredSimulatedUniverse(StoredCounter, StoredExpiredAtMonday0400):
 
 
 class StoredRelic(StoredCounter):
-    FIXED_TOTAL = 3000
+    # Initial display fallback only; inventory OCR updates the actual capacity.
+    total = 3000
 
 
 class StoredSimulatedUniverseElite(StoredCounter, StoredExpiredAtMonday0400):

@@ -129,6 +129,10 @@ class AzurLaneAutoScript:
                 content=f"<{self.config_name}> ScriptError",
             )
             exit(1)
+        except DungeonEntryFailed:
+            logger.error('Dungeon entry failed; stopped without an unconfirmed notification')
+            self.error_postprocess()
+            exit(1)
         except RequestHumanTakeover:
             logger.critical('Request human takeover')
             self.error_postprocess()
